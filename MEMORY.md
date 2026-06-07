@@ -9,6 +9,7 @@ This repository is a personal experimental fork of Gikou 2.
 - `Makefile` has been adjusted for Apple Silicon Mac by building the SSE 4.2 engine as x86_64 via Rosetta.
 - The USI engine name has been changed from `Gikou 2 (v2.0.2)` to `Rakuyou` in `src/usi.cc`.
 - The Rakuyou USI author string in `src/usi.cc` has been changed to `Yuzo Iwasaki, based on Gikou by Yosuke Demura`.
+- `AGENTS.md` has been added for durable Codex working rules; this file remains the resume map.
 
 ## Direction
 
@@ -29,4 +30,4 @@ Near-term ideas:
 
 ## Notes For Future Codex Sessions
 
-Conversation history is not reliable persistent memory. Read this file, `README.md`, `Makefile`, and `git status` first when resuming work.
+Conversation history is not reliable persistent memory. Follow `AGENTS.md`, then read this file, `README.md`, `Makefile`, and `git status` first when resuming work.
