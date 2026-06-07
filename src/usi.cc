@@ -37,8 +37,8 @@
 
 namespace {
 
-const auto kProgramName = "Gikou 2 (v2.0.2)";
-const auto kAuthorName  = "Yosuke Demura";
+const auto kProgramName = "Rakuyou";
+const auto kAuthorName  = "Yuzo Iwasaki, based on Gikou by Yosuke Demura";
 
 /**
  * USIコマンドを記憶するためのキューです.
