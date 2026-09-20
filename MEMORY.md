@@ -15,7 +15,7 @@ This repository is a personal experimental fork of Gikou 2.
 
 Work in small steps. Prefer low-risk, observable changes before large strength improvements.
 
-- Use `gyoku`, not `king`, in branch names for 玉. Use `experiment` rather than 「実験」 as a code-comment label.
+- Use `gyoku`, not `king`, in branch names for 玉. Omit experiment labels from code comments; the branch name already conveys that context.
 - Keep branch-specific experiment notes in AI handoff files such as this one; do not add them to `README.md`.
 
 ## Active Experiment
@@ -24,7 +24,7 @@ Work in small steps. Prefer low-risk, observable changes before large strength i
 - Implemented in `src/thinking.cc`: Black opens with `5i4h` (▲4八玉); White responds to any first move with `5a6b` (△6二玉). Later turns retain the existing book/search behavior. Always enabled on this branch, with no new USI option.
 - Applies only to the standard initial position or one move from it, checked using position history. A standalone SFEN of an intermediate position does not trigger White's forced opening. Legal root moves and USI move restrictions are respected; infinite/ponder still wait for stop/ponderhit.
 - Built x86_64 OpenMP via `make libomp-x86_64`; `make release -j4` now succeeds on this machine. Existing compiler warnings remain.
-- `python3 tools/smoke_opening.py` passed 13 USI checks, covering both openings, subsequent normal searches, move restrictions, custom SFEN, and infinite/ponder waiting.
+- Initial verification passed 13 USI checks. The smoke-test script was subsequently removed at the user's request to keep this experiment minimal; use manual USI or GUI checks for now.
 - Evaluation/book data (`params.bin`, `progress.bin`, `book.bin`) are absent: verification covers behavior, not playing strength. Place these in the engine's working directory for actual games (`book.bin` is needed when using the book).
 - Next: supply evaluation data and observe actual games. Further formation/search modifications are deferred per the user's request.
 
@@ -35,10 +35,6 @@ Near-term ideas:
 2. Improve user-facing startup behavior.
    - Make missing `params.bin`, `progress.bin`, and `book.bin` messages clearer.
    - Consider USI options for evaluation/progress/book file paths.
-3. Add lightweight verification tools.
-   - USI smoke test.
-   - Fixed-position search benchmark.
-   - Legal move / perft-style checks.
 
 ## Notes For Future Codex Sessions
 

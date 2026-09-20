@@ -107,7 +107,7 @@ void Thinking::StartThinking(const Node& root_node,
     goto send_best_move;
   }
 
-  // experiment: 初手は定跡より優先する。GUIから指定された指し手の制限は守る。
+  // 初手は定跡より優先する。GUIから指定された指し手の制限は守る。
   if (!go_options.mate) {
     Move opening_move = OpeningKingMove(root_node);
     if (opening_move != kMoveNone
