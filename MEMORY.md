@@ -27,14 +27,18 @@ Work in small steps. Prefer low-risk, observable changes before large strength i
 - Use `gyoku` in branch names for 玉. Omit experiment labels from code comments; the branch name already conveys that context.
 - Follow existing C++ conventions: file-local helper functions use anonymous namespaces (as in `usi.cc` and `notations.cc`). The opening helper is `GetOpeningMove`; its log label is `Shin-Yonenaga-Gyoku`.
 
-Near-term ideas:
+## Next Experiment: Keep the Gyoku on the Right
 
-1. Finish runtime setup and confirm GUI registration.
-   - Check the existing Gikou 2 installation for `probability.bin`.
-   - Register `bin/release` through Shogidokoro Mac's engine management dialog and observe games with the fixed openings.
-2. Improve user-facing startup behavior.
-   - Make missing `params.bin`, `progress.bin`, and `book.bin` messages clearer.
-   - Consider USI options for evaluation/progress/book file paths.
+Intent: accept a modest evaluation tradeoff to continue the opening's right-side plan, while allowing retreat under pressure and free king movement in the endgame. This is a plan only; no evaluation changes yet.
+
+1. Establish a baseline with `OwnBook=false` using the existing option; retain the book feature. Confirm runtime data (including the missing `probability.bin`) before judging play. Save games/positions where the king returns toward the center, noting side, depth/time, and principal variation.
+2. Before changing evaluation, create a branch from current `main` (suggested: `experiment/gyoku-right-preference`). Keep `main` as the fixed-opening baseline until comparison is satisfactory.
+3. Inspect Gikou's existing evaluation and progress calculation. Try a small positional penalty outside files 1–4 for Black or 6–9 for White, including file 5. Do not forbid moves or penalize each movement along the path. Gradually fade the preference with game progress and remove it in the endgame; do not switch it abruptly on/off merely because of check. Penalty size and fade schedule remain undecided.
+4. With books off and identical data/search settings, compare baseline and modified builds on saved positions at several depths. Check both sides, opening continuity, necessary retreats under attack, endgame freedom, and evaluation consistency when making/unmaking moves. Use focused manual checks first; do not reintroduce a general test framework.
+5. Play comparison games and review losses as well as whether the intended style persists. Adjust the penalty/fade and merge only after review; playing strength alone is not the objective.
+6. Later, collect promising continuations for a dedicated 新米長玉 book. Verify position matching, legal moves, both sides, and fallback to search; compare book-on/off games for tactical weaknesses and plan continuity before adoption. The book remains a future experiment, not yet selected or implemented.
+
+Startup-message and data-path improvements remain secondary to this experiment.
 
 ## Notes For Future Codex Sessions
 
