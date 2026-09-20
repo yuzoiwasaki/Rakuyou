@@ -14,6 +14,4 @@ Rakuyou is a personal experimental fork of Gikou 2.
 
 ## Build Notes
 
-- On Apple Silicon, the intended flow is `make libomp-x86_64`, then `make release`.
-- Gikou depends on SSE 4.2, so Apple Silicon builds target x86_64 via Rosetta.
-- Current known issue: `make release` needs `omp.h` under `lib/libomp-x86_64/include`.
+- Read `docs/development.md` for Apple Silicon build and data setup instructions.
