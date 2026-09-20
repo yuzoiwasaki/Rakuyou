@@ -25,6 +25,7 @@ Work in small steps. Prefer low-risk, observable changes before large strength i
 - Keep the README minimal and shared build instructions concise in `docs/development.md`; keep branch-specific handoff notes in `MEMORY.md`.
 - Develop the 新米長玉 concept further. A brief README description may be added later; leave the current overview unchanged for now.
 - Use `gyoku` in branch names for 玉. Omit experiment labels from code comments; the branch name already conveys that context.
+- Follow existing C++ conventions: file-local helper functions use anonymous namespaces (as in `usi.cc` and `notations.cc`). The opening helper is `GetOpeningMove`; its log label is `Shin-Yonenaga-Gyoku`.
 
 Near-term ideas:
 

@@ -34,19 +34,19 @@
 namespace {
 
 // 平手の開始局面から各側が最初に指すときだけ、新米長玉を選ぶ。
-Move OpeningKingMove(const Position& position) {
+Move GetOpeningMove(const Position& position) {
   if (position.game_ply() > 1) {
     return kMoveNone;
   }
   const Position start = Position::CreateStartPosition();
   if (position.game_ply() == 0 && position == start) {
-    return Move::FromSfen("5i4h", position);
+    return Move::FromSfen("5i4h", position);  // ▲4八玉
   }
   if (position.game_ply() == 1 && position.side_to_move() == kWhite) {
     Position previous = position;
     previous.UnmakeMove(previous.last_move());
     if (previous == start) {
-      return Move::FromSfen("5a6b", position);
+      return Move::FromSfen("5a6b", position);  // △6二玉
     }
   }
   return kMoveNone;
@@ -109,11 +109,11 @@ void Thinking::StartThinking(const Node& root_node,
 
   // 初手は定跡より優先する。GUIから指定された指し手の制限は守る。
   if (!go_options.mate) {
-    Move opening_move = OpeningKingMove(root_node);
+    Move opening_move = GetOpeningMove(root_node);
     if (opening_move != kMoveNone
         && std::find(root_moves.begin(), root_moves.end(), opening_move) != root_moves.end()) {
       best_move = opening_move;
-      SYNCED_PRINTF("info string Shin-Yonenaga opening: %s\n",
+      SYNCED_PRINTF("info string Shin-Yonenaga-Gyoku opening: %s\n",
                     best_move.ToSfen().c_str());
       goto send_best_move;
     }
