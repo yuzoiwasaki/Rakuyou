@@ -13,7 +13,10 @@ This repository is a personal experimental fork of Gikou 2.
 - A short Apple Silicon build note, adapted from upstream PR #10’s README addition, is in `docs/development.md`, referenced by `AGENTS.md`. The README intentionally omits the development link.
 - The Apple Silicon OpenMP setup and release build have succeeded on this machine. The previous missing `omp.h` issue is resolved locally.
 - `bin/params.bin`, `bin/progress.bin`, and `bin/book.bin` are now present; `probability.bin` was still missing at the last startup check.
-- The opening experiment lives on `experiment/shin-yonenaga-gyoku`; its implementation is not on `main`. The smoke-test script was removed to keep the experiment minimal. Ignored build artifacts survive branch switches; the existing `bin/release` was built on that experiment branch.
+- 新米長玉 from `experiment/shin-yonenaga-gyoku` is now integrated into `main` in `src/thinking.cc`: Black opens with `5i4h` (▲4八玉), White with `5a6b` (△6二玉), then uses the existing book/search behavior. No option is required.
+- Opening selection requires the standard initial position or one move from it in the supplied history. Standalone intermediate SFEN positions do not trigger White’s opening. Legal root moves and USI restrictions are respected; infinite/ponder wait for stop/ponderhit.
+- Initial verification passed 13 USI checks. The smoke-test script was removed at the user’s request; use manual USI or GUI checks for now. Ignored build artifacts survive branch switches, so rebuild after switching.
+- Merge verification: release build succeeded; manual USI checks confirmed ▲4八玉, △6二玉 after either ▲7六歩 or ▲2六歩, and subsequent normal search.
 
 ## Direction
 
@@ -27,7 +30,7 @@ Near-term ideas:
 
 1. Finish runtime setup and confirm GUI registration.
    - Check the existing Gikou 2 installation for `probability.bin`.
-   - Register `bin/release` through Shogidokoro Mac's engine management dialog.
+   - Register `bin/release` through Shogidokoro Mac's engine management dialog and observe games with the fixed openings.
 2. Improve user-facing startup behavior.
    - Make missing `params.bin`, `progress.bin`, and `book.bin` messages clearer.
    - Consider USI options for evaluation/progress/book file paths.
