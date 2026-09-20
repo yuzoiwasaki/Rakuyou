@@ -19,6 +19,8 @@
 
 #include "thinking.h"
 
+#include <algorithm>
+
 #include "book.h"
 #include "move_probability.h"
 #include "movegen.h"
@@ -28,6 +30,29 @@
 #include "thread.h"
 #include "usi.h"
 #include "usi_protocol.h"
+
+namespace {
+
+// 平手の開始局面から各側が最初に指すときだけ、新米長玉を選ぶ。
+Move OpeningKingMove(const Position& position) {
+  if (position.game_ply() > 1) {
+    return kMoveNone;
+  }
+  const Position start = Position::CreateStartPosition();
+  if (position.game_ply() == 0 && position == start) {
+    return Move::FromSfen("5i4h", position);
+  }
+  if (position.game_ply() == 1 && position.side_to_move() == kWhite) {
+    Position previous = position;
+    previous.UnmakeMove(previous.last_move());
+    if (previous == start) {
+      return Move::FromSfen("5a6b", position);
+    }
+  }
+  return kMoveNone;
+}
+
+}  // namespace
 
 Thinking::Thinking(const UsiOptions& usi_options)
     : usi_options_(usi_options),
@@ -80,6 +105,18 @@ void Thinking::StartThinking(const Node& root_node,
     SYNCED_PRINTF("info depth 0 nodes 0 time 0 string All moves are ignored.\n");
     best_move = kMoveNone;
     goto send_best_move;
+  }
+
+  // experiment: 初手は定跡より優先する。GUIから指定された指し手の制限は守る。
+  if (!go_options.mate) {
+    Move opening_move = OpeningKingMove(root_node);
+    if (opening_move != kMoveNone
+        && std::find(root_moves.begin(), root_moves.end(), opening_move) != root_moves.end()) {
+      best_move = opening_move;
+      SYNCED_PRINTF("info string Shin-Yonenaga opening: %s\n",
+                    best_move.ToSfen().c_str());
+      goto send_best_move;
+    }
   }
 
   // 4. 時間制限が存在する場合は、定跡を使う
