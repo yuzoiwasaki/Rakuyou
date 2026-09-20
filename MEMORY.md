@@ -10,17 +10,18 @@ This repository is a personal experimental fork of Gikou 2.
 - The USI engine name has been changed from `Gikou 2 (v2.0.2)` to `Rakuyou` in `src/usi.cc`.
 - The Rakuyou USI author string in `src/usi.cc` has been changed to `Yuzo Iwasaki, based on Gikou by Yosuke Demura`.
 - `AGENTS.md` has been added for durable Codex working rules; this file remains the resume map.
-- A short Apple Silicon build note, adapted from upstream PR #10’s README addition, is in `docs/development.md`, linked from the minimal README. Keep this document limited to that concise scope.
+- A short Apple Silicon build note, adapted from upstream PR #10’s README addition, is in `docs/development.md`, referenced by `AGENTS.md`. The README intentionally omits the development link.
 - The Apple Silicon OpenMP setup and release build have succeeded on this machine. The previous missing `omp.h` issue is resolved locally.
 - `bin/params.bin`, `bin/progress.bin`, and `bin/book.bin` are now present; `probability.bin` was still missing at the last startup check.
-- The opening experiment lives on `experiment/shin-yonenaga-gyoku`. Its implementation and smoke test are not on `main`. Ignored build artifacts survive branch switches; the existing `bin/release` was built on that experiment branch.
+- The opening experiment lives on `experiment/shin-yonenaga-gyoku`; its implementation is not on `main`. The smoke-test script was removed to keep the experiment minimal. Ignored build artifacts survive branch switches; the existing `bin/release` was built on that experiment branch.
 
 ## Direction
 
 Work in small steps. Prefer low-risk, observable changes before large strength improvements.
 
 - Keep the README minimal and shared build instructions concise in `docs/development.md`; keep branch-specific handoff notes in `MEMORY.md`.
-- Use `gyoku` in branch names for 玉, and `experiment` rather than 「実験」 as a code-comment label.
+- Develop the 新米長玉 concept further. A brief README description may be added later; leave the current overview unchanged for now.
+- Use `gyoku` in branch names for 玉. Omit experiment labels from code comments; the branch name already conveys that context.
 
 Near-term ideas:
 
@@ -30,10 +31,6 @@ Near-term ideas:
 2. Improve user-facing startup behavior.
    - Make missing `params.bin`, `progress.bin`, and `book.bin` messages clearer.
    - Consider USI options for evaluation/progress/book file paths.
-3. Add lightweight verification tools.
-   - USI smoke test.
-   - Fixed-position search benchmark.
-   - Legal move / perft-style checks.
 
 ## Notes For Future Codex Sessions
 
