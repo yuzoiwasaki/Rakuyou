@@ -85,6 +85,7 @@ struct EvalDetail {
     controls    += rhs.controls;
     two_pieces  += rhs.two_pieces;
     king_safety += rhs.king_safety;
+    king_preference += rhs.king_preference;
     sliders     += rhs.sliders;
     return *this;
   }
@@ -95,6 +96,7 @@ struct EvalDetail {
     controls    -= rhs.controls;
     two_pieces  -= rhs.two_pieces;
     king_safety -= rhs.king_safety;
+    king_preference -= rhs.king_preference;
     sliders     -= rhs.sliders;
     return *this;
   }
@@ -118,6 +120,9 @@ struct EvalDetail {
 
   /** 玉の安全度に関する評価値. */
   PackedScore king_safety{0};
+
+  /** 序盤に玉を右側へ置く選好（KPと同じ進行度別形式）. */
+  PackedScore king_preference{0};
 
   /** 飛び駒に関する評価値. */
   PackedScore sliders{0};

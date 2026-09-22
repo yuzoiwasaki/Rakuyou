@@ -30,7 +30,7 @@ std::unique_ptr<EvalParameters> g_eval_params(new EvalParameters);
 Score EvalDetail::ComputeFinalScore(Color side_to_move,
                                     double* const progress_output) const {
 
-  PackedScore kp_total = kp[kBlack] + kp[kWhite];
+  PackedScore kp_total = kp[kBlack] + kp[kWhite] + king_preference;
   PackedScore others = controls + two_pieces + king_safety + sliders;
   int64_t sum = 0;
 
@@ -111,6 +111,19 @@ inline PackedScore FlipScores2x2(PackedScore s) {
   int32_t end_game       = -s[2]; // 終盤
   int32_t end_game_tempo = s[3];  // 手番（終盤用）
   return PackedScore(opening, opening_tempo, end_game, end_game_tempo);
+}
+
+PackedScore EvaluateKingPreference(const Position& pos) {
+  // 先手は１～４筋、後手は６～９筋を好む。中盤以降は通常の評価に任せる。
+  constexpr int kOpeningPenalty = 25 * kFvScale;
+  PackedScore score(0);
+  if (pos.king_square(kBlack).file() >= kFile5) {
+    score += PackedScore(-kOpeningPenalty, 0, 0, 0);
+  }
+  if (pos.king_square(kWhite).file() <= kFile5) {
+    score += PackedScore(kOpeningPenalty, 0, 0, 0);
+  }
+  return score;
 }
 
 /**
@@ -565,6 +578,7 @@ EvalDetail Evaluation::EvaluateAll(const Position& pos,
 
   // 3. 玉の安全度
   sum.king_safety = EvaluateKingSafety(pos);
+  sum.king_preference = EvaluateKingPreference(pos);
 
   // 4. 飛車・角・香車の利き
   sum.sliders = EvaluateSlidingPieces(pos);
@@ -613,6 +627,7 @@ EvalDetail Evaluation::EvaluateDifference(const Position& pos,
 
   // 2. 玉の安全度（末端評価）
   diff.king_safety = EvaluateKingSafety(pos) - previous_eval.king_safety;
+  diff.king_preference = EvaluateKingPreference(pos) - previous_eval.king_preference;
 
   // 3. 飛車・角・香車の利き（末端評価）
   diff.sliders = EvaluateSlidingPieces(pos) - previous_eval.sliders;
