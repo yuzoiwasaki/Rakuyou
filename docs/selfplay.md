@@ -1,16 +1,48 @@
 # 新米長玉と通常のRakuyouの比較対局
 
 `tools/paired_selfplay.py` はRakuyouを2つ起動し、新米長玉をオンにした側と
-オフにした通常側を、先後交代で2局対戦させます。将棋所は使いません。
+オフにした通常側を対戦させます。1組ごとに先後を交代します。将棋所は使いません。
 
 ```sh
 python3 tools/paired_selfplay.py --depth 5
+```
+
+強さを比較する最初の実験では、深さ15で50組（100局）を実行します。
+
+```sh
+python3 tools/paired_selfplay.py \
+  --depth 15 \
+  --threads 1 \
+  --hash 128 \
+  --shin-book off \
+  --pairs 50
 ```
 
 既定値では各エンジンを1スレッド、ハッシュ128 MBで動かし、結果を
 `results/shin-book-off-vs-normal-日時.json` などに保存します。JSONには設定、勝敗、USI形式の
 指し手、指し手の取得元（固定初手・定跡・通常探索）、各手で最後に出力された
 評価値と読み筋が入ります。
+
+各局が終わるたびにJSONを一時ファイルへ書き、完成後に置き換えます。途中で
+`Ctrl-C` を押しても、完了済みの対局は残ります。表示されたファイルを指定すると、
+保存済みの条件と結果から再開できます。
+
+```sh
+python3 tools/paired_selfplay.py --resume results/shin-book-off-vs-normal-日時.json
+```
+
+再開時に全体の組数を増やすこともできます。
+
+```sh
+python3 tools/paired_selfplay.py \
+  --resume results/shin-book-off-vs-normal-日時.json \
+  --pairs 200
+```
+
+JSONの `summary` には勝敗、スコア率、先後別成績、平均手数、終局理由、
+指し手の取得元が集計されます。実行中は経過時間と推定残り時間を表示します。
+エンジン終了や応答待ちの失敗は `errors` に保存され、次回の再開時に同じ対局から
+再試行します。
 
 負荷や条件を変える場合は、例えば次のように指定します。
 
