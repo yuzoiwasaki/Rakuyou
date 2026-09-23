@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run two paired Rakuyou games with OwnBook enabled and disabled."""
+"""Run paired games between Shin-Yonenaga-Gyoku and normal Rakuyou."""
 
 import argparse
 import json
@@ -15,9 +15,10 @@ INFO_RE = re.compile(r"\bdepth (\d+).*?\bscore (cp|mate) ([^ ]+)(?:.*?\bpv (.*))
 
 
 class UsiEngine:
-    def __init__(self, executable, own_book, threads, hash_mb,
+    def __init__(self, executable, shin_yonenaga_gyoku, own_book, threads, hash_mb,
                  book_file, book_max_ply):
         self.executable = executable.resolve()
+        self.shin_yonenaga_gyoku = shin_yonenaga_gyoku
         self.own_book = own_book
         self.lines = queue.Queue()
         self.process = subprocess.Popen(
@@ -32,6 +33,8 @@ class UsiEngine:
         threading.Thread(target=self._read_output, daemon=True).start()
         self.send("usi")
         self.wait_for("usiok", 10)
+        self.send("setoption name ShinYonenagaGyoku value "
+                  + ("true" if shin_yonenaga_gyoku else "false"))
         self.send("setoption name OwnBook value " + ("true" if own_book else "false"))
         self.send(f"setoption name Threads value {threads}")
         self.send(f"setoption name USI_Hash value {hash_mb}")
@@ -151,9 +154,12 @@ def play_game(engines, black_name, white_name, depth, max_plies, timeout):
         engine.gameover("draw" if winner is None else ("win" if name == winner else "lose"))
 
     source_counts = {}
+    source_counts_by_player = {black_name: {}, white_name: {}}
     for record in records:
         source = record["source"]
         source_counts[source] = source_counts.get(source, 0) + 1
+        player_counts = source_counts_by_player[record["player"]]
+        player_counts[source] = player_counts.get(source, 0) + 1
 
     return {
         "black": black_name,
@@ -162,13 +168,15 @@ def play_game(engines, black_name, white_name, depth, max_plies, timeout):
         "winner": winner,
         "reason": reason,
         "source_counts": source_counts,
+        "source_counts_by_player": source_counts_by_player,
         "moves": moves,
         "records": records,
     }
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="定跡オン・オフを先後交代で2局対戦させます。")
+    parser = argparse.ArgumentParser(
+        description="新米長玉と通常のRakuyouを先後交代で2局対戦させます。")
     parser.add_argument("--engine", type=Path, default=Path("bin/release"))
     parser.add_argument("--depth", type=int, default=5)
     parser.add_argument("--threads", type=int, default=1)
@@ -176,6 +184,8 @@ def parse_args():
     parser.add_argument("--book-file", type=Path,
                         help="省略時はエンジン既定のbook.binを使う")
     parser.add_argument("--book-max-ply", type=int, default=20)
+    parser.add_argument("--shin-book", choices=("off", "on"), default="off",
+                        help="新米長玉側の定跡をオンまたはオフにする（通常側は常にオン）")
     parser.add_argument("--max-plies", type=int, default=256)
     parser.add_argument("--timeout", type=int, default=300,
                         help="1手の応答を待つ最大秒数")
@@ -195,7 +205,8 @@ def main():
 
     timestamp = datetime.now().astimezone().isoformat(timespec="seconds")
     output = args.output or Path("results") / (
-        "book-on-vs-off-" + datetime.now().strftime("%Y%m%d-%H%M%S") + ".json"
+        "shin-book-" + args.shin_book + "-vs-normal-"
+        + datetime.now().strftime("%Y%m%d-%H%M%S") + ".json"
     )
     settings = {
         "engine": str(args.engine.resolve()),
@@ -206,24 +217,34 @@ def main():
         "book_file": str(args.book_file.resolve()) if args.book_file else "book.bin",
         "book_max_ply": args.book_max_ply,
         "max_plies": args.max_plies,
+        "players": {
+            "shin_yonenaga": {
+                "ShinYonenagaGyoku": True,
+                "OwnBook": args.shin_book == "on",
+            },
+            "normal": {
+                "ShinYonenagaGyoku": False,
+                "OwnBook": True,
+            },
+        },
     }
 
     engines = {}
     try:
-        engines["book_on"] = UsiEngine(
-            args.engine, True, args.threads, args.hash_mb,
+        engines["shin_yonenaga"] = UsiEngine(
+            args.engine, True, args.shin_book == "on", args.threads, args.hash_mb,
             args.book_file, args.book_max_ply)
-        engines["book_off"] = UsiEngine(
-            args.engine, False, args.threads, args.hash_mb,
+        engines["normal"] = UsiEngine(
+            args.engine, False, True, args.threads, args.hash_mb,
             args.book_file, args.book_max_ply)
-        pairings = [("book_on", "book_off"), ("book_off", "book_on")]
+        pairings = [("shin_yonenaga", "normal"), ("normal", "shin_yonenaga")]
         games = []
         for number, (black, white) in enumerate(pairings, 1):
             print(f"Game {number}: black={black}, white={white}", flush=True)
             game = play_game(engines, black, white, args.depth, args.max_plies, args.timeout)
             games.append(game)
             print(f"  {game['result']} ({game['reason']}), {len(game['moves'])} moves", flush=True)
-            print(f"  sources: {game['source_counts']}", flush=True)
+            print(f"  sources: {game['source_counts_by_player']}", flush=True)
     finally:
         for engine in engines.values():
             engine.close()
