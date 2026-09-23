@@ -27,6 +27,12 @@
 
 std::unique_ptr<EvalParameters> g_eval_params(new EvalParameters);
 
+namespace {
+
+bool g_shin_yonenaga_gyoku_enabled = true;
+
+}  // namespace
+
 Score EvalDetail::ComputeFinalScore(Color side_to_move,
                                     double* const progress_output) const {
 
@@ -114,6 +120,9 @@ inline PackedScore FlipScores2x2(PackedScore s) {
 }
 
 PackedScore EvaluateKingPreference(const Position& pos) {
+  if (!g_shin_yonenaga_gyoku_enabled) {
+    return PackedScore(0);
+  }
   // 先手は１～４筋、後手は６～９筋を好む。中盤以降は通常の評価に任せる。
   constexpr int kOpeningPenalty = 25 * kFvScale;
   PackedScore score(0);
@@ -637,6 +646,10 @@ EvalDetail Evaluation::EvaluateDifference(const Position& pos,
 
 void Evaluation::Init() {
   ReadParametersFromFile("params.bin");
+}
+
+void Evaluation::SetShinYonenagaGyoku(const bool enabled) {
+  g_shin_yonenaga_gyoku_enabled = enabled;
 }
 
 void Evaluation::ReadParametersFromFile(const char* file_name) {

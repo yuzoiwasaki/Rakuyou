@@ -222,6 +222,7 @@ void ExecuteCommand(const std::string& command, Node* const node,
 
   } else if (type == "setoption") {
     SetUsiOption(is, usi_options);
+    Evaluation::SetShinYonenagaGyoku((*usi_options)["ShinYonenagaGyoku"]);
 
   } else if (type == "usinewgame") {
     thinking->StartNewGame();
@@ -323,6 +324,9 @@ UsiOptions::UsiOptions() {
 
   // 定跡を使うか否か（trueならば、定跡を用いる）
   map_.emplace("OwnBook", UsiOption(true));
+
+  // 新米長玉の固定初手と玉位置選好を使うか否か
+  map_.emplace("ShinYonenagaGyoku", UsiOption(true));
 
   // 定跡ファイル
   map_.emplace("BookFile", UsiOption("book.bin"));

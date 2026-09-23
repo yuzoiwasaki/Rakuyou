@@ -140,6 +140,9 @@ class Evaluation {
 
   static void ReadParametersFromFile(const char* file_name);
 
+  /** 新米長玉の玉位置選好を有効または無効にします. */
+  static void SetShinYonenagaGyoku(bool enabled);
+
   /**
    * 局面の評価値を計算します.
    * @param pos 評価値を計算したい局面

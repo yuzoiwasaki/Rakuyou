@@ -21,6 +21,7 @@ This repository is a personal experimental fork of Gikou 2.
 - Release and development builds passed. A temporary local probe checked both colors, retreat and unmake, and zero preference from middle-game progress onward. Development search to depth 3 passed its full-versus-incremental evaluation assertions. Playing behavior and strength have not yet been compared under controlled conditions.
 - `tool/paired-selfplay` contains the first small paired-match runner in `tools/paired_selfplay.py`. It runs book-on versus book-off twice with colors swapped, disables ponder, and records settings, result, USI moves, move source, score, and PV as JSON. Its initial rule handling recognizes engine resignation/declaration and a maximum-ply draw; strict repetition and other adjudication remain future work.
 - A depth-1 smoke run completed both color-swapped games. Through the first six plies, the existing upstream book was not used after the forced 新米長玉 moves; the recorded move-source field makes this observable in longer runs and future dedicated-book tests.
+- The same branch adds a `ShinYonenagaGyoku` USI check option, enabled by default. Turning it off disables both the forced opening move and the 25 cp right-side king preference for that engine process, allowing the current binary to act as the normal opponent in paired games. Release build passed; direct USI checks produced `5i4h` when enabled and a searched move when disabled, and an evaluation probe confirmed a 24 cp rounded difference in an early retreat position.
 
 ## Direction
 
@@ -38,7 +39,8 @@ Intent: accept a modest evaluation tradeoff to continue the opening's right-side
 1. Retain `OwnBook=false` as an option; runtime data are now present locally. Save games/positions where the king returns toward the center, noting side, depth/time, and principal variation.
 2. With books off and identical data/search settings, compare `d9f5710` (fixed-opening baseline) and current `main` on saved positions at several depths. Check both sides, opening continuity, necessary retreats under attack, and endgame freedom. Revisit the 25 cp amount and fade if behavior warrants it.
 3. Use the paired self-play tool for games with and without the existing book, swapping colors. First verify whether any move is actually sourced from the upstream book after the forced opening; then review losses as well as whether the intended style persists. Playing strength alone is not the objective.
-4. Eventually, collect promising continuations for a dedicated 新米長玉 book. Verify position matching, legal moves, both sides, and fallback to search before adoption. The book remains a future experiment, not yet selected or implemented.
+4. Extend the paired tool to run `ShinYonenagaGyoku=true` against `false`, swapping colors while keeping other conditions equal. Keep book use as a separate comparison dimension.
+5. Eventually, collect promising continuations for a dedicated 新米長玉 book. Verify position matching, legal moves, both sides, and fallback to search before adoption. The book remains a future experiment, not yet selected or implemented.
 
 Startup-message and data-path improvements remain secondary to this experiment.
 

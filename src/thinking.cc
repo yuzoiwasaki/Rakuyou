@@ -108,7 +108,7 @@ void Thinking::StartThinking(const Node& root_node,
   }
 
   // 初手は定跡より優先する。GUIから指定された指し手の制限は守る。
-  if (!go_options.mate) {
+  if (!go_options.mate && usi_options_["ShinYonenagaGyoku"]) {
     Move opening_move = GetOpeningMove(root_node);
     if (opening_move != kMoveNone
         && std::find(root_moves.begin(), root_moves.end(), opening_move) != root_moves.end()) {
