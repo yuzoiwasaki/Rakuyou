@@ -1,3 +1,5 @@
 bin/
 obj/
 lib/libomp-x86_64/
+results/
+__pycache__/
