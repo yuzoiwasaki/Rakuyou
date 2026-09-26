@@ -94,6 +94,32 @@ caffeinate -i python3 tools/paired_selfplay.py \
 5. Use promising continuations as input to a later dedicated 新米長玉 book
    experiment.
 
+## Experiment Data Management
+
+- Keep raw self-play JSON under the ignored local `results/` directory. Raw
+  files contain every move, score, and principal variation and should not be
+  committed to Git as they grow quickly across repeated experiments.
+- Commit a Markdown report for each completed experiment under
+  `docs/experiments/`. Record the source commit, complete engine settings,
+  comparison conditions, game count, W/L/D and score rate, color split, average
+  plies, termination reasons, errors, representative games, conclusions, and
+  the raw file's SHA-256 checksum.
+- Commit reusable analysis scripts so summaries and later comparisons can be
+  reproduced from the raw JSON.
+- Keep raw files locally at first. Back up important completed datasets to a
+  `Rakuyou-results/YYYY-MM-DD/` folder on Google Drive when the collection grows
+  or when losing the local copy would matter.
+- Prefer a gzip copy for backup while retaining the local JSON when it is still
+  being analyzed:
+
+```sh
+gzip -k results/EXPERIMENT.json
+```
+
+- Put compressed datasets on Google Drive rather than in Git history. Use names
+  that include the comparison, depth, game count, and date, and use the checksum
+  in the committed report to identify the exact source data.
+
 ## Dedicated Book Development Plan
 
 Build the future 新米長玉 book by concentrating expensive analysis on important
