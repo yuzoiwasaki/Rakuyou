@@ -68,3 +68,17 @@ python3 tools/paired_selfplay.py --book-file path/to/book.bin --book-max-ply 30
 ルール判定はまだ行いません。比較時は深さ、スレッド数、ハッシュを変えずに実行します。
 各局の `source_counts_by_player` を見ると、固定初手や定跡が実際に使われた回数を
 プレイヤー別に確認できます。
+
+複数の結果JSONから、先後別成績、頻出する序盤手順、序盤の評価低下候補を
+Markdownにまとめるには `tools/analyze_selfplay.py` を使います。
+
+```sh
+python3 tools/analyze_selfplay.py \
+  results/shin-book-off-vs-normal-depth15-100games.json \
+  results/shin-book-on-vs-normal-depth15-100games.json \
+  --output docs/experiments/2026-09-26-selfplay-opening-analysis.md
+```
+
+評価低下候補は、新米長玉エンジンによる評価を同じエンジンの2手後の評価と
+比較します。その間に双方が1手ずつ指すため、悪手を確定する表ではありません。
+深い再解析を行う局面を選ぶために使います。

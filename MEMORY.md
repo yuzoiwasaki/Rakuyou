@@ -66,13 +66,19 @@ gap remains a priority for analysis. See the two reports in `docs/experiments/`
 for settings, integrity checks, uncertainty, conclusions, and raw-data
 checksums.
 
+`tools/analyze_selfplay.py` combines result files into opening-prefix tables,
+same-engine two-ply evaluation-drop candidates, and a small representative-game
+list. Its first 200-game report is
+`docs/experiments/2026-09-26-selfplay-opening-analysis.md`. The combined score
+was 44.5% as Black and 28.0% as White. Prioritize the White 新米長玉 branch
+starting `7g7f 5a6b 2h6h`; several frequent continuations scored poorly, but
+they require deeper position analysis before any move is rejected.
+
 ## Immediate Next Steps
 
-1. Inspect representative wins and losses from both completed experiments,
-   then aggregate early evaluation
-   changes and recurring good and bad branches across all games. Check king
-   movement, fixed-opening use, book use, evaluation changes, and principal
-   variations.
+1. Inspect the selected representative wins and losses as board positions,
+   starting with the weak White 新米長玉 branch. Check king movement,
+   evaluation changes, and principal variations around the candidate drops.
 2. Analyze the 2011 public prematch and 2012 Denousen KIF files after the
    self-play analysis. Find where Yonenaga remained equal or better, where the
    evaluation dropped, and which modern search moves improve the historical
