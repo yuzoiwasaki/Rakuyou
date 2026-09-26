@@ -153,6 +153,10 @@ opening branches rather than running every full game at a very high depth.
 Moderate-depth games are useful for finding where to analyze and for measuring
 behavior. Treat deeper focused analysis as the main source of book move quality.
 
+Historical source games are kept locally under the ignored `local/kifu/`
+directory. Keep complete third-party KIF files out of Git; commit source
+metadata and derived Rakuyou analysis or reviewed book candidates when needed.
+
 ## Known Limits and Checks
 
 - The runner recognizes engine resignation, entering-king declaration, and the
