@@ -54,43 +54,49 @@ Use Git history for completed work and chronology.
 
 ## Current Experiment
 
-The first strength baseline is 50 pairs (100 games) at depth 15:
+The first strength baseline finished with 50 pairs (100 games) at depth 15.
+新米長玉 used no book and scored 25 wins, 56 losses, and 19 draws (34.5%).
+Its score rate was 43.0% as Black and 26.0% as White. The run completed without
+errors. See `docs/experiments/2026-09-26-shin-book-off-vs-normal-depth15.md` for
+the settings, integrity checks, conclusions, and raw-data checksum.
+
+The next comparison keeps every setting equal and enables the standard book for
+the 新米長玉 side:
 
 ```sh
 caffeinate -i python3 tools/paired_selfplay.py \
   --depth 15 \
   --threads 1 \
   --hash 512 \
-  --shin-book off \
+  --shin-book on \
   --pairs 50 \
-  --output results/shin-book-off-vs-normal-depth15-100games.json
+  --output results/shin-book-on-vs-normal-depth15-100games.json
 ```
 
 Conditions:
 
 - Normal side: `ShinYonenagaGyoku=false`, standard book enabled.
-- 新米長玉 side: `ShinYonenagaGyoku=true`, standard book disabled.
+- 新米長玉 side: `ShinYonenagaGyoku=true`, standard book enabled.
 - Each engine uses one thread and 512 MB hash.
-- A local depth-15 timing sample suggested about 3 hours 20 minutes for 50
-  pairs, but actual duration depends on the games and concurrent Mac usage.
+- The first run took about 3 hours 14 minutes; actual duration depends on the
+  games and concurrent Mac usage.
 
-Do not mark this experiment complete until the result JSON has been inspected.
-Resume an interrupted run with:
+Resume an interrupted second run with:
 
 ```sh
 caffeinate -i python3 tools/paired_selfplay.py \
-  --resume results/shin-book-off-vs-normal-depth15-100games.json
+  --resume results/shin-book-on-vs-normal-depth15-100games.json
 ```
 
 ## Immediate Next Steps
 
-1. Analyze the first 100-game result: W/L/D, score rate, color split, average
-   plies, termination reasons, and errors.
-2. Inspect representative wins and losses for king movement, fixed-opening use,
+1. Run and analyze the book-enabled 新米長玉 comparison under the same 100-game
+   conditions.
+2. Compare both reports before changing the 25 cp preference.
+3. Inspect representative wins and losses for king movement, fixed-opening use,
    standard-book use, evaluation changes, and principal variations.
-3. Repeat the same 100-game conditions with `--shin-book on` and a separate
-   output file.
-4. Compare the two runs before changing the 25 cp preference.
+4. Add formal repetition and perpetual-check adjudication while retaining the
+   WCSC-compatible 256-ply draw limit.
 5. Use promising continuations as input to a later dedicated 新米長玉 book
    experiment.
 
