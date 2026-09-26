@@ -82,3 +82,19 @@ python3 tools/analyze_selfplay.py \
 評価低下候補は、新米長玉エンジンによる評価を同じエンジンの2手後の評価と
 比較します。その間に双方が1手ずつ指すため、悪手を確定する表ではありません。
 深い再解析を行う局面を選ぶために使います。
+
+選んだ局面だけを定跡なしのMultiPVで深く読むには、局面の指し手列をJSONに
+保存して`tools/analyze_positions.py`へ渡します。
+
+```sh
+python3 tools/analyze_positions.py \
+  docs/experiments/positions/anti-fourth-file-rook.json \
+  --depth 20 \
+  --multipv 3 \
+  --threads 1 \
+  --hash 512 \
+  --output results/anti-fourth-file-rook-depth20-multipv3.json
+```
+
+結果は局面ごとに保存され、候補手、評価値、読み筋、探索深さ、ノード数、時間を
+記録します。生JSONは`results/`に置き、判断に使った結果を実験レポートへ残します。

@@ -74,18 +74,25 @@ was 44.5% as Black and 28.0% as White. Prioritize the White 新米長玉 branch
 starting `7g7f 5a6b 2h6h`; several frequent continuations scored poorly, but
 they require deeper position analysis before any move is rejected.
 
+`tools/analyze_positions.py` runs book-free MultiPV analysis for named move
+sequences. The first five anti-fourth-file-rook positions were analyzed at
+depths 20 and 24; see
+`docs/experiments/2026-09-26-anti-fourth-file-rook-focused-analysis.md`.
+The clearest original candidate was `7c7d` followed by `7b7c`; the historical
+`4b5c` silver development was also supported. The common `7b8c` move was only
+slightly behind alternatives, while `8b6b` was best after reaching its tested
+position, so do not blame either move in isolation.
+
 ## Immediate Next Steps
 
-1. Inspect the selected representative wins and losses as board positions,
-   starting with the weak White 新米長玉 branch. Check king movement,
-   evaluation changes, and principal variations around the candidate drops.
-2. Analyze the 2011 public prematch and 2012 Denousen KIF files after the
-   self-play analysis. Find where Yonenaga remained equal or better, where the
-   evaluation dropped, and which modern search moves improve the historical
-   continuation.
-3. Compare the historical structures with frequent self-play positions. Use
-   only reviewed overlaps and improvements as candidates for a small dedicated
-   新米長玉 book.
+1. Extend the `7c7d` / `7b7c` original line and the historical `4b5c` line by
+   a few important branches. Compare opponent replies and the next 新米長玉
+   choices with focused MultiPV before creating book entries.
+2. Analyze the complete 2011 public prematch and 2012 Denousen KIF files. Find
+   where Yonenaga remained equal or better, where the evaluation dropped, and
+   which modern search moves improve the historical continuation.
+3. Compare the historical structures with the focused original line. Use only
+   reviewed continuations as candidates for a small dedicated 新米長玉 book.
 4. Add separate book-file support for the two players when the first dedicated
    book is ready, then validate it against the same normal baseline.
 5. Revisit the 25 cp preference only after the opening analysis provides a

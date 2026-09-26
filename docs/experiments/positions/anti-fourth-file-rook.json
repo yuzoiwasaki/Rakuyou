@@ -1,0 +1,30 @@
+{
+  "description": "Focused positions for the first anti-fourth-file-rook book experiment",
+  "positions": [
+    {
+      "id": "base_after_fourth_file_rook",
+      "description": "▲7六歩 △6二玉 ▲6八飛の直後。後手の基本方針を比較する。",
+      "moves": ["7g7f", "5a6b", "2h6h"]
+    },
+    {
+      "id": "before_seventh_file_plan",
+      "description": "勝ち局で△7四歩から△7三銀、△7二飛へ進んだ分岐。",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "7i7h", "3c3d", "6g6f", "1d1e", "5i4h", "2c2d", "4h3h", "7a7b", "8h7g"]
+    },
+    {
+      "id": "before_eighth_file_silver",
+      "description": "負け局で△8三銀を選んだ分岐。",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "7i7h", "1d1e", "6g6f", "7a7b", "6i5h", "8c8d", "5i4h"]
+    },
+    {
+      "id": "before_sixth_file_rook",
+      "description": "同じ負け局で△6二飛を選んだ分岐。",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "7i7h", "1d1e", "6g6f", "7a7b", "6i5h", "8c8d", "5i4h", "7b8c", "3i3h", "3c3d", "4h3i", "6b7a", "7h6g", "2c2d", "8h7g", "2d2e", "6g5f"]
+    },
+    {
+      "id": "historical_right_silver_entry",
+      "description": "本家の△4二銀から△5三銀へ進む構想の入口。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h"]
+    }
+  ]
+}
