@@ -90,15 +90,24 @@ caffeinate -i python3 tools/paired_selfplay.py \
 
 ## Immediate Next Steps
 
-1. Run and analyze the book-enabled 新米長玉 comparison under the same 100-game
-   conditions.
-2. Compare both reports before changing the 25 cp preference.
-3. Inspect representative wins and losses for king movement, fixed-opening use,
-   standard-book use, evaluation changes, and principal variations.
-4. Add formal repetition and perpetual-check adjudication while retaining the
+1. Finish and report the book-enabled 新米長玉 comparison under the same
+   100-game conditions, then compare it with the book-disabled baseline before
+   changing the 25 cp preference.
+2. Inspect representative wins and losses, then aggregate early evaluation
+   changes and recurring good and bad branches across all games. Check king
+   movement, fixed-opening use, book use, evaluation changes, and principal
+   variations.
+3. Analyze the 2011 public prematch and 2012 Denousen KIF files after the
+   self-play analysis. Find where Yonenaga remained equal or better, where the
+   evaluation dropped, and which modern search moves improve the historical
+   continuation.
+4. Compare the historical structures with frequent self-play positions. Use
+   only reviewed overlaps and improvements as candidates for a small dedicated
+   新米長玉 book.
+5. Add separate book-file support for the two players when the first dedicated
+   book is ready, then validate it against the same normal baseline.
+6. Add formal repetition and perpetual-check adjudication while retaining the
    WCSC-compatible 256-ply draw limit.
-5. Use promising continuations as input to a later dedicated 新米長玉 book
-   experiment.
 
 ## Experiment Data Management
 
@@ -156,6 +165,11 @@ behavior. Treat deeper focused analysis as the main source of book move quality.
 Historical source games are kept locally under the ignored `local/kifu/`
 directory. Keep complete third-party KIF files out of Git; commit source
 metadata and derived Rakuyou analysis or reviewed book candidates when needed.
+Treat those two games as candidate seeds rather than a required target. Compare
+historical continuations with original branches found by self-play and focused
+analysis from the fixed opening, and let measured quality decide the main book.
+Historical lines may remain as lower-weight alternatives when retaining the
+original Yonenaga structure has value beyond the strongest measured choice.
 
 ## Known Limits and Checks
 
