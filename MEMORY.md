@@ -82,6 +82,14 @@ The clearest original candidate was `7c7d` followed by `7b7c`; the historical
 `4b5c` silver development was also supported. The common `7b8c` move was only
 slightly behind alternatives, while `8b6b` was best after reaching its tested
 position, so do not blame either move in isolation.
+At the base position immediately after `7g7f 5a6b 2h6h`, expanded depth-24
+MultiPV placed `8c8d`, `5c5d`, and `3a4b` equal at -190 and `7a7b` at -192.
+An immediate forced `7c7d` scored -291, so prepare the seventh-file plan with
+the silver before pushing that pawn.
+Keep focused depth-based analysis at one thread. A depth-24 MultiPV-12 benchmark
+of the base position took 73.2 seconds and 111 million nodes with one thread,
+versus 78.1 seconds and 226 million nodes with two; parallel search changed the
+tree and candidate order without reducing wall time.
 
 ## Immediate Next Steps
 

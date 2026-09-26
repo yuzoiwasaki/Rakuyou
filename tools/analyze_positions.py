@@ -95,13 +95,16 @@ class Engine:
             if line.startswith(prefix):
                 return line
 
-    def analyze(self, moves, depth, timeout):
+    def analyze(self, moves, depth, timeout, searchmoves=None):
         self.send("usinewgame")
         position = "position startpos"
         if moves:
             position += " moves " + " ".join(moves)
         self.send(position)
-        self.send(f"go depth {depth}")
+        go_command = f"go depth {depth}"
+        if searchmoves:
+            go_command += " searchmoves " + " ".join(searchmoves)
+        self.send(go_command)
         latest = {}
         started = time.monotonic()
         deadline = started + timeout
@@ -194,7 +197,10 @@ def main():
         for index, position in enumerate(positions, 1):
             print(f"[{index}/{len(positions)}] {position['id']}", flush=True)
             try:
-                result = engine.analyze(position.get("moves", []), args.depth, args.timeout)
+                result = engine.analyze(
+                    position.get("moves", []), args.depth, args.timeout,
+                    position.get("searchmoves"),
+                )
                 document["positions"].append({**position, "analysis": result})
                 save(document, args.output)
                 candidates = result["candidates"]
