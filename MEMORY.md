@@ -54,58 +54,36 @@ Use Git history for completed work and chronology.
 
 ## Current Experiment
 
-The first strength baseline finished with 50 pairs (100 games) at depth 15.
-新米長玉 used no book and scored 25 wins, 56 losses, and 19 draws (34.5%).
-Its score rate was 43.0% as Black and 26.0% as White. The run completed without
-errors. See `docs/experiments/2026-09-26-shin-book-off-vs-normal-depth15.md` for
-the settings, integrity checks, conclusions, and raw-data checksum.
+Both initial strength comparisons finished with 50 pairs (100 games) at depth
+15 and no errors. With its book disabled, 新米長玉 scored 25 wins, 56 losses,
+and 19 draws (34.5%). With the standard book enabled, it scored 32 wins, 56
+losses, and 12 draws (38.0%). The observed difference was 3.5 percentage points,
+but 新米長玉 used the standard book in only one game for five moves, so the
+difference is not evidence of a book benefit.
 
-The next comparison keeps every setting equal and enables the standard book for
-the 新米長玉 side:
-
-```sh
-caffeinate -i python3 tools/paired_selfplay.py \
-  --depth 15 \
-  --threads 1 \
-  --hash 512 \
-  --shin-book on \
-  --pairs 50 \
-  --output results/shin-book-on-vs-normal-depth15-100games.json
-```
-
-Conditions:
-
-- Normal side: `ShinYonenagaGyoku=false`, standard book enabled.
-- 新米長玉 side: `ShinYonenagaGyoku=true`, standard book enabled.
-- Each engine uses one thread and 512 MB hash.
-- The first run took about 3 hours 14 minutes; actual duration depends on the
-  games and concurrent Mac usage.
-
-Resume an interrupted second run with:
-
-```sh
-caffeinate -i python3 tools/paired_selfplay.py \
-  --resume results/shin-book-on-vs-normal-depth15-100games.json
-```
+The book-enabled score rate was 46.0% as Black and 30.0% as White. The color
+gap remains a priority for analysis. See the two reports in `docs/experiments/`
+for settings, integrity checks, uncertainty, conclusions, and raw-data
+checksums.
 
 ## Immediate Next Steps
 
-1. Finish and report the book-enabled 新米長玉 comparison under the same
-   100-game conditions, then compare it with the book-disabled baseline before
-   changing the 25 cp preference.
-2. Inspect representative wins and losses, then aggregate early evaluation
+1. Inspect representative wins and losses from both completed experiments,
+   then aggregate early evaluation
    changes and recurring good and bad branches across all games. Check king
    movement, fixed-opening use, book use, evaluation changes, and principal
    variations.
-3. Analyze the 2011 public prematch and 2012 Denousen KIF files after the
+2. Analyze the 2011 public prematch and 2012 Denousen KIF files after the
    self-play analysis. Find where Yonenaga remained equal or better, where the
    evaluation dropped, and which modern search moves improve the historical
    continuation.
-4. Compare the historical structures with frequent self-play positions. Use
+3. Compare the historical structures with frequent self-play positions. Use
    only reviewed overlaps and improvements as candidates for a small dedicated
    新米長玉 book.
-5. Add separate book-file support for the two players when the first dedicated
+4. Add separate book-file support for the two players when the first dedicated
    book is ready, then validate it against the same normal baseline.
+5. Revisit the 25 cp preference only after the opening analysis provides a
+   concrete reason and a comparison plan.
 6. Add formal repetition and perpetual-check adjudication while retaining the
    WCSC-compatible 256-ply draw limit.
 
