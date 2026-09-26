@@ -94,6 +94,33 @@ caffeinate -i python3 tools/paired_selfplay.py \
 5. Use promising continuations as input to a later dedicated 新米長玉 book
    experiment.
 
+## Dedicated Book Development Plan
+
+Build the future 新米長玉 book by concentrating expensive analysis on important
+opening branches rather than running every full game at a very high depth.
+
+1. Use moderate-depth self-play to collect a broad set of opening positions.
+   Identify frequent branches, early exits from the normal book, evaluation
+   drops, recurring losses, and successful 新米長玉 continuations.
+2. Select a smaller set of important opening positions. Favor positions that
+   occur often, distinguish candidate moves, or appear to decide whether the
+   initial king move can be recovered.
+3. Reanalyze those positions at greater depth or with a longer time limit. Use
+   MultiPV so the data retain several candidate moves and their evaluation gaps,
+   rather than only the engine's first choice.
+4. Use strong external games, including relevant Floodgate records, as supporting
+   evidence for transpositions, related right-king structures, and the opponent's
+   strongest attacking plans. Do not assume external games directly cover the
+   unusual fixed opening.
+5. Add only reviewed continuations to a dedicated 新米長玉 book, then compare it
+   against the same book-enabled normal baseline with colors swapped.
+6. Repeat collection, focused analysis, book updates, and paired validation.
+   Keep the source position, analysis settings, candidate evaluations, and
+   validation result traceable for every adopted line.
+
+Moderate-depth games are useful for finding where to analyze and for measuring
+behavior. Treat deeper focused analysis as the main source of book move quality.
+
 ## Known Limits and Checks
 
 - The runner recognizes engine resignation, entering-king declaration, and the
