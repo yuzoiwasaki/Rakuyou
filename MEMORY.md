@@ -39,7 +39,8 @@ Use Git history for completed work and chronology.
 - Judge the experiment using playing strength and whether the intended king
   placement persists. Review losses and necessary retreats, not only wins.
 - Prefer small, observable experiments before larger evaluation or architecture
-  changes. A dedicated 新米長玉 book remains a future step.
+  changes. The first dedicated-book candidate is selected but no engine-readable
+  book has been built yet.
 
 ## Self-Play Tool
 
@@ -128,21 +129,32 @@ position, however, `8b7b` immediately after Sente's `7f7e` was the clear best
 move at -136, 24 cp above the next candidate. Treat the rook shift as a timed
 counterattack against `7f7e`, not as an automatic part of the setup.
 
+The first dedicated White book candidate is the historical `5c5d` line in
+`books/shin-yonenaga-white-candidates.json`, documented in
+`docs/experiments/2026-09-27-first-white-book-candidates.md`. Its reviewed
+mainline is `7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f
+6b7a 7i7h 8c8d`. The final `8c8d` was first at -201 in a direct depth-28
+MultiPV-5 run, 11 cp ahead of `2c2d`; its raw JSON and checksum are in the
+report. Early `5c5d 5i4h` and `5c5d 6g6f` responses are reviewed side
+branches. The `6b7a 6i5h` response remains unstable. The initial `8c8d`
+branch and its descendants are outside the first dedicated book. The candidate
+JSON is a review artifact, not an engine-readable book. Keep raw analysis in
+ignored `results/`.
+
 ## Immediate Next Steps
 
-1. Compare the supported historical skeleton with the practical eighth-file
-   silver structure that emerged from `7a7b` / `8c8d`; keep the original
-   `7c7d` structure as a conditional branch rather than forcing it into the
-   first dedicated Shin book.
-2. Continue checking the complete historical games around later evaluation
-   drops, and use only reviewed improvements as book candidates.
-3. Compare the historical structures with the focused original line. Use only
-   reviewed continuations as candidates for a small dedicated 新米長玉 book.
-4. Add separate book-file support for the two players when the first dedicated
-   book is ready, then validate it against the same normal baseline.
-5. Revisit the 25 cp preference only after the opening analysis provides a
+1. Convert the small reviewed White candidate set into an engine-readable
+   dedicated book. Add separate book-file support for the two players so the
+   normal comparison side keeps its standard book.
+2. Validate against the same normal Rakuyou/Gikou 2 baseline with its standard
+   book enabled, swapping colors within each pair. Check actual book usage,
+   results, king placement, losses, and retreats.
+3. Review unstable and uncovered responses only when validation identifies a
+   concrete need; keep the initial `8c8d` branch and `7c7d` structure outside
+   this first book.
+4. Revisit the 25 cp preference only after the book comparison provides a
    concrete reason and a comparison plan.
-6. Add formal repetition and perpetual-check adjudication while retaining the
+5. Add formal repetition and perpetual-check adjudication while retaining the
    WCSC-compatible 256-ply draw limit.
 
 ## Experiment Data Management
@@ -173,7 +185,7 @@ gzip -k results/EXPERIMENT.json
 
 ## Dedicated Book Development Plan
 
-Build the future 新米長玉 book by concentrating expensive analysis on important
+Build the 新米長玉 book by concentrating expensive analysis on important
 opening branches rather than running every full game at a very high depth.
 
 1. Use moderate-depth self-play to collect a broad set of opening positions.
@@ -205,11 +217,9 @@ behavior. Treat deeper focused analysis as the main source of book move quality.
 Historical source games are kept locally under the ignored `local/kifu/`
 directory. Keep complete third-party KIF files out of Git; commit source
 metadata and derived Rakuyou analysis or reviewed book candidates when needed.
-Treat those two games as candidate seeds rather than a required target. Compare
-historical continuations with original branches found by self-play and focused
-analysis from the fixed opening, and let measured quality decide the main book.
-Historical lines may remain as lower-weight alternatives when retaining the
-original Yonenaga structure has value beyond the strongest measured choice.
+Treat those two games as candidate seeds rather than a required target. The
+first book uses the reviewed historical `5c5d` skeleton; compare later
+extensions with original branches using focused analysis and paired validation.
 
 ## Known Limits and Checks
 

@@ -1,0 +1,20 @@
+{
+  "description": "Normal-side decision points after historical 54-pawn book moves",
+  "positions": [
+    {
+      "id": "mainline_after_72_silver",
+      "description": "△7二銀に対する先手の主要応手。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b"]
+    },
+    {
+      "id": "mainline_after_71_king",
+      "description": "△7一玉に対する先手の主要応手。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a"]
+    },
+    {
+      "id": "unstable_after_84_first",
+      "description": "▲6六歩に△8四歩を先行させた場合の先手応手。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "8c8d"]
+    }
+  ]
+}

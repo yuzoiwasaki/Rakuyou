@@ -1,0 +1,182 @@
+{
+  "description": "First White Shin-Yonenaga-Gyoku book candidates: historical 54-pawn line; not yet an engine book",
+  "initial_position": "startpos",
+  "side": "white",
+  "status_legend": {
+    "mainline": "First dedicated book skeleton after the fixed 62 king move",
+    "reviewed_side_branch": "Analyzed reply to a different normal-side move; not part of the mainline",
+    "unstable": "Candidate ranking changed with depth or has a near-equal alternative; defer book adoption"
+  },
+  "entries": [
+    {
+      "id": "base_54_pawn",
+      "moves": ["7g7f", "5a6b", "2h6h"],
+      "book_move": "5c5d",
+      "status": "mainline",
+      "evidence": {
+        "source_type": "analysis_json",
+        "result": "results/anti-fourth-file-rook-base-depth24-multipv12.json",
+        "position_id": "base_after_fourth_file_rook",
+        "depth": 24,
+        "rank": 2,
+        "score_cp": -190
+      }
+    },
+    {
+      "id": "mainline_after_38_silver",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h"],
+      "book_move": "3a4b",
+      "status": "mainline",
+      "evidence": {
+        "source_type": "analysis_summary",
+        "result": "results/first-white-book-mainline-depth28-summary.md",
+        "section": "補助記録：▲３八銀直後の△４二銀",
+        "depth": 24,
+        "rank": 1,
+        "score_cp": -212
+      }
+    },
+    {
+      "id": "mainline_after_48_king",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h"],
+      "book_move": "4b5c",
+      "status": "mainline",
+      "evidence": {
+        "source_type": "analysis_json",
+        "result": "results/anti-fourth-file-rook-depth24-multipv3.json",
+        "position_id": "historical_right_silver_entry",
+        "depth": 24,
+        "rank": 1,
+        "score_cp": -176
+      }
+    },
+    {
+      "id": "mainline_after_39_king",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i"],
+      "book_move": "7a7b",
+      "status": "mainline",
+      "evidence": {
+        "source_type": "analysis_json",
+        "result": "results/historical-main-line-responses-depth24-multipv3.json",
+        "position_id": "historical_after_39_king",
+        "depth": 24,
+        "rank": 1,
+        "score_cp": -169
+      }
+    },
+    {
+      "id": "mainline_after_66_pawn",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f"],
+      "book_move": "6b7a",
+      "status": "mainline",
+      "evidence": {
+        "source_type": "analysis_json",
+        "result": "results/historical-modernized-line-depth24-multipv5.json",
+        "position_id": "modernized_after_72_silver_66_pawn",
+        "depth": 24,
+        "rank": 1,
+        "score_cp": -200
+      },
+      "additional_evidence": {
+        "source_type": "analysis_summary",
+        "result": "results/first-white-book-mainline-depth28-summary.md",
+        "section": "２．▲６六歩の後、△７一玉と△８四歩の入口比較",
+        "depth": 28,
+        "rank": 1,
+        "score_cp": -202
+      }
+    },
+    {
+      "id": "mainline_after_78_silver",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "7i7h"],
+      "book_move": "8c8d",
+      "status": "mainline",
+      "evidence": {
+        "source_type": "analysis_json",
+        "result": "results/first-white-book-mainline-after-78-silver-depth28-multipv5.json",
+        "position_id": "mainline_after_78_silver",
+        "depth": 28,
+        "rank": 1,
+        "score_cp": -201
+      }
+    },
+    {
+      "id": "54_after_48_king",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "5i4h"],
+      "book_move": "3a4b",
+      "status": "reviewed_side_branch",
+      "evidence": {
+        "source_type": "analysis_json",
+        "result": "results/first-white-book-responses-depth24-multipv5.json",
+        "position_id": "white_54_after_48_king",
+        "depth": 24,
+        "rank": 1,
+        "score_cp": -177
+      }
+    },
+    {
+      "id": "54_after_66_pawn",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "6g6f"],
+      "book_move": "3a4b",
+      "status": "reviewed_side_branch",
+      "evidence": {
+        "source_type": "analysis_json",
+        "result": "results/historical-early-responses-depth24-multipv5.json",
+        "position_id": "historical_54_pawn_after_66_pawn",
+        "depth": 24,
+        "rank": 1,
+        "score_cp": -191
+      }
+    },
+    {
+      "id": "mainline_after_65_pawn",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "6f6e"],
+      "book_move": "8c8d",
+      "status": "reviewed_side_branch",
+      "evidence": {
+        "source_type": "analysis_json",
+        "result": "results/historical-modernized-aggression-depth24-multipv5.json",
+        "position_id": "modernized_71_king_after_65_pawn",
+        "depth": 24,
+        "rank": 1,
+        "score_cp": -181
+      },
+      "additional_evidence": {
+        "source_type": "analysis_summary",
+        "result": "results/first-white-book-mainline-depth28-summary.md",
+        "section": "７．▲６五歩を選んだ枝と、後からの△８四歩",
+        "depth": 28,
+        "rank": 1,
+        "score_cp": -170
+      }
+    },
+    {
+      "id": "after_71_king_58_gold_14_pawn",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "6i5h"],
+      "book_move": "1c1d",
+      "status": "unstable",
+      "evidence": {
+        "source_type": "analysis_summary",
+        "result": "results/first-white-book-mainline-depth28-summary.md",
+        "section": "４．▲５八金左の後、後手候補を省略せず比較",
+        "depth": 28,
+        "rank": 1,
+        "score_cp": -206
+      }
+    },
+    {
+      "id": "after_71_king_58_gold_84_pawn",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "6i5h"],
+      "book_move": "8c8d",
+      "status": "unstable",
+      "evidence": {
+        "source_type": "analysis_summary",
+        "result": "results/first-white-book-mainline-depth28-summary.md",
+        "section": "４．▲５八金左の後、後手候補を省略せず比較",
+        "depth": 28,
+        "rank": 2,
+        "score_cp": -209
+      }
+    }
+  ]
+}

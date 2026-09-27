@@ -1,0 +1,10 @@
+{
+  "description": "Normal-side replies after the historical 54-pawn book entrance",
+  "positions": [
+    {
+      "id": "white_after_54_pawn",
+      "description": "本家系の△5四歩に対する先手の応手。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d"]
+    }
+  ]
+}

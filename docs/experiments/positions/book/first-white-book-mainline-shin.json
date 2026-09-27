@@ -1,0 +1,40 @@
+{
+  "description": "White Shin-side decision points in the historical 54-pawn book",
+  "positions": [
+    {
+      "id": "mainline_after_38_silver",
+      "description": "▲3八銀に対する銀上がり。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h"]
+    },
+    {
+      "id": "mainline_after_48_king",
+      "description": "▲4八玉に対する△5三銀。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h"]
+    },
+    {
+      "id": "mainline_after_39_king",
+      "description": "▲3九玉に対する△7二銀。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i"]
+    },
+    {
+      "id": "mainline_after_66_pawn",
+      "description": "▲6六歩に対する△7一玉と手順前後。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f"]
+    },
+    {
+      "id": "mainline_after_78_silver",
+      "description": "△7一玉▲7八銀後の△8四歩を直接再現。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "7i7h"]
+    },
+    {
+      "id": "branch_after_65_pawn",
+      "description": "△7一玉に対する早い▲6五歩。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "6f6e"]
+    },
+    {
+      "id": "unstable_after_58_gold",
+      "description": "△7一玉後の▲5八金左。△1四歩と△8四歩が接近。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "6i5h"]
+    }
+  ]
+}

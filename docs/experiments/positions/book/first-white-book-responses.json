@@ -1,0 +1,15 @@
+{
+  "description": "Shin-side responses to early normal-side replies after the historical 54-pawn entrance",
+  "positions": [
+    {
+      "id": "white_54_after_48_king",
+      "description": "△5四歩に対する先手首位の▲4八玉。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "5i4h"]
+    },
+    {
+      "id": "white_54_after_66_pawn",
+      "description": "△5四歩に対する早い▲6六歩。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "6g6f"]
+    }
+  ]
+}

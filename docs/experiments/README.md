@@ -16,6 +16,10 @@ Rakuyouの自己対局と序盤解析の記録です。
 
 - [本家系の銀盛り上がり構想](2026-09-27-historical-line-analysis.md)
 
+## 専用定跡候補
+
+- [後手新米長玉・最初の専用定跡候補](2026-09-27-first-white-book-candidates.md)
+
 ## オリジナル系
 
 - [オリジナル7筋構想](2026-09-27-original-seventh-file-analysis.md)
