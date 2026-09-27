@@ -1,0 +1,30 @@
+{
+  "description": "Shin-Yonenaga responses after natural Sente development, 8d pawn and 7g bishop",
+  "positions": [
+    {
+      "id": "original_46_pawn_84_pawn_after_77_bishop",
+      "description": "△7二銀 ▲4六歩 △8四歩 ▲7七角後の候補。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "4g4f", "8c8d", "8h7g"]
+    },
+    {
+      "id": "original_38_silver_84_pawn_after_77_bishop",
+      "description": "△7二銀 ▲3八銀 △8四歩 ▲7七角後の候補。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "3i3h", "8c8d", "8h7g"]
+    },
+    {
+      "id": "original_58_left_gold_84_pawn_after_77_bishop",
+      "description": "△7二銀 ▲5八金左 △8四歩 ▲7七角後の候補。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "6i5h", "8c8d", "8h7g"]
+    },
+    {
+      "id": "original_48_king_84_pawn_after_77_bishop",
+      "description": "△7二銀 ▲4八玉 △8四歩 ▲7七角後の候補。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "5i4h", "8c8d", "8h7g"]
+    },
+    {
+      "id": "original_66_pawn_84_pawn_after_77_bishop",
+      "description": "△7二銀 ▲6六歩 △8四歩 ▲7七角後の候補。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "6g6f", "8c8d", "8h7g"]
+    }
+  ]
+}

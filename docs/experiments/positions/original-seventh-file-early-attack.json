@@ -1,0 +1,10 @@
+{
+  "description": "Shin-Yonenaga response to an early sixth-file attack against the completed original seventh-file structure",
+  "positions": [
+    {
+      "id": "original_main_after_32_rook_65_pawn",
+      "description": "オリジナル骨格から▲6六歩 △3二飛 ▲6五歩と仕掛けた局面。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "8h7g", "7c7d", "5i4h", "7b7c", "4g4f", "6b7a", "6g6f", "8b3b", "6f6e"]
+    }
+  ]
+}

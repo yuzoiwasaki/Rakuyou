@@ -1,0 +1,30 @@
+{
+  "description": "Opponent replies after 7a king prepares the original seventh-file plan without advancing the rook pawn",
+  "positions": [
+    {
+      "id": "original_46_pawn_after_71_king",
+      "description": "△7二銀 ▲4六歩 △7一玉後の先手候補。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "4g4f", "6b7a"]
+    },
+    {
+      "id": "original_38_silver_after_71_king",
+      "description": "△7二銀 ▲3八銀 △7一玉後の先手候補。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "3i3h", "6b7a"]
+    },
+    {
+      "id": "original_58_left_gold_after_71_king",
+      "description": "△7二銀 ▲5八金左 △7一玉後の先手候補。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "6i5h", "6b7a"]
+    },
+    {
+      "id": "original_48_king_after_71_king",
+      "description": "△7二銀 ▲4八玉 △7一玉後の先手候補。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "5i4h", "6b7a"]
+    },
+    {
+      "id": "original_66_pawn_after_71_king",
+      "description": "△7二銀 ▲6六歩 △7一玉後の先手候補。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "6g6f", "6b7a"]
+    }
+  ]
+}

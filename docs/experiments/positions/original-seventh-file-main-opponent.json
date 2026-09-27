@@ -1,0 +1,10 @@
+{
+  "description": "Opponent replies after the original seventh-file structure reaches 7a king and 7c silver",
+  "positions": [
+    {
+      "id": "original_main_after_71_king",
+      "description": "△7二銀・△7四歩・△7三銀・△7一玉まで進めた後の先手候補。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "8h7g", "7c7d", "5i4h", "7b7c", "4g4f", "6b7a"]
+    }
+  ]
+}

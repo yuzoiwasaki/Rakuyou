@@ -110,10 +110,30 @@ modernized king-and-silver arrangement rather than forcing the historical king
 to 83. Earlier, after `5c5d 6g6f`, the historical `3a4b` was best, so the
 core silver development also survives when Sente delays castling.
 
+The first original seventh-file analysis is in
+`docs/experiments/2026-09-27-original-seventh-file-analysis.md`. Do not play
+`7c7d` mechanically after `7a7b`; against most immediate Sente replies it was
+outside the top candidates. After Sente commits `8h7g`, `7c7d` can lead to a
+sound `7b7c` structure, but Sente has little reason to play `8h7g` before White
+advances the rook pawn. Preparing with `8c8d` made `8h7g` natural, but then
+`7b8c` was preferred and `7c7d` ranked seventh, eighth, or outside the top eight.
+Preparing with `6b7a` and allowing a second natural Sente development move also
+left `7c7d` outside the top eight in all five tested branches. Keep the
+seventh-file structure only as an opportunistic branch; it is not currently a
+practical main-book line. If reached, it remained sound against an early
+`6g6f` / `6f6e` attack. Do not play `8b7b` immediately after completing the
+structure: forced tests were 132–166 cp below the best move in four normal
+branches and lost 634 cp with a bishop on 86. In the successful self-play
+position, however, `8b7b` immediately after Sente's `7f7e` was the clear best
+move at -136, 24 cp above the next candidate. Treat the rook shift as a timed
+counterattack against `7f7e`, not as an automatic part of the setup.
+
 ## Immediate Next Steps
 
-1. Extend the original `7c7d` / `7b7c` line by the same standard and compare
-   it with the modernized historical structure.
+1. Compare the supported historical skeleton with the practical eighth-file
+   silver structure that emerged from `7a7b` / `8c8d`; keep the original
+   `7c7d` structure as a conditional branch rather than forcing it into the
+   first dedicated Shin book.
 2. Continue checking the complete historical games around later evaluation
    drops, and use only reviewed improvements as book candidates.
 3. Compare the historical structures with the focused original line. Use only

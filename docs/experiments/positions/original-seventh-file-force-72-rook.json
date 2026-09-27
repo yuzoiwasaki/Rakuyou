@@ -1,0 +1,35 @@
+{
+  "description": "Forced evaluation of 7b rook after the original seventh-file structure",
+  "positions": [
+    {
+      "id": "original_main_after_38_silver_force_72_rook",
+      "description": "オリジナル骨格に対する▲3八銀後、△7二飛を強制。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "8h7g", "7c7d", "5i4h", "7b7c", "4g4f", "6b7a", "3i3h"],
+      "searchmoves": ["8b7b"]
+    },
+    {
+      "id": "original_main_after_58_left_gold_force_72_rook",
+      "description": "オリジナル骨格に対する▲5八金左後、△7二飛を強制。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "8h7g", "7c7d", "5i4h", "7b7c", "4g4f", "6b7a", "6i5h"],
+      "searchmoves": ["8b7b"]
+    },
+    {
+      "id": "original_main_after_78_silver_force_72_rook",
+      "description": "オリジナル骨格に対する▲7八銀後、△7二飛を強制。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "8h7g", "7c7d", "5i4h", "7b7c", "4g4f", "6b7a", "7i7h"],
+      "searchmoves": ["8b7b"]
+    },
+    {
+      "id": "original_main_after_86_bishop_force_72_rook",
+      "description": "オリジナル骨格に対する▲8六角後、△7二飛を強制。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "8h7g", "7c7d", "5i4h", "7b7c", "4g4f", "6b7a", "7g8f"],
+      "searchmoves": ["8b7b"]
+    },
+    {
+      "id": "original_main_after_66_pawn_force_72_rook",
+      "description": "オリジナル骨格に対する▲6六歩後、△7二飛を強制。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "8h7g", "7c7d", "5i4h", "7b7c", "4g4f", "6b7a", "6g6f"],
+      "searchmoves": ["8b7b"]
+    }
+  ]
+}

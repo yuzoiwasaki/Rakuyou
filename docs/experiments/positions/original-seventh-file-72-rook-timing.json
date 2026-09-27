@@ -1,0 +1,10 @@
+{
+  "description": "Direct evaluation of the successful self-play timing for 7b rook",
+  "positions": [
+    {
+      "id": "original_selfplay_after_75_pawn",
+      "description": "勝ち局で先手が▲7五歩と突いた直後。実戦の△7二飛を比較する。",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "7i7h", "3c3d", "6g6f", "1d1e", "5i4h", "2c2d", "4h3h", "7a7b", "8h7g", "7c7d", "6f6e", "7b7c", "7h6g", "6b7a", "6g6f", "2d2e", "7f7e"]
+    }
+  ]
+}

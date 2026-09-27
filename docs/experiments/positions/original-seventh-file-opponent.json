@@ -1,0 +1,10 @@
+{
+  "description": "Main opponent replies after Shin-Yonenaga prepares the original seventh-file plan with 7b silver",
+  "positions": [
+    {
+      "id": "original_after_72_silver",
+      "description": "▲7六歩 △6二玉 ▲6八飛 △7二銀直後の先手候補。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b"]
+    }
+  ]
+}

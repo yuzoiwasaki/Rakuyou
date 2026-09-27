@@ -1,0 +1,10 @@
+{
+  "description": "Opponent replies after the original seventh-file pawn push",
+  "positions": [
+    {
+      "id": "original_after_77_bishop_74_pawn",
+      "description": "△7二銀に▲7七角とした後、△7四歩を突いた局面。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "8h7g", "7c7d"]
+    }
+  ]
+}

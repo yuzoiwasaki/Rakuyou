@@ -1,0 +1,15 @@
+{
+  "description": "Shin-Yonenaga continuations after the opponent's main reply to the two original move orders",
+  "positions": [
+    {
+      "id": "original_71_king_after_96_pawn",
+      "description": "△7一玉を先にした局面の通常側第1候補▲9六歩への応答。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "8h7g", "7c7d", "5i4h", "6b7a", "9g9f"]
+    },
+    {
+      "id": "original_73_silver_after_46_pawn",
+      "description": "△7三銀を先にした局面の通常側第1候補▲4六歩への応答。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "8h7g", "7c7d", "5i4h", "7b7c", "4g4f"]
+    }
+  ]
+}

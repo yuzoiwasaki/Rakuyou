@@ -1,0 +1,30 @@
+{
+  "description": "Shin-Yonenaga responses after the original seventh-file structure is complete",
+  "positions": [
+    {
+      "id": "original_main_after_38_silver",
+      "description": "オリジナル骨格に対する通常側第1候補▲3八銀への応答。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "8h7g", "7c7d", "5i4h", "7b7c", "4g4f", "6b7a", "3i3h"]
+    },
+    {
+      "id": "original_main_after_58_left_gold",
+      "description": "オリジナル骨格に対する▲5八金左への応答。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "8h7g", "7c7d", "5i4h", "7b7c", "4g4f", "6b7a", "6i5h"]
+    },
+    {
+      "id": "original_main_after_78_silver",
+      "description": "オリジナル骨格に対する▲7八銀への応答。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "8h7g", "7c7d", "5i4h", "7b7c", "4g4f", "6b7a", "7i7h"]
+    },
+    {
+      "id": "original_main_after_86_bishop",
+      "description": "オリジナル骨格に対する▲8六角への応答。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "8h7g", "7c7d", "5i4h", "7b7c", "4g4f", "6b7a", "7g8f"]
+    },
+    {
+      "id": "original_main_after_66_pawn",
+      "description": "オリジナル骨格に対する▲6六歩への応答。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "8h7g", "7c7d", "5i4h", "7b7c", "4g4f", "6b7a", "6g6f"]
+    }
+  ]
+}

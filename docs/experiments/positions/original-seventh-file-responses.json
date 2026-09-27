@@ -1,0 +1,30 @@
+{
+  "description": "Shin-Yonenaga responses to the main opponent moves after 7b silver",
+  "positions": [
+    {
+      "id": "original_72_silver_after_46_pawn",
+      "description": "△7二銀に対する通常側第1候補▲4六歩の直後。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "4g4f"]
+    },
+    {
+      "id": "original_72_silver_after_38_silver",
+      "description": "△7二銀に対する▲3八銀の直後。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "3i3h"]
+    },
+    {
+      "id": "original_72_silver_after_58_left_gold",
+      "description": "△7二銀に対する▲5八金左の直後。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "6i5h"]
+    },
+    {
+      "id": "original_72_silver_after_77_bishop",
+      "description": "△7二銀に対する▲7七角の直後。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "8h7g"]
+    },
+    {
+      "id": "original_72_silver_after_48_king",
+      "description": "△7二銀に対する▲4八玉の直後。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "5i4h"]
+    }
+  ]
+}

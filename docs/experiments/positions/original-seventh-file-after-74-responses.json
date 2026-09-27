@@ -1,0 +1,30 @@
+{
+  "description": "Shin-Yonenaga responses after 7b silver, 7g bishop and the original 7d pawn push",
+  "positions": [
+    {
+      "id": "original_74_pawn_after_48_king",
+      "description": "△7四歩に対する通常側第1候補▲4八玉の直後。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "8h7g", "7c7d", "5i4h"]
+    },
+    {
+      "id": "original_74_pawn_after_66_pawn",
+      "description": "△7四歩に対する▲6六歩の直後。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "8h7g", "7c7d", "6g6f"]
+    },
+    {
+      "id": "original_74_pawn_after_38_silver",
+      "description": "△7四歩に対する▲3八銀の直後。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "8h7g", "7c7d", "3i3h"]
+    },
+    {
+      "id": "original_74_pawn_after_58_left_gold",
+      "description": "△7四歩に対する▲5八金左の直後。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "8h7g", "7c7d", "6i5h"]
+    },
+    {
+      "id": "original_74_pawn_after_78_silver",
+      "description": "△7四歩に対する▲7八銀の直後。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "8h7g", "7c7d", "7i7h"]
+    }
+  ]
+}
