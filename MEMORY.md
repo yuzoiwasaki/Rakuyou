@@ -39,15 +39,16 @@ Use Git history for completed work and chronology.
 - Judge the experiment using playing strength and whether the intended king
   placement persists. Review losses and necessary retreats, not only wins.
 - Prefer small, observable experiments before larger evaluation or architecture
-  changes. The first dedicated-book candidate is selected but no engine-readable
-  book has been built yet.
+  changes. The first dedicated White book is implemented from the reviewed
+  candidate set; playing-strength validation is still pending.
 
 ## Self-Play Tool
 
 - `tools/paired_selfplay.py` runs two Rakuyou processes without Shogidokoro:
   新米長玉 versus normal Rakuyou, with colors swapped once per pair.
 - The normal side always uses the standard book. `--shin-book off|on` controls
-  book use only for the 新米長玉 side. Ponder is disabled.
+  book use only for the 新米長玉 side. `--shin-book-file` selects its dedicated
+  position book independently of the normal side. Ponder is disabled.
 - The runner saves JSON after every completed game. It records results, moves,
   move sources, scores, principal variations, aggregate statistics, errors, and
   timing. `--resume` continues a partial run.
@@ -138,23 +139,28 @@ MultiPV-5 run, 11 cp ahead of `2c2d`; its raw JSON and checksum are in the
 report. Early `5c5d 5i4h` and `5c5d 6g6f` responses are reviewed side
 branches. The `6b7a 6i5h` response remains unstable. The initial `8c8d`
 branch and its descendants are outside the first dedicated book. The candidate
-JSON is a review artifact, not an engine-readable book. Keep raw analysis in
-ignored `results/`.
+JSON remains a review artifact. `tools/build_shin_book.py` generates the
+engine-readable `books/shin-yonenaga-white-book.txt` with six mainline and
+three reviewed side-branch positions; unstable candidates are excluded.
+`ShinBookFile` makes the enabled 新米長玉 side use this file, while the normal
+side keeps `book.bin`. Uncovered positions fall back to search, not the
+standard book. The paired runner records these moves as `dedicated_book`.
+The integration check is `python3 test/test_shin_book.py`; a depth-1,
+two-game smoke run used the dedicated book five times as White, but is not a
+strength result. Keep raw analysis and self-play in ignored `results/`.
 
 ## Immediate Next Steps
 
-1. Convert the small reviewed White candidate set into an engine-readable
-   dedicated book. Add separate book-file support for the two players so the
-   normal comparison side keeps its standard book.
-2. Validate against the same normal Rakuyou/Gikou 2 baseline with its standard
-   book enabled, swapping colors within each pair. Check actual book usage,
-   results, king placement, losses, and retreats.
-3. Review unstable and uncovered responses only when validation identifies a
+1. Validate the first dedicated White book against the same normal
+   Rakuyou/Gikou 2 baseline with its standard book enabled, swapping colors
+   within each pair. Check actual book usage, results, king placement, losses,
+   and retreats.
+2. Review unstable and uncovered responses only when validation identifies a
    concrete need; keep the initial `8c8d` branch and `7c7d` structure outside
    this first book.
-4. Revisit the 25 cp preference only after the book comparison provides a
+3. Revisit the 25 cp preference only after the book comparison provides a
    concrete reason and a comparison plan.
-5. Add formal repetition and perpetual-check adjudication while retaining the
+4. Add formal repetition and perpetual-check adjudication while retaining the
    WCSC-compatible 256-ply draw limit.
 
 ## Experiment Data Management

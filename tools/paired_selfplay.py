@@ -17,7 +17,7 @@ INFO_RE = re.compile(r"\bdepth (\d+).*?\bscore (cp|mate) ([^ ]+)(?:.*?\bpv (.*))
 
 class UsiEngine:
     def __init__(self, executable, shin_yonenaga_gyoku, own_book, threads, hash_mb,
-                 book_file, book_max_ply):
+                 book_file, book_max_ply, shin_book_file=None):
         self.executable = executable.resolve()
         self.shin_yonenaga_gyoku = shin_yonenaga_gyoku
         self.own_book = own_book
@@ -42,6 +42,8 @@ class UsiEngine:
         self.send("setoption name USI_Ponder value false")
         if book_file is not None:
             self.send(f"setoption name BookFile value {book_file.resolve()}")
+        if shin_book_file is not None:
+            self.send(f"setoption name ShinBookFile value {shin_book_file.resolve()}")
         self.send(f"setoption name BookMaxPly value {book_max_ply}")
         self.send("isready")
         self.wait_for("readyok", 30)
@@ -99,8 +101,11 @@ class UsiEngine:
             if line.startswith("info "):
                 if "Shin-Yonenaga-Gyoku opening:" in line:
                     source = "fixed_opening"
+                elif "Shin-Yonenaga-Gyoku book:" in line:
+                    source = "dedicated_book"
                 elif line.startswith("info time 0 depth "):
-                    source = "book"
+                    if source != "dedicated_book":
+                        source = "book"
                 match = INFO_RE.search(line)
                 if match:
                     latest_info = {
@@ -123,6 +128,9 @@ class UsiEngine:
                 self.process.wait(timeout=5)
             except subprocess.TimeoutExpired:
                 self.process.terminate()
+                self.process.wait(timeout=5)
+        self.process.stdin.close()
+        self.process.stdout.close()
 
 
 def play_game(engines, black_name, white_name, depth, max_plies, timeout):
@@ -270,7 +278,9 @@ def parse_args():
     parser.add_argument("--threads", type=int, default=1)
     parser.add_argument("--hash", type=int, default=128, dest="hash_mb")
     parser.add_argument("--book-file", type=Path,
-                        help="省略時はエンジン既定のbook.binを使う")
+                        help="両側の標準定跡。省略時はエンジン既定のbook.bin")
+    parser.add_argument("--shin-book-file", type=Path,
+                        help="新米長玉側だけで使う専用定跡。未登録局面は探索する")
     parser.add_argument("--book-max-ply", type=int, default=20)
     parser.add_argument("--shin-book", choices=("off", "on"), default="off",
                         help="新米長玉側の定跡をオンまたはオフにする（通常側は常にオン）")
@@ -304,6 +314,8 @@ def main():
         hash_mb = settings["hash_mb_per_engine"]
         book_value = settings["book_file"]
         book_file = None if book_value == "book.bin" else Path(book_value)
+        shin_book_value = settings.get("shin_book_file")
+        shin_book_file = Path(shin_book_value) if shin_book_value else None
         book_max_ply = settings["book_max_ply"]
         max_plies = settings["max_plies"]
         timeout = settings.get("timeout_seconds", 300)
@@ -315,6 +327,7 @@ def main():
         threads = args.threads
         hash_mb = args.hash_mb
         book_file = args.book_file.resolve() if args.book_file else None
+        shin_book_file = args.shin_book_file.resolve() if args.shin_book_file else None
         book_max_ply = args.book_max_ply
         max_plies = args.max_plies
         timeout = args.timeout
@@ -330,6 +343,7 @@ def main():
             "hash_mb_per_engine": hash_mb,
             "ponder": False,
             "book_file": str(book_file) if book_file else "book.bin",
+            "shin_book_file": str(shin_book_file) if shin_book_file else None,
             "book_max_ply": book_max_ply,
             "max_plies": max_plies,
             "timeout_seconds": timeout,
@@ -362,6 +376,10 @@ def main():
         raise SystemExit("numeric options are outside their supported range")
     if book_file is not None and not book_file.is_file():
         raise SystemExit(f"Book not found: {book_file}")
+    if shin_book_file is not None and not shin_book_file.is_file():
+        raise SystemExit(f"Shin book not found: {shin_book_file}")
+    if shin_book_file is not None and not shin_book:
+        raise SystemExit("--shin-book-file requires --shin-book on")
     total_games = requested_pairs * 2
     if len(document["games"]) > total_games:
         raise SystemExit("requested pairs are fewer than the games already saved")
@@ -377,7 +395,7 @@ def main():
     try:
         engines["shin_yonenaga"] = UsiEngine(
             engine_path, True, shin_book, threads, hash_mb,
-            book_file, book_max_ply)
+            book_file, book_max_ply, shin_book_file)
         engines["normal"] = UsiEngine(
             engine_path, False, True, threads, hash_mb,
             book_file, book_max_ply)

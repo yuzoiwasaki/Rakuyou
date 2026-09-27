@@ -62,6 +62,7 @@ Thinking::Thinking(const UsiOptions& usi_options)
 
 void Thinking::Initialize() {
   book_.ReadFromFile(usi_options_["BookFile"].string().c_str());
+  shin_book_.ReadFromFile(usi_options_["ShinBookFile"].string());
   shared_data_.hash_table.SetSize(usi_options_["USI_Hash"]);
   shared_data_.countermoves_history.Clear();
   MoveProbability::SetCacheTableSize(ProbabilityCacheTable::kDefaultSize * usi_options_["Threads"]);
@@ -127,11 +128,19 @@ void Thinking::StartThinking(const Node& root_node,
       && usi_options_["OwnBook"]
       && root_node.game_ply() + 1 <= usi_options_["BookMaxPly"]) {
     // 定跡DBから１手取得する
-    Move book_move = book_.GetOneBookMove(root_node, usi_options_);
+    const bool use_shin_book = usi_options_["ShinYonenagaGyoku"]
+        && !usi_options_["ShinBookFile"].string().empty();
+    Move book_move = use_shin_book
+        ? shin_book_.Probe(root_node)
+        : book_.GetOneBookMove(root_node, usi_options_);
 
     // 定跡存在するときは、通常探索をスキップする
     if (book_move != kMoveNone) {
       best_move = book_move;
+      if (use_shin_book) {
+        SYNCED_PRINTF("info string Shin-Yonenaga-Gyoku book: %s\n",
+                      book_move.ToSfen().c_str());
+      }
       goto send_best_move;
     }
   }

@@ -331,6 +331,9 @@ UsiOptions::UsiOptions() {
   // 定跡ファイル
   map_.emplace("BookFile", UsiOption("book.bin"));
 
+  // 新米長玉専用の局面定跡。空なら従来のBookFileを使う。
+  map_.emplace("ShinBookFile", UsiOption(""));
+
   // 定跡を用いる最大手数
   map_.emplace("BookMaxPly", UsiOption(20, 0, 50));
 

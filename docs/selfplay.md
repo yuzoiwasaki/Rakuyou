@@ -64,6 +64,28 @@ python3 tools/paired_selfplay.py --depth 10 --shin-book on
 python3 tools/paired_selfplay.py --book-file path/to/book.bin --book-max-ply 30
 ```
 
+最初の後手新米長玉専用定跡は、レビュー済みの候補JSONから生成します。
+主筋６局面と副枝３局面を採用し、順位が不安定な▲５八金左後の２候補は
+含めません。候補JSONは根拠の記録、生成したテキストはエンジンが読む定跡です。
+
+```sh
+python3 tools/build_shin_book.py
+make release
+python3 test/test_shin_book.py
+python3 tools/paired_selfplay.py \
+  --depth 15 --threads 1 --hash 128 \
+  --shin-book on \
+  --shin-book-file books/shin-yonenaga-white-book.txt \
+  --pairs 50
+```
+
+`--shin-book-file` は新米長玉側にだけ `ShinBookFile` を設定します。
+通常側は引き続き `book.bin` を使い、専用定跡にない局面では新米長玉側は
+標準定跡へ戻らず探索します。`--shin-book on` が必要です。生成ファイルは
+`開始局面からのUSI手順 | 後手の定跡手` を１行ずつ記し、エンジンは手順で
+再現した局面を照合します。対局JSONでは専用定跡手を `dedicated_book`、
+通常側の標準定跡手を `book` と記録します。
+
 初版の終局判定は、エンジンの投了・入玉宣言と最大手数です。千日手などの厳密な
 ルール判定はまだ行いません。比較時は深さ、スレッド数、ハッシュを変えずに実行します。
 各局の `source_counts_by_player` を見ると、固定初手や定跡が実際に使われた回数を

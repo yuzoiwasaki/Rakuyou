@@ -28,6 +28,7 @@
 #include "book.h"
 #include "shared_data.h"
 #include "signals.h"
+#include "shin_book.h"
 #include "thread.h"
 #include "time_manager.h"
 
@@ -94,6 +95,7 @@ class Thinking {
   std::mutex mutex_;
   std::condition_variable sleep_condition_;
   Book book_;
+  ShinBook shin_book_;
   SharedData shared_data_;
   SimpleTimeManager time_manager_;
   ThreadManager thread_manager_;
