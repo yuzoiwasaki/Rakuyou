@@ -1,0 +1,15 @@
+{
+  "description": "Main opponent replies to the modernized historical line",
+  "positions": [
+    {
+      "id": "modernized_after_71_king",
+      "description": "△5三銀・△7二銀・△7一玉まで組んだ後の主要な先手応手。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a"]
+    },
+    {
+      "id": "modernized_after_84_pawn_wait",
+      "description": "玉を6二に保ち、△8四歩で待った後の主要な先手応手。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "8c8d"]
+    }
+  ]
+}

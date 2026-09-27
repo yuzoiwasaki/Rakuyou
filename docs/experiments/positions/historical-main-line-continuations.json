@@ -1,0 +1,26 @@
+{
+  "description": "Focused continuations from the shared historical Yonenaga line",
+  "positions": [
+    {
+      "id": "historical_force_64_pawn_after_39_king",
+      "description": "2局共通の△6四歩を強制して現代評価を確認する。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i"],
+      "searchmoves": ["6c6d"]
+    },
+    {
+      "id": "historical_after_64_pawn_66_pawn",
+      "description": "▲3九玉 △6四歩 ▲6六歩の後。本譜の△7二銀を比較する。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "6c6d", "6g6f"]
+    },
+    {
+      "id": "historical_after_65_pawn_attack",
+      "description": "本番の▲6五歩急戦に対する応答を比較する。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "6c6d", "6g6f", "7a7b", "6f6e"]
+    },
+    {
+      "id": "historical_after_96_pawn_wait",
+      "description": "公開プレマッチの▲9六歩に対する応答を比較する。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "6c6d", "6g6f", "7a7b", "9g9f"]
+    }
+  ]
+}

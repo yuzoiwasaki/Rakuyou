@@ -1,0 +1,10 @@
+{
+  "description": "Focused positions for a modernized historical silver-development line",
+  "positions": [
+    {
+      "id": "modernized_after_72_silver_66_pawn",
+      "description": "△6四歩を急がず、△7二銀を先に入れた本家系。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f"]
+    }
+  ]
+}

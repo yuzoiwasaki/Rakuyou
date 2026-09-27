@@ -1,0 +1,15 @@
+{
+  "description": "Shin-Yonenaga responses to early left-side development before the historical castling moves",
+  "positions": [
+    {
+      "id": "historical_54_pawn_after_66_pawn",
+      "description": "△5四歩直後の最善候補▲6六歩への応答。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "6g6f"]
+    },
+    {
+      "id": "historical_42_silver_after_66_pawn",
+      "description": "△4二銀直後の首位同値▲6六歩への応答。",
+      "moves": ["7g7f", "5a6b", "2h6h", "3a4b", "6g6f"]
+    }
+  ]
+}

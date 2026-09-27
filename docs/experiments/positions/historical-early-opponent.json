@@ -1,0 +1,15 @@
+{
+  "description": "Early opponent alternatives before the historical castling moves",
+  "positions": [
+    {
+      "id": "historical_after_54_pawn",
+      "description": "▲7六歩 △6二玉 ▲6八飛 △5四歩直後の先手候補。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d"]
+    },
+    {
+      "id": "historical_after_42_silver",
+      "description": "本番の手順で△4二銀を先に指した直後の先手候補。",
+      "moves": ["7g7f", "5a6b", "2h6h", "3a4b"]
+    }
+  ]
+}

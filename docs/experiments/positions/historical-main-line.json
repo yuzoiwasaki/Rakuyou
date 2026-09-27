@@ -1,0 +1,10 @@
+{
+  "description": "Focused positions for the historical Yonenaga silver-development line",
+  "positions": [
+    {
+      "id": "historical_after_53_silver",
+      "description": "2局が合流する△5三銀直後。通常側から主要な先手応手を調べる。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c"]
+    }
+  ]
+}

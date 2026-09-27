@@ -75,7 +75,8 @@ starting `7g7f 5a6b 2h6h`; several frequent continuations scored poorly, but
 they require deeper position analysis before any move is rejected.
 
 `tools/analyze_positions.py` runs book-free MultiPV analysis for named move
-sequences. The first five anti-fourth-file-rook positions were analyzed at
+sequences and can disable the experiment evaluation when selecting normal-side
+opponent replies. The first five anti-fourth-file-rook positions were analyzed at
 depths 20 and 24; see
 `docs/experiments/2026-09-26-anti-fourth-file-rook-focused-analysis.md`.
 The clearest original candidate was `7c7d` followed by `7b7c`; the historical
@@ -91,14 +92,30 @@ of the base position took 73.2 seconds and 111 million nodes with one thread,
 versus 78.1 seconds and 226 million nodes with two; parallel search changed the
 tree and candidate order without reducing wall time.
 
+The first historical-line analysis is in
+`docs/experiments/2026-09-27-historical-line-analysis.md`. Both source games
+transpose after `7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c`. Their immediate
+`6c6d` after `4h3i` scored about 96 cp below `7a7b` and `8c8d`, although the
+historical replies after committing to it were supported. The modernized
+historical skeleton delays `6c6d` and continues with `4h3i 7a7b 6g6f`, followed
+by `6b7a` or `8c8d`. Normal-side analysis chose an early `6f6e` first against
+both waiting moves, confirming that left-side activity must be a main branch.
+The replies converge: after `6b7a 6f6e`, `8c8d` was clearly best; after
+`8c8d 6f6e`, `8b8c` and `6b7a` were nearly equal. The `6b7a` route later used
+`7a8b` in its PV. Direct checks of four quieter opponent moves usually converged
+on the same `6b7a`, `8c8d`, and `7b8c` structure, though the exact move order
+depends on Sente's reply. With the king on 82 and silver on 83, the engine kept
+the king on 82 and preferred a rook shift to 42 after `5h4g`; treat this as a
+modernized king-and-silver arrangement rather than forcing the historical king
+to 83. Earlier, after `5c5d 6g6f`, the historical `3a4b` was best, so the
+core silver development also survives when Sente delays castling.
+
 ## Immediate Next Steps
 
-1. Extend the `7c7d` / `7b7c` original line and the historical `4b5c` line by
-   a few important branches. Compare opponent replies and the next 新米長玉
-   choices with focused MultiPV before creating book entries.
-2. Analyze the complete 2011 public prematch and 2012 Denousen KIF files. Find
-   where Yonenaga remained equal or better, where the evaluation dropped, and
-   which modern search moves improve the historical continuation.
+1. Extend the original `7c7d` / `7b7c` line by the same standard and compare
+   it with the modernized historical structure.
+2. Continue checking the complete historical games around later evaluation
+   drops, and use only reviewed improvements as book candidates.
 3. Compare the historical structures with the focused original line. Use only
    reviewed continuations as candidates for a small dedicated 新米長玉 book.
 4. Add separate book-file support for the two players when the first dedicated

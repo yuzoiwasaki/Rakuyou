@@ -1,0 +1,30 @@
+{
+  "description": "Shin-Yonenaga responses after the main opponent replies to the historical silver-development line",
+  "positions": [
+    {
+      "id": "historical_after_78_silver",
+      "description": "△5三銀に対する第1候補▲7八銀の直後。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "7i7h"]
+    },
+    {
+      "id": "historical_after_66_pawn",
+      "description": "△5三銀に対する第2候補▲6六歩の直後。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "6g6f"]
+    },
+    {
+      "id": "historical_after_39_king",
+      "description": "歴史的2局で指された▲3九玉の直後。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i"]
+    },
+    {
+      "id": "historical_after_77_bishop",
+      "description": "△5三銀に対する第4候補▲7七角の直後。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "8h7g"]
+    },
+    {
+      "id": "historical_after_58_left_gold",
+      "description": "△5三銀に対する第5候補▲5八金左の直後。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "6i5h"]
+    }
+  ]
+}

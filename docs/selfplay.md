@@ -100,3 +100,11 @@ python3 tools/analyze_positions.py \
 記録します。生JSONは`results/`に置き、判断に使った結果を実験レポートへ残します。
 局面定義に`"searchmoves": ["7c7d"]`のような配列を加えると、指定した候補手だけを
 強制探索できます。MultiPVに現れない構想の評価値を確認するときに使います。
+
+通常側の主要応手を選ぶ場合は、新米長玉の評価補正を無効にします。
+
+```sh
+python3 tools/analyze_positions.py positions.json \
+  --depth 24 --multipv 5 --shin-yonenaga-gyoku off \
+  --output results/opponent-replies.json
+```

@@ -1,0 +1,15 @@
+{
+  "description": "Shin-Yonenaga responses to an early sixth-file pawn push in the modernized historical line",
+  "positions": [
+    {
+      "id": "modernized_71_king_after_65_pawn",
+      "description": "△7一玉案に対する早い▲6五歩の直後。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "6f6e"]
+    },
+    {
+      "id": "modernized_84_pawn_after_65_pawn",
+      "description": "△8四歩待機案に対する早い▲6五歩の直後。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "8c8d", "6f6e"]
+    }
+  ]
+}

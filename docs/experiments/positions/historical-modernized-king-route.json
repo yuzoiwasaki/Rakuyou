@@ -1,0 +1,10 @@
+{
+  "description": "Opponent plans after the modernized historical line reaches an 8b king",
+  "positions": [
+    {
+      "id": "modernized_after_82_king",
+      "description": "早い▲6五歩への主読み筋で、後手玉が8二へ上がった直後。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "6f6e", "8c8d", "7i7h", "7b8c", "7h6g", "3c3d", "6g6f", "2c2d", "8h7g", "8b6b", "6i5h", "6a7b", "4g4f", "2d2e", "3g3f", "7a8b"]
+    }
+  ]
+}

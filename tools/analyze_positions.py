@@ -42,7 +42,8 @@ def parse_info(line):
 
 
 class Engine:
-    def __init__(self, executable, threads, hash_mb, multipv):
+    def __init__(self, executable, threads, hash_mb, multipv,
+                 shin_yonenaga_gyoku):
         self.executable = executable.resolve()
         self.lines = queue.Queue()
         self.process = subprocess.Popen(
@@ -58,7 +59,7 @@ class Engine:
         self.send("usi")
         self.wait_for("usiok", 10)
         options = {
-            "ShinYonenagaGyoku": "true",
+            "ShinYonenagaGyoku": "true" if shin_yonenaga_gyoku else "false",
             "OwnBook": "false",
             "Threads": str(threads),
             "USI_Hash": str(hash_mb),
@@ -157,6 +158,8 @@ def parse_args():
     parser.add_argument("--threads", type=int, default=1)
     parser.add_argument("--hash", type=int, default=512, dest="hash_mb")
     parser.add_argument("--timeout", type=int, default=600)
+    parser.add_argument("--shin-yonenaga-gyoku", choices=("on", "off"), default="on",
+                        help="enable or disable the ShinYonenagaGyoku evaluation")
     parser.add_argument("--output", type=Path, required=True)
     return parser.parse_args()
 
@@ -172,6 +175,7 @@ def main():
     if not positions:
         raise SystemExit("positions file contains no positions")
     timestamp = datetime.now().astimezone().isoformat(timespec="seconds")
+    shin_yonenaga_gyoku = args.shin_yonenaga_gyoku == "on"
     document = {
         "created_at": timestamp,
         "updated_at": timestamp,
@@ -183,7 +187,7 @@ def main():
             "threads": args.threads,
             "hash_mb": args.hash_mb,
             "timeout_seconds": args.timeout,
-            "ShinYonenagaGyoku": True,
+            "ShinYonenagaGyoku": shin_yonenaga_gyoku,
             "OwnBook": False,
             "Ponder": False,
         },
@@ -193,7 +197,10 @@ def main():
     save(document, args.output)
     engine = None
     try:
-        engine = Engine(args.engine, args.threads, args.hash_mb, args.multipv)
+        engine = Engine(
+            args.engine, args.threads, args.hash_mb, args.multipv,
+            shin_yonenaga_gyoku,
+        )
         for index, position in enumerate(positions, 1):
             print(f"[{index}/{len(positions)}] {position['id']}", flush=True)
             try:
