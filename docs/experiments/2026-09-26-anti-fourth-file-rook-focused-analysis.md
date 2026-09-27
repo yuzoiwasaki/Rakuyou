@@ -7,7 +7,7 @@
 解析した。
 
 局面の定義は
-`docs/experiments/positions/anti-fourth-file-rook.json`に保存している。
+`docs/experiments/positions/anti-fourth-file-rook/anti-fourth-file-rook.json`に保存している。
 
 ## 解析条件
 

@@ -88,7 +88,7 @@ python3 tools/analyze_selfplay.py \
 
 ```sh
 python3 tools/analyze_positions.py \
-  docs/experiments/positions/anti-fourth-file-rook.json \
+  docs/experiments/positions/anti-fourth-file-rook/anti-fourth-file-rook.json \
   --depth 20 \
   --multipv 3 \
   --threads 1 \
