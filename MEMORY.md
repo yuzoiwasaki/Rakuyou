@@ -195,6 +195,10 @@ opening branches rather than running every full game at a very high depth.
    Keep the source position, analysis settings, candidate evaluations, and
    validation result traceable for every adopted line.
 
+The near-term goal is for the fixed `6二玉` opening to win more games than it
+loses against normal Gikou 2. Use this local baseline to decide whether later
+book and evaluation changes are actually improving the opening.
+
 Moderate-depth games are useful for finding where to analyze and for measuring
 behavior. Treat deeper focused analysis as the main source of book move quality.
 
