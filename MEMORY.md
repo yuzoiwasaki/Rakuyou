@@ -40,7 +40,8 @@ Use Git history for completed work and chronology.
   placement persists. Review losses and necessary retreats, not only wins.
 - Prefer small, observable experiments before larger evaluation or architecture
   changes. The first dedicated White book is implemented from the reviewed
-  candidate set; playing-strength validation is still pending.
+  candidate set. Its initial strength validation is complete, but a book
+  benefit remains unconfirmed.
 
 ## Self-Play Tool
 
