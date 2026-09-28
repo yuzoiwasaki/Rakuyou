@@ -1,0 +1,15 @@
+{
+  "description": "Frequent White Shin-side decisions immediately after the first dedicated book",
+  "positions": [
+    {
+      "id": "after_67_silver",
+      "description": "▲7八銀△8四歩▲6七銀後の後手候補。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "7i7h", "8c8d", "7h6g"]
+    },
+    {
+      "id": "after_58_gold",
+      "description": "▲7八銀△8四歩▲5八金左後の後手候補。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "7i7h", "8c8d", "6i5h"]
+    }
+  ]
+}

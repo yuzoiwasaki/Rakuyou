@@ -7,6 +7,7 @@ Rakuyouの自己対局と序盤解析の記録です。
 - [新米長玉 定跡なし対通常 深さ15](2026-09-26-shin-book-off-vs-normal-depth15.md)
 - [新米長玉 定跡あり対通常 深さ15](2026-09-26-shin-book-on-vs-normal-depth15.md)
 - [自己対局200局の序盤分析](2026-09-26-selfplay-opening-analysis.md)
+- [後手新米長玉・第一版専用定跡対通常 深さ15](2026-09-28-shin-dedicated-white-book-v1-vs-normal-depth15.md)
 
 ## 対四間飛車の重点解析
 
@@ -19,6 +20,7 @@ Rakuyouの自己対局と序盤解析の記録です。
 ## 専用定跡候補
 
 - [後手新米長玉・最初の専用定跡候補](2026-09-27-first-white-book-candidates.md)
+- [第一版専用定跡・定跡出口の勝敗と候補手](2026-09-28-first-white-book-post-exit-analysis.md)
 
 ## オリジナル系
 

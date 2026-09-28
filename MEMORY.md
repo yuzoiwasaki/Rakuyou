@@ -149,17 +149,37 @@ The integration check is `python3 test/test_shin_book.py`; a depth-1,
 two-game smoke run used the dedicated book five times as White, but is not a
 strength result. Keep raw analysis and self-play in ignored `results/`.
 
+The first dedicated-book validation completed 50 pairs / 100 games at depth 15;
+see `docs/experiments/2026-09-28-shin-dedicated-white-book-v1-vs-normal-depth15.md`.
+As White, Shin scored 13 wins, 30 losses, and 7 draws (33.0%), versus 30.0%
+in the previous standard-book baseline. The 3-point difference is too small
+to attribute to the book across separate runs. All 50 White games used the
+dedicated book; 41 reached `7i7h 8c8d`. The next frequent Sente moves were
+`7h6g` in 23 games and `6i5h` in 17. As Black, Shin scored 23 wins, 23 losses,
+and 4 draws (50.0%) without using the dedicated book. No game errors occurred.
+
+The post-exit review is in
+`docs/experiments/2026-09-28-first-white-book-post-exit-analysis.md`.
+Normal-side depth-24 MultiPV put `7h6g` and `6i5h` within 2 cp after the
+mainline's `8c8d`, matching their high self-play frequency. White-side depth-28
+MultiPV preferred `1c1d` after either move, but depth-24 leaders differed, so
+neither reply has been added to the book. In 21 games the two move orders
+transposed after `3c3d`; White searched `7b8c` in 20. At that position,
+depth-24 MultiPV-12 ranked `7b8c` fourth, 27 cp below `2c2d`; a restricted
+depth-28 comparison placed it 38 cp below `4a5b`. Normal-side depth-24 analysis
+chose `7f7e` against `7b8c`, an answer absent from depth-15 self-play. Treat
+this as a concrete branch to recheck, not proof of a move-level cause for losses.
+
 ## Immediate Next Steps
 
-1. Validate the first dedicated White book against the same normal
-   Rakuyou/Gikou 2 baseline with its standard book enabled, swapping colors
-   within each pair. Check actual book usage, results, king placement, losses,
-   and retreats.
-2. Review unstable and uncovered responses only when validation identifies a
-   concrete need; keep the initial `8c8d` branch and `7c7d` structure outside
-   this first book.
-3. Revisit the 25 cp preference only after the book comparison provides a
-   concrete reason and a comparison plan.
+1. Recheck the frequent transposition after `7i7h 8c8d`, `7h6g`/`6i5h`, and
+   `3c3d` with unrestricted deeper MultiPV and the normal side's strongest
+   `7f7e` response. Compare `7b8c`, `2c2d`, and `4a5b` before any book update.
+2. If a small strength gain needs confirmation, compare dedicated-book on/off
+   with the same current engine build and normal side's standard book enabled.
+   Keep the initial `8c8d` branch and `7c7d` structure outside this book.
+3. Revisit Black-side book coverage and the 25 cp preference only after a
+   concrete comparison plan.
 4. Add formal repetition and perpetual-check adjudication while retaining the
    WCSC-compatible 256-ply draw limit.
 

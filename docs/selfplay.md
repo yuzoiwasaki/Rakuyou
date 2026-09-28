@@ -13,7 +13,7 @@ python3 tools/paired_selfplay.py --depth 5
 python3 tools/paired_selfplay.py \
   --depth 15 \
   --threads 1 \
-  --hash 128 \
+  --hash 512 \
   --shin-book off \
   --pairs 50
 ```
@@ -73,7 +73,7 @@ python3 tools/build_shin_book.py
 make release
 python3 test/test_shin_book.py
 python3 tools/paired_selfplay.py \
-  --depth 15 --threads 1 --hash 128 \
+  --depth 15 --threads 1 --hash 512 \
   --shin-book on \
   --shin-book-file books/shin-yonenaga-white-book.txt \
   --pairs 50
