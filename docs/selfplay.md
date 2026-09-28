@@ -86,6 +86,33 @@ python3 tools/paired_selfplay.py \
 再現した局面を照合します。対局JSONでは専用定跡手を `dedicated_book`、
 通常側の標準定跡手を `book` と記録します。
 
+第二版の試験用定跡は第一版に、▲７八銀 △８四歩後の▲６七銀と▲５八金左への
+△２四歩だけを追加します。深さ30では両局面で首位でしたが、深さ28とは順位が
+変わったため、棋力向上は未確認です。第一版の候補JSONと定跡ファイルは変更せず、
+追加候補は別ファイルに記録します。次のコマンドで11局面の試験用定跡を生成し、
+２局面で実際に`dedicated_book`として使われることを確認できます。
+
+```sh
+python3 tools/build_shin_book.py \
+  --extension books/shin-yonenaga-white-v2-experiment.json
+python3 test/test_shin_book.py
+```
+
+対局時は第一版と同じエンジン設定で、試験用定跡ファイルを明示します。
+
+```sh
+python3 tools/paired_selfplay.py \
+  --depth 15 --threads 1 --hash 512 \
+  --shin-book on \
+  --shin-book-file books/shin-yonenaga-white-book-v2-experiment.txt \
+  --pairs 50 \
+  --output results/shin-dedicated-v2-vs-normal-depth15-100games.json
+```
+
+得点率は後手番50局を第一版と比較し、追加した２局面への到達数と定跡手の
+使用数も確認します。第一版は`books/shin-yonenaga-white-book.txt`を指定して
+同じ条件で再実行できます。
+
 初版の終局判定は、エンジンの投了・入玉宣言と最大手数です。千日手などの厳密な
 ルール判定はまだ行いません。比較時は深さ、スレッド数、ハッシュを変えずに実行します。
 各局の `source_counts_by_player` を見ると、固定初手や定跡が実際に使われた回数を

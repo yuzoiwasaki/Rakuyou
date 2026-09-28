@@ -1,0 +1,35 @@
+{
+  "description": "Experimental second White book: add 24-pawn at the two frequent exits from v1",
+  "initial_position": "startpos",
+  "side": "white",
+  "entries": [
+    {
+      "id": "v2_after_67_silver",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "7i7h", "8c8d", "7h6g"],
+      "book_move": "2c2d",
+      "status": "experimental",
+      "evidence": {
+        "result": "results/first-white-book-post-exit-shin-depth30-multipv5-complete.json",
+        "position_id": "after_67_silver",
+        "depth": 30,
+        "multipv": 5,
+        "rank": 1,
+        "score_cp": -210
+      }
+    },
+    {
+      "id": "v2_after_58_gold",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "7i7h", "8c8d", "6i5h"],
+      "book_move": "2c2d",
+      "status": "experimental",
+      "evidence": {
+        "result": "results/first-white-book-post-exit-shin-depth30-multipv5-complete.json",
+        "position_id": "after_58_gold",
+        "depth": 30,
+        "multipv": 5,
+        "rank": 1,
+        "score_cp": -197
+      }
+    }
+  ]
+}
