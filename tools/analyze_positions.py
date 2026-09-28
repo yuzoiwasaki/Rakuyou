@@ -109,12 +109,17 @@ class Engine:
         self.send(go_command)
         latest = {}
         by_depth = {}
+        before_stop = None
         started = time.monotonic()
         deadline = started + timeout
         stopped_early = False
         while True:
             if (stop_after is not None and not stopped_early
                     and time.monotonic() - started >= stop_after):
+                before_stop = {
+                    current_depth: candidates.copy()
+                    for current_depth, candidates in by_depth.items()
+                }
                 self.send("stop")
                 stopped_early = True
             remaining = deadline - time.monotonic()
@@ -136,12 +141,12 @@ class Engine:
             elif line.startswith("bestmove "):
                 if stopped_early:
                     complete_depths = [
-                        current_depth for current_depth, candidates in by_depth.items()
+                        current_depth for current_depth, candidates in before_stop.items()
                         if all(rank in candidates for rank in range(1, multipv + 1))
                     ]
                     if not complete_depths:
                         raise RuntimeError("No complete MultiPV depth before stop")
-                    candidates = by_depth[max(complete_depths)]
+                    candidates = before_stop[max(complete_depths)]
                 else:
                     candidates = latest
                 return {

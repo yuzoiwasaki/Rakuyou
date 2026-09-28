@@ -193,20 +193,32 @@ behind `1c1d`. Normal-side direct replies after `1c1d` chose `9g9f` first;
 after `2c2d`, `3i2h` and `8h7g` were within 1 cp. White-side depth-28 checks
 then preferred `2c2d` after `1c1d 9g9f`, `2d2e` after `2c2d 3i2h`, and
 `1c1d` after `2c2d 8h7g`. Keep both `1c1d` and `2c2d` as candidates, and do
-not extend the dedicated book yet. A 900-second time-boxed depth-40 request
-reached complete MultiPV depth 30: `1c1d` remained first, `2c2d` second by
-20 cp, and `7b8c` third by 53 cp. It did not reach depth 40.
-`tools/analyze_positions.py` now supports `--stop-after` to save the last
-complete MultiPV depth in time-bounded searches.
+not extend the dedicated book yet. An earlier 900-second time-boxed depth-40
+request emitted provisional depth-30 values after `stop`; do not use those
+values as a completed depth-30 result. `tools/analyze_positions.py` now
+snapshots the last MultiPV depth present before sending `stop`, and the
+time-bounded output records `stopped_early`. Prefer searches that finish their
+requested depth when candidate scores are close.
+
+The same post-exit report now also covers the two frequent book exits. In
+completed unrestricted depth-30 MultiPV-5 runs, `2c2d` ranked first after
+both `7h6g` and `6i5h`, whereas depth 28 had ranked `1c1d` first at both.
+The normal side directly chose `7f7e` first after `7h6g 2c2d` and `8h7g`
+first after `6i5h 2c2d`. White-side depth-28 checks preferred `2d2e` after
+the former and tied `1c1d` / `7b8c` after the latter. Treat two `2c2d`
+entries as a small experimental second-book variant, not a proven best move.
+The first book remains unchanged. The time-boxed depth-32 output for these
+exits is provisional and excluded because the old tool saved post-stop values.
 
 ## Immediate Next Steps
 
-1. Keep the dedicated book unchanged while `1c1d` / `2c2d` remain the two
-   leading candidates at the frequent transposition. A full depth-40 run would
-   need a long unattended session; recheck normal-side replies if their order
-   changes. Keep `7b8c` out of the dedicated book unless new evidence supports
-   it. The direct `7a7b 5i4h 7c7d` route was checked against the normal
-   standard-book opponent and is not a main-entry candidate.
+1. Make a minimal experimental v2 with `2c2d` after the first book's
+   `7h6g` and `6i5h` exits, keeping v1 available as control. Validate that
+   both entries are actually used, then compare v2 and v1 against the same
+   normal standard-book opponent with paired colors and identical settings.
+   Review `7f7e` and `8h7g` continuations and score by White separately.
+   Keep the older common-transposition `7b8c` out of the book unless new
+   evidence supports it. The direct `7a7b 5i4h 7c7d` route is not a main entry.
 2. If a small strength gain needs confirmation, compare dedicated-book on/off
    with the same current engine build and normal side's standard book enabled.
    Keep the initial `8c8d` branch outside this book.

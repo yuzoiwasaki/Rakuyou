@@ -1,0 +1,15 @@
+{
+  "description": "White replies to the strongest normal moves after 24-pawn at the two book exits",
+  "positions": [
+    {
+      "id": "after_67_silver_24_pawn_75_pawn",
+      "description": "▲７八銀 △８四歩 ▲６七銀 △２四歩 ▲７五歩後の後手応手。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "7i7h", "8c8d", "7h6g", "2c2d", "7f7e"]
+    },
+    {
+      "id": "after_58_gold_24_pawn_77_bishop",
+      "description": "▲７八銀 △８四歩 ▲５八金左 △２四歩 ▲７七角後の後手応手。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "7i7h", "8c8d", "6i5h", "2c2d", "8h7g"]
+    }
+  ]
+}
