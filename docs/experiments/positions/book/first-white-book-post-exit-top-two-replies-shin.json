@@ -1,0 +1,20 @@
+{
+  "description": "White replies to the normal side's leading moves after the two top post-exit candidates",
+  "positions": [
+    {
+      "id": "after_common_14_pawn_96_pawn",
+      "description": "合流局面から△１四歩 ▲９六歩後の後手候補。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "7i7h", "8c8d", "7h6g", "3c3d", "6i5h", "1c1d", "9g9f"]
+    },
+    {
+      "id": "after_common_24_pawn_28_silver",
+      "description": "合流局面から△２四歩 ▲２八銀後の後手候補。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "7i7h", "8c8d", "7h6g", "3c3d", "6i5h", "2c2d", "3i2h"]
+    },
+    {
+      "id": "after_common_24_pawn_77_bishop",
+      "description": "合流局面から△２四歩 ▲７七角後の後手候補。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "7i7h", "8c8d", "7h6g", "3c3d", "6i5h", "2c2d", "8h7g"]
+    }
+  ]
+}

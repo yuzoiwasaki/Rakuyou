@@ -171,14 +171,32 @@ depth-28 comparison placed it 38 cp below `4a5b`. Normal-side depth-24 analysis
 chose `7f7e` against `7b8c`, an answer absent from depth-15 self-play. Treat
 this as a concrete branch to recheck, not proof of a move-level cause for losses.
 
+An unrestricted depth-28 MultiPV-5 recheck of that transposition is in
+`docs/experiments/2026-09-28-first-white-book-post-exit-depth28-30.md`.
+It ranked `1c1d` first at -201 and `2c2d` second at -207, with the frequent
+`7b8c` fourth at -283. The earlier three-move restricted search had ranked
+`4a5b` first among those three, but unrestricted search put it third and 70 cp
+behind `1c1d`. Normal-side direct replies after `1c1d` chose `9g9f` first;
+after `2c2d`, `3i2h` and `8h7g` were within 1 cp. White-side depth-28 checks
+then preferred `2c2d` after `1c1d 9g9f`, `2d2e` after `2c2d 3i2h`, and
+`1c1d` after `2c2d 8h7g`. Keep both `1c1d` and `2c2d` as candidates, and do
+not extend the dedicated book yet. A 900-second time-boxed depth-40 request
+reached complete MultiPV depth 30: `1c1d` remained first, `2c2d` second by
+20 cp, and `7b8c` third by 53 cp. It did not reach depth 40.
+`tools/analyze_positions.py` now supports `--stop-after` to save the last
+complete MultiPV depth in time-bounded searches.
+
 ## Immediate Next Steps
 
-1. Recheck the frequent transposition after `7i7h 8c8d`, `7h6g`/`6i5h`, and
-   `3c3d` with unrestricted deeper MultiPV and the normal side's strongest
-   `7f7e` response. Compare `7b8c`, `2c2d`, and `4a5b` before any book update.
+1. Keep the dedicated book unchanged while `1c1d` / `2c2d` remain the two
+   leading candidates at the frequent transposition. A full depth-40 run would
+   need a long unattended session; recheck normal-side replies if their order
+   changes. Keep `7b8c` out of the dedicated book unless new evidence supports
+   it. Next, test whether the original `7c7d` / `7b7c` structure is reachable
+   against the normal side's standard book as a separate candidate.
 2. If a small strength gain needs confirmation, compare dedicated-book on/off
    with the same current engine build and normal side's standard book enabled.
-   Keep the initial `8c8d` branch and `7c7d` structure outside this book.
+   Keep the initial `8c8d` branch outside this book.
 3. Revisit Black-side book coverage and the 25 cp preference only after a
    concrete comparison plan.
 4. Add formal repetition and perpetual-check adjudication while retaining the
