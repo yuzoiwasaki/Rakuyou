@@ -96,7 +96,8 @@ class Engine:
             if line.startswith(prefix):
                 return line
 
-    def analyze(self, moves, depth, timeout, searchmoves=None):
+    def analyze(self, moves, depth, timeout, searchmoves=None, stop_after=None,
+                multipv=1):
         self.send("usinewgame")
         position = "position startpos"
         if moves:
@@ -107,9 +108,15 @@ class Engine:
             go_command += " searchmoves " + " ".join(searchmoves)
         self.send(go_command)
         latest = {}
+        by_depth = {}
         started = time.monotonic()
         deadline = started + timeout
+        stopped_early = False
         while True:
+            if (stop_after is not None and not stopped_early
+                    and time.monotonic() - started >= stop_after):
+                self.send("stop")
+                stopped_early = True
             remaining = deadline - time.monotonic()
             if remaining <= 0:
                 if self.process.poll() is None:
@@ -125,11 +132,23 @@ class Engine:
                 info = parse_info(line)
                 if info:
                     latest[info["multipv"]] = info
+                    by_depth.setdefault(info["depth"], {})[info["multipv"]] = info
             elif line.startswith("bestmove "):
+                if stopped_early:
+                    complete_depths = [
+                        current_depth for current_depth, candidates in by_depth.items()
+                        if all(rank in candidates for rank in range(1, multipv + 1))
+                    ]
+                    if not complete_depths:
+                        raise RuntimeError("No complete MultiPV depth before stop")
+                    candidates = by_depth[max(complete_depths)]
+                else:
+                    candidates = latest
                 return {
                     "bestmove": line.split()[1],
                     "elapsed_seconds": round(time.monotonic() - started, 3),
-                    "candidates": [latest[key] for key in sorted(latest)],
+                    "stopped_early": stopped_early,
+                    "candidates": [candidates[key] for key in sorted(candidates)],
                 }
 
     def close(self):
@@ -158,6 +177,8 @@ def parse_args():
     parser.add_argument("--threads", type=int, default=1)
     parser.add_argument("--hash", type=int, default=512, dest="hash_mb")
     parser.add_argument("--timeout", type=int, default=600)
+    parser.add_argument("--stop-after", type=int,
+                        help="stop a long search after this many seconds and save its last complete MultiPV depth")
     parser.add_argument("--shin-yonenaga-gyoku", choices=("on", "off"), default="on",
                         help="enable or disable the ShinYonenagaGyoku evaluation")
     parser.add_argument("--output", type=Path, required=True)
@@ -170,6 +191,8 @@ def main():
         raise SystemExit(f"Engine not found: {args.engine}")
     if min(args.depth, args.multipv, args.threads, args.hash_mb, args.timeout) < 1:
         raise SystemExit("numeric options must be positive")
+    if args.stop_after is not None and not 0 < args.stop_after < args.timeout:
+        raise SystemExit("--stop-after must be positive and less than --timeout")
     source = json.loads(args.positions.read_text(encoding="utf-8"))
     positions = source.get("positions", [])
     if not positions:
@@ -187,6 +210,7 @@ def main():
             "threads": args.threads,
             "hash_mb": args.hash_mb,
             "timeout_seconds": args.timeout,
+            "stop_after_seconds": args.stop_after,
             "ShinYonenagaGyoku": shin_yonenaga_gyoku,
             "OwnBook": False,
             "Ponder": False,
@@ -206,7 +230,7 @@ def main():
             try:
                 result = engine.analyze(
                     position.get("moves", []), args.depth, args.timeout,
-                    position.get("searchmoves"),
+                    position.get("searchmoves"), args.stop_after, args.multipv,
                 )
                 document["positions"].append({**position, "analysis": result})
                 save(document, args.output)
