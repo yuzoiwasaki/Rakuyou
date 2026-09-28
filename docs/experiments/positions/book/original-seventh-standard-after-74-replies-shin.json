@@ -1,0 +1,15 @@
+{
+  "description": "White responses after the two leading normal replies to early 74-pawn",
+  "positions": [
+    {
+      "id": "after_74_pawn_38_silver",
+      "description": "▲７六歩 △６二玉 ▲６八飛 △７二銀 ▲４八玉 △７四歩 ▲３八銀後。△７三銀を確認する。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "5i4h", "7c7d", "3i3h"]
+    },
+    {
+      "id": "after_74_pawn_38_king",
+      "description": "▲７六歩 △６二玉 ▲６八飛 △７二銀 ▲４八玉 △７四歩 ▲３八玉後。△７三銀を確認する。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "5i4h", "7c7d", "4h3h"]
+    }
+  ]
+}

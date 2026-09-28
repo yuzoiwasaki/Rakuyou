@@ -1,0 +1,10 @@
+{
+  "description": "Normal-side search replies after early 74-pawn makes it leave the standard book",
+  "positions": [
+    {
+      "id": "after_72_silver_48_king_74_pawn",
+      "description": "▲７六歩 △６二玉 ▲６八飛 △７二銀 ▲４八玉 △７四歩後。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "5i4h", "7c7d"]
+    }
+  ]
+}

@@ -131,6 +131,19 @@ position, however, `8b7b` immediately after Sente's `7f7e` was the clear best
 move at -136, 24 cp above the next candidate. Treat the rook shift as a timed
 counterattack against `7f7e`, not as an automatic part of the setup.
 
+The standard-book reachability recheck is in
+`docs/experiments/2026-09-28-original-seventh-standard-book-recheck.md`.
+After `7g7f 5a6b 2h6h 7a7b`, the normal side chose `5i4h` from `book.bin`
+in all 12 earlier self-play occurrences and all 10 direct probes. If White
+then forces `7c7d`, the normal side leaves its book. At the `5i4h` position,
+unrestricted depth-28 MultiPV-16 ranked `7c7d` eighth, 48 cp behind `3a4b`.
+Normal-side depth-24 search after `7c7d` put `3i3h` and `4h3h` within 2 cp.
+White-side depth-28 search ranked `7b7c` first after `4h3h`, but second and
+29 cp behind `6b5b` after `3i3h`. Earlier 2W/1L games with the early seventh-
+file structure used different move orders. Keep it as a situational side
+branch, not a new main entry or a claimed strength gain; the dedicated book
+remains unchanged.
+
 The first dedicated White book candidate is the historical `5c5d` line in
 `books/shin-yonenaga-white-candidates.json`, documented in
 `docs/experiments/2026-09-27-first-white-book-candidates.md`. Its reviewed
@@ -192,8 +205,8 @@ complete MultiPV depth in time-bounded searches.
    leading candidates at the frequent transposition. A full depth-40 run would
    need a long unattended session; recheck normal-side replies if their order
    changes. Keep `7b8c` out of the dedicated book unless new evidence supports
-   it. Next, test whether the original `7c7d` / `7b7c` structure is reachable
-   against the normal side's standard book as a separate candidate.
+   it. The direct `7a7b 5i4h 7c7d` route was checked against the normal
+   standard-book opponent and is not a main-entry candidate.
 2. If a small strength gain needs confirmation, compare dedicated-book on/off
    with the same current engine build and normal side's standard book enabled.
    Keep the initial `8c8d` branch outside this book.

@@ -1,0 +1,10 @@
+{
+  "description": "White candidate moves after the normal standard book chooses 48-king against early 72-silver",
+  "positions": [
+    {
+      "id": "after_72_silver_48_king",
+      "description": "▲７六歩 △６二玉 ▲６八飛 △７二銀 ▲４八玉後。△７四歩の順位を確認する。",
+      "moves": ["7g7f", "5a6b", "2h6h", "7a7b", "5i4h"]
+    }
+  ]
+}

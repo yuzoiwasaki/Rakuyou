@@ -26,6 +26,7 @@ Rakuyouの自己対局と序盤解析の記録です。
 ## オリジナル系
 
 - [オリジナル7筋構想](2026-09-27-original-seventh-file-analysis.md)
+- [△７四歩～△７三銀案の標準定跡到達性](2026-09-28-original-seventh-standard-book-recheck.md)
 
 ## データの置き場所
 
