@@ -126,7 +126,10 @@ python3 tools/analyze_positions.py \
 深い探索の負荷を測るときは`--depth 40 --stop-after 900 --timeout 960`のように
 指定できます。時間で停止した場合は、停止指示を送る**前**に全候補がそろっていた
 最後の深さのMultiPVを保存し、結果の`stopped_early`を`true`にします。到達深さを確認してから
-候補の順位を解釈してください。
+候補の順位を解釈してください。`candidate_bestmove`は保存した候補表の１位の手、
+`bestmove`はエンジンが返したUSIの`bestmove`です。時間停止時は後者が停止後の
+探索を反映し、二つの手が異なる場合があります。候補表の評価値と対応するのは
+`candidate_bestmove`です。
 
 通常側の主要応手を選ぶ場合は、新米長玉の評価補正を無効にします。
 

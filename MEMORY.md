@@ -197,7 +197,9 @@ not extend the dedicated book yet. An earlier 900-second time-boxed depth-40
 request emitted provisional depth-30 values after `stop`; do not use those
 values as a completed depth-30 result. `tools/analyze_positions.py` now
 snapshots the last MultiPV depth present before sending `stop`, and the
-time-bounded output records `stopped_early`. Prefer searches that finish their
+time-bounded output records `stopped_early`. The `candidate_bestmove` field
+comes from the saved rank-one PV; `bestmove` is the engine's later USI reply
+and may differ after a timed stop. Prefer searches that finish their
 requested depth when candidate scores are close.
 
 The same post-exit report now also covers the two frequent book exits. In

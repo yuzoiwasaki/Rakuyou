@@ -149,8 +149,13 @@ class Engine:
                     candidates = before_stop[max(complete_depths)]
                 else:
                     candidates = latest
+                first_candidate = candidates.get(1)
                 return {
                     "bestmove": line.split()[1],
+                    "candidate_bestmove": (
+                        first_candidate["pv"][0]
+                        if first_candidate and first_candidate["pv"] else None
+                    ),
                     "elapsed_seconds": round(time.monotonic() - started, 3),
                     "stopped_early": stopped_early,
                     "candidates": [candidates[key] for key in sorted(candidates)],
