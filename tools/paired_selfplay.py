@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run paired games between Shin-Yonenaga-Gyoku and normal Rakuyou."""
+"""Run Shin-Yonenaga-Gyoku against normal Rakuyou with paired or fixed colors."""
 
 import argparse
 import json
@@ -196,11 +196,11 @@ def play_game(engines, black_name, white_name, depth, max_plies, timeout):
     }
 
 
-def summarize(games):
+def summarize(games, shin_side="both"):
     players = ("shin_yonenaga", "normal")
     summary = {
         "games_completed": len(games),
-        "pairs_completed": len(games) // 2,
+        "pairs_completed": len(games) // 2 if shin_side == "both" else None,
         "average_plies": 0.0,
         "reasons": {},
         "players": {},
@@ -251,7 +251,8 @@ def summarize(games):
 
 def save_document(document, output):
     document["updated_at"] = datetime.now().astimezone().isoformat(timespec="seconds")
-    document["summary"] = summarize(document["games"])
+    document["summary"] = summarize(
+        document["games"], document["settings"].get("shin_side", "both"))
     document["summary"]["errors"] = len(document.get("errors", []))
     output.parent.mkdir(parents=True, exist_ok=True)
     temporary = output.with_suffix(output.suffix + ".tmp")
@@ -272,7 +273,7 @@ def format_duration(seconds):
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="新米長玉と通常のRakuyouを先後交代で2局対戦させます。")
+        description="新米長玉と通常のRakuyouを先後交代または先後固定で対戦させます。")
     parser.add_argument("--engine", type=Path, default=Path("bin/release"))
     parser.add_argument("--depth", type=int, default=5)
     parser.add_argument("--threads", type=int, default=1)
@@ -288,7 +289,11 @@ def parse_args():
     parser.add_argument("--timeout", type=int, default=300,
                         help="1手の応答を待つ最大秒数")
     parser.add_argument("--pairs", type=int,
-                        help="対局組数（1組は先後を交換した2局、既定値1）")
+                        help="先後交代時の対局組数（1組2局、既定値1）")
+    parser.add_argument("--shin-side", choices=("both", "black", "white"),
+                        help="新米長玉の手番（既定値both＝先後交代）")
+    parser.add_argument("--games", type=int,
+                        help="先後固定時の対局数（既定値1）")
     parser.add_argument("--output", type=Path)
     parser.add_argument("--resume", type=Path,
                         help="保存済みJSONの条件と結果を読み込んで再開する")
@@ -306,8 +311,21 @@ def main():
             raise SystemExit(f"Resume file not found: {output}")
         document = json.loads(output.read_text())
         settings = document["settings"]
-        requested_pairs = args.pairs or document["requested_pairs"]
-        document["requested_pairs"] = requested_pairs
+        shin_side = settings.get("shin_side", "both")
+        if args.shin_side is not None and args.shin_side != shin_side:
+            raise SystemExit("--shin-side does not match the saved run")
+        if shin_side == "both":
+            if args.games is not None:
+                raise SystemExit("--games requires a fixed --shin-side")
+            requested_pairs = args.pairs if args.pairs is not None else document["requested_pairs"]
+            document["requested_pairs"] = requested_pairs
+            total_games = requested_pairs * 2
+        else:
+            if args.pairs is not None:
+                raise SystemExit("--pairs requires --shin-side both")
+            requested_games = args.games if args.games is not None else document["requested_games"]
+            document["requested_games"] = requested_games
+            total_games = requested_games
         engine_path = Path(settings["engine"])
         depth = settings["depth"]
         threads = settings["threads_per_engine"]
@@ -321,7 +339,17 @@ def main():
         timeout = settings.get("timeout_seconds", 300)
         shin_book = settings["players"]["shin_yonenaga"]["OwnBook"]
     else:
-        requested_pairs = args.pairs or 1
+        shin_side = args.shin_side or "both"
+        if shin_side == "both":
+            if args.games is not None:
+                raise SystemExit("--games requires a fixed --shin-side")
+            requested_pairs = args.pairs if args.pairs is not None else 1
+            total_games = requested_pairs * 2
+        else:
+            if args.pairs is not None:
+                raise SystemExit("--pairs requires --shin-side both")
+            requested_games = args.games if args.games is not None else 1
+            total_games = requested_games
         engine_path = args.engine.resolve()
         depth = args.depth
         threads = args.threads
@@ -347,6 +375,7 @@ def main():
             "book_max_ply": book_max_ply,
             "max_plies": max_plies,
             "timeout_seconds": timeout,
+            "shin_side": shin_side,
             "players": {
                 "shin_yonenaga": {
                     "ShinYonenagaGyoku": True,
@@ -362,17 +391,20 @@ def main():
         document = {
             "created_at": timestamp,
             "updated_at": timestamp,
-            "requested_pairs": requested_pairs,
             "settings": settings,
             "games": [],
             "errors": [],
-            "summary": summarize([]),
+            "summary": summarize([], shin_side),
         }
+        if shin_side == "both":
+            document["requested_pairs"] = requested_pairs
+        else:
+            document["requested_games"] = requested_games
 
     if not engine_path.is_file():
         raise SystemExit(f"Engine not found: {engine_path}")
     if (depth < 1 or threads < 1 or hash_mb < 1 or max_plies < 1
-            or book_max_ply < 0 or timeout < 1 or requested_pairs < 1):
+            or book_max_ply < 0 or timeout < 1 or total_games < 1):
         raise SystemExit("numeric options are outside their supported range")
     if book_file is not None and not book_file.is_file():
         raise SystemExit(f"Book not found: {book_file}")
@@ -380,9 +412,8 @@ def main():
         raise SystemExit(f"Shin book not found: {shin_book_file}")
     if shin_book_file is not None and not shin_book:
         raise SystemExit("--shin-book-file requires --shin-book on")
-    total_games = requested_pairs * 2
     if len(document["games"]) > total_games:
-        raise SystemExit("requested pairs are fewer than the games already saved")
+        raise SystemExit("requested games are fewer than the games already saved")
 
     save_document(document, output)
     print(f"Results: {output}", flush=True)
@@ -399,33 +430,43 @@ def main():
         engines["normal"] = UsiEngine(
             engine_path, False, True, threads, hash_mb,
             book_file, book_max_ply)
-        pairings = [("shin_yonenaga", "normal"), ("normal", "shin_yonenaga")]
         try:
             while len(document["games"]) < total_games:
                 number = len(document["games"]) + 1
-                pair_number = (number - 1) // 2 + 1
-                game_in_pair = (number - 1) % 2 + 1
-                black, white = pairings[game_in_pair - 1]
-                print(f"Game {number}/{total_games} (pair {pair_number}/{requested_pairs}): "
-                      f"black={black}, white={white}", flush=True)
+                if shin_side == "both":
+                    pair_number = (number - 1) // 2 + 1
+                    game_in_pair = (number - 1) % 2 + 1
+                    black, white = (("shin_yonenaga", "normal") if game_in_pair == 1
+                                    else ("normal", "shin_yonenaga"))
+                    label = f"Game {number}/{total_games} (pair {pair_number}/{requested_pairs})"
+                else:
+                    black, white = (("shin_yonenaga", "normal") if shin_side == "black"
+                                    else ("normal", "shin_yonenaga"))
+                    label = f"Game {number}/{total_games}"
+                print(f"{label}: black={black}, white={white}", flush=True)
                 try:
                     game = play_game(engines, black, white, depth, max_plies, timeout)
                 except Exception as error:
-                    document.setdefault("errors", []).append({
+                    failure = {
                         "occurred_at": datetime.now().astimezone().isoformat(timespec="seconds"),
                         "game": number,
-                        "pair": pair_number,
-                        "game_in_pair": game_in_pair,
                         "black": black,
                         "white": white,
                         "type": type(error).__name__,
                         "message": str(error),
-                    })
+                    }
+                    if shin_side == "both":
+                        failure["pair"] = pair_number
+                        failure["game_in_pair"] = game_in_pair
+                    document.setdefault("errors", []).append(failure)
                     save_document(document, output)
                     print(f"  error saved: {type(error).__name__}: {error}", flush=True)
                     raise
-                game["pair"] = pair_number
-                game["game_in_pair"] = game_in_pair
+                if shin_side == "both":
+                    game["pair"] = pair_number
+                    game["game_in_pair"] = game_in_pair
+                else:
+                    game["game_number"] = number
                 document["games"].append(game)
                 save_document(document, output)
 

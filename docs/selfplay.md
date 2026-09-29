@@ -1,7 +1,8 @@
 # 新米長玉と通常のRakuyouの比較対局
 
 `tools/paired_selfplay.py` はRakuyouを2つ起動し、新米長玉をオンにした側と
-オフにした通常側を対戦させます。1組ごとに先後を交代します。将棋所は使いません。
+オフにした通常側を対戦させます。既定では1組ごとに先後を交代します。
+`--shin-side black|white` で新米長玉の手番を固定できます。将棋所は使いません。
 
 ```sh
 python3 tools/paired_selfplay.py --depth 5
@@ -16,6 +17,19 @@ python3 tools/paired_selfplay.py \
   --hash 512 \
   --shin-book off \
   --pairs 50
+```
+
+後手専用定跡を後手100局で検証するときは、`--pairs` の代わりに `--games` を
+指定します。`black` は新米長玉が先手、`white` は後手です。通常側はどちらの
+手番でも標準定跡を使います。
+
+```sh
+python3 tools/paired_selfplay.py \
+  --depth 15 --threads 1 --hash 512 \
+  --shin-book on \
+  --shin-book-file books/shin-yonenaga-white-book.txt \
+  --shin-side white --games 100 \
+  --output results/shin-v1-white-only-depth15-100games.json
 ```
 
 既定値では各エンジンを1スレッド、ハッシュ128 MBで動かし、結果を
@@ -38,6 +52,12 @@ python3 tools/paired_selfplay.py \
   --resume results/shin-book-off-vs-normal-日時.json \
   --pairs 200
 ```
+
+先後固定の結果も `--resume` で再開でき、`--games` で目標局数を増やせます。
+再開時は保存済みの手番設定を使用します。先後交代のJSONには `requested_pairs`、
+固定のJSONには `requested_games` と `settings.shin_side` を保存します。
+固定対局の各局には `game_number` を記録し、`summary.pairs_completed` は
+`null` です。古い先後交代JSONも引き続き再開できます。
 
 JSONの `summary` には勝敗、スコア率、先後別成績、平均手数、終局理由、
 指し手の取得元が集計されます。実行中は経過時間と推定残り時間を表示します。

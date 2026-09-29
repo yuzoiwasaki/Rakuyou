@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Summarize Rakuyou paired self-play opening data as Markdown."""
+"""Summarize Rakuyou self-play opening data as Markdown."""
 
 import argparse
 import json
@@ -34,7 +34,9 @@ def result_name(score):
 
 
 def game_id(dataset, game):
-    return f"{dataset}: pair {game['pair']} / game {game['game_in_pair']}"
+    if "pair" in game:
+        return f"{dataset}: pair {game['pair']} / game {game['game_in_pair']}"
+    return f"{dataset}: game {game['game_number']}"
 
 
 def format_rate(scores):

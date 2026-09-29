@@ -34,8 +34,9 @@ Use Git history for completed work and chronology.
 - Treat 25 cp as an experimental value to revisit after controlled games.
 - Compare against normal Rakuyou with its standard book enabled.
 - Test the 新米長玉 side with its standard book both disabled and enabled.
-- Swap colors within each pair and keep depth, threads, hash, and book settings
-  equal between comparison runs.
+- Use color-swapped pairs for broad comparisons, and fixed-color games when
+  measuring a book that only applies to one side. Keep depth, threads, hash,
+  and book settings equal between comparison runs.
 - Judge the experiment using playing strength and whether the intended king
   placement persists. Review losses and necessary retreats, not only wins.
 - Prefer small, observable experiments before larger evaluation or architecture
@@ -46,13 +47,15 @@ Use Git history for completed work and chronology.
 ## Self-Play Tool
 
 - `tools/paired_selfplay.py` runs two Rakuyou processes without Shogidokoro:
-  新米長玉 versus normal Rakuyou, with colors swapped once per pair.
+  新米長玉 versus normal Rakuyou. It swaps colors once per pair by default;
+  `--shin-side black|white --games N` fixes Shin's color for targeted tests.
 - The normal side always uses the standard book. `--shin-book off|on` controls
   book use only for the 新米長玉 side. `--shin-book-file` selects its dedicated
   position book independently of the normal side. Ponder is disabled.
 - The runner saves JSON after every completed game. It records results, moves,
   move sources, scores, principal variations, aggregate statistics, errors, and
-  timing. `--resume` continues a partial run.
+  timing. `--resume` continues both paired and fixed-color runs, including
+  pre-existing paired JSON without a `shin_side` setting.
 - See `docs/selfplay.md` for complete usage.
 
 ## Current Experiment
