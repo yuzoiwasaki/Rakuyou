@@ -25,6 +25,7 @@ Rakuyouの自己対局と序盤解析の記録です。
 - [第一版専用定跡・定跡出口の勝敗と候補手](2026-09-28-first-white-book-post-exit-analysis.md)
 - [第一版専用定跡・頻出合流局面の全候補再解析](2026-09-28-first-white-book-post-exit-depth28-30.md)
 - [第二版専用定跡・頻出出口の勝敗と直接解析](2026-09-29-shin-dedicated-white-book-v2-post-exit-followup.md)
+- [第二版専用定跡・２試行の分岐整理と重点局面解析](2026-09-29-shin-dedicated-white-book-v2-two-run-branch-review.md)
 
 ## オリジナル系
 

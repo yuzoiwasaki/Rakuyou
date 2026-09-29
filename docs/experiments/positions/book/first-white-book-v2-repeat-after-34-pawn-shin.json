@@ -1,0 +1,20 @@
+{
+  "description": "Frequent normal-side search replies after the v2 transposition and White's searched 34-pawn move across two 100-game runs",
+  "positions": [
+    {
+      "id": "v2_repeat_after_34_pawn_46_pawn",
+      "description": "▲６七銀 △２四歩 ▲５八金左 △３四歩 ▲４六歩後。２試行の合計で14局。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "7i7h", "8c8d", "7h6g", "2c2d", "6i5h", "3c3d", "4g4f"]
+    },
+    {
+      "id": "v2_repeat_after_34_pawn_56_silver",
+      "description": "▲６七銀 △２四歩 ▲５八金左 △３四歩 ▲５六銀後。２試行の合計で７局。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "7i7h", "8c8d", "7h6g", "2c2d", "6i5h", "3c3d", "6g5f"]
+    },
+    {
+      "id": "v2_repeat_after_34_pawn_77_bishop",
+      "description": "▲６七銀 △２四歩 ▲５八金左 △３四歩 ▲７七角後。２試行の合計で５局。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "7i7h", "8c8d", "7h6g", "2c2d", "6i5h", "3c3d", "8h7g"]
+    }
+  ]
+}

@@ -233,21 +233,27 @@ run's 46.0% White score did not reproduce. The frequent transposition after
 included more `6g5f` and `8h7g`. Do not attribute the score change to one book
 move or to the Mac's clamshell sleep. Treat v2 strength as unconfirmed.
 
+The two v2 runs were combined for a focused White-side branch review in
+`docs/experiments/2026-09-29-shin-dedicated-white-book-v2-two-run-branch-review.md`.
+Across 100 White games, Shin scored 30/53/17 (38.5%). The frequent
+post-`2c2d` transposition appeared 41 times. Completed depth-30 MultiPV
+rechecks of its two parent positions both ranked searched `3c3d` first.
+After `3c3d 4g4f`, completed depth-28 ranked the frequent `7b8c` first.
+After `3c3d 6g5f`, depth 28 ranked `3d3e` first but depth 30 reversed to
+`4c4d`; after `3c3d 8h7g`, depth 28 ranked `1c1d` first but depth 30
+reversed to `7c7d`. These are unstable rankings, not proven new book moves.
+Keep v2 unchanged and raw analysis JSON ignored under `results/`.
+
 ## Immediate Next Steps
 
-1. Keep v2 unchanged. The frequent post-exit positions and strong opponent
-   replies were rechecked at depth 24/28; candidate moves remain close, so no
-   v3 entry is established. The 100-game v2 repeat did not reproduce the first
-   run's White-side improvement. See
-   `docs/experiments/2026-09-29-shin-dedicated-white-book-v2-post-exit-followup.md`
-   and the ignored detailed review in
-   `results/shin-dedicated-v2-win-loss-branch-review.md`. If stronger attribution
-   is needed, rerun v1 on the current engine with the same opponent and settings.
-   If developing v3, inspect the repeated losses after `3c3d 6g5f` and
-   `3c3d 8h7g`, then recheck the two parent positions at depth 30 before fixing
-   another move.
-   Keep the older common-transposition `7b8c` out of the book unless new
-   evidence supports it. The direct `7a7b 5i4h 7c7d` route is not a main entry.
+1. Keep v2 unchanged. The two v2 runs and focused depth-24/28/30 analyses did
+   not establish a stable v3 entry. The first run's White-side improvement did
+   not reproduce, and two attractive depth-28 continuations reversed at depth
+   30. For a meaningful strength comparison, rerun v1 on the current engine
+   against the same book-enabled normal side and settings. Treat later-position
+   `7c7d` after `3c3d 8h7g` as an unconfirmed candidate, not a revival of the
+   earlier `7a7b 5i4h 7c7d` route. Keep the older common-transposition `7b8c`
+   out of the book unless new evidence supports it.
 2. If a small strength gain needs confirmation, compare dedicated-book on/off
    with the same current engine build and normal side's standard book enabled.
    Keep the initial `8c8d` branch outside this book.

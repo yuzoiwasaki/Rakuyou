@@ -1,0 +1,15 @@
+{
+  "description": "Normal-side direct replies to the depth-28 leading 35-pawn and 14-pawn candidates after frequent v2 replies",
+  "positions": [
+    {
+      "id": "v2_repeat_after_56_silver_35_pawn",
+      "description": "▲６七銀 △２四歩 ▲５八金左 △３四歩 ▲５六銀 △３五歩後の通常側。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "7i7h", "8c8d", "7h6g", "2c2d", "6i5h", "3c3d", "6g5f", "3d3e"]
+    },
+    {
+      "id": "v2_repeat_after_77_bishop_14_pawn",
+      "description": "▲６七銀 △２四歩 ▲５八金左 △３四歩 ▲７七角 △１四歩後の通常側。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "7i7h", "8c8d", "7h6g", "2c2d", "6i5h", "3c3d", "8h7g", "1c1d"]
+    }
+  ]
+}
