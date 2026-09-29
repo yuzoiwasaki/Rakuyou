@@ -244,13 +244,24 @@ After `3c3d 6g5f`, depth 28 ranked `3d3e` first but depth 30 reversed to
 reversed to `7c7d`. These are unstable rankings, not proven new book moves.
 Keep v2 unchanged and raw analysis JSON ignored under `results/`.
 
+An unchanged v1 repeat also finished 50 pairs / 100 games without errors; see
+`docs/experiments/2026-09-29-shin-dedicated-white-book-v1-repeat-vs-normal-depth15.md`.
+As White, Shin scored 18/29/3 (39.0%), versus the first v1 run's 13/30/7
+(33.0%); as Black, it scored 13/26/11 (37.0%). All 50 White games used the
+dedicated book. Across both runs, v1 White scored 31/59/10 (36.0%), while v2
+scored 30/53/17 (38.5%). The 2.5-point difference does not establish a better
+book. In the main v1 branch, searched `7h6g` scored about 30% in both runs,
+while searched `6i5h` varied from 29.4% to 64.7% with 17 games each time.
+Keep both book versions unchanged pending a deliberate comparison decision.
+
 ## Immediate Next Steps
 
-1. Keep v2 unchanged. The two v2 runs and focused depth-24/28/30 analyses did
-   not establish a stable v3 entry. The first run's White-side improvement did
-   not reproduce, and two attractive depth-28 continuations reversed at depth
-   30. For a meaningful strength comparison, rerun v1 on the current engine
-   against the same book-enabled normal side and settings. Treat later-position
+1. Keep v1 and v2 unchanged. The first v1 repeat scored 39.0% as White; the
+   combined White scores are 36.0% for v1 and 38.5% for v2, too close and
+   variable across runs to settle a provisional book. The focused depth-24/28/30
+   analyses did not establish a stable v3 entry. Consider a current-engine
+   no-book repeat and/or fixed-White games before choosing the provisional
+   White book. Treat later-position
    `7c7d` after `3c3d 8h7g` as an unconfirmed candidate, not a revival of the
    earlier `7a7b 5i4h 7c7d` route. Keep the older common-transposition `7b8c`
    out of the book unless new evidence supports it.
