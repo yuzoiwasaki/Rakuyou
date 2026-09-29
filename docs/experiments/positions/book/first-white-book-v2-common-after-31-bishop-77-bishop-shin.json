@@ -1,0 +1,10 @@
+{
+  "description": "White direct response to the normal side's stronger 77-bishop reply after 25-pawn, 75-pawn, 31-bishop",
+  "positions": [
+    {
+      "id": "common_after_25_pawn_75_pawn_31_bishop_77_bishop",
+      "description": "▲６七銀 △２四歩 ▲５八金左 △２五歩 ▲７五歩 △３一角 ▲７七角後の後手応手。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "7i7h", "8c8d", "7h6g", "2c2d", "6i5h", "2d2e", "7f7e", "2b3a", "8h7g"]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "description": "White responses after the tied normal-side 36-pawn and 77-bishop replies to 25-pawn in the v2 46-pawn branch",
+  "positions": [
+    {
+      "id": "after_46_pawn_25_pawn_36_pawn",
+      "description": "▲５八金左 △２四歩 ▲４六歩 △２五歩 ▲３六歩後の後手応手。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "7i7h", "8c8d", "6i5h", "2c2d", "4g4f", "2d2e", "3g3f"]
+    },
+    {
+      "id": "after_46_pawn_25_pawn_77_bishop",
+      "description": "▲５八金左 △２四歩 ▲４六歩 △２五歩 ▲７七角後の後手応手。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "7i7h", "8c8d", "6i5h", "2c2d", "4g4f", "2d2e", "8h7g"]
+    }
+  ]
+}

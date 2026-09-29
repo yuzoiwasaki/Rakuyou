@@ -226,11 +226,15 @@ exits is provisional and excluded because the old tool saved post-stop values.
 
 ## Immediate Next Steps
 
-1. Keep v2 as a provisional trial. Before adding another book branch, review
-   actual wins and losses after `7h6g 2c2d 6i5h` (15 White games) and
-   `6i5h 2c2d 4g4f` (9 White games). If a stronger attribution is needed,
-   rerun v1 on the current engine with the same opponent and settings. Do not
-   treat the separate-run 13-point score-rate gain as proof of book benefit.
+1. Keep v2 unchanged. The frequent post-exit positions and strong opponent
+   replies were rechecked at depth 24/28; candidate moves remain close, so no
+   v3 entry is established. See
+   `docs/experiments/2026-09-29-shin-dedicated-white-book-v2-post-exit-followup.md`
+   and the ignored detailed review in
+   `results/shin-dedicated-v2-win-loss-branch-review.md`. If stronger attribution
+   of the separate-run 13-point score-rate gain is needed, rerun v1 on the
+   current engine with the same opponent and settings. If developing v3,
+   recheck the two parent positions at depth 30 before fixing another move.
    Keep the older common-transposition `7b8c` out of the book unless new
    evidence supports it. The direct `7a7b 5i4h 7c7d` route is not a main entry.
 2. If a small strength gain needs confirmation, compare dedicated-book on/off

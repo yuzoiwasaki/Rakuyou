@@ -1,0 +1,25 @@
+{
+  "description": "Normal-side replies to the leading White continuations after the 75-pawn attack in the common v2 line",
+  "positions": [
+    {
+      "id": "after_25_pawn_75_pawn_31_bishop",
+      "description": "▲６七銀 △２四歩 ▲５八金左 △２五歩 ▲７五歩 △３一角後の先手応手。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "7i7h", "8c8d", "7h6g", "2c2d", "6i5h", "2d2e", "7f7e", "2b3a"]
+    },
+    {
+      "id": "after_34_pawn_75_pawn_14_pawn",
+      "description": "▲６七銀 △２四歩 ▲５八金左 △３四歩 ▲７五歩 △１四歩後の先手応手。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "7i7h", "8c8d", "7h6g", "2c2d", "6i5h", "3c3d", "7f7e", "1c1d"]
+    },
+    {
+      "id": "after_34_pawn_75_pawn_25_pawn",
+      "description": "▲６七銀 △２四歩 ▲５八金左 △３四歩 ▲７五歩 △２五歩後の先手応手。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "7i7h", "8c8d", "7h6g", "2c2d", "6i5h", "3c3d", "7f7e", "2d2e"]
+    },
+    {
+      "id": "after_34_pawn_75_pawn_83_silver",
+      "description": "▲６七銀 △２四歩 ▲５八金左 △３四歩 ▲７五歩 △８三銀後の先手応手。",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "7i7h", "8c8d", "7h6g", "2c2d", "6i5h", "3c3d", "7f7e", "7b8c"]
+    }
+  ]
+}
