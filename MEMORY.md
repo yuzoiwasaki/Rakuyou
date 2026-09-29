@@ -218,23 +218,34 @@ validation finished without errors; see
 `docs/experiments/2026-09-28-shin-dedicated-white-book-v2-vs-normal-depth15.md`.
 As White, Shin scored 18 wins, 22 losses, and 10 draws (46.0%), versus v1's
 13/30/7 (33.0%). All 34 reached v2 exits used `2c2d` from the dedicated
-book: 21 after `7h6g` and 13 after `6i5h`. This is a promising separate-run
+book: 21 after `7h6g` and 13 after `6i5h`. This was an encouraging separate-run
 result, not a causal proof. The normal side's frequent search replies after
 `2c2d` were `6i5h` and `4g4f`; neither direct depth-28 leader `7f7e` nor
 `8h7g` appeared in these depth-15 games. The time-boxed depth-32 output for these
 exits is provisional and excluded because the old tool saved post-stop values.
 
+An unchanged v2 repeat finished 50 pairs / 100 games without errors; see
+`docs/experiments/2026-09-29-shin-dedicated-white-book-v2-repeat-vs-normal-depth15.md`.
+As White, Shin scored 12 wins, 31 losses, and 7 draws (31.0%); as Black,
+14/20/16 (44.0%). The added `2c2d` was used in 41 White games, but the first
+run's 46.0% White score did not reproduce. The frequent transposition after
+`7h6g` and `6i5h` scored 6/16/1 in 23 games; normal-side replies after `3c3d`
+included more `6g5f` and `8h7g`. Do not attribute the score change to one book
+move or to the Mac's clamshell sleep. Treat v2 strength as unconfirmed.
+
 ## Immediate Next Steps
 
 1. Keep v2 unchanged. The frequent post-exit positions and strong opponent
    replies were rechecked at depth 24/28; candidate moves remain close, so no
-   v3 entry is established. See
+   v3 entry is established. The 100-game v2 repeat did not reproduce the first
+   run's White-side improvement. See
    `docs/experiments/2026-09-29-shin-dedicated-white-book-v2-post-exit-followup.md`
    and the ignored detailed review in
    `results/shin-dedicated-v2-win-loss-branch-review.md`. If stronger attribution
-   of the separate-run 13-point score-rate gain is needed, rerun v1 on the
-   current engine with the same opponent and settings. If developing v3,
-   recheck the two parent positions at depth 30 before fixing another move.
+   is needed, rerun v1 on the current engine with the same opponent and settings.
+   If developing v3, inspect the repeated losses after `3c3d 6g5f` and
+   `3c3d 8h7g`, then recheck the two parent positions at depth 30 before fixing
+   another move.
    Keep the older common-transposition `7b8c` out of the book unless new
    evidence supports it. The direct `7a7b 5i4h 7c7d` route is not a main entry.
 2. If a small strength gain needs confirmation, compare dedicated-book on/off
