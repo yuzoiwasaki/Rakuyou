@@ -1,0 +1,20 @@
+{
+  "description": "High review opponent queue. Analyze with ShinYonenagaGyoku off and OwnBook false. No new deep search has been run.",
+  "positions": [
+    {
+      "id": "opponent_after_fixed_62_king",
+      "moves": ["7g7f", "5a6b"],
+      "note": "All 400 games chose 2h6h from the normal book. Broad MultiPV here tests whether that book-guided choice covers the strongest replies."
+    },
+    {
+      "id": "opponent_after_immediate_14_pawn",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d"],
+      "note": "Find strong replies before assuming a favorable route to bishop77. Include immediate 6g6f and quiet development in the candidate review."
+    },
+    {
+      "id": "opponent_after_14_king48_15",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "5i4h", "1d1e"],
+      "note": "Test reachability and best attacking responses to the edge-wait route; do not force Sente to develop bishop77."
+    }
+  ]
+}

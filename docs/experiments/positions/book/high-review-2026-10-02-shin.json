@@ -1,0 +1,39 @@
+{
+  "description": "High review candidate queue. No new deep search has been run. Analyze with ShinYonenagaGyoku on; use unrestricted MultiPV before forcing a concept.",
+  "positions": [
+    {
+      "id": "base_reopen_candidate_space",
+      "moves": ["7g7f", "5a6b", "2h6h"],
+      "note": "Compare 1c1d, 3a4b, 7a7b, 5c5d and 8c8d broadly; the four-run review is not a new deep-search result."
+    },
+    {
+      "id": "edge_wait_earlier_74_standard_81",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "5i4h", "1d1e", "6g6f", "3c3d", "4h3h", "7a7b", "8h7g"],
+      "source": "results/shin-standard-book-white-only-depth15-100games.json game 81, before ply 12",
+      "note": "Actual 7c7d before king71, followed by king71 and silver73; do not impose king71 as a prerequisite."
+    },
+    {
+      "id": "edge_wait_74_standard_63",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "6g6f", "7a7b", "7i7h", "1d1e", "5i4h", "6b7a", "3i3h", "3c3d", "6i5h", "2c2d", "8h7g"],
+      "source": "results/shin-standard-book-white-only-depth15-100games.json game 63, before ply 16",
+      "note": "Winning sample: rook pawn still83, king71, silver72, bishop77. Compare 7c7d with all alternatives."
+    },
+    {
+      "id": "edge_wait_74_standard_43_loss",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "7i7h", "1d1e", "6g6f", "7a7b", "5i4h", "6b7a", "3i3h", "2c2d", "4h3i", "3c3d", "8h7g"],
+      "source": "results/shin-standard-book-white-only-depth15-100games.json game 43, before ply 16",
+      "note": "Losing sample with related setup and different Sente king/silver placement. Required counterexample to winning samples."
+    },
+    {
+      "id": "54_early_silver72_against_65_no_book_38",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "7a7b", "6g6f", "4b5c", "6f6e"],
+      "source": "results/shin-no-book-white-only-depth15-100games.json game 38, before ply 12",
+      "note": "Alternative 54 skeleton: develop silver72 earlier, then meet actual 65 attack with 7c7d. This sample has no prior bishop77."
+    },
+    {
+      "id": "54_early_silver72_parent_no_book_38",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h"],
+      "note": "Parent feasibility: compare book 4b5c with earlier 7a7b and other unrestricted moves before accepting the descendant. Previous depth24 supported 4b5c."
+    }
+  ]
+}

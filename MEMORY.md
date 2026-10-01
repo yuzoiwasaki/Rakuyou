@@ -82,6 +82,28 @@ Eight games reached `7c7d` by ply 20 and `7b7c` by ply 24 (3/3/2);
 seven had Sente's `8h7g` before the pawn push, and one answered `6f6e`.
 These are focused-analysis seeds, not new book entries.
 
+The October 2 high-stage review is appended to the same report. It retains
+v2 as the leading existing validation candidate, but emphasizes that every
+game followed `7g7f 5a6b 2h6h`: this is a fourth-file-rook benchmark, not a
+general White opening-strength test. Immediate `1c1d` was already within
+3 cp of the leaders in the older depth-24 MultiPV-12 analysis.
+The most interesting new combination is edge waiting (`1c1d` / `1d1e`),
+deferring the rook-pawn push, then contextual `7c7d` after `8h7g`, with
+flexible ordering of `6b7a` and `7b7c`. A second seed is no-book game 38:
+earlier `7a7b` in the `5c5d` skeleton, answering `6f6e` with `7c7d`.
+Verify parent feasibility and strong opponent replies before adopting either.
+`docs/experiments/positions/book/high-review-2026-10-02-opponent.json` has
+three opponent positions (Shin off); the matching `-shin.json` has six White
+positions (Shin on). Their 74 input moves were checked with engine legalmoves.
+No new deep searches or games were run. `tools/audit_white_positions.py`
+reconstructs placement and hands and detects four identical position
+occurrences. It found 5/5/5/8 such games across v1/v2/no-book/standard;
+all 23 were saved draws. All 400 final positions plus the 23 repetition
+positions matched the engine's board/turn/hands output. This is not full
+independent legality or perpetual-check adjudication. Startup Zobrist keys
+are randomized, another possible source of search variation alongside
+retained shared state and opponent-book randomness, not a measured cause.
+
 Both initial strength comparisons finished with 50 pairs (100 games) at depth
 15 and no errors. With its book disabled, 新米長玉 scored 25 wins, 56 losses,
 and 19 draws (34.5%). With the standard book enabled, it scored 32 wins, 56
@@ -281,17 +303,34 @@ Keep both book versions unchanged pending a deliberate comparison decision.
 
 ## Immediate Next Steps
 
-The four 100-game fixed-White runs and their medium-stage analysis are complete.
+The four fixed-White runs, medium analysis, and high review are complete.
 The user runs long self-play commands outside Codex; provide commands rather
-than starting further runs here. Next, review the report and proposed analysis
-candidates with high reasoning, and optionally use Astra for an independent
-opening-concept review. The official White book is not restricted to v1/v2:
+than starting further runs here. The user approved the following sequence:
+checkpoint this review and plan with a commit/push, then start step 1 below.
+Use the prepared opponent/White queues for bounded focused engine analysis.
+The official White book is not restricted to v1/v2:
 explore from the fixed `6b` opening, including immediate `1c1d` and contextual
 seventh-file structures, then validate ideas with deep engine searches and
 games. No expensive searches or new games were started during this review.
-The follow-on options also include the situational
-`7c7d` / `7b7c` plan, a Black-side version, and a gold-and-silver advancement
-setup. Their order has not yet been decided.
+Do not spend another review pass on the same data before obtaining new engine
+evidence. An independent concept review can be reconsidered after the tests.
+
+1. Analyze edge waiting (`1c1d` / `1d1e`) with `8c8d` deferred, then contextual
+   `7c7d` / `7b7c`. Start with strong normal-side replies to the early edge
+   moves, and compare winning and losing source positions. Do not force Sente
+   to play `8h7g`, or require `6b7a` before every `7c7d`. Check parent move
+   feasibility as well as the attractive final setup. Use completed one-thread
+   depth-based searches; compare scores only within a consistent perspective.
+2. Check the `5c5d` skeleton with earlier `7a7b`, especially meeting actual
+   `6f6e` with `7c7d`, including its parent position and strongest replies.
+3. If either route survives, build a small experimental book without changing
+   v1/v2, then validate against the unchanged v2 baseline. Keep the same engine
+   and normal-side settings, and record binary hashes and run variation.
+
+The later alternatives include a Black-side version and a gold-and-silver
+advancement setup; prioritize the White tests above before these.
+
+Additional constraints and maintenance:
 
 1. Keep v1 and v2 unchanged pending review. V2 is the leading existing
    candidate, but its superiority is unconfirmed. Check strong opponent
