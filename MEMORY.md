@@ -60,6 +60,28 @@ Use Git history for completed work and chronology.
 
 ## Current Experiment
 
+The four fixed-White runs completed 100 games each without errors on
+September 30–October 1. Their full review is
+`docs/experiments/2026-10-02-fixed-white-four-books-depth15.md`:
+v1 scored 24/64/12 (30.0%), v2 36/52/12 (42.0%), no-book 21/68/11
+(26.5%), and standard-book 29/50/21 (39.5%). Shin used no standard-book
+moves in the last run, so its 13-point difference from no-book is not
+evidence of a book benefit. V2 used the added `2c2d` in 70 games.
+V2 is the recommended existing candidate for the next validation baseline,
+not a confirmed official book; no book or engine changes were made.
+The combined previous and current White data are v1 55/123/22 over 200 games
+(33.0%) and v2 66/105/29 over 200 games (40.25%), with important run-to-run
+variation. `tools/review_white_runs.py` audits records and reproduces the
+four-run statistics, branches, and descriptive uncertainty intervals.
+The engine retains its processes and some search state between games;
+`StartNewGame()` does nothing, while per-search resets clear only some state.
+Do not assume independent games or attribute the observed score gaps to this
+mechanism without further checks.
+The two search-only datasets produced immediate `1c1d` in 127/200 games.
+Eight games reached `7c7d` by ply 20 and `7b7c` by ply 24 (3/3/2);
+seven had Sente's `8h7g` before the pawn push, and one answered `6f6e`.
+These are focused-analysis seeds, not new book entries.
+
 Both initial strength comparisons finished with 50 pairs (100 games) at depth
 15 and no errors. With its book disabled, 新米長玉 scored 25 wins, 56 losses,
 and 19 draws (34.5%). With the standard book enabled, it scored 32 wins, 56
@@ -259,12 +281,23 @@ Keep both book versions unchanged pending a deliberate comparison decision.
 
 ## Immediate Next Steps
 
-1. Keep v1 and v2 unchanged. The first v1 repeat scored 39.0% as White; the
-   combined White scores are 36.0% for v1 and 38.5% for v2, too close and
-   variable across runs to settle a provisional book. The focused depth-24/28/30
-   analyses did not establish a stable v3 entry. Consider a current-engine
-   no-book repeat and/or fixed-White games before choosing the provisional
-   White book. Treat later-position
+The four 100-game fixed-White runs and their medium-stage analysis are complete.
+The user runs long self-play commands outside Codex; provide commands rather
+than starting further runs here. Next, review the report and proposed analysis
+candidates with high reasoning, and optionally use Astra for an independent
+opening-concept review. The official White book is not restricted to v1/v2:
+explore from the fixed `6b` opening, including immediate `1c1d` and contextual
+seventh-file structures, then validate ideas with deep engine searches and
+games. No expensive searches or new games were started during this review.
+The follow-on options also include the situational
+`7c7d` / `7b7c` plan, a Black-side version, and a gold-and-silver advancement
+setup. Their order has not yet been decided.
+
+1. Keep v1 and v2 unchanged pending review. V2 is the leading existing
+   candidate, but its superiority is unconfirmed. Check strong opponent
+   replies at its two `2c2d` exits, including `7f7e`, `8h7g`, and the frequent
+   `6f6e` attack. The focused depth-24/28/30 analyses did not establish a
+   stable v3 entry. Treat later-position
    `7c7d` after `3c3d 8h7g` as an unconfirmed candidate, not a revival of the
    earlier `7a7b 5i4h 7c7d` route. Keep the older common-transposition `7b8c`
    out of the book unless new evidence supports it.
