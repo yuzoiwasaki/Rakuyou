@@ -1,0 +1,173 @@
+{
+  "positions": [
+    {
+      "id": "after_pawn74_silver67",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2h6h",
+        "1c1d",
+        "6g6f",
+        "7a7b",
+        "7i7h",
+        "1d1e",
+        "5i4h",
+        "6b7a",
+        "3i3h",
+        "3c3d",
+        "6i5h",
+        "2c2d",
+        "8h7g",
+        "7c7d",
+        "7h6g"
+      ],
+      "purpose": "Compare searched silver73 after actual Sente reply"
+    },
+    {
+      "id": "after_pawn74_king39",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2h6h",
+        "1c1d",
+        "6g6f",
+        "7a7b",
+        "7i7h",
+        "1d1e",
+        "5i4h",
+        "6b7a",
+        "3i3h",
+        "3c3d",
+        "6i5h",
+        "2c2d",
+        "8h7g",
+        "7c7d",
+        "4h3i"
+      ],
+      "purpose": "Compare searched silver73 after actual Sente reply"
+    },
+    {
+      "id": "after_pawn74_pawn46",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2h6h",
+        "1c1d",
+        "6g6f",
+        "7a7b",
+        "7i7h",
+        "1d1e",
+        "5i4h",
+        "6b7a",
+        "3i3h",
+        "3c3d",
+        "6i5h",
+        "2c2d",
+        "8h7g",
+        "7c7d",
+        "4g4f"
+      ],
+      "purpose": "Compare searched silver73 after actual Sente reply"
+    },
+    {
+      "id": "after_silver73_silver67_silver56",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2h6h",
+        "1c1d",
+        "6g6f",
+        "7a7b",
+        "7i7h",
+        "1d1e",
+        "5i4h",
+        "6b7a",
+        "3i3h",
+        "3c3d",
+        "6i5h",
+        "2c2d",
+        "8h7g",
+        "7c7d",
+        "7h6g",
+        "7b7c",
+        "6g5f"
+      ],
+      "purpose": "Compare frequent rook32 and other White plans after structure completion"
+    },
+    {
+      "id": "after_silver73_silver67_king39",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2h6h",
+        "1c1d",
+        "6g6f",
+        "7a7b",
+        "7i7h",
+        "1d1e",
+        "5i4h",
+        "6b7a",
+        "3i3h",
+        "3c3d",
+        "6i5h",
+        "2c2d",
+        "8h7g",
+        "7c7d",
+        "7h6g",
+        "7b7c",
+        "4h3i"
+      ],
+      "purpose": "Compare frequent rook32 and other White plans after structure completion"
+    },
+    {
+      "id": "after_silver73_silver67_pawn65",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2h6h",
+        "1c1d",
+        "6g6f",
+        "7a7b",
+        "7i7h",
+        "1d1e",
+        "5i4h",
+        "6b7a",
+        "3i3h",
+        "3c3d",
+        "6i5h",
+        "2c2d",
+        "8h7g",
+        "7c7d",
+        "7h6g",
+        "7b7c",
+        "6f6e"
+      ],
+      "purpose": "Compare frequent rook32 and other White plans after structure completion"
+    },
+    {
+      "id": "after_silver73_silver67_pawn46",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2h6h",
+        "1c1d",
+        "6g6f",
+        "7a7b",
+        "7i7h",
+        "1d1e",
+        "5i4h",
+        "6b7a",
+        "3i3h",
+        "3c3d",
+        "6i5h",
+        "2c2d",
+        "8h7g",
+        "7c7d",
+        "7h6g",
+        "7b7c",
+        "4g4f"
+      ],
+      "purpose": "Compare frequent rook32 and other White plans after structure completion"
+    }
+  ]
+}

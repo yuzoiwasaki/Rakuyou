@@ -1,0 +1,34 @@
+{
+  "positions": [
+    {
+      "id": "after_silver73_silver67_pawn65_restricted",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2h6h",
+        "1c1d",
+        "6g6f",
+        "7a7b",
+        "7i7h",
+        "1d1e",
+        "5i4h",
+        "6b7a",
+        "3i3h",
+        "3c3d",
+        "6i5h",
+        "2c2d",
+        "8h7g",
+        "7c7d",
+        "7h6g",
+        "7b7c",
+        "6f6e"
+      ],
+      "purpose": "Restricted comparison of depth24 leaders with game57 actual pawn35; not unrestricted best-move proof",
+      "searchmoves": [
+        "8b3b",
+        "2d2e",
+        "3d3e"
+      ]
+    }
+  ]
+}

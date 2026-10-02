@@ -375,11 +375,30 @@ was not checked. This trial does not support official adoption, but limited
 coverage and preparation/search effects prevent rejecting the structure
 itself. The completion report is
 `docs/experiments/2026-10-02-seventh-edge-white-only-depth15.md`.
-The user approved checkpointing this report first, then focused analysis of
-actual book exits, silver73 responses and early play after completing the
-structure. Keep books/engine unchanged until reviewing that evidence; do not
-start another 100-game run. No deep searches or games were started during
-the initial completion check.
+The completion report was checkpointed in `d8b4b40`.
+The subsequent approved focused analysis is complete and appended to that
+report: 11 distinct positions / 14 completed searches, 11 depth24 MultiPV5,
+two unrestricted depth28 MultiPV5, one restricted depth28 MultiPV3. All used
+one thread/512MB/no book/fresh process per position; errors0, no timed stops
+or score bounds. All input sequences passed engine legalmoves checks.
+Depth24 ranked silver73 first after actual silver67/king39/pawn46; depth28
+also ranked it first after silver67 (-199, gold51 second -225). Adding those
+book entries alone would not change the seven games' searched moves.
+After silver73/silver67/pawn65, game57's pawn35 was absent from depth24 top5;
+a restricted depth28 comparison ranked rook32 -117, pawn25 -220, pawn35
+-358. The 241cp gap applies only to those three moves in that search.
+At game57 ply24, unrestricted depth28 ranked gold51 -371, rook62 -428,
+actual pawn84 -448; depth24 had ranked rook62 first. At game78 ply42,
+actual pawn84 was depth24's best move, so do not generalize the diagnosis.
+Keep the structure conditional and do not adopt the whole trial. Next,
+consider unrestricted depth28 plus strong opponent replies for rook32 after
+silver73/silver67/pawn65 before extending any book. Do not fix the small-gap
+depth24 pawn25 branches yet. No books/engine changes or new games were made.
+The additional-analysis checkpoint includes the report, six input queues and
+this resume update. The user approved committing these and pushing both
+checkpoints. Next is the unrestricted depth28 rook32 check and strong
+opponent-response analysis described above; do not start those searches or
+change the trial book until requested.
 Use the prepared opponent/White queues for bounded focused engine analysis.
 The official White book is not restricted to v1/v2:
 explore from the fixed `6b` opening, including immediate `1c1d` and contextual
