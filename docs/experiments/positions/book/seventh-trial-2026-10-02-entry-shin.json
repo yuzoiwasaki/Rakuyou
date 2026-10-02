@@ -1,0 +1,15 @@
+{
+  "description": "Extra phase1 entry checks for a small experimental pawn74 book, not official adoption. Shin on, unrestricted MultiPV5.",
+  "positions": [
+    {
+      "id": "edge14_against_pawn66",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "6g6f"],
+      "note": "Compare source-game63 earlier silver72 with other preparations."
+    },
+    {
+      "id": "edge14_king48_edge15_against_pawn66",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "5i4h", "1d1e", "6g6f"],
+      "note": "Check source-game81 pawn34 parent before preparing silver72."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "description": "Check game63 preparatory moves before creating a phase1-based experimental book. Shin on, unrestricted MultiPV5. Some positions transpose with the king48-first order.",
+  "positions": [
+    {
+      "id": "edge63_before_edge15",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "6g6f", "7a7b", "7i7h"]
+    },
+    {
+      "id": "edge63_before_king71",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "6g6f", "7a7b", "7i7h", "1d1e", "5i4h"]
+    },
+    {
+      "id": "edge63_before_pawn34",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "6g6f", "7a7b", "7i7h", "1d1e", "5i4h", "6b7a", "3i3h"]
+    },
+    {
+      "id": "edge63_before_pawn24",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "6g6f", "7a7b", "7i7h", "1d1e", "5i4h", "6b7a", "3i3h", "3c3d", "6i5h"]
+    }
+  ]
+}

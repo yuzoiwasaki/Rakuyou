@@ -1,0 +1,20 @@
+{
+  "description": "Phase 2: earlier silver72 in the pawn54 skeleton. Unrestricted MultiPV, Shin on, fresh engine per position.",
+  "positions": [
+    {
+      "id": "early72_parent",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h"],
+      "note": "Compare existing book 4b5c with earlier 7a7b before accepting game38 descendants."
+    },
+    {
+      "id": "early72_after_pawn66",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "7a7b", "6g6f"],
+      "note": "Check the source-game 4b5c against unrestricted alternatives."
+    },
+    {
+      "id": "early72_against_pawn65",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "7a7b", "6g6f", "4b5c", "6f6e"],
+      "note": "No-book game38: compare 7c7d after an actual pawn65 attack, without prior bishop77."
+    }
+  ]
+}

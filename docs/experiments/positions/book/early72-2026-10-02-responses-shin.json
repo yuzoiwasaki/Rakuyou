@@ -1,0 +1,15 @@
+{
+  "description": "Phase 2 answers to normal-side leaders after the experimental pawn74. Shin on, unrestricted MultiPV5.",
+  "positions": [
+    {
+      "id": "early72_pawn74_against_gold58",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "7a7b", "6g6f", "4b5c", "6f6e", "7c7d", "6i5h"],
+      "note": "Normal-side depth24 leader after pawn74 was gold58 (+260); check silver73 and king71 ordering."
+    },
+    {
+      "id": "early72_pawn74_against_silver78",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "7a7b", "6g6f", "4b5c", "6f6e", "7c7d", "7i7h"],
+      "note": "Source-game38 used silver78; compare against the strongest-reply branch without fixing ordering."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "description": "Phase 2 normal-side strong replies. Shin off, OwnBook false, fresh engine per position.",
+  "positions": [
+    {
+      "id": "opponent_after_early72",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "7a7b"],
+      "note": "Check whether source-game pawn66 is natural, and retain stronger alternatives."
+    },
+    {
+      "id": "opponent_after_early72_silver53",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "7a7b", "6g6f", "4b5c"],
+      "note": "Check whether pawn65 is a strong reply, rather than assuming the source-game continuation."
+    },
+    {
+      "id": "opponent_after_early72_pawn74",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "7a7b", "6g6f", "4b5c", "6f6e", "7c7d"],
+      "note": "Find strongest responses to pawn74 before deciding silver73 or king71 ordering."
+    }
+  ]
+}

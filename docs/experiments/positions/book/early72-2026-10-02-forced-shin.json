@@ -1,0 +1,10 @@
+{
+  "description": "Restricted depth28 comparison ONLY: quantify experimental pawn74 against king71 and pawn84 if it is absent from unrestricted MultiPV. Do not treat this as unrestricted ranking.",
+  "positions": [
+    {
+      "id": "early72_against_pawn65_restricted",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "7a7b", "6g6f", "4b5c", "6f6e"],
+      "searchmoves": ["7c7d", "6b7a", "8c8d"]
+    }
+  ]
+}

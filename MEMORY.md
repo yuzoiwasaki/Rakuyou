@@ -121,6 +121,29 @@ alongside a validated completed result for that ID; other six files have no
 errors. Do not call the entire execution error-free. Engine/books unchanged;
 analysis tooling adds optional `--fresh-engine` with three lifecycle tests.
 
+Phase 2 and a separate seventh-file trial book are complete; see
+`docs/experiments/2026-10-02-early-silver72-and-seventh-trial.md`.
+At the `5c5d` skeleton's early parent, depth28 ranked `7a7b` first at -205,
+with existing `4b5c` second at -207. But against actual `6f6e`, `7c7d` stayed
+outside unrestricted top5 at depth24/28; a separate restricted depth28
+comparison ranked `8c8d` -184, `6b7a` -195, and `7c7d` -239. The 55 cp
+gap applies only within that restricted comparison. Normal-side `6i5h` after
+the experimental pawn74 favored king71 before silver73, unlike the saved
+game's `7i7h`. Do not force the phase2 pawn74 response into an official book.
+The user nevertheless wants a concept trial, so the new standalone book uses
+phase1 edge waiting with earlier silver72, not the inferior game81 parent.
+Six additional depth24 entry/preparation checks support the selected sequence;
+two chosen preparation moves trail by13/21 cp, explicitly recorded as concept
+choices. Total new analysis: 14 positions/17 completed searches, no errors.
+`books/shin-yonenaga-white-seventh-edge-experiment.json` contains 13 experimental
+entries; generate `books/shin-yonenaga-white-book-seventh-edge-experiment.txt`
+with `tools/build_shin_book.py --experimental --source ... --output ...`.
+Unknown replies fall back to search; bishop77 is not forced. The builder
+requires an explicit output and protects v1/v2. All 13 moves, transposition,
+fallback and normal book behavior passed eight new tests; existing five book
+tests and three analysis tests also passed. Engine/v1/v2 hashes unchanged.
+Trial usage and exact external White-only100 command are in the report.
+
 Both initial strength comparisons finished with 50 pairs (100 games) at depth
 15 and no errors. With its book disabled, 新米長玉 scored 25 wins, 56 losses,
 and 19 draws (34.5%). With the standard book enabled, it scored 32 wins, 56
@@ -326,27 +349,41 @@ than starting further runs here. The user approved the following sequence:
 checkpoint this review and plan with a commit/push, then start step 1 below.
 The earlier review checkpoint was pushed as `1ba5461`; step 1 is now complete.
 Its report, input queues, and analysis-tool test/update are checkpointed in a
-separate local commit; push is deferred. Next is step 2, not another automatic
-self-play run or another review of the same data.
+separate commit (`07defdd`). Steps 1 and 2 are complete; the user requested
+committing the phase2/trial artifacts and pushing both checkpoints together.
+The user explicitly wants to try a small `7c7d`-structure book based on step 1
+or 2 even if it is not the engine's best choice. Record any forced move's
+evaluation cost and limited reachability honestly; do not call it an official
+book or a strength gain. Prepare a separate experimental book and commands,
+without starting long self-play inside Codex or changing v1/v2.
+The standalone phase1-based trial and phase2 report are checkpointed in Git.
+Next is the user's external depth15/threads1/hash512 White-only100
+run using `books/shin-yonenaga-white-book-seventh-edge-experiment.txt` and
+`results/shin-seventh-edge-white-only-depth15-100games.json`. Measure actual
+dedicated-book pawn74 usage and simultaneous pawn74/silver73 placement, not
+just overall score. If coverage is negligible, do not reject the concept from
+that run. No long run has been started here.
 Use the prepared opponent/White queues for bounded focused engine analysis.
 The official White book is not restricted to v1/v2:
 explore from the fixed `6b` opening, including immediate `1c1d` and contextual
 seventh-file structures, then validate ideas with deep engine searches and
-games. No expensive searches or new games were started during this review.
+games. No expensive searches or new games were started during the high review;
+the later phase1/2 focused searches are documented separately above.
 Do not spend another review pass on the same data before obtaining new engine
 evidence. An independent concept review can be reconsidered after the tests.
 
-1. Analyze edge waiting (`1c1d` / `1d1e`) with `8c8d` deferred, then contextual
+1. Completed: analyze edge waiting (`1c1d` / `1d1e`) with `8c8d` deferred, then contextual
    `7c7d` / `7b7c`. Start with strong normal-side replies to the early edge
    moves, and compare winning and losing source positions. Do not force Sente
    to play `8h7g`, or require `6b7a` before every `7c7d`. Check parent move
    feasibility as well as the attractive final setup. Use completed one-thread
    depth-based searches; compare scores only within a consistent perspective.
-2. Check the `5c5d` skeleton with earlier `7a7b`, especially meeting actual
+2. Completed: check the `5c5d` skeleton with earlier `7a7b`, especially meeting actual
    `6f6e` with `7c7d`, including its parent position and strongest replies.
-3. If either route survives, build a small experimental book without changing
-   v1/v2, then validate against the unchanged v2 baseline. Keep the same engine
-   and normal-side settings, and record binary hashes and run variation.
+3. The requested concept trial is built separately without changing v1/v2.
+   Validate against the existing v2 benchmark, and repeat v2 if a small gain
+   needs confirmation. Keep the same engine and normal-side settings, record
+   binary hashes, run variation and target-structure reachability.
 
 The later alternatives include a Black-side version and a gold-and-silver
 advancement setup; prioritize the White tests above before these.

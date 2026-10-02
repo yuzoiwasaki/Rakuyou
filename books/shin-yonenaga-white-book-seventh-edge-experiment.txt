@@ -1,0 +1,28 @@
+# Rakuyou Shin-Yonenaga-Gyoku White book standalone experiment
+# USI moves from startpos | White book move
+# seventh_edge_base14
+7g7f 5a6b 2h6h | 1c1d
+# seventh_edge_king48_wait15
+7g7f 5a6b 2h6h 1c1d 5i4h | 1d1e
+# seventh_edge_pawn66_silver72
+7g7f 5a6b 2h6h 1c1d 6g6f | 7a7b
+# seventh_edge_king48_first_silver72
+7g7f 5a6b 2h6h 1c1d 5i4h 1d1e 6g6f | 7a7b
+# seventh_edge_silver78_wait15
+7g7f 5a6b 2h6h 1c1d 6g6f 7a7b 7i7h | 1d1e
+# seventh_edge_prepare_king71
+7g7f 5a6b 2h6h 1c1d 6g6f 7a7b 7i7h 1d1e 5i4h | 6b7a
+# seventh_edge_prepare_pawn34
+7g7f 5a6b 2h6h 1c1d 6g6f 7a7b 7i7h 1d1e 5i4h 6b7a 3i3h | 3c3d
+# seventh_edge_prepare_pawn24
+7g7f 5a6b 2h6h 1c1d 6g6f 7a7b 7i7h 1d1e 5i4h 6b7a 3i3h 3c3d 6i5h | 2c2d
+# seventh_edge_bishop77_game63_pawn74
+7g7f 5a6b 2h6h 1c1d 6g6f 7a7b 7i7h 1d1e 5i4h 6b7a 3i3h 3c3d 6i5h 2c2d 8h7g | 7c7d
+# seventh_edge_game63_pawn65_silver73
+7g7f 5a6b 2h6h 1c1d 6g6f 7a7b 7i7h 1d1e 5i4h 6b7a 3i3h 3c3d 6i5h 2c2d 8h7g 7c7d 6f6e | 7b7c
+# seventh_edge_bishop77_game81_pawn74
+7g7f 5a6b 2h6h 1c1d 5i4h 1d1e 6g6f 3c3d 4h3h 7a7b 8h7g | 7c7d
+# seventh_edge_game81_silver78_silver73
+7g7f 5a6b 2h6h 1c1d 5i4h 1d1e 6g6f 3c3d 4h3h 7a7b 8h7g 7c7d 7i7h | 7b7c
+# seventh_edge_bishop77_game43_pawn74
+7g7f 5a6b 2h6h 1c1d 7i7h 1d1e 6g6f 7a7b 5i4h 6b7a 3i3h 2c2d 4h3i 3c3d 8h7g | 7c7d

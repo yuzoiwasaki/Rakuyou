@@ -133,6 +133,32 @@ python3 tools/paired_selfplay.py \
 使用数も確認します。第一版は`books/shin-yonenaga-white-book.txt`を指定して
 同じ条件で再実行できます。
 
+７四歩型の構想を試す独立実験定跡は、端歩で待ち、飛車先を保留して条件が
+整った局面で△７四歩～△７三銀へ進む13局面です。準備手に最善候補より
+評価の低い選択も含むため、正式定跡や棋力向上確認済みの版ではありません。
+v1・v2と分けて明示的に生成します。
+
+```sh
+python3 tools/build_shin_book.py \
+  --source books/shin-yonenaga-white-seventh-edge-experiment.json \
+  --experimental \
+  --output books/shin-yonenaga-white-book-seventh-edge-experiment.txt
+python3 test/test_seventh_trial_book.py
+python3 tools/paired_selfplay.py \
+  --depth 15 --threads 1 --hash 512 \
+  --shin-book on \
+  --shin-book-file books/shin-yonenaga-white-book-seventh-edge-experiment.txt \
+  --shin-side white --games 100 \
+  --book-max-ply 20 --max-plies 256 --timeout 300 \
+  --output results/shin-seventh-edge-white-only-depth15-100games.json
+```
+
+`--experimental` は出力先の明示が必要で、v1・v2への上書きを禁止します。
+未登録の局面は探索へ戻るため、勝率だけでなく△７四歩の定跡使用局数と
+△７四歩・△７三銀の実際の同時配置を確認します。到達が少なければ、構想
+自体の良し悪しとは区別します。根拠と制約は
+`docs/experiments/2026-10-02-early-silver72-and-seventh-trial.md` に記録しています。
+
 初版の終局判定は、エンジンの投了・入玉宣言と最大手数です。千日手などの厳密な
 ルール判定はまだ行いません。比較時は深さ、スレッド数、ハッシュを変えずに実行します。
 各局の `source_counts_by_player` を見ると、固定初手や定跡が実際に使われた回数を

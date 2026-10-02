@@ -1,0 +1,104 @@
+{
+  "description": "Standalone phase1-based seventh-file concept trial, NOT an official book or a claimed strength improvement. Preserve v1/v2. Use contextual pawn74 after bishop77; unknown replies fall back to search.",
+  "initial_position": "startpos",
+  "side": "white",
+  "experiment": "seventh-edge",
+  "report": "docs/experiments/2026-10-02-early-silver72-and-seventh-trial.md",
+  "entries": [
+    {
+      "id": "seventh_edge_base14",
+      "moves": ["7g7f", "5a6b", "2h6h"],
+      "book_move": "1c1d",
+      "status": "experimental",
+      "evidence": {"report": "docs/experiments/2026-09-26-anti-fourth-file-rook-focused-analysis.md", "depth": 24, "score_cp": -193, "gap_to_leader_cp": 3}
+    },
+    {
+      "id": "seventh_edge_king48_wait15",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "5i4h"],
+      "book_move": "1d1e",
+      "status": "experimental",
+      "evidence": {"result": "results/edge-wait-2026-10-02-parents-depth24.json", "position_id": "edge_wait_parent_after_48_king"}
+    },
+    {
+      "id": "seventh_edge_pawn66_silver72",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "6g6f"],
+      "book_move": "7a7b",
+      "status": "experimental",
+      "evidence": {"result": "results/seventh-trial-2026-10-02-entry-depth24.json", "position_id": "edge14_against_pawn66", "depth": 24, "rank": 3, "score_cp": -202, "gap_to_leader_cp": 13},
+      "note": "Concept-driven preparation, not the best-ranked move."
+    },
+    {
+      "id": "seventh_edge_king48_first_silver72",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "5i4h", "1d1e", "6g6f"],
+      "book_move": "7a7b",
+      "status": "experimental",
+      "evidence": {"result": "results/seventh-trial-2026-10-02-entry-depth24.json", "position_id": "edge14_king48_edge15_against_pawn66", "depth": 24, "rank": 1, "score_cp": -203}
+    },
+    {
+      "id": "seventh_edge_silver78_wait15",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "6g6f", "7a7b", "7i7h"],
+      "book_move": "1d1e",
+      "status": "experimental",
+      "evidence": {"result": "results/seventh-trial-2026-10-02-preparation-depth24.json", "position_id": "edge63_before_edge15", "depth": 24, "rank": 5, "score_cp": -199, "gap_to_leader_cp": 21},
+      "note": "Concept-driven rook-pawn deferral; alternatives pawn84/pawn54 lead by21cp."
+    },
+    {
+      "id": "seventh_edge_prepare_king71",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "6g6f", "7a7b", "7i7h", "1d1e", "5i4h"],
+      "book_move": "6b7a",
+      "status": "experimental",
+      "evidence": {"result": "results/seventh-trial-2026-10-02-preparation-depth24.json", "position_id": "edge63_before_king71"}
+    },
+    {
+      "id": "seventh_edge_prepare_pawn34",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "6g6f", "7a7b", "7i7h", "1d1e", "5i4h", "6b7a", "3i3h"],
+      "book_move": "3c3d",
+      "status": "experimental",
+      "evidence": {"result": "results/seventh-trial-2026-10-02-preparation-depth24.json", "position_id": "edge63_before_pawn34"}
+    },
+    {
+      "id": "seventh_edge_prepare_pawn24",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "6g6f", "7a7b", "7i7h", "1d1e", "5i4h", "6b7a", "3i3h", "3c3d", "6i5h"],
+      "book_move": "2c2d",
+      "status": "experimental",
+      "evidence": {"result": "results/seventh-trial-2026-10-02-preparation-depth24.json", "position_id": "edge63_before_pawn24"}
+    },
+    {
+      "id": "seventh_edge_bishop77_game63_pawn74",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "6g6f", "7a7b", "7i7h", "1d1e", "5i4h", "6b7a", "3i3h", "3c3d", "6i5h", "2c2d", "8h7g"],
+      "book_move": "7c7d",
+      "status": "experimental",
+      "evidence": {"result": "results/edge-wait-2026-10-02-recheck-depth28.json", "position_id": "edge_wait_74_standard_63", "depth": 28, "rank": 2, "score_cp": -212, "gap_to_leader_cp": 1}
+    },
+    {
+      "id": "seventh_edge_game63_pawn65_silver73",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "6g6f", "7a7b", "7i7h", "1d1e", "5i4h", "6b7a", "3i3h", "3c3d", "6i5h", "2c2d", "8h7g", "7c7d", "6f6e"],
+      "book_move": "7b7c",
+      "status": "experimental",
+      "evidence": {"result": "results/edge-wait-2026-10-02-responses-depth24.json", "position_id": "edge_wait_game63_after_pawn74_pawn65"}
+    },
+    {
+      "id": "seventh_edge_bishop77_game81_pawn74",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "5i4h", "1d1e", "6g6f", "3c3d", "4h3h", "7a7b", "8h7g"],
+      "book_move": "7c7d",
+      "status": "experimental",
+      "evidence": {"result": "results/edge-wait-2026-10-02-recheck-depth28.json", "position_id": "edge_wait_earlier_74_standard_81", "depth": 28, "rank": 1, "score_cp": -142},
+      "note": "Conditional entry only: this book does not force the inferior game81 silver72 preparation."
+    },
+    {
+      "id": "seventh_edge_game81_silver78_silver73",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "5i4h", "1d1e", "6g6f", "3c3d", "4h3h", "7a7b", "8h7g", "7c7d", "7i7h"],
+      "book_move": "7b7c",
+      "status": "experimental",
+      "evidence": {"result": "results/edge-wait-2026-10-02-responses-depth24.json", "position_id": "edge_wait_game81_after_pawn74_silver78", "depth": 24, "rank": 3, "score_cp": -161, "gap_to_leader_cp": 11},
+      "note": "Concept trial: pawn24 and king71 lead narrowly; do not claim immediate silver73 is compulsory."
+    },
+    {
+      "id": "seventh_edge_bishop77_game43_pawn74",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "7i7h", "1d1e", "6g6f", "7a7b", "5i4h", "6b7a", "3i3h", "2c2d", "4h3i", "3c3d", "8h7g"],
+      "book_move": "7c7d",
+      "status": "experimental",
+      "evidence": {"result": "results/edge-wait-2026-10-02-recheck-depth28.json", "position_id": "edge_wait_74_standard_43_loss", "depth": 28, "rank": 1, "score_cp": -208}
+    }
+  ]
+}

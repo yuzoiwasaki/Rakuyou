@@ -15,14 +15,17 @@ MOVE_RE = re.compile(r"(?:[1-9][a-i][1-9][a-i]\+?|[PLNSGBR]\*[1-9][a-i])\Z")
 ADOPTED = {"mainline", "reviewed_side_branch"}
 
 
-def compile_book(source, extension=None):
+def compile_book(source, extension=None, experimental=False):
+    if experimental and extension is not None:
+        raise ValueError("standalone experimental source cannot use an extension")
     sources = [source] + ([extension] if extension is not None else [])
     data_sources = [json.loads(path.read_text(encoding="utf-8")) for path in sources]
     for data in data_sources:
         if data.get("side") != "white" or data.get("initial_position") != "startpos":
             raise ValueError("expected White candidates from startpos")
 
-    version = "v2 experiment" if extension is not None else "v1"
+    version = ("standalone experiment" if experimental else
+               "v2 experiment" if extension is not None else "v1")
     lines = [f"# Rakuyou Shin-Yonenaga-Gyoku White book {version}",
              "# USI moves from startpos | White book move"]
     seen = {}
@@ -30,7 +33,8 @@ def compile_book(source, extension=None):
     for index, data in enumerate(data_sources):
         for entry in data["entries"]:
             status = entry["status"]
-            if index == 0 and status not in ADOPTED:
+            if (index == 0 and status not in ADOPTED
+                    and not (experimental and status == "experimental")):
                 continue
             if index == 1 and status != "experimental":
                 raise ValueError(f"{entry['id']}: expected an experimental extension")
@@ -58,12 +62,19 @@ def main():
     parser.add_argument("--source", type=Path, default=DEFAULT_SOURCE)
     parser.add_argument("--extension", type=Path,
                         help="experimental entries to add without changing the first book")
+    parser.add_argument("--experimental", action="store_true",
+                        help="compile a standalone experimental source; requires explicit --output")
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
+    if args.experimental and (args.extension is not None or args.output is None):
+        parser.error("--experimental requires --output and cannot use --extension")
     output = args.output or (DEFAULT_EXPERIMENT_OUTPUT if args.extension else DEFAULT_OUTPUT)
+    if args.experimental and output.resolve() in {
+            DEFAULT_OUTPUT.resolve(), DEFAULT_EXPERIMENT_OUTPUT.resolve()}:
+        parser.error("a standalone experiment cannot overwrite v1 or v2")
     if args.extension is not None and output.resolve() == DEFAULT_OUTPUT.resolve():
         parser.error("an experimental extension cannot overwrite the first book")
-    book = compile_book(args.source, args.extension)
+    book = compile_book(args.source, args.extension, args.experimental)
     output.write_text(book, encoding="utf-8")
     count = sum(" | " in line for line in book.splitlines() if not line.startswith("#"))
     print(f"Wrote {output}: {count} positions")
