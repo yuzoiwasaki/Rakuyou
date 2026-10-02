@@ -357,12 +357,29 @@ evaluation cost and limited reachability honestly; do not call it an official
 book or a strength gain. Prepare a separate experimental book and commands,
 without starting long self-play inside Codex or changing v1/v2.
 The standalone phase1-based trial and phase2 report are checkpointed in Git.
-Next is the user's external depth15/threads1/hash512 White-only100
-run using `books/shin-yonenaga-white-book-seventh-edge-experiment.txt` and
-`results/shin-seventh-edge-white-only-depth15-100games.json`. Measure actual
-dedicated-book pawn74 usage and simultaneous pawn74/silver73 placement, not
-just overall score. If coverage is negligible, do not reject the concept from
-that run. No long run has been started here.
+The user's external depth15/threads1/hash512 White-only100 trial finished
+on 2026-10-02 at 13:46 JST. The completion/placement audit passed with no
+errors: 20 wins, 61 losses, 19 max-256-ply draws (29.5% score), versus the
+earlier v2 run's 42.0%; settings differ only in dedicated-book path. Binary
+and trial-book hashes still match their checkpoints. Raw output is
+`results/shin-seventh-edge-white-only-depth15-100games.json` (SHA256
+`4cfe650f5c56e499e60fa8d638d252d37d99538d72187f18baf3bbf0bb4c3121`).
+All 298 dedicated-book moves matched source positions/moves; all 100 games
+used the root `1c1d`. Dedicated `7c7d` appeared in 7 games (0/5/2), but
+dedicated `7b7c` never appeared. In those 7 games, Sente instead replied
+`7h6g` five times, `4h3i` once, or `4g4f` once; White searched `7b7c`
+immediately in all seven. Actual simultaneous pawn74/silver73 placement
+by ply40 appeared in 13 games (1/10/2). Nine saved draws had four matching
+board/hand/turn occurrences; full legality/perpetual-check adjudication
+was not checked. This trial does not support official adoption, but limited
+coverage and preparation/search effects prevent rejecting the structure
+itself. The completion report is
+`docs/experiments/2026-10-02-seventh-edge-white-only-depth15.md`.
+The user approved checkpointing this report first, then focused analysis of
+actual book exits, silver73 responses and early play after completing the
+structure. Keep books/engine unchanged until reviewing that evidence; do not
+start another 100-game run. No deep searches or games were started during
+the initial completion check.
 Use the prepared opponent/White queues for bounded focused engine analysis.
 The official White book is not restricted to v1/v2:
 explore from the fixed `6b` opening, including immediate `1c1d` and contextual
