@@ -1,0 +1,20 @@
+{
+  "description": "Phase 1 reachability and strong direct replies. Shin off, unrestricted MultiPV, OwnBook false.",
+  "positions": [
+    {
+      "id": "edge_wait_game81_before_bishop77",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "5i4h", "1d1e", "6g6f", "3c3d", "4h3h", "7a7b"],
+      "note": "Compare 8h7g with strongest alternatives; do not assume the source-game continuation is best."
+    },
+    {
+      "id": "edge_wait_game81_after_pawn74",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "5i4h", "1d1e", "6g6f", "3c3d", "4h3h", "7a7b", "8h7g", "7c7d"],
+      "note": "Normal-side strongest direct replies after the candidate pawn push, rather than following the saved win."
+    },
+    {
+      "id": "edge_wait_game63_after_pawn74",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "6g6f", "7a7b", "7i7h", "1d1e", "5i4h", "6b7a", "3i3h", "3c3d", "6i5h", "2c2d", "8h7g", "7c7d"],
+      "note": "Test early 6f6e and other strongest direct replies with king71 already in place."
+    }
+  ]
+}

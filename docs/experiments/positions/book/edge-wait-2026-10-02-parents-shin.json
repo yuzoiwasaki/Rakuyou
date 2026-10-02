@@ -1,0 +1,20 @@
+{
+  "description": "Phase 1 edge-wait parent feasibility. ShinYonenagaGyoku on, OwnBook false; unrestricted MultiPV. Do not force 1d1e or 7c7d.",
+  "positions": [
+    {
+      "id": "edge_wait_parent_after_48_king",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "5i4h"],
+      "note": "Compare the second edge push 1d1e with unrestricted development before accepting the game81 route."
+    },
+    {
+      "id": "edge_wait_after_strong_16_pawn",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "1g1f"],
+      "note": "Normal-side depth24 first choice after 1c1d was 1g1f (+195); 1d1e is now a contested pawn push rather than quiet waiting."
+    },
+    {
+      "id": "edge_wait_after_strong_58_gold",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "5i4h", "1d1e", "6i5h"],
+      "note": "Normal-side depth24 first choice after the second edge push was 6i5h (+209); do not assume immediate bishop77."
+    }
+  ]
+}

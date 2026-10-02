@@ -104,6 +104,23 @@ independent legality or perpetual-check adjudication. Startup Zobrist keys
 are randomized, another possible source of search variation alongside
 retained shared state and opponent-book randomness, not a measured cause.
 
+Phase 1 edge-wait analysis is complete; see
+`docs/experiments/2026-10-02-edge-wait-seventh-file-analysis.md`.
+Fifteen distinct positions produced 19 completed searches: 15 at depth24,
+four at depth28, all one-thread/512MB/book-free and fresh process per position.
+At depth28, contextual `7c7d` was first in standard games81/43 and second,
+1 cp below `2d2e`, in game63. Keep it as a conditional branch, not a fixed
+main book. Before game81's `7a7b`, depth28 tied `3d3e`/`6b5a` at -167;
+`7a7b` was third at -207. Normal-side leaders include early `1g1f`, `6i5h`,
+and `3h2h` instead of the assumed bishop77. After that last reply, `7c7d`
+was outside the top5. After contextual `7c7d`, direct replies supported
+flexible silver/king/pawn ordering; game63's actual `6f6e` favored `7b7c`.
+All saved candidates reached the requested depth without timed stops or
+bound scores. The resumed initial screen retains one Broken-pipe error record,
+alongside a validated completed result for that ID; other six files have no
+errors. Do not call the entire execution error-free. Engine/books unchanged;
+analysis tooling adds optional `--fresh-engine` with three lifecycle tests.
+
 Both initial strength comparisons finished with 50 pairs (100 games) at depth
 15 and no errors. With its book disabled, 新米長玉 scored 25 wins, 56 losses,
 and 19 draws (34.5%). With the standard book enabled, it scored 32 wins, 56
@@ -307,6 +324,10 @@ The four fixed-White runs, medium analysis, and high review are complete.
 The user runs long self-play commands outside Codex; provide commands rather
 than starting further runs here. The user approved the following sequence:
 checkpoint this review and plan with a commit/push, then start step 1 below.
+The earlier review checkpoint was pushed as `1ba5461`; step 1 is now complete.
+Its report, input queues, and analysis-tool test/update are checkpointed in a
+separate local commit; push is deferred. Next is step 2, not another automatic
+self-play run or another review of the same data.
 Use the prepared opponent/White queues for bounded focused engine analysis.
 The official White book is not restricted to v1/v2:
 explore from the fixed `6b` opening, including immediate `1c1d` and contextual

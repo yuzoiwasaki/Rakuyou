@@ -1,0 +1,10 @@
+{
+  "description": "Depth28 check of the game81 parent where depth24 favored king retreat over silver72 despite the Shin placement preference.",
+  "positions": [
+    {
+      "id": "edge_wait_game81_before_silver72",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "5i4h", "1d1e", "6g6f", "3c3d", "4h3h"],
+      "note": "Unrestricted MultiPV5: recheck 6b5a, 3d3e, 2c2d, and 7a7b. Do not claim a deep candidate score if absent from the saved output."
+    }
+  ]
+}

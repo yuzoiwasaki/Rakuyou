@@ -1,0 +1,20 @@
+{
+  "description": "Phase 1 direct White responses to normal-side depth24 leaders. Shin on, unrestricted MultiPV.",
+  "positions": [
+    {
+      "id": "edge_wait_game81_after_king28_instead_of_bishop77",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "5i4h", "1d1e", "6g6f", "3c3d", "4h3h", "7a7b", "3h2h"],
+      "note": "Normal-side leader before bishop77 was 3h2h; compare 7c7d without assuming the favorable bishop placement."
+    },
+    {
+      "id": "edge_wait_game81_after_pawn74_silver78",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "5i4h", "1d1e", "6g6f", "3c3d", "4h3h", "7a7b", "8h7g", "7c7d", "7i7h"],
+      "note": "Normal-side strongest direct reply after 7c7d. Compare 7b7c and 6b7a without forcing their order."
+    },
+    {
+      "id": "edge_wait_game63_after_pawn74_pawn65",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "6g6f", "7a7b", "7i7h", "1d1e", "5i4h", "6b7a", "3i3h", "3c3d", "6i5h", "2c2d", "8h7g", "7c7d", "6f6e"],
+      "note": "Normal-side strongest direct reply after 7c7d with king71. Check whether 7b7c remains the best response to pawn65."
+    }
+  ]
+}

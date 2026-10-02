@@ -191,6 +191,8 @@ def parse_args():
                         help="stop a long search after this many seconds and save its last complete MultiPV depth")
     parser.add_argument("--shin-yonenaga-gyoku", choices=("on", "off"), default="on",
                         help="enable or disable the ShinYonenagaGyoku evaluation")
+    parser.add_argument("--fresh-engine", action="store_true",
+                        help="restart the engine for every position to avoid retained search state")
     parser.add_argument("--output", type=Path, required=True)
     return parser.parse_args()
 
@@ -224,6 +226,7 @@ def main():
             "ShinYonenagaGyoku": shin_yonenaga_gyoku,
             "OwnBook": False,
             "Ponder": False,
+            "fresh_engine_per_position": args.fresh_engine,
         },
         "positions": [],
         "errors": [],
@@ -231,13 +234,14 @@ def main():
     save(document, args.output)
     engine = None
     try:
-        engine = Engine(
-            args.engine, args.threads, args.hash_mb, args.multipv,
-            shin_yonenaga_gyoku,
-        )
         for index, position in enumerate(positions, 1):
             print(f"[{index}/{len(positions)}] {position['id']}", flush=True)
             try:
+                if engine is None:
+                    engine = Engine(
+                        args.engine, args.threads, args.hash_mb, args.multipv,
+                        shin_yonenaga_gyoku,
+                    )
                 result = engine.analyze(
                     position.get("moves", []), args.depth, args.timeout,
                     position.get("searchmoves"), args.stop_after, args.multipv,
@@ -254,6 +258,10 @@ def main():
                 document["errors"].append({"id": position["id"], "error": str(error)})
                 save(document, args.output)
                 raise
+            finally:
+                if args.fresh_engine and engine is not None:
+                    engine.close()
+                    engine = None
     finally:
         if engine is not None:
             engine.close()

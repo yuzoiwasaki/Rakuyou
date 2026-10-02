@@ -1,0 +1,10 @@
+{
+  "description": "Phase 1 parent feasibility before game81 silver72. Shin on, unrestricted MultiPV.",
+  "positions": [
+    {
+      "id": "edge_wait_game81_before_silver72",
+      "moves": ["7g7f", "5a6b", "2h6h", "1c1d", "5i4h", "1d1e", "6g6f", "3c3d", "4h3h"],
+      "note": "Check whether 7a7b itself is supported before testing the opponent choice of bishop77."
+    }
+  ]
+}
