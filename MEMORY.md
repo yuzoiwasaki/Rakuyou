@@ -348,24 +348,28 @@ The October 3 Astra independent review is complete and saved in
 It re-audited the existing 500 fixed-White games without engine searches or
 new games. Keep v2 as the provisional baseline, not a proven superior official
 book; leave v1/v2 and the seventh-file trial unchanged.
-The recommended priority now supersedes the earlier rook32-first proposal:
+After the initial review commit (`5c6bee8`), the user clarified that the first
+goal remains beating normal Gikou with its standard book, not broad opening
+coverage. The report's new addendum takes precedence over its original
+root-first priority and the older rook32-first proposal:
 
-1. Analyze Sente's replies after `7g7f 5a6b` (Shin off, depth28/MultiPV8).
-2. Re-screen White's skeleton after `7g7f 5a6b 2h6h`
-   (Shin on, depth28/MultiPV8; consider depth30 if close).
-3. Test Sente's early alternatives after
-   `7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c`
-   (Shin off, depth28/MultiPV5). Current v1/v2 fixed-White games all chose
-   `4h3i`, whereas the saved depth24 opponent leader was `7i7h`.
+1. Reanalyze the existing v2 White 200 games (50 + 50 + 100), preserving
+   run distinctions, to select 2-3 frequent losing paths and compare wins
+   from the same positions. Separate opening and middlegame issues.
+2. Deeply analyze only promising improvement positions. A trial need not
+   prove a uniquely best move: test whether it improves depth15 choices.
+3. Compare unchanged v2 with a separate one-position experimental extension,
+   using replicated runs and checking actual move changes/reachability.
+   Entries beyond ply20 require a deliberate BookMaxPly comparison design.
 
-Use unrestricted, book-free, fresh-process searches, one thread/512MB.
-These are proposals only: the user requested saving and committing the review,
-not executing analyses, games, book changes, or a push.
-Retain early `7a7b` as a candidate independently of forcing `7c7d`;
-reconsider initial `8c8d` as a research candidate without adding it to v1/v2.
-Then separate opening and middlegame issues in existing games before a small,
-replicated comparison of one justified change. The report contains exact USI
-inputs, candidate moves, decision criteria, citations and data limitations.
+Keep the original three root/opponent positions in report section 6 for later
+robustness tests, not as the immediate task. Retain earlier `7a7b` without
+forcing `7c7d` as an alternative entrance; first inspect the normal book's
+actual replies and exits. Do not adopt or reject an entire skeleton solely
+from the seventh-file trial. First target the standard-book-enabled normal
+Rakuyou depth15 benchmark, then validate timed GUI games/separate Gikou.
+The user requested only recording and committing this revised plan; no new
+analysis, games, book/engine changes, or push are authorized by that request.
 
 ### Completed October 2 work and superseded sequence
 
