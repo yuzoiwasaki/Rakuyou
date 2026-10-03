@@ -12,7 +12,9 @@ decision evidence live under docs/experiments/; see its README for navigation.
   params.bin, progress.bin, book.bin, probability.bin.
 - Read MEMORY.md, README.md, Makefile and git status before resuming.
 - The verified bin/release SHA-256 is
-  a1a5e25ada0d7be1375b45168586f00f7feaa29f1a87074a85b0e4b09c571f1b.
+  6f7891c4957e1bf37b1e80c37ad0c9cf83f34ca974e87be05fb05dd5c1f4c2ac.
+  This October3 build adds Black dedicated-book loading/probing only; the
+  previous a1a5e25a… binary was used for all15 Black focused searches.
   Ignored binaries can survive branch switches; rebuild for changed engine code.
 
 ## Engine Behavior and Durable Decisions
@@ -145,22 +147,70 @@ Prefer pawn26-first as the next Black-trial investigation, not an adopted
 best root or strength claim. Keep pawn76/silver62 as an alternative; do not
 forbid king retreats. No Black book or extra games have been created.
 
-1. Check Black-ON unrestricted depth24/MultiPV5 responses after
-   5i4h 3c3d 2g2f 3a4b (tied best normal reply) and
-   5i4h 3c3d 2g2f 4a3b (actual standard-book reply22/56 games).
-2. Compare their preparations with the silver38/bishop33 branch before
-   selecting small Black-trial entries; root depth28 only if needed for ties.
-3. Build a separate small Black trial. Current builder is White-only; add
-   explicit Black support and regression tests when implementing. Do not
-   rotate/copy the White skeleton blindly or overwrite its operational book.
-4. Provide external fixed-Black baseline/trial commands with the same current
-   engine, normal book and settings. User runs long games outside Codex.
-   Do not start long self-play here.
+Checkpoint e310529 committed the audit,8 searches and right-side-king
+preference; not pushed. Continuation completed4 more unrestricted fresh
+depth24/MultiPV5 searches (Black ON2, normal OFF2), same settings, errors0/
+stops0/bounds0,5 candidates each,18 input moves legal-probed. Results are
+appended to the same report; cumulative12 searches (ON8/OFF4).
+- After pawn26/silver42: gold58 -99, pawn76 -124, silver38 -134,
+  pawn25/pawn36 -145. Gold58 PV returns king59/68; pawn76 and silver38
+  connect to right-side plans, but are not equivalent to the leader.
+- After pawn26/gold32: pawn76 -32, silver38 -94, pawn25 -108,
+  gold78 -113, king38 -158. Top PV keeps king48 and exchanges rook pawns.
+- Normal OFF after silver42/pawn76: bishop33 +128, pawn44 +96,
+  silver33 +13, bishop88+ +8, bishop44 -26. Leader PV silver38/king39;
+  pawn44 PV instead returns king59. Right-side placement is not guaranteed.
+- Normal OFF after gold32/pawn76: silver72 +55, pawn64 +54,
+  pawn84/silver62 +47, king42 +32. Top4 PVs choose Black pawn25, but OFF
+  PVs do not directly establish future Black ON responses.
+- Historical pawn26/bishop33 already chose silver38 in19/21 games;
+  pawn26/gold32 chose pawn76 in all22. Do not present registration itself
+  as a newly discovered winning move or proven strength gain.
+
+The requested continuation completed the3 queued Black ON depth24 checks,
+same unrestricted/fresh settings; all15 candidates complete/no errors/stops/
+bounds,18 input moves legal-probed. Cumulative15 searches (ON11/OFF4).
+- Gold32/pawn76/silver62: pawn25 -36, gold78/silver38 -41. Leading PV
+  retains king48 initially but returns king59 at overall ply25.
+- Gold32/pawn76/pawn84: pawn25 +17, gold78 -10, pawn66 -45,
+  silver38 -101. Leading ON PV exchanges bishops, unlike earlier OFF PV.
+- Silver42/pawn76/bishop33: gold58 -94, pawn25 -98, silver38 -110.
+  Choose pawn25 (4cp deficit/right-side PV), replacing tentative silver38.
+
+Created books/shin-yonenaga-black-pawn26-experiment.json and
+books/shin-yonenaga-black-book-pawn26-experiment.txt:7 experimental positions,
+plies3-7 only. SHA2566218cbbcd7768ecd3c0e90aec650ec080e8a02dfcf14555e76edd23775ed00b1.
+Root pawn26; bishop33->silver38; gold32/silver42->pawn76; gold32 followed
+by silver62/pawn84->pawn25; silver42/bishop33->pawn25. Keep the25cp deficit
+for silver42/pawn76 explicit. Unknown replies/deeper moves leave book for
+search, not standard fallback. No king retreats prohibited/guarantee given.
+This is a trial, NOT operational adoption or demonstrated strength gain.
+
+Both loader/probe and builder were White-only. src/shin_book.cc now accepts
+either side using existing exact position/turn equality and legality checks.
+No evaluation/default/first-move changes. build_shin_book.py defaults White;
+Black requires --side black --source ... --experimental --output ... and
+cannot overwrite existing White books. Separate ShinBookFile selection is
+still necessary; no automatic White/Black file switching.
+make release -j2 succeeded;29 regression tests passed (Black8/White5/
+seventh8/analysis3/audit5). All7 entry evidence matched raw results, and39
+book/input moves were legal-probed. White v2 hash unchanged.
+
+The user approved committing/pushing the Black trial and continuation.
+Next: user externally runs four
+fresh fixed-Black50 runs baseline/trial/trial/baseline with the CURRENT
+binary, depth15/thread1/hash512/normal book ON/BookMaxPly20/max256/PonderOFF.
+Sequential caffeinate command is in books/README.md. No long games launched
+here. Review run-specific book coverage/king placement/middlegame/outcomes;
+old paired300 are not this benchmark. Do not expand searches indefinitely
+or require winning strength before closing the first Black book cycle.
 
 The White decision, cleanup and Black starting plan were pushed as0ea194a.
-The user now requested a checkpoint commit of this Black audit/screen and
-right-side-king design preference, followed by the two queued branch checks.
-No push was requested. Engine defaults and GUI settings remain unchanged;
+The initial checkpoint commit is e310529. The subsequent7-search findings,
+Black trial and implementation/tests are included in the next preparation
+commit, which the user requested pushing to origin/main. No long games are
+authorized inside Codex; wait for the user's external results.
+Engine defaults and GUI settings remain unchanged;
 v2 requires explicit ShinBookFile selection.
 
 ## Deferred White Research and Evidence Map

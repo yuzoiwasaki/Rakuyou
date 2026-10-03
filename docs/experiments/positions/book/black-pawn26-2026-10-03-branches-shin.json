@@ -1,0 +1,12 @@
+{"positions": [
+  {
+    "id": "black_after_pawn26_silver42",
+    "moves": ["5i4h", "3c3d", "2g2f", "3a4b"],
+    "note": "Black ON unrestricted response to a tied normal-OFF depth24 leader (+105 White cp). Prioritize investigating right-side king preparations without banning king retreats or modifying the25cp preference."
+  },
+  {
+    "id": "black_after_pawn26_gold32",
+    "moves": ["5i4h", "3c3d", "2g2f", "4a3b"],
+    "note": "Black ON unrestricted response to actual standard-book reply22/56 pawn26 games. Compare with silver38 after bishop33; do not assume one preparation covers all replies."
+  }
+]}

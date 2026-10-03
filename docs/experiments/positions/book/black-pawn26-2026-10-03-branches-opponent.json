@@ -1,0 +1,14 @@
+{
+  "positions": [
+    {
+      "id": "normal_after_silver42_pawn76",
+      "moves": ["5i4h", "3c3d", "2g2f", "3a4b", "7g7f"],
+      "note": "Normal OFF unrestricted reply to the right-side-king candidate pawn76, 25cp below gold58 within the Black ON depth24 screen. Do not infer its safety from an ON principal variation alone."
+    },
+    {
+      "id": "normal_after_gold32_pawn76",
+      "moves": ["5i4h", "3c3d", "2g2f", "4a3b", "7g7f"],
+      "note": "Normal OFF unrestricted reply to the Black ON depth24 leader pawn76. Historical standard book frequently replies silver62 or pawn84; unrestricted search is separate from book selection."
+    }
+  ]
+}

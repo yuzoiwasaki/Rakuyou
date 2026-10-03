@@ -62,7 +62,7 @@ void ShinBook::ReadFromFile(const std::string& file_name) {
     }
     std::string book_move, extra;
     if (!valid || !delimiter || !(tokens >> book_move) || (tokens >> extra)
-        || !IsUsiMove(book_move) || position.side_to_move() != kWhite) {
+        || !IsUsiMove(book_move)) {
       SYNCED_PRINTF("info string Invalid ShinBookFile line %d\n", line_number);
       continue;
     }
@@ -89,7 +89,8 @@ void ShinBook::ReadFromFile(const std::string& file_name) {
 }
 
 Move ShinBook::Probe(const Position& position) const {
-  if (position.side_to_move() != kWhite) return kMoveNone;
+  // Position equality includes the side to move, so Black and White entries
+  // can share the format without borrowing the other side's moves.
   for (const Entry& entry : entries_) {
     if (entry.position == position) return entry.move;
   }
