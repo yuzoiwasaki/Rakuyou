@@ -59,7 +59,9 @@ def review(paths):
         raw = path.read_bytes()
         document = json.loads(raw)
         assert not document["errors"], path
-        assert len(document["games"]) == 100, path
+        expected = document.get("requested_games", 100)
+        assert isinstance(expected, int) and expected > 0, path
+        assert len(document["games"]) == expected, path
         summary = summarize(document["games"], document["settings"].get("shin_side", "both"))
         summary["errors"] = 0
         assert summary == document["summary"], path

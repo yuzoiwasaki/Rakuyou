@@ -112,6 +112,10 @@ python3 tools/paired_selfplay.py \
 追加候補は別ファイルに記録します。次のコマンドで11局面の試験用定跡を生成し、
 ２局面で実際に`dedicated_book`として使われることを確認できます。
 
+2026-10-03にこのv2を後手の第一運用版として採用しました。ファイル名は
+変更していません。[定跡一覧・運用設定](../books/README.md)を参照してください。
+これは運用の区切りであり、棋力向上や勝ち越しを証明したという意味ではありません。
+
 ```sh
 python3 tools/build_shin_book.py \
   --extension books/shin-yonenaga-white-v2-experiment.json

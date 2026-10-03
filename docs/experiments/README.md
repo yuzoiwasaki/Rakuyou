@@ -2,6 +2,20 @@
 
 Rakuyouの自己対局と序盤解析の記録です。
 
+## 現在地
+
+- 後手第一運用版はv2の既存11局面。[定跡一覧・使い方](../../books/README.md)
+  に運用／比較用／保留を整理しています。過去の実験は削除していません。
+- [後手の一区切り：200局比較・７局確認・v2採用判断](2026-10-03-v2-bounded-white-improvement-cycle.md)
+- [次の段階：先手300局の入口集計と先手定跡の着手方針](2026-10-03-black-book-start-plan.md)
+
+## 後手版の主要検証
+
+- [４パターン・後手固定400局とhighレビュー](2026-10-02-fixed-white-four-books-depth15.md)
+- [端歩待機と７筋構想の重点解析](2026-10-02-edge-wait-seventh-file-analysis.md)
+- [早い△７二銀と７筋試験定跡の準備](2026-10-02-early-silver72-and-seventh-trial.md)
+- [７筋試験定跡100局と追加検証：運用採用は見送り](2026-10-02-seventh-edge-white-only-depth15.md)
+
 ## 自己対局と序盤分析
 
 - [新米長玉 定跡なし対通常 深さ15](2026-09-26-shin-book-off-vs-normal-depth15.md)
