@@ -1,0 +1,7 @@
+{"positions": [
+  {
+    "id": "black_after_pawn76_rook42",
+    "moves": ["5i4h", "3c3d", "7g7f", "8b4b"],
+    "note": "Black ON, unrestricted depth28 recheck of the depth24 five-candidate 7cp spread. Do not force king-return or right-side placement."
+  }
+]}

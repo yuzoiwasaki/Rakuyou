@@ -24,6 +24,10 @@ decision evidence live under docs/experiments/; see its README for navigation.
 - Preference favors Black king files1-4 and White files6-9, fading to zero in
   middlegame; retreats are legal. OFF disables both features.
 - Keep the toggle and 25cp value unchanged for the current book work.
+- User preference for Black book: prioritize preparations retaining the king
+  on files1-4 and avoid hard-coding an immediate return toward the left.
+  Keep left-return candidates as comparisons; retreats remain legal/searchable.
+  Do not change the25cp preference or add king-move restrictions implicitly.
 - Compare with normal Rakuyou/Gikou using its standard book. Judge playing
   strength, king placement and middlegame transitions, not just one score.
 - Completed, book-free, one-thread focused searches are the main move evidence.
@@ -96,14 +100,56 @@ for just5 Shin moves in one old ON game; do not infer a book benefit.
 Keep per-run settings/history: these paired games are not a new fixed-Black
 benchmark, and old runtime binaries lack automatically stored start hashes.
 
-1. Audit and reanalyze those existing Black games, main branches, book exits,
-   king paths and representative wins/losses before choosing entries.
-2. First focused search parents (not yet run), Black ON, unrestricted
-   depth24/MultiPV5, threads1/hash512, OwnBook OFF, fresh process:
-   5i4h 3c3d;
-   5i4h 3c3d 7g7f 7a6b;
-   5i4h 3c3d 7g7f 8b4b.
-   Check normal-OFF direct replies; deepen only promising close choices.
+The user then requested starting Black work. Audit and initial screen are
+complete, source HEAD0ea194a. See
+docs/experiments/2026-10-03-black-300-game-branch-review.md.
+tools/review_black_runs.py audits all600 saved paired records/results/summary,
+replays the selected Black300, and outputs run-specific branches, book exits,
+king positions, representative games and diagnostic shallow score changes.
+Its5 synthetic tests pass. Ownership replay is not full legality/adjudication.
+Normal first search is ply6 in269 games, ply8 in24, ply10 in6, ply20 in1;
+some later return to book. Four position occurrences appear in36 games,
+all saved draws. At ply24,101/300 Black kings are already on files5-9;
+do not force the right-side placement or infer causality from king cohorts.
+
+Three unrestricted Black-ON depth24/MultiPV5/threads1/hash512/fresh/book-free
+searches completed, errors0/no stops/no bounds; all10 input moves legal-probed:
+- 5i4h 3c3d: pawn76/pawn26 tie-121, silver38 -129.
+- 5i4h 3c3d 7g7f 7a6b: pawn26 first-27, pawn16 -54, silver38 -60.
+- 5i4h 3c3d 7g7f 8b4b: pawn96/pawn86 tie-96, king59 -98,
+  pawn26 -102, pawn75 -103. Top PV after pawn96 returns king to59/68/78.
+Root PV replies include pawn44 and rook52, unlike the common standard-book
+replies. Do not choose a unique root or a finished Black skeleton yet.
+Raw result: results/black-entry-2026-10-03-shin-depth24.json, SHA256
+f783f65a3b0ccd8dcd140e27d84499742de19d21f89ac95a78957173b385a1bb.
+
+The subsequent user-approved continuation completed5 more searches:
+2 normal-OFF depth24 direct roots,2 Black-ON depth24 preparations,1 Black-ON
+depth28 rook42-parent recheck; same unrestricted/fresh/thread1/hash512/book-free
+conditions. All5 completed with5 candidates each, errors0/no stops/no bounds;
+all18 input moves legal-probed. Results are appended to the same Black report.
+- After pawn76, normal pawn44 +96, rook32 +87, pawn64 +58, bishop33 +42,
+  silver62 +39. The new pawn44/rook32 replies never occurred at ply4 in the
+  244 old pawn76 games (all book silver62/rook42).
+- After pawn26, normal bishop33/silver42 tie+105, silver32/pawn44 +104,
+  rook32 +93; root Black-ON PV's rook52 was outside this direct OFF top5.
+- Black after pawn76/pawn44: pawn26 -109 first, pawn56 -123, pawn96 -124,
+  gold58 -128, silver38 -130. Top PV returns king via57/68/78.
+- Black after pawn26/bishop33: silver38 -110, gold58/pawn76 -113.
+  Top PV silver38/silver32/pawn76/pawn44/king39 connects to silver27/rook48,
+  preserving a right-side king plan without extra positional restrictions.
+- After pawn76/rook42 at depth28: gold58 -64, king58 -65, king59 -66,
+  pawn26 -96, pawn66 -113. Depth24 pawn96/pawn86 leaders are now outside top5;
+  do not force them or subtract scores across depths. Leading PVs move king left.
+Prefer pawn26-first as the next Black-trial investigation, not an adopted
+best root or strength claim. Keep pawn76/silver62 as an alternative; do not
+forbid king retreats. No Black book or extra games have been created.
+
+1. Check Black-ON unrestricted depth24/MultiPV5 responses after
+   5i4h 3c3d 2g2f 3a4b (tied best normal reply) and
+   5i4h 3c3d 2g2f 4a3b (actual standard-book reply22/56 games).
+2. Compare their preparations with the silver38/bishop33 branch before
+   selecting small Black-trial entries; root depth28 only if needed for ties.
 3. Build a separate small Black trial. Current builder is White-only; add
    explicit Black support and regression tests when implementing. Do not
    rotate/copy the White skeleton blindly or overwrite its operational book.
@@ -111,9 +157,11 @@ benchmark, and old runtime binaries lack automatically stored start hashes.
    engine, normal book and settings. User runs long games outside Codex.
    Do not start long self-play here.
 
-The user approved committing/pushing the White decision, completed comparison,
-non-destructive documentation cleanup and Black starting plan. Engine defaults
-and GUI settings were not changed; v2 requires explicit ShinBookFile selection.
+The White decision, cleanup and Black starting plan were pushed as0ea194a.
+The user now requested a checkpoint commit of this Black audit/screen and
+right-side-king design preference, followed by the two queued branch checks.
+No push was requested. Engine defaults and GUI settings remain unchanged;
+v2 requires explicit ShinBookFile selection.
 
 ## Deferred White Research and Evidence Map
 

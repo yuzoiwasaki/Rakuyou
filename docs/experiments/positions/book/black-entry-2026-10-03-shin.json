@@ -1,0 +1,17 @@
+{"positions": [
+  {
+    "id": "black_after_king48_pawn34",
+    "moves": ["5i4h", "3c3d"],
+    "note": "All 300 existing Black games reached this parent. Compare pawn76/pawn26 and unrestricted alternatives; do not force a White-book rotation."
+  },
+  {
+    "id": "black_after_pawn76_silver62",
+    "moves": ["5i4h", "3c3d", "7g7f", "7a6b"],
+    "note": "162 games, 60W65L37D, descriptive score48.46%. Usually leaves opponent book at ply6; select Black preparation before the searched reply."
+  },
+  {
+    "id": "black_after_pawn76_rook42",
+    "moves": ["5i4h", "3c3d", "7g7f", "8b4b"],
+    "note": "82 games, 27W43L12D, descriptive score40.24%. Compare pawn96/pawn26 and unrestricted alternatives; root response robustness is untested."
+  }
+]}

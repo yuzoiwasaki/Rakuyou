@@ -1,0 +1,12 @@
+{"positions": [
+  {
+    "id": "normal_after_black_king48_pawn76",
+    "moves": ["5i4h", "3c3d", "7g7f"],
+    "note": "White normal OFF, unrestricted direct replies to Black pawn76. Compare actual standard-book silver62/rook42 with deeper alternatives including pawn44."
+  },
+  {
+    "id": "normal_after_black_king48_pawn26",
+    "moves": ["5i4h", "3c3d", "2g2f"],
+    "note": "White normal OFF, unrestricted direct replies to Black pawn26. Compare actual standard-book gold32/bishop33 with deeper alternatives including rook52."
+  }
+]}

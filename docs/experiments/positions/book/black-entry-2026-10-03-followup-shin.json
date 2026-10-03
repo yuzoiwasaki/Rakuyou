@@ -1,0 +1,12 @@
+{"positions": [
+  {
+    "id": "black_after_pawn76_normal_pawn44",
+    "moves": ["5i4h", "3c3d", "7g7f", "4c4d"],
+    "note": "Normal OFF depth24 directly ranked pawn44 first after pawn76 (+96 White perspective). Analyze unrestricted Black ON preparations, not just the normal-side PV reply."
+  },
+  {
+    "id": "black_after_pawn26_normal_bishop33",
+    "moves": ["5i4h", "3c3d", "2g2f", "2b3c"],
+    "note": "Normal OFF depth24 tied bishop33 and silver42 (+105 White perspective). Check one rank-one reply only; this does not cover the tied silver42 branch or prove root robustness."
+  }
+]}
