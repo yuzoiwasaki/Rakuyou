@@ -353,14 +353,38 @@ goal remains beating normal Gikou with its standard book, not broad opening
 coverage. The report's new addendum takes precedence over its original
 root-first priority and the older rook32-first proposal:
 
-1. Reanalyze the existing v2 White 200 games (50 + 50 + 100), preserving
-   run distinctions, to select 2-3 frequent losing paths and compare wins
-   from the same positions. Separate opening and middlegame issues.
-2. Deeply analyze only promising improvement positions. A trial need not
-   prove a uniquely best move: test whether it improves depth15 choices.
-3. Compare unchanged v2 with a separate one-position experimental extension,
-   using replicated runs and checking actual move changes/reachability.
-   Entries beyond ply20 require a deliberate BookMaxPly comparison design.
+The user subsequently approved one bounded improvement cycle, then fixing a
+White operational version and moving to Black-side book work. Winning against
+normal Gikou remains a long-term goal, not a prerequisite for that transition.
+See `docs/experiments/2026-10-03-v2-bounded-white-improvement-cycle.md`.
+The v2 White200 position-based reanalysis is complete: 66/105/29 (40.25%).
+`tools/review_v2_white_cycle.py` reproduces the audit without modifying data.
+Selected parents are the ply18 silver67/gold58 transposition (91 games,
+34/46/11; existing depth28/30 reused), actual pawn65 after silver67/pawn24
+(14 games, 5/7/2), and ply22 silver83/pawn96 (22 games, 7/10/5).
+The last two completed unrestricted depth28/MultiPV5/on/fresh/one-thread/512MB
+analysis without errors; the pawn65 branch ranks `2d2e` -142 ahead of searched
+`7b8c` -172. At ply22, `1c1d` and `8b3b` tie at -174, `9c9d` scores -176,
+and the frequent `2d2e` scores -200. Defer that branch (BookMaxPly22 needed)
+and the ambiguous most-frequent ply18 branch; add only pawn65/pawn25 now.
+Direct normal-side depth24 replies to `2d2e` rank `6g6f` first (+156), then
+`4g4f` (+145); the original White PV had expected `7f7e`, so do not equate
+that PV with the opponent's strongest choice or subtract their scores.
+The one-position trial is
+`books/shin-yonenaga-white-book-v2-pawn25-experiment.txt`, generated from
+the original v1 plus `books/shin-yonenaga-white-v2-pawn25-experiment.json`.
+It keeps all 11 v2 positions and adds only the ply18 `2d2e` response to
+`... 7h6g 2c2d 6f6e`. All12 dedicated-book probes, transposition, unchanged
+v2 search fallback, OwnBook off, and normal standard-book behavior passed.
+This is experimental, not a claimed strength gain or stable depth30 best move.
+Next compare unchanged v2 and this trial outside Codex, at BookMaxPly20:
+four fresh 50-game invocations in baseline/trial/trial/baseline order,
+100 games per version, using the report's caffeinate commands. No new games
+have been started here. Check per-run results, actual changed moves, reach
+and opponent replies, rather than treating pooled games as independent.
+Cap the cycle at this comparison: adopt an improvement only if evidence
+supports it; otherwise retain v2 as the first operational White book and
+document remaining limitations before starting Black-side work.
 
 Keep the original three root/opponent positions in report section 6 for later
 robustness tests, not as the immediate task. Retain earlier `7a7b` without
@@ -368,8 +392,9 @@ forcing `7c7d` as an alternative entrance; first inspect the normal book's
 actual replies and exits. Do not adopt or reject an entire skeleton solely
 from the seventh-file trial. First target the standard-book-enabled normal
 Rakuyou depth15 benchmark, then validate timed GUI games/separate Gikou.
-The user requested only recording and committing this revised plan; no new
-analysis, games, book/engine changes, or push are authorized by that request.
+The later requests authorize this bounded cycle and committing/pushing its
+analysis, trial book, and plan before the comparison. Long games remain
+external/user-run; wait for the resulting files before deciding adoption.
 
 ### Completed October 2 work and superseded sequence
 

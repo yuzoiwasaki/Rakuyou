@@ -1,0 +1,15 @@
+{
+  "description": "Two previously unanalysed frequent v2 White positions selected from 200 White games. Unrestricted, Shin on, depth28 MultiPV5, one thread/512MB/fresh process. The more frequent ply18 silver67/gold58 transposition reuses existing completed depth28/30 results.",
+  "positions": [
+    {
+      "id": "v2_after_67_silver_24_pawn_65_pawn",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "7i7h", "8c8d", "7h6g", "2c2d", "6f6e"],
+      "note": "14 unique White games across runs (2/2/10), 5W7L2D. Searched silver83 in 13 and pawn14 in one. Compare silver83 with unrestricted alternatives against the actually frequent central attack; do not infer move quality from cohort results."
+    },
+    {
+      "id": "v2_after_common_34_pawn_46_pawn_83_silver_96_pawn",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "7i7h", "8c8d", "7h6g", "2c2d", "6i5h", "3c3d", "4g4f", "7b8c", "9g9f"],
+      "note": "22 unique White games across transpositions/runs (11/3/8), 7W10L5D. Searched pawn25 in 15, rook32 in five, pawn14/pawn94 in one each. Directly assess the opening-to-middlegame choice after previously supported silver83. A book entry here requires BookMaxPly beyond20 and is not automatically preferred to a ply18 change."
+    }
+  ]
+}

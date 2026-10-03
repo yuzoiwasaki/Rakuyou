@@ -1,0 +1,10 @@
+{
+  "description": "Direct normal-side replies to the new pawn25 candidate in selected branch B. Same bounded branch, book-free Shin off, depth24 MultiPV5, one thread/512MB/fresh process.",
+  "positions": [
+    {
+      "id": "opponent_after_v2_silver67_pawn65_pawn25",
+      "moves": ["7g7f", "5a6b", "2h6h", "5c5d", "3i3h", "3a4b", "5i4h", "4b5c", "4h3i", "7a7b", "6g6f", "6b7a", "7i7h", "8c8d", "7h6g", "2c2d", "6f6e", "2d2e"],
+      "note": "Check actual strong replies before selecting a one-position trial. Parent unrestricted White depth28 favored pawn25 -142 over searched silver83 -172; do not compare cp across ON/OFF or positions."
+    }
+  ]
+}

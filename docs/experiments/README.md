@@ -22,6 +22,7 @@ Rakuyouの自己対局と序盤解析の記録です。
 
 ## 専用定跡候補
 
+- [後手v2の一区切りに向けた頻出局面の選別と試験版](2026-10-03-v2-bounded-white-improvement-cycle.md)
 - [Astraによる後手新米長玉定跡の独立レビュー（今後の検証方針）](2026-10-03-astra-white-book-independent-review.md)
 - [後手新米長玉・最初の専用定跡候補](2026-09-27-first-white-book-candidates.md)
 - [第一版専用定跡・定跡出口の勝敗と候補手](2026-09-28-first-white-book-post-exit-analysis.md)
