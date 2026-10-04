@@ -26,7 +26,7 @@ decision evidence live under docs/experiments/; see its README for navigation.
 - Preference favors Black king files1-4 and White files6-9, fading to zero in
   middlegame; retreats are legal. OFF disables both features.
 - Keep the toggle and 25cp value unchanged for the current book work.
-- User preference for Black book: prioritize preparations retaining the king
+- Black book design policy: prioritize preparations retaining the king
   on files1-4 and avoid hard-coding an immediate return toward the left.
   Keep left-return candidates as comparisons; retreats remain legal/searchable.
   Do not change the25cp preference or add king-move restrictions implicitly.
@@ -44,8 +44,8 @@ decision evidence live under docs/experiments/; see its README for navigation.
 
 ## Current Decision: White Operational Book Frozen
 
-The user approved ending the bounded White improvement cycle and proceeding
-to Black book work, even without proving a winning score against standard
+The bounded White improvement cycle ended and work moved to the Black book,
+even without proving a winning score against standard
 Gikou. White's first operational version is the unchanged v2, 11 positions:
 books/shin-yonenaga-white-book-v2-experiment.txt.
 The filename stays unchanged for reproducibility; "experiment" in its name
@@ -68,7 +68,7 @@ Its extension retains the 11 v2 entries and adds 2d2e after
 2d2e -142 vs 7b8c -172. Normal-OFF depth24 preferred 6g6f (+156).
 This candidate is not rejected, but no more searches/games in this cycle.
 
-User-run comparison completed on October3, preparation commit da37690:
+External comparison completed on October3, preparation commit da37690:
 four fresh 50-game runs, v2/trial/trial/v2, depth15, threads1/hash512,
 White fixed, standard-book opponent, Ponder OFF, BookMaxPly20, max256 plies.
 v2 runs: 18/27/5 and 15/24/11, both41%; total33/51/16 (41%).
@@ -102,7 +102,7 @@ for just5 Shin moves in one old ON game; do not infer a book benefit.
 Keep per-run settings/history: these paired games are not a new fixed-Black
 benchmark, and old runtime binaries lack automatically stored start hashes.
 
-The user then requested starting Black work. Audit and initial screen are
+Black book work then began. Audit and initial screen are
 complete, source HEAD0ea194a. See
 docs/experiments/2026-10-03-black-300-game-branch-review.md.
 tools/review_black_runs.py audits all600 saved paired records/results/summary,
@@ -125,7 +125,7 @@ replies. Do not choose a unique root or a finished Black skeleton yet.
 Raw result: results/black-entry-2026-10-03-shin-depth24.json, SHA256
 f783f65a3b0ccd8dcd140e27d84499742de19d21f89ac95a78957173b385a1bb.
 
-The subsequent user-approved continuation completed5 more searches:
+The subsequent continuation completed5 more searches:
 2 normal-OFF depth24 direct roots,2 Black-ON depth24 preparations,1 Black-ON
 depth28 rook42-parent recheck; same unrestricted/fresh/thread1/hash512/book-free
 conditions. All5 completed with5 candidates each, errors0/no stops/no bounds;
@@ -167,7 +167,7 @@ appended to the same report; cumulative12 searches (ON8/OFF4).
   pawn26/gold32 chose pawn76 in all22. Do not present registration itself
   as a newly discovered winning move or proven strength gain.
 
-The requested continuation completed the3 queued Black ON depth24 checks,
+The continuation completed the3 queued Black ON depth24 checks,
 same unrestricted/fresh settings; all15 candidates complete/no errors/stops/
 bounds,18 input moves legal-probed. Cumulative15 searches (ON11/OFF4).
 - Gold32/pawn76/silver62: pawn25 -36, gold78/silver38 -41. Leading PV
@@ -196,9 +196,9 @@ make release -j2 succeeded;29 regression tests passed (Black8/White5/
 seventh8/analysis3/audit5). All7 entry evidence matched raw results, and39
 book/input moves were legal-probed. White v2 hash unchanged.
 
-Preparation was committed/pushed as433f8d0. The user completed all four
+Preparation was committed/pushed as433f8d0. All four
 external fixed-Black50 runs baseline/trial/trial/baseline, depth15/thread1/
-hash512/normal book ON/BookMaxPly20/max256/PonderOFF. All200/errors0;
+hash512/normal book ON/BookMaxPly20/max256/PonderOFF completed. All200/errors0;
 records/outcomes/summaries/settings and215 dedicated moves checked.
 Baseline:18/16/16 (52%),17/24/9 (43%); total35/40/25 (47.5%).
 Trial:15/25/10 (40%),14/27/9 (37%); total29/52/19 (38.5%).
@@ -209,7 +209,7 @@ No independent perpetual-check adjudication. Trial gold32 cohort44 games
 scores53.4%, bishop33 cohort37 scores25.7%; bishop33/silver38/silver32
 23 games score26.1%. Root forces pawn26 in100 instead of baseline19.
 
-User requested deeper diagnosis.6 focused searches complete (ON5/OFF1),
+Deeper diagnosis completed6 focused searches (ON5/OFF1),
 cumulative21, current unchanged binary;105 inputs and2 restricted candidates
 legal-probed, errors/stops/bounds0. Appended results to the same Black report:
 - Frequent after bishop33/silver32/pawn76/pawn44: depth24 silver27 -131,
@@ -226,7 +226,7 @@ legal-probed, errors/stops/bounds0. Appended results to the same Black report:
   Pawn66 blocks the bishop diagonal while retaining the right-side king.
   Exact parent occurred once only; not the sole cause of37 poor games.
 
-The user approved the next comparison: remove only the root pawn26-forcing
+The next comparison removes only the root pawn26-forcing
 entry, retain6 conditional entries to separate root selection from
 preparations. Baseline100 statically reaches those
 entries39 times in31 games (17 different recorded moves); transpositions
@@ -244,7 +244,7 @@ Added4 tests, all33 passed. Old7-entry book/White v2/binary hashes unchanged;
 no rebuild required. Preparation and completed results are included in the
 current conditional-book checkpoint; see git log for its commit ID.
 
-User completed both external6-entry trial50-game runs, same depth15/thread1/
+Both external6-entry trial50-game runs completed, same depth15/thread1/
 hash512/normal book ON/BookMaxPly20/max256/PonderOFF/timeout300. Outputs:
 results/shin-black-conditional-r1-depth15-50games.json and same r2.
 All100/errors0; records/summaries/outcomes/settings and18 dedicated moves
@@ -312,6 +312,13 @@ v2 requires explicit ShinBookFile selection.
 - Raw JSON stays in ignored results/. Historical third-party KIF stays in
   ignored local/kifu/. Keep large raw data and complete third-party games
   out of Git. Commit reports/input positions/tools and raw-file SHA-256.
+- Public files must use repository-relative paths or neutral placeholders,
+  never personal home-directory paths. Run commands from the repository root;
+  GUI file selection resolves each user's own absolute path locally.
+  Current tracked documentation was sanitized; older commits are left intact.
+- Write public experiment reports as development records: describe decisions,
+  methods and results directly, without request/approval dialogue. Preserve
+  analysis provenance (including Astra reviews), evidence and uncertainty.
 - Reports: docs/experiments/; named inputs: docs/experiments/positions/.
   No files were moved/deleted in the October3 cleanup. Old paths stay valid.
 - Important raw data should be compressed/backed up to

@@ -9,7 +9,7 @@
 ## 条件・再現情報
 
 - 対局時のソース基準：`7407786`（phase2と独立実験定跡）。
-- 実行：2026-10-02 10:42:40～13:46:33 JST、ユーザーがCodex外で実行。
+- 実行：2026-10-02 10:42:40～13:46:33 JST、Codex外で実行。
 - 同一 `bin/release`、深さ15、各エンジン1スレッド・Hash512MB、Ponder off。
 - 新米長玉：後手固定、`ShinYonenagaGyoku=true`、`OwnBook=true`、実験専用定跡を使用。
 - 通常側：先手固定、`ShinYonenagaGyoku=false`、`OwnBook=true`、`book.bin`。

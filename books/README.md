@@ -18,8 +18,10 @@
 ## 後手第一運用版の使い方
 
 将棋所では `ShinYonenagaGyoku` と `OwnBook` をON、`ShinBookFile` に
-`/Users/yuzo.iwasaki/Rakuyou/books/shin-yonenaga-white-book-v2-experiment.txt`
-を指定し、`BookMaxPly` は20。未登録局面は探索へ抜ける。
+`books/shin-yonenaga-white-book-v2-experiment.txt`
+を指定し、`BookMaxPly` は20。このパスはリポジトリ直下からの相対表記。
+将棋所のファイル選択で、自分の保存先にある実ファイルを選ぶ。
+未登録局面は探索へ抜ける。
 `BookFile` の `book.bin` は通常側の標準定跡用であり、新米長玉側の
 専用定跡に穴があるときの補完としては使われない。
 後手用定跡なので、先手の新米長玉専用枝は含まない。
@@ -122,10 +124,9 @@ python3 tools/build_shin_book.py --side black \
 僅差から改善を確定しない。定跡利用・３手目の選択・玉戻り・中盤への接続も
 確認する。対局中のエンジン・定跡編集や再ビルドは行わない。
 
-１本目（同名結果が存在しないことを確認してからCodex外で実行）：
+１本目（リポジトリ直下で、同名結果が存在しないことを確認してからCodex外で実行）：
 
 ```sh
-cd /Users/yuzo.iwasaki/Rakuyou
 caffeinate -i python3 tools/paired_selfplay.py \
   --engine bin/release --shin-side black --games 50 --shin-book on \
   --shin-book-file books/shin-yonenaga-black-book-conditional-experiment.txt \
