@@ -1,0 +1,132 @@
+{
+  "description": "Six conditional Black preparations, removing ONLY the pawn26-forcing root entry from the seven-position trial. Root choices return to search; fixed first king48 remains. NOT operational adoption or a claimed strength improvement. Preserve White v2 and original seven-position trial.",
+  "initial_position": "startpos",
+  "side": "black",
+  "experiment": "conditional-no-root",
+  "report": "docs/experiments/2026-10-03-black-300-game-branch-review.md",
+  "entries": [
+    {
+      "id": "black_bishop33_silver38",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "2g2f",
+        "2b3c"
+      ],
+      "book_move": "3i3h",
+      "status": "experimental",
+      "evidence": {
+        "result": "results/black-entry-2026-10-03-followup-shin-depth24.json",
+        "position_id": "black_after_pawn26_normal_bishop33",
+        "depth": 24,
+        "rank": 1,
+        "score_cp": -110
+      },
+      "note": "Already chosen in19/21 historical games; no proven novel gain."
+    },
+    {
+      "id": "black_gold32_pawn76",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "2g2f",
+        "4a3b"
+      ],
+      "book_move": "7g7f",
+      "status": "experimental",
+      "evidence": {
+        "result": "results/black-pawn26-2026-10-03-branches-shin-depth24.json",
+        "position_id": "black_after_pawn26_gold32",
+        "depth": 24,
+        "rank": 1,
+        "score_cp": -32
+      }
+    },
+    {
+      "id": "black_silver42_pawn76",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "2g2f",
+        "3a4b"
+      ],
+      "book_move": "7g7f",
+      "status": "experimental",
+      "evidence": {
+        "result": "results/black-pawn26-2026-10-03-branches-shin-depth24.json",
+        "position_id": "black_after_pawn26_silver42",
+        "depth": 24,
+        "rank": 2,
+        "score_cp": -124,
+        "gap_to_leader_cp": 25
+      },
+      "note": "Concept-driven right-side candidate; leader gold58 has an early left-return PV. This deficit is not hidden or claimed to be only the25cp preference."
+    },
+    {
+      "id": "black_gold32_silver62_pawn25",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "2g2f",
+        "4a3b",
+        "7g7f",
+        "7a6b"
+      ],
+      "book_move": "2f2e",
+      "status": "experimental",
+      "evidence": {
+        "result": "results/black-pawn26-2026-10-03-preparations-shin-depth24.json",
+        "position_id": "black_gold32_pawn76_silver62",
+        "depth": 24,
+        "rank": 1,
+        "score_cp": -36
+      },
+      "note": "PV retains king48 initially but later returns to59; right-side placement is not guaranteed."
+    },
+    {
+      "id": "black_gold32_pawn84_pawn25",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "2g2f",
+        "4a3b",
+        "7g7f",
+        "8c8d"
+      ],
+      "book_move": "2f2e",
+      "status": "experimental",
+      "evidence": {
+        "result": "results/black-pawn26-2026-10-03-preparations-shin-depth24.json",
+        "position_id": "black_gold32_pawn76_pawn84",
+        "depth": 24,
+        "rank": 1,
+        "score_cp": 17
+      },
+      "note": "Black ON PV follows bishop exchange, unlike the preceding normal OFF PV. Only this checked root move is registered."
+    },
+    {
+      "id": "black_silver42_bishop33_pawn25",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "2g2f",
+        "3a4b",
+        "7g7f",
+        "2b3c"
+      ],
+      "book_move": "2f2e",
+      "status": "experimental",
+      "evidence": {
+        "result": "results/black-pawn26-2026-10-03-preparations-shin-depth24.json",
+        "position_id": "black_silver42_pawn76_bishop33",
+        "depth": 24,
+        "rank": 2,
+        "score_cp": -98,
+        "gap_to_leader_cp": 4
+      },
+      "note": "Update the provisional silver38 idea: pawn25 is4cp below gold58 and preserves the right-side king in its PV; silver38 is3rd at-110."
+    }
+  ],
+  "derived_from": "books/shin-yonenaga-black-pawn26-experiment.json",
+  "removed_entry": "black_pawn26_entry"
+}

@@ -14,6 +14,8 @@ from tools.paired_selfplay import UsiEngine
 
 SOURCE = ROOT / "books/shin-yonenaga-black-pawn26-experiment.json"
 BOOK = ROOT / "books/shin-yonenaga-black-book-pawn26-experiment.txt"
+CONDITIONAL_SOURCE = ROOT / "books/shin-yonenaga-black-conditional-experiment.json"
+CONDITIONAL_BOOK = ROOT / "books/shin-yonenaga-black-book-conditional-experiment.txt"
 
 
 class CompilationTest(unittest.TestCase):
@@ -110,6 +112,64 @@ class EngineTest(unittest.TestCase):
             self.assertEqual(engine.choose_move([], 1, 30)[2], "book")
         finally:
             engine.close()
+
+
+class ConditionalBookTest(unittest.TestCase):
+    def test_only_root_entry_removed(self):
+        original = json.loads(SOURCE.read_text())
+        revised = json.loads(CONDITIONAL_SOURCE.read_text())
+        self.assertEqual(original["entries"][0]["id"], revised["removed_entry"])
+        self.assertEqual(revised["entries"], original["entries"][1:])
+        self.assertEqual(len(revised["entries"]), 6)
+        self.assertTrue(all(len(e["moves"]) >= 4 for e in revised["entries"]))
+        self.assertEqual(CONDITIONAL_BOOK.read_text(),
+                         compile_book(CONDITIONAL_SOURCE, experimental=True, side="black"))
+        self.assertEqual(CONDITIONAL_BOOK.read_text().splitlines(),
+                         BOOK.read_text().splitlines()[:2] + BOOK.read_text().splitlines()[4:])
+
+    def make_engine(self, own_book=True, max_ply=20):
+        executable = ROOT / "bin/release"
+        if not executable.is_file():
+            self.skipTest("build bin/release first")
+        return UsiEngine(executable, True, own_book, 1, 64, None,
+                         max_ply, CONDITIONAL_BOOK)
+
+    def test_root_search_and_first_move_preserved(self):
+        engine = self.make_engine()
+        try:
+            self.assertEqual(engine.choose_move([], 1, 30)[::2],
+                             ("5i4h", "fixed_opening"))
+            self.assertEqual(engine.choose_move(["5i4h", "3c3d"], 1, 30)[2], "search")
+        finally:
+            engine.close()
+
+    def test_all_remaining_entries_and_transposition(self):
+        engine = self.make_engine()
+        try:
+            for entry in json.loads(CONDITIONAL_SOURCE.read_text())["entries"]:
+                with self.subTest(entry=entry["id"]):
+                    self.assertEqual(engine.choose_move(entry["moves"], 1, 30)[::2],
+                                     (entry["book_move"], "dedicated_book"))
+            moves = ["5i4h", "3c3d", "7g7f", "7a6b", "2g2f", "4a3b"]
+            self.assertEqual(engine.choose_move(moves, 1, 30)[::2],
+                             ("2f2e", "dedicated_book"))
+        finally:
+            engine.close()
+
+    def test_uncovered_own_book_off_and_max_ply(self):
+        engine = self.make_engine()
+        try:
+            self.assertEqual(engine.choose_move(
+                ["5i4h", "3c3d", "2g2f", "4c4d"], 1, 30)[2], "search")
+        finally:
+            engine.close()
+        for own_book, max_ply in ((False, 20), (True, 4)):
+            engine = self.make_engine(own_book=own_book, max_ply=max_ply)
+            try:
+                self.assertEqual(engine.choose_move(
+                    ["5i4h", "3c3d", "2g2f", "4a3b"], 1, 30)[2], "search")
+            finally:
+                engine.close()
 
 
 if __name__ == "__main__":

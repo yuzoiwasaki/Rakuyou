@@ -13,6 +13,7 @@
 | △２五歩一局面追加・保留 | `shin-yonenaga-white-book-v2-pawn25-experiment.txt` | v1候補＋`shin-yonenaga-white-v2-pawn25-experiment.json` |
 | ７筋構想・運用不採用、構想は条件付きで保留 | `shin-yonenaga-white-book-seventh-edge-experiment.txt` | `shin-yonenaga-white-seventh-edge-experiment.json` |
 | 先手▲２六歩型・７局面試験版、運用未採用 | `shin-yonenaga-black-book-pawn26-experiment.txt` | `shin-yonenaga-black-pawn26-experiment.json` |
+| 先手・入口固定なし６枝版、100局完了・採用保留 | `shin-yonenaga-black-book-conditional-experiment.txt` | `shin-yonenaga-black-conditional-experiment.json` |
 
 ## 後手第一運用版の使い方
 
@@ -91,6 +92,54 @@ done
 `6218cbbcd7768ecd3c0e90aec650ec080e8a02dfcf14555e76edd23775ed00b1`。
 実行中は再ビルド・定跡編集をしない。成績だけでなく、定跡到達・玉の配置・
 中盤への接続を比較する。長い対局はこの作成作業では実行していない。
+
+## 先手・入口固定なし６枝版
+
+2026-10-04、７局面版の３手目▲２六歩固定だけを外した別の試験版を作成。
+残る６エントリ（着手・局面・根拠）は完全に同一。初手▲４八玉は変更せず、
+`5i4h 3c3d` 後は探索へ戻る。▲７六歩などの手順前後で登録局面に合流した
+場合も利用できる。未登録局面は探索し、標準定跡への補完は行わない。
+運用採用・棋力改善は未確認。既存７局面版と後手v2は変更していない。
+
+外部100局は正常終了・エラー０。１本目13勝24敗13分（39%）、
+２本目24勝17敗9分（57%）、合計37勝41敗22分（48%）。
+既存基準47.5%とほぼ同水準だが、実行間の差が大きく改善は未証明。
+定跡利用は17局・計18手、３手目は▲７六歩93局／▲２六歩7局。
+６枝版は引き続き試験版で、運用採用していない。
+詳細は[先手分岐レビュー](../docs/experiments/2026-10-03-black-300-game-branch-review.md)
+末尾「入口固定なし６枝版：100局の結果」を参照。
+
+再生成：
+
+```sh
+python3 tools/build_shin_book.py --side black \
+  --source books/shin-yonenaga-black-conditional-experiment.json --experimental \
+  --output books/shin-yonenaga-black-book-conditional-experiment.txt
+```
+
+追加比較は先手固定50局×２実行、計100局。既存の基準100局（47.5%）と
+７局面版100局（38.5%）を参照するが、別実行・実行間のばらつきがあるため、
+僅差から改善を確定しない。定跡利用・３手目の選択・玉戻り・中盤への接続も
+確認する。対局中のエンジン・定跡編集や再ビルドは行わない。
+
+１本目（同名結果が存在しないことを確認してからCodex外で実行）：
+
+```sh
+cd /Users/yuzo.iwasaki/Rakuyou
+caffeinate -i python3 tools/paired_selfplay.py \
+  --engine bin/release --shin-side black --games 50 --shin-book on \
+  --shin-book-file books/shin-yonenaga-black-book-conditional-experiment.txt \
+  --depth 15 --threads 1 --hash 512 \
+  --book-file bin/book.bin --book-max-ply 20 --max-plies 256 --timeout 300 \
+  --output results/shin-black-conditional-r1-depth15-50games.json
+```
+
+２本目は同じ条件の新規プロセスで、出力を
+`results/shin-black-conditional-r2-depth15-50games.json` に変更する。
+中断した実行は新規出力で上書きせず `--resume` で再開する。
+txtのSHA-256は
+`e08bb43bfd6c557ff402e8407b68f72443925228080d4774c60d0e2a4f72a0f7`。
+エンジンは上記の現行 `6f7891c4…` のままで、再ビルド不要。
 
 ## 保存と整理の方針
 

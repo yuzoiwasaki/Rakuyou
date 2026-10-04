@@ -226,24 +226,51 @@ legal-probed, errors/stops/bounds0. Appended results to the same Black report:
   Pawn66 blocks the bishop diagonal while retaining the right-side king.
   Exact parent occurred once only; not the sole cause of37 poor games.
 
-Recommended next comparison (NOT yet implemented/approved): remove only
-the root pawn26-forcing entry, retain6 conditional entries to separate
-root selection from preparations. Baseline100 statically reaches those
+The user approved the next comparison: remove only the root pawn26-forcing
+entry, retain6 conditional entries to separate root selection from
+preparations. Baseline100 statically reaches those
 entries39 times in31 games (17 different recorded moves); transpositions
 included, not a counterfactual coverage/strength prediction. Do not extend
 BookMaxPly/register game31's29th move from one case. Recommend holding
 the7-entry trial's operational adoption, not rejecting all right-king ideas.
-Current book remains unchanged. The diagnosis added no games/engine changes;
-only diagnostic inputs, report and resume map were added/updated.
-The user requested committing and pushing this diagnostic checkpoint.
-Next: agree on bounded6-entry comparison or another focused followup;
-do not expand searches indefinitely or require winning strength for closure.
+Diagnostic checkpoint c2c064c was committed/pushed. Then created separate
+books/shin-yonenaga-black-conditional-experiment.json and
+books/shin-yonenaga-black-book-conditional-experiment.txt. Only removed
+black_pawn26_entry;6 remaining entries (including evidence) fully identical.
+New txt SHA256e08bb43bfd6c557ff402e8407b68f72443925228080d4774c60d0e2a4f72a0f7.
+Fixed first king48 unchanged; root source=search; transposed conditional
+positions still hit dedicated book. No standard fallback for uncovered root.
+Added4 tests, all33 passed. Old7-entry book/White v2/binary hashes unchanged;
+no rebuild required. Preparation and completed results are included in the
+current conditional-book checkpoint; see git log for its commit ID.
+
+User completed both external6-entry trial50-game runs, same depth15/thread1/
+hash512/normal book ON/BookMaxPly20/max256/PonderOFF/timeout300. Outputs:
+results/shin-black-conditional-r1-depth15-50games.json and same r2.
+All100/errors0; records/summaries/outcomes/settings and18 dedicated moves
+matched. r1:13/24/13 (39%); r2:24/17/9 (57%); total37/41/22 (48%).
+Existing baseline100 scores47.5%, root-forced100 scores38.5%; separate runs,
+not concurrent controls. The18-point within-condition spread forbids a
+causal improvement claim. Root is search throughout: pawn76 in93/pawn26 in7.
+Book used in17 games,5/9/3 (38.2%); unused83 score50%, not causal cohorts.
+Right-side kings at24:63/100; returned by12:26. Four position occurrences
+in11 games, all saved draws; no formal repetition/perpetual-check adjudication.
+Conditional book remains experimental/unadopted; no clear benefit established.
+Full counts, game references and raw hashes appended to the same Black report.
+
+Next proposed bounded investigation: early silver38/silver68 versus pawn
+entries after5i4h3c3d, then practical normal replies and a right-side balanced
+setup allowing bishop exchange. These are hypotheses, not registered moves.
+Compare standard-book replies separately from normal-OFF book-free search;
+do not assume an opponent static-rook opening or safety from being Black.
+Potential White reuse needs a separate tempo/safety check; White v2 stays frozen.
+No additional games/searches or engine/evaluation changes in this checkpoint.
+Do not expand searches indefinitely or require winning strength for closure.
 
 The White decision, cleanup and Black starting plan were pushed as0ea194a.
 The initial checkpoint commit is e310529; trial preparation433f8d0 was
-pushed to origin/main. October4's200-game/deeper diagnostic report and
-inputs are included in the next checkpoint requested for origin/main.
-The6-entry comparison remains a proposal, not an implemented change.
+pushed to origin/main. October4's200-game/deeper diagnosis was pushed as
+c2c064c. The6-entry comparison100 has completed, but is not operationally adopted.
 No long games are authorized inside Codex.
 Engine defaults and GUI settings remain unchanged;
 v2 requires explicit ShinBookFile selection.
