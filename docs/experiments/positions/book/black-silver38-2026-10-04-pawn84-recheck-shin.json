@@ -1,0 +1,9 @@
+{
+  "positions": [
+    {
+      "id": "black_silver38_pawn84_unrestricted_recheck",
+      "moves": ["5i4h", "3c3d", "3i3h", "8c8d"],
+      "note": "Fresh unrestricted Black-ON depth28/MultiPV5 recheck of the static-rook entry. Examine pawn76/pawn26/gold78/king39 rankings, preparation against the eighth-file push, rook activity and king location throughout PVs. King retreats remain legal and the 25cp preference is unchanged. Do not subtract scores from other depths, restricted root searches or normal-OFF replies. Right-side setups and bishop exchange are investigation priorities, not proven safe strategies or registered book moves."
+    }
+  ]
+}

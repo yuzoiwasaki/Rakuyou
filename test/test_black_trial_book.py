@@ -16,6 +16,8 @@ SOURCE = ROOT / "books/shin-yonenaga-black-pawn26-experiment.json"
 BOOK = ROOT / "books/shin-yonenaga-black-book-pawn26-experiment.txt"
 CONDITIONAL_SOURCE = ROOT / "books/shin-yonenaga-black-conditional-experiment.json"
 CONDITIONAL_BOOK = ROOT / "books/shin-yonenaga-black-book-conditional-experiment.txt"
+SILVER_SOURCE = ROOT / "books/shin-yonenaga-black-silver38-experiment.json"
+SILVER_BOOK = ROOT / "books/shin-yonenaga-black-book-silver38-experiment.txt"
 
 
 class CompilationTest(unittest.TestCase):
@@ -168,6 +170,63 @@ class ConditionalBookTest(unittest.TestCase):
             try:
                 self.assertEqual(engine.choose_move(
                     ["5i4h", "3c3d", "2g2f", "4a3b"], 1, 30)[2], "search")
+            finally:
+                engine.close()
+
+
+class Silver38BookTest(unittest.TestCase):
+    def make_engine(self, own_book=True, max_ply=20):
+        executable = ROOT / "bin/release"
+        if not executable.is_file():
+            self.skipTest("build bin/release first")
+        return UsiEngine(executable, True, own_book, 1, 64,
+                         ROOT / "bin/book.bin", max_ply, SILVER_BOOK)
+
+    def test_generated_four_short_entries(self):
+        entries = json.loads(SILVER_SOURCE.read_text())["entries"]
+        self.assertEqual([(len(e["moves"]), e["book_move"]) for e in entries],
+                         [(2, "3i3h"), (4, "7g7f"), (6, "2g2f"), (4, "2g2f")])
+        self.assertTrue(all(e["status"] == "experimental" for e in entries))
+        self.assertEqual(SILVER_BOOK.read_text(),
+                         compile_book(SILVER_SOURCE, experimental=True, side="black"))
+
+    def test_all_entries_fixed_opening_and_transposition(self):
+        engine = self.make_engine()
+        try:
+            self.assertEqual(engine.choose_move([], 1, 30)[::2],
+                             ("5i4h", "fixed_opening"))
+            for entry in json.loads(SILVER_SOURCE.read_text())["entries"]:
+                with self.subTest(entry=entry["id"]):
+                    self.assertEqual(engine.choose_move(entry["moves"], 1, 30)[::2],
+                                     (entry["book_move"], "dedicated_book"))
+            self.assertEqual(engine.choose_move(
+                ["5i4h", "3c3d", "7g7f", "8c8d", "3i3h", "8d8e"],
+                1, 30)[::2], ("2g2f", "dedicated_book"))
+        finally:
+            engine.close()
+
+    def test_unknown_replies_and_after_book_search_without_fallback(self):
+        engine = self.make_engine()
+        try:
+            positions = [["5i4h", "8c8d"]]
+            positions += [["5i4h", "3c3d", "3i3h", reply]
+                          for reply in ("3a3b", "7a6b", "8b3b", "5c5d")]
+            positions += [["5i4h", "3c3d", "3i3h", "8c8d", "2g2f", "8d8e"],
+                          ["5i4h", "3c3d", "3i3h", "8c8d", "7g7f", "8d8e",
+                           "2g2f", "4a3b"]]
+            for moves in positions:
+                with self.subTest(moves=moves):
+                    self.assertEqual(engine.choose_move(moves, 1, 30)[2], "search")
+        finally:
+            engine.close()
+
+    def test_own_book_off_and_each_ply_cutoff(self):
+        entries = json.loads(SILVER_SOURCE.read_text())["entries"]
+        for own_book, max_ply, entry in [(False, 20, entries[0])] + [
+                (True, len(e["moves"]), e) for e in entries]:
+            engine = self.make_engine(own_book=own_book, max_ply=max_ply)
+            try:
+                self.assertEqual(engine.choose_move(entry["moves"], 1, 30)[2], "search")
             finally:
                 engine.close()
 

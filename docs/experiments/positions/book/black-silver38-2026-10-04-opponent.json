@@ -1,0 +1,9 @@
+{
+  "positions": [
+    {
+      "id": "normal_after_black_silver38",
+      "moves": ["5i4h", "3c3d", "3i3h"],
+      "note": "Unrestricted normal-OFF book-free direct White reply to Black silver38. Scores are White side-to-move. Compare practical standard-book probes separately; Black-ON root PV replies are not normal-OFF evidence. Select at most two subsequent Black preparation positions from the completed reply screen."
+    }
+  ]
+}

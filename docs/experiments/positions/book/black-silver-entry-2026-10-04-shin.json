@@ -1,0 +1,10 @@
+{
+  "positions": [
+    {
+      "id": "black_root_silver38_silver68_vs_pawns",
+      "moves": ["5i4h", "3c3d"],
+      "searchmoves": ["3i3h", "7i6h", "7g7f", "2g2f"],
+      "note": "Fresh Black-ON book-free restricted comparison: silver38 and silver68 against pawn76 and pawn26. Scores are Black side-to-move. Compare the four candidates ONLY within this run, not against prior unrestricted depth24 values. No king-move restrictions beyond the existing unchanged evaluation preference. This screen does not establish an unrestricted best move, an opponent opening, bishop-exchange safety or book adoption."
+    }
+  ]
+}

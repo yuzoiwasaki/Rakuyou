@@ -1,0 +1,9 @@
+{
+  "positions": [
+    {
+      "id": "black_silver38_pawn26_pv_after_bishop_exchange",
+      "moves": ["5i4h", "3c3d", "3i3h", "8c8d", "2g2f", "8d8e", "6i7h", "8e8f", "8g8f", "8b8f", "P*8g", "8f8b", "7g7f", "4a3b", "2f2e", "7a6b", "2e2d", "2c2d", "2h2d", "P*2c", "2d2f", "6c6d", "3g3f", "6b6c", "4g4f", "6c5d", "2i3g", "5d6e", "7f7e", "6e7f", "8h2b+", "3a2b"],
+      "note": "One diagnostic Black-to-move position after bishop exchange from the complete unrestricted pawn84 depth28 pawn26 PV. Both players hold a bishop; Black king remains48 and rook26. Unrestricted Black-ON depth24/MultiPV5 examines preparations and drop threats. This hypothetical PV position is not an observed game, not independent normal-OFF confirmation, and must not be registered as a 33rd-ply book entry or used to increase BookMaxPly."
+    }
+  ]
+}

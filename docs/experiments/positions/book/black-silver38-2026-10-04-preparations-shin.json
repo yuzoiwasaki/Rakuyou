@@ -1,0 +1,14 @@
+{
+  "positions": [
+    {
+      "id": "black_silver38_after_normal_pawn84",
+      "moves": ["5i4h", "3c3d", "3i3h", "8c8d"],
+      "note": "Unrestricted Black-ON preparation after normal-OFF depth24 leader pawn84, also a standard-book reply. Compare pawn26/pawn76 and left-side defenses through the returned candidates; no book registration from opponent PV alone."
+    },
+    {
+      "id": "black_silver38_after_book_rook42",
+      "moves": ["5i4h", "3c3d", "3i3h", "8b4b"],
+      "note": "Unrestricted Black-ON preparation against a standard-book fourth-file-rook reply. Selected from direct book probe, not claimed to be normal-OFF top5. Check whether a practical preparation retains the right-side king without prohibiting retreats."
+    }
+  ]
+}

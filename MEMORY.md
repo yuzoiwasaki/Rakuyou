@@ -30,6 +30,10 @@ decision evidence live under docs/experiments/; see its README for navigation.
   on files1-4 and avoid hard-coding an immediate return toward the left.
   Keep left-return candidates as comparisons; retreats remain legal/searchable.
   Do not change the25cp preference or add king-move restrictions implicitly.
+- Against normal pawn84 after the silver38 entry, prioritize a balanced
+  right-side-king setup with eighth-file defenses and active rook use;
+  right-king/twisting-rook ideas are references, not required named openings.
+  Keep left-return PVs as evidence/control, not automatic book choices.
 - Compare with normal Rakuyou/Gikou using its standard book. Judge playing
   strength, king placement and middlegame transitions, not just one score.
 - Completed, book-free, one-thread focused searches are the main move evidence.
@@ -258,13 +262,102 @@ in11 games, all saved draws; no formal repetition/perpetual-check adjudication.
 Conditional book remains experimental/unadopted; no clear benefit established.
 Full counts, game references and raw hashes appended to the same Black report.
 
-Next proposed bounded investigation: early silver38/silver68 versus pawn
-entries after5i4h3c3d, then practical normal replies and a right-side balanced
-setup allowing bishop exchange. These are hypotheses, not registered moves.
+Early silver38/silver68 root screen completed, cumulative23 searches.
+Input: docs/experiments/positions/book/black-silver-entry-2026-10-04-shin.json.
+Root5i4h3c3d; restricted four candidates pawn76/pawn26/silver38/silver68,
+Black ON/book OFF/fresh/thread1/hash512/MultiPV4; depths24 and28 both complete.
+Depth24 ranks pawn76 -117,pawn26 -118,silver38 -164,silver68 -219;
+depth28 same ranks -110/-123/-149/-204. Within-depth gaps only; do not
+subtract against old unrestricted scores or across depths. errors/stops/bounds0,
+bestmove/PV/depth/count verified; input2+candidate4 and246 input/PV moves
+legal-probed. Analysis lifecycle3 tests passed. Raw results under results/:
+black-silver-entry-2026-10-04-shin-depth24.json and same depth28.
+Hashes/PVs appended to the Black report. No book/evaluation/search changes.
+Silver38 PVs both reply pawn84, but not direct normal-OFF evidence.
+Depth28 silver38 keeps king48 with gold78/silver77/silver47/rook29;
+depth24 instead king28/rook68. Neither PV exchanges bishops.
+Depth28 silver68 permits bishop exchange taken with gold88/king48 retained,
+but has94cp deficit; lower priority, not a proven safe bishop-exchange setup.
+Silver38 direct replies and2 preparations completed, cumulative26 searches.
+Inputs: black-silver38-2026-10-04-opponent.json and preparations-shin.json
+under docs/experiments/positions/book/. Fresh unrestricted depth24/MultiPV5,
+thread1/hash512/book OFF/Ponder OFF. errors/stops/bounds0; all15 candidates
+complete, bestmoves verified;445 input/PV moves legal-probed, plus11 input
+moves and6 standard-book candidates. Analysis lifecycle3 tests passed.
+OFF after5i4h3c3d3i3h: pawn84 +170,silver32 +115,silver42 +114,
+silver62 +96,bishop33 +94 (White side-to-move).
+ON after pawn84: pawn76 -166,pawn26 -170,gold78 -175,pawn96 -186,
+king39 -210. Top3 depth24 PVs return king left; old restricted root depth28
+silver38 PV instead kept king48. Right-side static-rook setup remains unstable.
+ON after rook42: pawn26 -75,silver68 -77,pawn56/king39 -88,pawn76 -90;
+top5 PVs keep king right with silver27/rook48-type plans, not proven strength.
+Normal standard book has6 selectable replies to the silver38 root:
+pawn54/silver62/rook32/pawn84/silver32/rook42. Ten one-position depth1
+probes all source=book: rook42 6,pawn84 2,silver62 2; not games/probabilities.
+Book info depth32/cp0 is stored book display, not completed search/equality.
+Raw result hashes and evidence appended to the same Black report.
+Pawn84 unrestricted ON depth28 recheck and one PV bishop-exchange diagnosis
+completed, cumulative28 searches. Fresh/thread1/hash512/book OFF/MultiPV5;
+errors/stops/bounds0, count/depth/bestmoves matched;476 input/PV moves plus
+input4+32 legally verified. Lifecycle3 tests passed. New input files under
+docs/experiments/positions/book/: black-silver38-2026-10-04-
+pawn84-recheck-shin.json and bishop-exchange-shin.json. Raw result hashes/PVs
+are in the Black report; no book/engine/evaluation changes or new games.
+After pawn84 depth28: pawn26 -102,pawn76 -112,gold78 -130,pawn16 -146,
+pawn96 -157. Top4 PVs keep king48; pawn96 returns king59. Do not subtract
+depth24 scores. Pawn26 PV exchanges8-file pawns, gold78/pawn87 drop, then
+2-file pawns/rook26; left silver79 remains unprepared. At32 both hold bishops.
+That hypothetical PV endpoint ON depth24: pawn74 -290,silver88 -543,
+rook25 -657,bishop55 drop -681,rook29 -748. Within-run top gap253;
+do not subtract from the root28 -102. Pawn74 PV trades bishops55/44 before
+silver88; other lines suffer bishop44 drop or silver87 pressure.
+King48 stays right but this does not prove safe bishop exchange. Hold long
+pawn26/rook26/exchange registration, not all silver38/king-right concepts.
+Pawn76 branch direct OFF reply and one ON preparation completed, cumulative30.
+Fresh unrestricted depth24/MultiPV5/thread1/hash512/book OFF; errors/stops/
+bounds0, all10 candidates complete and bestmoves match;336 input/PV moves
+legal-probed. Inputs black-silver38-2026-10-04-pawn76-opponent.json and
+pawn85-preparation-shin.json; raw hashes/PVs in the same Black report.
+OFF after5i4h3c3d3i3h8c8d7g7f: pawn85 +121,gold32 +36,silver62 +34,
+gold52right +31,pawn44 +26. Book-ON depth1 probe searches, not a book hit;
+its bishop88+ reply is shallow only, not the depth24 conclusion.
+ON after pawn85: pawn26 -105,gold78 -133,bishop77 -169,king39 -184,
+bishop22+ -259. Top4 PVs keep king right; bishop22+ later returns left.
+Pawn26 PV still has later bishop77+/bishop44 drop with rook26; safety unresolved.
+Gold78 PV has silver88/87,king28, rook exchange then opponent rook69 drop.
+Bishop77 PV permits bishop77+ taken with knight77 then silver88/king48;
+64cp deficit in this depth24 run. Silver68 outside top5; early-left-silver
+bestness/safety hypothesis unconfirmed, not a proven gain.
+Same six-move ON parent depth28 recheck completed, cumulative31 searches.
+Fresh unrestricted/MultiPV5/thread1/hash512/book OFF, errors/stops/bounds0;
+all5 complete, bestmove/PV matched;191 input/PV moves and input6 legal-probed;
+lifecycle3 tests passed. Raw pawn85-preparation-shin-depth28.json hash in report.
+Pawn26 -140,gold78 -145,bishop77 -196,king39 -215,pawn96 -225.
+Top3 order unchanged from24, pawn26/gold78 gap5 within28; no cross-depth math.
+All top5 PVs keep king right. Pawn26 now develops silver77/silver47/rook29/
+gold58right/king48 without bishop exchange inPV; gold78 chooses rook48/king39
+with opponent switching rook42. Bishop77 accepts exchange/knight77, but56cp
+below leader. Safe exchange/strength not proved; do not force that entry.
+Close the entry-search cycle here. October5: separate4-entry short
+silver38 trial created (NOT operationally adopted): root3 silver38 (39cp deficit in
+restricted root28), after pawn84 pawn76 (10cp deficit in unrestricted28),
+after pawn84/pawn76/pawn85 pawn26 (unrestricted28 leader), after rook42
+pawn26 (unrestricted24 leader). Unknown replies search, no standard fallback,
+BookMaxPly20 unchanged; no long PV/king return registration. Compare externally
+with50 games x2 runs; existing books/White v2 remain unchanged.
+Source: books/shin-yonenaga-black-silver38-experiment.json.
+Book: books/shin-yonenaga-black-book-silver38-experiment.txt;
+SHA256 6cbb021417a755d193eeb66de3cfd26575bfbaf711cb1f89382e80ed712bf0c0.
+37 regression tests passed; all4 evidence references match local raw data.
+External games pending: results/shin-black-silver38-r1-depth15-50games.json,
+then r2 with identical settings. Give one command at a time, caffeinate -i.
+Check replies/book coverage/king placement/left-silver development/exchange
+failures; historical47.5%/48%/38.5% are descriptive, not causal benchmarks.
+Root screen ends at2 searches; no book/engine/default changes or adoption.
 Compare standard-book replies separately from normal-OFF book-free search;
 do not assume an opponent static-rook opening or safety from being Black.
 Potential White reuse needs a separate tempo/safety check; White v2 stays frozen.
-No additional games/searches or engine/evaluation changes in this checkpoint.
+No additional games or engine/evaluation changes in the silver-entry investigation.
 Do not expand searches indefinitely or require winning strength for closure.
 
 The White decision, cleanup and Black starting plan were pushed as0ea194a.

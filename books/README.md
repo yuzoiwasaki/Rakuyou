@@ -14,6 +14,7 @@
 | ７筋構想・運用不採用、構想は条件付きで保留 | `shin-yonenaga-white-book-seventh-edge-experiment.txt` | `shin-yonenaga-white-seventh-edge-experiment.json` |
 | 先手▲２六歩型・７局面試験版、運用未採用 | `shin-yonenaga-black-book-pawn26-experiment.txt` | `shin-yonenaga-black-pawn26-experiment.json` |
 | 先手・入口固定なし６枝版、100局完了・採用保留 | `shin-yonenaga-black-book-conditional-experiment.txt` | `shin-yonenaga-black-conditional-experiment.json` |
+| 先手▲３八銀先行・４局面試験版、対局待ち | `shin-yonenaga-black-book-silver38-experiment.txt` | `shin-yonenaga-black-silver38-experiment.json` |
 
 ## 後手第一運用版の使い方
 
@@ -141,6 +142,44 @@ caffeinate -i python3 tools/paired_selfplay.py \
 txtのSHA-256は
 `e08bb43bfd6c557ff402e8407b68f72443925228080d4774c60d0e2a4f72a0f7`。
 エンジンは上記の現行 `6f7891c4…` のままで、再ビルド不要。
+
+## 先手▲３八銀先行・４局面試験版
+
+2026-10-05作成。初手▲４八玉を維持し、△３四歩に▲３八銀、
+続く△８四歩には▲７六歩、さらに△８五歩には▲２六歩。
+△４二飛には▲２六歩を登録する。最長７手目までの４局面だけで、
+左銀整備・飛車配置・角交換などの長いPVは固定しない。
+未登録応手は探索へ抜け、標準定跡への補完や玉戻り禁止は行わない。
+既存先手試験版・後手v2・評価関数は変更しない。
+根の▲３八銀は４候補限定深さ28の首位より39cp低く、
+△８四歩後の▲７六歩も無制限深さ28の首位より10cp低い。
+構想を試す選択であり、棋力改善・運用採用は未確認。
+根拠と検証は[先手分岐レビュー](../docs/experiments/2026-10-03-black-300-game-branch-review.md)末尾を参照。
+
+再生成：
+
+```sh
+python3 tools/build_shin_book.py --side black \
+  --source books/shin-yonenaga-black-silver38-experiment.json --experimental \
+  --output books/shin-yonenaga-black-book-silver38-experiment.txt
+```
+
+外部で50局×２実行。１本目（リポジトリ直下、同名結果がないことを確認）：
+
+```sh
+caffeinate -i python3 tools/paired_selfplay.py \
+  --engine bin/release --shin-side black --games 50 --shin-book on \
+  --shin-book-file books/shin-yonenaga-black-book-silver38-experiment.txt \
+  --depth 15 --threads 1 --hash 512 \
+  --book-file bin/book.bin --book-max-ply 20 --max-plies 256 --timeout 300 \
+  --output results/shin-black-silver38-r1-depth15-50games.json
+```
+
+２本目は終了確認後、同一条件の新規プロセスで出力名の `r1` を `r2` に変更。
+中断時は該当出力の `--resume` で再開し、対局中に再ビルド・定跡編集をしない。
+txtのSHA-256は
+`6cbb021417a755d193eeb66de3cfd26575bfbaf711cb1f89382e80ed712bf0c0`。
+エンジンは既存 `6f7891c4…` のままで、再ビルド不要。
 
 ## 保存と整理の方針
 
