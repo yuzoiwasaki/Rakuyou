@@ -1,0 +1,9 @@
+{
+  "positions": [
+    {
+      "id": "normal_trial_r2_game31_after_pawn86",
+      "moves": ["5i4h", "3c3d", "2g2f", "2b3c", "3i3h", "3a3b", "7g7f", "4c4d", "3h2g", "3b4c", "4h3i", "8b2b", "4g4f", "5a6b", "3g3f", "4a5b", "2h4h", "6b7b", "4i3h", "7b8b", "9g9f", "9c9d", "2i3g", "7a7b", "3i2h", "4c5d", "1g1f", "2b4b", "8g8f"],
+      "note": "Normal OFF unrestricted direct response to actual pawn86. Verify the pawn45/diagonal bishop exchange threat independently of Black ON PVs; scores are White-to-move."
+    }
+  ]
+}

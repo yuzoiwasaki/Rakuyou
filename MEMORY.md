@@ -196,20 +196,55 @@ make release -j2 succeeded;29 regression tests passed (Black8/White5/
 seventh8/analysis3/audit5). All7 entry evidence matched raw results, and39
 book/input moves were legal-probed. White v2 hash unchanged.
 
-The user approved committing/pushing the Black trial and continuation.
-Next: user externally runs four
-fresh fixed-Black50 runs baseline/trial/trial/baseline with the CURRENT
-binary, depth15/thread1/hash512/normal book ON/BookMaxPly20/max256/PonderOFF.
-Sequential caffeinate command is in books/README.md. No long games launched
-here. Review run-specific book coverage/king placement/middlegame/outcomes;
-old paired300 are not this benchmark. Do not expand searches indefinitely
-or require winning strength before closing the first Black book cycle.
+Preparation was committed/pushed as433f8d0. The user completed all four
+external fixed-Black50 runs baseline/trial/trial/baseline, depth15/thread1/
+hash512/normal book ON/BookMaxPly20/max256/PonderOFF. All200/errors0;
+records/outcomes/summaries/settings and215 dedicated moves checked.
+Baseline:18/16/16 (52%),17/24/9 (43%); total35/40/25 (47.5%).
+Trial:15/25/10 (40%),14/27/9 (37%); total29/52/19 (38.5%).
+Do not attribute the9-point difference as an exact causal book effect.
+At ply24 right-side kings: baseline65/trial85; returned by12:17/0.
+Draws25/19; four board/hands/turn occurrences17/9, all saved draws.
+No independent perpetual-check adjudication. Trial gold32 cohort44 games
+scores53.4%, bishop33 cohort37 scores25.7%; bishop33/silver38/silver32
+23 games score26.1%. Root forces pawn26 in100 instead of baseline19.
+
+User requested deeper diagnosis.6 focused searches complete (ON5/OFF1),
+cumulative21, current unchanged binary;105 inputs and2 restricted candidates
+legal-probed, errors/stops/bounds0. Appended results to the same Black report:
+- Frequent after bishop33/silver32/pawn76/pawn44: depth24 silver27 -131,
+  pawn96 -138, king39 -149. Do not reject the actual right-side preparation
+  merely from low cohort outcomes.
+- After king39/silver43/silver27/rook22: depth24 pawn46 -87, silver68/
+  pawn56/rook48 -167. Main practical move is supported, not immediate failure.
+- Trial-r2 game31 before29: unrestricted depth24 pawn66 -75 vs knight77
+  -235; depth26 pawn66 -165 vs knight77 -204. Restricted depth24 pawn66
+  -221 vs actual pawn86 -395. Do not subtract across depths/restrictions;
+  absolute cp unstable, but pawn66 remains a preferred defense.
+- Normal OFF after actual pawn86: depth24 pawn45 +352, pawn14 +274,
+  pawn64 +258; PV pawn45/knight45/bishop88+/silver88/bishop64 drop.
+  Pawn66 blocks the bishop diagonal while retaining the right-side king.
+  Exact parent occurred once only; not the sole cause of37 poor games.
+
+Recommended next comparison (NOT yet implemented/approved): remove only
+the root pawn26-forcing entry, retain6 conditional entries to separate
+root selection from preparations. Baseline100 statically reaches those
+entries39 times in31 games (17 different recorded moves); transpositions
+included, not a counterfactual coverage/strength prediction. Do not extend
+BookMaxPly/register game31's29th move from one case. Recommend holding
+the7-entry trial's operational adoption, not rejecting all right-king ideas.
+Current book remains unchanged. The diagnosis added no games/engine changes;
+only diagnostic inputs, report and resume map were added/updated.
+The user requested committing and pushing this diagnostic checkpoint.
+Next: agree on bounded6-entry comparison or another focused followup;
+do not expand searches indefinitely or require winning strength for closure.
 
 The White decision, cleanup and Black starting plan were pushed as0ea194a.
-The initial checkpoint commit is e310529. The subsequent7-search findings,
-Black trial and implementation/tests are included in the next preparation
-commit, which the user requested pushing to origin/main. No long games are
-authorized inside Codex; wait for the user's external results.
+The initial checkpoint commit is e310529; trial preparation433f8d0 was
+pushed to origin/main. October4's200-game/deeper diagnostic report and
+inputs are included in the next checkpoint requested for origin/main.
+The6-entry comparison remains a proposal, not an implemented change.
+No long games are authorized inside Codex.
 Engine defaults and GUI settings remain unchanged;
 v2 requires explicit ShinBookFile selection.
 

@@ -1,0 +1,14 @@
+{
+  "positions": [
+    {
+      "id": "black_bishop33_silver32_pawn44_before9",
+      "moves": ["5i4h", "3c3d", "2g2f", "2b3c", "3i3h", "3a3b", "7g7f", "4c4d"],
+      "note": "23 trial games reached this exact position including transpositions (4 wins,15 losses,4 draws);22 follow the main silver32 prefix. Compare king39, silver27, silver68 and other preparations without forcing right-side placement. This is a diagnostic cohort, not causal evidence."
+    },
+    {
+      "id": "black_bishop33_silver27_rook22_before13",
+      "moves": ["5i4h", "3c3d", "2g2f", "2b3c", "3i3h", "3a3b", "7g7f", "4c4d", "4h3i", "3b4c", "3h2g", "8b2b"],
+      "note": "Exact position including transpositions in13 trial games (1 win,10 losses,2 draws);9 games within the main silver32 cohort (0 wins,7 losses,2 draws). Compare actual pawn46 with pawn56/left-silver development and inspect right-side king safety."
+    }
+  ]
+}
