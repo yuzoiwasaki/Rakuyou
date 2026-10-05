@@ -349,8 +349,25 @@ Source: books/shin-yonenaga-black-silver38-experiment.json.
 Book: books/shin-yonenaga-black-book-silver38-experiment.txt;
 SHA256 6cbb021417a755d193eeb66de3cfd26575bfbaf711cb1f89382e80ed712bf0c0.
 37 regression tests passed; all4 evidence references match local raw data.
-External games pending: results/shin-black-silver38-r1-depth15-50games.json,
-then r2 with identical settings. Give one command at a time, caffeinate -i.
+External games completed: results/shin-black-silver38-r1-depth15-50games.json
+and r2. All100/errors0, same settings, records/summary/outcomes/book169 checked.
+r1 19/24/7 (45%), r2 12/30/8 (32%), total31/54/15 (38.5%).
+Right king at24 in97, left return by12 in1; no strength gain proven/adoption.
+Rook42 cohort37:10/21/6 (35.1%); pawn84 cohort16:7/8/1 (46.9%).
+October5 loss diagnosis:5 fresh Black ON/book OFF depth24 searches complete,
+cumulative36, no errors/stops/bounds;1043 input/PV moves legal;37 tests passed.
+Inputs black-silver38-loss-review/followup-2026-10-05-shin.json under
+docs/experiments/positions/book/; raw hashes and results in the same Black report.
+Common rook42/king62 parent37: silver68 -71 vs actual king39/pawn96 -75,
+pawn56 -76; no immediate root failure, only small within-search gaps.
+r1/game7 before31 actual silver56 -73 first; before33 actual silver65 -93
+first. Do NOT label these errors from saved depth15 score changes.
+r1/game43 before17 singleton: unrestricted pawn66 -163 first, actual
+bishop33+ outside5. Restricted same-parent pawn66 -210 vs bishop33+ -336,
+126cp within-run gap; delay exchange and develop left defense as hypothesis.
+No book edits/adoption/new games. Next bounded check: same exchange-vs-pawn66
+parent depth26+, then assess rare-entry value before registration; alternatively
+inspect uncovered silver32/rook32 reply cohorts before more100-game runs.
 Check replies/book coverage/king placement/left-silver development/exchange
 failures; historical47.5%/48%/38.5% are descriptive, not causal benchmarks.
 Root screen ends at2 searches; no book/engine/default changes or adoption.

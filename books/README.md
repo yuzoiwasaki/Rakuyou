@@ -14,7 +14,7 @@
 | ７筋構想・運用不採用、構想は条件付きで保留 | `shin-yonenaga-white-book-seventh-edge-experiment.txt` | `shin-yonenaga-white-seventh-edge-experiment.json` |
 | 先手▲２六歩型・７局面試験版、運用未採用 | `shin-yonenaga-black-book-pawn26-experiment.txt` | `shin-yonenaga-black-pawn26-experiment.json` |
 | 先手・入口固定なし６枝版、100局完了・採用保留 | `shin-yonenaga-black-book-conditional-experiment.txt` | `shin-yonenaga-black-conditional-experiment.json` |
-| 先手▲３八銀先行・４局面試験版、対局待ち | `shin-yonenaga-black-book-silver38-experiment.txt` | `shin-yonenaga-black-silver38-experiment.json` |
+| 先手▲３八銀先行・４局面試験版、100局完了・採用保留 | `shin-yonenaga-black-book-silver38-experiment.txt` | `shin-yonenaga-black-silver38-experiment.json` |
 
 ## 後手第一運用版の使い方
 
@@ -180,6 +180,13 @@ caffeinate -i python3 tools/paired_selfplay.py \
 txtのSHA-256は
 `6cbb021417a755d193eeb66de3cfd26575bfbaf711cb1f89382e80ed712bf0c0`。
 エンジンは既存 `6f7891c4…` のままで、再ビルド不要。
+
+100局はエラー０で完了。r1は19勝24敗7分（45%）、r2は12勝30敗8分（32%）、
+合計31勝54敗15分（38.5%）。24手目の右側玉97局だが成績改善は未確認。
+試験版のまま採用保留。負け筋の５局面探索では、早い角交換を見送り
+▲６六歩で左側を整える候補が残ったが、該当局面は１局のみで未登録。
+詳細は[先手分岐レビュー](../docs/experiments/2026-10-03-black-300-game-branch-review.md)
+末尾「銀先行100局の結果と負け筋の診断」を参照。
 
 ## 保存と整理の方針
 
