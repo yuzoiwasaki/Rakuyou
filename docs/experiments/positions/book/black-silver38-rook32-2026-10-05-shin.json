@@ -1,0 +1,9 @@
+{
+  "positions": [
+    {
+      "id": "black_silver38_after_book_rook32",
+      "moves": ["5i4h", "3c3d", "3i3h", "8b3b"],
+      "note": "Common first Black search in8 silver38 trial games (2 wins/5 losses/1 draw). Actual fifth moves pawn46 in4, pawn96 in3, king39 in1. Normal fourth move is standard book; later moves are not all book. Unrestricted fresh Black ON depth24 screen; do not infer causal losses or register a long PV."
+    }
+  ]
+}

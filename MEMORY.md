@@ -365,9 +365,73 @@ first. Do NOT label these errors from saved depth15 score changes.
 r1/game43 before17 singleton: unrestricted pawn66 -163 first, actual
 bishop33+ outside5. Restricted same-parent pawn66 -210 vs bishop33+ -336,
 126cp within-run gap; delay exchange and develop left defense as hypothesis.
-No book edits/adoption/new games. Next bounded check: same exchange-vs-pawn66
-parent depth26+, then assess rare-entry value before registration; alternatively
-inspect uncovered silver32/rook32 reply cohorts before more100-game runs.
+Same exchange-vs-pawn66 parent rechecked at depth26, two-candidate restricted,
+fresh ON/book OFF/thread1/hash512/MultiPV5 (two actual candidates).
+Pawn66 -199 vs bishop33+ -407,208cp within-run gap, rank unchanged from24;
+do not compute cross-depth improvement.33.323s complete/errors/stops/bounds0,
+89 input/PV moves legally verified; lifecycle3 tests passed; cumulative37.
+Pawn66 PV gold58left/silver68-67-56/bishop77/silver27/rook48/gold38right/
+king28, then later bishop exchange/drop77. Both PVs keep king right.
+Input black-silver38-exchange-recheck-2026-10-05-shin.json; raw hash in report.
+Maintain conditional preparation-before-exchange guidance; singleton parent
+does not justify claiming global gain or registering a long PV.
+Stop this depth-expansion cycle. No book edits/adoption/new games.
+Silver32 cohort18 (4/11/3) reviewed: normal fourth reply all source=book,
+Shin fifth all search, no later dedicated hit. Fifth pawn76 in10 (4/5/1),
+pawn46 in4 (0/4/0), king39 in4 (0/2/2). Normal first search ply6 in14,
+ply8 in1, ply10 in3; do not label every sixth move as standard-book.
+Two fresh unrestricted ON depth24/MultiPV5 searches completed,cumulative39.
+After silver32: king39 -92,pawn76 -110,pawn26 -122,pawn96 -127,pawn46 -128.
+After silver32/pawn46/rook42: king39 -130,pawn96 -131,silver47 -132,
+pawn86 -133,pawn76 -148. Actual pawn96/silver47 within1/2cp, not proven errors.
+Top5 both parents keep king right. Pawn76 PV develops left silver68 then
+bishop exchange/silver77/rook88/king28; king39 leader instead follows
+pawn26/silver27/rook48; opponent not committed to static rook.
+32.089s/13.407s complete/errors/stops/bounds0,308 input/PV moves legal,
+analysis/audit8 tests passed. Input black-silver38-silver32-2026-10-05-shin.json;
+raw SHA256 and full evidence in Black report. No book edits/games/adoption.
+King39 after silver32 is a conditional candidate, not a proven gain.
+Silver32 four-move parent rechecked fresh unrestricted ON depth26/MultiPV5,
+same book-free/thread1/hash512 settings,63.270s complete,cumulative40.
+King39 -98,pawn76 -115,pawn96 -133,pawn46 -139,pawn26 -140.
+First/second order stable vs24; within26 king39/pawn76 gap17,not a proven gain.
+Leader PV now normal static rook pawn84/85/rook86-56-54-74, not prior rook42;
+Black silver68-57/gold78/silver46/silver47/rook48/gold38right,king39 throughout.
+All5 PVs keep king right; long PVs are not stable enough to register.
+Errors/stops/bounds0;158 input/PV moves legal;37 tests passed;hashes unchanged.
+Input black-silver38-silver32-recheck-2026-10-05-shin.json; raw hash in report.
+Keep only king39 as one-move conditional registration candidate, not yet added.
+Close silver32 depth expansion here. Rook32 cohort8 (2/5/1) reviewed:
+all fourth reply source=book; fifth search pawn46 in4 (1/3/0),pawn96 in3
+(1/1/1),king39 in1 (0/1/0). Dedicated root only in all8; normal first search
+ply6/8/10 in4/3/1. Sixth king62 in7, pawn35 in1; sixth book4/search4.
+King24 right in7; r2/game31 king78/four same positions by32/max256 draw.
+One fresh unrestricted ON depth24 root screen complete27.228s,cumulative41:
+pawn76 -58,king39 -68,pawn46 -74,pawn96 -91,pawn26 -99. All5 PVs right king;
+leader pawn46/silver47/king39/pawn86-85/pawn75/rook78/gold38right/gold58left.
+Tiny10/16cp leader gaps; hold rook32 registration, no extra depth expansion.
+145 input/PV moves legal;errors/stops/bounds0;analysis/audit8 tests passed.
+Input black-silver38-rook32-2026-10-05-shin.json; raw hash in report.
+Prepared separate5-entry trial retaining original4 entries
+unchanged, adding ONLY silver32 parent -> king39. NOT operationally adopted.
+Source books/shin-yonenaga-black-silver38-silver32-experiment.json;
+book books/shin-yonenaga-black-book-silver38-silver32-experiment.txt;
+SHA25642622adc1fb4cc479bd70af352e296b4b5fa413f91ccad9ea4fc161866ea5a17.
+41 regression tests pass; added evidence matches raw; original/runtime unchanged.
+Rare pawn66/exchange guard and rook32/pawn76 remain evidence-backed deferred
+candidates, not simultaneous changes. Evaluate a bounded external comparison
+with same-condition original-book reruns, not only historical38.5%.
+External plan50x4: baseline-r1/trial-r1/trial-r2/baseline-r2, sequential fresh
+processes, total200, original/trial100each. Outputs under results/
+shin-black-silver38-silver32-<label>-depth15-50games.json; all currently absent.
+Give one caffeinate command at a time, first baseline-r1 ORIGINAL four-entry.
+Depth15/thread1/hash512/normalbookON/max256/timeout300/BookMaxPly20.
+No local games; no rebuild needed; do not edit during external runs.
+Inspect overall/run spread/reached cohort/book hits/control same king39 choices/
+king placements/transition; no causal claims from cohorts/small differences.
+If ambiguous hold adoption, close this single-change cycle, no indefinite games.
+Preparation and subsequent entry checks are recorded in the next checkpoint;
+see git log for its ID. Previous2282e88 and this checkpoint are not pushed.
 Check replies/book coverage/king placement/left-silver development/exchange
 failures; historical47.5%/48%/38.5% are descriptive, not causal benchmarks.
 Root screen ends at2 searches; no book/engine/default changes or adoption.

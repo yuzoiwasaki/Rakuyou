@@ -15,6 +15,7 @@
 | 先手▲２六歩型・７局面試験版、運用未採用 | `shin-yonenaga-black-book-pawn26-experiment.txt` | `shin-yonenaga-black-pawn26-experiment.json` |
 | 先手・入口固定なし６枝版、100局完了・採用保留 | `shin-yonenaga-black-book-conditional-experiment.txt` | `shin-yonenaga-black-conditional-experiment.json` |
 | 先手▲３八銀先行・４局面試験版、100局完了・採用保留 | `shin-yonenaga-black-book-silver38-experiment.txt` | `shin-yonenaga-black-silver38-experiment.json` |
+| 先手銀先行・△３二銀に▲３九玉を追加した５局面版、比較待ち | `shin-yonenaga-black-book-silver38-silver32-experiment.txt` | `shin-yonenaga-black-silver38-silver32-experiment.json` |
 
 ## 後手第一運用版の使い方
 
@@ -187,6 +188,48 @@ txtのSHA-256は
 ▲６六歩で左側を整える候補が残ったが、該当局面は１局のみで未登録。
 詳細は[先手分岐レビュー](../docs/experiments/2026-10-03-black-300-game-branch-review.md)
 末尾「銀先行100局の結果と負け筋の診断」を参照。
+
+## 銀先行５局面版：△３二銀に▲３九玉の１枝追加
+
+原版４エントリ（根拠を含む）を変更せず、
+`5i4h 3c3d 3i3h 3a3b | 4h3i` だけを追加した別の試験版。
+原版・後手v2・エンジン・評価補正・BookMaxPly20は変更なし。
+▲３九玉後は探索に任せる。角交換対策の▲６六歩や△３二飛への枝は追加しない。
+深さ24／26で▲３九玉が首位だったが、勝率改善・運用採用は未確認。
+
+再生成：
+
+```sh
+python3 tools/build_shin_book.py --side black \
+  --source books/shin-yonenaga-black-silver38-silver32-experiment.json --experimental \
+  --output books/shin-yonenaga-black-book-silver38-silver32-experiment.txt
+```
+
+比較は50局×４実行、**原版→改訂版→改訂版→原版**の順で計200局。
+並列にはせず１本ずつ、原版・改訂版各100局を新規プロセス２回で測る。
+出力の識別子は `baseline-r1`、`trial-r1`、`trial-r2`、`baseline-r2`。
+過去の原版38.5%だけを対照にせず、今回の原版も参照する。
+同一乱数で対にした比較ではなく、勝率小差の因果効果は断定しない。
+
+最初の原版50局（リポジトリ直下、同名結果がないことを確認）：
+
+```sh
+caffeinate -i python3 tools/paired_selfplay.py \
+  --engine bin/release --shin-side black --games 50 --shin-book on \
+  --shin-book-file books/shin-yonenaga-black-book-silver38-experiment.txt \
+  --depth 15 --threads 1 --hash 512 \
+  --book-file bin/book.bin --book-max-ply 20 --max-plies 256 --timeout 300 \
+  --output results/shin-black-silver38-silver32-baseline-r1-depth15-50games.json
+```
+
+２・３本目は改訂txt `shin-yonenaga-black-book-silver38-silver32-experiment.txt` を指定し、
+出力末尾の `baseline-r1` を `trial-r1`／`trial-r2` に変更。
+４本目は原版txtで出力を `baseline-r2` にする。
+終了確認後に次の１本へ進む。中断時は同名JSONの `--resume` で再開する。
+対局中は再ビルド・定跡編集をしない。再ビルドは不要。
+改訂txtのSHA-256：
+`42622adc1fb4cc479bd70af352e296b4b5fa413f91ccad9ea4fc161866ea5a17`。
+41回帰テスト成功。比較の判定項目は[先手レポート](../docs/experiments/2026-10-03-black-300-game-branch-review.md)末尾参照。
 
 ## 保存と整理の方針
 

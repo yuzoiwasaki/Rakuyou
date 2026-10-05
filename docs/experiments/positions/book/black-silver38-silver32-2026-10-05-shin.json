@@ -1,0 +1,14 @@
+{
+  "positions": [
+    {
+      "id": "black_silver38_after_book_silver32",
+      "moves": ["5i4h", "3c3d", "3i3h", "3a3b"],
+      "note": "Common first Black search in18 silver38 trial games (4 wins/11 losses/3 draws). Actual fifth moves pawn76 in10, pawn46 in4, king39 in4. Unrestricted ON comparison; no causal conclusions from outcome cohorts."
+    },
+    {
+      "id": "black_silver38_silver32_pawn46_rook42",
+      "moves": ["5i4h", "3c3d", "3i3h", "3a3b", "4g4f", "8b4b"],
+      "note": "Observed in r1/game10 and r2/games17,21,26 (all losses). Actual silver47 in3 and pawn96 in1. Check the first preparation after fourth-file-rook switch without assuming a losing opening from four games. Unrestricted Black ON, book OFF."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "positions": [
+    {
+      "id": "black_silver38_after_book_silver32",
+      "moves": ["5i4h", "3c3d", "3i3h", "3a3b"],
+      "note": "Single-parent unrestricted depth26 recheck of depth24 king39 leader. Black ON, fresh engine, book OFF, MultiPV5. Inspect ordering of king39/pawn76/pawn46 and right-side king/development in returned PVs. No automatic registration from a small score gap or18 historical outcomes."
+    }
+  ]
+}

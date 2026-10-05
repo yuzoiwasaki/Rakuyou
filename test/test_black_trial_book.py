@@ -231,5 +231,60 @@ class Silver38BookTest(unittest.TestCase):
                 engine.close()
 
 
+class Silver32RevisionTest(unittest.TestCase):
+    source = ROOT / "books/shin-yonenaga-black-silver38-silver32-experiment.json"
+    book = ROOT / "books/shin-yonenaga-black-book-silver38-silver32-experiment.txt"
+
+    def make_engine(self, own_book=True, max_ply=20):
+        executable = ROOT / "bin/release"
+        if not executable.is_file():
+            self.skipTest("build bin/release first")
+        return UsiEngine(executable, True, own_book, 1, 64,
+                         ROOT / "bin/book.bin", max_ply, self.book)
+
+    def test_only_one_entry_added_and_generation_matches(self):
+        original = json.loads(SILVER_SOURCE.read_text())["entries"]
+        revised = json.loads(self.source.read_text())["entries"]
+        self.assertEqual(len(revised), 5)
+        self.assertEqual(revised[:-1], original)
+        self.assertEqual(revised[-1]["moves"], ["5i4h", "3c3d", "3i3h", "3a3b"])
+        self.assertEqual(revised[-1]["book_move"], "4h3i")
+        self.assertEqual(self.book.read_text(), compile_book(
+            self.source, experimental=True, side="black"))
+        self.assertTrue(self.book.read_text().startswith(SILVER_BOOK.read_text()))
+
+    def test_fixed_opening_and_all_five_entries(self):
+        engine = self.make_engine()
+        try:
+            self.assertEqual(engine.choose_move([], 1, 30)[::2],
+                             ("5i4h", "fixed_opening"))
+            for entry in json.loads(self.source.read_text())["entries"]:
+                with self.subTest(entry=entry["id"]):
+                    self.assertEqual(engine.choose_move(entry["moves"], 1, 30)[::2],
+                                     (entry["book_move"], "dedicated_book"))
+        finally:
+            engine.close()
+
+    def test_uncovered_replies_and_followup_search(self):
+        engine = self.make_engine()
+        try:
+            positions = [["5i4h", "3c3d", "3i3h", reply]
+                         for reply in ("8b3b", "7a6b", "5c5d")]
+            positions.append(["5i4h", "3c3d", "3i3h", "3a3b", "4h3i", "4c4d"])
+            for moves in positions:
+                self.assertEqual(engine.choose_move(moves, 1, 30)[2], "search")
+        finally:
+            engine.close()
+
+    def test_added_entry_disabled_by_ownbook_or_ply_limit(self):
+        for own_book, max_ply in ((False, 20), (True, 4)):
+            engine = self.make_engine(own_book=own_book, max_ply=max_ply)
+            try:
+                self.assertEqual(engine.choose_move(
+                    ["5i4h", "3c3d", "3i3h", "3a3b"], 1, 30)[2], "search")
+            finally:
+                engine.close()
+
+
 if __name__ == "__main__":
     unittest.main()

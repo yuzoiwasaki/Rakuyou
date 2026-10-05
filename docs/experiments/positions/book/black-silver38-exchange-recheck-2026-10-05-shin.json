@@ -1,0 +1,10 @@
+{
+  "positions": [
+    {
+      "id": "black_silver38_r1_game43_exchange_vs_pawn66",
+      "moves": ["5i4h", "3c3d", "3i3h", "8b4b", "2g2f", "5a6b", "4h3i", "7a7b", "9g9f", "6b7a", "9f9e", "4c4d", "7g7f", "4d4e", "8g8f", "2b3c"],
+      "searchmoves": ["6g6f", "8h3c+"],
+      "note": "Depth26 recheck of the same two-candidate restricted depth24 comparison. Black ON, fresh engine, book OFF. Compare pawn66 with actual bishop33+ within this run only; inspect king and left-silver development. Parent occurred once in the silver38 100 games; no automatic book registration or claim of a general improvement."
+    }
+  ]
+}
