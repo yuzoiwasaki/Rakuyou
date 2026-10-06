@@ -423,15 +423,38 @@ candidates, not simultaneous changes. Evaluate a bounded external comparison
 with same-condition original-book reruns, not only historical38.5%.
 External plan50x4: baseline-r1/trial-r1/trial-r2/baseline-r2, sequential fresh
 processes, total200, original/trial100each. Outputs under results/
-shin-black-silver38-silver32-<label>-depth15-50games.json; all currently absent.
-Give one caffeinate command at a time, first baseline-r1 ORIGINAL four-entry.
+shin-black-silver38-silver32-<label>-depth15-50games.json; all completed October6.
+All200/errors0; settings/records/outcomes/summaries/replay/book375 verified;
+runtime/books current hashes match preparation. Original44%/47%, total38/47/15
+(45.5%); trial32%/46%, total34/56/10 (39%). No causal overall gain established.
+Silver32 cohort original19:5/9/5 (39.5%), trial23:13/8/2 (60.9%);
+original fifth king39 only2 (both draws), trial23 all dedicated king39.
+Non-target cohorts46.9%/32.5%; do not attribute overall drop to added move,
+or call target-cohort rise a proven gain. Hold operational adoption;
+close this one-change game comparison, retain both books/research candidate.
+King24 right93/97; left return by12 zero in both. No king restrictions added.
+October6 existing-data review: rook42 total72,18/43/11; left silver57 in62,
+both golds still49/69 in48 at24. Early bishop captures6:3wins/3losses;
+do not ban exchange or infer a causal failure from placement alone.
+Next focused checks (planned, NOT executed): frequent17th-move parent8
+(2wins/6losses), compare actual pawn76/silver27 with gold58left/gold38right;
+baseline-r2/game31 before17, actual rook48 vs preparation-before-exchange.
+Use fresh Black ON/book OFF unrestricted24/MultiPV5 first; limited comparisons
+only if needed, separate scopes. Exact USI starts/candidates/refs are in the
+October6 section of the Black report. Old pawn66-vs-exchange parent reached0
+in these200; retain evidence but deprioritize isolated book registration.
+Baseline-r1/game37 before23 is a deferred central-pressure counterexample,
+outside BookMaxPly20; do not automatically add a third search/raise book limit.
+No new engine searches or games in this review; report/MEMORY updated.
+Give one caffeinate command at a time only when another external trial is ready.
 Depth15/thread1/hash512/normalbookON/max256/timeout300/BookMaxPly20.
 No local games; no rebuild needed; do not edit during external runs.
 Inspect overall/run spread/reached cohort/book hits/control same king39 choices/
 king placements/transition; no causal claims from cohorts/small differences.
 If ambiguous hold adoption, close this single-change cycle, no indefinite games.
-Preparation and subsequent entry checks are recorded in the next checkpoint;
-see git log for its ID. Previous2282e88 and this checkpoint are not pushed.
+Preparation checkpoint b174535 and previous2282e88 are not pushed.
+October6 comparison/review checkpoint includes report and resume-map updates;
+see git log for its ID. No push performed for this checkpoint.
 Check replies/book coverage/king placement/left-silver development/exchange
 failures; historical47.5%/48%/38.5% are descriptive, not causal benchmarks.
 Root screen ends at2 searches; no book/engine/default changes or adoption.
