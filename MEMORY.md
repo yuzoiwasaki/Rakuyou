@@ -492,10 +492,32 @@ King24 right96each;left return by12 five0/six1;four-occurrences9each.
 Hold six-entry operational adoption;close this single-branch comparison,
 retain both experimental books/evidence. No automatic extra100 or deeper
 common17 searches. Five-entry also unadopted;Whitev2/eval/default unchanged.
-Next if continuing:read-only review of actual pawn84 middlegame connections
-(five20games4/16/0,six14games2/11/1). Reuse existing root/pawn85 depth28
-results;identify common unprepared/exchange/rook failures before new searches.
-Not executed. Keep right-side king design priority;no retreat bans.
+October7 pawn84 review34games complete:6/27/1. All use same11 moves through
+gold78 after8-file exchange;normal searches from6 in all34,last book4.
+Early bishop captures only1 loss;not a general explanation. At24 kingright32,
+left silver68 in15/still79 in11;rook48 in25. Winning/losing cp25 medians
+-180.5/-182,not evidence of universal opening collapse or move loss.
+Two fresh ON/book OFF unrestricted24/MultiPV5 searches complete,cumulative48:
+common13 (33games) pawn25 -125,silver68 -127,pawn16 -133,pawn46/gold58right
+-162;actual silver27/king39 outside5. All5 PVs king48,early left-silver/rook29.
+Common19 (15games) actual gold38right -157 first,pawn16 -161,king28 -165,
+silver68 -168,actual pawn46 -172. All5 PVs kingright;no proven immediate failure.
+Input black-silver38-pawn84-transition-2026-10-07-shin.json;raw hash/full refs
+in Black report. 401 input/PV moves legal,errors/stops/bounds0,8tests pass.
+Reuse old pawn84/pawn85 depth28 evidence;no root rerun/book changes/newgames.
+Common13 four-candidate limited26/MultiPV4 complete37.695s,cumulative49:
+pawn25 -119,silver68 -141,silver27/king39 -189. Within-run gaps22/70/70;
+not unrestricted26 leader or causal winning gain;do not subtract24/26 scores.
+Top2 PVs keep king48,develop left silver77/right silver47/rook29;actual2 PVs
+transpose after16 and king39/28/rook48. All4 PVs right king.
+Input black-silver38-pawn84-common13-limited-2026-10-07-shin.json;161 input/PV
+moves legal,errors/stops/bounds0,8tests pass;raw hash in Black report.
+Close parent depth expansion here;no automatic19/28/30/singleton/100games.
+Next if creating a trial:existing5 +ONLY common13 pawn25 entry in a NEW
+6-entry file,not the prior pawn76 six-entry trial;leave15/deeper moves search.
+Parent33/200,actual pawn25 zero at13,more coverage than rare17 branch but
+future frequencies/gains not guaranteed. No creation/adoption/games yet.
+Keep right-king priority/no retreat bans;bookMax20/eval unchanged.
 Old pawn66-vs-exchange parent reached0 in these200; deprioritize registration.
 Baseline-r1/game37 before23 is a deferred central-pressure counterexample,
 outside BookMaxPly20; do not automatically add a third search/raise book limit.
@@ -508,7 +530,8 @@ king placements/transition; no causal claims from cohorts/small differences.
 If ambiguous hold adoption, close this single-change cycle, no indefinite games.
 Preparation b174535, previous2282e88 and review d8ce83c were pushed to origin/main.
 October6 focused searches/trial preparation and October7 completed comparison
-are included in the current checkpoint;see git log for its ID.
+were committed/pushed as8fb593a. The subsequent pawn84 review and three searches
+are recorded in a separate checkpoint;see git log for its ID. Not pushed yet.
 Check replies/book coverage/king placement/left-silver development/exchange
 failures; historical47.5%/48%/38.5% are descriptive, not causal benchmarks.
 Root screen ends at2 searches; no book/engine/default changes or adoption.

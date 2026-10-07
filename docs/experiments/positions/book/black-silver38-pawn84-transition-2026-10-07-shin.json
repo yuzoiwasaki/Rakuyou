@@ -1,0 +1,14 @@
+{
+  "positions": [
+    {
+      "id": "black_silver38_pawn84_exchange_pawn44_common13",
+      "moves": ["5i4h", "3c3d", "3i3h", "8c8d", "7g7f", "8d8e", "2g2f", "8e8f", "8g8f", "8b8f", "6i7h", "4c4d"],
+      "note": "Observed in33 of34 pawn84 games in the pawn76 bounded 200-game comparison, including transpositions: five wins/27 losses/one draw. Actual silver27 in14, king39 in10, pawn46 in8, silver68 in1. Unrestricted Black ON/book OFF/fresh depth24: inspect left-silver preparation versus actual right-side development. Reuse existing pawn85 depth28 evidence; do not rerun the old root or infer move-quality causality from cohort outcomes."
+    },
+    {
+      "id": "black_silver38_pawn84_rook48_common19_preparation",
+      "moves": ["5i4h", "3c3d", "3i3h", "8c8d", "7g7f", "8d8e", "2g2f", "8e8f", "8g8f", "8b8f", "6i7h", "4c4d", "3h2g", "3a4b", "4h3i", "4a3b", "2h4h", "4b4c"],
+      "note": "Observed in15 of34 pawn84 games by exact board/hands/turn, including transpositions: one win/13 losses/one draw. Actual gold38right eight and pawn46 seven. King39, rook48, silver27, left silver79, gold78. Unrestricted Black ON/book OFF/fresh depth24: compare actual moves with left-silver/pawn-drop/diagonal preparations. No retreat ban, score subtraction across positions, automatic book entry or BookMaxPly extension."
+    }
+  ]
+}
