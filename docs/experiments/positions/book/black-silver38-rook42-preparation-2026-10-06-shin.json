@@ -1,0 +1,14 @@
+{
+  "positions": [
+    {
+      "id": "black_silver38_rook42_common17_gold_preparation",
+      "moves": ["5i4h", "3c3d", "3i3h", "8b4b", "2g2f", "5a6b", "9g9f", "9c9d", "5g5f", "3a3b", "7i6h", "7a7b", "6h5g", "6b7a", "4h3i", "4c4d"],
+      "note": "Reached in eight games in the silver32 bounded 200-game comparison: baseline-r1 games14,19,43; trial-r1 games2,41; trial-r2 games24,32; baseline-r2 game46. Two wins/six losses is descriptive, not a causal move-quality result. Actual pawn76/silver27 four each. Unrestricted Black ON, book OFF: inspect gold58left/gold58right alongside actual moves, right-side king retention and middlegame connection. Gold38right is illegal here because Black silver occupies38; consider it only after silver development."
+    },
+    {
+      "id": "black_silver38_rook42_baseline_r2_game31_before_exchange",
+      "moves": ["5i4h", "3c3d", "3i3h", "8b4b", "2g2f", "5a6b", "3h2g", "7a7b", "9g9f", "6b7a", "9f9e", "4a5b", "4h3i", "4c4d", "7g7f", "4d4e"],
+      "note": "Singleton in the bounded comparison, baseline-r2 game31 before17. Actual rook48 permits bishop88+ and silver88 recapture. Unrestricted Black ON, book OFF: compare preparation candidates pawn66/silver68/gold78 with actual rook48 without banning bishop exchange or king retreats. Not the earlier original silver38-r1 game43 parent."
+    }
+  ]
+}

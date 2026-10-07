@@ -286,5 +286,74 @@ class Silver32RevisionTest(unittest.TestCase):
                 engine.close()
 
 
+class Common17Pawn76RevisionTest(unittest.TestCase):
+    source = ROOT / "books/shin-yonenaga-black-silver38-silver32-pawn76-experiment.json"
+    book = ROOT / "books/shin-yonenaga-black-book-silver38-silver32-pawn76-experiment.txt"
+    parent = ["5i4h", "3c3d", "3i3h", "8b4b", "2g2f", "5a6b",
+              "9g9f", "9c9d", "5g5f", "3a3b", "7i6h", "7a7b",
+              "6h5g", "6b7a", "4h3i", "4c4d"]
+
+    def make_engine(self, own_book=True, max_ply=20, book=None):
+        executable = ROOT / "bin/release"
+        if not executable.is_file():
+            self.skipTest("build bin/release first")
+        return UsiEngine(executable, True, own_book, 1, 64,
+                         ROOT / "bin/book.bin", max_ply, book or self.book)
+
+    def test_only_common17_entry_added_and_generation_matches(self):
+        original = json.loads(Silver32RevisionTest.source.read_text())["entries"]
+        revised = json.loads(self.source.read_text())["entries"]
+        self.assertEqual(len(revised), 6)
+        self.assertEqual(revised[:-1], original)
+        self.assertEqual(revised[-1]["moves"], self.parent)
+        self.assertEqual(revised[-1]["book_move"], "7g7f")
+        self.assertTrue(all(e["status"] == "experimental" for e in revised))
+        self.assertEqual(self.book.read_text(), compile_book(
+            self.source, experimental=True, side="black"))
+        self.assertTrue(self.book.read_text().startswith(
+            Silver32RevisionTest.book.read_text()))
+
+    def test_fixed_opening_all_entries_and_transposition(self):
+        engine = self.make_engine()
+        try:
+            self.assertEqual(engine.choose_move([], 1, 30)[::2],
+                             ("5i4h", "fixed_opening"))
+            for entry in json.loads(self.source.read_text())["entries"]:
+                with self.subTest(entry=entry["id"]):
+                    self.assertEqual(engine.choose_move(entry["moves"], 1, 30)[::2],
+                                     (entry["book_move"], "dedicated_book"))
+            transposed = ["5i4h", "3c3d", "3i3h", "8b4b", "2g2f", "5a6b",
+                          "4h3i", "7a7b", "9g9f", "9c9d", "7i6h", "6b7a",
+                          "5g5f", "3a3b", "6h5g", "4c4d"]
+            self.assertEqual(engine.choose_move(transposed, 1, 30)[::2],
+                             ("7g7f", "dedicated_book"))
+        finally:
+            engine.close()
+
+    def test_unknown_followup_and_control_search(self):
+        engine = self.make_engine()
+        try:
+            for moves in (["5i4h", "3c3d", "3i3h", "8b3b"],
+                          self.parent + ["7g7f", "4a5b"]):
+                self.assertEqual(engine.choose_move(moves, 1, 30)[2], "search")
+        finally:
+            engine.close()
+        engine = self.make_engine(book=Silver32RevisionTest.book)
+        try:
+            self.assertEqual(engine.choose_move(self.parent, 1, 30)[2], "search")
+        finally:
+            engine.close()
+
+    def test_ownbook_and_move17_ply_boundary(self):
+        for own_book, max_ply, expected in (
+                (False, 20, "search"), (True, 16, "search"),
+                (True, 17, "dedicated_book")):
+            engine = self.make_engine(own_book=own_book, max_ply=max_ply)
+            try:
+                self.assertEqual(engine.choose_move(self.parent, 1, 30)[2], expected)
+            finally:
+                engine.close()
+
+
 if __name__ == "__main__":
     unittest.main()

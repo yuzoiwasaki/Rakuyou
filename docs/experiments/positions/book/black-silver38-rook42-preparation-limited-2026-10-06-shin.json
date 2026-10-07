@@ -1,0 +1,10 @@
+{
+  "positions": [
+    {
+      "id": "black_silver38_rook42_baseline_r2_game31_actual_vs_preparations",
+      "moves": ["5i4h", "3c3d", "3i3h", "8b4b", "2g2f", "5a6b", "3h2g", "7a7b", "9g9f", "6b7a", "9f9e", "4a5b", "4h3i", "4c4d", "7g7f", "4d4e"],
+      "searchmoves": ["2h4h", "6g6f", "7i6h", "6i7h"],
+      "note": "Same parent as unrestricted24 baseline-r2/game31. Actual rook48 was first; planned pawn66/silver68/gold78 were outside top5. Four-candidate limited depth24 comparison, Black ON/fresh/book OFF. Compare scores only within this run, not to unrestricted scores; inspect king retention and bishop-exchange continuations."
+    }
+  ]
+}

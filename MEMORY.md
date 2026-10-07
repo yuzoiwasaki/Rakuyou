@@ -436,25 +436,79 @@ King24 right93/97; left return by12 zero in both. No king restrictions added.
 October6 existing-data review: rook42 total72,18/43/11; left silver57 in62,
 both golds still49/69 in48 at24. Early bishop captures6:3wins/3losses;
 do not ban exchange or infer a causal failure from placement alone.
-Next focused checks (planned, NOT executed): frequent17th-move parent8
-(2wins/6losses), compare actual pawn76/silver27 with gold58left/gold38right;
-baseline-r2/game31 before17, actual rook48 vs preparation-before-exchange.
-Use fresh Black ON/book OFF unrestricted24/MultiPV5 first; limited comparisons
-only if needed, separate scopes. Exact USI starts/candidates/refs are in the
-October6 section of the Black report. Old pawn66-vs-exchange parent reached0
-in these200; retain evidence but deprioritize isolated book registration.
+October6 focused followup complete:2 unrestricted24/MultiPV5 searches,
+plus game31 same-parent limited24/MultiPV4, fresh ON/book OFF/thread1/hash512.
+All3 complete/errors/stops/bounds0,592 input/PV moves legal,8 tests pass;
+cumulative44 searches. Inputs black-silver38-rook42-preparation[-limited]-
+2026-10-06-shin.json under docs/experiments/positions/book/; raw hashes/PVs
+in the Black report. No book/engine changes or new games.
+Common17 parent8: pawn76 +7,silver27 -41,pawn86 -51,gold58left/pawn36 -121.
+Gold38right originally proposed is ILLEGAL: silver occupies38; corrected to
+gold58right as comparison (outside top5, not separately scored).
+Do not infer a universal gold-first rule. All5 PVs keep king right.
+Game31 before17 actual rook48 unrestricted -136 first; limited rook48 -159,
+pawn66 -418,gold78 -449,silver68 -3793. Compare only within each scope.
+Silver68 removes silver79 recapture on88 and blocks rook28's horizontal
+recapture; do not generalize earlier singleton pawn66-before-exchange finding.
+All9 PVs here keep king right; actual exchange acceptance not proven error.
+Common17 unrestricted26/MultiPV5 recheck complete100.289s,cumulative45.
+Pawn76 -46,pawn86 -55,gold58left -86,silver27 -95,pawn66 -101.
+Pawn76 first at24/26, but9cp gap to pawn86 at26; no unique best/gain claim.
+All5 PVs right king; top2 keep king39/silver38/rook28, gold58left later
+at33/31. Do not hard-code long PV or infer a universal pawn/gold timing rule.
+Errors/stops/bounds0;216 input/PV moves legal;8 tests pass;book/runtime unchanged.
+Input black-silver38-rook42-common17-recheck-2026-10-06-shin.json;raw hash in report.
+Close parent depth expansion here, no28/30. Hold registration/new games.
+Actual pawn76 fourgames (1win/3losses) ALL reply gold52 at18; top24/26 PV
+instead silver43. Actual pawn76/gold52 parent19 ON/book OFF/fresh24/MultiPV5
+now complete30.315s,cumulative46. Pawn86 -35,silver27 -56,bishop77 -63,
+pawn75 -114,pawn66 -117; gold58left outside5, gold38right still illegal.
+Exact parent reached6 incl trial-r1/games1,12 transpositions:1win/5losses;
+silver27 fourlosses,pawn86 1win/1loss, not causal move comparisons.
+All5 PVs right king; top2 use rook88 with silver27/gold38right after bishop
+development. Left rook use is not king retreat; do not hard-code rook48.
+Input black-silver38-rook42-pawn76-gold52-2026-10-06-shin.json;225 input/PV
+moves legal,errors/stops/bounds0,8 tests pass;raw hash in Black report.
+Close this small search cycle. Separate6-entry trial now prepared:
+books/shin-yonenaga-black-silver38-silver32-pawn76-experiment.json and
+books/shin-yonenaga-black-book-silver38-silver32-pawn76-experiment.txt.
+Retains existing5 exactly +ONLY common17 pawn76 (leader24/26).
+Leave19/deeper PV to search (pawn86/silver27 gap21 at one depth only).
+New txt SHA284850ec7495a4d1889c79d393fe75e775cc56dc3cfe7b7ec7af2b0df1b9c299.
+45 tests pass (4 new);6 evidence references/raw match;59 entry/transposed
+moves legal;old/runtime hashes unchanged. No rebuild/eval/default changes.
+Experimental NOT adopted. Target8 includes4 already pawn76;low expected impact.
+External plan50x4: existing5 baseline-r1/new6 trial-r1/new6 trial-r2/existing5
+baseline-r2, sequential fresh processes,each100,total200. Same fixedBlack
+depth15/thread1/hash512/bookMax20/max256/timeout300/PonderOFF/normalbookON.
+Outputs results/shin-black-silver38-pawn76-<label>-depth15-50games.json;
+all200 completed October7/errors0;settings/records/summary/outcomes/replay/
+book378 checked. Five-entry44%/49%,total40/47/13 (46.5%);six39%/45%,
+total35/51/14 (42%). Current runtime/book hashes unchanged.
+Target five1 (baseline-r2/game25):searched pawn76,win; six3 dedicated
+(trial-r1/game2 draw,trial-r2/game23 loss,game50 win). Too few for effect;
+non-target46.0%/41.8%,no causal attribution of4.5-point overall difference.
+King24 right96each;left return by12 five0/six1;four-occurrences9each.
+Hold six-entry operational adoption;close this single-branch comparison,
+retain both experimental books/evidence. No automatic extra100 or deeper
+common17 searches. Five-entry also unadopted;Whitev2/eval/default unchanged.
+Next if continuing:read-only review of actual pawn84 middlegame connections
+(five20games4/16/0,six14games2/11/1). Reuse existing root/pawn85 depth28
+results;identify common unprepared/exchange/rook failures before new searches.
+Not executed. Keep right-side king design priority;no retreat bans.
+Old pawn66-vs-exchange parent reached0 in these200; deprioritize registration.
 Baseline-r1/game37 before23 is a deferred central-pressure counterexample,
 outside BookMaxPly20; do not automatically add a third search/raise book limit.
-No new engine searches or games in this review; report/MEMORY updated.
+The200-game audit was read-only; subsequent5 searches are separately recorded.
 Give one caffeinate command at a time only when another external trial is ready.
 Depth15/thread1/hash512/normalbookON/max256/timeout300/BookMaxPly20.
 No local games; no rebuild needed; do not edit during external runs.
 Inspect overall/run spread/reached cohort/book hits/control same king39 choices/
 king placements/transition; no causal claims from cohorts/small differences.
 If ambiguous hold adoption, close this single-change cycle, no indefinite games.
-Preparation checkpoint b174535 and previous2282e88 are not pushed.
-October6 comparison/review checkpoint includes report and resume-map updates;
-see git log for its ID. No push performed for this checkpoint.
+Preparation b174535, previous2282e88 and review d8ce83c were pushed to origin/main.
+October6 focused searches/trial preparation and October7 completed comparison
+are included in the current checkpoint;see git log for its ID.
 Check replies/book coverage/king placement/left-silver development/exchange
 failures; historical47.5%/48%/38.5% are descriptive, not causal benchmarks.
 Root screen ends at2 searches; no book/engine/default changes or adoption.
