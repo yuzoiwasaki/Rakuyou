@@ -1,0 +1,9 @@
+{
+  "positions": [
+    {
+      "id": "black_silver38_pawn25_bishop33_unrestricted_followup",
+      "moves": ["5i4h", "3c3d", "3i3h", "8c8d", "7g7f", "8d8e", "2g2f", "8e8f", "8g8f", "8b8f", "6i7h", "4c4d", "2f2e", "2b3c"],
+      "note": "Same15 parent as the three-candidate restricted26 comparison. Unrestricted24/MultiPV5, Black ON/fresh/book OFF: inspect omitted candidates and silver68 ranking/right-king connection. Compare rankings and plans, not cp differences across depth/scope. No automatic extra searches, games, book registration or king-retreat ban."
+    }
+  ]
+}

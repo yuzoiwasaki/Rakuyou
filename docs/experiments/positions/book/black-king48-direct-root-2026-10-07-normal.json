@@ -1,0 +1,9 @@
+{
+  "positions": [
+    {
+      "id": "normal_white_after_black_first_king48",
+      "moves": ["5i4h"],
+      "note": "Direct White-to-move root after Black's fixed king48 opening. Normal OFF, book OFF, fresh engine, unrestricted26/MultiPV5. Scores are White side-to-move, not Black; positive means White-favored within this evaluator. Compare actual standard-book reply pawn34 with other candidates without assuming book-optimality. This is not a startpos control or a measured loss from king48, and not mixed Black-ON/White-OFF selfplay. Do not change active game settings or books."
+    }
+  ]
+}

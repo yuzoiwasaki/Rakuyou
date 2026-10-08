@@ -17,6 +17,7 @@
 | 先手▲３八銀先行・４局面試験版、100局完了・採用保留 | `shin-yonenaga-black-book-silver38-experiment.txt` | `shin-yonenaga-black-silver38-experiment.json` |
 | 先手銀先行・△３二銀に▲３九玉を追加した５局面版、200局比較完了・採用保留 | `shin-yonenaga-black-book-silver38-silver32-experiment.txt` | `shin-yonenaga-black-silver38-silver32-experiment.json` |
 | 先手銀先行・頻出17手目▲７六歩を追加した６局面版、200局比較完了・採用保留 | `shin-yonenaga-black-book-silver38-silver32-pawn76-experiment.txt` | `shin-yonenaga-black-silver38-silver32-pawn76-experiment.json` |
+| 先手銀先行・対△８四歩13手目▲２五歩を追加した別６局面版、200局比較完了・採用保留 | `shin-yonenaga-black-book-silver38-silver32-pawn25-experiment.txt` | `shin-yonenaga-black-silver38-silver32-pawn25-experiment.json` |
 
 ## 後手第一運用版の使い方
 
@@ -293,6 +294,64 @@ caffeinate -i python3 tools/paired_selfplay.py \
 低到達と実行差のため効果は未確認、６局面版は運用採用保留で比較を区切る。
 同じ枝の追加100局は行わず、試験版・探索根拠を保存する。
 ５局面版も運用採用ではなく、次に調べるなら対△８四歩の既存負け棋譜を優先する。
+
+## 対△８四歩６局面版：13手目▲２五歩の１枝追加
+
+既存５局面版を根拠・注記ごと保持し、次の１組だけを追加した別の試験版。
+前の17手目▲７六歩追加は含まない。試験用で、運用採用や棋力改善の証明ではない。
+
+```text
+5i4h 3c3d 3i3h 8c8d 7g7f 8d8e 2g2f 8e8f
+8g8f 8b8f 6i7h 4c4d | 2f2e
+```
+
+▲２五歩は無制限深さ24で首位、４候補限定深さ26でも首位−119cp。
+限定26内では▲６八銀と22cp差、▲２七銀／▲３九玉と70cp差。
+無制限深さ26の最善手とは扱わない。15手目の左銀整備・▲２九飛などは固定せず探索へ任せる。
+BookMaxPly20・補正25cp・玉戻りの合法性は変更なし。
+
+再生成：
+
+```sh
+python3 tools/build_shin_book.py --side black \
+  --source books/shin-yonenaga-black-silver38-silver32-pawn25-experiment.json --experimental \
+  --output books/shin-yonenaga-black-book-silver38-silver32-pawn25-experiment.txt
+```
+
+50回帰テスト成功。５組保持・生成一致・全６組利用・手順前後・15手目の探索・
+OwnBook OFF・BookMaxPly12／13境界・17手目▲７六歩追加が混在しないことを確認。
+txtのSHA-256：`52123e92c55e0dc33f1f77849daf481879f00dffb6e68c4831e93534a9a531c7`。
+エンジン・旧txt・後手v2は変更なし、再ビルド不要。
+
+比較案は新規プロセス50局×４、順に
+**５局面版→▲２五歩６局面版→▲２五歩６局面版→５局面版**、各版100局・計200局。
+出力は `results/shin-black-silver38-pawn25-<識別子>-depth15-50games.json`。
+識別子は `baseline-r1`／`trial-r1`／`trial-r2`／`baseline-r2`。
+過去の５局面版46.5%だけを対照にせず、今回の再計測を含める。
+
+以下は完了済みの対照５局面版50局のコマンド履歴。再実行時は出力名を変える：
+
+```sh
+caffeinate -i python3 tools/paired_selfplay.py \
+  --engine bin/release --shin-side black --games 50 --shin-book on \
+  --shin-book-file books/shin-yonenaga-black-book-silver38-silver32-experiment.txt \
+  --depth 15 --threads 1 --hash 512 \
+  --book-file bin/book.bin --book-max-ply 20 --max-plies 256 --timeout 300 \
+  --output results/shin-black-silver38-pawn25-baseline-r1-depth15-50games.json
+```
+
+２・３本目は `shin-yonenaga-black-book-silver38-silver32-pawn25-experiment.txt`、
+出力を `trial-r1`／`trial-r2`。４本目は５局面txt、出力 `baseline-r2`。
+並列実行せず１本ごとに確認し、対局中の定跡変更・再ビルドをしない。
+同一乱数の対応比較ではないため、実行差・対象／非対象群・玉配置・駒組みを分けて判定。
+僅差や低到達で曖昧なら採用保留で比較を区切る。準備段階では対局未実施。
+
+2026-10-08に全200局を確認、エラー０。
+対照は45%／35%、合計29勝49敗22分、試験は39%／41%、合計32勝52敗16分。
+全体の得点率は両版40%。対象群は対照15局５勝10敗、試験13局６勝６敗１分。
+有望な観察結果は残るが改善の因果効果は未確定で、運用採用保留で比較を区切る。
+試験13局の15手目▲６八銀は１局のみで、左銀整備・▲２九飛の後続は未保証。
+同じ枝の追加100局ではなく、15手目の１局面診断を次の検証とする。
 
 ## 保存と整理の方針
 

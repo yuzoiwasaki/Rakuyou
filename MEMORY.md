@@ -513,10 +513,56 @@ transpose after16 and king39/28/rook48. All4 PVs right king.
 Input black-silver38-pawn84-common13-limited-2026-10-07-shin.json;161 input/PV
 moves legal,errors/stops/bounds0,8tests pass;raw hash in Black report.
 Close parent depth expansion here;no automatic19/28/30/singleton/100games.
-Next if creating a trial:existing5 +ONLY common13 pawn25 entry in a NEW
-6-entry file,not the prior pawn76 six-entry trial;leave15/deeper moves search.
-Parent33/200,actual pawn25 zero at13,more coverage than rare17 branch but
-future frequencies/gains not guaranteed. No creation/adoption/games yet.
+New separate6-entry pawn25 trial prepared:existing5 unchanged +ONLY common13
+pawn25 entry;NOT prior common17 pawn76 extension. Leave15/deeper moves search.
+Source books/shin-yonenaga-black-silver38-silver32-pawn25-experiment.json;
+txt books/shin-yonenaga-black-book-silver38-silver32-pawn25-experiment.txt.
+SHA52123e92c55e0dc33f1f77849daf481879f00dffb6e68c4831e93534a9a531c7.
+Evidence explicitly restricted26 (not unrestricted26);all6 refs/raw match.
+50 tests pass,51 input/book/transposed moves legal;old/runtime hashes unchanged.
+Parent33/200,actual pawn25 zero at13;future frequency/gain not guaranteed.
+External plan50x4:existing5 baseline-r1/pawn25 trial-r1/pawn25 trial-r2/
+existing5 baseline-r2,each100,total200,sequential fresh. FixedBlackdepth15,
+thread1/hash512/normalbookON/PonderOFF/BookMax20/max256/timeout300.
+Outputs results/shin-black-silver38-pawn25-<label>-depth15-50games.json,
+all200 complete October8/errors0;settings/records/summary/outcomes/replay/
+book382 checked,current runtime/book hashes match. Five45%/35%,29/49/22;
+trial39%/41%,32/52/16,both40% total. Targetfive15:5/10/0 (33.3%),trial13:
+6/6/1 (50%);non-target41.2%/38.5%,no causal-gain claim. King24 right94/98.
+Trialall13 reply bishop33;move15 pawn46 seven(4/3/0),rook26 five(2/2/1),
+silver68 one(loss). Leftsilver79 at24 in12/13;target king48 eleven/king59 two.
+Hold pawn25 operational adoption;close one-entry game comparison,no new100.
+Trial/evidence are recorded in the current checkpoint;no mixed common17 changes.
+October8 same15 parent limited26/MultiPV3 complete63.545s,cumulative51:
+silver68 -132,pawn46 -151,rook26 -156. Gaps19/24 only,not a decisive error
+diagnosis/unrestricted-best claim. Silver68 PV silver77/47/rook29,king48->38;
+pawn46 PV returns59;rook26 keeps48 and prepares silvers/rook29 later.
+Input black-silver38-pawn25-bishop33-followup-2026-10-08-shin.json;123 input/PV
+moves legal,errors/stops/bounds0,8tests pass;raw hash in report.
+Same15 unrestricted24/MultiPV5 now complete76.805s,cumulative52:
+silver68 -101,rook26 -118,pawn46 -134,pawn16 -159,pawn96 -191.
+Silver68 first in both restricted26/unrestricted24;other actual2 swap order,
+scope/depth scores not subtracted. All5 PVs right king,leader king48->38,
+silver77/47/rook29. Actual pawn46 king48 here vs59 in restricted26.
+203 input/PV moves legal,errors/stops/bounds0,8tests pass;raw hash in report.
+Input black-silver38-pawn25-bishop33-unrestricted-2026-10-08-shin.json.
+Nearest actual gap17cp small;hold15 fixed registration and close this prep
+comparison,no auto26/28/30/new100. Existing pawn25 six remains unadopted.
+Concept-only silver68 one-entry extension is a future choice,not created;
+separate concept achievement from strength claims,don't register long PV.
+Prep/200/root reference/two15 searches are consolidated in the current
+checkpoint. Next consider bounded Black operational choice;no automatic book/eval changes.
+Separate first-king48 reference query completed October7:direct ['5i4h']
+White-to-move normal OFF/book OFF/fresh unrestricted26/MultiPV5/thread1/hash512.
+Pawn34 +113,pawn44 +97,pawn84 +61,pawn64 +60,silver62 +50 (WHITE cp).
+Leading score converts to Black -113,NOT measured loss from startpos.
+Normal OFF disables25cp preference for both colors;not mixed ON/OFF selfplay.
+Top2 PVs return Black king59/68/78;do not read -113 as right-king-only value.
+One search105.548s,cumulative50,errors/stops/bounds0;150 input/PV moves legal,
+analysis3 tests pass;runtime/book unchanged. Input black-king48-direct-root-
+2026-10-07-normal.json;raw hash/full PVs in Black report. No automatic root
+deepening/new reply branches/book changes. Main pawn25 comparison is complete;
+reference query/report/input are included in the current checkpoint.
 Keep right-king priority/no retreat bans;bookMax20/eval unchanged.
 Old pawn66-vs-exchange parent reached0 in these200; deprioritize registration.
 Baseline-r1/game37 before23 is a deferred central-pressure counterexample,
@@ -531,7 +577,9 @@ If ambiguous hold adoption, close this single-change cycle, no indefinite games.
 Preparation b174535, previous2282e88 and review d8ce83c were pushed to origin/main.
 October6 focused searches/trial preparation and October7 completed comparison
 were committed/pushed as8fb593a. The subsequent pawn84 review and three searches
-are recorded in a separate checkpoint;see git log for its ID. Not pushed yet.
+were committed as c1a0508. The current checkpoint contains subsequent pawn25
+trial preparation/tests, completed200 results, reference root and two15 searches;
+see git log for its ID. Both checkpoints are included in the publication update.
 Check replies/book coverage/king placement/left-silver development/exchange
 failures; historical47.5%/48%/38.5% are descriptive, not causal benchmarks.
 Root screen ends at2 searches; no book/engine/default changes or adoption.

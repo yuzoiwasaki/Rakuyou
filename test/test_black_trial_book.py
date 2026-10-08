@@ -292,6 +292,11 @@ class Common17Pawn76RevisionTest(unittest.TestCase):
     parent = ["5i4h", "3c3d", "3i3h", "8b4b", "2g2f", "5a6b",
               "9g9f", "9c9d", "5g5f", "3a3b", "7i6h", "7a7b",
               "6h5g", "6b7a", "4h3i", "4c4d"]
+    book_move = "7g7f"
+    followup_reply = "4a5b"
+    transposed = ["5i4h", "3c3d", "3i3h", "8b4b", "2g2f", "5a6b",
+                  "4h3i", "7a7b", "9g9f", "9c9d", "7i6h", "6b7a",
+                  "5g5f", "3a3b", "6h5g", "4c4d"]
 
     def make_engine(self, own_book=True, max_ply=20, book=None):
         executable = ROOT / "bin/release"
@@ -300,13 +305,13 @@ class Common17Pawn76RevisionTest(unittest.TestCase):
         return UsiEngine(executable, True, own_book, 1, 64,
                          ROOT / "bin/book.bin", max_ply, book or self.book)
 
-    def test_only_common17_entry_added_and_generation_matches(self):
+    def test_only_one_entry_added_and_generation_matches(self):
         original = json.loads(Silver32RevisionTest.source.read_text())["entries"]
         revised = json.loads(self.source.read_text())["entries"]
         self.assertEqual(len(revised), 6)
         self.assertEqual(revised[:-1], original)
         self.assertEqual(revised[-1]["moves"], self.parent)
-        self.assertEqual(revised[-1]["book_move"], "7g7f")
+        self.assertEqual(revised[-1]["book_move"], self.book_move)
         self.assertTrue(all(e["status"] == "experimental" for e in revised))
         self.assertEqual(self.book.read_text(), compile_book(
             self.source, experimental=True, side="black"))
@@ -322,11 +327,8 @@ class Common17Pawn76RevisionTest(unittest.TestCase):
                 with self.subTest(entry=entry["id"]):
                     self.assertEqual(engine.choose_move(entry["moves"], 1, 30)[::2],
                                      (entry["book_move"], "dedicated_book"))
-            transposed = ["5i4h", "3c3d", "3i3h", "8b4b", "2g2f", "5a6b",
-                          "4h3i", "7a7b", "9g9f", "9c9d", "7i6h", "6b7a",
-                          "5g5f", "3a3b", "6h5g", "4c4d"]
-            self.assertEqual(engine.choose_move(transposed, 1, 30)[::2],
-                             ("7g7f", "dedicated_book"))
+            self.assertEqual(engine.choose_move(self.transposed, 1, 30)[::2],
+                             (self.book_move, "dedicated_book"))
         finally:
             engine.close()
 
@@ -334,7 +336,7 @@ class Common17Pawn76RevisionTest(unittest.TestCase):
         engine = self.make_engine()
         try:
             for moves in (["5i4h", "3c3d", "3i3h", "8b3b"],
-                          self.parent + ["7g7f", "4a5b"]):
+                          self.parent + [self.book_move, self.followup_reply]):
                 self.assertEqual(engine.choose_move(moves, 1, 30)[2], "search")
         finally:
             engine.close()
@@ -344,15 +346,34 @@ class Common17Pawn76RevisionTest(unittest.TestCase):
         finally:
             engine.close()
 
-    def test_ownbook_and_move17_ply_boundary(self):
+    def test_ownbook_and_added_move_ply_boundary(self):
         for own_book, max_ply, expected in (
-                (False, 20, "search"), (True, 16, "search"),
-                (True, 17, "dedicated_book")):
+                (False, 20, "search"), (True, len(self.parent), "search"),
+                (True, len(self.parent) + 1, "dedicated_book")):
             engine = self.make_engine(own_book=own_book, max_ply=max_ply)
             try:
                 self.assertEqual(engine.choose_move(self.parent, 1, 30)[2], expected)
             finally:
                 engine.close()
+
+
+class Common13Pawn25RevisionTest(Common17Pawn76RevisionTest):
+    source = ROOT / "books/shin-yonenaga-black-silver38-silver32-pawn25-experiment.json"
+    book = ROOT / "books/shin-yonenaga-black-book-silver38-silver32-pawn25-experiment.txt"
+    parent = ["5i4h", "3c3d", "3i3h", "8c8d", "7g7f", "8d8e",
+              "2g2f", "8e8f", "8g8f", "8b8f", "6i7h", "4c4d"]
+    book_move = "2f2e"
+    followup_reply = "2b3c"
+    transposed = ["5i4h", "3c3d", "3i3h", "8c8d", "7g7f", "8d8e",
+                  "6i7h", "8e8f", "8g8f", "8b8f", "2g2f", "4c4d"]
+
+    def test_common17_extension_remains_separate(self):
+        engine = self.make_engine()
+        try:
+            self.assertEqual(engine.choose_move(
+                Common17Pawn76RevisionTest.parent, 1, 30)[2], "search")
+        finally:
+            engine.close()
 
 
 if __name__ == "__main__":
