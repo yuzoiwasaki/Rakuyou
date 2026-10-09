@@ -1,0 +1,175 @@
+{
+  "description": "Seven-position Black silver38 trial: preserve the six pawn25 entries unchanged and add only silver68 after bishop33. Final bounded concept-and-strength comparison for this series; experimental, not adopted or proven stronger.",
+  "initial_position": "startpos",
+  "side": "black",
+  "experiment": "silver38-silver32-pawn25-silver68",
+  "report": "docs/experiments/2026-10-03-black-300-game-branch-review.md",
+  "entries": [
+    {
+      "id": "black_silver38_entry",
+      "moves": [
+        "5i4h",
+        "3c3d"
+      ],
+      "book_move": "3i3h",
+      "status": "experimental",
+      "evidence": {
+        "result": "results/black-silver-entry-2026-10-04-shin-depth28.json",
+        "position_id": "black_root_silver38_silver68_vs_pawns",
+        "depth": 28,
+        "rank": 3,
+        "score_cp": -149,
+        "gap_to_leader_cp": 39,
+        "search_scope": "restricted: 3i3h 7i6h 7g7f 2g2f"
+      },
+      "note": "39cp below pawn76 within the four-candidate restricted search. Deliberately test silver-first development; not an unrestricted best move."
+    },
+    {
+      "id": "black_silver38_pawn84_pawn76",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "3i3h",
+        "8c8d"
+      ],
+      "book_move": "7g7f",
+      "status": "experimental",
+      "evidence": {
+        "result": "results/black-silver38-2026-10-04-pawn84-recheck-shin-depth28.json",
+        "position_id": "black_silver38_pawn84_unrestricted_recheck",
+        "depth": 28,
+        "rank": 2,
+        "score_cp": -112,
+        "gap_to_leader_cp": 10,
+        "search_scope": "unrestricted"
+      },
+      "note": "10cp below pawn26 in this search. Test earlier left-side preparation; do not register the long floating-rook/bishop-exchange PV."
+    },
+    {
+      "id": "black_silver38_pawn76_pawn85_pawn26",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "3i3h",
+        "8c8d",
+        "7g7f",
+        "8d8e"
+      ],
+      "book_move": "2g2f",
+      "status": "experimental",
+      "evidence": {
+        "result": "results/black-silver38-2026-10-04-pawn85-preparation-shin-depth28.json",
+        "position_id": "black_silver38_pawn76_after_normal_pawn85",
+        "depth": 28,
+        "rank": 1,
+        "score_cp": -140,
+        "gap_to_leader_cp": 0,
+        "search_scope": "unrestricted"
+      },
+      "note": "Gold78 is only5cp lower. PV develops silver77/silver47/rook29 with king48; no guarantee against other replies or later king returns."
+    },
+    {
+      "id": "black_silver38_rook42_pawn26",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "3i3h",
+        "8b4b"
+      ],
+      "book_move": "2g2f",
+      "status": "experimental",
+      "evidence": {
+        "result": "results/black-silver38-2026-10-04-preparations-shin-depth24.json",
+        "position_id": "black_silver38_after_book_rook42",
+        "depth": 24,
+        "rank": 1,
+        "score_cp": -75,
+        "gap_to_leader_cp": 0,
+        "search_scope": "unrestricted"
+      },
+      "note": "Silver68 is only2cp lower. Not proof of winning against fourth-file rook; do not compare cp directly with other positions/depths."
+    },
+    {
+      "id": "black_silver38_silver32_king39",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "3i3h",
+        "3a3b"
+      ],
+      "book_move": "4h3i",
+      "status": "experimental",
+      "evidence": {
+        "result": "results/black-silver38-silver32-recheck-2026-10-05-shin-depth26.json",
+        "position_id": "black_silver38_after_book_silver32",
+        "depth": 26,
+        "rank": 1,
+        "score_cp": -98,
+        "gap_to_leader_cp": 0,
+        "search_scope": "unrestricted"
+      },
+      "note": "Leader at unrestricted depths24 and26; pawn76 only17cp lower at26. Register only this root move; opponent PV changed between depths. No claim of a strength gain or guaranteed king safety."
+    },
+    {
+      "id": "black_silver38_pawn84_common13_pawn25",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "3i3h",
+        "8c8d",
+        "7g7f",
+        "8d8e",
+        "2g2f",
+        "8e8f",
+        "8g8f",
+        "8b8f",
+        "6i7h",
+        "4c4d"
+      ],
+      "book_move": "2f2e",
+      "status": "experimental",
+      "evidence": {
+        "result": "results/black-silver38-pawn84-common13-limited-2026-10-07-shin-depth26.json",
+        "position_id": "black_silver38_pawn84_common13_preparation_vs_actual",
+        "depth": 26,
+        "rank": 1,
+        "score_cp": -119,
+        "gap_to_leader_cp": 0,
+        "search_scope": "restricted: 2f2e 7i6h 3h2g 4h3i"
+      },
+      "note": "First at unrestricted24 and four-candidate restricted26; not an unrestricted26 best-move claim. Silver68 is22cp lower, actual silver27/king39 are70cp lower within restricted26. Parent reached33/200; actual pawn25 at13 zero. Register only move13, leave silver68/rook29 and later PV to search. No strength or safety guarantee; keep the rare common17 pawn76 extension separate."
+    },
+    {
+      "id": "black_silver38_pawn25_bishop33_silver68",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "3i3h",
+        "8c8d",
+        "7g7f",
+        "8d8e",
+        "2g2f",
+        "8e8f",
+        "8g8f",
+        "8b8f",
+        "6i7h",
+        "4c4d",
+        "2f2e",
+        "2b3c"
+      ],
+      "book_move": "7i6h",
+      "status": "experimental",
+      "evidence": {
+        "result": "results/black-silver38-pawn25-bishop33-unrestricted-2026-10-08-shin-depth24.json",
+        "position_id": "black_silver38_pawn25_bishop33_unrestricted_followup",
+        "depth": 24,
+        "rank": 1,
+        "score_cp": -101,
+        "gap_to_leader_cp": 0,
+        "search_scope": "unrestricted"
+      },
+      "note": "First at unrestricted24 and three-candidate restricted26, but rook26 only17cp lower within unrestricted24. Test left-silver preparation and right-king/middlegame connection, not a confirmed strength gain. Register only move15; leave silver77/right-silver47/rook29 and opponent replies to search. Prior six-entry trial chose silver68 in only1/13 reached games. Retain all previous entries; no common17 pawn76 extension or king-retreat ban."
+    }
+  ],
+  "derived_from": "books/shin-yonenaga-black-silver38-silver32-pawn25-experiment.json"
+}

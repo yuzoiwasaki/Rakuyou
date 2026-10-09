@@ -287,6 +287,8 @@ class Silver32RevisionTest(unittest.TestCase):
 
 
 class Common17Pawn76RevisionTest(unittest.TestCase):
+    base_source = Silver32RevisionTest.source
+    base_book = Silver32RevisionTest.book
     source = ROOT / "books/shin-yonenaga-black-silver38-silver32-pawn76-experiment.json"
     book = ROOT / "books/shin-yonenaga-black-book-silver38-silver32-pawn76-experiment.txt"
     parent = ["5i4h", "3c3d", "3i3h", "8b4b", "2g2f", "5a6b",
@@ -306,9 +308,9 @@ class Common17Pawn76RevisionTest(unittest.TestCase):
                          ROOT / "bin/book.bin", max_ply, book or self.book)
 
     def test_only_one_entry_added_and_generation_matches(self):
-        original = json.loads(Silver32RevisionTest.source.read_text())["entries"]
+        original = json.loads(self.base_source.read_text())["entries"]
         revised = json.loads(self.source.read_text())["entries"]
-        self.assertEqual(len(revised), 6)
+        self.assertEqual(len(revised), len(original) + 1)
         self.assertEqual(revised[:-1], original)
         self.assertEqual(revised[-1]["moves"], self.parent)
         self.assertEqual(revised[-1]["book_move"], self.book_move)
@@ -316,7 +318,7 @@ class Common17Pawn76RevisionTest(unittest.TestCase):
         self.assertEqual(self.book.read_text(), compile_book(
             self.source, experimental=True, side="black"))
         self.assertTrue(self.book.read_text().startswith(
-            Silver32RevisionTest.book.read_text()))
+            self.base_book.read_text()))
 
     def test_fixed_opening_all_entries_and_transposition(self):
         engine = self.make_engine()
@@ -340,7 +342,7 @@ class Common17Pawn76RevisionTest(unittest.TestCase):
                 self.assertEqual(engine.choose_move(moves, 1, 30)[2], "search")
         finally:
             engine.close()
-        engine = self.make_engine(book=Silver32RevisionTest.book)
+        engine = self.make_engine(book=self.base_book)
         try:
             self.assertEqual(engine.choose_move(self.parent, 1, 30)[2], "search")
         finally:
@@ -372,6 +374,26 @@ class Common13Pawn25RevisionTest(Common17Pawn76RevisionTest):
         try:
             self.assertEqual(engine.choose_move(
                 Common17Pawn76RevisionTest.parent, 1, 30)[2], "search")
+        finally:
+            engine.close()
+
+
+class Common15Silver68RevisionTest(Common13Pawn25RevisionTest):
+    base_source = Common13Pawn25RevisionTest.source
+    base_book = Common13Pawn25RevisionTest.book
+    source = ROOT / "books/shin-yonenaga-black-silver38-silver32-pawn25-silver68-experiment.json"
+    book = ROOT / "books/shin-yonenaga-black-book-silver38-silver32-pawn25-silver68-experiment.txt"
+    parent = Common13Pawn25RevisionTest.parent + ["2f2e", "2b3c"]
+    book_move = "7i6h"
+    followup_reply = "4a3b"
+    transposed = Common13Pawn25RevisionTest.transposed + ["2f2e", "2b3c"]
+
+    def test_other_reply_after_pawn25_still_searches(self):
+        engine = self.make_engine()
+        try:
+            self.assertEqual(engine.choose_move(
+                Common13Pawn25RevisionTest.parent + ["2f2e", "3a3b"],
+                1, 30)[2], "search")
         finally:
             engine.close()
 

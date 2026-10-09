@@ -548,10 +548,36 @@ silver77/47/rook29. Actual pawn46 king48 here vs59 in restricted26.
 Input black-silver38-pawn25-bishop33-unrestricted-2026-10-08-shin.json.
 Nearest actual gap17cp small;hold15 fixed registration and close this prep
 comparison,no auto26/28/30/new100. Existing pawn25 six remains unadopted.
-Concept-only silver68 one-entry extension is a future choice,not created;
-separate concept achievement from strength claims,don't register long PV.
-Prep/200/root reference/two15 searches are consolidated in the current
-checkpoint. Next consider bounded Black operational choice;no automatic book/eval changes.
+Prep/200/root reference/two15 searches committed/pushed as9ad7f0b.
+The final concept-and-strength trial was then explicitly selected:
+new books/shin-yonenaga-black-silver38-silver32-pawn25-silver68-experiment.json
+and books/shin-yonenaga-black-book-silver38-silver32-pawn25-silver68-experiment.txt.
+Seven entries retain existing pawn25 six unchanged +ONLY bishop33->silver68
+at15. Leave17/silver77/rook29/deeper PV and other replies search;not adopted.
+Evidence unrestricted24 -101 leader;nearest actual rook26 only17cp below.
+Separate concept achievement from strength claims,no evaluation/default changes.
+New txt SHA1fb65e90a39cd882e7689e28c5a9cbcba33775c4a2fd712cabf5f71db2ab67a9.
+56 tests pass,7 evidence refs/raw match,68 input/book/transposed moves legal;
+old/runtime hashes unchanged,no rebuild. Preparation/results are included in
+the current checkpoint;see git log for its ID. No push in this checkpoint task.
+FINAL series comparison:50x4 existing pawn25 six baseline-r1/new seven
+trial-r1/new seven trial-r2/existing six baseline-r2;each100,total200,
+sequential fresh,fixedBlackdepth15/thread1/hash512/normalbookON/PonderOFF/
+BookMax20/max256/timeout300. Outputs results/shin-black-silver38-pawn25-
+silver68-<label>-depth15-50games.json;all200 complete October10/errors0.
+Settings/records/summary/outcomes/replay/book468 checked,current hashes match.
+Six44%/29%,26/53/21 (36.5%);seven42%/24%,26/60/14 (33%).
+Targetsix18:5/12/1 (30.6%),seven26:6/18/2 (26.9%). Control already searched
+silver68 in15/18 (5/9/1);pawn46 other3 losses. No proven additional gain.
+Target leftsilver77 at24 six15/18,seven25/26 (other silver68);rook29 at40
+six17/18,seven24/26. Target kingright40 six18/18,seven25/26.
+All-games kingright24 96/99,40 94/97;left by12 1/0;four-occurrences12/9.
+Close THIS series;seven operational adoption on hold,no automatic new100/
+branches/depths. Proposed provisional Black choice is pawn25 SIX txt for
+right-king concept,NOT proven strength superiority or final adoption.
+Independent Astra review desired but NOT performed;compare six with five/
+no dedicated book,causal claims/concept realization/closure. No runtime/default
+or automatic book selection changes;Whitev2/eval/BookMax20 unchanged.
 Separate first-king48 reference query completed October7:direct ['5i4h']
 White-to-move normal OFF/book OFF/fresh unrestricted26/MultiPV5/thread1/hash512.
 Pawn34 +113,pawn44 +97,pawn84 +61,pawn64 +60,silver62 +50 (WHITE cp).
