@@ -97,6 +97,17 @@ independent legality or perpetual-check adjudication.
 
 ## Immediate Next Steps: Black Book
 
+Longer-term research has two separate objectives: strength improvement using
+external-engine diagnosis, and optional thickness-oriented Shin-Yonenaga style.
+Keep wins/playing strength separate from concept realization; record outcomes
+for both, but do not reject a style book solely for a losing score.
+Begin style work with existing games and a separate short book selectable via
+ShinBookFile, not evaluation changes or king-retreat bans. External analysis
+should diagnose Rakuyou, not replace it; compare moves/PVs, not raw cross-engine cp.
+First close the current Black cycle. White improvements can resume when concrete
+transferable ideas or shared weaknesses appear. No external engine or style book
+has been introduced. Full two-track plan is appended to the October10 review.
+
 Latest independent review: docs/experiments/2026-10-10-black-book-independent-review.md.
 Rechecked fixed-Black1,200 games and the historical paired-file audit.
 Recommend closing the first operational cycle with the pawn25 SIX-entry book;
