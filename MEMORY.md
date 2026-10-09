@@ -97,6 +97,19 @@ independent legality or perpetual-check adjudication.
 
 ## Immediate Next Steps: Black Book
 
+Latest independent review: docs/experiments/2026-10-10-black-book-independent-review.md.
+Rechecked fixed-Black1,200 games and the historical paired-file audit.
+Recommend closing the first operational cycle with the pawn25 SIX-entry book;
+this is a recommendation, NOT a status/default change or proven strength gain.
+Future alternative: pawn76-first with conditional right-side preparations.
+New captured unrestricted24/MultiPV5 searches at the silver62/pawn64/gold78/
+pawn44 parent support pawn36/pawn25/silver38 (Black ON -78 each), and normal
+OFF after pawn36 prefers silver63 (+102 White). Do not subtract across settings.
+Full moves/PVs and limitations are in the review; raw JSON was not saved.
+Next research: existing pawn76 king-return decisions, then the rook42 branch;
+do not make success of that future work a condition for first-version closure.
+No additional games, book/evaluation/search changes or operational adoption.
+
 See docs/experiments/2026-10-03-black-book-start-plan.md.
 Entry statistics from six existing paired runs (Black50 each) are inspected:
 300 games,108/138/54, descriptive45%. All reply 3c3d to fixed5i4h.
@@ -575,8 +588,9 @@ All-games kingright24 96/99,40 94/97;left by12 1/0;four-occurrences12/9.
 Close THIS series;seven operational adoption on hold,no automatic new100/
 branches/depths. Proposed provisional Black choice is pawn25 SIX txt for
 right-king concept,NOT proven strength superiority or final adoption.
-Independent Astra review desired but NOT performed;compare six with five/
-no dedicated book,causal claims/concept realization/closure. No runtime/default
+The subsequent independent review is recorded in the October10 report above;
+it compares six with five/no book, causal claims, concept realization and closure.
+No runtime/default
 or automatic book selection changes;Whitev2/eval/BookMax20 unchanged.
 Separate first-king48 reference query completed October7:direct ['5i4h']
 White-to-move normal OFF/book OFF/fresh unrestricted26/MultiPV5/thread1/hash512.

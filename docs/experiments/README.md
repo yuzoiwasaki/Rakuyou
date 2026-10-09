@@ -9,6 +9,7 @@ Rakuyouの自己対局と序盤解析の記録です。
 - [後手の一区切り：200局比較・７局確認・v2採用判断](2026-10-03-v2-bounded-white-improvement-cycle.md)
 - [次の段階：先手300局の入口集計と先手定跡の着手方針](2026-10-03-black-book-start-plan.md)
 - [先手300局の監査・試験定跡300局比較・銀先行探索と４局面試験版](2026-10-03-black-300-game-branch-review.md)
+- [先手定跡の独立レビュー：1,200局再集計・暫定運用提案と▲７六歩型の再検討](2026-10-10-black-book-independent-review.md)
 
 ## 後手版の主要検証
 
