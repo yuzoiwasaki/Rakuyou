@@ -17,8 +17,9 @@
 | 先手▲３八銀先行・４局面試験版、100局完了・採用保留 | `shin-yonenaga-black-book-silver38-experiment.txt` | `shin-yonenaga-black-silver38-experiment.json` |
 | 先手銀先行・△３二銀に▲３九玉を追加した５局面版、200局比較完了・採用保留 | `shin-yonenaga-black-book-silver38-silver32-experiment.txt` | `shin-yonenaga-black-silver38-silver32-experiment.json` |
 | 先手銀先行・頻出17手目▲７六歩を追加した６局面版、200局比較完了・採用保留 | `shin-yonenaga-black-book-silver38-silver32-pawn76-experiment.txt` | `shin-yonenaga-black-silver38-silver32-pawn76-experiment.json` |
-| 先手▲２五歩６局面版、暫定運用候補・独立レビュー待ち | `shin-yonenaga-black-book-silver38-silver32-pawn25-experiment.txt` | `shin-yonenaga-black-silver38-silver32-pawn25-experiment.json` |
+| 先手▲２五歩６局面版、暫定運用候補・独立レビュー完了 | `shin-yonenaga-black-book-silver38-silver32-pawn25-experiment.txt` | `shin-yonenaga-black-silver38-silver32-pawn25-experiment.json` |
 | 先手15手目▲６八銀追加７局面版、200局比較完了・採用保留 | `shin-yonenaga-black-book-silver38-silver32-pawn25-silver68-experiment.txt` | `shin-yonenaga-black-silver38-silver32-pawn25-silver68-experiment.json` |
+| 先手▲７六歩先行・右側構想６局面試験版、40局試験完了・別構想候補として保存 | `shin-yonenaga-black-book-pawn76-right-side-experiment.txt` | `shin-yonenaga-black-pawn76-right-side-experiment.json` |
 
 ## 後手第一運用版の使い方
 
@@ -410,6 +411,32 @@ caffeinate -i python3 tools/paired_selfplay.py \
 追加利益は未確認。７局面版は採用保留で、この系列を区切る。
 ▲２五歩６局面版を構想上の暫定運用候補とし、独立レビューで再確認する。
 棋力優越・勝ち越し・採用確定とは扱わず、エンジンの自動選択も変更しない。
+
+## ▲７六歩先行・右側構想の少数試験
+
+独立レビュー後に、▲７六歩から△６二銀／△４二飛へ分かれる別の６局面試験版を作成。
+最長９手目までで、未知応手・その先は探索へ任せる。
+既存の▲２五歩６局面版とは入口・内容が異なり、運用採用していない。
+対△４二飛の▲３八銀は限定探索首位から43cp下という構想上の選択を含む。
+[作成根拠・静的到達・試験条件](../docs/experiments/2026-10-10-black-book-independent-review.md)
+の継続１～４を参照。
+
+生成元は `shin-yonenaga-black-pawn76-right-side-experiment.json`、
+指定txtは `shin-yonenaga-black-book-pawn76-right-side-experiment.txt`。
+SHA-256：`cb8d7e3e3a4ed2817752ea93d4890837fa43c91db752b5ce3a1dc534f38bb7eb`。
+全63テスト成功、再ビルド不要。既存先後定跡とエンジンは変更していない。
+
+外部試験は対照／試験／試験／対照の10局×４、各版20局・計40局を提案。
+対照は現行▲２五歩６局面版。先手固定・深さ15・１スレッド・Hash512・
+通常側標準定跡ON・BookMaxPly20・最大256手・Ponder OFFで、順番に新規実行する。
+少数で棋力優越を判定せず、定跡利用・玉位置・駒組み・角交換後の接続を見る。
+終了時にいったん区切り、低到達だけを理由に追加100局へ拡張しない。
+コマンドはレポートの継続４に記載。対照１本目10局がerrors０で完了し、
+１勝６敗３分（25%）。試験１本目もerrors０で完了、４勝５敗１分（45%）、
+全６枝を利用し24／40手目の玉は全局右側。試験２本目は４勝２敗４分（60%）、
+試験20局合計８勝７敗５分（52.5%）。最後の対照も２勝８敗で正常終了し、
+全40局完了。対照20局は３勝14敗３分（22.5%）。差を因果的な棋力向上とはせず、
+試験版は別構想の候補として保存する。先手第一運用版はまだ選択段階。
 
 ## 保存と整理の方針
 

@@ -1,0 +1,87 @@
+{
+  "description": "Six-position Black pawn76-first pilot. Conditional preparations against standard-book silver62 and rook42; inspect right-side king placement and development, not proven strength. Separate from the silver38/common13-pawn25 operational candidate. Unknown replies search; no long PV or retreat bans.",
+  "initial_position": "startpos",
+  "side": "black",
+  "experiment": "pawn76-right-side-pilot",
+  "report": "docs/experiments/2026-10-10-black-book-independent-review.md",
+  "entries": [
+    {
+      "id": "black_pawn76_entry",
+      "moves": ["5i4h", "3c3d"],
+      "book_move": "7g7f",
+      "status": "experimental",
+      "evidence": {
+        "result": "results/black-silver-entry-2026-10-04-shin-depth28.json",
+        "position_id": "black_root_silver38_silver68_vs_pawns",
+        "depth": 28, "rank": 1, "score_cp": -110, "gap_to_leader_cp": 0,
+        "search_scope": "restricted: 3i3h 7i6h 7g7f 2g2f"
+      },
+      "note": "Restricted root leader, not an unrestricted28 best-move claim. Fix the entry to explore conditional right-side preparations; actual opponent may choose other replies. No guaranteed right-side king or strength gain."
+    },
+    {
+      "id": "black_pawn76_silver62_pawn26",
+      "moves": ["5i4h", "3c3d", "7g7f", "7a6b"],
+      "book_move": "2g2f",
+      "status": "experimental",
+      "evidence": {
+        "result": "results/black-entry-2026-10-03-shin-depth24.json",
+        "position_id": "black_after_pawn76_silver62",
+        "depth": 24, "rank": 1, "score_cp": -27, "gap_to_leader_cp": 0,
+        "search_scope": "unrestricted"
+      },
+      "note": "Existing direct root supports pawn26; already played in254/264 static matches. Do not attribute a new gain to registration. Other replies than pawn64 leave book for search."
+    },
+    {
+      "id": "black_pawn76_silver62_pawn64_pawn25",
+      "moves": ["5i4h", "3c3d", "7g7f", "7a6b", "2g2f", "6c6d"],
+      "book_move": "2f2e",
+      "status": "experimental",
+      "evidence": {
+        "result": "results/black-pawn76-silver62-pawn64-preparation-2026-10-10-shin-depth24.json",
+        "position_id": "black_pawn76_silver62_before_early_pawn_exchange",
+        "depth": 24, "rank": 1, "score_cp": -14, "gap_to_leader_cp": 0,
+        "search_scope": "unrestricted"
+      },
+      "note": "Leader PV accepts immediate bishop exchange and develops both sides with king48. Actual opponent chose silver63 in56/73 pawn25 games; do not force the PV's exchange or infer strength from cp."
+    },
+    {
+      "id": "black_pawn76_pawn25_silver63_silver38",
+      "moves": ["5i4h", "3c3d", "7g7f", "7a6b", "2g2f", "6c6d", "2f2e", "6b6c"],
+      "book_move": "3i3h",
+      "status": "experimental",
+      "evidence": {
+        "result": "results/black-pawn76-silver62-pawn25-silver63-2026-10-10-shin-depth24.json",
+        "position_id": "black_pawn76_pawn25_after_actual_silver63",
+        "depth": 24, "rank": 1, "score_cp": -7, "gap_to_leader_cp": 0,
+        "search_scope": "unrestricted"
+      },
+      "note": "Gold78 is only11cp lower and returns king58 in this PV; leader keeps king48. Previous silver38 cohort scored lower than gold78 observationally. Register only move9; later exchange, silver77/66 and rook29 remain searchable."
+    },
+    {
+      "id": "black_pawn76_rook42_silver38",
+      "moves": ["5i4h", "3c3d", "7g7f", "8b4b"],
+      "book_move": "3i3h",
+      "status": "experimental",
+      "evidence": {
+        "result": "results/black-pawn76-rook42-candidates-2026-10-10-shin-depth26.json",
+        "position_id": "black_pawn76_rook42_right_side_vs_return",
+        "depth": 26, "rank": 4, "score_cp": -98, "gap_to_leader_cp": 43,
+        "search_scope": "restricted: 3i3h 2g2f 4i5h 4h5h 4h5i"
+      },
+      "note": "Deliberate right-side concept choice43cp below king58 within the restricted comparison. Fourteen existing games keep king right through40 but score3/8/3. Not the evaluated strongest choice or a strength improvement."
+    },
+    {
+      "id": "black_pawn76_rook42_silver38_king62_pawn26",
+      "moves": ["5i4h", "3c3d", "7g7f", "8b4b", "3i3h", "5a6b"],
+      "book_move": "2g2f",
+      "status": "experimental",
+      "evidence": {
+        "result": "results/black-pawn76-rook42-silver38-king62-2026-10-10-shin-depth24.json",
+        "position_id": "black_pawn76_rook42_silver38_after_book_king62",
+        "depth": 24, "rank": 1, "score_cp": -104, "gap_to_leader_cp": 0,
+        "search_scope": "unrestricted"
+      },
+      "note": "King39 is only1cp lower. King62 is the observed standard-book reply in all14 games, not a verified unrestricted opponent best. Pawn44 and other replies remain search; no guarantee of safety or a fixed rook square."
+    }
+  ]
+}

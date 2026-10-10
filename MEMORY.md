@@ -130,10 +130,46 @@ king58 at23;11cp gap small. Old same-parent silver38 cohort20 (7/12/1) vs gold78
 23 (11/5/7) does NOT establish causal move effects or predict trial outcomes.
 Both complete/no errors/stops/bounds,raw JSONs saved with hashes in review;
 all input/PV moves legally checked. No games/book/runtime changes.
-Close this entry-search screen;no automatic depth expansion/new100. Review has
-a proposed alternative SIX-entry pawn76 skeleton (NOT current pawn25 SIX,not built).
-Next: static coverage and concrete small-trial design. paired_selfplay.py has
-no arbitrary-start CLI;don't assume position-start games work without changes.
+Continuation4: prior analysis/inputs committed as bdc685d (not pushed here).
+Static coverage checked across old300/fixed1,200; counts/same moves are in review.
+Prepared books/shin-yonenaga-black-pawn76-right-side-experiment.json and
+books/shin-yonenaga-black-book-pawn76-right-side-experiment.txt: NEW SIX-entry
+pawn76 pilot, NOT current pawn25 SIX, experimental/unadopted. Txt SHA
+cb8d7e3e3a4ed2817752ea93d4890837fa43c91db752b5ce3a1dc534f38bb7eb.
+63 tests pass (7 new),all6 evidence refs match raw,69 input/book/transposed moves
+legal;runtime/standard/old books hashes unchanged,no rebuild.
+Pilot baseline-r1 complete10/errors0:1/6/3 (25%),book25 matches,Shin standard0,
+kingright24/40 all10,returnby12 zero,four-occurrences1. Settings/records/results/
+summary/ownership replay verified;not full legality/adjudication. Raw hash and
+details appended to review. Current runtime/book hashes match preparation.
+Pilot trial-r1 complete10/errors0:4/5/1 (45%),book26 matches/all6 entries hit,
+Shin standard0;opponent silver62 seven/rook42 three. Kingright24/40 all10,
+returnby12 zero,four-occurrences0,bishop capturesby24 four (1/2/1). Move9 silver38
+only1 game. Settings/records/results/summary/replay checked;hash/details in review.
+Pilot trial-r2 complete10/errors0:4/2/4 (60%),book27 matches/all6 entries hit,
+Shin standard0;silver62 nine/rook42 one,kingright24/40 eight each,returnby12 zero,
+four-occurrences1,bishop capturesby24 four. Trial total20:8/7/5 (52.5%).
+Settings/records/results/summary/replay checked;hash/details in review.
+Pilot baseline-r2 complete10/errors0:2/8/0 (20%),book23 matches.
+Continuation5 closes all40: control20=3/14/3 (22.5%),trial20=8/7/5 (52.5%).
+All settings/records/results/summary/replay/book101 match,Shin standard0,current
+runtime/books hashes match prep. Not full legality/adjudication or causal30pt gain.
+Control kingright24/40=20/20,trial18/20;trial returns2 (both wins),bishop captures
+by24 trial8 (2/3/3) vscontrol0. Trial opponent silver62=16/rook42=4;control has6
+different replies. Move9 silver38 cohort4 (2/1/1):onlytrial-r2/game6 clearly
+matches silver77/silver47/rook29 concept by40 (draw);others differ incl left-return.
+Close at40;no automatic extra100/depths. Both books retained,trial unadopted.
+Next: explicitly choose Black first operational book,then combine with unchanged
+Whitev2 eleven entries. Current pawn25 SIX is conservative candidate;new pawn76
+SIX is an alternative concept choice,not proven superior. Combined file not made.
+Completed external10x4 was baseline/trial/trial/baseline,each20,total40,sequential fresh,
+fixedBlackdepth15/thread1/hash512/normalbookON/PonderOFF/BookMax20/max256/timeout300.
+Control=current pawn25 SIX;trial=new pawn76 SIX. Outputs results/shin-black-
+pawn76-right-side-pilot-<label>-depth15-10games.json (baseline-r1/trial-r1/trial-r2/
+baseline-r2). Give one caffeinate command at a time. No arbitrary-start CLI added.
+Pilot judges coverage/king placement/development/exchange failures,not causal
+strength from40 games. Full results and hashes are in Continuation5.
+Trial preparation after bdc685d is uncommitted;no operational/default changes.
 Operational adoption remains a recommendation;keep Whitev2/eval/BookMax20 fixed.
 Rechecked fixed-Black1,200 games and the historical paired-file audit.
 Recommend closing the first operational cycle with the pawn25 SIX-entry book;
