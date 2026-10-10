@@ -169,7 +169,20 @@ pawn76-right-side-pilot-<label>-depth15-10games.json (baseline-r1/trial-r1/trial
 baseline-r2). Give one caffeinate command at a time. No arbitrary-start CLI added.
 Pilot judges coverage/king placement/development/exchange failures,not causal
 strength from40 games. Full results and hashes are in Continuation5.
-Trial preparation after bdc685d is uncommitted;no operational/default changes.
+Pilot preparation/results committed as d2fdc83 (not pushed in this task).
+Continuation6 starts further checks before Black choice: pilot gold32 at6 in8/16
+silver62 games,move7 gold78 five/pawn25 two/silver38 one. Same parent old/fixed/pilot
+105 matches (26 transposed);old ON24 pawn25 -36,gold78/silver38 -41 reused,not rerun.
+New fresh ON/unrestricted24/MultiPV5 after gold78: pawn44 child silver38 -40,
+pawn36 -44,silver68 -46,pawn56 -81,pawn25 -91. Pawn36 PV king48 (4cp below leader),
+leader returns king59 at15. Pawn64 child pawn25 +23, silver38 -35,pawn36 -53,
+pawn66 -93,pawn96 -96;leader returns king58 at19,other4 PVs right. 58cp gap matters.
+Both complete/no errors/stops/bounds;344 input/PV moves legal;analysis3 tests pass;
+new input/raw hash/PVs appended to review. No book/games/runtime changes.
+Next: direct opponent response or focused check of pawn36 in pawn44 child,
+then the planned silver63/silver38/gold32 move11 preparation comparison.
+Two pilot first games share135 plies (141/145 total),not independent evidence.
+Later diagnostics are uncommitted;Black first-book choice/combined file deferred.
 Operational adoption remains a recommendation;keep Whitev2/eval/BookMax20 fixed.
 Rechecked fixed-Black1,200 games and the historical paired-file audit.
 Recommend closing the first operational cycle with the pawn25 SIX-entry book;

@@ -1,0 +1,14 @@
+{
+  "positions": [
+    {
+      "id": "black_pawn76_gold32_gold78_after_pawn44",
+      "moves": ["5i4h", "3c3d", "7g7f", "7a6b", "2g2f", "4a3b", "6i7h", "4c4d"],
+      "note": "Black-ON, OwnBook/Ponder OFF, fresh engine, threads1/hash512, unrestricted24/MultiPV5. Actual pilot gold32 branch: gold78 at7 occurred5/8; pawn44 reply in2 games (the two runs' first games). Existing matched gold32 parent had57 gold78 games,33 pawn44 replies. Reuse the older parent search where pawn25/gold78/silver38 were5cp apart; inspect this direct child instead of automatically registering move7. Compare silver38, pawn26 advance and other unrestricted leaders; inspect king placement and preparation. Same-shape cohorts are observational, not causal strength evidence."
+    },
+    {
+      "id": "black_pawn76_gold32_gold78_after_pawn64",
+      "moves": ["5i4h", "3c3d", "7g7f", "7a6b", "2g2f", "4a3b", "6i7h", "6c6d"],
+      "note": "Same Black-ON unrestricted24/MultiPV5 conditions. Actual pawn64 reply after gold78 in3 pilot games;20 in the matched historical/fixed cohort. Compare pawn25, silver38 and other leaders; inspect bishop exchange, development and possible king retreat. Do not subtract scores against the pawn44 child, different depths or parent. Unknown continuations remain search; no new games, book registration, retreat bans or runtime changes."
+    }
+  ]
+}
