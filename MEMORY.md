@@ -109,6 +109,32 @@ transferable ideas or shared weaknesses appear. No external engine or style book
 has been introduced. Full two-track plan is appended to the October10 review.
 
 Latest independent review: docs/experiments/2026-10-10-black-book-independent-review.md.
+Continuation1 is appended: 418 pawn76-first games replayed (historical244 /
+fixed174). Rook42 returns concentrate early; silver62 also returns after exchanges.
+Rook42 move5 silver38:14 games,3/8/3,none return by40; silver62 common9 silver38:
+24 games,6/10/8,none return by40 (15 from one fixed run). Not causal gains.
+Continuation2 complete: fresh ON/book OFF restricted26/MultiPV5 at rook42 move5,
+king58 -55,king59 -61,pawn26 -86,silver38 -98,gold58-right -132. Silver38 PV
+keeps king39; other4 return left. Within-run gap43cp,not a strength gain.
+Actual standard-book king62 followup ON/unrestricted24: pawn26 -104,king39 -105,
+pawn96/pawn86 -126,pawn46 -129;all5 PVs kingright. No unique move/long PV adopted.
+Both raw JSONs saved under results/ with hashes/full evidence in Continuation2;
+inputs under docs/experiments/positions/book/. Both complete/no errors/stops/bounds,
+all input/PV moves legal;analysis lifecycle3 tests pass. No games or runtime changes.
+Continuation3 complete: silver62/pawn64 move7 ON/unrestricted24: pawn25 -14,
+silver38 -51,pawn16 -62,pawn46 -64,gold78 -110;all5 PVs kingright. Leader accepts
+immediate bishop exchange, unlike actual silver63 in56/73 pawn25 games.
+Actual silver63 followup ON/unrestricted24: silver38 -7,gold78 -18,pawn16 -53,
+pawn36 -70,pawn46 -90;leader king48/silver77-66/silver47/rook29. Gold78 PV returns
+king58 at23;11cp gap small. Old same-parent silver38 cohort20 (7/12/1) vs gold78
+23 (11/5/7) does NOT establish causal move effects or predict trial outcomes.
+Both complete/no errors/stops/bounds,raw JSONs saved with hashes in review;
+all input/PV moves legally checked. No games/book/runtime changes.
+Close this entry-search screen;no automatic depth expansion/new100. Review has
+a proposed alternative SIX-entry pawn76 skeleton (NOT current pawn25 SIX,not built).
+Next: static coverage and concrete small-trial design. paired_selfplay.py has
+no arbitrary-start CLI;don't assume position-start games work without changes.
+Operational adoption remains a recommendation;keep Whitev2/eval/BookMax20 fixed.
 Rechecked fixed-Black1,200 games and the historical paired-file audit.
 Recommend closing the first operational cycle with the pawn25 SIX-entry book;
 this is a recommendation, NOT a status/default change or proven strength gain.

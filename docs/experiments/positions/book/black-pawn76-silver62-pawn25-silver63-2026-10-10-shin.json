@@ -1,0 +1,9 @@
+{
+  "positions": [
+    {
+      "id": "black_pawn76_pawn25_after_actual_silver63",
+      "moves": ["5i4h", "3c3d", "7g7f", "7a6b", "2g2f", "6c6d", "2f2e", "6b6c"],
+      "note": "Black-ON, OwnBook/Ponder OFF, fresh engine, threads1/hash512, unrestricted24/MultiPV5. Follow the observed opponent silver63 in56 of73 pawn25 games instead of assuming the new parent PV's immediate bishop exchange. Compare pawn24, gold78, silver38 and unrestricted alternatives; inspect exchanges, development and king placement. Normal's actual eighth move is search, not standard book. Scores are Black side-to-move; do not subtract against the different seven-move parent or past analysis. No retreat bans, long-PV registration, new games or runtime changes."
+    }
+  ]
+}

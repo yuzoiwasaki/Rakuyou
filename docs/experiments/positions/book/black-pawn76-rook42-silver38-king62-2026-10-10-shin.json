@@ -1,0 +1,9 @@
+{
+  "positions": [
+    {
+      "id": "black_pawn76_rook42_silver38_after_book_king62",
+      "moves": ["5i4h", "3c3d", "7g7f", "8b4b", "3i3h", "5a6b"],
+      "note": "Black-ON, OwnBook/Ponder OFF, fresh engine, threads1/hash512, unrestricted24/MultiPV5. Direct followup after the normal standard book's king62 in all14 historical/fixed silver38 games. The restricted26 parent PV instead chose pawn44; do not assume this book reply is the unrestricted opponent best. Compare king39, pawn26, silver68 and other unrestricted leaders; inspect right-side king placement and development. Scores are Black side-to-move and must not be subtracted from the restricted26 parent. No retreat bans, book registration or strength claim."
+    }
+  ]
+}

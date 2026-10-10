@@ -1,0 +1,9 @@
+{
+  "positions": [
+    {
+      "id": "black_pawn76_silver62_before_early_pawn_exchange",
+      "moves": ["5i4h", "3c3d", "7g7f", "7a6b", "2g2f", "6c6d"],
+      "note": "Black-ON, OwnBook/Ponder OFF, fresh engine, threads1/hash512, unrestricted24/MultiPV5. Existing pawn76-first cohort reached this position161 times: pawn25 in73, gold78 in51, silver38 in19, pawn46 in11, king59 in7. These observational cohorts do not establish move strength or causal king placement. Compare early pawn exchange with gold/silver preparation; inspect king placement, bishop exchange and development. Retreats remain legal. Scores are Black side-to-move; do not subtract against the rook42 analyses or different parents/depths. No book registration or engine change."
+    }
+  ]
+}

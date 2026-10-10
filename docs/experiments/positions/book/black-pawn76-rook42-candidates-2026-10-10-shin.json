@@ -1,0 +1,10 @@
+{
+  "positions": [
+    {
+      "id": "black_pawn76_rook42_right_side_vs_return",
+      "moves": ["5i4h", "3c3d", "7g7f", "8b4b"],
+      "searchmoves": ["3i3h", "2g2f", "4i5h", "4h5h", "4h5i"],
+      "note": "Planned, not yet analyzed. Fresh Black-ON, OwnBook/Ponder OFF, threads1/hash512, restricted depth26/MultiPV5 comparison. Compare silver38 and pawn26 with gold58-right and king58/59 controls. Prior unrestricted24/28 data must not be subtracted from these scores. King retreats remain legal inside each candidate's PV. Inspect followup king placement and preparation; do not claim an unrestricted best move or register a long PV. Fourteen existing silver38 games keep the king right through40 but score3/8/3; this is observational, not a strength effect. No book adoption or evaluation change."
+    }
+  ]
+}
