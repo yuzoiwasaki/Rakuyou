@@ -65,3 +65,19 @@ python3 tools/check_qsearch_leaves.py \
 paramsとprogressの重み一致を確認し、ON・1スレッド相当・深さ0・局面ごと空のTTで
 検索します。Qsearchで求めた末端は固定し、手番を摂動した後の再探索は行いません。
 既存ファイルの上書きは拒否し、元データと定跡を保持します。
+
+validationの基準末端だけを準備する場合は、`check_qsearch_leaves.py` に
+`--split validation --prepare-only` を指定します。validationでは損失・勾配・
+摂動による品質検査を実行しません。testは選択できません。
+
+手動差分の別名ファイル保存・再読込を検証する入口：
+
+```sh
+python3 tools/check_tempo_export.py \
+  results/learning-pilot/2026-10-11-preparation-v2/manifest.json \
+  results/learning-pilot/2026-10-11-input-validation-v1/qsearch-leaves-v1.json \
+  --output results/learning-pilot/my-candidate-export-001
+```
+
+出力先は新規ディレクトリとし、`bin/` 配下への保存は拒否します。
+これは手動の検査用差分であり、学習を実行した候補ではありません。

@@ -154,7 +154,7 @@ Huffman boundary omits pre-root Node history. Cached/full/replayed leaves agree.
 No changed-tempo re-search/PV-switch checks.6qsearch+32previous tests pass.
 Probe b1401e61... built separately;6runtime/book hashes unchanged.
 
-New uncommitted checkpoint:tools/tempo_updater.py and synthetic-only checker,
+Updater/plan committed as6fba59a (local,not pushed).tools/tempo_updater.py/checker:
 6new tests pass.20 synthetic updates,real-data updates0;10-step JSON resume
 exactly matches uninterrupted20. Per-step<=0.25cp,total delta<=5cp,max20 enforced.
 State binds config/input/Python/RNG,stores RMSprop and average sums/mass.
@@ -162,14 +162,26 @@ No real-data loader or binary writer in updater. Synthetic report SHA
 c24b4a5fe93a19aaa80349cca97797cb032d38f3b264b3afa4f6b1ab50038963.
 Report:docs/experiments/2026-10-11-tempo-updater-validation.md.
 Plan:docs/experiments/configs/tempo-pilot-v1.json,planned/not executed.
-First pilot reduced to64validated frozen train leaves;validation<=64 to prepare;
+First pilot reduced to64validated frozen train leaves;validation64 now prepared;
 test256 untouched. Mean sigmoid-square gain1/600,delta L2=1e-6 proposal;
 RMSprop rate0.25/decay0.9975/epsilon1e-12;averaging0.9995;seed20261011;
 save0/5/10/20. Settings fixed before validation,not hyperparameter search.
 Original numerical-check L2=1e-4 was a prototype,not this pilot's chosen value.
 
-Next: independent candidate exporter/reread check,prepare validation frozen leaves,
-then complete runner dry-run/backups before any real-data20-update experiment.
+New uncommitted checkpoint:tools/tempo_export.py copies base and changes ONLY12
+tempo bytes,checks full other-region hash/exclusive output/ABI/range/overflow;
+rejects runtime bin directory.Manual delta(.25,-.5,.75) exported separately,
+64train leaves/intermediate states match memory perturbation after reread.
+Candidate a40d46be... is diagnostic,NOT learned;5new tests pass.
+Export validation SHA0053bb1d925b2861606226e1f066c10ea0c0e81afe9982c8abbb0d356fd0bd1a.
+Validation64 baseline qs leaves accepted(Black33/White31,odd13/even51,draw21/
+White10);prepare-only enforces no loss/gradient/perturbation or selection.
+Train/validation run/root/leaf-SFEN sets disjoint.6qs tests rerun/pass.
+Validation cache SHAd1632112165cc73f635e0db854e4d4a90292e7d9b72488c180859aa603956af4.
+Report docs/experiments/2026-10-11-candidate-export-validation.md;plan hashes
+updated,real training/deployment flags stillfalse.6runtime/book hashes unchanged.
+Next: complete experiment runner dry-run and verified independent backups before
+any real-data20-update experiment. No actual-data training executed yet.
 No automatic training/adoption/rate retuning/more games. External-engine diagnosis
 and optional thickness books remain separate future tracks.
 

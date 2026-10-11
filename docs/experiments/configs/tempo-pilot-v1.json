@@ -5,6 +5,8 @@
   "base_params_sha256": "6bbc573306839fe019634dd94b06af7c22834a641e8bc060e23889ae9b3b2195",
   "preparation_manifest_sha256": "44704fc910fc3217a55399951d6a60ab233a49b80b0a017695e7672627954792",
   "train_qsearch_diagnostic_sha256": "2b627a565a11ae3acfe916aa7b3a6255f815677fd6be2ba09fcd00dd1b3ffbca",
+  "validation_qsearch_diagnostic_sha256": "d1632112165cc73f635e0db854e4d4a90292e7d9b72488c180859aa603956af4",
+  "candidate_export_validation_sha256": "0053bb1d925b2861606226e1f066c10ea0c0e81afe9982c8abbb0d356fd0bd1a",
   "teacher_origin": "archived-search-cp; historical runtime parameter identity unknown",
   "train_roots": 64,
   "validation_roots_max": 64,
@@ -29,8 +31,6 @@
   "draw_policy": "retain eligible cp teachers; never relabel truncated draws as wins or formal draws",
   "deployment_enabled": false,
   "pending": [
-    "independent candidate parameter exporter and reread validation",
-    "prepare frozen validation leaves without test quality inspection",
     "verified backups and complete experiment runner dry-run",
     "explicit real-data learning instruction; initial investigation-only constraint remains"
   ]

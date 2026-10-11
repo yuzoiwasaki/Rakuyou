@@ -50,6 +50,8 @@ def main():
     parser.add_argument("manifest",type=Path)
     parser.add_argument("--output",type=Path,required=True)
     parser.add_argument("--probe",type=Path,default=ROOT/"results/learning-tools/learning-data-probe")
+    parser.add_argument("--split",choices=("train","validation"),default="train")
+    parser.add_argument("--prepare-only",action="store_true",help="save baseline leaves without teacher losses or perturbations")
     args=parser.parse_args()
     if args.output.exists():
         raise FileExistsError(args.output)
@@ -57,7 +59,8 @@ def main():
     runtime={name:digest(ROOT/name) for name in manifest["runtime_sha256"]}
     if runtime!=manifest["runtime_sha256"]:
         raise ValueError("Runtime differs from prepared baseline")
-    rows=select_roots(parts["train"])
+    prepare_only=args.prepare_only or args.split=="validation"
+    rows=select_roots(parts[args.split])
     frames,accepted,rejected=[],[],Counter()
     q=Probe(args.probe,ROOT/"bin/params.bin",qsearch_progress=ROOT/"bin/progress.bin")
     static=Probe(args.probe,ROOT/"bin/params.bin",details=True)
@@ -87,18 +90,19 @@ def main():
                 raise ValueError("Leaf integer reconstruction mismatch")
             sample=FrozenLeaf(f["leaf_eval_full"],row["teacher_cp"],f["leaf_progress"],
                               f["root_side"],f["leaf_side"])
-            check_gradient([sample],(0,0,0))
-            check_gradient([sample],(.25,-.5,.75))
+            if not prepare_only:
+                check_gradient([sample],(0,0,0))
+                check_gradient([sample],(.25,-.5,.75))
             accepted.append((row,f,leaf,sample))
     finally:
         q.close();static.close()
     if not accepted:
         raise ValueError("No usable static qsearch leaves")
     samples=[a[3] for a in accepted]
-    gradients=[check_gradient(samples,d) for d in ((0,0,0),(.25,-.5,.75))]
+    gradients=[] if prepare_only else [check_gradient(samples,d) for d in ((0,0,0),(.25,-.5,.75))]
     # Re-evaluate only the frozen PV leaf; do NOT search under changed tempo.
     perturbations=[]
-    for increments in ((16384,-32768,49152),(-16384,32768,-49152)):
+    for increments in (() if prepare_only else ((16384,-32768,49152),(-16384,32768,-49152))):
         native=Probe(args.probe,ROOT/"bin/params.bin",tempo_raw=increments)
         max_error=0.0
         try:
@@ -120,7 +124,8 @@ def main():
     if runtime!={name:digest(ROOT/name) for name in runtime}:
         raise ValueError("Runtime changed during check")
     report={"schema":"rakuyou-qsearch-leaves-v1","updates":0,"training_ready":False,
-            "parameter_files_written":False,"qsearch_calls":len(rows),
+            "parameter_files_written":False,"qsearch_calls":len(rows),"split":args.split,
+            "prepare_only":prepare_only,
             "search_mode":"depth0/PV/ON/learning_mode_true/fresh1MBTT",
             "root_history":"Huffman boundary; pre-root Node history omitted like RootStrap",
             "probability_weights_used":False,"accepted_leaves":len(accepted),
@@ -132,7 +137,7 @@ def main():
             "held_out_quality_measured":False,"changed_tempo_qsearch_calls":0,
             "runtime_sha256":runtime,"preparation_manifest_sha256":digest(args.manifest),
             "probe_sha256":digest(args.probe),"tool_sha256":digest(Path(__file__)),
-            "limits":["bounded train diagnostic, not full dataset or strength validation",
+            "limits":["bounded split diagnostic, not full dataset or strength validation",
                       "PV switching under perturbation untested","historical provenance remains provisional"]}
     with args.output.open("x") as stream:
         json.dump(report,stream,ensure_ascii=False,sort_keys=True,indent=2)
