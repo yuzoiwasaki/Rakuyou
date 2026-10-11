@@ -121,13 +121,57 @@ adoption documentation are included in the publication checkpoint together
 with the previous four local commits; see git log for the checkpoint ID.
 See books/README.md for settings/provenance/regeneration and regression checks.
 
-Next: design a small learning feasibility experiment using existing data, not
-more automatic Black/White book trials. First inspect trainer/data format and
-existing-parameter continuation before running training. Keep frozen books,
-binary/data backups and held-out games; max256 draws are not formal draw labels.
-Do not overwrite params.bin/progress.bin/probability.bin or start large training
-without an explicit small experimental plan. External-engine diagnosis and
-optional thickness-style books remain separate future tracks.
+## Current Research: Learning Feasibility and Search-Free Preparation
+
+October11 source4016d24 inspected; starting tree clean/main matching origin/main.
+Report: docs/experiments/2026-10-11-learning-feasibility-plan.md.
+Existing --learn clears loaded evaluation, resets material and overwrites cwd
+params.bin every100 updates. It is NOT existing-parameter continuation.
+params.bin is compiled integer EvalParameters, not the float ExtendedParams or
+optimizer checkpoint; original feature decomposition cannot be uniquely recovered.
+Recommend frozen base + zero-initialized delta, initially ONLY3 tempo coefficients.
+RootStrap-only mode needs a separate entry; existing CLI also requires game DB.
+RootStrap loss/gradient mismatch needs finite-difference verification before reuse.
+Keep25cp preference frozen and match ON teachers to ON predictions.
+
+Local census:49 game JSONs/2744games/477923records;2291 resign wins,
+453 max_plies draws (mask outcome loss, retain eligible cp/move teachers);
+2730 distinct full move strings. Include draws, with White-draw diagnostic stratum.
+Confirmed formal draws may later use explicit0.5 targets; never label draws as wins.
+Evaluation trainer enables8-event title-only filter explicitly (reader defaultsOFF),
+with no CLI override; experimental reader must allow selfplay without event spoofing.
+139 analysis JSONs/281roots;184 ON/unrestricted/nonstop rank1-cp metadata candidates.
+Shin search depth15/plies24-80/no raw bounds/PV agrees:77707 record candidates,
+NOT legality-checked or SFEN-deduplicated.2 historical KIFs remain diagnostic only.
+No kifu_db/teacher bins in root/bin, no trainer checkpoints found in bin/results/local.
+
+Search-free preparation completed:make learning-probe builds separately into
+results/learning-tools/, obj/learning-probe/; bin/release is untouched.
+tools/prepare_learning_data.py audits JSON and native move/PV/Huffman replay,
+masks truncated outcome labels, excludes repeated histories and cross-split
+SFEN/prefix24 overlap.49files;2smoke files/4games excluded;2740games/475347moves
+replayed,451truncateddraws/2289resigns;72389eligible metadata/legal-PV candidates.
+Provisional train1024/validation256/test256,31/8/8disjoint runs;White-draw
+teachers170/42/42 (all draws341/85/85).Equal side/result strata are intentional,
+not natural outcome frequency.10 new preparation/native tests pass.
+results/learning-pilot/2026-10-11-preparation-v2/manifest.json SHA
+44704fc910fc3217a55399951d6a60ab233a49b80b0a017695e7672627954792.
+Zero-delta byte copy SHA matches base;18sample prefixes/all intermediate states
+match ON/OFF static evaluation after reread.6runtime/book hashes unchanged.
+No nonzero delta/search/game/training executed.Only params was independently
+copied;no external backup.Original historical per-run runtime/data provenance
+is unresolved;all JSONL outputs remain provisional/training_ready:false.
+Long-prefix correlations beyond24 and formal adjudication remain unresolved.
+
+Next: review historical run provenance and record support/assumptions before
+promoting any provisional split;then prepare an update-free learning entry.
+Proposed later pilot:train1024/val256/test256 caps,
+batch<=128/threads1/fixed seed/max20updates/step<=0.25cp/delta<=5cp, frozen3-tempo
+delta with search-score loss. This is numerical feasibility, not strength proof.
+Details/exclusions/stop rules and current runtime/data hashes are in the report.
+No engine behavior/defaults/book changes. Do not run learning or overwrite runtime
+data in this preparation phase. Preserve frozen books, held-outs and data backups.
+External-engine diagnosis and optional thickness books remain separate future tracks.
 
 ## Black Book Evidence History (superseded by Current Decision above)
 
