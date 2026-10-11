@@ -95,7 +95,41 @@ tools/review_v2_white_cycle.py reproduces White cohorts by board/hands/turn,
 now accepts completed50-game outputs via requested_games. Replay is not full
 independent legality or perpetual-check adjudication.
 
-## Immediate Next Steps: Black Book
+## Current Decision: Black Provisional Book and Combined File
+
+October11: Black provisional first operational book is the BASE pawn76/right-side
+SIX: books/shin-yonenaga-black-book-pawn76-right-side-experiment.txt (cb8d7e...).
+Not the pawn36 SEVEN or the older silver38/common13-pawn25 SIX. This closes the
+current Black cycle, not a proof of winning strength or causal improvement.
+Pawn36 addition remains on hold; all alternatives/evidence are retained.
+Decision/results: October10 independent review, Continuations10/11.
+The completed200 comparison/inputs/tests were committed as37e772d.
+
+Combined provisional v1: books/shin-yonenaga-book-v1.txt, exact union of
+6 Black entries and unchanged11 Whitev2 entries, without new moves/deeper PVs.
+SHA256 d080bc78583695da22641509ca93682653baa4761cb633f4f144ec1aef7c7e07.
+Reproduce: python3 tools/build_operational_shin_book.py; --check verifies only.
+The dedicated compiler checks each single-side txt matches its source JSON.
+Set ShinYonenagaGyoku ON, OwnBook ON, BookMaxPly20, ShinBookFile to this combined
+txt explicitly; existing GUI settings/defaults do NOT switch automatically.
+Loader matches board/hands/turn; no per-color file switch is necessary.
+Unknown positions search, no standard fallback; retreats stay legal.
+No engine/evaluation/default changes, no rebuild, no combined-file full games.
+All76 regression tests pass (7 new combined-book checks), loader confirms17
+legal/distinct entries; --check matches generation. Combined preparation and
+adoption documentation are included in the publication checkpoint together
+with the previous four local commits; see git log for the checkpoint ID.
+See books/README.md for settings/provenance/regeneration and regression checks.
+
+Next: design a small learning feasibility experiment using existing data, not
+more automatic Black/White book trials. First inspect trainer/data format and
+existing-parameter continuation before running training. Keep frozen books,
+binary/data backups and held-out games; max256 draws are not formal draw labels.
+Do not overwrite params.bin/progress.bin/probability.bin or start large training
+without an explicit small experimental plan. External-engine diagnosis and
+optional thickness-style books remain separate future tracks.
+
+## Black Book Evidence History (superseded by Current Decision above)
 
 Longer-term research has two separate objectives: strength improvement using
 external-engine diagnosis, and optional thickness-oriented Shin-Yonenaga style.

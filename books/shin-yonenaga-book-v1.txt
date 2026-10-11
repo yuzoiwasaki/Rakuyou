@@ -1,0 +1,43 @@
+# Rakuyou Shin-Yonenaga-Gyoku provisional operational book v1
+# Black: pawn76 right-side six; White: unchanged v2 eleven
+# USI moves from startpos | book move (either side)
+# Source: books/shin-yonenaga-black-book-pawn76-right-side-experiment.txt
+# Rakuyou Shin-Yonenaga-Gyoku Black book standalone experiment
+# USI moves from startpos | Black book move
+# black_pawn76_entry
+5i4h 3c3d | 7g7f
+# black_pawn76_silver62_pawn26
+5i4h 3c3d 7g7f 7a6b | 2g2f
+# black_pawn76_silver62_pawn64_pawn25
+5i4h 3c3d 7g7f 7a6b 2g2f 6c6d | 2f2e
+# black_pawn76_pawn25_silver63_silver38
+5i4h 3c3d 7g7f 7a6b 2g2f 6c6d 2f2e 6b6c | 3i3h
+# black_pawn76_rook42_silver38
+5i4h 3c3d 7g7f 8b4b | 3i3h
+# black_pawn76_rook42_silver38_king62_pawn26
+5i4h 3c3d 7g7f 8b4b 3i3h 5a6b | 2g2f
+# Source: books/shin-yonenaga-white-book-v2-experiment.txt
+# Rakuyou Shin-Yonenaga-Gyoku White book v2 experiment
+# USI moves from startpos | White book move
+# base_54_pawn
+7g7f 5a6b 2h6h | 5c5d
+# mainline_after_38_silver
+7g7f 5a6b 2h6h 5c5d 3i3h | 3a4b
+# mainline_after_48_king
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h | 4b5c
+# mainline_after_39_king
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i | 7a7b
+# mainline_after_66_pawn
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f | 6b7a
+# mainline_after_78_silver
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6b7a 7i7h | 8c8d
+# 54_after_48_king
+7g7f 5a6b 2h6h 5c5d 5i4h | 3a4b
+# 54_after_66_pawn
+7g7f 5a6b 2h6h 5c5d 6g6f | 3a4b
+# mainline_after_65_pawn
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6b7a 6f6e | 8c8d
+# v2_after_67_silver
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6b7a 7i7h 8c8d 7h6g | 2c2d
+# v2_after_58_gold
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6b7a 7i7h 8c8d 6i5h | 2c2d

@@ -1,5 +1,12 @@
 # 新米長玉定跡の運用・実験一覧
 
+2026-10-11、先手は **▲７六歩先行・右側構想６局面版** を暫定第一運用版に選択。
+後手は既存v2の11局面を維持し、先後共通の暫定版
+`shin-yonenaga-book-v1.txt`（17局面）を作成した。
+過去の単独ファイルは変更せず保存する。以下の実験履歴の未採用表記は各時点の状態。
+最新の先手採用判断は[独立レビューの継続11](../docs/experiments/2026-10-10-black-book-independent-review.md)
+に記録する。勝ち越し・最善定跡・他候補への棋力優越を証明したものではない。
+
 2026-10-03時点の後手第一運用版は **v2の既存11局面**。
 ファイル名に `experiment` が残るが、現在の運用対象は
 `shin-yonenaga-white-book-v2-experiment.txt`。名称・内容は変えず、
@@ -8,6 +15,7 @@
 
 | 用途・状態 | エンジンに指定するファイル | 生成元 |
 |---|---|---|
+| 先後共通・暫定第一運用版（先手６＋後手11局面） | `shin-yonenaga-book-v1.txt` | 下記の専用生成スクリプト、既存の先後JSON |
 | 後手第一運用版 | `shin-yonenaga-white-book-v2-experiment.txt` | v1候補＋`shin-yonenaga-white-v2-experiment.json` |
 | 過去の比較基準v1 | `shin-yonenaga-white-book.txt` | `shin-yonenaga-white-candidates.json` |
 | △２五歩一局面追加・保留 | `shin-yonenaga-white-book-v2-pawn25-experiment.txt` | v1候補＋`shin-yonenaga-white-v2-pawn25-experiment.json` |
@@ -19,10 +27,38 @@
 | 先手銀先行・頻出17手目▲７六歩を追加した６局面版、200局比較完了・採用保留 | `shin-yonenaga-black-book-silver38-silver32-pawn76-experiment.txt` | `shin-yonenaga-black-silver38-silver32-pawn76-experiment.json` |
 | 先手銀先行・▲２五歩６局面版、初期暫定候補・比較／別構想として保存 | `shin-yonenaga-black-book-silver38-silver32-pawn25-experiment.txt` | `shin-yonenaga-black-silver38-silver32-pawn25-experiment.json` |
 | 先手15手目▲６八銀追加７局面版、200局比較完了・採用保留 | `shin-yonenaga-black-book-silver38-silver32-pawn25-silver68-experiment.txt` | `shin-yonenaga-black-silver38-silver32-pawn25-silver68-experiment.json` |
-| 先手▲７六歩先行・右側構想６局面版、暫定第一運用版の優先候補 | `shin-yonenaga-black-book-pawn76-right-side-experiment.txt` | `shin-yonenaga-black-pawn76-right-side-experiment.json` |
+| 先手暫定第一運用版・▲７六歩先行／右側構想６局面 | `shin-yonenaga-black-book-pawn76-right-side-experiment.txt` | `shin-yonenaga-black-pawn76-right-side-experiment.json` |
 | 先手▲７六歩先行・条件付き▲３六歩追加７局面版、200局比較完了・追加採用保留 | `shin-yonenaga-black-book-pawn76-right-side-pawn36-experiment.txt` | `shin-yonenaga-black-pawn76-right-side-pawn36-experiment.json` |
 
-## 後手第一運用版の使い方
+## 先後共通の暫定第一運用版の使い方
+
+将棋所では `ShinYonenagaGyoku` と `OwnBook` をON、`BookMaxPly` を20にし、
+`ShinBookFile` のファイル選択で `books/shin-yonenaga-book-v1.txt` を指定する。
+設定済みの旧ファイルからは自動的に切り替わらない。変更後はエンジンを再起動する。
+この１ファイルで、盤面・持駒・手番に一致した先後の枝を利用する。
+初手▲４八玉／△６二玉は既存エンジンの機能であり、17局面には含めない。
+未登録局面は探索へ抜け、標準定跡による補完はない。玉戻りも合法のまま。
+`BookFile` は通常モード用の標準定跡設定で、専用定跡の利用には不要。
+`TinyBook`／`NarrowBook` はこの専用txtの候補選択には使われない。
+エンジン・評価補正・デフォルト・後手v2は変更していないので再ビルド不要。
+
+再生成と書込みなしの整合性確認（リポジトリ直下）：
+
+```sh
+python3 tools/build_operational_shin_book.py
+python3 tools/build_operational_shin_book.py --check
+```
+
+生成スクリプトは選択した先後JSONを既存の生成器でコンパイルし、単独txtと一致すること、
+先手６／後手11局面であることを確認して結合する。別候補や長いPVは追加しない。
+共通txtのSHA-256：
+`d080bc78583695da22641509ca93682653baa4761cb633f4f144ec1aef7c7e07`。
+両単独txtと同じ17手、手順前後、未登録／保留枝の探索、OwnBook OFF、
+BookMaxPlyの境界、通常側の標準定跡を回帰テストで確認する。
+共通ファイルでの新規長時間対局は未実施。構成要素の対局結果を利用し、
+結合だけで棋力が上がったとは扱わない。
+
+## 後手単独の第一運用版の使い方
 
 将棋所では `ShinYonenagaGyoku` と `OwnBook` をON、`ShinBookFile` に
 `books/shin-yonenaga-white-book-v2-experiment.txt`
@@ -469,7 +505,8 @@ SHA-256：`f242178d7fd2f6278b5f9706528b39dfe257e213ed504b0ff2c17833696f2d9a`。
 最後の対照は21勝20敗９分（51%）で正常終了。対照100局40勝43敗17分（48.5%）、
 追加100局31勝49敗20分（41%）。追加枝の利益は確認できず採用保留で、この比較を区切る。
 非到達群の差・低到達を含むため7.5ポイントを因果的悪化量とはしない。
-元の▲７六歩６局面版を先手暫定第一運用版の優先候補に推すが、正式採用はまだ確定していない。
+この比較の終了時点では元の▲７六歩６局面版を優先候補とした。
+2026-10-11に暫定第一運用版へ選択し、先後共通17局面版にも同じ６組を収録した。
 
 ## 保存と整理の方針
 
