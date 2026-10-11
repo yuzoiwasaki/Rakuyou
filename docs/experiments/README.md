@@ -4,6 +4,10 @@ Rakuyouの自己対局と序盤解析の記録です。
 
 ## 現在地
 
+- [通常探索比較の結果：12局面・24探索、選択手2局面で変化、採用保留](2026-10-11-tempo-full-search-comparison.md)
+
+- [通常探索比較の準備：分離した基準・候補環境と固定12局面、探索未実施](2026-10-11-tempo-full-search-preparation.md)
+
 - [選定済み候補の再静止探索：validation32・test32、PV不変・運用据え置き](2026-10-11-selected-tempo-qsearch-review.md)
 - [初回学習：手番3係数・64局面・20更新の結果（運用は据え置き）](2026-10-11-first-tempo-learning-pilot.md)
 - [学習準備の現在地・最初の20更新実験と懸念点](2026-10-11-learning-checkpoint-summary.md)

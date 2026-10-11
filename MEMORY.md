@@ -225,10 +225,34 @@ test32 now quality-diagnosed;224remain quality-unseen.Do not retune using test.
 Report:docs/experiments/2026-10-11-selected-tempo-qsearch-review.md.
 Raw selected-qsearch-check-v1.json in the pilot-run directory SHA
 d3a30bd2ca0639058f56b00387e3e9c1bb0c728c79810c21a429834d8d64d0ca.
-Close this QS check at128calls;new tool/report is a commit boundary,notify user.
-Next:prepare isolated baseline/candidate runtime directories and bounded
-same-release full-search comparison on a few already-diagnosed roots before
-games or broader features;fix settings/SHA/limits first.Do not auto-adopt.
+QS check closed at128calls and committed ase9e74b2 (local,not pushed).
+Full-search preparation complete via tools/prepare_tempo_search.py:independent
+baseline/candidate runtime dirs,14files/654729574bytes,all SHA/inode checks pass.
+Same release and non-tempo files;copied relative libomp loader layout.
+USI readyok both,loading errors0,go commands/searches0,updates0,deployedfalse.
+Preparation dir results/learning-pilot/2026-10-11-full-search-preparation-v1;
+manifest SHA05e26d28eb91f7def2277d3cc766e79bed964e12364a3f3223b81a3f8a862aec;
+positions SHA4f79a9859e53f85bde4158921e586dc6cb21a613573ec4adfa6e841a653e9e4e.
+12previously-diagnosed roots (6val/6test,one per stratum);no newtest quality.
+Fix next comparison:depth12/MultiPV1/threads1/hash64/ON/bookOFF/PonderOFF;
+fresh process each root/variant,max24searches,30s each,no automatic retry/deepen.
+4new preparation tests pass;6runtime/book hashes unchanged.
+Report:docs/experiments/2026-10-11-tempo-full-search-preparation.md.
+Normal-search comparison completed with tools/run_tempo_search.py:24/24depth12,
+all PV legal,errors/stops/bounds/mate0,bestmove changes2/12,PV changes12/12.
+Root cp candidate-minus-base ranges -153..+365;not learned-strength evidence.
+No same-base repetitions yet;random startup Zobrist/normal search heuristics
+confound attribution.Never claim randomness caused observed differences.
+Runtime6 and copy14 SHA unchanged;candidate non-tempo regions match baseline.
+Real updates0,deploymentfalse,no games/no newtest roots,test224still quality-unseen.
+Exclusive search-attempt-v1.json prevents accidental rerun,do not bypass.
+Raw results/learning-pilot/2026-10-11-full-search-comparison-v1/report.json SHA
+ a6e87fa8822f85c6f314873dfbf9ebf7e1d170760208164f922eba81754801fe.
+Report:docs/experiments/2026-10-11-tempo-full-search-comparison.md.
+3new result tests pass;preparation+runner+reports are a commit boundary,notify user.
+Next proposed bounded control:baseline only,3diagnosed roots (maxcp difference
+and2bestmove switches),2fresh runs each,max6depth12 searches with same settings.
+Not yet executed.Do not extend24-run comparison/retune/adopt before control.
 No automatic training/adoption/rate retuning/more games. External-engine diagnosis
 and optional thickness books remain separate future tracks.
 
