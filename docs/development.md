@@ -87,3 +87,7 @@ python3 tools/check_tempo_export.py \
 `--create-backup` を付け、backup先は新しいディレクトリの `manifest.json` を指定します。
 `--run` は実学習が明示的に有効な設定のみ受け付けます。現在の設定は無効です。
 具体的なコマンドと確認結果は[dry-run記録](experiments/2026-10-11-tempo-pilot-dry-run.md)を参照。
+
+教師の由来を固定する次段階は、[教師更新の設計](experiments/2026-10-11-teacher-refresh-plan.md)を参照。
+`tools/prepare_teacher_refresh.py` はtrain36／validation18の対象選択と合法性検査だけを行い、
+新しい教師cpはnullのまま保存します。探索・学習・現行データの上書きは行いません。

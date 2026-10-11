@@ -1,0 +1,59 @@
+{
+  "schema": "rakuyou-teacher-refresh-plan-v1",
+  "status": "design-only",
+  "teacher_search_enabled": false,
+  "real_data_training_enabled": false,
+  "deployment_enabled": false,
+  "preparation_manifest_sha256": "44704fc910fc3217a55399951d6a60ab233a49b80b0a017695e7672627954792",
+  "runtime_sha256": {
+    "bin/book.bin": "cd42c35f48db3148a2c2f312887313b43135074dd3c0fa6bcd2fb04e66ac28c8",
+    "bin/params.bin": "6bbc573306839fe019634dd94b06af7c22834a641e8bc060e23889ae9b3b2195",
+    "bin/probability.bin": "dc2b18f1eaa7551822901eab7b68c6f279cc449ef527462b611b5d9510cb6c1a",
+    "bin/progress.bin": "ddf60a3180f768d9756b83cd4fe50a18b9e93855d1ad7281566934fb7c53a042",
+    "bin/release": "6f7891c4957e1bf37b1e80c37ad0c9cf83f34ca974e87be05fb05dd5c1f4c2ac",
+    "books/shin-yonenaga-book-v1.txt": "d080bc78583695da22641509ca93682653baa4761cb633f4f144ec1aef7c7e07"
+  },
+  "probe_sha256": "b1401e61a5e776c2df5f242bb12a8dead5de54a4d9d8c5f86c514559c60a900e",
+  "selection": {
+    "seed": 20261011,
+    "per_stratum": {
+      "train": 6,
+      "validation": 3
+    },
+    "max_roots_per_game": 1,
+    "max_roots_per_run": 6,
+    "test_roots": 0,
+    "ordering": "SHA256(seed:id), round-robin sorted strata"
+  },
+  "search": {
+    "depth": 15,
+    "multipv": 1,
+    "threads": 1,
+    "hash_mb": 64,
+    "timeout_seconds": 30,
+    "max_searches": 54,
+    "fresh_engine_per_position": true,
+    "ShinYonenagaGyoku": true,
+    "OwnBook": false,
+    "Ponder": false,
+    "retries": 0
+  },
+  "teacher": {
+    "origin": "current-baseline-search-cp; same-engine self-distillation",
+    "perspective": "root-side-to-move",
+    "outcome_loss_enabled": false,
+    "draw_policy": "retain eligible search cp; max-plies draws are not wins or adjudicated draws",
+    "special_scores": "preserve mate/bounds/terminal records; exclude from cp teacher",
+    "replacement_after_failure": false
+  },
+  "acceptance": {
+    "completed_depth": 15,
+    "score_type": "cp",
+    "bounds_allowed": false,
+    "pv_legal_required": true,
+    "root_identity_required": true,
+    "runtime_unchanged_required": true,
+    "repeated_root_or_pv_history_allowed": false
+  },
+  "future_format": "rakuyou-refreshed-teacher-v1 JSONL plus runtime-bound manifest; pending teachers are null"
+}

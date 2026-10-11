@@ -182,8 +182,22 @@ Candidate control results/learning-pilot/2026-10-11-candidate-repeatability-v1/r
 SHA76b9939c49945d65ae755ce958c4d4b625f96646c59e62ab9974df8dcfd5f2dc.
 Control tool7tests pass (3new candidate-mode checks plus4baseline checks).
 Candidate-mode tool/tests and closure report complete the publication checkpoint.
-Next:design small provenance-fixed teacher refresh using existing train/val
-positions,current verified engine/data/settings,predeclared root/depth/time limits.
+Closure/publication committed and pushed as409796b.
+Teacher-refresh design/preparation complete (no teacher searches/updates):
+docs/experiments/2026-10-11-teacher-refresh-plan.md and configs/teacher-refresh-v1.json.
+Current-baseline self-distillation plan:train36/val18,6side/result strata,
+SHA256(seed:id) order/seed20261011,one root/game,max6/run;test0.
+Selected train22runs/36games,max5/run;val6runs/18games,max6/run.
+Native54root legality/SFEN/Huffman/nonrepetition checks pass;4newtests pass.
+Pending teachers null,archived cp separate,outcome loss OFF (draw retained).
+Design-only flags teacher-search/training/deployment false;runtime6 SHA unchanged.
+Preparation results/learning-pilot/2026-10-11-teacher-refresh-preparation-v1/manifest.json
+SHAa4662b0f349560cfa3f03b2fef536d5c6000f9e4d5ee6b75a569f306ed9be5fc.
+Plan SHA2f4353ac1bca81dcbf3c9aff396142f8e0925290babaa2a8b729fa5e08fa9f90.
+Future generation depth15/MultiPV1/Threads1/Hash64/ON/bookOFF/PonderOFF,
+fresh each root,max54searches/30s each,no retry/refill/autoextend.
+No runner yet.Next:implement runtime-bound generation runner and search0 dry-run.
+Preparation tool/config/tests/report are next commit boundary,notify user.
 No new teacher searches or next learning run authorized yet;do not use test to tune.
 Same-engine teachers are self-distillation,not evidence of stronger teaching.
 Historical runtime identity/correlation/draw adjudication/external backup remain
