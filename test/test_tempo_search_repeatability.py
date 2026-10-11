@@ -2,7 +2,7 @@ import sys
 import unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools'))
-from check_tempo_search_repeatability import select_controls,summarize
+from check_tempo_search_repeatability import select_controls,summarize,run
 
 
 def record(name,cp,switched=False):
@@ -26,6 +26,20 @@ class RepeatabilityTest(unittest.TestCase):
         self.assertEqual((s['baseline_cp_min'],s['baseline_cp_max']),(-20,30))
         self.assertEqual(s['distinct_baseline_bestmoves'],2)
         self.assertEqual(s['distinct_baseline_pvs'],3)
+
+    def test_candidate_summary_separates_prior_baseline(self):
+        s=summarize(analysis(-17),[analysis(-17),analysis(-17)],analysis(-382),variant='candidate')
+        self.assertEqual(s['candidate_cp'],[-17,-17,-17])
+        self.assertEqual(s['prior_baseline_score'],'-382')
+        self.assertNotIn('baseline_cp',s)
+
+    def test_candidate_requires_verified_baseline_before_running(self):
+        with self.assertRaisesRegex(ValueError,'Verified baseline control required'):
+            run(None,None,None,variant='candidate')
+
+    def test_unknown_variant_rejected_before_running(self):
+        with self.assertRaisesRegex(ValueError,'Unknown control variant'):
+            run(None,None,None,variant='other')
 
     def test_mate_disables_cp_range(self):
         s=summarize(analysis(10),[analysis(2,kind='mate')],analysis(1))

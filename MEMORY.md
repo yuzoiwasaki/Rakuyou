@@ -121,153 +121,74 @@ adoption documentation are included in the publication checkpoint together
 with the previous four local commits; see git log for the checkpoint ID.
 See books/README.md for settings/provenance/regeneration and regression checks.
 
-## Current Research: Small Learning Pilot Preparation
+## Current Research: First Learning Pilot Closed
 
-Preparation checkpoints (local, not pushed):680c1b0 audited data;7d04e67 input
-reader/provenance;a1305fd smooth gradients;c19fbc7 native rounding;85db3fb frozen
-qsearch leaves. User wants notification at appropriate commit boundaries.
-First authorized real-data pilot completed20updates;do not automatically extend
-training/retune or overwrite runtime data. Operational evaluation remains baseline.
-Frozen books/25cp preference/defaults remain unchanged. No external backup yet.
+First pilot completed;operational params/release/books/25cp preference unchanged.
+No automatic more training,retuning,adoption,search repetitions or games.
+Current conclusion/next-stage map:docs/experiments/2026-10-11-tempo-pilot-closure.md.
+Detailed preparation/results/hashes are linked from docs/experiments/README.md.
+User wants notification at appropriate commit boundaries;no external backup yet.
 
-Source findings:--learn resets loaded params/material and overwrites cwd params.bin.
-Compiled params.bin cannot uniquely recover float ExtendedParams/optimizer state.
-Use fixed base +3-tempo delta, not existing --learn. Evaluation trainer enables
-8-event title filter;experimental readers bypass it without event spoofing.
-Historical params/progress/probability hashes unknown;47run raw hashes are
-corroborated, but runtime identity and full adjudication are not established.
-
-Data:2740audited games/475347moves,2289resigns/451max-plies draws;2smoke runs excluded.
-Provisional train1024/validation256/test256,31/8/8 disjoint runs;White-draw cp
-teachers170/42/42. Truncated outcomes masked;eligible draw cp retained,never wins.
-Equal side/result strata are deliberate,not natural outcome frequency.
-Cross-split SFEN/prefix24 removed;longer correlation remains. All readiness=false.
+Gikou --learn resets params/material;compiled params do not recover float
+ExtendedParams/optimizer.Use frozen base + delta,not existing --learn.
+Trainer's8-event title filter is bypassed by experimental JSONL reader.
+47run raw hashes verified:2740games/475347moves,2289resigns/451max-plies draws;
+2smoke runs excluded.Historical params/progress/probability identity unknown.
+Draw cp teachers retained;truncated outcome loss masked,never treated as wins.
+Equal side/result strata and long game correlations remain limitations.
+Provisional splits train1024/validation256/test256 from disjoint31/8/8runs;
+32test roots quality-diagnosed,224still quality-unseen.Do not retune using test.
+All readiness flags remain false;pilot is a limited mechanics experiment.
 Manifest results/learning-pilot/2026-10-11-preparation-v2/manifest.json SHA
 44704fc910fc3217a55399951d6a60ab233a49b80b0a017695e7672627954792.
 Base params SHA6bbc573306839fe019634dd94b06af7c22834a641e8bc060e23889ae9b3b2195.
-Reports and all artifact hashes:docs/experiments/README.md learning entries.
 
-Verified:1536root/PV input and zero-copy ON/OFF/progress checks;336synthetic
-gradient cases plus1024static train roots;20480native rounding checks.
-Frozen ON/depth0 qsearch:64train accepted,odd15/even49,Black33/White31,draw21/
-Whitedraw10. Fresh1MBTT/learning_mode=true;strict KP4-progress weight identity;
-Huffman boundary omits pre-root Node history. Cached/full/replayed leaves agree.
-At this preparation checkpoint, no changed-tempo re-search/PV-switch checks;
-the subsequent selected-candidate check is recorded below.6qsearch+32previous tests pass.
-Probe b1401e61... built separately;6runtime/book hashes unchanged.
-
-Updater/plan committed as6fba59a (local,not pushed).tools/tempo_updater.py/checker:
-6new tests pass.20 synthetic updates,real-data updates0;10-step JSON resume
-exactly matches uninterrupted20. Per-step<=0.25cp,total delta<=5cp,max20 enforced.
-State binds config/input/Python/RNG,stores RMSprop and average sums/mass.
-No real-data loader or binary writer in updater. Synthetic report SHA
-c24b4a5fe93a19aaa80349cca97797cb032d38f3b264b3afa4f6b1ab50038963.
-Report:docs/experiments/2026-10-11-tempo-updater-validation.md.
-Plan:docs/experiments/configs/tempo-pilot-v1.json remains disabled TEMPLATE.
-First pilot reduced to64validated frozen train leaves;validation64 now prepared;
-test256 untouched at preparation (32 now diagnosed below). Mean sigmoid-square gain1/600,delta L2=1e-6 proposal;
-RMSprop rate0.25/decay0.9975/epsilon1e-12;averaging0.9995;seed20261011;
-save0/5/10/20. Settings fixed before validation,not hyperparameter search.
-Original numerical-check L2=1e-4 was a prototype,not this pilot's chosen value.
-
-Candidate export/validation leaves committed as532a8dd (local,not pushed).
-tools/tempo_export.py copies base and changes ONLY12
-tempo bytes,checks full other-region hash/exclusive output/ABI/range/overflow;
-rejects runtime bin directory.Manual delta(.25,-.5,.75) exported separately,
-64train leaves/intermediate states match memory perturbation after reread.
-Candidate a40d46be... is diagnostic,NOT learned;5new tests pass.
-Export validation SHA0053bb1d925b2861606226e1f066c10ea0c0e81afe9982c8abbb0d356fd0bd1a.
-Validation64 baseline qs leaves accepted(Black33/White31,odd13/even51,draw21/
-White10);prepare-only enforces no loss/gradient/perturbation or selection.
-Train/validation run/root/leaf-SFEN sets disjoint.6qs tests rerun/pass.
-Validation cache SHAd1632112165cc73f635e0db854e4d4a90292e7d9b72488c180859aa603956af4.
-Report docs/experiments/2026-10-11-candidate-export-validation.md;plan hashes
-updated,real training/deployment flags stillfalse.6runtime/book hashes unchanged.
-Runner/dry-run/backup checkpoint complete;see latest commit and
-docs/experiments/2026-10-11-learning-checkpoint-summary.md for current recap/risks.
-tempo_pilot.py default dry-run requires verified
-backup/config/manifest/cache identity;--run blocked by current plan flagfalse.
-RMSprop/mean loss/frozen-leaf exporter/save0/5/10/20 and validation selection
-wired;dry-run completed before actual pilot.6pilot/backup tests pass(synthetic only).
-learning_backup.py created61independent local files/772357064bytes,all source/copy
-SHA/size verified,no hardlinks/no deletion/external upload.Backup manifest SHA
-adb3fc1c7dbb7f547e52c2258ca76256f38a9b2370c3ab84b7800f5d5aea4338.
-Dry report results/learning-pilot/2026-10-11-pilot-dry-run-v1/report.json SHA
-44c428e9009d821bdd2d4cf1de402468add86374167bc9ba92b8cff6a6766064.
-Only checkpoint0 exported;128train+val leaves reread;integer changes0,loss not
-computed,no selection/deployment/updates/search.6runtime/book hashes unchanged.
-Report docs/experiments/2026-10-11-tempo-pilot-dry-run.md;plan remains unchanged
-so its backed-up version remains valid.External Drive backup still not performed.
-Dry-run/backup/recap committed as807fff1 (local,not pushed).
-October11 authorized first real64train/64val pilot executed ONCE:20updates,
-no extra updates/qsearch/games.Only private execution-plan copy enabled;public
-template and original backups unchanged.New61-file backup matches execution input.
-Result:docs/experiments/2026-10-11-first-tempo-learning-pilot.md.
-results/learning-pilot/2026-10-11-pilot-run-v1/report.json SHA
-195e5205ede13d55682ea66f4257016b12e94d0094f5f508a1069743b241c833.
-Selected20-average delta(-.374936609,-1.100040123,-.750326507)cp.
-Val loss+L2 .013599598381 -> .013575926806 (~.17406% relative decrease);
-25/64 val integer scores change,root delta within+-1cp.55/128 train+val change.
-Avg train smooth loss+L2 .013013758583 -> .013009830008.
+Validated native input/progress,gradients,rounding,frozen QS leaves,bounded
+updater/resume,exclusive candidate export,backup and zero-update dry-run.
+Original public plan docs/experiments/configs/tempo-pilot-v1.json stays disabled.
+Authorized actual run:64train/64val fixed leaves,20updates ONCE;only private
+plan enabled.RMSprop rate.25/maxstep.25/limit5cp,mean sigmoid gain1/600,L2=1e-6,
+averaging.9995,seed20261011,saves0/5/10/20.Validation selected20-average delta
+(-.374936609,-1.100040123,-.750326507)cp;loss+L2 relative decrease~.17406%.
+Candidate changes only12tempo bytes;other-region hash equals base.
 Candidate params-average-20.bin SHA1858ca315c4a5821710ea7b71f9251c5909f1c0ade88314306fd6baa7a7101f8.
-All4checkpoints/candidate SHA/binding/non-tempo byte regions verified;6runtime/
-book hashes unchanged.No deployment/test quality measurement/re-search/PV switches.
-Current-state20delta(-.450378,-1.648635,-1.005064) differs from selected average.
-Small fixed-leaf fit improvement,NOT evidence of strength/draw-skill improvement.
-Close this run at20,no automatic more updates or coefficient tuning.
-First real pilot report committed as8d9a0e5 (local,not pushed).
-Selected-candidate re-search completed:validation32/test32,128depth0QS calls,
-no additional updates/reselection/deployment.All64eligible;PV/leaf changes0.
-Scores change13/32val,16/32test,within+-1cp.Raw sigmoid loss relative decrease
-val~.2085%,test~.1255%;individual worse4val/7test,not strength evidence.
-test32 now quality-diagnosed;224remain quality-unseen.Do not retune using test.
-4new comparison tests pass;6runtime/book hashes unchanged.
-Report:docs/experiments/2026-10-11-selected-tempo-qsearch-review.md.
-Raw selected-qsearch-check-v1.json in the pilot-run directory SHA
-d3a30bd2ca0639058f56b00387e3e9c1bb0c728c79810c21a429834d8d64d0ca.
-QS check closed at128calls and committed ase9e74b2 (local,not pushed).
-Full-search preparation complete via tools/prepare_tempo_search.py:independent
-baseline/candidate runtime dirs,14files/654729574bytes,all SHA/inode checks pass.
-Same release and non-tempo files;copied relative libomp loader layout.
-USI readyok both,loading errors0,go commands/searches0,updates0,deployedfalse.
-Preparation dir results/learning-pilot/2026-10-11-full-search-preparation-v1;
-manifest SHA05e26d28eb91f7def2277d3cc766e79bed964e12364a3f3223b81a3f8a862aec;
-positions SHA4f79a9859e53f85bde4158921e586dc6cb21a613573ec4adfa6e841a653e9e4e.
-12previously-diagnosed roots (6val/6test,one per stratum);no newtest quality.
-Fix next comparison:depth12/MultiPV1/threads1/hash64/ON/bookOFF/PonderOFF;
-fresh process each root/variant,max24searches,30s each,no automatic retry/deepen.
-4new preparation tests pass;6runtime/book hashes unchanged.
-Report:docs/experiments/2026-10-11-tempo-full-search-preparation.md.
-Normal-search comparison completed with tools/run_tempo_search.py:24/24depth12,
-all PV legal,errors/stops/bounds/mate0,bestmove changes2/12,PV changes12/12.
-Root cp candidate-minus-base ranges -153..+365;not learned-strength evidence.
-No same-base repetitions yet;random startup Zobrist/normal search heuristics
-confound attribution.Never claim randomness caused observed differences.
-Runtime6 and copy14 SHA unchanged;candidate non-tempo regions match baseline.
-Real updates0,deploymentfalse,no games/no newtest roots,test224still quality-unseen.
-Exclusive search-attempt-v1.json prevents accidental rerun,do not bypass.
-Raw results/learning-pilot/2026-10-11-full-search-comparison-v1/report.json SHA
- a6e87fa8822f85c6f314873dfbf9ebf7e1d170760208164f922eba81754801fe.
-Report:docs/experiments/2026-10-11-tempo-full-search-comparison.md.
-Preparation+normal-search comparison committed as67d450f (local,not pushed).
-Baseline-only control complete:3diagnosed roots (max absolutecp gap and2move
-switches),2fresh runs each,6/6depth12 completed under unchanged settings.
-Including previous baseline,all3observations per root have identical cp/bestmove/
-PV/nodes: -382/S*3a/311498;98/5g6f/44042;-15/1d1e/46162.
-No baseline startup variation observed here;NOT universal determinism proof.
-Candidate remains one observation per root;candidate repeatability untested.
-Errors/stops/bounds/mate0;6new PVs legal;runtime6/copy14 SHA unchanged.
-Control marker baseline-control-attempt-v1.json prevents rerun;do not bypass.
-Updates0/candidate searches0/deployedfalse/no games/no newtest quality.
-Raw results/learning-pilot/2026-10-11-baseline-repeatability-v1/report.json SHA
-b5b70af8d8301ef7e201e4e6fb93a940807591ebd203d5f350c480e946b5475e.
-Report:docs/experiments/2026-10-11-tempo-baseline-repeatability.md.
-4new control tests pass;tool/report is a commit boundary,notify user.
-Next proposed control:candidate only,same3roots/2fresh runs each,max6depth12
-searches,same settings,no reselection. Then close first pilot with whole-run
-assessment;do not keep expanding repetitions or adopt/tune automatically.
-No automatic training/adoption/rate retuning/more games. External-engine diagnosis
-and optional thickness books remain separate future tracks.
+Run report results/learning-pilot/2026-10-11-pilot-run-v1/report.json SHA
+195e5205ede13d55682ea66f4257016b12e94d0094f5f508a1069743b241c833.
+Verified61-file independent local backup for the actual run,no Drive upload.
+
+Post-learning diagnostics (no updates/reselection/deployment):
+- Re-QS validation32/test32,128calls:PV/leaf changes0,cp within+-1;
+  test raw sigmoid loss relative decrease~.1255%,not strength evidence.
+- Isolated baseline/candidate runtime preparation:14copies,SHA/inodes verified,
+  relative libomp loader layout,USI readyok both.
+- Normal depth12 comparison:12roots/24searches,all complete/legal,
+  bestmove changes2,PV changes12,cp difference-153..+365.
+- Controls:3diagnosed roots (maxgap and2switches),6baseline+6candidate fresh
+  searches,all depth12/legal.No errors/stops/bounds/mate.
+  Each side's3observations (including comparison) has identical cp/bestmove/PV/nodes:
+  base -382/S*3a/311498 vs candidate -17/S*3a/293225;
+  base98/5g6f/44042 vs candidate131/7f8f/42682;
+  base-15/1d1e/46162 vs candidate-139/3b4b/39120.
+  Differences reproduced here,not general determinism/strength/draw-skill proof.
+
+Preparation results/learning-pilot/2026-10-11-full-search-preparation-v1/manifest.json
+SHA05e26d28eb91f7def2277d3cc766e79bed964e12364a3f3223b81a3f8a862aec.
+Exclusive search-attempt-v1/baseline-control-attempt-v1/candidate-control-attempt-v1
+markers prevent reruns;do not remove/bypass them.All runtime6/copy14 hashes unchanged.
+Baseline control checkpoint b4f8a33;normal prep/comparison67d450f.
+All learning checkpoints and closure are included in the current publication
+checkpoint;see git log/status for the commit and remote state.
+Candidate control results/learning-pilot/2026-10-11-candidate-repeatability-v1/report.json
+SHA76b9939c49945d65ae755ce958c4d4b625f96646c59e62ab9974df8dcfd5f2dc.
+Control tool7tests pass (3new candidate-mode checks plus4baseline checks).
+Candidate-mode tool/tests and closure report complete the publication checkpoint.
+Next:design small provenance-fixed teacher refresh using existing train/val
+positions,current verified engine/data/settings,predeclared root/depth/time limits.
+No new teacher searches or next learning run authorized yet;do not use test to tune.
+Same-engine teachers are self-distillation,not evidence of stronger teaching.
+Historical runtime identity/correlation/draw adjudication/external backup remain
+open.Proposed feature expansion and games require separate experiment plans.
+External-engine diagnosis/optional thickness books remain separate future tracks.
 
 ## Black Book Evidence History (superseded by Current Decision above)
 

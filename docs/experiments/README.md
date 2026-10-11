@@ -4,6 +4,8 @@ Rakuyouの自己対局と序盤解析の記録です。
 
 ## 現在地
 
+- [初回学習パイロットの一区切り：候補側も再現、運用は基準維持、次の課題](2026-10-11-tempo-pilot-closure.md)
+
 - [基準評価の再現性確認：3局面・6検索、cp／選択手／PV／nodes一致](2026-10-11-tempo-baseline-repeatability.md)
 
 - [通常探索比較の結果：12局面・24探索、選択手2局面で変化、採用保留](2026-10-11-tempo-full-search-comparison.md)
