@@ -197,7 +197,7 @@ SHAa4662b0f349560cfa3f03b2fef536d5c6000f9e4d5ee6b75a569f306ed9be5fc.
 Plan SHA2f4353ac1bca81dcbf3c9aff396142f8e0925290babaa2a8b729fa5e08fa9f90.
 Future generation depth15/MultiPV1/Threads1/Hash64/ON/bookOFF/PonderOFF,
 fresh each root,max54searches/30s each,no retry/refill/autoextend.
-Design/preparation committed as4431991 (local,not pushed).
+Design/preparation checkpoint4431991;included in58131a6 publication.
 Runner tools/refresh_teachers.py implemented;default dry-run,--run requires exact
 plan copy with ONLY teacher_search_enabled=true;training/deployment stayfalse.
 Runtime-bound54roots;fresh depth15 max54/30s,exclusive generation marker,
@@ -209,7 +209,7 @@ Runtime6/baselinecopy7 unchanged;teacher_generation_complete/training_ready=fals
 Report:docs/experiments/2026-10-11-teacher-refresh-dry-run.md.
 Dry report results/learning-pilot/2026-10-11-teacher-refresh-dry-run-v1/report.json
 SHAe1e69434c4760e4331e5cd2a8e1f36b93119da3eefd9110d9dbbb98274ebe166.
-Runner/dry-run committed as2db6542 (local,not pushed).
+Runner/dry-run checkpoint2db6542;included in58131a6 publication.
 Authorized teacher generation completed ONCE at2db6542 (start dirty=false):
 54/54depth15 completed and accepted (train36/val18),excluded/errors0.
 Draw18 incl White9 retained,outcome loss OFF;no updates/deployment/test use.
@@ -223,10 +223,26 @@ Report:docs/experiments/2026-10-11-teacher-refresh-generation.md.
 results/learning-pilot/2026-10-11-teacher-refresh-run-v1/report.json SHA
 5b35823223c099a4233c4d4e9c99b11876fd291d14a92b9caa945c3941eb97cf;
 audit-v2 SHAde27d343a78ef62a0571b12410c14567b39e461a18191f38cc546be539d4cdd4.
-Generation+audit/report form one commit phase.
-Next:dedicated refreshed-teacher reader bound to generation/audit SHA;prepare
-36train/18val baselineQS leaves,then updater connection/update0 dry-run as one
-verification phase.No refreshed-teacher learning run yet;do not use test to tune.
+Teacher generation/audit committed and pushed through58131a6.
+Refreshed-reader/leaves/update0 dry-run complete via tools/prepare_refreshed_pilot.py.
+Pinned generation/audit SHA;old cp separate,new cp used in FrozenLeaf,run promoted
+for existing pilot helpers.54baselineQS calls,36train/18val all accepted,excluded0.
+Parity train even30/odd6,val even13/odd5;run/root/leaf-SFEN sets disjoint.
+Checkpoint0/restored state/RNG match;zero-delta candidate fullSHA equals base,
+all54native integer scores unchanged;loss/gradient/selection/update0,not measured.
+57independent local backup files/628846812bytes,SHA/size/inodes verified,no upload.
+New generation-level frozen-leaf-preparation-attempt-v1 marker prevents rerun.
+All runtime hashes unchanged,training/deployment/ready false,test0.
+Report:docs/experiments/2026-10-11-refreshed-pilot-preparation.md.
+results/learning-pilot/2026-10-11-refreshed-pilot-preparation-v1/report.json SHA
+ da5310a8b195632f39c36101d853b0992f9ad447d1a7ca07e5752251de8e04a3.
+Train cache SHAd284a89c42447578025421ea9f55516ad9b01dde537666f250b2fd97343f60f3;
+val cache SHAc18997ac3694870cffe66872cafd6c520a5c457e18c695e9dab9f7f112d42d3e.
+Backup SHAba18462cd3b7c260fdfbbe5088d10efc1bfa9abc0d9a2087add815eb515e644b.
+5new reader/leaf tests pass;reader/preparation/dry-run/report form one commit phase.
+Next:dedicated36/18 learning runner+disabled plan bound to these caches,small
+max20 settings/selection rules fixed before run.Preserve old64/64 runner.
+No refreshed-teacher learning run yet;do not use test to tune.
 Same-engine teachers are self-distillation,not evidence of stronger teaching.
 Historical runtime identity/correlation/draw adjudication/external backup remain
 open.Proposed feature expansion and games require separate experiment plans.
