@@ -209,10 +209,24 @@ Runtime6/baselinecopy7 unchanged;teacher_generation_complete/training_ready=fals
 Report:docs/experiments/2026-10-11-teacher-refresh-dry-run.md.
 Dry report results/learning-pilot/2026-10-11-teacher-refresh-dry-run-v1/report.json
 SHAe1e69434c4760e4331e5cd2a8e1f36b93119da3eefd9110d9dbbb98274ebe166.
-Runner implementation/tests/dry-run/report form one commit phase.
-Next:enable only private teacher-search plan,execute max54depth15 searches once,
-audit accepted/excluded counts and provenance together;no learning/deployment.
-No new teacher searches or next learning run authorized yet;do not use test to tune.
+Runner/dry-run committed as2db6542 (local,not pushed).
+Authorized teacher generation completed ONCE at2db6542 (start dirty=false):
+54/54depth15 completed and accepted (train36/val18),excluded/errors0.
+Draw18 incl White9 retained,outcome loss OFF;no updates/deployment/test use.
+Private plan enabled ONLY teacher-search;reference plan remains disabled.
+Native root/PV/log/commands/metadata/JSONL/report and runtime provenance audited.
+Audit tool5tests pass;final audit-v2 54replays all pass,old audit-v1 preserved.
+Current54new teachers runtime identity verified;historical teachers still unknown.
+Runtime6/baseline7 unchanged;generation complete=true,training_ready=false.
+Marker teacher-generation-attempt-v1.json prevents rerun;do not bypass.
+Report:docs/experiments/2026-10-11-teacher-refresh-generation.md.
+results/learning-pilot/2026-10-11-teacher-refresh-run-v1/report.json SHA
+5b35823223c099a4233c4d4e9c99b11876fd291d14a92b9caa945c3941eb97cf;
+audit-v2 SHAde27d343a78ef62a0571b12410c14567b39e461a18191f38cc546be539d4cdd4.
+Generation+audit/report form one commit phase.
+Next:dedicated refreshed-teacher reader bound to generation/audit SHA;prepare
+36train/18val baselineQS leaves,then updater connection/update0 dry-run as one
+verification phase.No refreshed-teacher learning run yet;do not use test to tune.
 Same-engine teachers are self-distillation,not evidence of stronger teaching.
 Historical runtime identity/correlation/draw adjudication/external backup remain
 open.Proposed feature expansion and games require separate experiment plans.
