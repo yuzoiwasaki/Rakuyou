@@ -126,7 +126,8 @@ See books/README.md for settings/provenance/regeneration and regression checks.
 Preparation checkpoints (local, not pushed):680c1b0 audited data;7d04e67 input
 reader/provenance;a1305fd smooth gradients;c19fbc7 native rounding;85db3fb frozen
 qsearch leaves. User wants notification at appropriate commit boundaries.
-Do not execute real-data learning or overwrite runtime data in this phase.
+First authorized real-data pilot completed20updates;do not automatically extend
+training/retune or overwrite runtime data. Operational evaluation remains baseline.
 Frozen books/25cp preference/defaults remain unchanged. No external backup yet.
 
 Source findings:--learn resets loaded params/material and overwrites cwd params.bin.
@@ -161,7 +162,7 @@ State binds config/input/Python/RNG,stores RMSprop and average sums/mass.
 No real-data loader or binary writer in updater. Synthetic report SHA
 c24b4a5fe93a19aaa80349cca97797cb032d38f3b264b3afa4f6b1ab50038963.
 Report:docs/experiments/2026-10-11-tempo-updater-validation.md.
-Plan:docs/experiments/configs/tempo-pilot-v1.json,planned/not executed.
+Plan:docs/experiments/configs/tempo-pilot-v1.json remains disabled TEMPLATE.
 First pilot reduced to64validated frozen train leaves;validation64 now prepared;
 test256 untouched. Mean sigmoid-square gain1/600,delta L2=1e-6 proposal;
 RMSprop rate0.25/decay0.9975/epsilon1e-12;averaging0.9995;seed20261011;
@@ -186,7 +187,7 @@ docs/experiments/2026-10-11-learning-checkpoint-summary.md for current recap/ris
 tempo_pilot.py default dry-run requires verified
 backup/config/manifest/cache identity;--run blocked by current plan flagfalse.
 RMSprop/mean loss/frozen-leaf exporter/save0/5/10/20 and validation selection
-wired,real-data run path NOT executed.6new pilot/backup tests pass(synthetic only).
+wired;dry-run completed before actual pilot.6pilot/backup tests pass(synthetic only).
 learning_backup.py created61independent local files/772357064bytes,all source/copy
 SHA/size verified,no hardlinks/no deletion/external upload.Backup manifest SHA
 adb3fc1c7dbb7f547e52c2258ca76256f38a9b2370c3ab84b7800f5d5aea4338.
@@ -196,11 +197,26 @@ Only checkpoint0 exported;128train+val leaves reread;integer changes0,loss not
 computed,no selection/deployment/updates/search.6runtime/book hashes unchanged.
 Report docs/experiments/2026-10-11-tempo-pilot-dry-run.md;plan remains unchanged
 so its backed-up version remains valid.External Drive backup still not performed.
-October11 user replied OK to the proposed64train/64val,max20 pilot, then requested
-commit and recap FIRST. This turn stops at commit/summary;do not train during it.
-Next continuation can execute that bounded pilot,with enabled experiment config
-and matching backups/binding,new output,without asking the same approval again.
-No actual-data training executed yet;prototype artifacts/checkpoints remain provisional.
+Dry-run/backup/recap committed as807fff1 (local,not pushed).
+October11 authorized first real64train/64val pilot executed ONCE:20updates,
+no extra updates/qsearch/games.Only private execution-plan copy enabled;public
+template and original backups unchanged.New61-file backup matches execution input.
+Result:docs/experiments/2026-10-11-first-tempo-learning-pilot.md.
+results/learning-pilot/2026-10-11-pilot-run-v1/report.json SHA
+195e5205ede13d55682ea66f4257016b12e94d0094f5f508a1069743b241c833.
+Selected20-average delta(-.374936609,-1.100040123,-.750326507)cp.
+Val loss+L2 .013599598381 -> .013575926806 (~.17406% relative decrease);
+25/64 val integer scores change,root delta within+-1cp.55/128 train+val change.
+Avg train smooth loss+L2 .013013758583 -> .013009830008.
+Candidate params-average-20.bin SHA1858ca315c4a5821710ea7b71f9251c5909f1c0ade88314306fd6baa7a7101f8.
+All4checkpoints/candidate SHA/binding/non-tempo byte regions verified;6runtime/
+book hashes unchanged.No deployment/test quality measurement/re-search/PV switches.
+Current-state20delta(-.450378,-1.648635,-1.005064) differs from selected average.
+Small fixed-leaf fit improvement,NOT evidence of strength/draw-skill improvement.
+Close this run at20,no automatic more updates or coefficient tuning.
+New result report is a commit boundary;notify user.Results remain provisional.
+Next: bounded selected-candidate re-search/PV-switch and untouched-position
+regression plan before games or broader features. Do not auto-adopt.
 No automatic training/adoption/rate retuning/more games. External-engine diagnosis
 and optional thickness books remain separate future tracks.
 
