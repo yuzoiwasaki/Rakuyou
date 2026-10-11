@@ -36,11 +36,19 @@ def stable_order(seed, value):
 
 
 class Probe:
-    def __init__(self, binary, params=None):
+    def __init__(self, binary, params=None, *, details=False, tempo_raw=None):
+        if (details or tempo_raw is not None) and params is None:
+            raise ValueError("Parameter file required for detailed evaluation")
+        if tempo_raw is not None and (len(tempo_raw) != 3 or
+                any(type(v) is not int or abs(v) > 5*65536 for v in tempo_raw)):
+            raise ValueError("Three bounded raw tempo increments required")
         self.errors = tempfile.TemporaryFile(mode="w+t")
         args = [str(Path(binary).resolve()), "--replay"]
         if params is not None:
-            args = [str(Path(binary).resolve()), "--evaluate", str(Path(params).resolve())]
+            mode = "--perturb-tempo" if tempo_raw is not None else "--evaluate-details" if details else "--evaluate"
+            args = [str(Path(binary).resolve()), mode, str(Path(params).resolve())]
+            if tempo_raw is not None:
+                args.extend(str(v) for v in tempo_raw)
         self.process = subprocess.Popen(args, stdin=subprocess.PIPE,
                                         stdout=subprocess.PIPE, stderr=self.errors,
                                         text=True, bufsize=1)

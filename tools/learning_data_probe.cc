@@ -1,6 +1,9 @@
 // Search-free validation helper for Rakuyou learning-data preparation.
 // Uses the Gikou position, move and Huffman implementations without a trainer.
 #include <cstddef>
+#include <cerrno>
+#include <cstdlib>
+#include <limits>
 #include <cstdio>
 #include <cstring>
 #include <iostream>
@@ -67,7 +70,37 @@ bool LegalToken(const std::string& token, const Position& pos, Move* move) {
   return true;
 }
 
-void Replay(const std::string& line, bool evaluate) {
+void PrintParts(std::ostringstream& out, const EvalDetail& detail) {
+  const PackedScore kp = detail.kp[kBlack] + detail.kp[kWhite] + detail.king_preference;
+  const PackedScore others = detail.controls + detail.two_pieces + detail.king_safety + detail.sliders;
+  out << "{\"kp\":[";
+  for (int i = 0; i < 4; ++i) { if (i) out << ','; out << kp[i]; }
+  out << "],\"others\":[";
+  for (int i = 0; i < 4; ++i) { if (i) out << ','; out << others[i]; }
+  out << "],\"tempo\":[";
+  for (int i = 0; i < 4; ++i) { if (i) out << ','; out << g_eval_params->tempo[i]; }
+  out << "]}";
+}
+
+bool PerturbTempo(char** values) {
+  int32_t changed[3];
+  for (int i = 0; i < 3; ++i) {
+    char* end = nullptr;
+    errno = 0;
+    const long long inc = std::strtoll(values[i], &end, 10);
+    if (errno || end == values[i] || *end || inc < -5LL*kFvScale || inc > 5LL*kFvScale)
+      return false;
+    const int64_t value = int64_t(g_eval_params->tempo[i]) + inc;
+    if (value < std::numeric_limits<int32_t>::min() || value > std::numeric_limits<int32_t>::max())
+      return false;
+    changed[i] = static_cast<int32_t>(value);
+  }
+  // Only three tempo entries in this process's private memory are changed.
+  for (int i = 0; i < 3; ++i) g_eval_params->tempo[i] = changed[i];
+  return true;
+}
+
+void Replay(const std::string& line, bool evaluate, bool details) {
   Position pos = Position::CreateStartPosition();
   std::map<std::string, int> seen;
   std::ostringstream out;
@@ -91,12 +124,18 @@ void Replay(const std::string& line, bool evaluate) {
     if (evaluate) {
       Evaluation::SetShinYonenagaGyoku(true);
       double progress = 0.0;
-      const int on = Evaluation::EvaluateAll(pos, PsqList(pos)).ComputeFinalScore(
+      const EvalDetail on_detail = Evaluation::EvaluateAll(pos, PsqList(pos));
+      const int on = on_detail.ComputeFinalScore(
           pos.side_to_move(), &progress);
       Evaluation::SetShinYonenagaGyoku(false);
-      const int off = Evaluation::Evaluate(pos);
+      const EvalDetail off_detail = Evaluation::EvaluateAll(pos, PsqList(pos));
+      const int off = off_detail.ComputeFinalScore(pos.side_to_move());
       out << ",\"eval_on\":" << on << ",\"eval_off\":" << off
           << ",\"progress\":" << std::setprecision(17) << progress;
+      if (details) {
+        out << ",\"on_parts\":"; PrintParts(out, on_detail);
+        out << ",\"off_parts\":"; PrintParts(out, off_detail);
+      }
     }
     out << '}';
     if (!(input >> token)) break;
@@ -125,7 +164,9 @@ int main(int argc, char** argv) {
         << ",\"fv_scale\":" << kFvScale << "}\n";
     return 0;
   }
-  const bool evaluate = argc == 3 && std::string(argv[1]) == "--evaluate";
+  const bool perturb = argc == 6 && std::string(argv[1]) == "--perturb-tempo";
+  const bool details = perturb || (argc == 3 && std::string(argv[1]) == "--evaluate-details");
+  const bool evaluate = details || (argc == 3 && std::string(argv[1]) == "--evaluate");
   const bool inspect = argc == 3 && std::string(argv[1]) == "--inspect-params";
   if (!evaluate && !inspect && !(argc == 2 && std::string(argv[1]) == "--replay")) return 2;
   Square::Init();
@@ -135,6 +176,10 @@ int main(int argc, char** argv) {
   PsqPair::Init();
   if ((evaluate || inspect) && !LoadParams(argv[2])) {
     std::cerr << "Invalid parameter file size or read failure\n";
+    return 2;
+  }
+  if (perturb && !PerturbTempo(argv+3)) {
+    std::cerr << "Invalid raw tempo increment (maximum 5cp per coefficient)\n";
     return 2;
   }
   if (inspect) {
@@ -147,7 +192,7 @@ int main(int argc, char** argv) {
     return 0;
   }
   for (std::string line; std::getline(std::cin, line);) {
-    Replay(line, evaluate);
+    Replay(line, evaluate, details);
     std::cout.flush();
   }
 }

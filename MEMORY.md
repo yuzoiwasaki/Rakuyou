@@ -200,9 +200,22 @@ max1.64e-15.7new objective tests pass.No held-out quality measured/no qsearch.
 Report:docs/experiments/2026-10-11-tempo-gradient-validation.md.
 tempo-gradient-v1.json SHA dbda4bffc4d92969bb358d72d0ff4c0e50658af1f9c991c905edd87af87f5079.
 No params/checkpoints written,updates0,6runtime/book hashes unchanged.
-Objective/numerical-check changes are a new uncommitted checkpoint.
-Next: independently check native score rounding and small tempo perturbations,
-then fixed qsearch leaves.Only the smooth formula is verified so far.
+Smooth-objective/numerical-check work committed as a1305fd (local,not pushed).
+Native integer-rounding check complete:tools/check_tempo_rounding.py plus probe
+--evaluate-details/--perturb-tempo;tempo changes in private process memory ONLY,
+max5cp/coefficient,first3entries only.No parameter-file writer/no optimizer.
+1024train roots x10fixed perturbations xON/OFF=20480integer scores reconstruct
+exactly;KP/others/progress/board/Huffman/tempo4th unchanged.Maximum smooth-delta
+error0.982391cp;1rawtick changes no scores.General bound near2cp because signed
+round-to-zero can cross0 (synthetic1.5cp example),not a universal1cp bound.
+Related32tests pass(6rounding+7objective+19learning input/provenance/prep).
+Report:docs/experiments/2026-10-11-tempo-rounding-validation.md.
+tempo-rounding-v1.json SHA2e42f6a0794f0931e9387189130c39ec63238305e1afdf47d3b4ddcc31990e45.
+Probe28b5fddc... rebuilt separately;6runtime/book hashes unchanged.
+No search/training/data writes/held-out quality measurement;readiness remainsfalse.
+Rounding/probe-check work is a new uncommitted checkpoint;notify at commit boundary.
+Next: validate frozen qsearch leaves and root/leaf sign/progress/score connection,
+then separately decide pilot conditions.No qsearch or leaf-switch checks yet.
 Keep historical-teacher provenance explicit;do not infer current params identity
 or automatically unlock training.Readiness/long-prefix/adjudication limits persist.
 Proposed later pilot:train1024/val256/test256 caps,
