@@ -1,4 +1,5 @@
 // Static validation and opt-in quiescence probe; no trainer or parameter writer.
+#include <array>
 #include <cstddef>
 #include <cerrno>
 #include <cstdlib>
@@ -27,6 +28,9 @@
 #include "zobrist.h"
 
 namespace {
+#ifdef KING_SAFETY_PROBE
+#include "king_safety_features.h"
+#endif
 
 std::string Key(const Position& pos) {
   const std::string sfen = pos.ToSfen();
@@ -213,6 +217,9 @@ void Replay(const std::string& line, bool evaluate, bool details) {
         out << ",\"off_parts\":"; PrintParts(out, off_detail);
       }
     }
+#ifdef KING_SAFETY_PROBE
+    if (details) { out << ",\"safety_features\":"; PrintSafety(out, pos); }
+#endif
     out << '}';
     if (!(input >> token)) break;
     Move move = kMoveNone;
@@ -240,9 +247,15 @@ int main(int argc, char** argv) {
         << ",\"fv_scale\":" << kFvScale << "}\n";
     return 0;
   }
+#ifdef KING_SAFETY_PROBE
+  if (argc == 2 && std::string(argv[1]) == "--safety-map") { PrintSafetyMap(); return 0; }
+  const bool safety_sfen = argc == 3 && std::string(argv[1]) == "--safety-sfen";
+#else
+  const bool safety_sfen = false;
+#endif
   const bool perturb = argc == 6 && std::string(argv[1]) == "--perturb-tempo";
   const bool qsearch = argc == 4 && std::string(argv[1]) == "--qsearch";
-  const bool details = perturb || (argc == 3 && std::string(argv[1]) == "--evaluate-details");
+  const bool details = safety_sfen || perturb || (argc == 3 && std::string(argv[1]) == "--evaluate-details");
   const bool evaluate = details || (argc == 3 && std::string(argv[1]) == "--evaluate");
   const bool inspect = argc == 3 && std::string(argv[1]) == "--inspect-params";
   if (!evaluate && !inspect && !qsearch && !(argc == 2 && std::string(argv[1]) == "--replay")) return 2;
@@ -278,6 +291,12 @@ int main(int argc, char** argv) {
     return 0;
   }
   for (std::string line; std::getline(std::cin, line);) {
+#ifdef KING_SAFETY_PROBE
+    if (safety_sfen) {
+      Position pos = Position::FromSfen(line);
+      std::cout << "{\"features\":"; PrintSafety(std::cout,pos); std::cout << "}\n";
+    } else
+#endif
     if (qsearch) Quiescence(line);
     else Replay(line, evaluate, details);
     std::cout.flush();

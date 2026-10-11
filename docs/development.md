@@ -101,3 +101,9 @@ python3 tools/check_tempo_export.py \
 監査済み新教師36／18件用は `tools/refreshed_tempo_pilot.py` です。
 既定は更新0のdry-run、実学習には有効な実行用計画コピーと `--run` が必要です。
 旧64／64件runnerは維持します。[新runnerの条件と検証](experiments/2026-10-11-refreshed-runner-validation.md)を参照。
+
+玉安全度の4特徴用は `make king-safety-probe -j2` で別の実行ファイル
+`results/king-safety-tools/king-safety-probe` を作成します。
+旧learning-probeや通常releaseは置き換えません。初回学習の範囲・結果は
+[玉安全度20更新の記録](experiments/2026-10-11-king-safety-first-pilot-result.md)を参照。
+終了済みの実験マーカーを解除して再実行しないでください。

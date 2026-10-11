@@ -121,11 +121,14 @@ adoption documentation are included in the publication checkpoint together
 with the previous four local commits; see git log for the checkpoint ID.
 See books/README.md for settings/provenance/regeneration and regression checks.
 
-## Current Research: First Learning Pilot Closed
+## Current Research: King Safety Pilot Closed; Baseline Retained
 
-First pilot completed;operational params/release/books/25cp preference unchanged.
-No automatic more training,retuning,adoption,search repetitions or games.
-Current conclusion/next-stage map:docs/experiments/2026-10-11-tempo-pilot-closure.md.
+Tempo experiments and first king-safety experiment are closed (20updates each).
+Operational params/release/books/25cp preference unchanged;king safety selected0.
+No automatic more training,retuning,adoption,search repetitions/data expansion/games.
+Latest result:docs/experiments/2026-10-11-king-safety-first-pilot-result.md.
+Next is results discussion,not automatic second-ring thickness implementation.
+Earlier tempo conclusion:docs/experiments/2026-10-11-tempo-pilot-closure.md.
 Detailed preparation/results/hashes are linked from docs/experiments/README.md.
 User prefers coarser commit boundaries:bundle implementation/tests/verification/report
 into a meaningful phase;notify at phase boundaries.No external backup yet.
@@ -286,8 +289,10 @@ Raw results/learning-pilot/2026-10-11-refreshed-final-search-v1/report.json SHA
 Final-phase marker selected-final-search-attempt-v1 prevents rerun;do not bypass.
 Tool2tests pass;report:docs/experiments/2026-10-11-tempo-final-review-and-king-safety-proposal.md.
 Tempo candidates stay research artifacts,operational baseline retained.
-Next is CONSULTATION ONLY on king safety/gold-silver thickness,no new feature
-implementation/extraction/learning authorized yet.Do not return to tempo tuning.
+User agrees next small ACTUAL-learning direction is8-neighbor king safety first,
+no second-ring thickness yet;reuse existing safeguards,only experiment-needed work.
+Adoption separate after results.King-safety first20updates now completed (below).
+Do not return to tempo tuning.
 Source findings:king_safety covers8neighbors/piece/attack/defense excluding own
 king/opp hand;white rotation/right-king mirror;others packed4 (opening/end plus
 side-dependent components),not KP/tempo3.EachKingSafety decomposition exists
@@ -296,8 +301,47 @@ Proposal:4shared residual features (supported gold,supported silver,isolated
 adjacent gold/silver,attack control surplus),opening/end=>8coefficients;zero delta,
 freeze side-dependent lanes/progress/tempo/books25cp.Define aggregate bounds anew.
 Second-ring gold/silver links/escape routes need explicit additional features.
-Discuss safety vs broader thickness and common-table vs Shin-specific scope;
-no implementation or experiment expansion until consultation.
+Concrete plan:docs/experiments/2026-10-11-king-safety-small-learning-plan.md.
+Use existing shared king_safety table residuals (candidate affects ON/OFF;trial ON,
+operational base unchanged);no new safety framework/USI toggle.
+4groups supported gold/supported silver/isolated adjacent gold-silver/control
+deficit;unpromoted Gold/Silver only,wall excluded,defenders exclude king.
+It detects generic support,not supporter type/mutual links/forward motion/second
+ring/attack value;future thickness adds type/distance/direction after first stage.
+Proposed reuse verified36train/18val and frozen leaves;8opening/end coefficients,
+side-dependent lanes fixed.20updates max,rate/maxstep.05,total each±.5cp,
+L2=1e-4,gain1/600,save0/5/10/20,native validation selection;candidate >10cp leaf
+change rejected,no automatic filtering/tuning/refill/adoption.
+First inspect TRAIN coverage/identifiability;unobservable freedoms stayzero.
+Necessary work only:native features/perturbation,8dim updater/objective hookup,
+restricted table exporter,zero-update checks,one bounded learning+audit phase.
+No new teacher searches/data expansion/second-ring features/test extension in plan.
+King-safety FIRST PILOT CLOSED at20updates,no automatic tuning/validation
+extension/new data/second ring/adoption.Operational BASE retained (selected0).
+Details:docs/experiments/2026-10-11-king-safety-first-pilot-result.md.
+Four features explicitly:supported unpromotedGold,supported unpromotedSilver,
+isolated adjacent unpromotedGold/Silver,adjacent attack-control surplus (wall0).
+Existing safety table shared residuals only lanes0/2;others/KP/tempo/progress fixed.
+Separate make king-safety-probe binary/obj;old probe b1401e61 and release unchanged.
+Native feature/exact mask397312 entries implemented;6tests pass incl color/mirror/
+corner/feature semantics/king exclusion/gradient/export guard/checkpoint/max20.
+Rank8 ontrain36;control deficit sparse4nonzero-net train rows,features biased.
+Dry0 zero SHA/evals/checkpoint confirmed.1actual20update run from BASE params
+6bbc... plus ZERO8delta,not tempo candidate.±.05cp step,±.5cp coefficients,L2=1e-4.
+20average delta feature-major op/end: (.038782,-.017124,.012374,-.026890,
+-.047521,-.007777,.024792,.053908).Maxavgabs~.054cp,all bounds pass.
+ALL54frozen native leaf scores unchanged at0/5/10/20;val loss+L2 worsens slightly
+.005335262698 -> .005335688344,selected0.Native root train36unchanged,
+val17unchanged/White draw1 -301->-302 (-1cp).Max root/leafdiff1 within10cp.
+All side/draw strata leafloss unchanged;18val provisional,not strength evidence.
+All4state/export/protectedregion/loss audits pass,searches0/test0/deployedfalse.
+Runtime6+oldprobe hashes unchanged;additional10-file/7787395byte backup verified.
+Raw results/learning-pilot/2026-10-11-king-safety-run-v1/report.json SHA
+6f69cc8d82eba7edb12bf46f854cb41d120aaedaa82f3a9ded9e4d4c93364b91;
+audit-v1 SHA355d47a6e63f2d220fa7eed36e880586600e174cce7a1fb2d34f3fa8c91bef57.
+GEN dir king-safety-learning-attempt-v1 marker prevents rerun,do not bypass.
+Next:results discussion ONLY;future thickness/supporter-type/mutual connections
+and data coverage would be separate plan.No automatic follow-on experiments.
 Same-engine teachers are self-distillation,not evidence of stronger teaching.
 Historical runtime identity/correlation/draw adjudication/external backup remain
 open.Proposed feature expansion and games require separate experiment plans.

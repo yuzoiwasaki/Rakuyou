@@ -4,6 +4,10 @@ Rakuyouの自己対局と序盤解析の記録です。
 
 ## 現在地
 
+- [玉周囲8マスの初回実学習：4特徴・20更新、整数評価改善なし・基準維持](2026-10-11-king-safety-first-pilot-result.md)
+
+- [次の小規模学習案：玉周囲8マスの安全度と金銀の支え、厚みへの接続](2026-10-11-king-safety-small-learning-plan.md)
+
 - [手番実験の終了：最終探索比較と玉安全度・金銀の厚みの相談案](2026-10-11-tempo-final-review-and-king-safety-proposal.md)
 
 - [新教師での手番学習：36／18件・20更新、候補選択・運用は基準維持](2026-10-11-refreshed-tempo-pilot-result.md)

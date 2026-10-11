@@ -64,6 +64,13 @@ ifeq ($(TARGET),learning-probe) # 探索・学習を行わないデータ検証�
 	output_file := results/learning-tools/learning-data-probe
 	LDFLAGS += -Wl,-rpath,@loader_path/../../lib/libomp-x86_64/lib
 endif
+ifeq ($(TARGET),king-safety-probe)
+ sources := $(filter-out src/main.cc,$(wildcard src/*.cc)) tools/learning_data_probe.cc
+ CXXFLAGS += -O2 -g3 -DKING_SAFETY_PROBE
+ INCLUDES += -Isrc
+ output_file := results/king-safety-tools/king-safety-probe
+ LDFLAGS += -Wl,-rpath,@loader_path/../../lib/libomp-x86_64/lib
+endif
 ifeq ($(TARGET),profile)      # プロファイル用
 	sources  := $(shell ls src/*.cc)
 	CXXFLAGS += -O3 -DNDEBUG -pg
@@ -94,9 +101,9 @@ directories += $(dir $(output_file))
 #
 # 4. Public Targets
 #
-.PHONY: gikou release cluster consultation development profile test coverage learning-probe run-coverage clean scaffold libomp-x86_64
+.PHONY: gikou release cluster consultation development profile test coverage learning-probe king-safety-probe run-coverage clean scaffold libomp-x86_64
 
-gikou release cluster consultation development profile test coverage learning-probe:
+gikou release cluster consultation development profile test coverage learning-probe king-safety-probe:
 	$(MAKE) TARGET=$@ executable
 
 run-coverage: coverage
