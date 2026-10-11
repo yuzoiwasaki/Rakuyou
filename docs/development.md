@@ -38,3 +38,16 @@ python3 tools/prepare_learning_data.py \
 `*.provisional.jsonl` を学習確定集合として扱わないでください。
 現在の入口には学習・パラメータ更新機能はありません。
 計画と制限は[学習調査・実験案](experiments/2026-10-11-learning-feasibility-plan.md)を参照。
+
+準備済みJSONLを元棋譜と照合し、全局面を更新なしで検証する入口：
+
+```sh
+python3 tools/validate_learning_input.py \
+  results/learning-pilot/2026-10-11-preparation-v2/manifest.json \
+  --output results/learning-pilot/my-input-validation-001
+```
+
+これは教師の評価精度・損失・勾配を測定せず、入力、合法性、固定ベース、
+ゼロ差分コピーの評価／進行度一致を確認します。`--checkpoint` で読む状態も
+更新回数0・手番3係数のゼロ差分に限定されます。出力先は新規ディレクトリのみです。
+検証後も暫定集合の `training_ready` はfalseのままです。

@@ -163,8 +163,37 @@ copied;no external backup.Original historical per-run runtime/data provenance
 is unresolved;all JSONL outputs remain provisional/training_ready:false.
 Long-prefix correlations beyond24 and formal adjudication remain unresolved.
 
-Next: review historical run provenance and record support/assumptions before
-promoting any provisional split;then prepare an update-free learning entry.
+Preparation committed as680c1b0 (local;not pushed in this task).
+Historical provenance review complete:docs/experiments/2026-10-11-learning-provenance-review.md.
+tools/audit_learning_provenance.py verifies sources/splits and archived report refs.
+47/47run raw SHAs corroborated,2740games;2 pawn26 trial refs use scoped short labels.
+4 new provenance tests pass.Historical params/progress/probability SHAs remain
+unknown;Git ignores bin data.No source changes to trainer/progress/probability/
+material/search since initial commit;this does NOT prove binary-data identity.
+433f8d0 src change was Black book support only.Reported engine families6f7891/a1a5
+must remain distinct;not every game launch has independent runtime hash evidence.
+provenance-v1.json SHA2d5db42ba075995ea9ad586a70ea9d8c71fc2e53cdcbedc9aef0611742132d4b.
+No provisional split promoted.No new search/game/learning or runtime data changes.
+Update-free reader complete:tools/validate_learning_input.py validates provisional
+manifest/JSONL against original records and native root/PV/Huffman replay.
+All1536roots/PVs and intermediate states match base/copy ON/OFF static evaluation
+and progress.Packed tempo[-163745,653365,-1105013,0],fv_scale65536 unchanged.
+Zero-checkpoint reader rejects nonzero/nonfinite delta,wrong base,updates!=0.
+No objective/loss/gradient/search/optimizer/nonzero application implemented.
+Related19tests pass(preparation10/provenance4/input5).No test quality metric used.
+Report:docs/experiments/2026-10-11-learning-input-validation.md.
+results/learning-pilot/2026-10-11-input-validation-v1/validation.json SHA
+f5970dd5034feefd60c36d59bdcd26075636d0b773865a5316a86c6b068c25d1.
+Checkpoint e06c125cc4a3e5adc98f0841c4c655bb6c32a13bf7907d51ced9a5d2478924ec;
+params copy SHA same asbase6bbc573.6runtime/book hashes unchanged,original
+manifest/JSONL/provenance JSON untouched.Probe now907da718... adds progress/tempo
+inspection;separate binary rebuilt only.No external backup or training executed.
+Provenance review plus reader is a coherent uncommitted checkpoint;user wants
+notification at appropriate commit boundaries.No new commit made in this phase.
+Next: define tempo objective/sign/progress factors and verify analytical gradients
+against finite differences without updates;then separately validate qsearch leaves.
+Keep historical-teacher provenance explicit;do not infer current params identity
+or automatically unlock training.Readiness/long-prefix/adjudication limits persist.
 Proposed later pilot:train1024/val256/test256 caps,
 batch<=128/threads1/fixed seed/max20updates/step<=0.25cp/delta<=5cp, frozen3-tempo
 delta with search-score loss. This is numerical feasibility, not strength proof.

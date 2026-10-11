@@ -4,6 +4,7 @@
 #include <cstdio>
 #include <cstring>
 #include <iostream>
+#include <iomanip>
 #include <map>
 #include <regex>
 #include <sstream>
@@ -44,6 +45,9 @@ bool LegalToken(const std::string& token, const Position& pos, Move* move) {
     if (piece == kNoPiece || piece.color() != pos.side_to_move()) return false;
     const Piece target = pos.piece_on(Square::FromSfen(token.substr(2, 2)));
     if (target != kNoPiece && target.type() == kKing) return false;
+    if (piece.type() == kKnight && token.size() == 4 &&
+        relative_rank(pos.side_to_move(), Square::FromSfen(token.substr(2, 2)).rank()) <= kRank2)
+      return false;
   }
   *move = Move::FromSfen(token, pos);
   if (!move->IsOk() || !pos.MoveIsLegal(*move)) return false;
@@ -86,10 +90,13 @@ void Replay(const std::string& line, bool evaluate) {
         << ",\"huffman_hex\":\"" << hex << "\"";
     if (evaluate) {
       Evaluation::SetShinYonenagaGyoku(true);
-      const int on = Evaluation::Evaluate(pos);
+      double progress = 0.0;
+      const int on = Evaluation::EvaluateAll(pos, PsqList(pos)).ComputeFinalScore(
+          pos.side_to_move(), &progress);
       Evaluation::SetShinYonenagaGyoku(false);
       const int off = Evaluation::Evaluate(pos);
-      out << ",\"eval_on\":" << on << ",\"eval_off\":" << off;
+      out << ",\"eval_on\":" << on << ",\"eval_off\":" << off
+          << ",\"progress\":" << std::setprecision(17) << progress;
     }
     out << '}';
     if (!(input >> token)) break;
@@ -119,15 +126,25 @@ int main(int argc, char** argv) {
     return 0;
   }
   const bool evaluate = argc == 3 && std::string(argv[1]) == "--evaluate";
-  if (!evaluate && !(argc == 2 && std::string(argv[1]) == "--replay")) return 2;
+  const bool inspect = argc == 3 && std::string(argv[1]) == "--inspect-params";
+  if (!evaluate && !inspect && !(argc == 2 && std::string(argv[1]) == "--replay")) return 2;
   Square::Init();
   Bitboard::Init();
   ExtendedBoard::Init();
   HuffmanCode::Init();
   PsqPair::Init();
-  if (evaluate && !LoadParams(argv[2])) {
+  if ((evaluate || inspect) && !LoadParams(argv[2])) {
     std::cerr << "Invalid parameter file size or read failure\n";
     return 2;
+  }
+  if (inspect) {
+    std::cout << "{\"tempo_raw\":[";
+    for (int i = 0; i < 4; ++i) {
+      if (i) std::cout << ',';
+      std::cout << g_eval_params->tempo[i];
+    }
+    std::cout << "],\"fv_scale\":" << kFvScale << "}\n";
+    return 0;
   }
   for (std::string line; std::getline(std::cin, line);) {
     Replay(line, evaluate);
