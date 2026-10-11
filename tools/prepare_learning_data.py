@@ -36,8 +36,10 @@ def stable_order(seed, value):
 
 
 class Probe:
-    def __init__(self, binary, params=None, *, details=False, tempo_raw=None):
-        if (details or tempo_raw is not None) and params is None:
+    def __init__(self, binary, params=None, *, details=False, tempo_raw=None, qsearch_progress=None):
+        if qsearch_progress is not None and (details or tempo_raw is not None):
+            raise ValueError("Qsearch cannot run with tempo perturbations or static details")
+        if (details or tempo_raw is not None or qsearch_progress is not None) and params is None:
             raise ValueError("Parameter file required for detailed evaluation")
         if tempo_raw is not None and (len(tempo_raw) != 3 or
                 any(type(v) is not int or abs(v) > 5*65536 for v in tempo_raw)):
@@ -45,10 +47,13 @@ class Probe:
         self.errors = tempfile.TemporaryFile(mode="w+t")
         args = [str(Path(binary).resolve()), "--replay"]
         if params is not None:
-            mode = "--perturb-tempo" if tempo_raw is not None else "--evaluate-details" if details else "--evaluate"
+            mode = "--qsearch" if qsearch_progress is not None else "--perturb-tempo" if tempo_raw is not None else "--evaluate-details" if details else "--evaluate"
             args = [str(Path(binary).resolve()), mode, str(Path(params).resolve())]
             if tempo_raw is not None:
                 args.extend(str(v) for v in tempo_raw)
+            if qsearch_progress is not None:
+                args.append(str(Path(qsearch_progress).resolve()))
+        self.qsearch = qsearch_progress is not None
         self.process = subprocess.Popen(args, stdin=subprocess.PIPE,
                                         stdout=subprocess.PIPE, stderr=self.errors,
                                         text=True, bufsize=1)
@@ -67,7 +72,7 @@ class Probe:
             self.errors.seek(0)
             raise RuntimeError("Native validation failed: " + self.errors.read()[-1000:])
         result = json.loads(line)
-        if result.get("ok") and len(result["positions"]) != len(moves) + 1:
+        if result.get("ok") and not self.qsearch and len(result["positions"]) != len(moves) + 1:
             raise ValueError("Native replay length mismatch")
         return result
 

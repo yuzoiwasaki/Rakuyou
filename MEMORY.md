@@ -213,9 +213,24 @@ Report:docs/experiments/2026-10-11-tempo-rounding-validation.md.
 tempo-rounding-v1.json SHA2e42f6a0794f0931e9387189130c39ec63238305e1afdf47d3b4ddcc31990e45.
 Probe28b5fddc... rebuilt separately;6runtime/book hashes unchanged.
 No search/training/data writes/held-out quality measurement;readiness remainsfalse.
-Rounding/probe-check work is a new uncommitted checkpoint;notify at commit boundary.
-Next: validate frozen qsearch leaves and root/leaf sign/progress/score connection,
-then separately decide pilot conditions.No qsearch or leaf-switch checks yet.
+Rounding/probe-check work committed asc19fbc7 (local,not pushed).
+Frozen qsearch connection verified:explicit --qsearch params progress in probe;
+strict params.KP4/progress-weight identity;Huffman root omits pre-root Node history
+like RootStrap.ON/depth0/PV/window+-31000/learning_mode=true/fresh1MBTT each root.
+Qsearch does not use book/probability weights.No iterative deepening/optimizer.
+tools/check_qsearch_leaves.py samples64train strata;64accepted/0excluded,
+Black33/White31,odd15/even49,PV lengths0:43/1:11/2:6/3:4;draw21/Whitedraw10.
+Qscore equals signed static leaf;cached/full/replayed leaf evaluation/progress/
+packed parts agree.Mean gradient FD max8.08e-16;two fixed-leaf perturbations
+max0.924454cp rounding error.No changed-tempo re-search or PV-switch tests.
+6new tests+32previous=38pass.Report docs/experiments/2026-10-11-qsearch-leaf-validation.md.
+qsearch-leaves-v1.json SHA2b627a565a11ae3acfe916aa7b3a6255f815677fd6be2ba09fcd00dd1b3ffbca;
+probeb1401e61... built separately.64diagnostic qs calls409Search nodes(max93),
+not full CPU work incl mate routines.6runtime/book hashes unchanged/updates0.
+No training/params writes/held-out quality measured;readiness remainsfalse.
+Qsearch verification is a new uncommitted checkpoint;notify at commit boundary.
+Next: concretize pilot provenance/L2/rate/float-state/save-stop conditions and
+independently verify an updater;no automatic real-data learning or adoption.
 Keep historical-teacher provenance explicit;do not infer current params identity
 or automatically unlock training.Readiness/long-prefix/adjudication limits persist.
 Proposed later pilot:train1024/val256/test256 caps,

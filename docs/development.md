@@ -18,8 +18,10 @@ make release
 `make learning-probe -j2` は通常エンジンとは別に
 `results/learning-tools/learning-data-probe` をビルドします。
 `obj/learning-probe/` を使い、`bin/release` を置き換えません。
-このツールは探索・学習を実行せず、既存の盤面・合法手判定・Huffman処理で
-USI着手列を検証します。`--layout` は対象ビルドのバイナリ構造を表示します。
+既定の再生・静的評価モードは探索・学習を実行せず、既存の盤面・合法手判定・
+Huffman処理でUSI着手列を検証します。`--layout` は対象ABIを表示します。
+明示的な `--qsearch` モードだけは接続検査用の静止探索を行います。
+どのモードにも学習更新・評価ファイル保存機能はありません。
 
 ```sh
 make learning-probe -j2
@@ -51,3 +53,15 @@ python3 tools/validate_learning_input.py \
 ゼロ差分コピーの評価／進行度一致を確認します。`--checkpoint` で読む状態も
 更新回数0・手番3係数のゼロ差分に限定されます。出力先は新規ディレクトリのみです。
 検証後も暫定集合の `training_ready` はfalseのままです。
+
+静止探索の固定末端を、trainから64局面に限って検証する入口：
+
+```sh
+python3 tools/check_qsearch_leaves.py \
+  results/learning-pilot/2026-10-11-preparation-v2/manifest.json \
+  --output results/learning-pilot/my-qsearch-leaves-001.json
+```
+
+paramsとprogressの重み一致を確認し、ON・1スレッド相当・深さ0・局面ごと空のTTで
+検索します。Qsearchで求めた末端は固定し、手番を摂動した後の再探索は行いません。
+既存ファイルの上書きは拒否し、元データと定跡を保持します。

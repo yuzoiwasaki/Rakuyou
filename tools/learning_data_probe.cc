@@ -1,5 +1,4 @@
-// Search-free validation helper for Rakuyou learning-data preparation.
-// Uses the Gikou position, move and Huffman implementations without a trainer.
+// Static validation and opt-in quiescence probe; no trainer or parameter writer.
 #include <cstddef>
 #include <cerrno>
 #include <cstdlib>
@@ -17,10 +16,15 @@
 #include "extended_board.h"
 #include "huffman_code.h"
 #include "material.h"
+#include "mate1ply.h"
+#include "node.h"
+#include "progress.h"
+#include "search.h"
 #include "movegen.h"
 #include "psq.h"
 #include "square.h"
 #include "teacher_data.h"
+#include "zobrist.h"
 
 namespace {
 
@@ -37,6 +41,19 @@ bool LoadParams(const char* path) {
   std::fclose(fp);
   if (ok) Material::Init();
   return ok;
+}
+
+bool LoadProgress(const char* path) {
+  std::FILE* fp = std::fopen(path, "rb");
+  if (!fp) return false;
+  const bool ok = std::fread(&Progress::weights, sizeof(Progress::weights), 1, fp) == 1
+      && std::fgetc(fp) == EOF && !std::ferror(fp);
+  std::fclose(fp);
+  if (!ok) return false;
+  for (Square sq : Square::all_squares())
+    for (PsqIndex i : PsqIndex::all_indices())
+      if (g_eval_params->king_piece[sq][i][3] != Progress::weights[sq][i]) return false;
+  return true;
 }
 
 bool LegalToken(const std::string& token, const Position& pos, Move* move) {
@@ -98,6 +115,65 @@ bool PerturbTempo(char** values) {
   // Only three tempo entries in this process's private memory are changed.
   for (int i = 0; i < 3; ++i) g_eval_params->tempo[i] = changed[i];
   return true;
+}
+
+void Quiescence(const std::string& line) {
+  Position pos = Position::CreateStartPosition();
+  std::istringstream input(line);
+  std::string token;
+  int ply = 0;
+  while (input >> token) {
+    Move move = kMoveNone;
+    if (++ply > 600 || !LegalToken(token, pos, &move)) {
+      std::cout << "{\"ok\":false,\"error\":\"illegal_root_history\"}\n";
+      return;
+    }
+    pos.MakeMove(move);
+  }
+  Evaluation::SetShinYonenagaGyoku(true);
+  // Match RootStrap's compressed-position boundary, which omits game history.
+  Node node(HuffmanCode::DecodePosition(HuffmanCode::EncodePosition(pos)));
+  std::unique_ptr<SharedData> shared(new SharedData);
+  shared->hash_table.SetSize(1);
+  shared->Clear();
+  std::unique_ptr<Search> search(new Search(*shared));
+  search->set_learning_mode(true);  // No TT score substitution or hash cut.
+  search->PrepareForNextSearch();
+  const Score score = search->AlphaBetaSearch(node, -kScoreKnownWin, kScoreKnownWin, kDepthZero);
+  const std::vector<Move> pv(search->pv_table().begin(), search->pv_table().end());
+  std::ostringstream out;
+  out << "{\"ok\":true,\"qscore\":" << score << ",\"nodes\":" << search->num_nodes_searched()
+      << ",\"root_sfen\":\"" << Key(node) << " 1\",\"root_side\":\""
+      << (node.side_to_move() == kBlack ? "black" : "white") << "\",\"pv\":[";
+  for (size_t i = 0; i < pv.size(); ++i) {
+    if (i) out << ',';
+    out << '"' << pv[i].ToSfen() << '"';
+  }
+  out << ']';
+  for (Move move : pv) {
+    if (!node.MoveIsLegal(move)) {
+      std::cout << "{\"ok\":false,\"error\":\"illegal_qsearch_pv\"}\n";
+      return;
+    }
+    node.Evaluate();
+    node.MakeMove(move);
+  }
+  double progress = 0.0;
+  const int cached = node.Evaluate(&progress);
+  const EvalDetail full = Evaluation::EvaluateAll(node, PsqList(node));
+  const int scratch = full.ComputeFinalScore(node.side_to_move());
+  Score repetition = kScoreNone;
+  const bool repeats = node.DetectRepetition(&repetition);
+  out << ",\"leaf_sfen\":\"" << Key(node) << " 1\",\"leaf_side\":\""
+      << (node.side_to_move() == kBlack ? "black" : "white")
+      << "\",\"leaf_eval_cached\":" << cached << ",\"leaf_eval_full\":" << scratch
+      << ",\"leaf_progress\":" << std::setprecision(17) << progress
+      << ",\"leaf_repetition\":" << (repeats ? "true" : "false")
+      << ",\"leaf_in_check\":" << (node.in_check() ? "true" : "false")
+      << ",\"leaf_parts\":";
+  PrintParts(out, full);
+  out << '}';
+  std::cout << out.str() << '\n';
 }
 
 void Replay(const std::string& line, bool evaluate, bool details) {
@@ -165,18 +241,28 @@ int main(int argc, char** argv) {
     return 0;
   }
   const bool perturb = argc == 6 && std::string(argv[1]) == "--perturb-tempo";
+  const bool qsearch = argc == 4 && std::string(argv[1]) == "--qsearch";
   const bool details = perturb || (argc == 3 && std::string(argv[1]) == "--evaluate-details");
   const bool evaluate = details || (argc == 3 && std::string(argv[1]) == "--evaluate");
   const bool inspect = argc == 3 && std::string(argv[1]) == "--inspect-params";
-  if (!evaluate && !inspect && !(argc == 2 && std::string(argv[1]) == "--replay")) return 2;
+  if (!evaluate && !inspect && !qsearch && !(argc == 2 && std::string(argv[1]) == "--replay")) return 2;
   Square::Init();
   Bitboard::Init();
   ExtendedBoard::Init();
   HuffmanCode::Init();
   PsqPair::Init();
-  if ((evaluate || inspect) && !LoadParams(argv[2])) {
+  if ((evaluate || inspect || qsearch) && !LoadParams(argv[2])) {
     std::cerr << "Invalid parameter file size or read failure\n";
     return 2;
+  }
+  if (qsearch) {
+    if (!LoadProgress(argv[3])) {
+      std::cerr << "Progress data size/weights do not match params\n";
+      return 2;
+    }
+    Zobrist::Init();
+    InitMateInOnePly();
+    Search::Init();
   }
   if (perturb && !PerturbTempo(argv+3)) {
     std::cerr << "Invalid raw tempo increment (maximum 5cp per coefficient)\n";
@@ -192,7 +278,8 @@ int main(int argc, char** argv) {
     return 0;
   }
   for (std::string line; std::getline(std::cin, line);) {
-    Replay(line, evaluate, details);
+    if (qsearch) Quiescence(line);
+    else Replay(line, evaluate, details);
     std::cout.flush();
   }
 }
