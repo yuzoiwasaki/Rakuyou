@@ -273,9 +273,31 @@ audit-v1 SHAbf527023791f682a189685e1aae8b647bce5df313ee1ebc286ef682cabb4a671.
 Candidate20 SHA87362631206cf06872c24bd746676c3d1578163e87ab5b7708252b8c71f0c620.
 Actual run's independent additional backup8files/50101bytes,no external upload.
 learning-attempt-v1 marker prevents rerun;do not bypass.Operational baseline kept.
-Next proposed bounded phase:selected-only reQS validation18 (max36calls) +
-normal depth15 comparison6val roots/one per stratum (max12searches),same settings.
-Not executed yet.No retuning/new updates/test use or auto-adoption.
+User explicitly closes tempo-three experiment after scheduled final searches;
+NO additional tuning/training/repeats/deepening/games/test validation extension.
+Final scheduled searches complete:36QS/18val,all comparable,PV/leaf changes0,
+score changes9 within+-1,raw loss decrease~.2606% (withoutL2).
+12normal searches/6val roots depth15 all complete,legal;bestmove changes2/PV6.
+One candidate PV repeats history (black:draw),excluded from cp comparison;
+5comparable cp differences -288..+13;not move-quality/strength proof.
+Errors/stops0,runtime/candidatecopy hashes unchanged,updates0/test0/deployedfalse.
+Raw results/learning-pilot/2026-10-11-refreshed-final-search-v1/report.json SHA
+14a55b15576eac85831834f457228b6aa8237c19f9186f5c79742cf4ca573490.
+Final-phase marker selected-final-search-attempt-v1 prevents rerun;do not bypass.
+Tool2tests pass;report:docs/experiments/2026-10-11-tempo-final-review-and-king-safety-proposal.md.
+Tempo candidates stay research artifacts,operational baseline retained.
+Next is CONSULTATION ONLY on king safety/gold-silver thickness,no new feature
+implementation/extraction/learning authorized yet.Do not return to tempo tuning.
+Source findings:king_safety covers8neighbors/piece/attack/defense excluding own
+king/opp hand;white rotation/right-king mirror;others packed4 (opening/end plus
+side-dependent components),not KP/tempo3.EachKingSafety decomposition exists
+but compiled->original float params not recoverable.
+Proposal:4shared residual features (supported gold,supported silver,isolated
+adjacent gold/silver,attack control surplus),opening/end=>8coefficients;zero delta,
+freeze side-dependent lanes/progress/tempo/books25cp.Define aggregate bounds anew.
+Second-ring gold/silver links/escape routes need explicit additional features.
+Discuss safety vs broader thickness and common-table vs Shin-specific scope;
+no implementation or experiment expansion until consultation.
 Same-engine teachers are self-distillation,not evidence of stronger teaching.
 Historical runtime identity/correlation/draw adjudication/external backup remain
 open.Proposed feature expansion and games require separate experiment plans.
