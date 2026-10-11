@@ -256,10 +256,26 @@ Dry results/learning-pilot/2026-10-11-refreshed-runner-dry-run-v1/report.json SH
 07660d91e7018de09812e5c96b9285409bcc9f5079d07c4e75efa60105bf53b6.
 Plan docs/experiments/configs/refreshed-tempo-pilot-v1.json SHA
 37c5eed0827627d7abea44c79460d64b5e7448b5123d060cb6a80da848d671db.
-Runner/plan/tests/dry-run/report form one commit phase.
-Next:private enabled plan,one bounded max20 learning run on frozen36/18,save
-candidates/validation selection/audit together;no runtime adoption or searches.
-No refreshed-teacher learning run yet;do not use test to tune.
+Runner/plan/dry-run committed as94a9358 (local,not pushed).
+Authorized refreshed-teacher20updates completed ONCE;selected20-average,
+delta(-1.036965844,-1.164215957,-1.082549825)cp.
+Val native loss+L2 .005335262698 -> .005323159923 (~.226845% decrease),
+9/18 scores change within+-1cp;individual better6/worse3/same9.
+5update val worse than base;White draw/win strata worse (3each),not draw-skill gain.
+Train avg smooth loss+L2 .017445345946 -> .017433734498 (post-run observation).
+All4checkpoint/candidate/other-region SHA and native val loss independently
+recomputed/pass.Updates closed20,no extra updates/search/test/deployment.
+Runtime6 and backups unchanged,errors0;only private plan training flag enabled.
+Report:docs/experiments/2026-10-11-refreshed-tempo-pilot-result.md.
+results/learning-pilot/2026-10-11-refreshed-pilot-run-v1/report.json SHA
+88733fd21826476f77e861dcd451105f01e1453a23563505ef33f87d9f8f3a3d;
+audit-v1 SHAbf527023791f682a189685e1aae8b647bce5df313ee1ebc286ef682cabb4a671.
+Candidate20 SHA87362631206cf06872c24bd746676c3d1578163e87ab5b7708252b8c71f0c620.
+Actual run's independent additional backup8files/50101bytes,no external upload.
+learning-attempt-v1 marker prevents rerun;do not bypass.Operational baseline kept.
+Next proposed bounded phase:selected-only reQS validation18 (max36calls) +
+normal depth15 comparison6val roots/one per stratum (max12searches),same settings.
+Not executed yet.No retuning/new updates/test use or auto-adoption.
 Same-engine teachers are self-distillation,not evidence of stronger teaching.
 Historical runtime identity/correlation/draw adjudication/external backup remain
 open.Proposed feature expansion and games require separate experiment plans.
