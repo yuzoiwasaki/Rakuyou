@@ -4,6 +4,8 @@ Rakuyouの自己対局と序盤解析の記録です。
 
 ## 現在地
 
+- [新教師36／18件の学習runnerと更新0検証：計画固定・実学習は無効](2026-10-11-refreshed-runner-validation.md)
+
 - [新教師の接続・54固定末端・更新0dry-run：再学習は未実施](2026-10-11-refreshed-pilot-preparation.md)
 
 - [由来を固定した教師生成と監査：54局面すべて受入、学習は未実施](2026-10-11-teacher-refresh-generation.md)

@@ -239,9 +239,26 @@ results/learning-pilot/2026-10-11-refreshed-pilot-preparation-v1/report.json SHA
 Train cache SHAd284a89c42447578025421ea9f55516ad9b01dde537666f250b2fd97343f60f3;
 val cache SHAc18997ac3694870cffe66872cafd6c520a5c457e18c695e9dab9f7f112d42d3e.
 Backup SHAba18462cd3b7c260fdfbbe5088d10efc1bfa9abc0d9a2087add815eb515e644b.
-5new reader/leaf tests pass;reader/preparation/dry-run/report form one commit phase.
-Next:dedicated36/18 learning runner+disabled plan bound to these caches,small
-max20 settings/selection rules fixed before run.Preserve old64/64 runner.
+Reader/leaves/update0 preparation committed as3cf98ce (local,not pushed).
+Dedicated36/18 tools/refreshed_tempo_pilot.py + disabled plan implemented,
+old64/64 runner unchanged. Same Config max20/step.25/limit5/seed20261011,
+mean sigmoid gain1/600/L2=1e-6,avg.9995,saves0/5/10/20.
+Selection:validation native loss+L2,changed val scores AND improvement>1e-12;
+no improvement=>baseline,ties=>earlier. Never retune using test.
+Plan binds preparation/generation/audit/base/cache/backup SHA;private flag-only
+copy required for --run;no searches/deployment/resume/retry allowed.
+Update counter saved each step;exclusive learning-attempt-v1 prevents reruns.
+Dry-run real updates0/qualityfalse/selectionnull:checkpoint0 restores,base-equal
+candidate,54leaf evaluations match,lossnull.57-file backup unchanged,7-file/
+48567byte additional independent backup verified.5new synthetic/guard tests pass.
+Report:docs/experiments/2026-10-11-refreshed-runner-validation.md.
+Dry results/learning-pilot/2026-10-11-refreshed-runner-dry-run-v1/report.json SHA
+07660d91e7018de09812e5c96b9285409bcc9f5079d07c4e75efa60105bf53b6.
+Plan docs/experiments/configs/refreshed-tempo-pilot-v1.json SHA
+37c5eed0827627d7abea44c79460d64b5e7448b5123d060cb6a80da848d671db.
+Runner/plan/tests/dry-run/report form one commit phase.
+Next:private enabled plan,one bounded max20 learning run on frozen36/18,save
+candidates/validation selection/audit together;no runtime adoption or searches.
 No refreshed-teacher learning run yet;do not use test to tune.
 Same-engine teachers are self-distillation,not evidence of stronger teaching.
 Historical runtime identity/correlation/draw adjudication/external backup remain

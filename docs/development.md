@@ -97,3 +97,7 @@ python3 tools/check_tempo_export.py \
 固定54局面・depth15・1スレッド・最大30秒／局面で、学習や配備は行いません。
 入力・runtime照合、部分保存、実行フラグの条件とdry-run記録は
 [教師生成runnerの検証](experiments/2026-10-11-teacher-refresh-dry-run.md)を参照。
+
+監査済み新教師36／18件用は `tools/refreshed_tempo_pilot.py` です。
+既定は更新0のdry-run、実学習には有効な実行用計画コピーと `--run` が必要です。
+旧64／64件runnerは維持します。[新runnerの条件と検証](experiments/2026-10-11-refreshed-runner-validation.md)を参照。
