@@ -182,11 +182,82 @@ new input/raw hash/PVs appended to review. No book/games/runtime changes.
 Next: direct opponent response or focused check of pawn36 in pawn44 child,
 then the planned silver63/silver38/gold32 move11 preparation comparison.
 Two pilot first games share135 plies (141/145 total),not independent evidence.
-Later diagnostics are uncommitted;Black first-book choice/combined file deferred.
+Continuation6 committed as0ae8dc9 (not pushed here). Continuation7: fresh normal
+OFF/unrestricted24 after pawn36: pawn64 +35,pawn84 +19,silver42/pawn54 +16,
+gold52-right +7 (White cp);all5 PVs Black kingright. Black ON direct pawn64
+followup unrestricted24: pawn25 -25,gold58-right -51,pawn56 -65,silver38 -66,
+silver68 -81. Top2 PVs king48;other3 return left. Do not subtract ON/OFF/parents.
+Both complete/no errors/stops/bounds;input/PVs legally checked;raw hashes/full
+evidence in Continuation7. Pawn36 absent in33 observed parent games;still a
+conditional candidate,not registered/no strength claim. No games/runtime changes.
+Next: planned move11 parent after pawn25/silver63/silver38/gold32;different board
+from this pawn36 child. Consolidate candidates before more games/book changes.
+Continuation8: planned move11 parent matches23 games (11 transposed),pawn24
+19 (10/8/1),gold78 four (1/2/1),pawn46 zero. Fresh ON/unrestricted24 gold78 -33,
+pawn16 -47,pawn96 -55,pawn24 -61,pawn46 -64. Top3 PVs return left,other2 king48.
+Same parent restricted26/MultiPV3: gold78 -29,pawn24 -57,pawn46 -87. Gold78/pawn24
+return left (21/31),pawn46 king39 right;actual pawn24 is30cp above pawn46 here.
+Relative3-candidate order stable,cp gaps/PVs aren't;no cross-depth subtraction.
+Silver68 then bishop88+ both legal,immediate recaptures on88 none: do not adopt
+generic early-left-silver rule. Both analyses complete/no errors/stops/bounds,
+input/PVs legally checked;raw hashes and full evidence appended to review.
+Hold move11 registration;leave search. Consolidate only conditional move9 pawn36
+after gold32/gold78/pawn44 as an additional candidate,not a proven strength gain.
+Continuation9: prepared NEW pawn76-right-side-pawn36 SEVEN-entry revision,
+books/shin-yonenaga-black-pawn76-right-side-pawn36-experiment.json and
+books/shin-yonenaga-black-book-pawn76-right-side-pawn36-experiment.txt.
+Retains all6 existing pawn76 entries unchanged +ONLY gold32/gold78/pawn44 ->
+pawn36 at9. No move11 registration/long PV/retreat bans. Unadopted.
+Txt SHA f242178d7fd2f6278b5f9706528b39dfe257e213ed504b0ff2c17833696f2d9a.
+69 tests pass (6 new),54 entry/book/transposed moves legal;old/runtime hashes
+unchanged,no rebuild. Static parent old25/fixed6/pilot_trial2,pilot_control0;
+3 transposed,total33,actual pawn36 zero. Pilot's2 first games share135 plies.
+Next external comparison50x4 BASE pawn76 SIX/new SEVEN/new SEVEN/base SIX,
+each100,total200,sequential fresh,fixedBlackdepth15/thread1/hash512/normalbookON/
+PonderOFF/BookMax20/max256/timeout300. NOT the old silver38/pawn25-six control.
+Outputs results/shin-black-pawn76-pawn36-<label>-depth15-50games.json;
+baseline-r1/trial-r1/trial-r2/baseline-r2. Give one caffeinate command at a time.
+Inspect coverage/control same pawn36 choices/king positions/development/actual
+opponent replies/run spread;no causal small-gap claims. Close this branch at200,
+low coverage/ambiguity =>hold addition,no auto extra100/depths,then Black choice.
+Pawn36 comparison baseline-r1 complete50/errors0:19/23/8 (46%),book139 matches,
+Shin standard0;silver62=23/rook42=27. Added parent5 games1/15/33/35/36,all search
+silver38 (1/3/1),pawn36 zero,no transpositions/revisits. Kingright24=41/50,
+40=40/50;returnby12 one/by40 ten;bishop capturesby24=22 (8/9/5),four-occurrences5.
+Settings/summary/records/outcomes/replay checked;raw hash/details in review;
+current runtime/book hashes match prep.
+Pawn36 trial-r1 complete50/errors0:15/25/10 (40%),book146 matches,Shin standard0;
+silver62=29/rook42=21. Added pawn36 games1/8,both losses,opponent10 pawn64/pawn84
+both search. Targets king24=48 both,40=48/38,no left returns,not proven harm/gain.
+No transpositions/revisits. Whole run kingright24=45/50,40=41/50;returnby12 zero/
+by40 nine;bishop capturesby24=24 (8/12/4),four-occurrences4. All audit checks pass,
+hash/details in review;runtime/control/trial hashes match.
+Pawn36 trial-r2 complete50/errors0:16/24/10 (42%),book153 matches,Shin standard0;
+trial100 total31/49/20 (41%). Added pawn36 games1/6/7/8/10/11 (2/3/1),reply10
+pawn64 five/silver42 one (search),no transpositions/revisits. Target rightking24
+five/6,40 three/6;games7/8 returnat27 andwin,game10 returnat17 andloss.
+Whole run kingright24=41/50,40=37/50;returnby12 zero/by40 thirteen;
+bishop capturesby24=25 (9/12/4),four-occurrences6. All audit checks pass,
+hash/details in review;runtime/control/trial hashes match.
+Continuation10 (Oct11): baseline-r2 complete50/errors0=21/20/9 (51%),book153.
+ALL200 complete/errors0/book591 match,Shin standard0;all audit checks pass,
+current runtime/books hashes match prep. SIX100=40/43/17 (48.5%),SEVEN=31/49/20
+(41%). Reached SIX6=1/3/2(all searchsilver38),SEVEN8=2/5/1(all dedicatedpawn36);
+no target transpositions/revisits. Non-target49.5%/41.8%,not a causal7.5pt loss.
+Targets rightking40 SIX6/6,SEVEN5/8;whole runs rightking24=77/86,40=70/78.
+Returnby12 SIX1/SEVEN0,by40 30/22;repeat10 each,all max256draw. No strength proof.
+Hold pawn36 addition,close this200,no auto extra100/depths. Current recommendation
+for Black provisional first version is BASE pawn76 SIX (cb8d7e...),not pawn36
+SEVEN and not the old silver38/common13-pawn25 SIX. Supported by root/prep evidence
+and operational results,not proven winning strength. Keep all alternatives.
+Formal Black adoption/combined file not changed yet. Next: finalize Black choice,
+then combine6 Black + unchanged11 Whitev2,then plan small learning experiment.
+Continuation7/8/9 uncommitted;combined file deferred.
 Operational adoption remains a recommendation;keep Whitev2/eval/BookMax20 fixed.
 Rechecked fixed-Black1,200 games and the historical paired-file audit.
-Recommend closing the first operational cycle with the pawn25 SIX-entry book;
-this is a recommendation, NOT a status/default change or proven strength gain.
+Initial review recommended the silver38/common13-pawn25 SIX-entry book;
+Continuation10 updates the recommendation to BASE pawn76 SIX after further
+screening/comparison. Neither is a proven causal gain;formal choice still pending.
 Future alternative: pawn76-first with conditional right-side preparations.
 New captured unrestricted24/MultiPV5 searches at the silver62/pawn64/gold78/
 pawn44 parent support pawn36/pawn25/silver38 (Black ON -78 each), and normal

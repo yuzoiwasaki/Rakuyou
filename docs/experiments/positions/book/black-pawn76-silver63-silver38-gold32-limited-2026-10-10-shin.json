@@ -1,0 +1,10 @@
+{
+  "positions": [
+    {
+      "id": "black_pawn76_silver63_gold32_pawn24_vs_pawn46_gold78",
+      "moves": ["5i4h", "3c3d", "7g7f", "7a6b", "2g2f", "6c6d", "2f2e", "6b6c", "3i3h", "4a3b"],
+      "searchmoves": ["2e2d", "4g4f", "6i7h"],
+      "note": "Black-ON, OwnBook/Ponder OFF, fresh engine, threads1/hash512, restricted26/MultiPV3. One recheck of actual pawn24 vs pawn46 preparation and gold78 control: unrestricted24 ranked gold78 -33, pawn24 -61, pawn46 -64; gold78 PV returns king58 while the other2 retain king48. Compare these candidates ONLY within this run; do not subtract unrestricted24 scores or call an unrestricted26 best. Pawn46 occurred0/23 matched historical/pilot positions; inspect right silver development, rook activity, exchanges and king placement. No retreat bans, book registration, games or runtime changes."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "positions": [
+    {
+      "id": "black_pawn76_silver63_silver38_after_gold32",
+      "moves": ["5i4h", "3c3d", "7g7f", "7a6b", "2g2f", "6c6d", "2f2e", "6b6c", "3i3h", "4a3b"],
+      "note": "Black-ON, OwnBook/Ponder OFF, fresh engine, threads1/hash512, unrestricted24/MultiPV5. Direct move11 comparison in the observed gold32 response to the dedicated silver38 at9: pawn24 was played in19 of23 exact-board matches, gold78 in4. Pilot trials reached2 matches with pawn24, one win/one loss; neither had both silvers fully developed by40. Compare actual pawn24, gold78 and other unrestricted leaders for development, exchanges and king placement. No assumption that silver/gold-first is universally better; no retreat bans. Scores are Black side-to-move, not comparable by subtraction with the different pawn36 child or older depths. No book registration, new games or runtime changes."
+    }
+  ]
+}

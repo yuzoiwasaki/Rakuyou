@@ -17,9 +17,10 @@
 | 先手▲３八銀先行・４局面試験版、100局完了・採用保留 | `shin-yonenaga-black-book-silver38-experiment.txt` | `shin-yonenaga-black-silver38-experiment.json` |
 | 先手銀先行・△３二銀に▲３九玉を追加した５局面版、200局比較完了・採用保留 | `shin-yonenaga-black-book-silver38-silver32-experiment.txt` | `shin-yonenaga-black-silver38-silver32-experiment.json` |
 | 先手銀先行・頻出17手目▲７六歩を追加した６局面版、200局比較完了・採用保留 | `shin-yonenaga-black-book-silver38-silver32-pawn76-experiment.txt` | `shin-yonenaga-black-silver38-silver32-pawn76-experiment.json` |
-| 先手▲２五歩６局面版、暫定運用候補・独立レビュー完了 | `shin-yonenaga-black-book-silver38-silver32-pawn25-experiment.txt` | `shin-yonenaga-black-silver38-silver32-pawn25-experiment.json` |
+| 先手銀先行・▲２五歩６局面版、初期暫定候補・比較／別構想として保存 | `shin-yonenaga-black-book-silver38-silver32-pawn25-experiment.txt` | `shin-yonenaga-black-silver38-silver32-pawn25-experiment.json` |
 | 先手15手目▲６八銀追加７局面版、200局比較完了・採用保留 | `shin-yonenaga-black-book-silver38-silver32-pawn25-silver68-experiment.txt` | `shin-yonenaga-black-silver38-silver32-pawn25-silver68-experiment.json` |
-| 先手▲７六歩先行・右側構想６局面試験版、40局試験完了・別構想候補として保存 | `shin-yonenaga-black-book-pawn76-right-side-experiment.txt` | `shin-yonenaga-black-pawn76-right-side-experiment.json` |
+| 先手▲７六歩先行・右側構想６局面版、暫定第一運用版の優先候補 | `shin-yonenaga-black-book-pawn76-right-side-experiment.txt` | `shin-yonenaga-black-pawn76-right-side-experiment.json` |
+| 先手▲７六歩先行・条件付き▲３六歩追加７局面版、200局比較完了・追加採用保留 | `shin-yonenaga-black-book-pawn76-right-side-pawn36-experiment.txt` | `shin-yonenaga-black-pawn76-right-side-pawn36-experiment.json` |
 
 ## 後手第一運用版の使い方
 
@@ -437,6 +438,38 @@ SHA-256：`cb8d7e3e3a4ed2817752ea93d4890837fa43c91db752b5ce3a1dc534f38bb7eb`。
 試験20局合計８勝７敗５分（52.5%）。最後の対照も２勝８敗で正常終了し、
 全40局完了。対照20局は３勝14敗３分（22.5%）。差を因果的な棋力向上とはせず、
 試験版は別構想の候補として保存する。先手第一運用版はまだ選択段階。
+
+## ▲７六歩系列：条件付き▲３六歩１枝追加版
+
+元の▲７六歩６局面版を完全に保持し、次の１組だけを追加した別の試験版。
+
+```text
+5i4h 3c3d 7g7f 7a6b 2g2f 4a3b 6i7h 4c4d | 3g3f
+```
+
+無制限先手ON深さ24で２位−44、首位と４cp差。
+通常側の直接応手と先手の準備も確認したが、勝率改善は未証明。
+11手目の固定は追加せず、未知応手と後続は探索へ任せる。
+生成元は `shin-yonenaga-black-pawn76-right-side-pawn36-experiment.json`、
+指定txtは `shin-yonenaga-black-book-pawn76-right-side-pawn36-experiment.txt`。
+SHA-256：`f242178d7fd2f6278b5f9706528b39dfe257e213ed504b0ff2c17833696f2d9a`。
+69テスト成功、再ビルド不要。試験用で運用未採用。
+
+比較案は元の▲７六歩６局面／新７局面／新７局面／元６局面の50局×４、各版100局。
+旧▲３八銀先行の▲２五歩６局面版とは別の対照で、１枝の効果と構想を調べる。
+到達数・対照で同じ手を選ぶ割合・玉配置・駒組み・実行差を確認し、
+僅差や低到達で不明なら追加の採用を保留する。
+この200局で比較を区切り、自動的な追加100局や深さ拡張はしない。
+[根拠・静的照合・コマンド](../docs/experiments/2026-10-10-black-book-independent-review.md)
+の継続６～９を参照。対照１本目50局がerrors０で完了、19勝23敗８分（46%）。
+追加親局面は５局、全て探索で▲３八銀を選び、▲３六歩は０。
+試験１本目50局もerrors０、15勝25敗10分（40%）。追加▲３六歩は２局で両方負け、
+玉は右側に残った。試験２本目もerrors０、16勝24敗10分（42%）、
+試験100局合計31勝49敗20分（41%）。追加手は２本目で６局利用（２勝３敗１分）。
+最後の対照は21勝20敗９分（51%）で正常終了。対照100局40勝43敗17分（48.5%）、
+追加100局31勝49敗20分（41%）。追加枝の利益は確認できず採用保留で、この比較を区切る。
+非到達群の差・低到達を含むため7.5ポイントを因果的悪化量とはしない。
+元の▲７六歩６局面版を先手暫定第一運用版の優先候補に推すが、正式採用はまだ確定していない。
 
 ## 保存と整理の方針
 

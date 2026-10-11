@@ -1,0 +1,9 @@
+{
+  "positions": [
+    {
+      "id": "normal_after_black_pawn36_in_gold32_pawn44_branch",
+      "moves": ["5i4h", "3c3d", "7g7f", "7a6b", "2g2f", "4a3b", "6i7h", "4c4d", "3g3f"],
+      "note": "Normal OFF, OwnBook/Ponder OFF, fresh engine, threads1/hash512, unrestricted24/MultiPV5. Direct White-to-move replies to pawn36, which was4cp below silver38 in the Black-ON pawn44 child and kept king48 in that PV. The parent ON PV predicted pawn64; verify actual unrestricted OFF choices rather than treating that prediction as the opponent response. Scores are White side-to-move; do not subtract against Black-ON scores or different parents. OFF affects both colors in this analysis, not mixed ON/OFF selfplay. No book registration, new games or runtime changes."
+    }
+  ]
+}

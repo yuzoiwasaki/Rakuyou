@@ -1,0 +1,16 @@
+# Rakuyou Shin-Yonenaga-Gyoku Black book standalone experiment
+# USI moves from startpos | Black book move
+# black_pawn76_entry
+5i4h 3c3d | 7g7f
+# black_pawn76_silver62_pawn26
+5i4h 3c3d 7g7f 7a6b | 2g2f
+# black_pawn76_silver62_pawn64_pawn25
+5i4h 3c3d 7g7f 7a6b 2g2f 6c6d | 2f2e
+# black_pawn76_pawn25_silver63_silver38
+5i4h 3c3d 7g7f 7a6b 2g2f 6c6d 2f2e 6b6c | 3i3h
+# black_pawn76_rook42_silver38
+5i4h 3c3d 7g7f 8b4b | 3i3h
+# black_pawn76_rook42_silver38_king62_pawn26
+5i4h 3c3d 7g7f 8b4b 3i3h 5a6b | 2g2f
+# black_pawn76_gold32_gold78_pawn44_pawn36
+5i4h 3c3d 7g7f 7a6b 2g2f 4a3b 6i7h 4c4d | 3g3f

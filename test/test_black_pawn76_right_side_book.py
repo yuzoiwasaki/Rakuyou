@@ -10,6 +10,7 @@ sys.path.insert(0, str(ROOT))
 from tools.audit_white_positions import Board
 from tools.build_shin_book import compile_book
 from tools.paired_selfplay import UsiEngine
+import test_black_trial_book as revision_tests
 
 SOURCE = ROOT / "books/shin-yonenaga-black-pawn76-right-side-experiment.json"
 BOOK = ROOT / "books/shin-yonenaga-black-book-pawn76-right-side-experiment.txt"
@@ -151,6 +152,53 @@ class EngineTest(unittest.TestCase):
                              ("3i3h", "dedicated_book"))
         finally:
             control.close()
+
+
+class ConditionalPawn36RevisionTest(revision_tests.Common17Pawn76RevisionTest):
+    base_source = SOURCE
+    base_book = BOOK
+    source = ROOT / "books/shin-yonenaga-black-pawn76-right-side-pawn36-experiment.json"
+    book = ROOT / "books/shin-yonenaga-black-book-pawn76-right-side-pawn36-experiment.txt"
+    parent = ["5i4h", "3c3d", "7g7f", "7a6b", "2g2f", "4a3b", "6i7h", "4c4d"]
+    book_move = "3g3f"
+    followup_reply = "6c6d"
+    transposed = ["5i4h", "3c3d", "7g7f", "7a6b", "6i7h", "4c4d", "2g2f", "4a3b"]
+
+    def test_added_evidence_and_unique_positions(self):
+        rows = json.loads(self.source.read_text())["entries"]
+        self.assertEqual(len({position(e["moves"]) for e in rows}), 7)
+        evidence = rows[-1]["evidence"]
+        path = ROOT / evidence["result"]
+        if not path.exists():
+            self.skipTest("local ignored search result is unavailable")
+        result = json.loads(path.read_text())
+        self.assertFalse(result["errors"])
+        parent = next(p for p in result["positions"]
+                      if p["id"] == evidence["position_id"])
+        self.assertEqual(parent["moves"], self.parent)
+        self.assertFalse(parent.get("searchmoves"))
+        analysis = parent["analysis"]
+        self.assertFalse(analysis["stopped_early"])
+        candidate = next(c for c in analysis["candidates"]
+                         if c["pv"][0] == self.book_move)
+        self.assertEqual((candidate["depth"], candidate["multipv"],
+                          candidate["score_type"], int(candidate["score"])),
+                         (24, 2, "cp", -44))
+        self.assertEqual(evidence["gap_to_leader_cp"], 4)
+        self.assertEqual(int(analysis["candidates"][0]["score"])
+                         - int(candidate["score"]), 4)
+
+    def test_other_reply_and_planned_move11_remain_search(self):
+        cases = [self.parent[:-1] + ["6c6d"],
+                 ["5i4h", "3c3d", "7g7f", "7a6b", "2g2f", "6c6d",
+                  "2f2e", "6b6c", "3i3h", "4a3b"]]
+        engine = self.make_engine()
+        try:
+            for moves in cases:
+                with self.subTest(moves=moves):
+                    self.assertEqual(engine.choose_move(moves, 1, 30)[2], "search")
+        finally:
+            engine.close()
 
 
 if __name__ == "__main__":
