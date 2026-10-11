@@ -11,6 +11,7 @@ Rakuyouの自己対局と序盤解析の記録です。
 - [手番3係数：損失・符号・進行度と解析勾配の数値検証](2026-10-11-tempo-gradient-validation.md)
 - [実エンジンの整数丸め：メモリ上の手番摂動と20,480評価の照合](2026-10-11-tempo-rounding-validation.md)
 - [静止探索の固定末端：64局面の符号・評価・進行度・勾配の接続検証](2026-10-11-qsearch-leaf-validation.md)
+- [手番更新器の合成検証と64局面・最大20更新のパイロット案](2026-10-11-tempo-updater-validation.md)
 - 後手第一運用版はv2の既存11局面。[定跡一覧・使い方](../../books/README.md)
   に運用／比較用／保留を整理しています。過去の実験は削除していません。
 - [後手の一区切り：200局比較・７局確認・v2採用判断](2026-10-03-v2-bounded-white-improvement-cycle.md)

@@ -1,0 +1,37 @@
+{
+  "schema": "rakuyou-tempo-pilot-plan-v1",
+  "status": "planned-not-executed",
+  "real_data_training_enabled": false,
+  "base_params_sha256": "6bbc573306839fe019634dd94b06af7c22834a641e8bc060e23889ae9b3b2195",
+  "preparation_manifest_sha256": "44704fc910fc3217a55399951d6a60ab233a49b80b0a017695e7672627954792",
+  "train_qsearch_diagnostic_sha256": "2b627a565a11ae3acfe916aa7b3a6255f815677fd6be2ba09fcd00dd1b3ffbca",
+  "teacher_origin": "archived-search-cp; historical runtime parameter identity unknown",
+  "train_roots": 64,
+  "validation_roots_max": 64,
+  "test_roots_reserved": 256,
+  "leaf_policy": "baseline qsearch leaves frozen for the complete bounded run",
+  "objective": "mean sigmoid-square gain 1/600 plus delta-only L2",
+  "optimizer": {
+    "max_updates": 20,
+    "batch_size": 128,
+    "seed": 20261011,
+    "step_rate_cp": 0.25,
+    "max_step_cp": 0.25,
+    "delta_limit_cp": 5.0,
+    "decay": 0.9975,
+    "epsilon": 1e-12,
+    "l2": 1e-6,
+    "average_decay": 0.9995
+  },
+  "save_updates": [0, 5, 10, 20],
+  "selection": "validation chooses from three averaged checkpoints; no improvement means baseline",
+  "outcome_loss_enabled": false,
+  "draw_policy": "retain eligible cp teachers; never relabel truncated draws as wins or formal draws",
+  "deployment_enabled": false,
+  "pending": [
+    "independent candidate parameter exporter and reread validation",
+    "prepare frozen validation leaves without test quality inspection",
+    "verified backups and complete experiment runner dry-run",
+    "explicit real-data learning instruction; initial investigation-only constraint remains"
+  ]
+}

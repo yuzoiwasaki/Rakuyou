@@ -121,125 +121,57 @@ adoption documentation are included in the publication checkpoint together
 with the previous four local commits; see git log for the checkpoint ID.
 See books/README.md for settings/provenance/regeneration and regression checks.
 
-## Current Research: Learning Feasibility and Search-Free Preparation
+## Current Research: Small Learning Pilot Preparation
 
-October11 source4016d24 inspected; starting tree clean/main matching origin/main.
-Report: docs/experiments/2026-10-11-learning-feasibility-plan.md.
-Existing --learn clears loaded evaluation, resets material and overwrites cwd
-params.bin every100 updates. It is NOT existing-parameter continuation.
-params.bin is compiled integer EvalParameters, not the float ExtendedParams or
-optimizer checkpoint; original feature decomposition cannot be uniquely recovered.
-Recommend frozen base + zero-initialized delta, initially ONLY3 tempo coefficients.
-RootStrap-only mode needs a separate entry; existing CLI also requires game DB.
-RootStrap loss/gradient mismatch needs finite-difference verification before reuse.
-Keep25cp preference frozen and match ON teachers to ON predictions.
+Preparation checkpoints (local, not pushed):680c1b0 audited data;7d04e67 input
+reader/provenance;a1305fd smooth gradients;c19fbc7 native rounding;85db3fb frozen
+qsearch leaves. User wants notification at appropriate commit boundaries.
+Do not execute real-data learning or overwrite runtime data in this phase.
+Frozen books/25cp preference/defaults remain unchanged. No external backup yet.
 
-Local census:49 game JSONs/2744games/477923records;2291 resign wins,
-453 max_plies draws (mask outcome loss, retain eligible cp/move teachers);
-2730 distinct full move strings. Include draws, with White-draw diagnostic stratum.
-Confirmed formal draws may later use explicit0.5 targets; never label draws as wins.
-Evaluation trainer enables8-event title-only filter explicitly (reader defaultsOFF),
-with no CLI override; experimental reader must allow selfplay without event spoofing.
-139 analysis JSONs/281roots;184 ON/unrestricted/nonstop rank1-cp metadata candidates.
-Shin search depth15/plies24-80/no raw bounds/PV agrees:77707 record candidates,
-NOT legality-checked or SFEN-deduplicated.2 historical KIFs remain diagnostic only.
-No kifu_db/teacher bins in root/bin, no trainer checkpoints found in bin/results/local.
+Source findings:--learn resets loaded params/material and overwrites cwd params.bin.
+Compiled params.bin cannot uniquely recover float ExtendedParams/optimizer state.
+Use fixed base +3-tempo delta, not existing --learn. Evaluation trainer enables
+8-event title filter;experimental readers bypass it without event spoofing.
+Historical params/progress/probability hashes unknown;47run raw hashes are
+corroborated, but runtime identity and full adjudication are not established.
 
-Search-free preparation completed:make learning-probe builds separately into
-results/learning-tools/, obj/learning-probe/; bin/release is untouched.
-tools/prepare_learning_data.py audits JSON and native move/PV/Huffman replay,
-masks truncated outcome labels, excludes repeated histories and cross-split
-SFEN/prefix24 overlap.49files;2smoke files/4games excluded;2740games/475347moves
-replayed,451truncateddraws/2289resigns;72389eligible metadata/legal-PV candidates.
-Provisional train1024/validation256/test256,31/8/8disjoint runs;White-draw
-teachers170/42/42 (all draws341/85/85).Equal side/result strata are intentional,
-not natural outcome frequency.10 new preparation/native tests pass.
-results/learning-pilot/2026-10-11-preparation-v2/manifest.json SHA
+Data:2740audited games/475347moves,2289resigns/451max-plies draws;2smoke runs excluded.
+Provisional train1024/validation256/test256,31/8/8 disjoint runs;White-draw cp
+teachers170/42/42. Truncated outcomes masked;eligible draw cp retained,never wins.
+Equal side/result strata are deliberate,not natural outcome frequency.
+Cross-split SFEN/prefix24 removed;longer correlation remains. All readiness=false.
+Manifest results/learning-pilot/2026-10-11-preparation-v2/manifest.json SHA
 44704fc910fc3217a55399951d6a60ab233a49b80b0a017695e7672627954792.
-Zero-delta byte copy SHA matches base;18sample prefixes/all intermediate states
-match ON/OFF static evaluation after reread.6runtime/book hashes unchanged.
-No nonzero delta/search/game/training executed.Only params was independently
-copied;no external backup.Original historical per-run runtime/data provenance
-is unresolved;all JSONL outputs remain provisional/training_ready:false.
-Long-prefix correlations beyond24 and formal adjudication remain unresolved.
+Base params SHA6bbc573306839fe019634dd94b06af7c22834a641e8bc060e23889ae9b3b2195.
+Reports and all artifact hashes:docs/experiments/README.md learning entries.
 
-Preparation committed as680c1b0 (local;not pushed in this task).
-Historical provenance review complete:docs/experiments/2026-10-11-learning-provenance-review.md.
-tools/audit_learning_provenance.py verifies sources/splits and archived report refs.
-47/47run raw SHAs corroborated,2740games;2 pawn26 trial refs use scoped short labels.
-4 new provenance tests pass.Historical params/progress/probability SHAs remain
-unknown;Git ignores bin data.No source changes to trainer/progress/probability/
-material/search since initial commit;this does NOT prove binary-data identity.
-433f8d0 src change was Black book support only.Reported engine families6f7891/a1a5
-must remain distinct;not every game launch has independent runtime hash evidence.
-provenance-v1.json SHA2d5db42ba075995ea9ad586a70ea9d8c71fc2e53cdcbedc9aef0611742132d4b.
-No provisional split promoted.No new search/game/learning or runtime data changes.
-Update-free reader complete:tools/validate_learning_input.py validates provisional
-manifest/JSONL against original records and native root/PV/Huffman replay.
-All1536roots/PVs and intermediate states match base/copy ON/OFF static evaluation
-and progress.Packed tempo[-163745,653365,-1105013,0],fv_scale65536 unchanged.
-Zero-checkpoint reader rejects nonzero/nonfinite delta,wrong base,updates!=0.
-No objective/loss/gradient/search/optimizer/nonzero application implemented.
-Related19tests pass(preparation10/provenance4/input5).No test quality metric used.
-Report:docs/experiments/2026-10-11-learning-input-validation.md.
-results/learning-pilot/2026-10-11-input-validation-v1/validation.json SHA
-f5970dd5034feefd60c36d59bdcd26075636d0b773865a5316a86c6b068c25d1.
-Checkpoint e06c125cc4a3e5adc98f0841c4c655bb6c32a13bf7907d51ced9a5d2478924ec;
-params copy SHA same asbase6bbc573.6runtime/book hashes unchanged,original
-manifest/JSONL/provenance JSON untouched.Probe now907da718... adds progress/tempo
-inspection;separate binary rebuilt only.No external backup or training executed.
-Provenance review plus update-free reader committed as7d04e67 (local,not pushed).
-User wants notification at appropriate commit boundaries.
-Smooth tempo objective now tools/tempo_objective.py (no engine mutation/optimizer).
-Mean sigmoid-square gain1/600 +lambda/2 deltaL2;lambda1e-4 for numerical checks.
-Own-leaf tempo factor+0.5 for BOTHcolors;root/leaf turn mismatch flips baseline
-and derivatives;progress quantized1/65536;integer final-cp rounding excluded.
-tools/check_tempo_gradient.py passed336synthetic cases/1008coeff checks(max5.60e-14)
-and1024static train roots(Black513/White511),zero/nonzero formula-only deltas,
-max1.64e-15.7new objective tests pass.No held-out quality measured/no qsearch.
-Report:docs/experiments/2026-10-11-tempo-gradient-validation.md.
-tempo-gradient-v1.json SHA dbda4bffc4d92969bb358d72d0ff4c0e50658af1f9c991c905edd87af87f5079.
-No params/checkpoints written,updates0,6runtime/book hashes unchanged.
-Smooth-objective/numerical-check work committed as a1305fd (local,not pushed).
-Native integer-rounding check complete:tools/check_tempo_rounding.py plus probe
---evaluate-details/--perturb-tempo;tempo changes in private process memory ONLY,
-max5cp/coefficient,first3entries only.No parameter-file writer/no optimizer.
-1024train roots x10fixed perturbations xON/OFF=20480integer scores reconstruct
-exactly;KP/others/progress/board/Huffman/tempo4th unchanged.Maximum smooth-delta
-error0.982391cp;1rawtick changes no scores.General bound near2cp because signed
-round-to-zero can cross0 (synthetic1.5cp example),not a universal1cp bound.
-Related32tests pass(6rounding+7objective+19learning input/provenance/prep).
-Report:docs/experiments/2026-10-11-tempo-rounding-validation.md.
-tempo-rounding-v1.json SHA2e42f6a0794f0931e9387189130c39ec63238305e1afdf47d3b4ddcc31990e45.
-Probe28b5fddc... rebuilt separately;6runtime/book hashes unchanged.
-No search/training/data writes/held-out quality measurement;readiness remainsfalse.
-Rounding/probe-check work committed asc19fbc7 (local,not pushed).
-Frozen qsearch connection verified:explicit --qsearch params progress in probe;
-strict params.KP4/progress-weight identity;Huffman root omits pre-root Node history
-like RootStrap.ON/depth0/PV/window+-31000/learning_mode=true/fresh1MBTT each root.
-Qsearch does not use book/probability weights.No iterative deepening/optimizer.
-tools/check_qsearch_leaves.py samples64train strata;64accepted/0excluded,
-Black33/White31,odd15/even49,PV lengths0:43/1:11/2:6/3:4;draw21/Whitedraw10.
-Qscore equals signed static leaf;cached/full/replayed leaf evaluation/progress/
-packed parts agree.Mean gradient FD max8.08e-16;two fixed-leaf perturbations
-max0.924454cp rounding error.No changed-tempo re-search or PV-switch tests.
-6new tests+32previous=38pass.Report docs/experiments/2026-10-11-qsearch-leaf-validation.md.
-qsearch-leaves-v1.json SHA2b627a565a11ae3acfe916aa7b3a6255f815677fd6be2ba09fcd00dd1b3ffbca;
-probeb1401e61... built separately.64diagnostic qs calls409Search nodes(max93),
-not full CPU work incl mate routines.6runtime/book hashes unchanged/updates0.
-No training/params writes/held-out quality measured;readiness remainsfalse.
-Qsearch verification is a new uncommitted checkpoint;notify at commit boundary.
-Next: concretize pilot provenance/L2/rate/float-state/save-stop conditions and
-independently verify an updater;no automatic real-data learning or adoption.
-Keep historical-teacher provenance explicit;do not infer current params identity
-or automatically unlock training.Readiness/long-prefix/adjudication limits persist.
-Proposed later pilot:train1024/val256/test256 caps,
-batch<=128/threads1/fixed seed/max20updates/step<=0.25cp/delta<=5cp, frozen3-tempo
-delta with search-score loss. This is numerical feasibility, not strength proof.
-Details/exclusions/stop rules and current runtime/data hashes are in the report.
-No engine behavior/defaults/book changes. Do not run learning or overwrite runtime
-data in this preparation phase. Preserve frozen books, held-outs and data backups.
-External-engine diagnosis and optional thickness books remain separate future tracks.
+Verified:1536root/PV input and zero-copy ON/OFF/progress checks;336synthetic
+gradient cases plus1024static train roots;20480native rounding checks.
+Frozen ON/depth0 qsearch:64train accepted,odd15/even49,Black33/White31,draw21/
+Whitedraw10. Fresh1MBTT/learning_mode=true;strict KP4-progress weight identity;
+Huffman boundary omits pre-root Node history. Cached/full/replayed leaves agree.
+No changed-tempo re-search/PV-switch checks.6qsearch+32previous tests pass.
+Probe b1401e61... built separately;6runtime/book hashes unchanged.
+
+New uncommitted checkpoint:tools/tempo_updater.py and synthetic-only checker,
+6new tests pass.20 synthetic updates,real-data updates0;10-step JSON resume
+exactly matches uninterrupted20. Per-step<=0.25cp,total delta<=5cp,max20 enforced.
+State binds config/input/Python/RNG,stores RMSprop and average sums/mass.
+No real-data loader or binary writer in updater. Synthetic report SHA
+c24b4a5fe93a19aaa80349cca97797cb032d38f3b264b3afa4f6b1ab50038963.
+Report:docs/experiments/2026-10-11-tempo-updater-validation.md.
+Plan:docs/experiments/configs/tempo-pilot-v1.json,planned/not executed.
+First pilot reduced to64validated frozen train leaves;validation<=64 to prepare;
+test256 untouched. Mean sigmoid-square gain1/600,delta L2=1e-6 proposal;
+RMSprop rate0.25/decay0.9975/epsilon1e-12;averaging0.9995;seed20261011;
+save0/5/10/20. Settings fixed before validation,not hyperparameter search.
+Original numerical-check L2=1e-4 was a prototype,not this pilot's chosen value.
+
+Next: independent candidate exporter/reread check,prepare validation frozen leaves,
+then complete runner dry-run/backups before any real-data20-update experiment.
+No automatic training/adoption/rate retuning/more games. External-engine diagnosis
+and optional thickness books remain separate future tracks.
 
 ## Black Book Evidence History (superseded by Current Decision above)
 
