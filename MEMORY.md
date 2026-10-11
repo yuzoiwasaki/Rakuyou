@@ -188,10 +188,21 @@ Checkpoint e06c125cc4a3e5adc98f0841c4c655bb6c32a13bf7907d51ced9a5d2478924ec;
 params copy SHA same asbase6bbc573.6runtime/book hashes unchanged,original
 manifest/JSONL/provenance JSON untouched.Probe now907da718... adds progress/tempo
 inspection;separate binary rebuilt only.No external backup or training executed.
-Provenance review plus reader is a coherent uncommitted checkpoint;user wants
-notification at appropriate commit boundaries.No new commit made in this phase.
-Next: define tempo objective/sign/progress factors and verify analytical gradients
-against finite differences without updates;then separately validate qsearch leaves.
+Provenance review plus update-free reader committed as7d04e67 (local,not pushed).
+User wants notification at appropriate commit boundaries.
+Smooth tempo objective now tools/tempo_objective.py (no engine mutation/optimizer).
+Mean sigmoid-square gain1/600 +lambda/2 deltaL2;lambda1e-4 for numerical checks.
+Own-leaf tempo factor+0.5 for BOTHcolors;root/leaf turn mismatch flips baseline
+and derivatives;progress quantized1/65536;integer final-cp rounding excluded.
+tools/check_tempo_gradient.py passed336synthetic cases/1008coeff checks(max5.60e-14)
+and1024static train roots(Black513/White511),zero/nonzero formula-only deltas,
+max1.64e-15.7new objective tests pass.No held-out quality measured/no qsearch.
+Report:docs/experiments/2026-10-11-tempo-gradient-validation.md.
+tempo-gradient-v1.json SHA dbda4bffc4d92969bb358d72d0ff4c0e50658af1f9c991c905edd87af87f5079.
+No params/checkpoints written,updates0,6runtime/book hashes unchanged.
+Objective/numerical-check changes are a new uncommitted checkpoint.
+Next: independently check native score rounding and small tempo perturbations,
+then fixed qsearch leaves.Only the smooth formula is verified so far.
 Keep historical-teacher provenance explicit;do not infer current params identity
 or automatically unlock training.Readiness/long-prefix/adjudication limits persist.
 Proposed later pilot:train1024/val256/test256 caps,
