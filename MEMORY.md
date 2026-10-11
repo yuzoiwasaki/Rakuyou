@@ -249,10 +249,23 @@ Exclusive search-attempt-v1.json prevents accidental rerun,do not bypass.
 Raw results/learning-pilot/2026-10-11-full-search-comparison-v1/report.json SHA
  a6e87fa8822f85c6f314873dfbf9ebf7e1d170760208164f922eba81754801fe.
 Report:docs/experiments/2026-10-11-tempo-full-search-comparison.md.
-3new result tests pass;preparation+runner+reports are a commit boundary,notify user.
-Next proposed bounded control:baseline only,3diagnosed roots (maxcp difference
-and2bestmove switches),2fresh runs each,max6depth12 searches with same settings.
-Not yet executed.Do not extend24-run comparison/retune/adopt before control.
+Preparation+normal-search comparison committed as67d450f (local,not pushed).
+Baseline-only control complete:3diagnosed roots (max absolutecp gap and2move
+switches),2fresh runs each,6/6depth12 completed under unchanged settings.
+Including previous baseline,all3observations per root have identical cp/bestmove/
+PV/nodes: -382/S*3a/311498;98/5g6f/44042;-15/1d1e/46162.
+No baseline startup variation observed here;NOT universal determinism proof.
+Candidate remains one observation per root;candidate repeatability untested.
+Errors/stops/bounds/mate0;6new PVs legal;runtime6/copy14 SHA unchanged.
+Control marker baseline-control-attempt-v1.json prevents rerun;do not bypass.
+Updates0/candidate searches0/deployedfalse/no games/no newtest quality.
+Raw results/learning-pilot/2026-10-11-baseline-repeatability-v1/report.json SHA
+b5b70af8d8301ef7e201e4e6fb93a940807591ebd203d5f350c480e946b5475e.
+Report:docs/experiments/2026-10-11-tempo-baseline-repeatability.md.
+4new control tests pass;tool/report is a commit boundary,notify user.
+Next proposed control:candidate only,same3roots/2fresh runs each,max6depth12
+searches,same settings,no reselection. Then close first pilot with whole-run
+assessment;do not keep expanding repetitions or adopt/tune automatically.
 No automatic training/adoption/rate retuning/more games. External-engine diagnosis
 and optional thickness books remain separate future tracks.
 
