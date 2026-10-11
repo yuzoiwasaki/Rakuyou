@@ -4,6 +4,7 @@ Rakuyouの自己対局と序盤解析の記録です。
 
 ## 現在地
 
+- [学習準備の現在地・最初の20更新実験と懸念点](2026-10-11-learning-checkpoint-summary.md)
 - [既存棋譜・探索データを使う追加学習：実装調査と小規模実験案](2026-10-11-learning-feasibility-plan.md)
   （更新なしのデータ準備まで。学習・現行データ上書きは未実施）
 - [学習候補の由来確認：47runの保存SHA照合と過去評価データの制約](2026-10-11-learning-provenance-review.md)
@@ -13,6 +14,7 @@ Rakuyouの自己対局と序盤解析の記録です。
 - [静止探索の固定末端：64局面の符号・評価・進行度・勾配の接続検証](2026-10-11-qsearch-leaf-validation.md)
 - [手番更新器の合成検証と64局面・最大20更新のパイロット案](2026-10-11-tempo-updater-validation.md)
 - [別名候補paramsの保存・再読込とvalidation64件の固定末端準備](2026-10-11-candidate-export-validation.md)
+- [実験runnerの更新0 dry-runと61ファイルのローカルバックアップ](2026-10-11-tempo-pilot-dry-run.md)
 - 後手第一運用版はv2の既存11局面。[定跡一覧・使い方](../../books/README.md)
   に運用／比較用／保留を整理しています。過去の実験は削除していません。
 - [後手の一区切り：200局比較・７局確認・v2採用判断](2026-10-03-v2-bounded-white-improvement-cycle.md)

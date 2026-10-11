@@ -168,7 +168,8 @@ RMSprop rate0.25/decay0.9975/epsilon1e-12;averaging0.9995;seed20261011;
 save0/5/10/20. Settings fixed before validation,not hyperparameter search.
 Original numerical-check L2=1e-4 was a prototype,not this pilot's chosen value.
 
-New uncommitted checkpoint:tools/tempo_export.py copies base and changes ONLY12
+Candidate export/validation leaves committed as532a8dd (local,not pushed).
+tools/tempo_export.py copies base and changes ONLY12
 tempo bytes,checks full other-region hash/exclusive output/ABI/range/overflow;
 rejects runtime bin directory.Manual delta(.25,-.5,.75) exported separately,
 64train leaves/intermediate states match memory perturbation after reread.
@@ -180,8 +181,26 @@ Train/validation run/root/leaf-SFEN sets disjoint.6qs tests rerun/pass.
 Validation cache SHAd1632112165cc73f635e0db854e4d4a90292e7d9b72488c180859aa603956af4.
 Report docs/experiments/2026-10-11-candidate-export-validation.md;plan hashes
 updated,real training/deployment flags stillfalse.6runtime/book hashes unchanged.
-Next: complete experiment runner dry-run and verified independent backups before
-any real-data20-update experiment. No actual-data training executed yet.
+Runner/dry-run/backup checkpoint complete;see latest commit and
+docs/experiments/2026-10-11-learning-checkpoint-summary.md for current recap/risks.
+tempo_pilot.py default dry-run requires verified
+backup/config/manifest/cache identity;--run blocked by current plan flagfalse.
+RMSprop/mean loss/frozen-leaf exporter/save0/5/10/20 and validation selection
+wired,real-data run path NOT executed.6new pilot/backup tests pass(synthetic only).
+learning_backup.py created61independent local files/772357064bytes,all source/copy
+SHA/size verified,no hardlinks/no deletion/external upload.Backup manifest SHA
+adb3fc1c7dbb7f547e52c2258ca76256f38a9b2370c3ab84b7800f5d5aea4338.
+Dry report results/learning-pilot/2026-10-11-pilot-dry-run-v1/report.json SHA
+44c428e9009d821bdd2d4cf1de402468add86374167bc9ba92b8cff6a6766064.
+Only checkpoint0 exported;128train+val leaves reread;integer changes0,loss not
+computed,no selection/deployment/updates/search.6runtime/book hashes unchanged.
+Report docs/experiments/2026-10-11-tempo-pilot-dry-run.md;plan remains unchanged
+so its backed-up version remains valid.External Drive backup still not performed.
+October11 user replied OK to the proposed64train/64val,max20 pilot, then requested
+commit and recap FIRST. This turn stops at commit/summary;do not train during it.
+Next continuation can execute that bounded pilot,with enabled experiment config
+and matching backups/binding,new output,without asking the same approval again.
+No actual-data training executed yet;prototype artifacts/checkpoints remain provisional.
 No automatic training/adoption/rate retuning/more games. External-engine diagnosis
 and optional thickness books remain separate future tracks.
 

@@ -81,3 +81,9 @@ python3 tools/check_tempo_export.py \
 
 出力先は新規ディレクトリとし、`bin/` 配下への保存は拒否します。
 これは手動の検査用差分であり、学習を実行した候補ではありません。
+
+固定末端パイロットのrunnerは `tools/tempo_pilot.py` です。既定は更新0のdry-runで、
+`--backup` の検証済みコピーを必須にします。新規backupを作るときだけ
+`--create-backup` を付け、backup先は新しいディレクトリの `manifest.json` を指定します。
+`--run` は実学習が明示的に有効な設定のみ受け付けます。現在の設定は無効です。
+具体的なコマンドと確認結果は[dry-run記録](experiments/2026-10-11-tempo-pilot-dry-run.md)を参照。
