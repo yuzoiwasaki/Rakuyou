@@ -152,7 +152,8 @@ gradient cases plus1024static train roots;20480native rounding checks.
 Frozen ON/depth0 qsearch:64train accepted,odd15/even49,Black33/White31,draw21/
 Whitedraw10. Fresh1MBTT/learning_mode=true;strict KP4-progress weight identity;
 Huffman boundary omits pre-root Node history. Cached/full/replayed leaves agree.
-No changed-tempo re-search/PV-switch checks.6qsearch+32previous tests pass.
+At this preparation checkpoint, no changed-tempo re-search/PV-switch checks;
+the subsequent selected-candidate check is recorded below.6qsearch+32previous tests pass.
 Probe b1401e61... built separately;6runtime/book hashes unchanged.
 
 Updater/plan committed as6fba59a (local,not pushed).tools/tempo_updater.py/checker:
@@ -164,7 +165,7 @@ c24b4a5fe93a19aaa80349cca97797cb032d38f3b264b3afa4f6b1ab50038963.
 Report:docs/experiments/2026-10-11-tempo-updater-validation.md.
 Plan:docs/experiments/configs/tempo-pilot-v1.json remains disabled TEMPLATE.
 First pilot reduced to64validated frozen train leaves;validation64 now prepared;
-test256 untouched. Mean sigmoid-square gain1/600,delta L2=1e-6 proposal;
+test256 untouched at preparation (32 now diagnosed below). Mean sigmoid-square gain1/600,delta L2=1e-6 proposal;
 RMSprop rate0.25/decay0.9975/epsilon1e-12;averaging0.9995;seed20261011;
 save0/5/10/20. Settings fixed before validation,not hyperparameter search.
 Original numerical-check L2=1e-4 was a prototype,not this pilot's chosen value.
@@ -214,9 +215,20 @@ book hashes unchanged.No deployment/test quality measurement/re-search/PV switch
 Current-state20delta(-.450378,-1.648635,-1.005064) differs from selected average.
 Small fixed-leaf fit improvement,NOT evidence of strength/draw-skill improvement.
 Close this run at20,no automatic more updates or coefficient tuning.
-New result report is a commit boundary;notify user.Results remain provisional.
-Next: bounded selected-candidate re-search/PV-switch and untouched-position
-regression plan before games or broader features. Do not auto-adopt.
+First real pilot report committed as8d9a0e5 (local,not pushed).
+Selected-candidate re-search completed:validation32/test32,128depth0QS calls,
+no additional updates/reselection/deployment.All64eligible;PV/leaf changes0.
+Scores change13/32val,16/32test,within+-1cp.Raw sigmoid loss relative decrease
+val~.2085%,test~.1255%;individual worse4val/7test,not strength evidence.
+test32 now quality-diagnosed;224remain quality-unseen.Do not retune using test.
+4new comparison tests pass;6runtime/book hashes unchanged.
+Report:docs/experiments/2026-10-11-selected-tempo-qsearch-review.md.
+Raw selected-qsearch-check-v1.json in the pilot-run directory SHA
+d3a30bd2ca0639058f56b00387e3e9c1bb0c728c79810c21a429834d8d64d0ca.
+Close this QS check at128calls;new tool/report is a commit boundary,notify user.
+Next:prepare isolated baseline/candidate runtime directories and bounded
+same-release full-search comparison on a few already-diagnosed roots before
+games or broader features;fix settings/SHA/limits first.Do not auto-adopt.
 No automatic training/adoption/rate retuning/more games. External-engine diagnosis
 and optional thickness books remain separate future tracks.
 

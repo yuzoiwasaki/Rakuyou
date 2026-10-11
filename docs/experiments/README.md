@@ -4,6 +4,7 @@ Rakuyouの自己対局と序盤解析の記録です。
 
 ## 現在地
 
+- [選定済み候補の再静止探索：validation32・test32、PV不変・運用据え置き](2026-10-11-selected-tempo-qsearch-review.md)
 - [初回学習：手番3係数・64局面・20更新の結果（運用は据え置き）](2026-10-11-first-tempo-learning-pilot.md)
 - [学習準備の現在地・最初の20更新実験と懸念点](2026-10-11-learning-checkpoint-summary.md)
 - [既存棋譜・探索データを使う追加学習：実装調査と小規模実験案](2026-10-11-learning-feasibility-plan.md)
