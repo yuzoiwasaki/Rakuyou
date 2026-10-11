@@ -91,3 +91,9 @@ python3 tools/check_tempo_export.py \
 教師の由来を固定する次段階は、[教師更新の設計](experiments/2026-10-11-teacher-refresh-plan.md)を参照。
 `tools/prepare_teacher_refresh.py` はtrain36／validation18の対象選択と合法性検査だけを行い、
 新しい教師cpはnullのまま保存します。探索・学習・現行データの上書きは行いません。
+
+教師生成runnerは `tools/refresh_teachers.py` です。既定は探索0のdry-runで、
+`--run` は教師探索だけを有効化した計画コピーを必須にします。
+固定54局面・depth15・1スレッド・最大30秒／局面で、学習や配備は行いません。
+入力・runtime照合、部分保存、実行フラグの条件とdry-run記録は
+[教師生成runnerの検証](experiments/2026-10-11-teacher-refresh-dry-run.md)を参照。

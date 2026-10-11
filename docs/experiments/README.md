@@ -4,6 +4,8 @@ Rakuyouの自己対局と序盤解析の記録です。
 
 ## 現在地
 
+- [教師生成runnerと探索0 dry-run：54局面・SHA／保存検証、実探索は未実施](2026-10-11-teacher-refresh-dry-run.md)
+
 - [教師更新の設計と54局面準備：由来・条件固定、探索と学習は未実施](2026-10-11-teacher-refresh-plan.md)
 
 - [初回学習パイロットの一区切り：候補側も再現、運用は基準維持、次の課題](2026-10-11-tempo-pilot-closure.md)

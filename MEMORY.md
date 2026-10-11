@@ -127,7 +127,8 @@ First pilot completed;operational params/release/books/25cp preference unchanged
 No automatic more training,retuning,adoption,search repetitions or games.
 Current conclusion/next-stage map:docs/experiments/2026-10-11-tempo-pilot-closure.md.
 Detailed preparation/results/hashes are linked from docs/experiments/README.md.
-User wants notification at appropriate commit boundaries;no external backup yet.
+User prefers coarser commit boundaries:bundle implementation/tests/verification/report
+into a meaningful phase;notify at phase boundaries.No external backup yet.
 
 Gikou --learn resets params/material;compiled params do not recover float
 ExtendedParams/optimizer.Use frozen base + delta,not existing --learn.
@@ -196,8 +197,21 @@ SHAa4662b0f349560cfa3f03b2fef536d5c6000f9e4d5ee6b75a569f306ed9be5fc.
 Plan SHA2f4353ac1bca81dcbf3c9aff396142f8e0925290babaa2a8b729fa5e08fa9f90.
 Future generation depth15/MultiPV1/Threads1/Hash64/ON/bookOFF/PonderOFF,
 fresh each root,max54searches/30s each,no retry/refill/autoextend.
-No runner yet.Next:implement runtime-bound generation runner and search0 dry-run.
-Preparation tool/config/tests/report are next commit boundary,notify user.
+Design/preparation committed as4431991 (local,not pushed).
+Runner tools/refresh_teachers.py implemented;default dry-run,--run requires exact
+plan copy with ONLY teacher_search_enabled=true;training/deployment stayfalse.
+Runtime-bound54roots;fresh depth15 max54/30s,exclusive generation marker,
+no retry/resume/refill,partial failed results saved;special scores/history excluded.
+search0 dry-run complete:54root replay checks,baseline readyok/go0,5independent
+input copies,36train/18val output rows all teacher_cp=null/not-generated.
+Runtime6/baselinecopy7 unchanged;teacher_generation_complete/training_ready=false.
+7new runner tests pass (search paths mocked,not actual teacher searches).
+Report:docs/experiments/2026-10-11-teacher-refresh-dry-run.md.
+Dry report results/learning-pilot/2026-10-11-teacher-refresh-dry-run-v1/report.json
+SHAe1e69434c4760e4331e5cd2a8e1f36b93119da3eefd9110d9dbbb98274ebe166.
+Runner implementation/tests/dry-run/report form one commit phase.
+Next:enable only private teacher-search plan,execute max54depth15 searches once,
+audit accepted/excluded counts and provenance together;no learning/deployment.
 No new teacher searches or next learning run authorized yet;do not use test to tune.
 Same-engine teachers are self-distillation,not evidence of stronger teaching.
 Historical runtime identity/correlation/draw adjudication/external backup remain
