@@ -2,6 +2,12 @@
 
 [学習レポート目次へ戻る](../README.md)
 
+- [支えられた金の前進：159／43件・20更新、採用保留](2026-10-12-supported-gold-advance-learning-result.md)
+
+- [支えられた金の前進：追加24件の教師・末端と更新0監査](../data/2026-10-12-gold-advance-teachers-and-leaves.md)
+
+- [金の盛り上がりを補う24局面の選択](../data/2026-10-12-gold-advance-supplement-preparation.md)
+- [金の盛り上がり：少数棋譜比較と集合の不足](2026-10-12-supported-gold-advance-proposal.md)
 - [中央の位を金銀で支える1特徴：20更新の結果](2026-10-12-supported-pawn-learning-result.md)
 - [中央の歩の支え：更新0の準備とL2・評価差の監査](2026-10-12-supported-pawn-preparation-and-scale-audit.md)
 - [位と金銀の支え：少数棋譜比較と最初の1特徴案](2026-10-12-supported-pawn-thickness-review.md)

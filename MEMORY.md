@@ -125,18 +125,84 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   results/learning-pilot/2026-10-12-supported-pawn-run-v1/report.json SHA
   39dd3c5a4817e8c9ee99adca77dff55773df874e07300e31d2efd9e981019650.
   Prepdir learning-attempt-v1.json locksrun;neverbypass. Allcandidates saved.
-- Result implementation/report closes this phase. Next direction is still
-  under discussion: supported gold advancement is a possible feature closer
-  to the user's desired rising formation. Define it from a few train-game
-  examples and check coverage/signal before proposing another run. Small
-  coefficient effects/rounding and sparse validation remain limitations;
-  adding a feature alone does not resolve them. No new experiment authorized.
-  No extra updates,retuning,dataexpansion,searches,games,oradoption. A pawn
-  foothold can work under enemy pressure, but supporting pieces can themselves
-  be attacked; this feature alone does not certify effective/safe thickness.
-  Current-base teachers may give little signal for a desired style.
-  Explain outcomes using concrete Shogi examples and plain terms;user has
-  Shogi knowledge but is not a learning specialist.
+- Supported-pawn result implementation/report committedc345e5f. User wants
+  to finish thickness investigation before considering theme-free learning.
+- Closed Gold experiment: supported gold advancement, reviewed in3train games.
+  Score own unpromoted gold defended by another gold/unpromoted silver:
+  ownrank1-2=0,3=1,4=2,5or further=3. Allfiles,once per gold,no king bonus
+  or control-surplus gate. One-hop support still counts some fragile chains.
+  [Gold advancement proposal](docs/experiments/learning/gold-silver/2026-10-12-supported-gold-advance-proposal.md).
+  Saved reviewSHA13867a499ce997900e947c1add9e0f890d51c64ae28ebc08952db3ef8da49f07.
+- Existing143/35 leaves: presence41/15,nonzero net36/12,maxscore2.
+  Qualifying gold occurrences at ownrank3:44train/17val;rank4:2/2;rank5+:0/0.
+  Main limitation:24-80ply sampling misses deep rising formations. Train-only
+  initialgrad[-2.8616e-6,-3.8098e-6];L2_1e-6 capratio~17.5%/13.1%.
+  These were pre-supplement measurements;later preparation/result below.
+- User authorized the small supplement. Selected16train/8fresh-validation
+  roots from savedgames:8side/height/support buckets each2/1,Shin own foremost
+  gold only,one root/game,seed20261011,window24-120,run caps4/2,no outcome/cp
+  quality selection. Exclude239previously used games andcross-split/test keys.
+  All24 native histories legal/SFEN-Huffman exact,no exclusions/refill. Roots
+  train87-116ply/12runs,val82-116ply/6runs. Supplemental draw3train/0val;
+  if allaccepted combined159/43 hasdraw50/12. Some attacking golds included.
+  Selectionstage:5tests pass;oldbackup+19newfiles verified,teacher/QS/updates0.
+  [Supplement preparation](docs/experiments/learning/data/2026-10-12-gold-advance-supplement-preparation.md).
+  results/learning-pilot/2026-10-12-gold-supplement-preparation-v1/manifest.json
+  SHA06d59cc954ccae8e464b05b26f3c3fe4eb3008b23d6a538aa08267ae90dc1938.
+- Authorized Gold teacher/leaf preparation is complete: additional16/8 all
+  accepted;combined159/43,draw50/12. No exclusions/retries/refill,updates0.
+  Old178 teachers/leaves reused byte-identically;new24 depth15 teachers and
+  new24 qsearch calls only. Runtime/books/25cp unchanged;no adoption.
+  [Teacher/leaf and zero audit](docs/experiments/learning/data/2026-10-12-gold-advance-teachers-and-leaves.md).
+  Goldprep report results/learning-pilot/2026-10-12-gold-advance-preparation-v1/report.json
+  SHA99c40167875f063baaea07052c5a6c161f5a272edd8f1910498b6aa9852002fc.
+  Goldteacher report SHA7688a8e3df760a389f327a55a67632798ad6f41c510b48f53807b37622896951.
+- Goldleaf presence52/19,nonzero net46/16;values2 gold7/4,values3 gold5/3.
+  Supported4th-rank-or-higher goldpositions10/6 (newsubset8/4 allownside).
+  Initialtraingrad[-2.121850831e-6,-3.800665585e-6];L2_1e-6 atcap.5
+  ratios23.56%/13.16%,needs_reviewFalse. Opening signal close to25% guide.
+  Zeroevaldiff0;static cap perturbations wholepositionmax3cp;no validationloss
+  measured. Newprobe results/gold-advance-tools/gold-advance-probe
+  SHA7735d0cbf2bccdfefb9474643e413c5b3913a40da0824947562cf8b7ba1074f0.
+  Makefile/oldprobes unchanged;native20fixtures and9focusedtests pass.
+  Preservedparent190+selection19 copies;new38files backedup/verified.
+  Saved-results read-only audit accepted;404 root/leaf independentcountchecks,
+  normalizedcrosssplit/test-key overlaps0. No test quality or newtestgames read.
+- User authorized one20-update Gold run;COMPLETE and closed,no adoption.
+  Same159/43,L2_1e-6,batch128,seed20261011,rate/step.05,cap±.5.
+  Selected5 by unchanged integer-validation+L2 rule;average[+.107318,+.115765],
+  raw[7033,7586]. Integertrain improves.010856%,validation.001307%:
+  Black.002520%,Whiteunchanged,draw.004826%;only2validationleaf1cpchanges.
+  FULLPRECISION validation WORSENS .001569%,so tinyintegerbenefit isrounding
+  sensitive. One improvedexampleisattackinggold,notpuredefensivethickness.
+  Average20[+.228069,+.233064],raw[14946,15274],integertrain+.021327%,
+  validation-.041141%,White-.079511%,draw-.143246%. No caphit.
+  Wholepositionmax1cp(selected5),2cp(trainroot20);smoothleafmax~1.396cp.
+  All4 candidates and20trajectory saved. Fournewguards pass;arithmetic
+  RNG/gradient/trajectory/4checkpoints audit exact;oldbackups+new22files and
+  audit2files verified. No newteacher/qsearch/normal searches/games/testquality.
+  Runtime/books/25cp/oldcandidates unchanged;no additional tuning/extension.
+  [Gold learning result](docs/experiments/learning/gold-silver/2026-10-12-supported-gold-advance-learning-result.md).
+  results/learning-pilot/2026-10-12-gold-advance-run-v1/report.json
+  SHAcc92ce508ed449d09697d3ca101b7e24b1f22f9eddc510aca3327d171e48ca60;
+  auditSHA5ec0cc12f5fb3f29b736ab7f59343501624212d1707b2e6ffebac7b03d8b3b91.
+  Goldprep learning-attempt-v1.json locksrun;never remove/bypass.
+- NEXT: discuss closure of thickness trials and next learning approach.
+  Gold,centralpawn,pair,safety,tempo candidates remain held. No further
+  learning/search/games/feature extension or adoption authorized. User requested
+  one coarse Gold commit covering proposal,supplement,teacher/leaf preparation,
+  implementation,andresults;check git history/status for its revision.
+  Suggested discussion: a theme-free Shin-Yonenaga game-learning pilot using
+  moves/outcomes,with current-base preservation and draw masking planned first.
+  This is a proposal only;no new learning implementation/execution authorized.
+- Deferred ideas: historical2games and Doronuma-ryu Furibisha-yaburi can guide
+  motifs;no book ingestion/new dataset authorized. Theme-free game learning
+  using moves/outcomes is for AFTER the thickness phase. Native Gikou combines
+  move imitation,win/loss prediction,depth consistency and resets parameters;
+  a current-base delta route would need separate planning. Our pilots use
+  current-base cp teachers and do not explicitly teach Yonenaga's style.
+- User knows Shogi but not learning: explain effects with piece coordinates
+  and concrete worked/failed formations,using plain language.
 - Old gold-silver examples already exposed games23/50 of test run
   `shin-black-silver38-pawn76-trial-r2`; this turn reread them before confirming
   the split, then excluded them from new case selection. Keep this exposure
