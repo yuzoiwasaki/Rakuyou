@@ -2,6 +2,8 @@
 
 [学習レポート目次へ戻る](../README.md)
 
+- [前線の金銀と前方の利き：少数例の確認、特徴は保留](2026-10-12-front-gold-silver-control-review.md)
+
 - [支えられた金の前進：159／43件・20更新、採用保留](2026-10-12-supported-gold-advance-learning-result.md)
 
 - [支えられた金の前進：追加24件の教師・末端と更新0監査](../data/2026-10-12-gold-advance-teachers-and-leaves.md)

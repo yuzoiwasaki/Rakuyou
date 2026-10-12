@@ -187,7 +187,20 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   SHAcc92ce508ed449d09697d3ca101b7e24b1f22f9eddc510aca3327d171e48ca60;
   auditSHA5ec0cc12f5fb3f29b736ab7f59343501624212d1707b2e6ffebac7b03d8b3b91.
   Goldprep learning-attempt-v1.json locksrun;never remove/bypass.
-- NEXT: discuss closure of thickness trials and next learning approach.
+- User authorized final qualitative check of BOTH front gold/silver and
+  union-of-three-forward-square geometric control balance. COMPLETE:
+  same3train games/11snapshots,searches/updates0,no validation/testgame reads.
+  C105/114/115 has3/3 superiorcells yet supporterG5f getscaptured116;
+  B68/88 worksinlocaladvance/recapturewithoneinferiorcell. A59 initially
+  superior5/6 yet N*5e capturesS6g66;Grecapture67 restoreschain.
+  Pins/drops/exchanges notmodeled;thissimplefeature cannotdetectweaksupport.
+  Featureheld,no learning/extension/adoption. Runtime/books kept.
+  [Front gold/silver review](docs/experiments/learning/gold-silver/2026-10-12-front-gold-silver-control-review.md).
+  results/learning-pilot/2026-10-12-front-gold-silver-review-v1/review.json
+  SHAb6a1191e4a66bf39dfe791f83d28d759af10eff6932907ec8357c638b304b0b4.
+  Geometrysanity+11colorrotationchecks pass. Goldpilotcommitted767642e.
+- NEXT: thickness feature investigation has reached the requested stopping
+  point;discuss theme-free game-learning design,without startingimplementation.
   Gold,centralpawn,pair,safety,tempo candidates remain held. No further
   learning/search/games/feature extension or adoption authorized. User requested
   one coarse Gold commit covering proposal,supplement,teacher/leaf preparation,
