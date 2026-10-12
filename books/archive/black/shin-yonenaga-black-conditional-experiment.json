@@ -127,6 +127,6 @@
       "note": "Update the provisional silver38 idea: pawn25 is4cp below gold58 and preserves the right-side king in its PV; silver38 is3rd at-110."
     }
   ],
-  "derived_from": "books/shin-yonenaga-black-pawn26-experiment.json",
+  "derived_from": "books/archive/black/shin-yonenaga-black-pawn26-experiment.json",
   "removed_entry": "black_pawn26_entry"
 }

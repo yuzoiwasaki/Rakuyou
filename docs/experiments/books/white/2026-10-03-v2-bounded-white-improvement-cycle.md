@@ -114,7 +114,7 @@ PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
 
 ## 一局面だけを追加した試験版
 
-`books/shin-yonenaga-white-book-v2-pawn25-experiment.txt` を作成した。元のv1に `books/shin-yonenaga-white-v2-pawn25-experiment.json` を重ねて生成し、v2の既存11局面はすべて保持、Bの△２五歩１局面だけを追加した（計12）。v1・v2・エンジンは変更していない。
+`books/experiments/white/shin-yonenaga-white-book-v2-pawn25-experiment.txt` を作成した。元のv1に `books/experiments/white/shin-yonenaga-white-v2-pawn25-experiment.json` を重ねて生成し、v2の既存11局面はすべて保持、Bの△２五歩１局面だけを追加した（計12）。v1・v2・エンジンは変更していない。
 
 Bを選んだ理由は、実戦に出た▲６五歩に対し同条件の深さ28で代案が首位になり、18手目なのでBookMaxPly20を変更せず一手の効果を比較できるため。30cp差は１回の探索結果であり、改善確定ではない。過去の到達率は14/200＝7%、直近後手固定では10/100＝10%と低く、全体成績への影響は小さい可能性がある。Aの△３四歩固定は到達率こそ高いが深さ間の順位逆転と△８三銀群の観測成績を踏まえて見送り、Cも今回追加しない。
 
@@ -135,8 +135,8 @@ run_white_cycle() {
     --max-plies 256 --timeout 300 --output "results/$2.json"
 }
 run_white_cycle books/shin-yonenaga-white-book-v2-experiment.txt v2-cycle-baseline-r1-white-depth15-50games &&
-run_white_cycle books/shin-yonenaga-white-book-v2-pawn25-experiment.txt v2-cycle-pawn25-r1-white-depth15-50games &&
-run_white_cycle books/shin-yonenaga-white-book-v2-pawn25-experiment.txt v2-cycle-pawn25-r2-white-depth15-50games &&
+run_white_cycle books/experiments/white/shin-yonenaga-white-book-v2-pawn25-experiment.txt v2-cycle-pawn25-r1-white-depth15-50games &&
+run_white_cycle books/experiments/white/shin-yonenaga-white-book-v2-pawn25-experiment.txt v2-cycle-pawn25-r2-white-depth15-50games &&
 run_white_cycle books/shin-yonenaga-white-book-v2-experiment.txt v2-cycle-baseline-r2-white-depth15-50games
 ```
 

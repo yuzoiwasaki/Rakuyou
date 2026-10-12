@@ -15,10 +15,10 @@ except ImportError:
 
 
 ROOT = Path(__file__).resolve().parents[1]
-BLACK_SOURCE = "books/shin-yonenaga-black-pawn76-right-side-experiment.json"
+BLACK_SOURCE = "books/sources/black/shin-yonenaga-black-pawn76-right-side-experiment.json"
 BLACK_BOOK = "books/shin-yonenaga-black-book-pawn76-right-side-experiment.txt"
-WHITE_SOURCE = "books/shin-yonenaga-white-candidates.json"
-WHITE_EXTENSION = "books/shin-yonenaga-white-v2-experiment.json"
+WHITE_SOURCE = "books/sources/white/shin-yonenaga-white-candidates.json"
+WHITE_EXTENSION = "books/sources/white/shin-yonenaga-white-v2-experiment.json"
 WHITE_BOOK = "books/shin-yonenaga-white-book-v2-experiment.txt"
 OUTPUT = ROOT / "books/shin-yonenaga-book-v1.txt"
 

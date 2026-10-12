@@ -118,7 +118,7 @@ python3 tools/paired_selfplay.py \
 
 ```sh
 python3 tools/build_shin_book.py \
-  --extension books/shin-yonenaga-white-v2-experiment.json
+  --extension books/sources/white/shin-yonenaga-white-v2-experiment.json
 python3 test/test_shin_book.py
 ```
 
@@ -144,14 +144,14 @@ v1・v2と分けて明示的に生成します。
 
 ```sh
 python3 tools/build_shin_book.py \
-  --source books/shin-yonenaga-white-seventh-edge-experiment.json \
+  --source books/experiments/white/shin-yonenaga-white-seventh-edge-experiment.json \
   --experimental \
-  --output books/shin-yonenaga-white-book-seventh-edge-experiment.txt
+  --output books/experiments/white/shin-yonenaga-white-book-seventh-edge-experiment.txt
 python3 test/test_seventh_trial_book.py
 python3 tools/paired_selfplay.py \
   --depth 15 --threads 1 --hash 512 \
   --shin-book on \
-  --shin-book-file books/shin-yonenaga-white-book-seventh-edge-experiment.txt \
+  --shin-book-file books/experiments/white/shin-yonenaga-white-book-seventh-edge-experiment.txt \
   --shin-side white --games 100 \
   --book-max-ply 20 --max-plies 256 --timeout 300 \
   --output results/shin-seventh-edge-white-only-depth15-100games.json

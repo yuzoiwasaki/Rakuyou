@@ -518,8 +518,8 @@ PV末尾まで玉を４八に残す。▲３八銀は３位、首位から16cp�
 
 ### 試験版：７局面、３～７手目まで
 
-[生成元JSON](../../../../books/shin-yonenaga-black-pawn26-experiment.json)と
-[試験定跡txt](../../../../books/shin-yonenaga-black-book-pawn26-experiment.txt)を別ファイルで作成した。
+[生成元JSON](../../../../books/archive/black/shin-yonenaga-black-pawn26-experiment.json)と
+[試験定跡txt](../../../../books/archive/README.md)を別ファイルで作成した。
 各JSONエントリには結果ファイル・局面ID・深さ・順位・cp・必要な首位差を記載。
 
 | 登録する局面 | 先手定跡着手 | 根拠・制約 |
@@ -755,8 +755,8 @@ trial-r1第47局は中央の銀・歩を動かして137手で勝った。
 200局比較・追加診断は `c2c064c` にコミットしてorigin/mainへプッシュ済み。
 その後、入口固定だけを外す小変更と、外部100局比較を次の検証とした。
 既存の７局面JSONから `black_pawn26_entry` だけを外した
-[６枝版JSON](../../../../books/shin-yonenaga-black-conditional-experiment.json)と
-[専用定跡txt](../../../../books/shin-yonenaga-black-book-conditional-experiment.txt)を別ファイルで作成した。
+[６枝版JSON](../../../../books/archive/black/shin-yonenaga-black-conditional-experiment.json)と
+[専用定跡txt](../../../../books/archive/README.md)を別ファイルで作成した。
 残る６エントリは局面・着手・status・根拠・noteまで完全同一。
 ３手目は探索に戻るが、初手▲４八玉固定は従来通り。
 手順前後で条件枝に合流した場合にも利用し、未登録局面では標準定跡へ補完しない。
@@ -1498,8 +1498,8 @@ PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
 ## ４局面銀先行試験定跡の準備（2026-10-05）
 
 上記４候補を別の試験定跡としてファイル化した。
-生成元は[銀先行JSON](../../../../books/shin-yonenaga-black-silver38-experiment.json)、
-指定する定跡は[銀先行txt](../../../../books/shin-yonenaga-black-book-silver38-experiment.txt)。
+生成元は[銀先行JSON](../../../../books/archive/black/shin-yonenaga-black-silver38-experiment.json)、
+指定する定跡は[銀先行txt](../../../../books/archive/README.md)。
 登録局面・着手は上表の４組だけで、最長７手目。
 各エントリに生データの位置ID・深さ・順位・評価値・同一探索内の差を記録した。
 ４組すべてがローカル生データと一致することを照合した。
@@ -2019,8 +2019,8 @@ PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
 
 ## △３二銀の１枝追加版と外部比較の準備（2026-10-05）
 
-[生成元５局面JSON](../../../../books/shin-yonenaga-black-silver38-silver32-experiment.json)と
-[改訂txt](../../../../books/shin-yonenaga-black-book-silver38-silver32-experiment.txt)を作成。
+[生成元５局面JSON](../../../../books/archive/black/shin-yonenaga-black-silver38-silver32-experiment.json)と
+[改訂txt](../../../../books/archive/README.md)を作成。
 原版４エントリは根拠・注記ごと完全に同一で、追加は次の１組のみ。
 
 ```text
@@ -2553,8 +2553,8 @@ PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
 
 ## ６局面試験版の作成と１変更比較の準備（2026-10-06）
 
-[生成元JSON](../../../../books/shin-yonenaga-black-silver38-silver32-pawn76-experiment.json)と
-[６局面txt](../../../../books/shin-yonenaga-black-book-silver38-silver32-pawn76-experiment.txt)を作成。
+[生成元JSON](../../../../books/archive/black/shin-yonenaga-black-silver38-silver32-pawn76-experiment.json)と
+[６局面txt](../../../../books/archive/README.md)を作成。
 既存５局面版のエントリは根拠・注記を含め全て同一で、追加は次の１組のみ。
 
 ```text
@@ -2964,8 +2964,8 @@ PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
 ## 13手目▲２五歩の６局面試験版準備（2026-10-07）
 
 対△８四歩レビュー・３探索を `c1a0508` にコミットした後、
-[別の生成元JSON](../../../../books/shin-yonenaga-black-silver38-silver32-pawn25-experiment.json)と
-[▲２五歩６局面txt](../../../../books/shin-yonenaga-black-book-silver38-silver32-pawn25-experiment.txt)を作成。
+[別の生成元JSON](../../../../books/experiments/black/shin-yonenaga-black-silver38-silver32-pawn25-experiment.json)と
+[▲２五歩６局面txt](../../../../books/experiments/black/shin-yonenaga-black-book-silver38-silver32-pawn25-experiment.txt)を作成。
 既存５局面版は根拠・注記を含め全エントリ同一、追加は次の１組のみ。
 
 ```text
@@ -3323,8 +3323,8 @@ PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
 ## ▲６八銀１枝追加と最後の接続比較の準備（2026-10-08）
 
 棋力上の採用保留とは分け、狙った駒組みを実戦で試す最後の小周期として、
-[７局面JSON](../../../../books/shin-yonenaga-black-silver38-silver32-pawn25-silver68-experiment.json)と
-[７局面txt](../../../../books/shin-yonenaga-black-book-silver38-silver32-pawn25-silver68-experiment.txt)を作成。
+[７局面JSON](../../../../books/archive/black/shin-yonenaga-black-silver38-silver32-pawn25-silver68-experiment.json)と
+[７局面txt](../../../../books/archive/README.md)を作成。
 ▲２五歩６局面版の全６エントリは根拠・注記まで同一、追加は15手目の１組のみ。
 
 ```text
@@ -3444,7 +3444,7 @@ Ponder OFF・BookMaxPly20・最大256手・待機300秒。
 明確な追加利益を確認できなかったため、固定する必要性は小さいと判断する。
 
 現段階の提案は、**▲２五歩６局面版を先手の暫定運用候補とすること**。
-ファイルは `books/shin-yonenaga-black-book-silver38-silver32-pawn25-experiment.txt`、
+ファイルは `books/experiments/black/shin-yonenaga-black-book-silver38-silver32-pawn25-experiment.txt`、
 SHA-256 `52123e92c55e0dc33f1f77849daf481879f00dffb6e68c4831e93534a9a531c7`。
 初手▲４八玉・▲３八銀先行と短い条件付き準備を保持し、15手目以降の選択を残す。
 **棋力優越・勝ち越しを証明した選択ではなく、右側の玉を重視した構想上の提案**。

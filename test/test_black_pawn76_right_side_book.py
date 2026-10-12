@@ -12,9 +12,9 @@ from tools.build_shin_book import compile_book
 from tools.paired_selfplay import UsiEngine
 import test_black_trial_book as revision_tests
 
-SOURCE = ROOT / "books/shin-yonenaga-black-pawn76-right-side-experiment.json"
+SOURCE = ROOT / "books/sources/black/shin-yonenaga-black-pawn76-right-side-experiment.json"
 BOOK = ROOT / "books/shin-yonenaga-black-book-pawn76-right-side-experiment.txt"
-CONTROL = ROOT / "books/shin-yonenaga-black-book-silver38-silver32-pawn25-experiment.txt"
+CONTROL = ROOT / "books/experiments/black/shin-yonenaga-black-book-silver38-silver32-pawn25-experiment.txt"
 
 
 def entries():
@@ -157,8 +157,8 @@ class EngineTest(unittest.TestCase):
 class ConditionalPawn36RevisionTest(revision_tests.Common17Pawn76RevisionTest):
     base_source = SOURCE
     base_book = BOOK
-    source = ROOT / "books/shin-yonenaga-black-pawn76-right-side-pawn36-experiment.json"
-    book = ROOT / "books/shin-yonenaga-black-book-pawn76-right-side-pawn36-experiment.txt"
+    source = ROOT / "books/experiments/black/shin-yonenaga-black-pawn76-right-side-pawn36-experiment.json"
+    book = ROOT / "books/experiments/black/shin-yonenaga-black-book-pawn76-right-side-pawn36-experiment.txt"
     parent = ["5i4h", "3c3d", "7g7f", "7a6b", "2g2f", "4a3b", "6i7h", "4c4d"]
     book_move = "3g3f"
     followup_reply = "6c6d"

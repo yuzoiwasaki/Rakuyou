@@ -163,5 +163,5 @@
       "note": "Right-side concept candidate4cp below silver38 within unrestricted24; parent PV keeps king48. Normal-OFF direct response favored pawn64(+35 White), and Black-ON followup favored pawn25(-25 Black); do not subtract across parents/settings. Static parent reached33 times with pawn36 zero; pilot reached2 first games sharing135 plies. No causal strength or future coverage claim. Register move9 ONLY; other replies, move11 and later silver/rook preparation remain search."
     }
   ],
-  "derived_from": "books/shin-yonenaga-black-pawn76-right-side-experiment.json"
+  "derived_from": "books/sources/black/shin-yonenaga-black-pawn76-right-side-experiment.json"
 }

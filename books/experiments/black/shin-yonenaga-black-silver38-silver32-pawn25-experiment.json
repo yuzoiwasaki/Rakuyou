@@ -140,5 +140,5 @@
       "note": "First at unrestricted24 and four-candidate restricted26; not an unrestricted26 best-move claim. Silver68 is22cp lower, actual silver27/king39 are70cp lower within restricted26. Parent reached33/200; actual pawn25 at13 zero. Register only move13, leave silver68/rook29 and later PV to search. No strength or safety guarantee; keep the rare common17 pawn76 extension separate."
     }
   ],
-  "derived_from": "books/shin-yonenaga-black-silver38-silver32-experiment.json"
+  "derived_from": "books/archive/black/shin-yonenaga-black-silver38-silver32-experiment.json"
 }

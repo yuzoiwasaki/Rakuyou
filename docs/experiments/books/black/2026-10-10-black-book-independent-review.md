@@ -13,7 +13,7 @@
 
 本記録は採用の提案であり、正式な運用状態やエンジン設定の変更ではない。
 候補は引き続き
-`books/shin-yonenaga-black-book-silver38-silver32-pawn25-experiment.txt`。
+`books/experiments/black/shin-yonenaga-black-book-silver38-silver32-pawn25-experiment.txt`。
 初手▲４八玉、25cp補正、玉戻りの合法性、BookMaxPly20、後手v2は維持する。
 
 ## 資料と確認範囲
@@ -744,7 +744,7 @@ P*2f 2e2a 4h8h
 
 ### 別ファイルの試験定跡
 
-- 生成元：`books/shin-yonenaga-black-pawn76-right-side-experiment.json`
+- 生成元：`books/sources/black/shin-yonenaga-black-pawn76-right-side-experiment.json`
 - 試験txt：`books/shin-yonenaga-black-book-pawn76-right-side-experiment.txt`
 - ６局面、３～９手目のみ。継続３の骨格を登録し、長いPVを含めない。
 - txt SHA-256：`cb8d7e3e3a4ed2817752ea93d4890837fa43c91db752b5ce3a1dc534f38bb7eb`
@@ -759,7 +759,7 @@ P*2f 2e2a 4h8h
 
 ```sh
 PYTHONDONTWRITEBYTECODE=1 python3 tools/build_shin_book.py --side black \
-  --source books/shin-yonenaga-black-pawn76-right-side-experiment.json --experimental \
+  --source books/sources/black/shin-yonenaga-black-pawn76-right-side-experiment.json --experimental \
   --output books/shin-yonenaga-black-book-pawn76-right-side-experiment.txt
 ```
 
@@ -806,7 +806,7 @@ OwnBook OFF、BookMaxPly2／3・8／9境界、通常側が専用定跡を使わ�
 ```sh
 caffeinate -i python3 tools/paired_selfplay.py \
   --engine bin/release --shin-side black --games 10 --shin-book on \
-  --shin-book-file books/shin-yonenaga-black-book-silver38-silver32-pawn25-experiment.txt \
+  --shin-book-file books/experiments/black/shin-yonenaga-black-book-silver38-silver32-pawn25-experiment.txt \
   --depth 15 --threads 1 --hash 512 --book-file bin/book.bin \
   --book-max-ply 20 --max-plies 256 --timeout 300 \
   --output results/shin-black-pawn76-right-side-pilot-baseline-r1-depth15-10games.json
@@ -1423,8 +1423,8 @@ pilotの２例は両実行の第１局で、135手が一致した勝局。
 ### ファイルと検証
 
 - 元の６局面版：`books/shin-yonenaga-black-book-pawn76-right-side-experiment.txt`
-- 新しい生成元：`books/shin-yonenaga-black-pawn76-right-side-pawn36-experiment.json`
-- 新しい７局面txt：`books/shin-yonenaga-black-book-pawn76-right-side-pawn36-experiment.txt`
+- 新しい生成元：`books/experiments/black/shin-yonenaga-black-pawn76-right-side-pawn36-experiment.json`
+- 新しい７局面txt：`books/experiments/black/shin-yonenaga-black-book-pawn76-right-side-pawn36-experiment.txt`
 - ７局面txt SHA-256：`f242178d7fd2f6278b5f9706528b39dfe257e213ed504b0ff2c17833696f2d9a`
 
 元の６局面txt SHA-256は `cb8d7e3e3a4ed2817752ea93d4890837fa43c91db752b5ce3a1dc534f38bb7eb`。
@@ -1436,8 +1436,8 @@ pilotの２例は両実行の第１局で、135手が一致した勝局。
 
 ```sh
 PYTHONDONTWRITEBYTECODE=1 python3 tools/build_shin_book.py --side black \
-  --source books/shin-yonenaga-black-pawn76-right-side-pawn36-experiment.json --experimental \
-  --output books/shin-yonenaga-black-book-pawn76-right-side-pawn36-experiment.txt
+  --source books/experiments/black/shin-yonenaga-black-pawn76-right-side-pawn36-experiment.json --experimental \
+  --output books/experiments/black/shin-yonenaga-black-book-pawn76-right-side-pawn36-experiment.txt
 ```
 
 新規６テストを含む全69テスト成功。

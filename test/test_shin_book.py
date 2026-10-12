@@ -11,14 +11,15 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from tools.build_shin_book import compile_book  # noqa: E402
 from tools.paired_selfplay import UsiEngine  # noqa: E402
+from book_test_fixtures import generated_book
 
 
 class ShinBookTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.engine_path = ROOT / "bin/release"
-        cls.book_path = ROOT / "books/shin-yonenaga-white-book.txt"
-        cls.candidates_path = ROOT / "books/shin-yonenaga-white-candidates.json"
+        cls.book_path = generated_book(ROOT / "books/sources/white/shin-yonenaga-white-candidates.json", side="white", experimental=False)
+        cls.candidates_path = ROOT / "books/sources/white/shin-yonenaga-white-candidates.json"
         if not cls.engine_path.is_file():
             raise unittest.SkipTest("build bin/release first")
 
@@ -48,7 +49,7 @@ class ShinBookTest(unittest.TestCase):
             engine.close()
 
     def test_experimental_v2_adds_only_two_book_exits(self):
-        extension = ROOT / "books/shin-yonenaga-white-v2-experiment.json"
+        extension = ROOT / "books/sources/white/shin-yonenaga-white-v2-experiment.json"
         v2_book = ROOT / "books/shin-yonenaga-white-book-v2-experiment.txt"
         self.assertEqual(v2_book.read_text(encoding="utf-8"),
                          compile_book(self.candidates_path, extension))

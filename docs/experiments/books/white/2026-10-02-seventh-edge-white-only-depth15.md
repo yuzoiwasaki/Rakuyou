@@ -14,14 +14,14 @@
 - 新米長玉：後手固定、`ShinYonenagaGyoku=true`、`OwnBook=true`、実験専用定跡を使用。
 - 通常側：先手固定、`ShinYonenagaGyoku=false`、`OwnBook=true`、`book.bin`。
 - 定跡上限20手、対局上限256手、応答タイムアウト300秒。
-- 専用定跡：`books/shin-yonenaga-white-book-seventh-edge-experiment.txt`、13局面。
+- 専用定跡：`books/experiments/white/shin-yonenaga-white-book-seventh-edge-experiment.txt`、13局面。
 - 生データ：`results/shin-seventh-edge-white-only-depth15-100games.json`（Git管理外）。
 
 ```sh
 caffeinate -i python3 tools/paired_selfplay.py \
   --depth 15 --threads 1 --hash 512 \
   --shin-book on \
-  --shin-book-file books/shin-yonenaga-white-book-seventh-edge-experiment.txt \
+  --shin-book-file books/experiments/white/shin-yonenaga-white-book-seventh-edge-experiment.txt \
   --shin-side white --games 100 \
   --book-max-ply 20 --max-plies 256 --timeout 300 \
   --output results/shin-seventh-edge-white-only-depth15-100games.json

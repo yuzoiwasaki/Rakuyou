@@ -110,8 +110,8 @@
 
 ## 作成した独立実験定跡
 
-- 根拠JSON：`books/shin-yonenaga-white-seventh-edge-experiment.json`。
-- 実行用：`books/shin-yonenaga-white-book-seventh-edge-experiment.txt`（13局面）。
+- 根拠JSON：`books/experiments/white/shin-yonenaga-white-seventh-edge-experiment.json`。
+- 実行用：`books/experiments/white/shin-yonenaga-white-book-seventh-edge-experiment.txt`（13局面）。
 - 全エントリのstatusは `experimental`。通常の生成モードでは採用されず、明示的な `--experimental` が必要。
 - △７四歩の３局面と、検証済みの△７三銀２局面を含む。飛車の△７二移動や、以後の全ての手は固定しない。
 - △７三銀を固定する第81局の応答は深さ24で３位・11cp差。これも構想試験として明記し、最善手だとは主張しない。
@@ -121,9 +121,9 @@
 
 ```sh
 python3 tools/build_shin_book.py \
-  --source books/shin-yonenaga-white-seventh-edge-experiment.json \
+  --source books/experiments/white/shin-yonenaga-white-seventh-edge-experiment.json \
   --experimental \
-  --output books/shin-yonenaga-white-book-seventh-edge-experiment.txt
+  --output books/experiments/white/shin-yonenaga-white-book-seventh-edge-experiment.txt
 python3 test/test_seventh_trial_book.py
 ```
 
@@ -137,7 +137,7 @@ python3 test/test_seventh_trial_book.py
 python3 tools/paired_selfplay.py \
   --depth 15 --threads 1 --hash 512 \
   --shin-book on \
-  --shin-book-file books/shin-yonenaga-white-book-seventh-edge-experiment.txt \
+  --shin-book-file books/experiments/white/shin-yonenaga-white-book-seventh-edge-experiment.txt \
   --shin-side white --games 100 \
   --book-max-ply 20 --max-plies 256 --timeout 300 \
   --output results/shin-seventh-edge-white-only-depth15-100games.json

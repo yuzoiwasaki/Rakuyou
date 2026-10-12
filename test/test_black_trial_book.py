@@ -11,13 +11,14 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from tools.build_shin_book import compile_book
 from tools.paired_selfplay import UsiEngine
+from book_test_fixtures import generated_book
 
-SOURCE = ROOT / "books/shin-yonenaga-black-pawn26-experiment.json"
-BOOK = ROOT / "books/shin-yonenaga-black-book-pawn26-experiment.txt"
-CONDITIONAL_SOURCE = ROOT / "books/shin-yonenaga-black-conditional-experiment.json"
-CONDITIONAL_BOOK = ROOT / "books/shin-yonenaga-black-book-conditional-experiment.txt"
-SILVER_SOURCE = ROOT / "books/shin-yonenaga-black-silver38-experiment.json"
-SILVER_BOOK = ROOT / "books/shin-yonenaga-black-book-silver38-experiment.txt"
+SOURCE = ROOT / "books/archive/black/shin-yonenaga-black-pawn26-experiment.json"
+BOOK = generated_book(SOURCE)
+CONDITIONAL_SOURCE = ROOT / "books/archive/black/shin-yonenaga-black-conditional-experiment.json"
+CONDITIONAL_BOOK = generated_book(CONDITIONAL_SOURCE)
+SILVER_SOURCE = ROOT / "books/archive/black/shin-yonenaga-black-silver38-experiment.json"
+SILVER_BOOK = generated_book(SILVER_SOURCE)
 
 
 class CompilationTest(unittest.TestCase):
@@ -46,7 +47,7 @@ class CompilationTest(unittest.TestCase):
                     compile_book(source, experimental=True, side="black")
 
     def test_cli_requires_explicit_trial_and_protects_white_books(self):
-        protected = list((ROOT / "books").glob("shin-yonenaga-white-*.txt"))
+        protected = list((ROOT / "books").rglob("shin-yonenaga-white-*.txt"))
         before = {p: p.read_bytes() for p in protected}
         base = [sys.executable, str(ROOT / "tools/build_shin_book.py"),
                 "--side", "black", "--source", str(SOURCE)]
@@ -232,8 +233,8 @@ class Silver38BookTest(unittest.TestCase):
 
 
 class Silver32RevisionTest(unittest.TestCase):
-    source = ROOT / "books/shin-yonenaga-black-silver38-silver32-experiment.json"
-    book = ROOT / "books/shin-yonenaga-black-book-silver38-silver32-experiment.txt"
+    source = ROOT / "books/archive/black/shin-yonenaga-black-silver38-silver32-experiment.json"
+    book = generated_book(source)
 
     def make_engine(self, own_book=True, max_ply=20):
         executable = ROOT / "bin/release"
@@ -289,8 +290,8 @@ class Silver32RevisionTest(unittest.TestCase):
 class Common17Pawn76RevisionTest(unittest.TestCase):
     base_source = Silver32RevisionTest.source
     base_book = Silver32RevisionTest.book
-    source = ROOT / "books/shin-yonenaga-black-silver38-silver32-pawn76-experiment.json"
-    book = ROOT / "books/shin-yonenaga-black-book-silver38-silver32-pawn76-experiment.txt"
+    source = ROOT / "books/archive/black/shin-yonenaga-black-silver38-silver32-pawn76-experiment.json"
+    book = generated_book(source)
     parent = ["5i4h", "3c3d", "3i3h", "8b4b", "2g2f", "5a6b",
               "9g9f", "9c9d", "5g5f", "3a3b", "7i6h", "7a7b",
               "6h5g", "6b7a", "4h3i", "4c4d"]
@@ -360,8 +361,8 @@ class Common17Pawn76RevisionTest(unittest.TestCase):
 
 
 class Common13Pawn25RevisionTest(Common17Pawn76RevisionTest):
-    source = ROOT / "books/shin-yonenaga-black-silver38-silver32-pawn25-experiment.json"
-    book = ROOT / "books/shin-yonenaga-black-book-silver38-silver32-pawn25-experiment.txt"
+    source = ROOT / "books/experiments/black/shin-yonenaga-black-silver38-silver32-pawn25-experiment.json"
+    book = ROOT / "books/experiments/black/shin-yonenaga-black-book-silver38-silver32-pawn25-experiment.txt"
     parent = ["5i4h", "3c3d", "3i3h", "8c8d", "7g7f", "8d8e",
               "2g2f", "8e8f", "8g8f", "8b8f", "6i7h", "4c4d"]
     book_move = "2f2e"
@@ -381,8 +382,8 @@ class Common13Pawn25RevisionTest(Common17Pawn76RevisionTest):
 class Common15Silver68RevisionTest(Common13Pawn25RevisionTest):
     base_source = Common13Pawn25RevisionTest.source
     base_book = Common13Pawn25RevisionTest.book
-    source = ROOT / "books/shin-yonenaga-black-silver38-silver32-pawn25-silver68-experiment.json"
-    book = ROOT / "books/shin-yonenaga-black-book-silver38-silver32-pawn25-silver68-experiment.txt"
+    source = ROOT / "books/archive/black/shin-yonenaga-black-silver38-silver32-pawn25-silver68-experiment.json"
+    book = generated_book(source)
     parent = Common13Pawn25RevisionTest.parent + ["2f2e", "2b3c"]
     book_move = "7i6h"
     followup_reply = "4a3b"

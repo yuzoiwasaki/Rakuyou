@@ -12,8 +12,8 @@ sys.path.insert(0, str(ROOT))
 from tools.build_shin_book import compile_book  # noqa: E402
 from tools.paired_selfplay import UsiEngine  # noqa: E402
 
-SOURCE = ROOT / "books/shin-yonenaga-white-seventh-edge-experiment.json"
-BOOK = ROOT / "books/shin-yonenaga-white-book-seventh-edge-experiment.txt"
+SOURCE = ROOT / "books/experiments/white/shin-yonenaga-white-seventh-edge-experiment.json"
+BOOK = ROOT / "books/experiments/white/shin-yonenaga-white-book-seventh-edge-experiment.txt"
 
 
 class CompilationTest(unittest.TestCase):
@@ -28,10 +28,9 @@ class CompilationTest(unittest.TestCase):
             compile_book(SOURCE)
 
     def test_explicit_output_required_and_v1_v2_protected(self):
-        protected = [ROOT / "books/shin-yonenaga-white-book.txt",
-                     ROOT / "books/shin-yonenaga-white-book-v2-experiment.txt"]
+        protected = [ROOT / "books/shin-yonenaga-white-book-v2-experiment.txt"]
         before = [p.read_bytes() for p in protected]
-        for output in [None] + protected:
+        for output in [None, ROOT / "books/shin-yonenaga-white-book.txt"] + protected:
             with self.subTest(output=output):
                 cmd = [sys.executable, str(ROOT / "tools/build_shin_book.py"),
                        "--source", str(SOURCE), "--experimental"]

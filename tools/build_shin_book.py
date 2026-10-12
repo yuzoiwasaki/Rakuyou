@@ -8,7 +8,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent.parent
-DEFAULT_SOURCE = ROOT / "books/shin-yonenaga-white-candidates.json"
+DEFAULT_SOURCE = ROOT / "books/sources/white/shin-yonenaga-white-candidates.json"
 DEFAULT_OUTPUT = ROOT / "books/shin-yonenaga-white-book.txt"
 DEFAULT_EXPERIMENT_OUTPUT = ROOT / "books/shin-yonenaga-white-book-v2-experiment.txt"
 MOVE_RE = re.compile(r"(?:[1-9][a-i][1-9][a-i]\+?|[PLNSGBR]\*[1-9][a-i])\Z")
@@ -73,7 +73,7 @@ def main():
     if args.side == "black":
         if not args.experimental or args.source is None or args.output is None:
             parser.error("--side black requires --source, --experimental and --output")
-        protected = {path.resolve() for path in (ROOT / "books").glob("shin-yonenaga-white-*.txt")}
+        protected = {path.resolve() for path in (ROOT / "books").rglob("shin-yonenaga-white-*.txt")}
         if args.output.resolve() in protected:
             parser.error("a Black trial cannot overwrite an existing White book")
     if args.experimental and (args.extension is not None or args.output is None):

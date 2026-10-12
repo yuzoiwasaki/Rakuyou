@@ -171,5 +171,5 @@
       "note": "First at unrestricted24 and three-candidate restricted26, but rook26 only17cp lower within unrestricted24. Test left-silver preparation and right-king/middlegame connection, not a confirmed strength gain. Register only move15; leave silver77/right-silver47/rook29 and opponent replies to search. Prior six-entry trial chose silver68 in only1/13 reached games. Retain all previous entries; no common17 pawn76 extension or king-retreat ban."
     }
   ],
-  "derived_from": "books/shin-yonenaga-black-silver38-silver32-pawn25-experiment.json"
+  "derived_from": "books/experiments/black/shin-yonenaga-black-silver38-silver32-pawn25-experiment.json"
 }

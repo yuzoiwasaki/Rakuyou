@@ -58,8 +58,8 @@ The filename stays unchanged for reproducibility; "experiment" in its name
 does not indicate the current operational status. No engine/default changes.
 
 - SHA-256: 28e59ec12cb86ada7280687d130e29bdb28eb0d550840d634c73e003aa2ffc62.
-- Generate from books/shin-yonenaga-white-candidates.json plus
-  books/shin-yonenaga-white-v2-experiment.json using tools/build_shin_book.py.
+- Generate from books/sources/white/shin-yonenaga-white-candidates.json plus
+  books/sources/white/shin-yonenaga-white-v2-experiment.json using tools/build_shin_book.py.
 - Use ShinYonenagaGyoku ON, OwnBook ON, ShinBookFile pointing to that txt,
   BookMaxPly20. Uncovered positions search; no standard-book fallback.
 - Scope: standard-book-enabled opponent / Sente fourth-file-rook benchmark.
@@ -67,7 +67,7 @@ does not indicate the current operational status. No engine/default changes.
 - This is an operational choice, not proof of superiority or winning strength.
 
 The one-position pawn25 trial remains on hold:
-books/shin-yonenaga-white-book-v2-pawn25-experiment.txt (12 positions).
+books/experiments/white/shin-yonenaga-white-book-v2-pawn25-experiment.txt (12 positions).
 Its extension retains the 11 v2 entries and adds 2d2e after
 7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6b7a 7i7h
 8c8d 7h6g 2c2d 6f6e. Completed unrestricted White-ON depth28 ranked
@@ -103,7 +103,8 @@ October11: Black provisional first operational book is the BASE pawn76/right-sid
 SIX: books/shin-yonenaga-black-book-pawn76-right-side-experiment.txt (cb8d7e...).
 Not the pawn36 SEVEN or the older silver38/common13-pawn25 SIX. This closes the
 current Black cycle, not a proof of winning strength or causal improvement.
-Pawn36 addition remains on hold; all alternatives/evidence are retained.
+Pawn36 addition remains on hold;alternative JSON/evidence retained,obsolete
+generatedtxt removed with reproducible sources in books/archive/.
 Decision/results: October10 independent review, Continuations10/11.
 The completed200 comparison/inputs/tests were committed as37e772d.
 
@@ -121,7 +122,15 @@ All76 regression tests pass (7 new combined-book checks), loader confirms17
 legal/distinct entries; --check matches generation. Combined preparation and
 adoption documentation are included in the publication checkpoint together
 with the previous four local commits; see git log for the checkpoint ID.
-See books/README.md for settings/provenance/regeneration and regression checks.
+See books/README.md for current settings/regeneration;long history is in reports.
+Books cleanup:active3txt paths/bytes unchanged;JSON in sources/{black,white},
+held4pairs in experiments/{black,white},retired6BlackJSON in archive/black.
+Deleted7regenerable obsolete txt(6Black+Whitev1). No raw data/log deletion.
+Regression fixtures regenerate retiredtxt in tempdir with originalSHA checks;
+68booktests pass and combined17 --check exact. Compiler protection scans
+nested White files;generation source constants follow moves. No engine/eval
+changes or new experiments. Old candidateGUI paths require reselection.
+
 
 ## Current Research: Mutual-Pair Final Search Review Closed; Adoption Held
 
@@ -522,7 +531,7 @@ Both complete/no errors/stops/bounds,raw JSONs saved with hashes in review;
 all input/PV moves legally checked. No games/book/runtime changes.
 Continuation4: prior analysis/inputs committed as bdc685d (not pushed here).
 Static coverage checked across old300/fixed1,200; counts/same moves are in review.
-Prepared books/shin-yonenaga-black-pawn76-right-side-experiment.json and
+Prepared books/sources/black/shin-yonenaga-black-pawn76-right-side-experiment.json and
 books/shin-yonenaga-black-book-pawn76-right-side-experiment.txt: NEW SIX-entry
 pawn76 pilot, NOT current pawn25 SIX, experimental/unadopted. Txt SHA
 cb8d7e3e3a4ed2817752ea93d4890837fa43c91db752b5ce3a1dc534f38bb7eb.
@@ -594,8 +603,8 @@ input/PVs legally checked;raw hashes and full evidence appended to review.
 Hold move11 registration;leave search. Consolidate only conditional move9 pawn36
 after gold32/gold78/pawn44 as an additional candidate,not a proven strength gain.
 Continuation9: prepared NEW pawn76-right-side-pawn36 SEVEN-entry revision,
-books/shin-yonenaga-black-pawn76-right-side-pawn36-experiment.json and
-books/shin-yonenaga-black-book-pawn76-right-side-pawn36-experiment.txt.
+books/experiments/black/shin-yonenaga-black-pawn76-right-side-pawn36-experiment.json and
+books/experiments/black/shin-yonenaga-black-book-pawn76-right-side-pawn36-experiment.txt.
 Retains all6 existing pawn76 entries unchanged +ONLY gold32/gold78/pawn44 ->
 pawn36 at9. No move11 registration/long PV/retreat bans. Unadopted.
 Txt SHA f242178d7fd2f6278b5f9706528b39dfe257e213ed504b0ff2c17833696f2d9a.
@@ -741,7 +750,7 @@ bounds,18 input moves legal-probed. Cumulative15 searches (ON11/OFF4).
 - Silver42/pawn76/bishop33: gold58 -94, pawn25 -98, silver38 -110.
   Choose pawn25 (4cp deficit/right-side PV), replacing tentative silver38.
 
-Created books/shin-yonenaga-black-pawn26-experiment.json and
+Created books/archive/black/shin-yonenaga-black-pawn26-experiment.json and
 books/shin-yonenaga-black-book-pawn26-experiment.txt:7 experimental positions,
 plies3-7 only. SHA2566218cbbcd7768ecd3c0e90aec650ec080e8a02dfcf14555e76edd23775ed00b1.
 Root pawn26; bishop33->silver38; gold32/silver42->pawn76; gold32 followed
@@ -798,7 +807,7 @@ included, not a counterfactual coverage/strength prediction. Do not extend
 BookMaxPly/register game31's29th move from one case. Recommend holding
 the7-entry trial's operational adoption, not rejecting all right-king ideas.
 Diagnostic checkpoint c2c064c was committed/pushed. Then created separate
-books/shin-yonenaga-black-conditional-experiment.json and
+books/archive/black/shin-yonenaga-black-conditional-experiment.json and
 books/shin-yonenaga-black-book-conditional-experiment.txt. Only removed
 black_pawn26_entry;6 remaining entries (including evidence) fully identical.
 New txt SHA256e08bb43bfd6c557ff402e8407b68f72443925228080d4774c60d0e2a4f72a0f7.
@@ -905,7 +914,7 @@ after pawn84/pawn76/pawn85 pawn26 (unrestricted28 leader), after rook42
 pawn26 (unrestricted24 leader). Unknown replies search, no standard fallback,
 BookMaxPly20 unchanged; no long PV/king return registration. Compare externally
 with50 games x2 runs; existing books/White v2 remain unchanged.
-Source: books/shin-yonenaga-black-silver38-experiment.json.
+Source: books/archive/black/shin-yonenaga-black-silver38-experiment.json.
 Book: books/shin-yonenaga-black-book-silver38-experiment.txt;
 SHA256 6cbb021417a755d193eeb66de3cfd26575bfbaf711cb1f89382e80ed712bf0c0.
 37 regression tests passed; all4 evidence references match local raw data.
@@ -974,7 +983,7 @@ Tiny10/16cp leader gaps; hold rook32 registration, no extra depth expansion.
 Input black-silver38-rook32-2026-10-05-shin.json; raw hash in report.
 Prepared separate5-entry trial retaining original4 entries
 unchanged, adding ONLY silver32 parent -> king39. NOT operationally adopted.
-Source books/shin-yonenaga-black-silver38-silver32-experiment.json;
+Source books/archive/black/shin-yonenaga-black-silver38-silver32-experiment.json;
 book books/shin-yonenaga-black-book-silver38-silver32-experiment.txt;
 SHA25642622adc1fb4cc479bd70af352e296b4b5fa413f91ccad9ea4fc161866ea5a17.
 41 regression tests pass; added evidence matches raw; original/runtime unchanged.
@@ -1030,7 +1039,7 @@ development. Left rook use is not king retreat; do not hard-code rook48.
 Input black-silver38-rook42-pawn76-gold52-2026-10-06-shin.json;225 input/PV
 moves legal,errors/stops/bounds0,8 tests pass;raw hash in Black report.
 Close this small search cycle. Separate6-entry trial now prepared:
-books/shin-yonenaga-black-silver38-silver32-pawn76-experiment.json and
+books/archive/black/shin-yonenaga-black-silver38-silver32-pawn76-experiment.json and
 books/shin-yonenaga-black-book-silver38-silver32-pawn76-experiment.txt.
 Retains existing5 exactly +ONLY common17 pawn76 (leader24/26).
 Leave19/deeper PV to search (pawn86/silver27 gap21 at one depth only).
@@ -1075,8 +1084,8 @@ moves legal,errors/stops/bounds0,8tests pass;raw hash in Black report.
 Close parent depth expansion here;no automatic19/28/30/singleton/100games.
 New separate6-entry pawn25 trial prepared:existing5 unchanged +ONLY common13
 pawn25 entry;NOT prior common17 pawn76 extension. Leave15/deeper moves search.
-Source books/shin-yonenaga-black-silver38-silver32-pawn25-experiment.json;
-txt books/shin-yonenaga-black-book-silver38-silver32-pawn25-experiment.txt.
+Source books/experiments/black/shin-yonenaga-black-silver38-silver32-pawn25-experiment.json;
+txt books/experiments/black/shin-yonenaga-black-book-silver38-silver32-pawn25-experiment.txt.
 SHA52123e92c55e0dc33f1f77849daf481879f00dffb6e68c4831e93534a9a531c7.
 Evidence explicitly restricted26 (not unrestricted26);all6 refs/raw match.
 50 tests pass,51 input/book/transposed moves legal;old/runtime hashes unchanged.
@@ -1110,7 +1119,7 @@ Nearest actual gap17cp small;hold15 fixed registration and close this prep
 comparison,no auto26/28/30/new100. Existing pawn25 six remains unadopted.
 Prep/200/root reference/two15 searches committed/pushed as9ad7f0b.
 The final concept-and-strength trial was then explicitly selected:
-new books/shin-yonenaga-black-silver38-silver32-pawn25-silver68-experiment.json
+new books/archive/black/shin-yonenaga-black-silver38-silver32-pawn25-silver68-experiment.json
 and books/shin-yonenaga-black-book-silver38-silver32-pawn25-silver68-experiment.txt.
 Seven entries retain existing pawn25 six unchanged +ONLY bishop33->silver68
 at15. Leave17/silver77/rook29/deeper PV and other replies search;not adopted.
