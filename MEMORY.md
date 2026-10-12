@@ -73,6 +73,28 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   baseline plus deltas instead. Do not treat self-generated teachers as an
   independent stronger teacher.
 
+## Next research direction: thickness and territorial control
+
+- The user wants to explore thickness as a defining Shin-Yonenaga-Gyoku style;
+  a stylistic feature may be worth adopting even without measured strength gain.
+  Keep style effects and strength evidence separate in any future decision.
+- Web consultation suggests thickness is useful, sustained control of an area
+  for both attack and defense, not a universal numeric pattern. A high pawn
+  foothold supported by gold/silver can both enable progress and deny the
+  opponent a foothold. See [厚みを作るときに意識すべきこと](https://sakurai-shogi.com/araki-20240216/)
+  and [厚い: 将棋用語](https://xn--pet04dr1n5x9a.com/%E5%B0%86%E6%A3%8B%E7%94%A8%E8%AA%9E/%E5%8E%9A%E3%81%84.html).
+- Keep candidate aspects distinct: supported pawn territory, gold/silver
+  advancement, safe king placement, and local influence around a meaningful
+  front. Raw whole-board attack counts can reward irrelevant control; local
+  attack balance is better treated first as a diagnostic. Traditional
+  Hashi-gyoku Ginkanmuri descriptions are references, not direct definitions
+  of this engine's Shin-Yonenaga-Gyoku.
+- After the user resumes this work, first review a few existing game positions
+  showing durable supported territory and apparent thickness that failed under
+  attack. Define one feature only after that comparison. No new data generation,
+  training, search, or games are authorized in this planning phase; wait for
+  the user's direction and credit recovery before further work.
+
 ## Repository organization and data safety
 
 - Tools and tests are physically grouped by books, analysis, and learning
@@ -98,6 +120,9 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
 - Experiment reports are grouped under `docs/experiments/{books,learning,
   openings,selfplay}/`; each theme README is a durable index. `configs/` and
   `positions/` remain at their established paths.
+- Two supplemental White-book analyses formerly kept in ignored `results/`
+  are now tracked under `docs/experiments/books/white/`; parent report links
+  point to them. Raw JSON remains in `results/`.
 - Book source JSON is grouped under `books/sources/`, held candidates under
   `books/experiments/`, and retired reproducible sources under `books/archive/`.
   Active book text paths and contents were preserved during cleanup.
@@ -106,6 +131,5 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   tests. No engine/evaluation code changed in the organization work.
 - `docs/development.md` now covers build, tests, and durable data safeguards;
   dated learning-stage instructions belong in experiment reports.
-- Current branch was last committed and pushed at `505b1c3` (`origin/main`).
-  The development-guide cleanup is in progress; recheck `git status` and recent
-  history on resume.
+- Current branch was last committed and pushed at `018ab2f` (`origin/main`);
+  the workspace was clean. Recheck `git status` and recent history on resume.
