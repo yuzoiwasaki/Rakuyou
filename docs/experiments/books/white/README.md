@@ -13,3 +13,5 @@
 - [後手第一版専用定跡・頻出合流局面と定跡出口の再解析（深さ28・30）](2026-09-28-first-white-book-post-exit-depth28-30.md)
 - [後手第一版専用定跡・定跡出口の勝敗と候補手](2026-09-28-first-white-book-post-exit-analysis.md)
 - [後手新米長玉・最初の専用定跡候補](2026-09-27-first-white-book-candidates.md)
+- [第一版候補の本家系主筋・深さ28補助解析](2026-09-27-first-white-book-mainline-depth28-summary.md)
+- [後手第二版100局・勝敗分岐の詳細レビュー](2026-09-29-shin-dedicated-v2-win-loss-branch-review.md)

@@ -17,14 +17,14 @@
 - 既存解析のエンジン：`bin/release`。先手の応手は通常側 `ShinYonenagaGyoku=false`、後手の候補は新米長玉側 `true`。
 - 解析時は定跡・Ponderを無効、１スレッド、Hash 512 MB。主に深さ24・MultiPV ３～12、重点局面は深さ26・28・MultiPV ５または８。
 - 評価値は**その局面の手番側から見た値**。評価差は**同じ局面内**の候補手だけで比較する。深さや手番の違う評価値を直接比較しない。
-- 深さ26・28のうち生JSONを保存しなかった結果は、対話中の探索を `results/first-white-book-mainline-depth28-summary.md` に転記した**補助的な結果**。▲７八銀後の△８四歩だけは深さ28の生JSONを保存している。
+- 深さ26・28のうち生JSONを保存しなかった結果は、対話中の探索を[補助レポート](2026-09-27-first-white-book-mainline-depth28-summary.md)に転記したもの。**参考値として扱う**。▲７八銀後の△８四歩だけは深さ28の生JSONを保存している。
 
 ## 主筋の後手候補
 
 | 後手の手番直前 | 候補 | 同じ局面での評価・差 | 主な出典 |
 |---|---|---|---|
 | ▲６八飛 | △５四歩 | 深さ24で−190、同点首位 | `results/anti-fourth-file-rook-base-depth24-multipv12.json` |
-| ▲３八銀 | △４二銀 | 深さ24で−212の首位、次点と１点差 | `results/first-white-book-mainline-depth28-summary.md`（直接探索の補助記録、生JSONなし） |
+| ▲３八銀 | △４二銀 | 深さ24で−212の首位、次点と１点差 | [直接探索の補助レポート](2026-09-27-first-white-book-mainline-depth28-summary.md)（生JSONなし） |
 | ▲４八玉 | △５三銀 | 深さ24で−176の首位、次点と20点差 | `results/anti-fourth-file-rook-depth24-multipv3.json` |
 | ▲３九玉 | △７二銀 | 深さ24で−169の同点首位 | `results/historical-main-line-responses-depth24-multipv3.json` |
 | ▲６六歩 | △７一玉 | 深さ24は−200で５点差、深さ28は−202で△８四歩より24点上 | `results/historical-modernized-line-depth24-multipv5.json` と上記の補助的なまとめ |
