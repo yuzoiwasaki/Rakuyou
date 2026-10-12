@@ -4,7 +4,7 @@
 後手は既存v2の11局面を維持し、先後共通の暫定版
 `shin-yonenaga-book-v1.txt`（17局面）を作成した。
 過去の単独ファイルは変更せず保存する。以下の実験履歴の未採用表記は各時点の状態。
-最新の先手採用判断は[独立レビューの継続11](../docs/experiments/2026-10-10-black-book-independent-review.md)
+最新の先手採用判断は[独立レビューの継続11](../docs/experiments/books/black/2026-10-10-black-book-independent-review.md)
 に記録する。勝ち越し・最善定跡・他候補への棋力優越を証明したものではない。
 
 2026-10-03時点の後手第一運用版は **v2の既存11局面**。
@@ -71,7 +71,7 @@ BookMaxPlyの境界、通常側の標準定跡を回帰テストで確認する�
 
 対象は主に対標準定跡・先手四間飛車。
 別戦型・時間制・独立した技巧との対局による全面的な検証は未完了。
-[採用判断と200局の結果](../docs/experiments/2026-10-03-v2-bounded-white-improvement-cycle.md)
+[採用判断と200局の結果](../docs/experiments/books/white/2026-10-03-v2-bounded-white-improvement-cycle.md)
 を参照。
 
 内容を再生成する場合（プロジェクト直下、採用ファイルへの書込み）：
@@ -90,7 +90,7 @@ python3 tools/build_shin_book.py \
 先手試験版は７局面、最長７手目まで。後手v2とは別ファイルで、
 自動的な手番別ファイル切替はない。使う側に合わせて `ShinBookFile` を指定する。
 未登録局面は探索し、玉戻りを禁止しない。運用版への採用・勝率改善は未確認。
-[15局面探索・作成根拠と検証](../docs/experiments/2026-10-03-black-300-game-branch-review.md)
+[15局面探索・作成根拠と検証](../docs/experiments/books/black/2026-10-03-black-300-game-branch-review.md)
 を参照。先手対応後に再ビルドしたエンジンが必要。
 
 再生成：
@@ -151,7 +151,7 @@ done
 既存基準47.5%とほぼ同水準だが、実行間の差が大きく改善は未証明。
 定跡利用は17局・計18手、３手目は▲７六歩93局／▲２六歩7局。
 ６枝版は引き続き試験版で、運用採用していない。
-詳細は[先手分岐レビュー](../docs/experiments/2026-10-03-black-300-game-branch-review.md)
+詳細は[先手分岐レビュー](../docs/experiments/books/black/2026-10-03-black-300-game-branch-review.md)
 末尾「入口固定なし６枝版：100局の結果」を参照。
 
 再生成：
@@ -196,7 +196,7 @@ txtのSHA-256は
 根の▲３八銀は４候補限定深さ28の首位より39cp低く、
 △８四歩後の▲７六歩も無制限深さ28の首位より10cp低い。
 構想を試す選択であり、棋力改善・運用採用は未確認。
-根拠と検証は[先手分岐レビュー](../docs/experiments/2026-10-03-black-300-game-branch-review.md)末尾を参照。
+根拠と検証は[先手分岐レビュー](../docs/experiments/books/black/2026-10-03-black-300-game-branch-review.md)末尾を参照。
 
 再生成：
 
@@ -227,7 +227,7 @@ txtのSHA-256は
 合計31勝54敗15分（38.5%）。24手目の右側玉97局だが成績改善は未確認。
 試験版のまま採用保留。負け筋の５局面探索では、早い角交換を見送り
 ▲６六歩で左側を整える候補が残ったが、該当局面は１局のみで未登録。
-詳細は[先手分岐レビュー](../docs/experiments/2026-10-03-black-300-game-branch-review.md)
+詳細は[先手分岐レビュー](../docs/experiments/books/black/2026-10-03-black-300-game-branch-review.md)
 末尾「銀先行100局の結果と負け筋の診断」を参照。
 
 ## 銀先行５局面版：△３二銀に▲３九玉の１枝追加
@@ -270,7 +270,7 @@ caffeinate -i python3 tools/paired_selfplay.py \
 対局中は再ビルド・定跡編集をしない。再ビルドは不要。
 改訂txtのSHA-256：
 `42622adc1fb4cc479bd70af352e296b4b5fa413f91ccad9ea4fc161866ea5a17`。
-41回帰テスト成功。比較の判定項目は[先手レポート](../docs/experiments/2026-10-03-black-300-game-branch-review.md)末尾参照。
+41回帰テスト成功。比較の判定項目は[先手レポート](../docs/experiments/books/black/2026-10-03-black-300-game-branch-review.md)末尾参照。
 
 2026-10-06の結果は原版100局45.5%、５局面版100局39%。
 △３二銀群は原版19局39.5%、５局面版23局60.9%だが、非対象群も大きく異なる。
@@ -455,7 +455,7 @@ caffeinate -i python3 tools/paired_selfplay.py \
 最長９手目までで、未知応手・その先は探索へ任せる。
 既存の▲２五歩６局面版とは入口・内容が異なり、運用採用していない。
 対△４二飛の▲３八銀は限定探索首位から43cp下という構想上の選択を含む。
-[作成根拠・静的到達・試験条件](../docs/experiments/2026-10-10-black-book-independent-review.md)
+[作成根拠・静的到達・試験条件](../docs/experiments/books/black/2026-10-10-black-book-independent-review.md)
 の継続１～４を参照。
 
 生成元は `shin-yonenaga-black-pawn76-right-side-experiment.json`、
@@ -496,7 +496,7 @@ SHA-256：`f242178d7fd2f6278b5f9706528b39dfe257e213ed504b0ff2c17833696f2d9a`。
 到達数・対照で同じ手を選ぶ割合・玉配置・駒組み・実行差を確認し、
 僅差や低到達で不明なら追加の採用を保留する。
 この200局で比較を区切り、自動的な追加100局や深さ拡張はしない。
-[根拠・静的照合・コマンド](../docs/experiments/2026-10-10-black-book-independent-review.md)
+[根拠・静的照合・コマンド](../docs/experiments/books/black/2026-10-10-black-book-independent-review.md)
 の継続６～９を参照。対照１本目50局がerrors０で完了、19勝23敗８分（46%）。
 追加親局面は５局、全て探索で▲３八銀を選び、▲３六歩は０。
 試験１本目50局もerrors０、15勝25敗10分（40%）。追加▲３六歩は２局で両方負け、

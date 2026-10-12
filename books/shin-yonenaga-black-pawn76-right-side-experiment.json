@@ -3,7 +3,7 @@
   "initial_position": "startpos",
   "side": "black",
   "experiment": "pawn76-right-side-pilot",
-  "report": "docs/experiments/2026-10-10-black-book-independent-review.md",
+  "report": "docs/experiments/books/black/2026-10-10-black-book-independent-review.md",
   "entries": [
     {
       "id": "black_pawn76_entry",

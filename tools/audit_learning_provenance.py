@@ -15,9 +15,9 @@ from prepare_learning_data import ROOT, digest
 # These report rows use short run labels rather than complete JSON filenames.
 SHORT_LABELS = {
     "shin-black-pawn26-trial-r1-depth15-50games.json": (
-        "docs/experiments/2026-10-03-black-300-game-branch-review.md", "trial-r1"),
+        "docs/experiments/books/black/2026-10-03-black-300-game-branch-review.md", "trial-r1"),
     "shin-black-pawn26-trial-r2-depth15-50games.json": (
-        "docs/experiments/2026-10-03-black-300-game-branch-review.md", "trial-r2"),
+        "docs/experiments/books/black/2026-10-03-black-300-game-branch-review.md", "trial-r2"),
 }
 
 
@@ -45,7 +45,7 @@ def audit(manifest_path, root=ROOT):
     raw = Path(manifest_path).read_bytes()
     manifest = json.loads(raw)
     reports = {p.relative_to(root).as_posix(): p.read_text()
-               for p in sorted((root / "docs/experiments").glob("*.md"))
+               for p in sorted((root / "docs/experiments").rglob("*.md"))
                if "learning" not in p.name}
     runs = []
     for source in manifest["sources"]:

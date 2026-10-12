@@ -3,7 +3,7 @@
   "initial_position": "startpos",
   "side": "black",
   "experiment": "pawn26-first",
-  "report": "docs/experiments/2026-10-03-black-300-game-branch-review.md",
+  "report": "docs/experiments/books/black/2026-10-03-black-300-game-branch-review.md",
   "entries": [
     {
       "id": "black_pawn26_entry",

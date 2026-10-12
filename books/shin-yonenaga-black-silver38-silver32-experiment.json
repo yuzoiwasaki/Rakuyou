@@ -3,7 +3,7 @@
   "initial_position": "startpos",
   "side": "black",
   "experiment": "silver38-silver32-king39",
-  "report": "docs/experiments/2026-10-03-black-300-game-branch-review.md",
+  "report": "docs/experiments/books/black/2026-10-03-black-300-game-branch-review.md",
   "entries": [
     {
       "id": "black_silver38_entry",

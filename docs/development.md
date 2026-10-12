@@ -39,7 +39,7 @@ python3 tools/prepare_learning_data.py \
 過去の各runの実行時データの由来確認が済むまでは `training_ready: false` です。
 `*.provisional.jsonl` を学習確定集合として扱わないでください。
 現在の入口には学習・パラメータ更新機能はありません。
-計画と制限は[学習調査・実験案](experiments/2026-10-11-learning-feasibility-plan.md)を参照。
+計画と制限は[学習調査・実験案](experiments/learning/framework/2026-10-11-learning-feasibility-plan.md)を参照。
 
 準備済みJSONLを元棋譜と照合し、全局面を更新なしで検証する入口：
 
@@ -86,9 +86,9 @@ python3 tools/check_tempo_export.py \
 `--backup` の検証済みコピーを必須にします。新規backupを作るときだけ
 `--create-backup` を付け、backup先は新しいディレクトリの `manifest.json` を指定します。
 `--run` は実学習が明示的に有効な設定のみ受け付けます。現在の設定は無効です。
-具体的なコマンドと確認結果は[dry-run記録](experiments/2026-10-11-tempo-pilot-dry-run.md)を参照。
+具体的なコマンドと確認結果は[dry-run記録](experiments/learning/framework/2026-10-11-tempo-pilot-dry-run.md)を参照。
 
-教師の由来を固定する次段階は、[教師更新の設計](experiments/2026-10-11-teacher-refresh-plan.md)を参照。
+教師の由来を固定する次段階は、[教師更新の設計](experiments/learning/data/2026-10-11-teacher-refresh-plan.md)を参照。
 `tools/prepare_teacher_refresh.py` はtrain36／validation18の対象選択と合法性検査だけを行い、
 新しい教師cpはnullのまま保存します。探索・学習・現行データの上書きは行いません。
 
@@ -96,14 +96,14 @@ python3 tools/check_tempo_export.py \
 `--run` は教師探索だけを有効化した計画コピーを必須にします。
 固定54局面・depth15・1スレッド・最大30秒／局面で、学習や配備は行いません。
 入力・runtime照合、部分保存、実行フラグの条件とdry-run記録は
-[教師生成runnerの検証](experiments/2026-10-11-teacher-refresh-dry-run.md)を参照。
+[教師生成runnerの検証](experiments/learning/data/2026-10-11-teacher-refresh-dry-run.md)を参照。
 
 監査済み新教師36／18件用は `tools/refreshed_tempo_pilot.py` です。
 既定は更新0のdry-run、実学習には有効な実行用計画コピーと `--run` が必要です。
-旧64／64件runnerは維持します。[新runnerの条件と検証](experiments/2026-10-11-refreshed-runner-validation.md)を参照。
+旧64／64件runnerは維持します。[新runnerの条件と検証](experiments/learning/tempo/2026-10-11-refreshed-runner-validation.md)を参照。
 
 玉安全度の4特徴用は `make king-safety-probe -j2` で別の実行ファイル
 `results/king-safety-tools/king-safety-probe` を作成します。
 旧learning-probeや通常releaseは置き換えません。初回学習の範囲・結果は
-[玉安全度20更新の記録](experiments/2026-10-11-king-safety-first-pilot-result.md)を参照。
+[玉安全度20更新の記録](experiments/learning/king-safety/2026-10-11-king-safety-first-pilot-result.md)を参照。
 終了済みの実験マーカーを解除して再実行しないでください。

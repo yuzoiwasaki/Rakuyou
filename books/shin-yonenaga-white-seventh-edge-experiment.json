@@ -3,14 +3,14 @@
   "initial_position": "startpos",
   "side": "white",
   "experiment": "seventh-edge",
-  "report": "docs/experiments/2026-10-02-early-silver72-and-seventh-trial.md",
+  "report": "docs/experiments/books/white/2026-10-02-early-silver72-and-seventh-trial.md",
   "entries": [
     {
       "id": "seventh_edge_base14",
       "moves": ["7g7f", "5a6b", "2h6h"],
       "book_move": "1c1d",
       "status": "experimental",
-      "evidence": {"report": "docs/experiments/2026-09-26-anti-fourth-file-rook-focused-analysis.md", "depth": 24, "score_cp": -193, "gap_to_leader_cp": 3}
+      "evidence": {"report": "docs/experiments/openings/2026-09-26-anti-fourth-file-rook-focused-analysis.md", "depth": 24, "score_cp": -193, "gap_to_leader_cp": 3}
     },
     {
       "id": "seventh_edge_king48_wait15",

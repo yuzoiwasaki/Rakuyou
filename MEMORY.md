@@ -91,7 +91,7 @@ in the trial runs, so the overall4-point gap cannot be attributed to the new
 entry. Apply the pre-agreed ambiguous-result fallback: retain v2.
 
 Full results, 7-game review, provenance, checksums and closure:
-docs/experiments/2026-10-03-v2-bounded-white-improvement-cycle.md.
+docs/experiments/books/white/2026-10-03-v2-bounded-white-improvement-cycle.md.
 Books/status/GUI settings: books/README.md.
 tools/review_v2_white_cycle.py reproduces White cohorts by board/hands/turn,
 now accepts completed50-game outputs via requested_games. Replay is not full
@@ -128,7 +128,7 @@ See books/README.md for settings/provenance/regeneration and regression checks.
 Tempo, first king-safety and mutual-pair experiments are closed (20updates each).
 Operational params/release/books/25cp preference unchanged;no candidate adopted.
 Pair feature learned signed opening/end deltas from zero;expanded trial selected5 experimentally.
-Latest closure:docs/experiments/2026-10-12-pair-final-search-review.md.
+Latest closure:docs/experiments/learning/gold-silver/2026-10-12-pair-final-search-review.md.
 Learning implementation/results committed9622555 before finaldiagnostics.
 Selected5 ONLY(raw7457/7524),no reselect/learning/tuning;finalreview CLOSED.
 35validation re-QS (zero35+candidate35):PV/leafchanges0,cp2cases+-1,
@@ -153,10 +153,14 @@ reselection/adoption. Preserve operationalbase/books25cp andallcandidates.
 Final implementation/report and all9local learning commits pushed asffb288f.
 Learning-report navigation now organized in docs/experiments/learning/README.md;
 main experimentsREADME links to it. Conclusions/results/plans are distinguished,
-shared mechanisms/data separate from feature experiments,old report paths intact.
-Docs-only navigation change;no new tools/experiments/runtime changes. Detailed
-experiment logs remain below and in linked reports;all feature trials stayclosed.
-Earlier learning result:docs/experiments/2026-10-12-expanded-pair-learning-result.md.
+shared mechanisms/data separate from feature experiments,report names retained.
+Reports57 moved into learning/{framework,data,tempo,king-safety,gold-silver},
+books/{black,white},selfplay,openings. Theme READMEs and all local links updated.
+configs/positions remain at old paths;runtime/results/candidates untouched.
+Provenance reader now recursively scans reports,short-label mapping follows move.
+Archived audit JSON references stayhistorical,not rewritten. No new experiment.
+Detailed experiment logs remain below/in linked reports;all trials stayclosed.
+Earlier learning result:docs/experiments/learning/gold-silver/2026-10-12-expanded-pair-learning-result.md.
 Preparation+teachers+leaves+audit committed90bdd90 BEFORE expanded learning.
 Expanded143/35 ONE20update run COMPLETE;selected5 experimentally,notadopted.
 Same feature/L2=1e-6/config,zero initial from currentbaseline;no teacher/QS repeats.
@@ -183,7 +187,7 @@ No automatic more training,retuning,adoption,search repetitions/data expansion/g
 Mutual-pair candidates/checkpoints and reports preserved;experiment closed.
 User authorized144train/36fresh-validation selection,then baseline teachers+leaves+audit;NO learning.
 Prepared180roots via tools/prepare_pair_expansion.py;no teachers/QS/updates/games.
-Report:docs/experiments/2026-10-12-pair-data-expansion-preparation.md.
+Report:docs/experiments/learning/data/2026-10-12-pair-data-expansion-preparation.md.
 Train30runs/144games,validation6runs/36games;each6strata24/6. Oldvalidation57
 wholegames excluded;newgames,NOT newruns. Existing split/root/prefix isolation.
 Existing selector needs minimal run caps8train/12val (old6);seed/order/game1fixed.
@@ -195,7 +199,7 @@ Manifest results/learning-pilot/2026-10-12-pair-expansion-preparation-v1/manifes
 SHA6a3c44bafa2603063c6b1d60a1eb735864be5b365d8e5c9a1d1ace229129084f;
 audit-v1 SHA3ff524f764db3789e4c95e915d92a96e55e0e4f948de30c9959a858d0e7eb4a0.
 Expanded teacher generation+frozen leaves+audit COMPLETE. Report:
-docs/experiments/2026-10-12-pair-expanded-teachers-and-leaves.md.
+docs/experiments/learning/data/2026-10-12-pair-expanded-teachers-and-leaves.md.
 Separate tools/pair_teacher_generation.py reuses old flow with180count/SHA;
 prepare_pair_leaves.py uses old leaf predicate/native+pair static checks.
 Drygo0 passes;actual180depth15searches complete,accepted178,errors0,~134seconds.
@@ -219,7 +223,7 @@ audit-v1 SHA747229695ece4961f079dc1bbab30cda86cb52fb6b9ddd5dc4875dc5d7029a73.
 Preparation+audit phase committed90bdd90. Authorized143/35 learning now CLOSED
 at20updates with result audit (above);no automatic follow-on/adoption/retuning.
 Current operational runtime/books25cp and priorcandidates retained;test untouched.
-Earlier tempo conclusion:docs/experiments/2026-10-11-tempo-pilot-closure.md.
+Earlier tempo conclusion:docs/experiments/learning/tempo/2026-10-11-tempo-pilot-closure.md.
 Detailed preparation/results/hashes are linked from docs/experiments/README.md.
 User prefers coarser commit boundaries:bundle implementation/tests/verification/report
 into a meaningful phase;notify at phase boundaries.No external backup yet.
@@ -279,7 +283,7 @@ Control tool7tests pass (3new candidate-mode checks plus4baseline checks).
 Candidate-mode tool/tests and closure report complete the publication checkpoint.
 Closure/publication committed and pushed as409796b.
 Teacher-refresh design/preparation complete (no teacher searches/updates):
-docs/experiments/2026-10-11-teacher-refresh-plan.md and configs/teacher-refresh-v1.json.
+docs/experiments/learning/data/2026-10-11-teacher-refresh-plan.md and configs/teacher-refresh-v1.json.
 Current-baseline self-distillation plan:train36/val18,6side/result strata,
 SHA256(seed:id) order/seed20261011,one root/game,max6/run;test0.
 Selected train22runs/36games,max5/run;val6runs/18games,max6/run.
@@ -300,7 +304,7 @@ search0 dry-run complete:54root replay checks,baseline readyok/go0,5independent
 input copies,36train/18val output rows all teacher_cp=null/not-generated.
 Runtime6/baselinecopy7 unchanged;teacher_generation_complete/training_ready=false.
 7new runner tests pass (search paths mocked,not actual teacher searches).
-Report:docs/experiments/2026-10-11-teacher-refresh-dry-run.md.
+Report:docs/experiments/learning/data/2026-10-11-teacher-refresh-dry-run.md.
 Dry report results/learning-pilot/2026-10-11-teacher-refresh-dry-run-v1/report.json
 SHAe1e69434c4760e4331e5cd2a8e1f36b93119da3eefd9110d9dbbb98274ebe166.
 Runner/dry-run checkpoint2db6542;included in58131a6 publication.
@@ -313,7 +317,7 @@ Audit tool5tests pass;final audit-v2 54replays all pass,old audit-v1 preserved.
 Current54new teachers runtime identity verified;historical teachers still unknown.
 Runtime6/baseline7 unchanged;generation complete=true,training_ready=false.
 Marker teacher-generation-attempt-v1.json prevents rerun;do not bypass.
-Report:docs/experiments/2026-10-11-teacher-refresh-generation.md.
+Report:docs/experiments/learning/data/2026-10-11-teacher-refresh-generation.md.
 results/learning-pilot/2026-10-11-teacher-refresh-run-v1/report.json SHA
 5b35823223c099a4233c4d4e9c99b11876fd291d14a92b9caa945c3941eb97cf;
 audit-v2 SHAde27d343a78ef62a0571b12410c14567b39e461a18191f38cc546be539d4cdd4.
@@ -327,7 +331,7 @@ all54native integer scores unchanged;loss/gradient/selection/update0,not measure
 57independent local backup files/628846812bytes,SHA/size/inodes verified,no upload.
 New generation-level frozen-leaf-preparation-attempt-v1 marker prevents rerun.
 All runtime hashes unchanged,training/deployment/ready false,test0.
-Report:docs/experiments/2026-10-11-refreshed-pilot-preparation.md.
+Report:docs/experiments/learning/data/2026-10-11-refreshed-pilot-preparation.md.
 results/learning-pilot/2026-10-11-refreshed-pilot-preparation-v1/report.json SHA
  da5310a8b195632f39c36101d853b0992f9ad447d1a7ca07e5752251de8e04a3.
 Train cache SHAd284a89c42447578025421ea9f55516ad9b01dde537666f250b2fd97343f60f3;
@@ -345,7 +349,7 @@ Update counter saved each step;exclusive learning-attempt-v1 prevents reruns.
 Dry-run real updates0/qualityfalse/selectionnull:checkpoint0 restores,base-equal
 candidate,54leaf evaluations match,lossnull.57-file backup unchanged,7-file/
 48567byte additional independent backup verified.5new synthetic/guard tests pass.
-Report:docs/experiments/2026-10-11-refreshed-runner-validation.md.
+Report:docs/experiments/learning/tempo/2026-10-11-refreshed-runner-validation.md.
 Dry results/learning-pilot/2026-10-11-refreshed-runner-dry-run-v1/report.json SHA
 07660d91e7018de09812e5c96b9285409bcc9f5079d07c4e75efa60105bf53b6.
 Plan docs/experiments/configs/refreshed-tempo-pilot-v1.json SHA
@@ -360,7 +364,7 @@ Train avg smooth loss+L2 .017445345946 -> .017433734498 (post-run observation).
 All4checkpoint/candidate/other-region SHA and native val loss independently
 recomputed/pass.Updates closed20,no extra updates/search/test/deployment.
 Runtime6 and backups unchanged,errors0;only private plan training flag enabled.
-Report:docs/experiments/2026-10-11-refreshed-tempo-pilot-result.md.
+Report:docs/experiments/learning/tempo/2026-10-11-refreshed-tempo-pilot-result.md.
 results/learning-pilot/2026-10-11-refreshed-pilot-run-v1/report.json SHA
 88733fd21826476f77e861dcd451105f01e1453a23563505ef33f87d9f8f3a3d;
 audit-v1 SHAbf527023791f682a189685e1aae8b647bce5df313ee1ebc286ef682cabb4a671.
@@ -378,7 +382,7 @@ Errors/stops0,runtime/candidatecopy hashes unchanged,updates0/test0/deployedfals
 Raw results/learning-pilot/2026-10-11-refreshed-final-search-v1/report.json SHA
 14a55b15576eac85831834f457228b6aa8237c19f9186f5c79742cf4ca573490.
 Final-phase marker selected-final-search-attempt-v1 prevents rerun;do not bypass.
-Tool2tests pass;report:docs/experiments/2026-10-11-tempo-final-review-and-king-safety-proposal.md.
+Tool2tests pass;report:docs/experiments/learning/tempo/2026-10-11-tempo-final-review-and-king-safety-proposal.md.
 Tempo candidates stay research artifacts,operational baseline retained.
 User agrees next small ACTUAL-learning direction is8-neighbor king safety first,
 no second-ring thickness yet;reuse existing safeguards,only experiment-needed work.
@@ -392,7 +396,7 @@ Proposal:4shared residual features (supported gold,supported silver,isolated
 adjacent gold/silver,attack control surplus),opening/end=>8coefficients;zero delta,
 freeze side-dependent lanes/progress/tempo/books25cp.Define aggregate bounds anew.
 Second-ring gold/silver links/escape routes need explicit additional features.
-Concrete plan:docs/experiments/2026-10-11-king-safety-small-learning-plan.md.
+Concrete plan:docs/experiments/learning/king-safety/2026-10-11-king-safety-small-learning-plan.md.
 Use existing shared king_safety table residuals (candidate affects ON/OFF;trial ON,
 operational base unchanged);no new safety framework/USI toggle.
 4groups supported gold/supported silver/isolated adjacent gold-silver/control
@@ -409,7 +413,7 @@ restricted table exporter,zero-update checks,one bounded learning+audit phase.
 No new teacher searches/data expansion/second-ring features/test extension in plan.
 King-safety FIRST PILOT CLOSED at20updates,no automatic tuning/validation
 extension/new data/second ring/adoption.Operational BASE retained (selected0).
-Details:docs/experiments/2026-10-11-king-safety-first-pilot-result.md.
+Details:docs/experiments/learning/king-safety/2026-10-11-king-safety-first-pilot-result.md.
 Four features explicitly:supported unpromotedGold,supported unpromotedSilver,
 isolated adjacent unpromotedGold/Silver,adjacent attack-control surplus (wall0).
 Existing safety table shared residuals only lanes0/2;others/KP/tempo/progress fixed.
@@ -432,7 +436,7 @@ Raw results/learning-pilot/2026-10-11-king-safety-run-v1/report.json SHA
 audit-v1 SHA355d47a6e63f2d220fa7eed36e880586600e174cce7a1fb2d34f3fa8c91bef57.
 GEN dir king-safety-learning-attempt-v1 marker prevents rerun,do not bypass.
 Saved-only diagnosis completed (no updates/native evaluation/search/code changes).
-Report:docs/experiments/2026-10-11-king-safety-saved-result-diagnosis.md.
+Report:docs/experiments/learning/king-safety/2026-10-11-king-safety-saved-result-diagnosis.md.
 Train feature presence24/30/20/4 of36;nonzero net14/22/15/4.
 Val presence16/17/10/3 of18;nonzero net13/13/10/2;isolated B0/W10 bias.
 Raw packed-score rational reconstruction matches all4x54 saved integer scores.
@@ -446,7 +450,7 @@ Recommend HOLD coefficient retuning on this data.Only plausible one-condition
 retry would be L2 1e-4->1e-5,low priority and NOT executed/authorized by proposal.
 Bounded example consultation COMPLETE:3existing games/4windows,no search/new
 learning/framework. User holds4features and declines L2 retry/additional learning.
-Report:docs/experiments/2026-10-12-gold-silver-functional-example-review.md.
+Report:docs/experiments/learning/gold-silver/2026-10-12-gold-silver-functional-example-review.md.
 Black pawn76 trial-r2/game50:85G77,88horse66takesB,89S66recaptureshorse and
 G77/S66 mutually support outsideking28;95G86 breaks link/98captured,but99R67
 takesB compensation,not labeled badmove. Same run/game23:82horse26 takesS26,
@@ -494,7 +498,7 @@ First close the current Black cycle. White improvements can resume when concrete
 transferable ideas or shared weaknesses appear. No external engine or style book
 has been introduced. Full two-track plan is appended to the October10 review.
 
-Latest independent review: docs/experiments/2026-10-10-black-book-independent-review.md.
+Latest independent review: docs/experiments/books/black/2026-10-10-black-book-independent-review.md.
 Continuation1 is appended: 418 pawn76-first games replayed (historical244 /
 fixed174). Rook42 returns concentrate early; silver62 also returns after exchanges.
 Rook42 move5 silver38:14 games,3/8/3,none return by40; silver62 common9 silver38:
@@ -653,7 +657,7 @@ Next research: existing pawn76 king-return decisions, then the rook42 branch;
 do not make success of that future work a condition for first-version closure.
 No additional games, book/evaluation/search changes or operational adoption.
 
-See docs/experiments/2026-10-03-black-book-start-plan.md.
+See docs/experiments/books/black/2026-10-03-black-book-start-plan.md.
 Entry statistics from six existing paired runs (Black50 each) are inspected:
 300 games,108/138/54, descriptive45%. All reply 3c3d to fixed5i4h.
 After 7g7f, normal7a6b occurs162 times and8b4b occurs82.
@@ -664,7 +668,7 @@ benchmark, and old runtime binaries lack automatically stored start hashes.
 
 Black book work then began. Audit and initial screen are
 complete, source HEAD0ea194a. See
-docs/experiments/2026-10-03-black-300-game-branch-review.md.
+docs/experiments/books/black/2026-10-03-black-300-game-branch-review.md.
 tools/review_black_runs.py audits all600 saved paired records/results/summary,
 replays the selected Black300, and outputs run-specific branches, book exits,
 king positions, representative games and diagnostic shallow score changes.
@@ -1184,23 +1188,23 @@ v2 requires explicit ShinBookFile selection.
 
 - Four fixed-White100 runs: v1 30%, v2 42%, no-book26.5%, standard39.5%.
   Shin had0 standard-book moves in the last run; not proof of a book benefit.
-  docs/experiments/2026-10-02-fixed-white-four-books-depth15.md.
+  docs/experiments/books/white/2026-10-02-fixed-white-four-books-depth15.md.
 - Astra independent review and benchmark-first addendum:
-  docs/experiments/2026-10-03-astra-white-book-independent-review.md.
+  docs/experiments/books/white/2026-10-03-astra-white-book-independent-review.md.
 - Main historical 5c5d/silver42-53 development:
-  docs/experiments/2026-09-27-historical-line-analysis.md.
+  docs/experiments/openings/2026-09-27-historical-line-analysis.md.
   Do not force early6c6d or historical king83.
 - V2's frequent silver67/gold58 parent: depth28/30 rankings differ;
   high observed silver83 cohort score is not a causal move comparison.
-  docs/experiments/2026-09-29-shin-dedicated-white-book-v2-two-run-branch-review.md.
+  docs/experiments/books/white/2026-09-29-shin-dedicated-white-book-v2-two-run-branch-review.md.
 - Edge waiting / contextual pawn74: not a fixed general skeleton.
-  docs/experiments/2026-10-02-edge-wait-seventh-file-analysis.md and
-  docs/experiments/2026-10-02-early-silver72-and-seventh-trial.md.
+  docs/experiments/books/white/2026-10-02-edge-wait-seventh-file-analysis.md and
+  docs/experiments/books/white/2026-10-02-early-silver72-and-seventh-trial.md.
 - Seventh-edge trial100:20/61/19 (29.5%), dedicated pawn74 in7 games,
   dedicated silver73 in0. Not operationally adopted; do not reject the whole
   concept from a low-coverage experiment. Followup rook32 candidate remains
   deferred, not the immediate task.
-  docs/experiments/2026-10-02-seventh-edge-white-only-depth15.md.
+  docs/experiments/books/white/2026-10-02-seventh-edge-white-only-depth15.md.
 - Common White ply22: depth28 pawn14/rook32 tied-174, pawn94 -176,
   pawn25 -200. Needs intentional BookMaxPly change; not added.
 - First-book integration tests: test/test_shin_book.py. Existing seventh-edge

@@ -161,7 +161,7 @@ python3 tools/paired_selfplay.py \
 未登録の局面は探索へ戻るため、勝率だけでなく△７四歩の定跡使用局数と
 △７四歩・△７三銀の実際の同時配置を確認します。到達が少なければ、構想
 自体の良し悪しとは区別します。根拠と制約は
-`docs/experiments/2026-10-02-early-silver72-and-seventh-trial.md` に記録しています。
+`docs/experiments/books/white/2026-10-02-early-silver72-and-seventh-trial.md` に記録しています。
 
 初版の終局判定は、エンジンの投了・入玉宣言と最大手数です。千日手などの厳密な
 ルール判定はまだ行いません。比較時は深さ、スレッド数、ハッシュを変えずに実行します。
@@ -175,7 +175,7 @@ Markdownにまとめるには `tools/analyze_selfplay.py` を使います。
 python3 tools/analyze_selfplay.py \
   results/shin-book-off-vs-normal-depth15-100games.json \
   results/shin-book-on-vs-normal-depth15-100games.json \
-  --output docs/experiments/2026-09-26-selfplay-opening-analysis.md
+  --output docs/experiments/selfplay/2026-09-26-selfplay-opening-analysis.md
 ```
 
 評価低下候補は、新米長玉エンジンによる評価を同じエンジンの2手後の評価と

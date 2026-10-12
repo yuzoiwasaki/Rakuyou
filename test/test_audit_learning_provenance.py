@@ -22,7 +22,7 @@ class ProvenanceTest(unittest.TestCase):
         s = dict(path="results/shin-black-pawn26-trial-r1-depth15-50games.json", sha256="b"*64)
         line = "| `trial-r1` | `" + "b"*64 + "` |"
         self.assertFalse(references(s, {"other.md": line}))
-        self.assertTrue(references(s, {"docs/experiments/2026-10-03-black-300-game-branch-review.md": line}))
+        self.assertTrue(references(s, {"docs/experiments/books/black/2026-10-03-black-300-game-branch-review.md": line}))
 
     def test_changed_source_rejected_and_runtime_stays_unknown(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -43,6 +43,24 @@ class ProvenanceTest(unittest.TestCase):
             source.write_text("changed")
             with self.assertRaises(ValueError):
                 audit(manifest, root)
+
+    def test_nested_report_is_discovered(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root/"results").mkdir()
+            reports = root/"docs/experiments/books/white"
+            reports.mkdir(parents=True)
+            source = root/"results/game.json"
+            source.write_text("{}")
+            sha = hashlib.sha256(source.read_bytes()).hexdigest()
+            (reports/"report.md").write_text("`game.json` " + sha)
+            manifest = root/"manifest.json"
+            manifest.write_text(json.dumps(dict(sources=[dict(path="results/game.json", sha256=sha, games=1)], outputs={})))
+            result = audit(manifest, root)
+            self.assertEqual(result["corroborated_runs"], 1)
+            self.assertEqual(result["runs"][0]["report_references"][0]["path"],
+                             "docs/experiments/books/white/report.md")
+            self.assertFalse(result["training_ready"])
 
     def test_changed_split_rejected(self):
         with tempfile.TemporaryDirectory() as directory:
