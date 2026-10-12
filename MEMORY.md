@@ -49,8 +49,8 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   remain the baseline. Do not resume learning, tune coefficients, expand data,
   run more searches/games, or adopt a candidate automatically. Wait for the
   user's direction before starting another experiment.
-- Supported central fifth-rank pawns: user authorized preparation commit and
-  one20-update usefulness run with the audited fixed conditions below.
+- Supported central fifth-rank pawns: authorized single20-update run is closed;
+  selected0,baseline retained,no candidate adopted.
 - The final pair-feature check selected only the five-update candidate for
   review. Validation re-quiescence search showed no PV or leaf changes; six
   normal-search roots had unchanged best moves and mixed PV/score changes.
@@ -95,8 +95,7 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   investigate usefulness using current-evaluation teachers, with ONE feature:
   count unpromoted fifth-rank pawns on files3-7 directly defended by an own gold
   or unpromoted silver, once per pawn. No control-surplus gate, advance-distance
-  bonus, or king feature. Signed coefficient; static implementation prepared,
-  no real-data learning yet.
+  bonus, or king feature. Signed coefficients;single20-update trial now closed.
   Evidence and limitations: [supported-pawn review](docs/experiments/learning/gold-silver/2026-10-12-supported-pawn-thickness-review.md).
 - Existing143/35 frozen leaves checked statically: presence49/10; Black-owned
   pawns27/5,White-owned22/5;nonzero net49/10,max2per side. Draw presence15/47
@@ -112,14 +111,32 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   Report: [preparation audit](docs/experiments/learning/gold-silver/2026-10-12-supported-pawn-preparation-and-scale-audit.md).
   Saved results/learning-pilot/2026-10-12-supported-pawn-preparation-v1/;
   reportSHA060bb14fdcda10282ccead3055a4888c0df19d8a41bcf563b667096bef90e2f4.
-- Next: commit preparation, then execute the authorized single20-update run.
-  Existing143/35 teachers/leaves,zero delta,signed opening/end coefficients;
-  no validation-driven L2 retuning. A pawn
+- Preparation committed16b4c49 before actuallearning. One20-update run complete
+  with same143/35/L2/settings,selected0(no improved validationcandidate).
+  Saved20avg[+.240306,+.241382]cp per pawn,raw[15748,15819];current20delta
+  [+.380489,+.376393],capsnotreached. Trainintegerloss~.006466%improves;
+  validation~.024816%worsens:White~.053319%worse,Black/drawunchanged.
+  Validationonly1leaf changes1cp;Black-supported6e/7e withS7f getsbonus,
+  Whitebase272->271 while savedteacher646. Whole root/leaf max1cp;
+  smoothmax~.482cp. No strength/style benefit demonstrated.
+  New4guardtests pass;20step RNG/gradient/trajectory and4checkpoints replay
+  exactly;old190+new10backupfiles verified. All runtime/books/oldcandidates kept.
+  Report: [learning result](docs/experiments/learning/gold-silver/2026-10-12-supported-pawn-learning-result.md).
+  results/learning-pilot/2026-10-12-supported-pawn-run-v1/report.json SHA
+  39dd3c5a4817e8c9ee99adca77dff55773df874e07300e31d2efd9e981019650.
+  Prepdir learning-attempt-v1.json locksrun;neverbypass. Allcandidates saved.
+- Result implementation/report closes this phase. Next direction is still
+  under discussion: supported gold advancement is a possible feature closer
+  to the user's desired rising formation. Define it from a few train-game
+  examples and check coverage/signal before proposing another run. Small
+  coefficient effects/rounding and sparse validation remain limitations;
+  adding a feature alone does not resolve them. No new experiment authorized.
+  No extra updates,retuning,dataexpansion,searches,games,oradoption. A pawn
   foothold can work under enemy pressure, but supporting pieces can themselves
   be attacked; this feature alone does not certify effective/safe thickness.
-  Current-base teachers may give little signal for a desired style. No teacher
-  regeneration, extra learning/tuning, search, games, or operational adoption
-  is authorized. Explain outcomes using concrete Shogi examples and plain terms.
+  Current-base teachers may give little signal for a desired style.
+  Explain outcomes using concrete Shogi examples and plain terms;user has
+  Shogi knowledge but is not a learning specialist.
 - Old gold-silver examples already exposed games23/50 of test run
   `shin-black-silver38-pawn76-trial-r2`; this turn reread them before confirming
   the split, then excluded them from new case selection. Keep this exposure
