@@ -121,12 +121,29 @@ adoption documentation are included in the publication checkpoint together
 with the previous four local commits; see git log for the checkpoint ID.
 See books/README.md for settings/provenance/regeneration and regression checks.
 
-## Current Research: Mutual Gold/Silver Pair Pilot Closed; Baseline Retained
+## Current Research: Expanded Mutual-Pair Pilot Closed; Baseline Retained
 
 Tempo, first king-safety and mutual-pair experiments are closed (20updates each).
 Operational params/release/books/25cp preference unchanged;no candidate adopted.
 Pair feature learned signed opening/end deltas from zero,selected10 experimentally.
-Latest result:docs/experiments/2026-10-12-gold-silver-pair-first-pilot.md.
+Latest result:docs/experiments/2026-10-12-expanded-pair-learning-result.md.
+Preparation+teachers+leaves+audit committed90bdd90 BEFORE expanded learning.
+Expanded143/35 ONE20update run COMPLETE;selected5 experimentally,notadopted.
+Same feature/L2=1e-6/config,zero initial from currentbaseline;no teacher/QS repeats.
+5avg+0.113799/+0.114822cp,20avg+0.246547/+0.247542cp. Val5loss~.03869%
+improvement,20~.01721%;val5Black improves/WhiteDrawunchanged;20White worsens
+~.02573%,Blackdraw worsens~.11574%. TrainBlackdraw also worsens. Maxroot/leaf
+integerdelta1cp,20smoothmax.741cp. 20train24/143,val5/35leafscoreschanged.
+New tools/expanded_pair_pilot.py connects immutable143/35 caches only;oldrunner
+and all priorcandidates untouched.2newguard+4existingtests pass;all4candidate
+native scores/checkpoints and20step RNG/gradient/trajectory replay exact.
+Original57+leaf40backups verified,13newfiles copied. Searches/test0,errors0,
+deployedfalse. GEN180 mutual-pair-learning-attempt-v1 closesrun;do notbypass.
+Raw results/learning-pilot/2026-10-12-expanded-pair-run-v1/report.json SHA
+7fb3cab9562913fbc5c0a00451a26eeb72df750e7da83acb04d550bb62c5d337;
+audit-v1 SHAc5e85782751289b4b1538e06e279e7453606a503cb671a8b075953bbf33940d2.
+STOP: no adoption/extra tuning/learning/search/data expansion/games. Results
+and candidates preserved;next is results discussion. Earlier36/18 trial below.
 Train presence26/36,val16/18;net nonzero18/9. L2 fixed BEFORE run at1e-6
 based on train gradient/cp-per-pair units,not adjusted after validation results.
 20avg+0.242898/+0.216409cp;10avg+0.162656/+0.143399cp.
@@ -169,9 +186,8 @@ audit-v1 SHA47c044ef535b45b4882107a9e0a68a508942684650232d4851e16c90c71acdc6.
 results/learning-pilot/2026-10-12-pair-leaves-v1/report.json SHA
 6e5216775697f1bbeaa6bd5c3e37e105378148f34fb04239aa6e313aa484dfed;
 audit-v1 SHA747229695ece4961f079dc1bbab30cda86cb52fb6b9ddd5dc4875dc5d7029a73.
-Preparation+audit phase closed. User now authorized commit FIRST,then ONE20update
-learning run with143/35,unchanged feature/L2/config,zero init and result audit.
-No adoption/retuning/automatic expansion;close even without improvement.
+Preparation+audit phase committed90bdd90. Authorized143/35 learning now CLOSED
+at20updates with result audit (above);no automatic follow-on/adoption/retuning.
 Current operational runtime/books25cp and priorcandidates retained;test untouched.
 Earlier tempo conclusion:docs/experiments/2026-10-11-tempo-pilot-closure.md.
 Detailed preparation/results/hashes are linked from docs/experiments/README.md.
