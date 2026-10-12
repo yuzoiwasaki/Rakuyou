@@ -104,5 +104,8 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
 - Tools and tests were moved into category packages; imports and CLI entry
   points were updated. The last full verification after that move passed 196
   tests. No engine/evaluation code changed in the organization work.
-- Current branch was last committed and pushed at `51663ae` (`origin/main`);
-  the workspace was clean. Recheck `git status` and recent history on resume.
+- `docs/development.md` now covers build, tests, and durable data safeguards;
+  dated learning-stage instructions belong in experiment reports.
+- Current branch was last committed and pushed at `505b1c3` (`origin/main`).
+  The development-guide cleanup is in progress; recheck `git status` and recent
+  history on resume.
