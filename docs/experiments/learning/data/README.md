@@ -2,6 +2,14 @@
 
 [学習レポート目次へ戻る](../README.md)
 
+- [新米長玉2局の模倣学習：6組・20更新、実戦手を好む方向を確認](2026-10-12-historical-imitation-first-result.md)
+
+- [新米長玉2局の模倣学習：KP・PP差分の準備と上限監査](2026-10-12-imitation-sparse-preparation-and-scale-audit.md)
+
+- [新米長玉2局：実戦手と現行候補の比較、模倣学習案](2026-10-12-historical-move-comparison-and-pilot-plan.md)
+
+- [新米長玉の歴史的2局：読み込み監査と棋譜学習の入口](2026-10-12-historical-two-game-learning-preparation.md)
+
 - [支えられた金の前進：追加24件の教師・末端と更新0監査](2026-10-12-gold-advance-teachers-and-leaves.md)
 
 - [金が前に出た補助24局面：学習16／新検証8の選択と準備](2026-10-12-gold-advance-supplement-preparation.md)

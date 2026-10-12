@@ -199,15 +199,65 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   results/learning-pilot/2026-10-12-front-gold-silver-review-v1/review.json
   SHAb6a1191e4a66bf39dfe791f83d28d759af10eff6932907ec8357c638b304b0b4.
   Geometrysanity+11colorrotationchecks pass. Goldpilotcommitted767642e.
-- NEXT: thickness feature investigation has reached the requested stopping
-  point;discuss theme-free game-learning design,without startingimplementation.
-  Gold,centralpawn,pair,safety,tempo candidates remain held. No further
-  learning/search/games/feature extension or adoption authorized. User requested
-  one coarse Gold commit covering proposal,supplement,teacher/leaf preparation,
-  implementation,andresults;check git history/status for its revision.
-  Suggested discussion: a theme-free Shin-Yonenaga game-learning pilot using
-  moves/outcomes,with current-base preservation and draw masking planned first.
-  This is a proposal only;no new learning implementation/execution authorized.
+- Front gold/silver review committed8e3e77e. Thickness phase closed;user
+  requested transition to learning from the TWO historical Shin games.
+- TwoKIF input preparation COMPLETE: local/kifu/2011-12-21-bonkras-yonenaga-prematch.kif
+  and2012-01-14-bonkras-yonenaga.kif,CP932,SHAverified. Nativeall198moveslegal,
+  Board/nativeallSFENmatch,CSA2lineDB roundtrip exact. BothWhiteYonenagalosses;
+  White decisions42+56=98,93uniquepositions,5shared. No wins/draws.
+  No train/validation split assigned,no searches/updates,all runtime/books kept.
+  [Two-game input preparation](docs/experiments/learning/data/2026-10-12-historical-two-game-learning-preparation.md).
+  results/learning-pilot/2026-10-12-historical-two-game-input-v1/input.json
+  SHAea00042097935e0174ac3bcd1c7f9165e809476cb1ff427b300fb741cd88fedb.
+- User authorized small actual-vs-alternative comparison;COMPLETE8roots:
+  eachgameWhiteplies22/42/62/82 fixedbeforesearch,16fresh depth15 searches,
+  thread1/hash64/ON/bookOFF/30s. SameoperationalSHA isolatedbaseline reused.
+  Allcompletedcp/legalPV,no exclusions/retry/refill. Actual=best2/8.
+  Samebestprematch82 N*7c differs449cp unrestrictedvsforced;separate-tree
+  scorescannotbeusedasreliablequalitygate. No coefficient updates.
+  results/learning-pilot/2026-10-12-historical-move-comparison-v1/report.json
+  SHAd7825b838e41f8f544107874ef6571e6c1e65cfae250274b0c19d013dcd9dacd.
+  Inputdir move-comparison-attempt-v1.json lockscomparison;neverretry/bypass.
+  Savedcommands/PV/cp audit16 pass;new7files backupverified;runtime/books kept.
+  [Comparison and pilot plan](docs/experiments/learning/data/2026-10-12-historical-move-comparison-and-pilot-plan.md).
+- User authorized sparseKP/PP imitation PREPARATION;COMPLETE6/6pairs,
+  new12qsearchcalls,zero47leaves+41roots match baseline,updates0,no refills.
+  7190activecoefficients(KP1138/PP6052);4801 appearinonepair only,6pairs
+  insufficientforgeneralization. KP3scorelanes/PP0,2 only;progress/tempo
+  protected. Canonicalmirror/color/swap keys;nativeactualtableperturbation
+  verified,47symmetrypositions,88zeroevalpositions,5focusedtests pass.
+  [Sparse prep and scale audit](docs/experiments/learning/data/2026-10-12-imitation-sparse-preparation-and-scale-audit.md).
+  results/learning-pilot/2026-10-12-imitation-preparation-v1/report.json
+  SHAc119a11de5a9b53655c0396ade1deb3da5d0491516710675b2f822da9f22cc96;
+  saved-results-auditSHA4a701a83029fc3d5ec63c4d1c7814b3e1e6ef767bdddc808ab3b61b85bd45116.
+  Sourcecomparison imitation-leaf-preparation-attempt-v1.json locksqprep.
+  Nativeprobe results/imitation-tools/imitation-probe
+  SHA5885a3f7334cc0654b8f6b8c2ffc21f76dbbaadee57b537975d7ff1c5572fd0c.
+  Oldverifiedbaselinecopies reused,new11files+audit4backupverified.
+- User acceptedperkeycap±.01 andone20update;COMPLETE/CLOSED.
+  Full6pairs eachupdate,L2_1e-6,RMSprop rate/step.001/decay.9975/eps1e-12,
+  averaging.9995;save0/5/10/20,fixed20averagecandidate(no reselection).
+  Pairintegergaps[-14,286,570,37,-133,412] ->[-16,283,566,34,-137,409];
+  all6move towardactual by2-4cp,nonechangesorder. Pairlossinteger improves
+  .34529%,fullprecision.34774%. Thisistrainingfit,notstrength/styleproof.
+  Val35integerteacherloss+.10548%,Black+.11294%,White+.09691%,draw-.02126%;
+  smoothall+.07790%,draw+.10609%(roundingreversesdraw sign). 11valleaf1cp
+  changes;root9/35,trainroot2/6. Wholepositionmax2cp,smoothmax2.508cp.
+  Finalavgmax.0049146cp,currentmax.00764364,capshits0;all7190rawnonzero.
+  New5tests pass;20trajectory/gradients/4checkpoints exactarithmeticreplay;
+  nativepacked352score checks match. Oldbackups,new11files+audit2 verified.
+  No newsearches/qsearch/games/dataset changes;runtime/books/oldcandidates kept.
+  [Imitation result](docs/experiments/learning/data/2026-10-12-historical-imitation-first-result.md).
+  results/learning-pilot/2026-10-12-imitation-run-v1/report.json
+  SHA8738582ae7a3590e87140b240b905a458510d1af6f11d7d4c34f2edee6845707;
+  auditSHAced22e4266f2a2208476d2ba99ed2ff6ae84a740be5b7b6d6c40600d5ebacabd.
+  Candidateaverage-20.txtSHAe13e34bcfd26ba99e5baf3a65bb15f1684685ab882bb102706b5fe3e367c5e8b,
+  probe-only sparseoverlay,NOToperationalUSI. Prep learning-attempt-v1.json locks.
+- NEXT consult saved20candidate searchconfirmation or separate-game data
+  design. No additionallearning/tuning/candidate-reselection/automaticexpansion/
+  adoption authorized. User requested onecoarsecommit andpush covering the
+  two-game input/comparison/preparation/implementation/result;check git history
+  andstatus for the savedrevision andremote synchronization.
 - Deferred ideas: historical2games and Doronuma-ryu Furibisha-yaburi can guide
   motifs;no book ingestion/new dataset authorized. Theme-free game learning
   using moves/outcomes is for AFTER the thickness phase. Native Gikou combines
