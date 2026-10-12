@@ -1,6 +1,6 @@
-# 終了した定跡系列の生成元
+# 旧定跡系列の生成元
 
-[現行定跡へ戻る](../README.md)
+[定跡一覧へ戻る](../README.md)
 
 旧系列の生成元JSONと、対応する生成txtの名称。
 
@@ -12,7 +12,7 @@
 | `shin-yonenaga-black-book-silver38-silver32-experiment.txt` | [▲３九玉追加5局面](black/shin-yonenaga-black-silver38-silver32-experiment.json) |
 | `shin-yonenaga-black-book-silver38-silver32-pawn76-experiment.txt` | [旧系列▲７六歩追加6局面](black/shin-yonenaga-black-silver38-silver32-pawn76-experiment.json) |
 | `shin-yonenaga-black-book-silver38-silver32-pawn25-silver68-experiment.txt` | [▲６八銀追加7局面](black/shin-yonenaga-black-silver38-silver32-pawn25-silver68-experiment.json) |
-| `shin-yonenaga-white-book.txt` | [現行v2にも必要な後手v1候補](../sources/white/shin-yonenaga-white-candidates.json) |
+| `shin-yonenaga-white-book.txt` | [後手v1候補](../sources/white/shin-yonenaga-white-candidates.json) |
 
 先手▲２六歩版を別名出力へ生成する例（リポジトリ直下）：
 

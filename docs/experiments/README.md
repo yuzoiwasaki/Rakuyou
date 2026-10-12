@@ -6,7 +6,7 @@ Rakuyouの自己対局・序盤解析・学習実験の記録です。
 
 | テーマ | 目次 |
 | --- | --- |
-| 学習全体・現在の採用判断 | [学習レポート](learning/README.md) |
+| 学習全体 | [学習レポート](learning/README.md) |
 | 学習の仕組み | [入力・勾配・丸め・更新器・保存](learning/framework/README.md) |
 | 学習データ・教師 | [由来・教師生成・集合拡大](learning/data/README.md) |
 | 手番の学習 | [手番3係数](learning/tempo/README.md) |
@@ -20,9 +20,7 @@ Rakuyouの自己対局・序盤解析・学習実験の記録です。
 設定JSONは `configs/`、局面JSONは [positions/](positions/README.md)、
 棋譜・探索結果の生データはGit管理外の `results/` に保存しています。
 
-## 定跡の採用判断
-
-現行は先手6局面＋後手v2の11局面の共通暫定版。
+## 定跡の資料
 
 - [定跡一覧・使い方](../../books/README.md)
 - [先手の独立レビューと採用判断](books/black/2026-10-10-black-book-independent-review.md)
