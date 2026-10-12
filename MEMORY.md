@@ -121,12 +121,38 @@ adoption documentation are included in the publication checkpoint together
 with the previous four local commits; see git log for the checkpoint ID.
 See books/README.md for settings/provenance/regeneration and regression checks.
 
-## Current Research: Expanded Mutual-Pair Pilot Closed; Baseline Retained
+## Current Research: Mutual-Pair Final Search Review Closed; Adoption Held
 
 Tempo, first king-safety and mutual-pair experiments are closed (20updates each).
 Operational params/release/books/25cp preference unchanged;no candidate adopted.
-Pair feature learned signed opening/end deltas from zero,selected10 experimentally.
-Latest result:docs/experiments/2026-10-12-expanded-pair-learning-result.md.
+Pair feature learned signed opening/end deltas from zero;expanded trial selected5 experimentally.
+Latest closure:docs/experiments/2026-10-12-pair-final-search-review.md.
+Learning implementation/results committed9622555 before finaldiagnostics.
+Selected5 ONLY(raw7457/7524),no reselect/learning/tuning;finalreview CLOSED.
+35validation re-QS (zero35+candidate35):PV/leafchanges0,cp2cases+-1,
+loss improvement~.03869% identical frozen observation;White/draw unchanged.
+Normal6roots oneper6strata,minimumSHA256(20261011:id),NOT chosenbyquality.
+Depth12,threads1/hash64/ON/bookOFF/fresh/30s. Baseline+candidate12searches,
+plus6operationalzero controls;all18complete/legal/errors0.
+Zero dedicatedbuild matchesoperational cp/best/PV/nodes inall6 andoriginalQS
+score/nodes/PV/leafparts all35. Candidate bestmoves same6,PVchanges4,
+cpdiff-58..+64,nodeschange5;not strength evidence. AdoptionHOLD,currentbase.
+No src/Makefile/runtime changes;tools/build_pair_final_search.py creates ignored
+copyevaluation+hooks BOTH full andincremental king_safety,oldcopyright retained,
+builds results/pair-final-tools/probe+engine;envonlyfixedraw/zero,samebinary.
+Candidate cached/full+staticmatch checked,isolatedruntimeSHAcopies preserved.
+New2selection/envtests pass;alllogs/PVs/commands/SHAandpreviouscandidates audited.
+results/learning-pilot/2026-10-12-pair-final-review-v1/report.json SHA
+d3d9cb40c7b8b74119686d7d43ce6826728bfc48d72c58b3af4e95d41aa8d317;
+audit-v1 SHA7e13ee8efed332633c613faae47917fd1ad80ff9c652249d6c5c86e9268b05c7.
+RUN143/35 dir final-search-review-attempt-v1.json preventsrerun;do notbypass.
+STOP: finalcheck done,no automatic searches/games/learning/coeffadjustment/
+reselection/adoption. Preserve operationalbase/books25cp andallcandidates.
+Final implementation/report publication checkpoint includes all unpushed learning
+phases;see git log/status for final commit/remote state. Next is CONSULTATION on
+learning-report navigation:shared mechanisms/data vs tempo/king-safety/mutual-pair
+experiments. No report moves/deletions or new infrastructure/experiments yet.
+Earlier learning result:docs/experiments/2026-10-12-expanded-pair-learning-result.md.
 Preparation+teachers+leaves+audit committed90bdd90 BEFORE expanded learning.
 Expanded143/35 ONE20update run COMPLETE;selected5 experimentally,notadopted.
 Same feature/L2=1e-6/config,zero initial from currentbaseline;no teacher/QS repeats.
