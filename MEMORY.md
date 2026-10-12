@@ -7,7 +7,7 @@ first;shared mechanisms/data vs tempo/king-safety/mutual-pair experiments).
 
 ## Tool and Test Inventory
 
-Navigation:tools/README.md and test/README.md,linked from docs/development.md.
+Tools/test are organized physically by category;usage is in docs/development.md.
 Inventory43Python tools+3native sources,32test modules+1bookfixture helper.
 No clearly dispensable trackedfiles found:closed-run scripts share imported
 helpers and/or reproduce report evidence;oldbook tests regenerate temporary
@@ -22,6 +22,9 @@ for historical source verification,NOT migratedcode to resumeclosedruns.
 Two isolatednativebuilds matcholdprobes on12staticroots each;oldbins untouched.
 All79moves/localdoclinks verified;runtime/candidate hashes unchanged.
 No experiments resumed;operationaldata/books/candidates and originalprobes kept.
+README style:directory roles,usage andreference links only;temporary work limits
+and execution policy belong in MEMORY/experiment records. Removed redundant
+tools/test READMEs;report indexes andbook READMEs contain durable reference only.
 
 ## Project and Runtime
 

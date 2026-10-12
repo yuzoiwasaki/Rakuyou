@@ -13,11 +13,18 @@ make release
 [Releases](https://github.com/gikou-official/Gikou/releases) の Windows 版 zip から
 `params.bin` 等のデータファイルを `bin/` にコピーしてください（`gikou.exe` は不要）。
 
-## ツールとテストの案内
+## ツールとテスト
 
-用途別の入口は [tools/README.md](../tools/README.md) と
-[test/README.md](../test/README.md) を参照。
-普段の定跡・解析、共通の学習部品、終了済み実験の再現・監査を分けて案内しています。
+[tools/](../tools/) は `books/`、`analysis/`、`learning/` に分類しています。
+[test/](../test/) も定跡・解析・学習の分類に対応しています。
+
+テストの実行（リポジトリ直下）：
+
+```sh
+python3 -m unittest discover -s test -t .
+```
+
+一部のテストは `bin/` の評価データ、実験用probe、`results/learning-pilot/` の保存データを参照します。
 
 ## 学習準備の検証ツール
 

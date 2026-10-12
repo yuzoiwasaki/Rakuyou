@@ -9,9 +9,7 @@
 | 後手△２五歩追加、採用保留 | [JSON](white/shin-yonenaga-white-v2-pawn25-experiment.json) | [12局面txt](white/shin-yonenaga-white-book-v2-pawn25-experiment.txt) |
 | 後手７筋構想、運用不採用・構想は条件付き保留 | [JSON](white/shin-yonenaga-white-seventh-edge-experiment.json) | [13局面txt](white/shin-yonenaga-white-book-seventh-edge-experiment.txt) |
 
-現行版には含めず、候補の登録手・生成txt内容は維持している。
-移動前のGUI設定を使う場合は、このディレクトリの実ファイルを選び直す。
-終了済みの対局や探索を自動的に再開しない。
+これらの候補は現行の共通定跡には含まれていない。
 
 再生成は `tools/books/build_shin_book.py` にJSONと出力txtを明示する。
 先手の単独試験版は `--side black --experimental`、後手７筋版は `--experimental`。

@@ -17,23 +17,16 @@ Rakuyouの自己対局・序盤解析・学習実験の記録です。
 | 自己対局 | [対局比較・序盤集計](selfplay/README.md) |
 | 構想・重点解析 | [本家系・7筋構想・対四間飛車](openings/README.md) |
 
-レポート名は維持してテーマ別ディレクトリへ移動しています。
-設定JSONは `configs/`、局面JSONは `positions/` の既存パスを維持します。
-保存済み監査JSONにある旧レポートパス・SHAは当時の記録として保持し、必要に応じて当時のコミットを参照します。
+設定JSONは `configs/`、局面JSONは [positions/](positions/README.md)、
+棋譜・探索結果の生データはGit管理外の `results/` に保存しています。
 
-## 現在地
+## 定跡の採用判断
 
-学習関連は[学習レポート目次](learning/README.md)から参照できます。
-共通の仕組み・データと、手番・玉周囲の安全度・金銀連結の実験を分け、
-各実験の結論から学習結果・計画・準備へ辿れるようにしています。
-学習実験は一区切りとし、現行評価を維持しています。金銀連結は最終確認まで終了し、採用保留です。
+現行は先手6局面＋後手v2の11局面の共通暫定版。
 
-- 後手第一運用版はv2の既存11局面。[定跡一覧・使い方](../../books/README.md)
-  に運用／比較用／保留を整理しています。過去の実験は削除していません。
-- [後手の一区切り：200局比較・７局確認・v2採用判断](books/white/2026-10-03-v2-bounded-white-improvement-cycle.md)
-- [次の段階：先手300局の入口集計と先手定跡の着手方針](books/black/2026-10-03-black-book-start-plan.md)
-- [先手300局の監査・試験定跡300局比較・銀先行探索と４局面試験版](books/black/2026-10-03-black-300-game-branch-review.md)
-- [先手定跡の独立レビュー：1,200局再集計・暫定運用提案と▲７六歩型の再検討](books/black/2026-10-10-black-book-independent-review.md)
+- [定跡一覧・使い方](../../books/README.md)
+- [先手の独立レビューと採用判断](books/black/2026-10-10-black-book-independent-review.md)
+- [後手v2の比較結果と採用判断](books/white/2026-10-03-v2-bounded-white-improvement-cycle.md)
 
 ## 後手版の主要検証
 
