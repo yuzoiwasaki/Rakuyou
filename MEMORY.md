@@ -121,13 +121,22 @@ adoption documentation are included in the publication checkpoint together
 with the previous four local commits; see git log for the checkpoint ID.
 See books/README.md for settings/provenance/regeneration and regression checks.
 
-## Current Research: King Safety Pilot Closed; Baseline Retained
+## Current Research: Mutual Gold/Silver Pair Pilot Closed; Baseline Retained
 
-Tempo experiments and first king-safety experiment are closed (20updates each).
-Operational params/release/books/25cp preference unchanged;king safety selected0.
+Tempo, first king-safety and mutual-pair experiments are closed (20updates each).
+Operational params/release/books/25cp preference unchanged;no candidate adopted.
+Pair feature learned signed opening/end deltas from zero,selected10 experimentally.
+Latest result:docs/experiments/2026-10-12-gold-silver-pair-first-pilot.md.
+Train presence26/36,val16/18;net nonzero18/9. L2 fixed BEFORE run at1e-6
+based on train gradient/cp-per-pair units,not adjusted after validation results.
+20avg+0.242898/+0.216409cp;10avg+0.162656/+0.143399cp.
+Validation10loss improves~.0182%,20worsens~.0651%;Black/White mixed,
+20Blackdraw worsens/Whitedraw leaf unchanged. Root/leaf maxintegerdiff1cp.
 No automatic more training,retuning,adoption,search repetitions/data expansion/games.
-Latest result:docs/experiments/2026-10-11-king-safety-first-pilot-result.md.
-Next is results discussion,not automatic second-ring thickness implementation.
+Mutual-pair candidates/checkpoints and reports preserved;experiment closed.
+Next consultation:assess36/18 data limits and propose modest broader train/fresh
+validation from existing games,scale/purpose/time ONLY.No preparation/new
+infrastructure/learning/search/games authorized yet;keep reserved test untouched.
 Earlier tempo conclusion:docs/experiments/2026-10-11-tempo-pilot-closure.md.
 Detailed preparation/results/hashes are linked from docs/experiments/README.md.
 User prefers coarser commit boundaries:bundle implementation/tests/verification/report
@@ -340,8 +349,51 @@ Raw results/learning-pilot/2026-10-11-king-safety-run-v1/report.json SHA
 6f69cc8d82eba7edb12bf46f854cb41d120aaedaa82f3a9ded9e4d4c93364b91;
 audit-v1 SHA355d47a6e63f2d220fa7eed36e880586600e174cce7a1fb2d34f3fa8c91bef57.
 GEN dir king-safety-learning-attempt-v1 marker prevents rerun,do not bypass.
-Next:results discussion ONLY;future thickness/supporter-type/mutual connections
-and data coverage would be separate plan.No automatic follow-on experiments.
+Saved-only diagnosis completed (no updates/native evaluation/search/code changes).
+Report:docs/experiments/2026-10-11-king-safety-saved-result-diagnosis.md.
+Train feature presence24/30/20/4 of36;nonzero net14/22/15/4.
+Val presence16/17/10/3 of18;nonzero net13/13/10/2;isolated B0/W10 bias.
+Raw packed-score rational reconstruction matches all4x54 saved integer scores.
+20avg pre-final-integer delta max train.06988cp/val.06931cp,mean val.03004cp,
+30train/18val nonzero changes,all integer boundaries un-crossed.
+Initial data gradient~.74e-6..5.42e-6;20total gradient<=6.38e-13 asL2 balances;
+5->20 current coefficients change<=.00195cp,limit.5 not binding.
+Val exact preinteger data loss decrease~7.92e-8 (~.00148%),L2penalty4.26e-7;
+val Black3strata slightly worsen,Gote mixed,inadequate evidence of improvement.
+Recommend HOLD coefficient retuning on this data.Only plausible one-condition
+retry would be L2 1e-4->1e-5,low priority and NOT executed/authorized by proposal.
+Bounded example consultation COMPLETE:3existing games/4windows,no search/new
+learning/framework. User holds4features and declines L2 retry/additional learning.
+Report:docs/experiments/2026-10-12-gold-silver-functional-example-review.md.
+Black pawn76 trial-r2/game50:85G77,88horse66takesB,89S66recaptureshorse and
+G77/S66 mutually support outsideking28;95G86 breaks link/98captured,but99R67
+takesB compensation,not labeled badmove. Same run/game23:82horse26 takesS26,
+G28 cannot recapture,83K68;near-king safety misses frontline relation.
+White pawn25-r1/game47:64G61/S72 mutually defend;65N64 attacksS72,67N72+
+takesS,68G72recapturesN. Old4counts unchanged64->65 (def1/attack0 ->def1/attack1).
+Next ONE proposed feature:count own unpromotedGold/Silver MUTUAL-direct-control
+pairs whose BOTH endpoints have nonking defense count>enemy control count.
+Pair-local,includingfrontline,outsideking8;no long-chain/second-ring-wide/advance
+bonus/new danger framework. A89 qualifies,D64 qualifies/D65doesn't;C doesn't.
+That consultation ended at WHAT TO LEARN. User subsequently authorized ONE
+small signed learning trial after coverage/L2 precheck;completed20updates above.
+Separate make gold-silver-pair-probe and tools/gold_silver_pair_pilot.py reuse
+existing frozen-leaf objective/updater first2slots;remaining6 frozenzero.
+Feature cannot exactly fit old king-neighbor table;experimental native EvalDetail
+residual only,2-coefficient JSON sidecar bound to base/probe,NOT loadable by release.
+No src/runtime changes. New4+old6tests pass;selected10native replay matches54.
+Original57filebackup maintained,additional17 verified;GEN mutual-pair-learning-
+attempt-v1.json prevents rerun. Do not remove/bypass or tune further.
+Raw results/learning-pilot/2026-10-12-gold-silver-pair-run-v1/report.json SHA
+afe19f3367f9325dcf4ade3c790d55b0e16c1603945442afc3ad3c233b9278e9;
+audit-v1 SHAbc805e0224375ac40359d5378c8ade883a8cb6d6e39e8a67bfb79b7a4bcd4d88.
+20avg data gradient~-7.923e-6/-1.413e-6 vs L2+.243e-6/+.216e-6,
+not the former L2 cancellation;still tiny effects and inadequate strength evidence.
+Example review raw SHA632fcc0f950615f967a0b74341452a00e8694130257a071db5b41dd631ee732e.
+Local geometric controls (pins unmodeled),actual captures from saved moves;
+illustrations not causal-strength claims,original runtime/books25cp unchanged.
+Raw diagnosis SHA5c1414168010efb0bba27ba25930dceb224ef97ce55c8c07c4aa62ef8cd06801.
+No automatic follow-on experiments;current base retained.
 Same-engine teachers are self-distillation,not evidence of stronger teaching.
 Historical runtime identity/correlation/draw adjudication/external backup remain
 open.Proposed feature expansion and games require separate experiment plans.

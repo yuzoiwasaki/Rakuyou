@@ -71,6 +71,13 @@ ifeq ($(TARGET),king-safety-probe)
  output_file := results/king-safety-tools/king-safety-probe
  LDFLAGS += -Wl,-rpath,@loader_path/../../lib/libomp-x86_64/lib
 endif
+ifeq ($(TARGET),gold-silver-pair-probe)
+ sources := $(filter-out src/main.cc,$(wildcard src/*.cc)) tools/gold_silver_pair_probe.cc
+ CXXFLAGS += -O2 -g3
+ INCLUDES += -Isrc
+ output_file := results/gold-silver-pair-tools/gold-silver-pair-probe
+ LDFLAGS += -Wl,-rpath,@loader_path/../../lib/libomp-x86_64/lib
+endif
 ifeq ($(TARGET),profile)      # プロファイル用
 	sources  := $(shell ls src/*.cc)
 	CXXFLAGS += -O3 -DNDEBUG -pg
@@ -101,9 +108,9 @@ directories += $(dir $(output_file))
 #
 # 4. Public Targets
 #
-.PHONY: gikou release cluster consultation development profile test coverage learning-probe king-safety-probe run-coverage clean scaffold libomp-x86_64
+.PHONY: gikou release cluster consultation development profile test coverage learning-probe king-safety-probe gold-silver-pair-probe run-coverage clean scaffold libomp-x86_64
 
-gikou release cluster consultation development profile test coverage learning-probe king-safety-probe:
+gikou release cluster consultation development profile test coverage learning-probe king-safety-probe gold-silver-pair-probe:
 	$(MAKE) TARGET=$@ executable
 
 run-coverage: coverage

@@ -4,6 +4,12 @@ Rakuyouの自己対局と序盤解析の記録です。
 
 ## 現在地
 
+- [金銀相互連結の1特徴学習：出現・L2確認後に20更新、微小な変化・運用維持](2026-10-12-gold-silver-pair-first-pilot.md)
+
+- [3局4区間の金銀比較：次の1特徴「守りに余裕のある相互連結」を提案](2026-10-12-gold-silver-functional-example-review.md)
+
+- [保存済み結果の診断：丸めと弱い残差信号、再調整は保留を推奨](2026-10-11-king-safety-saved-result-diagnosis.md)
+
 - [玉周囲8マスの初回実学習：4特徴・20更新、整数評価改善なし・基準維持](2026-10-11-king-safety-first-pilot-result.md)
 
 - [次の小規模学習案：玉周囲8マスの安全度と金銀の支え、厚みへの接続](2026-10-11-king-safety-small-learning-plan.md)
