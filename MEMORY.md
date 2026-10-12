@@ -49,8 +49,8 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   remain the baseline. Do not resume learning, tune coefficients, expand data,
   run more searches/games, or adopt a candidate automatically. Wait for the
   user's direction before starting another experiment.
-- No experiment is currently active. The next research objective has not been
-  selected.
+- Supported central fifth-rank pawns: user authorized preparation commit and
+  one20-update usefulness run with the audited fixed conditions below.
 - The final pair-feature check selected only the five-update candidate for
   review. Validation re-quiescence search showed no PV or leaf changes; six
   normal-search roots had unchanged best moves and mixed PV/score changes.
@@ -62,8 +62,10 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   and [teacher/leaf audit](docs/experiments/learning/data/2026-10-12-pair-expanded-teachers-and-leaves.md).
 - Earlier tempo and king-safety results, data preparation, and implementation
   notes are indexed in [learning reports](docs/experiments/learning/README.md).
-  Treat test splits as untouched; draw outcomes and max-ply draws have their
-  recorded masking/adjudication limits. Existing `results/` attempt markers
+  Preserve test splits and do not use them for tuning. Prior input diagnostics
+  and qualitative game reviews exposed some test data; do not call the whole
+  split unseen. Draw outcomes and max-ply draws have their recorded
+  masking/adjudication limits. Existing `results/` attempt markers
   prevent reruns; never remove or bypass them.
 - The 47-run self-play corpus has 2,740 games and 475,347 moves. Historical
   parameter/progress/probability identities are unknown. Existing train,
@@ -89,11 +91,39 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   attack balance is better treated first as a diagnostic. Traditional
   Hashi-gyoku Ginkanmuri descriptions are references, not direct definitions
   of this engine's Shin-Yonenaga-Gyoku.
-- After the user resumes this work, first review a few existing game positions
-  showing durable supported territory and apparent thickness that failed under
-  attack. Define one feature only after that comparison. No new data generation,
-  training, search, or games are authorized in this planning phase; wait for
-  the user's direction and credit recovery before further work.
+- Three train-run games/four windows have now been reviewed. User agreed to
+  investigate usefulness using current-evaluation teachers, with ONE feature:
+  count unpromoted fifth-rank pawns on files3-7 directly defended by an own gold
+  or unpromoted silver, once per pawn. No control-surplus gate, advance-distance
+  bonus, or king feature. Signed coefficient; static implementation prepared,
+  no real-data learning yet.
+  Evidence and limitations: [supported-pawn review](docs/experiments/learning/gold-silver/2026-10-12-supported-pawn-thickness-review.md).
+- Existing143/35 frozen leaves checked statically: presence49/10; Black-owned
+  pawns27/5,White-owned22/5;nonzero net49/10,max2per side. Draw presence15/47
+  train,4/12validation;validationBlack-loss stratum0/6. No automatic refill.
+- Update0 preparation/audit complete with new supported-pawn-probe and
+  tools/learning/gold_silver/supported_pawn_preparation.py (no --run entry).
+  Frozen teacher/leaf hashes preserved;native178 baselines and356 root/leaf
+  independent counts match;zero candidate matches old178 cp baselines.
+  L2 fixed1e-6:train gradients[-3.4664e-6,-5.9175e-6],cap regularization
+  ~14.4%/8.45% of initialsignal. Coeffcap.5cp,20updates/batch128/seed20261011.
+  Four static perturbations includingcaps give max1cp whole-position difference.
+  New4+existing3 focusedtests pass;local independentbackup190files verified.
+  Report: [preparation audit](docs/experiments/learning/gold-silver/2026-10-12-supported-pawn-preparation-and-scale-audit.md).
+  Saved results/learning-pilot/2026-10-12-supported-pawn-preparation-v1/;
+  reportSHA060bb14fdcda10282ccead3055a4888c0df19d8a41bcf563b667096bef90e2f4.
+- Next: commit preparation, then execute the authorized single20-update run.
+  Existing143/35 teachers/leaves,zero delta,signed opening/end coefficients;
+  no validation-driven L2 retuning. A pawn
+  foothold can work under enemy pressure, but supporting pieces can themselves
+  be attacked; this feature alone does not certify effective/safe thickness.
+  Current-base teachers may give little signal for a desired style. No teacher
+  regeneration, extra learning/tuning, search, games, or operational adoption
+  is authorized. Explain outcomes using concrete Shogi examples and plain terms.
+- Old gold-silver examples already exposed games23/50 of test run
+  `shin-black-silver38-pawn76-trial-r2`; this turn reread them before confirming
+  the split, then excluded them from new case selection. Keep this exposure
+  documented; do not rebuild splits or claim those games are unseen test data.
 
 ## Repository organization and data safety
 
@@ -131,5 +161,5 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   tests. No engine/evaluation code changed in the organization work.
 - `docs/development.md` now covers build, tests, and durable data safeguards;
   dated learning-stage instructions belong in experiment reports.
-- Current branch was last committed and pushed at `018ab2f` (`origin/main`);
-  the workspace was clean. Recheck `git status` and recent history on resume.
+- Previous pushed research-direction checkpoint: `52c8a33`. Recheck `git status`
+  and recent history on resume; the supported-pawn review is a later change.

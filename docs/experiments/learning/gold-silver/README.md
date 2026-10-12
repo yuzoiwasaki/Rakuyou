@@ -2,6 +2,8 @@
 
 [学習レポート目次へ戻る](../README.md)
 
+- [中央の歩の支え：更新0の準備とL2・評価差の監査](2026-10-12-supported-pawn-preparation-and-scale-audit.md)
+- [位と金銀の支え：少数棋譜比較と最初の1特徴案](2026-10-12-supported-pawn-thickness-review.md)
 - [金銀連結の最終確認：5更新候補の再静止探索・少数通常探索、採用保留](2026-10-12-pair-final-search-review.md)
 - [金銀相互連結の初回学習：1特徴・20更新、運用は基準維持](2026-10-12-gold-silver-pair-first-pilot.md)
 - [少数棋譜で決める次の1特徴：守りに余裕のある金銀相互連結](2026-10-12-gold-silver-functional-example-review.md)
