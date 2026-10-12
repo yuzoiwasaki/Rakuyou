@@ -2,6 +2,8 @@
 
 This is the resume map, not a detailed changelog. Completed experiments and
 decision evidence live under docs/experiments/; see its README for navigation.
+Learning-specific navigation:docs/experiments/learning/README.md (conclusions
+first;shared mechanisms/data vs tempo/king-safety/mutual-pair experiments).
 
 ## Project and Runtime
 
@@ -148,10 +150,12 @@ audit-v1 SHA7e13ee8efed332633c613faae47917fd1ad80ff9c652249d6c5c86e9268b05c7.
 RUN143/35 dir final-search-review-attempt-v1.json preventsrerun;do notbypass.
 STOP: finalcheck done,no automatic searches/games/learning/coeffadjustment/
 reselection/adoption. Preserve operationalbase/books25cp andallcandidates.
-Final implementation/report publication checkpoint includes all unpushed learning
-phases;see git log/status for final commit/remote state. Next is CONSULTATION on
-learning-report navigation:shared mechanisms/data vs tempo/king-safety/mutual-pair
-experiments. No report moves/deletions or new infrastructure/experiments yet.
+Final implementation/report and all9local learning commits pushed asffb288f.
+Learning-report navigation now organized in docs/experiments/learning/README.md;
+main experimentsREADME links to it. Conclusions/results/plans are distinguished,
+shared mechanisms/data separate from feature experiments,old report paths intact.
+Docs-only navigation change;no new tools/experiments/runtime changes. Detailed
+experiment logs remain below and in linked reports;all feature trials stayclosed.
 Earlier learning result:docs/experiments/2026-10-12-expanded-pair-learning-result.md.
 Preparation+teachers+leaves+audit committed90bdd90 BEFORE expanded learning.
 Expanded143/35 ONE20update run COMPLETE;selected5 experimentally,notadopted.
