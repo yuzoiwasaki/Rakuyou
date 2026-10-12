@@ -4,6 +4,10 @@ Rakuyouの自己対局と序盤解析の記録です。
 
 ## 現在地
 
+- [拡大集合の教師生成・固定末端・監査：有効143／35件、補充なし・学習未実施](2026-10-12-pair-expanded-teachers-and-leaves.md)
+
+- [金銀連結のデータ拡大：144／新検証36局面の選択・静的準備、教師生成は未実施](2026-10-12-pair-data-expansion-preparation.md)
+
 - [金銀相互連結の1特徴学習：出現・L2確認後に20更新、微小な変化・運用維持](2026-10-12-gold-silver-pair-first-pilot.md)
 
 - [3局4区間の金銀比較：次の1特徴「守りに余裕のある相互連結」を提案](2026-10-12-gold-silver-functional-example-review.md)

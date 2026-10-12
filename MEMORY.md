@@ -134,9 +134,45 @@ Validation10loss improves~.0182%,20worsens~.0651%;Black/White mixed,
 20Blackdraw worsens/Whitedraw leaf unchanged. Root/leaf maxintegerdiff1cp.
 No automatic more training,retuning,adoption,search repetitions/data expansion/games.
 Mutual-pair candidates/checkpoints and reports preserved;experiment closed.
-Next consultation:assess36/18 data limits and propose modest broader train/fresh
-validation from existing games,scale/purpose/time ONLY.No preparation/new
-infrastructure/learning/search/games authorized yet;keep reserved test untouched.
+User authorized144train/36fresh-validation selection,then baseline teachers+leaves+audit;NO learning.
+Prepared180roots via tools/prepare_pair_expansion.py;no teachers/QS/updates/games.
+Report:docs/experiments/2026-10-12-pair-data-expansion-preparation.md.
+Train30runs/144games,validation6runs/36games;each6strata24/6. Oldvalidation57
+wholegames excluded;newgames,NOT newruns. Existing split/root/prefix isolation.
+Existing selector needs minimal run caps8train/12val (old6);seed/order/game1fixed.
+Native180root legal/nonrepeat/SFEN/Huffman and zero residual/base matches;3tests.
+Root pair presence127/31,net84/22;NOT frozen-leaf counts,not quality selection.
+All180pending teacher_cp null;flagsdisabled/readinessfalse. Feature/config unchanged
+incl L2=1e-6,20updates,signed2coeff zero init,batch128 (future144 uses128/update).
+Manifest results/learning-pilot/2026-10-12-pair-expansion-preparation-v1/manifest.json
+SHA6a3c44bafa2603063c6b1d60a1eb735864be5b365d8e5c9a1d1ace229129084f;
+audit-v1 SHA3ff524f764db3789e4c95e915d92a96e55e0e4f948de30c9959a858d0e7eb4a0.
+Expanded teacher generation+frozen leaves+audit COMPLETE. Report:
+docs/experiments/2026-10-12-pair-expanded-teachers-and-leaves.md.
+Separate tools/pair_teacher_generation.py reuses old flow with180count/SHA;
+prepare_pair_leaves.py uses old leaf predicate/native+pair static checks.
+Drygo0 passes;actual180depth15searches complete,accepted178,errors0,~134seconds.
+Teacher exclusions2(repeated_root_or_pv_history):trainBlackdraw1,valBlackwin1.
+No replacement/retry/condition change. Validtrain143/val35,QS178allaccepted,
+extraexcluded0,root/leaf split overlap0. Strata train[24,23,24,24,24,24],
+val[5,6,6,6,6,6] in Bwin/Bdraw/Bloss/Wloss/Wdraw/Wwin order.
+Draw47train(inclW24)/12val(inclW6). Pairpresence124/31,net85/22 atfrozenleaves.
+Native staticaudit178 exact;zero8slotcheckpoint restores,sidecarzero;loss/grad0,
+updates0/test0/deployedfalse/training_readyfalse. New1+old7/5/5tests pass.
+Original57filebackup+additional40 verified;oldcandidates/runtime remain unchanged.
+GEN180dir teacher-generation-attempt-v1 and frozen-leaf-preparation-attempt-v1
+prevent retries. Do not remove/bypass. GenerationHEAD619cb3b dirty=true,
+actualtools SHA saved;old36/18tools untouched. Preparationflags remaindisabled.
+results/learning-pilot/2026-10-12-pair-teacher-run-v1/report.json SHA
+01c9a6cdf28e6c5114a0dafae99937ce0ce3dfe06900864faa4683eda403dd4c;
+audit-v1 SHA47c044ef535b45b4882107a9e0a68a508942684650232d4851e16c90c71acdc6.
+results/learning-pilot/2026-10-12-pair-leaves-v1/report.json SHA
+6e5216775697f1bbeaa6bd5c3e37e105378148f34fb04239aa6e313aa484dfed;
+audit-v1 SHA747229695ece4961f079dc1bbab30cda86cb52fb6b9ddd5dc4875dc5d7029a73.
+Preparation+audit phase closed. User now authorized commit FIRST,then ONE20update
+learning run with143/35,unchanged feature/L2/config,zero init and result audit.
+No adoption/retuning/automatic expansion;close even without improvement.
+Current operational runtime/books25cp and priorcandidates retained;test untouched.
 Earlier tempo conclusion:docs/experiments/2026-10-11-tempo-pilot-closure.md.
 Detailed preparation/results/hashes are linked from docs/experiments/README.md.
 User prefers coarser commit boundaries:bundle implementation/tests/verification/report
