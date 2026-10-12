@@ -2,6 +2,14 @@
 
 [学習レポート目次へ戻る](../README.md)
 
+- [対局を分けた模倣学習：有効4／4組・20更新、小さな転移の兆候](2026-10-13-game-split-imitation-transfer-result.md)
+
+- [対局で分ける模倣学習：12／12元局面の選択と静的監査](2026-10-12-game-split-imitation-root-preparation.md)
+
+- [次の棋譜学習：対局で分ける12／12局面案](2026-10-12-game-level-imitation-data-plan.md)
+
+- [新米長玉2局の20更新候補：12局面の通常探索比較、採用保留](2026-10-12-historical-imitation-normal-search-review.md)
+
 - [新米長玉2局の模倣学習：6組・20更新、実戦手を好む方向を確認](2026-10-12-historical-imitation-first-result.md)
 
 - [新米長玉2局の模倣学習：KP・PP差分の準備と上限監査](2026-10-12-imitation-sparse-preparation-and-scale-audit.md)

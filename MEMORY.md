@@ -253,11 +253,95 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   auditSHAced22e4266f2a2208476d2ba99ed2ff6ae84a740be5b7b6d6c40600d5ebacabd.
   Candidateaverage-20.txtSHAe13e34bcfd26ba99e5baf3a65bb15f1684685ab882bb102706b5fe3e367c5e8b,
   probe-only sparseoverlay,NOToperationalUSI. Prep learning-attempt-v1.json locks.
-- NEXT consult saved20candidate searchconfirmation or separate-game data
-  design. No additionallearning/tuning/candidate-reselection/automaticexpansion/
-  adoption authorized. User requested onecoarsecommit andpush covering the
-  two-game input/comparison/preparation/implementation/result;check git history
-  andstatus for the savedrevision andremote synchronization.
+- Two-game pilot committed/pusheddf1f7d4. User authorized saved20only normal
+  searchcheck;COMPLETE12rootsx2 depth15/thread1/hash64/ON/bookOFF/fresh/30s.
+  Fixed6train+6oldvalidation(1/sixstrata,minSHA20261011:id,no score/feature
+  selection);no extra learning/tuning/reselection/refill/testgames.
+  Exporter reusedfrozenprobe patch,zeroexportSHA=baseline,changed97234bytes
+  onlyallowedKP/PP lanes;88static fullhistories reproduce saved20candidate.
+  Candidateenginebyte-identicaltooperational inisolatedruntime;sourcebin kept.
+  Trainbestmovechanged3/6,actualbest0/6,PVchanged6/6,cpdiff-126..+114.
+  Diagnosticbestsame6/6,PVchanged6/6;5validcpdiff-15..+187;candidateBlack-loss
+  id e3ccacfa..:21:35 PVrepetitionexcluded,no refill/retry. Smallstaticdelta
+  changessearchtree;searchscoreincreaseisnotstrengthproof. Baseline6best/cp/PV
+  matchpriorcomparison;1nodescount differsby1(recorded). No adoption.
+  [Normal-search result](docs/experiments/learning/data/2026-10-12-historical-imitation-normal-search-review.md).
+  results/learning-pilot/2026-10-12-imitation-search-review-v1/report.json
+  SHA5d18c80d6d39c4336e8c69e2f15e3dd0ed74168fbff64d0a36712c6d2f433726;
+  auditSHAf29fb8d802909687b06b34b40d8de5e8dd464e43bca27e9361de5da1f964ce70.
+  ExportedcandidateparamsSHA5483b619c17a675891187526c7839db0f6d28e7c5b01422aa3e376b855126b10,
+  held inisolatedcandidate/bin/params.bin,NOToperational.
+  New3tests pass;commands/PV/bytes/auditsverified,new11files backedup.
+  Run final-search-review-attempt-v1.json locks24searches;neverretry/bypass.
+- User requestedcontinue withdata-design consultation;DESIGN ONLY complete.
+  Recommendprematch train/Denousen validation,operational-basezero restart,
+  notold20continuation. Afterply20:32/46White roots,unique32/46,crossgame0.
+  Bothlosses,no win/draw. Propose12/12 evenlyspaced White roots
+  floor(i*(n-1)/11),i0..11;no score/featurequalityselection. NOTyetselected.
+  Atmost48normal+48qsearchforpair prep;reuseidenticalsaveddataafteraudit if
+  available,no oldattemptbypass/refill. Estimatefewminutes..10min provisional;
+  48normalx30s timeout=24min upperbound,QS extra.
+  [Game-level design](docs/experiments/learning/data/2026-10-12-game-level-imitation-data-plan.md).
+  results/learning-pilot/2026-10-12-game-level-imitation-design-v1/design.json.
+  Old2games BOTHalreadyused:prospectivegame-leveltransferdiagnostic only,
+  NOTunseenvalidation. Valgame mustnot contributegradient/keys/L2selection.
+  KeepKP/PP/cap.01/position10,outcomelossOFF;old35side/drawguards.
+  Separatecorpus47runs train31/val8/test8 onlyfuturestrength-learning route,
+  notautomaticallymixwithhistoricalimitation;maxplydrawoutcomemasked.
+- User authorized12/12selection+staticaudit,requestedavoiddeepchasing.
+  COMPLETE24/24nativehistories+actualnextmoves legal/SFEN-Huffman exact,
+  no repeatedhistory,exclusions/refill0,crossgame root overlap0.
+  Trainprematch plies[22,26,32,38,44,50,54,60,66,72,78,84];
+  ValDenousen[22,30,38,46,54,62,70,78,86,94,102,112].
+  No newnormal/QS/updates. Actualusablepairs notyetknown(endgame mayexclude).
+  Reusablebaselinecomparisons train22,val22/62;atmost42newnormalafterreuse
+  identityaudit,QS cap48. No rerunofclosedattempts/replacementifreusefails.
+  [12/12 root prep](docs/experiments/learning/data/2026-10-12-game-split-imitation-root-preparation.md).
+  results/learning-pilot/2026-10-12-game-split-imitation-roots-v1/manifest.json
+  SHA95eb72a4849025fcf7498c7b751b3c3d387c86cc3bfb0ef82ace7730dd67bc67;
+  auditSHAc16cd92136a6047244a5e0bbf2a0de629265c49e76b2a000161e959fdcaac817.
+  Threefocusedtests pass;input/source/selectionaudit andold/newbackupsverified.
+  Runtime/books/25cp/old20candidate unchanged. Pendingcpteachersnotgenerated.
+- User steered2026-10-13: adoption reservedforfinaldecision;furtherstudy
+  permissibleifpromising. Do NOTretainold automatic"hold/closeevenifpromising"
+  ascurrentinstruction. Currentevaluation/books remain until explicitadoption.
+- Transferprep attempted42new+6reused comparisons;47responses saved/audited,
+  lastforcedDenousen112 recordmissing becauseForcedmove-mismatchguard
+  mishandledspecialterminal. Unrestricted112 alreadyresign/mate,excluded.
+  Preservedfailedreport+source;fixedguard andmockregressionpass. NOsearchretry,
+  refill,markerbypass. Saved4train/4validation pairs finishedSTATIConly.
+  Eachsplit7same-best(no pairs),1terminalexcluded. QS16calls only.
+  Newpreparedstats trainkeys5391 fromPREMATCHONLY,no validationgradient/keys,
+  L2capratiosmedian.00952%,p90.0671%,max.4977%;crossgame leaf overlap0.
+  Zero110positions match,cap auditmax5cp. 1incompletesource response disclosed.
+  results/learning-pilot/2026-10-13-imitation-transfer-static-audit-v1/report.json
+  SHA392ea00497689cbe0ecc917f0ff9cbdb7a6558f459129311fc72de61353bbcce.
+- Authorizedcontinue one20 transfertrial COMPLETED unchangedsettings:
+  full4trainpairs,L2_1e-6,cap.01,step/rate.001,average.9995,fixed20average.
+  No outcomelearning. Trainintegerloss improves.3354%,smooth.3509%;val
+  integer+.0345%,smooth+.0357%. Alltrain gapsimprove1..4cp;valonly1/4
+  integergapimproves1cp,3unchanged;smooth3improve/1worse. No rankingreversal.
+  Old35diagnostic integerall+.0910%,Black+.0399%,White+.1498%,draw-.1216%;
+  smoothall+.0207%,Black-.00618%,White+.0517%,draw-.0741%. Changesmax1cp.
+  Whole110integermax2cp,smoothmax2.588;avgcoeffmax.00494164,current.00770102,
+  caphits0. Train-only20gradient/trajectory/4checkpoints exactaudit and440packed
+  scorechecks match. New2prepguards+1terminalregression+2pilotguards pass.
+  No candidate normalsearch/games,tuning,refill/split swap. Runtime/books/old
+  candidates intact. Candidate saved,notadopted;decision stillopen.
+  [Transfer result](docs/experiments/learning/data/2026-10-13-game-split-imitation-transfer-result.md).
+  results/learning-pilot/2026-10-13-imitation-transfer-run-v1/report.json
+  SHAaa2d78166e3558f2c376ffa8dfe12577b89a7cdcf8ce14c2a234f813662410a2;
+  auditSHAcf285107bbd35995362815c2f6df79f02ece9726559742f907eb03957fac6cc9.
+  average-20.txtSHA7f1a6e4b35353ad307a0ee6fda8eca1b68b9d13262c16f7b4356510e7203fb9b.
+  Rootprep transfer-preparation-attempt-v1.json andstaticprep learning-attempt-v1.json
+  lockoriginalattempts;neverretry/bypass. Failedprep provenance staysimmutable.
+- NEXT discuss finaladoption/depth decision. Tinytransfer signal notrobust:
+  only4previouslyexposed valpairs/1integercp benefit,draw mixed. Recommend
+  pause this2gamepilot rather thanincreasecoefficients;further independent
+  evidence wouldbe neededforadoption/deepening. User hasnotordereddeployment
+  ornewdataset. Userrequestedcoarsecommit+push ofnormal-search/rootprep/
+  transferimplementation andreports;check git history/status for revision and
+  remote synchronization. No further experiment requested in this save step.
 - Deferred ideas: historical2games and Doronuma-ryu Furibisha-yaburi can guide
   motifs;no book ingestion/new dataset authorized. Theme-free game learning
   using moves/outcomes is for AFTER the thickness phase. Native Gikou combines
