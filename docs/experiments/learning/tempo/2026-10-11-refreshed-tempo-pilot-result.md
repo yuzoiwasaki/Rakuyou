@@ -25,7 +25,7 @@ epsilon1e-12、平均化decay0.9995、seed20261011。
 独立した追加backupを新規作成・照合した。先のdry-run用追加backupは変更しない。
 
 ```sh
-python3 tools/refreshed_tempo_pilot.py \
+python3 tools/learning/tempo/refreshed_tempo_pilot.py \
   results/learning-pilot/2026-10-11-refreshed-pilot-preparation-v1/report.json \
   results/learning-pilot/2026-10-11-teacher-refresh-run-v1/report.json \
   results/learning-pilot/2026-10-11-teacher-refresh-run-v1/audit-v2.json \

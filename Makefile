@@ -58,21 +58,21 @@ ifeq ($(TARGET),development)  # 開発用・デバッグ用
 	CXXFLAGS += -O2 -g3
 endif
 ifeq ($(TARGET),learning-probe) # 探索・学習を行わないデータ検証用
-	sources := $(filter-out src/main.cc,$(wildcard src/*.cc)) tools/learning_data_probe.cc
+	sources := $(filter-out src/main.cc,$(wildcard src/*.cc)) tools/learning/native/learning_data_probe.cc
 	CXXFLAGS += -O2 -g3
 	INCLUDES += -Isrc
 	output_file := results/learning-tools/learning-data-probe
 	LDFLAGS += -Wl,-rpath,@loader_path/../../lib/libomp-x86_64/lib
 endif
 ifeq ($(TARGET),king-safety-probe)
- sources := $(filter-out src/main.cc,$(wildcard src/*.cc)) tools/learning_data_probe.cc
+ sources := $(filter-out src/main.cc,$(wildcard src/*.cc)) tools/learning/native/learning_data_probe.cc
  CXXFLAGS += -O2 -g3 -DKING_SAFETY_PROBE
  INCLUDES += -Isrc
  output_file := results/king-safety-tools/king-safety-probe
  LDFLAGS += -Wl,-rpath,@loader_path/../../lib/libomp-x86_64/lib
 endif
 ifeq ($(TARGET),gold-silver-pair-probe)
- sources := $(filter-out src/main.cc,$(wildcard src/*.cc)) tools/gold_silver_pair_probe.cc
+ sources := $(filter-out src/main.cc,$(wildcard src/*.cc)) tools/learning/native/gold_silver_pair_probe.cc
  CXXFLAGS += -O2 -g3
  INCLUDES += -Isrc
  output_file := results/gold-silver-pair-tools/gold-silver-pair-probe

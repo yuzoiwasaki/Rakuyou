@@ -21,7 +21,7 @@
 - 候補の新規探索0、追加学習0、対局0、配備false。
 
 ```sh
-python3 tools/check_tempo_search_repeatability.py \
+python3 tools/learning/tempo/check_tempo_search_repeatability.py \
   results/learning-pilot/2026-10-11-full-search-preparation-v1/manifest.json \
   results/learning-pilot/2026-10-11-full-search-comparison-v1/report.json \
   --output results/learning-pilot/2026-10-11-baseline-repeatability-v1
@@ -67,7 +67,7 @@ mateをcp変動幅に混ぜないことを確認する新規4テストが通過�
 | 成果物 | SHA-256 |
 | --- | --- |
 | `results/learning-pilot/2026-10-11-baseline-repeatability-v1/report.json` | `b5b70af8d8301ef7e201e4e6fb93a940807591ebd203d5f350c480e946b5475e` |
-| `tools/check_tempo_search_repeatability.py` | `85cde15e4f61770f27a1561e4ddf458e5d9c5d58593aa94f8b43f507ad1c271c` |
+| `tools/learning/tempo/check_tempo_search_repeatability.py` | `85cde15e4f61770f27a1561e4ddf458e5d9c5d58593aa94f8b43f507ad1c271c` |
 
 基準対照を6回で閉じる。次の案は同じ3局面で候補だけを各2回、最大6検索して、
 候補側でもcp・bestmove・PVが再現するかを確認すること。

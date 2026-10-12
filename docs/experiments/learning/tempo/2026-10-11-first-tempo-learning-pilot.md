@@ -28,7 +28,7 @@ validationの事前基準では20更新時の平均化候補が選ばれた。
 元のdry-run用バックアップを上書きしていない。
 
 ```sh
-python3 tools/tempo_pilot.py \
+python3 tools/learning/tempo/tempo_pilot.py \
   results/learning-pilot/2026-10-11-preparation-v2/manifest.json \
   results/learning-pilot/2026-10-11-input-validation-v1/qsearch-leaves-v1.json \
   results/learning-pilot/2026-10-11-input-validation-v1/validation-leaves-v1.json \

@@ -33,7 +33,7 @@
 リポジトリ直下で、書込みなしの確認は次の通り。
 
 ```sh
-python3 tools/build_operational_shin_book.py --check
+python3 tools/books/build_operational_shin_book.py --check
 ```
 
 再生成する場合は同コマンドから `--check` を外す。

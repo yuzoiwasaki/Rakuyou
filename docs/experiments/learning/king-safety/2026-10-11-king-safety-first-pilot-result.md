@@ -75,7 +75,7 @@ decay0.9975、epsilon1e-12、各係数±0.5cp、平均化0.9995、seed20261011�
 今回の全候補は上限内。
 
 ```sh
-python3 tools/king_safety_pilot.py \
+python3 tools/learning/king_safety/king_safety_pilot.py \
   --output results/learning-pilot/2026-10-11-king-safety-run-v1 --run
 ```
 

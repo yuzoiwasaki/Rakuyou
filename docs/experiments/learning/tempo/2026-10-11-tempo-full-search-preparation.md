@@ -9,7 +9,7 @@
 
 `src/main.cc` は起動時に作業ディレクトリのprogress／probabilityを読み、
 `src/usi.cc` は `isready` で `params.bin` を読む。
-既存の `tools/analyze_positions.py` は実行ファイルの親ディレクトリをcwdにする。
+既存の `tools/analysis/analyze_positions.py` は実行ファイルの親ディレクトリをcwdにする。
 そのため既存ツールと同じ経路を使い、以下の独立コピーを用意した。
 
 - `results/learning-pilot/2026-10-11-full-search-preparation-v1/baseline/bin/`
@@ -57,7 +57,7 @@ PVの合法性も確認する。depth0では省いたルート前の着手履歴
 ## 再現と成果物
 
 ```sh
-python3 tools/prepare_tempo_search.py \
+python3 tools/learning/tempo/prepare_tempo_search.py \
   results/learning-pilot/2026-10-11-preparation-v2/manifest.json \
   results/learning-pilot/2026-10-11-pilot-run-v1/report.json \
   results/learning-pilot/2026-10-11-pilot-run-v1/selected-qsearch-check-v1.json \

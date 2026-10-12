@@ -15,13 +15,13 @@
 次のコマンドは既存の現行txtへ書き込む。
 
 ```sh
-python3 tools/build_shin_book.py --side black --experimental \
+python3 tools/books/build_shin_book.py --side black --experimental \
   --source books/sources/black/shin-yonenaga-black-pawn76-right-side-experiment.json \
   --output books/shin-yonenaga-black-book-pawn76-right-side-experiment.txt
-python3 tools/build_shin_book.py \
+python3 tools/books/build_shin_book.py \
   --source books/sources/white/shin-yonenaga-white-candidates.json \
   --extension books/sources/white/shin-yonenaga-white-v2-experiment.json \
   --output books/shin-yonenaga-white-book-v2-experiment.txt
 ```
 
-通常の確認には `python3 tools/build_operational_shin_book.py --check` を使用する。
+通常の確認には `python3 tools/books/build_operational_shin_book.py --check` を使用する。

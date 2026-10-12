@@ -6,7 +6,7 @@
 
 ## 符号と目的関数
 
-`tools/tempo_objective.py` は、末端局面・進行度を固定した手番差分3係数のモデル。
+`tools/learning/core/tempo_objective.py` は、末端局面・進行度を固定した手番差分3係数のモデル。
 根拠は [評価の内分・手番処理](../../../../src/evaluation.cc) と
 [学習側の進行度係数](../../../../src/learning.h)。
 実エンジンの最終cpは整数に丸められるため、その離散関数自体を微分しない。
@@ -43,8 +43,8 @@ sigmoidはoverflowを避ける形で計算し、clippingは使わない。
 ## 検証結果
 
 ```sh
-python3 -m unittest discover -s test -p test_tempo_objective.py -v
-python3 tools/check_tempo_gradient.py \
+python3 -m unittest discover -s test -t . -p test_tempo_objective.py -v
+python3 tools/learning/checks/check_tempo_gradient.py \
   results/learning-pilot/2026-10-11-preparation-v2/manifest.json \
   --output results/learning-pilot/2026-10-11-input-validation-v1/tempo-gradient-v1.json
 ```

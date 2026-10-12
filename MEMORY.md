@@ -5,6 +5,24 @@ decision evidence live under docs/experiments/; see its README for navigation.
 Learning-specific navigation:docs/experiments/learning/README.md (conclusions
 first;shared mechanisms/data vs tempo/king-safety/mutual-pair experiments).
 
+## Tool and Test Inventory
+
+Navigation:tools/README.md and test/README.md,linked from docs/development.md.
+Inventory43Python tools+3native sources,32test modules+1bookfixture helper.
+No clearly dispensable trackedfiles found:closed-run scripts share imported
+helpers and/or reproduce report evidence;oldbook tests regenerate temporary
+fixtures. Now79sources MOVED into real category directories;no files deleted.
+Tools:books,analysis,learning/{core,data,checks,tempo,king_safety,gold_silver,native}.
+Test:books,analysis,learning/{core,data,tempo,king_safety,gold_silver}.
+Canonical package imports+directCLI roots,Makefile and documentedpaths updated.
+Use python3 -m unittest discover -s test -t .;corealgorithms unchanged.
+Archivedresults/backups oldpaths+SHA remain historical;use recordedcommit/copy
+for historical source verification,NOT migratedcode to resumeclosedruns.
+196tests pass;43toolmodules import;directCLI and -m operationalbook --check pass.
+Two isolatednativebuilds matcholdprobes on12staticroots each;oldbins untouched.
+All79moves/localdoclinks verified;runtime/candidate hashes unchanged.
+No experiments resumed;operationaldata/books/candidates and originalprobes kept.
+
 ## Project and Runtime
 
 - Personal experimental fork of Gikou 2, identifying itself as Rakuyou.
@@ -59,7 +77,7 @@ does not indicate the current operational status. No engine/default changes.
 
 - SHA-256: 28e59ec12cb86ada7280687d130e29bdb28eb0d550840d634c73e003aa2ffc62.
 - Generate from books/sources/white/shin-yonenaga-white-candidates.json plus
-  books/sources/white/shin-yonenaga-white-v2-experiment.json using tools/build_shin_book.py.
+  books/sources/white/shin-yonenaga-white-v2-experiment.json using tools/books/build_shin_book.py.
 - Use ShinYonenagaGyoku ON, OwnBook ON, ShinBookFile pointing to that txt,
   BookMaxPly20. Uncovered positions search; no standard-book fallback.
 - Scope: standard-book-enabled opponent / Sente fourth-file-rook benchmark.
@@ -93,7 +111,7 @@ entry. Apply the pre-agreed ambiguous-result fallback: retain v2.
 Full results, 7-game review, provenance, checksums and closure:
 docs/experiments/books/white/2026-10-03-v2-bounded-white-improvement-cycle.md.
 Books/status/GUI settings: books/README.md.
-tools/review_v2_white_cycle.py reproduces White cohorts by board/hands/turn,
+tools/analysis/review_v2_white_cycle.py reproduces White cohorts by board/hands/turn,
 now accepts completed50-game outputs via requested_games. Replay is not full
 independent legality or perpetual-check adjudication.
 
@@ -111,7 +129,7 @@ The completed200 comparison/inputs/tests were committed as37e772d.
 Combined provisional v1: books/shin-yonenaga-book-v1.txt, exact union of
 6 Black entries and unchanged11 Whitev2 entries, without new moves/deeper PVs.
 SHA256 d080bc78583695da22641509ca93682653baa4761cb633f4f144ec1aef7c7e07.
-Reproduce: python3 tools/build_operational_shin_book.py; --check verifies only.
+Reproduce: python3 tools/books/build_operational_shin_book.py; --check verifies only.
 The dedicated compiler checks each single-side txt matches its source JSON.
 Set ShinYonenagaGyoku ON, OwnBook ON, BookMaxPly20, ShinBookFile to this combined
 txt explicitly; existing GUI settings/defaults do NOT switch automatically.
@@ -148,7 +166,7 @@ plus6operationalzero controls;all18complete/legal/errors0.
 Zero dedicatedbuild matchesoperational cp/best/PV/nodes inall6 andoriginalQS
 score/nodes/PV/leafparts all35. Candidate bestmoves same6,PVchanges4,
 cpdiff-58..+64,nodeschange5;not strength evidence. AdoptionHOLD,currentbase.
-No src/Makefile/runtime changes;tools/build_pair_final_search.py creates ignored
+No src/Makefile/runtime changes;tools/learning/gold_silver/build_pair_final_search.py creates ignored
 copyevaluation+hooks BOTH full andincremental king_safety,oldcopyright retained,
 builds results/pair-final-tools/probe+engine;envonlyfixedraw/zero,samebinary.
 Candidate cached/full+staticmatch checked,isolatedruntimeSHAcopies preserved.
@@ -177,7 +195,7 @@ Same feature/L2=1e-6/config,zero initial from currentbaseline;no teacher/QS repe
 improvement,20~.01721%;val5Black improves/WhiteDrawunchanged;20White worsens
 ~.02573%,Blackdraw worsens~.11574%. TrainBlackdraw also worsens. Maxroot/leaf
 integerdelta1cp,20smoothmax.741cp. 20train24/143,val5/35leafscoreschanged.
-New tools/expanded_pair_pilot.py connects immutable143/35 caches only;oldrunner
+New tools/learning/gold_silver/expanded_pair_pilot.py connects immutable143/35 caches only;oldrunner
 and all priorcandidates untouched.2newguard+4existingtests pass;all4candidate
 native scores/checkpoints and20step RNG/gradient/trajectory replay exact.
 Original57+leaf40backups verified,13newfiles copied. Searches/test0,errors0,
@@ -195,7 +213,7 @@ Validation10loss improves~.0182%,20worsens~.0651%;Black/White mixed,
 No automatic more training,retuning,adoption,search repetitions/data expansion/games.
 Mutual-pair candidates/checkpoints and reports preserved;experiment closed.
 User authorized144train/36fresh-validation selection,then baseline teachers+leaves+audit;NO learning.
-Prepared180roots via tools/prepare_pair_expansion.py;no teachers/QS/updates/games.
+Prepared180roots via tools/learning/data/prepare_pair_expansion.py;no teachers/QS/updates/games.
 Report:docs/experiments/learning/data/2026-10-12-pair-data-expansion-preparation.md.
 Train30runs/144games,validation6runs/36games;each6strata24/6. Oldvalidation57
 wholegames excluded;newgames,NOT newruns. Existing split/root/prefix isolation.
@@ -209,7 +227,7 @@ SHA6a3c44bafa2603063c6b1d60a1eb735864be5b365d8e5c9a1d1ace229129084f;
 audit-v1 SHA3ff524f764db3789e4c95e915d92a96e55e0e4f948de30c9959a858d0e7eb4a0.
 Expanded teacher generation+frozen leaves+audit COMPLETE. Report:
 docs/experiments/learning/data/2026-10-12-pair-expanded-teachers-and-leaves.md.
-Separate tools/pair_teacher_generation.py reuses old flow with180count/SHA;
+Separate tools/learning/data/pair_teacher_generation.py reuses old flow with180count/SHA;
 prepare_pair_leaves.py uses old leaf predicate/native+pair static checks.
 Drygo0 passes;actual180depth15searches complete,accepted178,errors0,~134seconds.
 Teacher exclusions2(repeated_root_or_pv_history):trainBlackdraw1,valBlackwin1.
@@ -305,7 +323,7 @@ Plan SHA2f4353ac1bca81dcbf3c9aff396142f8e0925290babaa2a8b729fa5e08fa9f90.
 Future generation depth15/MultiPV1/Threads1/Hash64/ON/bookOFF/PonderOFF,
 fresh each root,max54searches/30s each,no retry/refill/autoextend.
 Design/preparation checkpoint4431991;included in58131a6 publication.
-Runner tools/refresh_teachers.py implemented;default dry-run,--run requires exact
+Runner tools/learning/data/refresh_teachers.py implemented;default dry-run,--run requires exact
 plan copy with ONLY teacher_search_enabled=true;training/deployment stayfalse.
 Runtime-bound54roots;fresh depth15 max54/30s,exclusive generation marker,
 no retry/resume/refill,partial failed results saved;special scores/history excluded.
@@ -331,7 +349,7 @@ results/learning-pilot/2026-10-11-teacher-refresh-run-v1/report.json SHA
 5b35823223c099a4233c4d4e9c99b11876fd291d14a92b9caa945c3941eb97cf;
 audit-v2 SHAde27d343a78ef62a0571b12410c14567b39e461a18191f38cc546be539d4cdd4.
 Teacher generation/audit committed and pushed through58131a6.
-Refreshed-reader/leaves/update0 dry-run complete via tools/prepare_refreshed_pilot.py.
+Refreshed-reader/leaves/update0 dry-run complete via tools/learning/data/prepare_refreshed_pilot.py.
 Pinned generation/audit SHA;old cp separate,new cp used in FrozenLeaf,run promoted
 for existing pilot helpers.54baselineQS calls,36train/18val all accepted,excluded0.
 Parity train even30/odd6,val even13/odd5;run/root/leaf-SFEN sets disjoint.
@@ -347,7 +365,7 @@ Train cache SHAd284a89c42447578025421ea9f55516ad9b01dde537666f250b2fd97343f60f3;
 val cache SHAc18997ac3694870cffe66872cafd6c520a5c457e18c695e9dab9f7f112d42d3e.
 Backup SHAba18462cd3b7c260fdfbbe5088d10efc1bfa9abc0d9a2087add815eb515e644b.
 Reader/leaves/update0 preparation committed as3cf98ce (local,not pushed).
-Dedicated36/18 tools/refreshed_tempo_pilot.py + disabled plan implemented,
+Dedicated36/18 tools/learning/tempo/refreshed_tempo_pilot.py + disabled plan implemented,
 old64/64 runner unchanged. Same Config max20/step.25/limit5/seed20261011,
 mean sigmoid gain1/600/L2=1e-6,avg.9995,saves0/5/10/20.
 Selection:validation native loss+L2,changed val scores AND improvement>1e-12;
@@ -472,7 +490,7 @@ Pair-local,includingfrontline,outsideking8;no long-chain/second-ring-wide/advanc
 bonus/new danger framework. A89 qualifies,D64 qualifies/D65doesn't;C doesn't.
 That consultation ended at WHAT TO LEARN. User subsequently authorized ONE
 small signed learning trial after coverage/L2 precheck;completed20updates above.
-Separate make gold-silver-pair-probe and tools/gold_silver_pair_pilot.py reuse
+Separate make gold-silver-pair-probe and tools/learning/gold_silver/gold_silver_pair_pilot.py reuse
 existing frozen-leaf objective/updater first2slots;remaining6 frozenzero.
 Feature cannot exactly fit old king-neighbor table;experimental native EvalDetail
 residual only,2-coefficient JSON sidecar bound to base/probe,NOT loadable by release.
@@ -678,7 +696,7 @@ benchmark, and old runtime binaries lack automatically stored start hashes.
 Black book work then began. Audit and initial screen are
 complete, source HEAD0ea194a. See
 docs/experiments/books/black/2026-10-03-black-300-game-branch-review.md.
-tools/review_black_runs.py audits all600 saved paired records/results/summary,
+tools/analysis/review_black_runs.py audits all600 saved paired records/results/summary,
 replays the selected Black300, and outputs run-specific branches, book exits,
 king positions, representative games and diagnostic shallow score changes.
 Its5 synthetic tests pass. Ownership replay is not full legality/adjudication.
@@ -1216,12 +1234,12 @@ v2 requires explicit ShinBookFile selection.
   docs/experiments/books/white/2026-10-02-seventh-edge-white-only-depth15.md.
 - Common White ply22: depth28 pawn14/rook32 tied-174, pawn94 -176,
   pawn25 -200. Needs intentional BookMaxPly change; not added.
-- First-book integration tests: test/test_shin_book.py. Existing seventh-edge
+- First-book integration tests: test/books/test_shin_book.py. Existing seventh-edge
   tests and analysis fresh-process tests remain useful regression coverage.
 
 ## Data, Tools and Safety
 
-- tools/paired_selfplay.py fixes color with --shin-side black|white --games N;
+- tools/analysis/paired_selfplay.py fixes color with --shin-side black|white --games N;
   default paired mode swaps colors. Normal side always uses standard book.
   --shin-book on plus --shin-book-file sets the dedicated book only for Shin.
   JSON saves every game; --resume supports paired/fixed runs. docs/selfplay.md.

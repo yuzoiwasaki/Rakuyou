@@ -41,12 +41,12 @@ L2を含む学習時の損失低下率約0.227%とは定義が異なる。
 同一基準の起動間変動や探索経路への影響を今回の全局面で分離したわけではなく、
 この結果を理由に追加の反復対照や深掘りは行わない。
 
-実行は `tools/close_refreshed_tempo_search.py`。6層の固定選択とcp／PV／選択手の比較を
+実行は `tools/learning/tempo/close_refreshed_tempo_search.py`。6層の固定選択とcp／PV／選択手の比較を
 確認する新規2テストが通過。ネイティブなPV再生と実行前後のruntime／候補コピーSHA照合も通過。
 更新0、test選択0、配備false。`selected-final-search-attempt-v1.json` を解除せず再実行しない。
 
 ```sh
-python3 tools/close_refreshed_tempo_search.py \
+python3 tools/learning/tempo/close_refreshed_tempo_search.py \
   results/learning-pilot/2026-10-11-refreshed-pilot-run-v1/report.json \
   results/learning-pilot/2026-10-11-teacher-refresh-run-v1/report.json \
   results/learning-pilot/2026-10-11-teacher-refresh-run-v1/audit-v2.json \

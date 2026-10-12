@@ -44,7 +44,7 @@ bounds、mateは0。新規検索区間のelapsed合計0.687秒、起動・読込
 既存4テストと合わせて7テストが通過した。運用6ファイル・コピー14件のSHAを再検証し不変。
 
 ```sh
-python3 tools/check_tempo_search_repeatability.py \
+python3 tools/learning/tempo/check_tempo_search_repeatability.py \
   results/learning-pilot/2026-10-11-full-search-preparation-v1/manifest.json \
   results/learning-pilot/2026-10-11-full-search-comparison-v1/report.json \
   --candidate-control results/learning-pilot/2026-10-11-baseline-repeatability-v1/report.json \
@@ -56,7 +56,7 @@ python3 tools/check_tempo_search_repeatability.py \
 | 成果物 | SHA-256 |
 | --- | --- |
 | `results/learning-pilot/2026-10-11-candidate-repeatability-v1/report.json` | `76b9939c49945d65ae755ce958c4d4b625f96646c59e62ab9974df8dcfd5f2dc` |
-| 今回の `tools/check_tempo_search_repeatability.py` | `743b3ce73548d072a5a94a94edeea75193250c5f54fd42856cbce01307fd488f` |
+| 今回の `tools/learning/tempo/check_tempo_search_repeatability.py` | `743b3ce73548d072a5a94a94edeea75193250c5f54fd42856cbce01307fd488f` |
 | 選定済み候補params | `1858ca315c4a5821710ea7b71f9251c5909f1c0ade88314306fd6baa7a7101f8` |
 
 基準対照reportは前版ツールで作成した履歴として保持し、そのSHAや内容を変更していない。

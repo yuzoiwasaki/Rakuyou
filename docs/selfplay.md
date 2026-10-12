@@ -1,17 +1,17 @@
 # 新米長玉と通常のRakuyouの比較対局
 
-`tools/paired_selfplay.py` はRakuyouを2つ起動し、新米長玉をオンにした側と
+`tools/analysis/paired_selfplay.py` はRakuyouを2つ起動し、新米長玉をオンにした側と
 オフにした通常側を対戦させます。既定では1組ごとに先後を交代します。
 `--shin-side black|white` で新米長玉の手番を固定できます。将棋所は使いません。
 
 ```sh
-python3 tools/paired_selfplay.py --depth 5
+python3 tools/analysis/paired_selfplay.py --depth 5
 ```
 
 強さを比較する最初の実験では、深さ15で50組（100局）を実行します。
 
 ```sh
-python3 tools/paired_selfplay.py \
+python3 tools/analysis/paired_selfplay.py \
   --depth 15 \
   --threads 1 \
   --hash 512 \
@@ -24,7 +24,7 @@ python3 tools/paired_selfplay.py \
 手番でも標準定跡を使います。
 
 ```sh
-python3 tools/paired_selfplay.py \
+python3 tools/analysis/paired_selfplay.py \
   --depth 15 --threads 1 --hash 512 \
   --shin-book on \
   --shin-book-file books/shin-yonenaga-white-book.txt \
@@ -42,13 +42,13 @@ python3 tools/paired_selfplay.py \
 保存済みの条件と結果から再開できます。
 
 ```sh
-python3 tools/paired_selfplay.py --resume results/shin-book-off-vs-normal-日時.json
+python3 tools/analysis/paired_selfplay.py --resume results/shin-book-off-vs-normal-日時.json
 ```
 
 再開時に全体の組数を増やすこともできます。
 
 ```sh
-python3 tools/paired_selfplay.py \
+python3 tools/analysis/paired_selfplay.py \
   --resume results/shin-book-off-vs-normal-日時.json \
   --pairs 200
 ```
@@ -67,21 +67,21 @@ JSONの `summary` には勝敗、スコア率、先後別成績、平均手数�
 負荷や条件を変える場合は、例えば次のように指定します。
 
 ```sh
-python3 tools/paired_selfplay.py --depth 10 --threads 2 --hash 256
+python3 tools/analysis/paired_selfplay.py --depth 10 --threads 2 --hash 256
 ```
 
 通常側は比較対象として常に定跡を使います。新米長玉側は既定で定跡なしです。
 新米長玉側も定跡ありにする場合は次のように指定します。
 
 ```sh
-python3 tools/paired_selfplay.py --depth 10 --shin-book on
+python3 tools/analysis/paired_selfplay.py --depth 10 --shin-book on
 ```
 
 別の定跡ファイルを試す場合は `--book-file`、定跡を使う最大手数を変える場合は
 `--book-max-ply` を指定できます。
 
 ```sh
-python3 tools/paired_selfplay.py --book-file path/to/book.bin --book-max-ply 30
+python3 tools/analysis/paired_selfplay.py --book-file path/to/book.bin --book-max-ply 30
 ```
 
 最初の後手新米長玉専用定跡は、レビュー済みの候補JSONから生成します。
@@ -89,10 +89,10 @@ python3 tools/paired_selfplay.py --book-file path/to/book.bin --book-max-ply 30
 含めません。候補JSONは根拠の記録、生成したテキストはエンジンが読む定跡です。
 
 ```sh
-python3 tools/build_shin_book.py
+python3 tools/books/build_shin_book.py
 make release
-python3 test/test_shin_book.py
-python3 tools/paired_selfplay.py \
+python3 test/books/test_shin_book.py
+python3 tools/analysis/paired_selfplay.py \
   --depth 15 --threads 1 --hash 512 \
   --shin-book on \
   --shin-book-file books/shin-yonenaga-white-book.txt \
@@ -117,15 +117,15 @@ python3 tools/paired_selfplay.py \
 これは運用の区切りであり、棋力向上や勝ち越しを証明したという意味ではありません。
 
 ```sh
-python3 tools/build_shin_book.py \
+python3 tools/books/build_shin_book.py \
   --extension books/sources/white/shin-yonenaga-white-v2-experiment.json
-python3 test/test_shin_book.py
+python3 test/books/test_shin_book.py
 ```
 
 対局時は第一版と同じエンジン設定で、試験用定跡ファイルを明示します。
 
 ```sh
-python3 tools/paired_selfplay.py \
+python3 tools/analysis/paired_selfplay.py \
   --depth 15 --threads 1 --hash 512 \
   --shin-book on \
   --shin-book-file books/shin-yonenaga-white-book-v2-experiment.txt \
@@ -143,12 +143,12 @@ python3 tools/paired_selfplay.py \
 v1・v2と分けて明示的に生成します。
 
 ```sh
-python3 tools/build_shin_book.py \
+python3 tools/books/build_shin_book.py \
   --source books/experiments/white/shin-yonenaga-white-seventh-edge-experiment.json \
   --experimental \
   --output books/experiments/white/shin-yonenaga-white-book-seventh-edge-experiment.txt
-python3 test/test_seventh_trial_book.py
-python3 tools/paired_selfplay.py \
+python3 test/books/test_seventh_trial_book.py
+python3 tools/analysis/paired_selfplay.py \
   --depth 15 --threads 1 --hash 512 \
   --shin-book on \
   --shin-book-file books/experiments/white/shin-yonenaga-white-book-seventh-edge-experiment.txt \
@@ -169,10 +169,10 @@ python3 tools/paired_selfplay.py \
 プレイヤー別に確認できます。
 
 複数の結果JSONから、先後別成績、頻出する序盤手順、序盤の評価低下候補を
-Markdownにまとめるには `tools/analyze_selfplay.py` を使います。
+Markdownにまとめるには `tools/analysis/analyze_selfplay.py` を使います。
 
 ```sh
-python3 tools/analyze_selfplay.py \
+python3 tools/analysis/analyze_selfplay.py \
   results/shin-book-off-vs-normal-depth15-100games.json \
   results/shin-book-on-vs-normal-depth15-100games.json \
   --output docs/experiments/selfplay/2026-09-26-selfplay-opening-analysis.md
@@ -183,10 +183,10 @@ python3 tools/analyze_selfplay.py \
 深い再解析を行う局面を選ぶために使います。
 
 選んだ局面だけを定跡なしのMultiPVで深く読むには、局面の指し手列をJSONに
-保存して`tools/analyze_positions.py`へ渡します。
+保存して`tools/analysis/analyze_positions.py`へ渡します。
 
 ```sh
-python3 tools/analyze_positions.py \
+python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/anti-fourth-file-rook/anti-fourth-file-rook.json \
   --depth 20 \
   --multipv 3 \
@@ -211,7 +211,7 @@ python3 tools/analyze_positions.py \
 通常側の主要応手を選ぶ場合は、新米長玉の評価補正を無効にします。
 
 ```sh
-python3 tools/analyze_positions.py positions.json \
+python3 tools/analysis/analyze_positions.py positions.json \
   --depth 24 --multipv 5 --shin-yonenaga-gyoku off \
   --output results/opponent-replies.json
 ```

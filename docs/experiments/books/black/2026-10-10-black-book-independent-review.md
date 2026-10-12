@@ -758,7 +758,7 @@ P*2f 2e2a 4h8h
 生成コマンド：
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/build_shin_book.py --side black \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/books/build_shin_book.py --side black \
   --source books/sources/black/shin-yonenaga-black-pawn76-right-side-experiment.json --experimental \
   --output books/shin-yonenaga-black-book-pawn76-right-side-experiment.txt
 ```
@@ -804,7 +804,7 @@ OwnBook OFF、BookMaxPly2／3・8／9境界、通常側が専用定跡を使わ�
 最初の対照10局のコマンド（リポジトリ直下。同名結果がある場合は上書きせず変更する）：
 
 ```sh
-caffeinate -i python3 tools/paired_selfplay.py \
+caffeinate -i python3 tools/analysis/paired_selfplay.py \
   --engine bin/release --shin-side black --games 10 --shin-book on \
   --shin-book-file books/experiments/black/shin-yonenaga-black-book-silver38-silver32-pawn25-experiment.txt \
   --depth 15 --threads 1 --hash 512 --book-file bin/book.bin \
@@ -1435,7 +1435,7 @@ pilotの２例は両実行の第１局で、135手が一致した勝局。
 生成：
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/build_shin_book.py --side black \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/books/build_shin_book.py --side black \
   --source books/experiments/black/shin-yonenaga-black-pawn76-right-side-pawn36-experiment.json --experimental \
   --output books/experiments/black/shin-yonenaga-black-book-pawn76-right-side-pawn36-experiment.txt
 ```
@@ -1481,7 +1481,7 @@ Codex外で、新規プロセスを順番に１つずつ実行する。
 初回の対照50局（リポジトリ直下。同名結果があれば上書きしない）：
 
 ```sh
-caffeinate -i python3 tools/paired_selfplay.py \
+caffeinate -i python3 tools/analysis/paired_selfplay.py \
   --engine bin/release --shin-side black --games 50 --shin-book on \
   --shin-book-file books/shin-yonenaga-black-book-pawn76-right-side-experiment.txt \
   --depth 15 --threads 1 --hash 512 --book-file bin/book.bin \
@@ -1712,12 +1712,12 @@ SHA-256：`cb8d7e3e3a4ed2817752ea93d4890837fa43c91db752b5ce3a1dc534f38bb7eb`。
 初手▲４八玉／△６二玉はエンジン側の固定初手機能なので、この数に含まない。
 SHA-256：`d080bc78583695da22641509ca93682653baa4761cb633f4f144ec1aef7c7e07`。
 
-再生成は `python3 tools/build_operational_shin_book.py`、書込みなしの確認は
+再生成は `python3 tools/books/build_operational_shin_book.py`、書込みなしの確認は
 同コマンドの `--check`。既存生成器で元の先後JSONをコンパイルし、保存済み単独txtとの
 一致と６／11組の数を確認して結合する。旧txtの上書きや他候補の取り込みは行わない。
 完全合法性は生成器の役割ではなく、実エンジンの読み込みと利用をテストする。
 
-`test/test_operational_shin_book.py` に７テストを追加し、次を確認する。
+`test/books/test_operational_shin_book.py` に７テストを追加し、次を確認する。
 
 - 再生成一致・元の17組の完全保持・先後単独txtのSHA-256不変。
 - 単独txtが生成元と不一致なら結合を拒否。
@@ -1730,9 +1730,9 @@ SHA-256：`d080bc78583695da22641509ca93682653baa4761cb633f4f144ec1aef7c7e07`。
 検証コマンド（リポジトリ直下）：
 
 ```sh
-python3 tools/build_operational_shin_book.py --check
+python3 tools/books/build_operational_shin_book.py --check
 PYTHONPATH=tools:test PYTHONDONTWRITEBYTECODE=1 \
-  python3 -m unittest discover -s test -p 'test_*.py'
+  python3 -m unittest discover -s test -t . -p 'test_*.py'
 ```
 
 エンジンは既存 `6f7891c4…`、標準定跡は `cd42c35f…` のまま。

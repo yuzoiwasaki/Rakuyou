@@ -6,7 +6,7 @@ runnerで確認し、必要な入力の独立コピーを作成した。実デ�
 
 ## runner
 
-`tools/tempo_pilot.py` の既定動作はdry-run。設定、元manifest、生JSON、分割、
+`tools/learning/tempo/tempo_pilot.py` の既定動作はdry-run。設定、元manifest、生JSON、分割、
 train/validationの固定末端、現在のruntime、バックアップのSHAを確認する。
 run・ルート・末端の重複、対象外の入力、未検証の設定、未整備のバックアップを拒否する。
 更新器、目的関数、入力、設定をcheckpointのbindingに含める。
@@ -29,7 +29,7 @@ dry-runでは目的関数、勾配更新、validationの品質計算、候補選
 
 ## バックアップ
 
-`tools/learning_backup.py` は新規ディレクトリにファイルをコピーし、各ファイルの
+`tools/learning/core/learning_backup.py` は新規ディレクトリにファイルをコピーし、各ファイルの
 SHA・サイズ・元ファイルとの別inodeを確認する。hard link、元データ削除、上書きは行わない。
 復元用manifestはリポジトリ相対パスで構成し、path escape、改変、必要ファイルの欠落を拒否する。
 
@@ -43,8 +43,8 @@ SHA・サイズ・元ファイルとの別inodeを確認する。hard link、元
 ## 実データで行ったdry-run
 
 ```sh
-python3 -m unittest discover -s test -p test_tempo_pilot.py -v
-python3 tools/tempo_pilot.py \
+python3 -m unittest discover -s test -t . -p test_tempo_pilot.py -v
+python3 tools/learning/tempo/tempo_pilot.py \
   results/learning-pilot/2026-10-11-preparation-v2/manifest.json \
   results/learning-pilot/2026-10-11-input-validation-v1/qsearch-leaves-v1.json \
   results/learning-pilot/2026-10-11-input-validation-v1/validation-leaves-v1.json \

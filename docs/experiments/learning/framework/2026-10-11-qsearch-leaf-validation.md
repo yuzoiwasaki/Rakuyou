@@ -29,7 +29,7 @@ Qsearchの入力はUSI着手列から合法性を確認したルート局面で�
 
 ## 固定末端の検証手順
 
-`tools/check_qsearch_leaves.py` はtrainの先後／結果6層から順番に64ルートを選ぶ。
+`tools/learning/checks/check_qsearch_leaves.py` はtrainの先後／結果6層から順番に64ルートを選ぶ。
 validation/testは入力整合性だけを読み、探索・品質測定には用いない。
 
 1. 基準paramsだけでQsearchを1回実行する。
@@ -46,8 +46,8 @@ validation/testは入力整合性だけを読み、探索・品質測定には�
 
 ```sh
 make learning-probe -j2
-python3 -m unittest discover -s test -p test_qsearch_leaves.py -v
-python3 tools/check_qsearch_leaves.py \
+python3 -m unittest discover -s test -t . -p test_qsearch_leaves.py -v
+python3 tools/learning/checks/check_qsearch_leaves.py \
   results/learning-pilot/2026-10-11-preparation-v2/manifest.json \
   --output results/learning-pilot/2026-10-11-input-validation-v1/qsearch-leaves-v1.json
 ```

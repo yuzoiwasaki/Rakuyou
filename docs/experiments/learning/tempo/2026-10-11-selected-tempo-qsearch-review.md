@@ -20,7 +20,7 @@
   過去の勝敗別集計は観察用であり、勝敗を教師にする学習ではない。
 
 ```sh
-python3 tools/check_selected_qsearch.py \
+python3 tools/learning/tempo/check_selected_qsearch.py \
   results/learning-pilot/2026-10-11-preparation-v2/manifest.json \
   results/learning-pilot/2026-10-11-pilot-run-v1/report.json \
   --output results/learning-pilot/2026-10-11-pilot-run-v1/selected-qsearch-check-v1.json
@@ -66,7 +66,7 @@ PV切替・悪化の記録、異なるルートの拒否、特殊終了の損失
 | 選定済み `params-average-20.bin` | `1858ca315c4a5821710ea7b71f9251c5909f1c0ade88314306fd6baa7a7101f8` |
 | 入力pilot `report.json` | `195e5205ede13d55682ea66f4257016b12e94d0094f5f508a1069743b241c833` |
 | probe | `b1401e61a5e776c2df5f242bb12a8dead5de54a4d9d8c5f86c514559c60a900e` |
-| `tools/check_selected_qsearch.py` | `d744b5725c70472443001946ec6d868bb18dffa5e570dd4c1c8fe507be07fc7b` |
+| `tools/learning/tempo/check_selected_qsearch.py` | `d744b5725c70472443001946ec6d868bb18dffa5e570dd4c1c8fe507be07fc7b` |
 
 ## 判断と次の段階
 

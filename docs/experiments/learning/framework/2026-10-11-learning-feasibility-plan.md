@@ -292,11 +292,11 @@ L2の係数と勾配の総和／平均の扱いは実装時に式と単位を確
 - `make learning-probe -j2`：`obj/learning-probe/` と
   `results/learning-tools/learning-data-probe` を使う独立ビルド。
   `bin/release` は置き換えない。探索・trainer・教師generatorは呼ばない。
-- `tools/learning_data_probe.cc`：USI着手列の検証、盤面再生、反復出現数、
+- `tools/learning/native/learning_data_probe.cc`：USI着手列の検証、盤面再生、反復出現数、
   Huffman圧縮の復号一致、対象ABIサイズ、指定paramsのON/OFF静的評価を確認する。
   打ち歩詰めと行きどころのない駒打ちは `Position::MoveIsLegal` に加えて確認する。
   千日手・連続王手の正式裁定や入玉宣言の独立裁定までは行わない。
-- `tools/prepare_learning_data.py`：棋譜・結果・summary・手番・探索raw・PVを照合し、
+- `tools/learning/data/prepare_learning_data.py`：棋譜・結果・summary・手番・探索raw・PVを照合し、
   反復履歴のあるroot/PVを除外する。run単位の分割後、集合を跨ぐSFENと
   最初の24手の共通prefixを、出力件数上限を掛ける前に除く。
   1局最大8局面、同一SFEN最大1局面、先後／結果別の順番抽出を行う。
@@ -327,7 +327,7 @@ run分割とSFEN/prefixの除外、保存先上書き拒否、結果不整合、
 ### 実データ準備の結果
 
 ```sh
-python3 tools/prepare_learning_data.py \
+python3 tools/learning/data/prepare_learning_data.py \
   --output results/learning-pilot/2026-10-11-preparation-v2
 ```
 

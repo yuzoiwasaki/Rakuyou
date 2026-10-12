@@ -6,7 +6,7 @@
 
 ## 確認できたこと
 
-`tools/audit_learning_provenance.py` で、準備manifestが参照する生JSONと
+`tools/learning/data/audit_learning_provenance.py` で、準備manifestが参照する生JSONと
 train/validation/testの現在のSHAを再確認した。
 対象47run・2,740局の生JSONハッシュは、過去レポートの保存値とすべて対応した。
 対象から外したsmoke2run・4局はこの確認の件数に含めない。
@@ -78,8 +78,8 @@ Gitの履歴だけでは検査できない。過去レポートに「従来値�
 ## 再現と検証
 
 ```sh
-python3 -m unittest discover -s test -p test_audit_learning_provenance.py -v
-python3 tools/audit_learning_provenance.py \
+python3 -m unittest discover -s test -t . -p test_audit_learning_provenance.py -v
+python3 tools/learning/data/audit_learning_provenance.py \
   results/learning-pilot/2026-10-11-preparation-v2/manifest.json
 ```
 

@@ -33,7 +33,7 @@ v1・v2およびエンジン本体は変更していない。新しい対局は�
 
 初期スクリーニングはサーバー再起動を挟んで再開した。生データの `errors` には `opponent_after_14_king48_15` の `Broken pipe` 記録が１件残っている。該当IDには深さ24の完了結果も保存されており、上記の確認を通過した。記録は削除せず保持する。通信エラーの詳細原因までは特定しておらず、「実行全体のエラー０」とは扱わない。他の６ファイルのエラー記録は０件。
 
-探索状態を持ち越さないよう、最初のスクリーニングと親局面解析は既存の `Engine` を局面ごとに生成・終了した。追試には `tools/analyze_positions.py` の `--fresh-engine` を追加した。従来のプロセス再利用は既定値として維持する。起動時のZobristキーは依然として乱数化されるため、同条件の再実行で完全に同一の順位・評価となる保証はない。
+探索状態を持ち越さないよう、最初のスクリーニングと親局面解析は既存の `Engine` を局面ごとに生成・終了した。追試には `tools/analysis/analyze_positions.py` の `--fresh-engine` を追加した。従来のプロセス再利用は既定値として維持する。起動時のZobristキーは依然として乱数化されるため、同条件の再実行で完全に同一の順位・評価となる保証はない。
 
 入力局面は[既存の後手候補](../../positions/book/high-review-2026-10-02-shin.json)と[通常側候補](../../positions/book/high-review-2026-10-02-opponent.json)、および今回の `edge-wait-2026-10-02-*.json` を使用。新規５ファイルの入力114手は、実行ファイルの `legalmoves` と照合した。
 
@@ -133,7 +133,7 @@ v1・v2およびエンジン本体は変更していない。新しい対局は�
 追加局面は次のように再実行できる（生データの上書きを避け、新しい出力名を使う）。
 
 ```sh
-python3 tools/analyze_positions.py \
+python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/edge-wait-2026-10-02-followup-opponent.json \
   --depth 24 --multipv 5 --threads 1 --hash 512 --timeout 600 \
   --fresh-engine --shin-yonenaga-gyoku off \
@@ -154,4 +154,4 @@ python3 tools/analyze_positions.py \
 | `edge-wait-2026-10-02-responses-depth24.json` | `499e08ee9caf6e594d4fb14c27e2cfa5fb485570cc583af696bbf9963d1c1779` |
 | `edge-wait-2026-10-02-parent-recheck-depth28.json` | `d98ba820beee6bfaef282aa13724ae795cd9e89146dc753e50b15e885ee23534` |
 
-新規起動オプションのテストは `python3 test/test_analyze_positions.py`。既定の再利用、局面ごとの再起動、探索例外時の終了を検証し、３件とも成功した。
+新規起動オプションのテストは `python3 test/analysis/test_analyze_positions.py`。既定の再利用、局面ごとの再起動、探索例外時の終了を検証し、３件とも成功した。

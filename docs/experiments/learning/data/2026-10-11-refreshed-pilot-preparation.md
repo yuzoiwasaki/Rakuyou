@@ -7,7 +7,7 @@ train36／validation18すべてが適格。既存更新器の初期状態の保�
 
 ## 入力の接続
 
-`tools/prepare_refreshed_pilot.py` を追加。
+`tools/learning/data/prepare_refreshed_pilot.py` を追加。
 [教師生成reportと最終監査](2026-10-11-teacher-refresh-generation.md)のSHAを固定し、
 JSONLとreportの一致、受入済みcp、ルート手番側の符号、勝敗損失OFFを検査する。
 新教師のcpを `FrozenLeaf.teacher_root_cp` に渡し、旧cpは `archived_reference` に保持する。
@@ -69,7 +69,7 @@ train／validation間でrun・ルートSFEN・末端SFENの共通要素は0。
 実データでは54末端の検査とゼロ更新候補・checkpoint・backupの往復照合が完了した。
 
 ```sh
-python3 tools/prepare_refreshed_pilot.py \
+python3 tools/learning/data/prepare_refreshed_pilot.py \
   results/learning-pilot/2026-10-11-teacher-refresh-run-v1/report.json \
   results/learning-pilot/2026-10-11-teacher-refresh-run-v1/audit-v2.json \
   --output results/learning-pilot/2026-10-11-refreshed-pilot-preparation-v1
@@ -86,7 +86,7 @@ python3 tools/prepare_refreshed_pilot.py \
 | `validation.leaves.json` | `c18997ac3694870cffe66872cafd6c520a5c457e18c695e9dab9f7f112d42d3e` |
 | `checkpoint-00.json` | `d73526c9b704e6b6f32a71a84bd818dc5a7d0c3c4098310485978ccc89248ac2` |
 | `backup/manifest.json` | `ba18462cd3b7c260fdfbbe5088d10efc1bfa9abc0d9a2087add815eb515e644b` |
-| `tools/prepare_refreshed_pilot.py` | `bd8e7c04c045f12b1fe19f4d579075bfd5234ab9cc44bf1da1c991dc99b4afe3` |
+| `tools/learning/data/prepare_refreshed_pilot.py` | `bd8e7c04c045f12b1fe19f4d579075bfd5234ab9cc44bf1da1c991dc99b4afe3` |
 
 ## 次の段階
 

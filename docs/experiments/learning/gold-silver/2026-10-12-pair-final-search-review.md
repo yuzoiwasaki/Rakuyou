@@ -25,7 +25,7 @@ native整数係数 `[7457,7524]`（scale65536）。他の保存候補は探索�
 ## 探索中の候補差分と基準確認
 
 学習候補は2係数sidecarであり、通常releaseに直接読み込めない。
-`tools/build_pair_final_search.py` が評価ソースのコピーを `results/pair-final-tools/` に生成し、
+`tools/learning/gold_silver/build_pair_final_search.py` が評価ソースのコピーを `results/pair-final-tools/` に生成し、
 同じ金銀ペア数え方を**全評価と差分評価の両方**のking_safety序盤／終盤成分へ適用した。
 元のcopyrightを保持し、`src/`・Makefile・既存probe・通常releaseを変更していない。
 
@@ -94,6 +94,6 @@ native整数係数 `[7457,7524]`（scale65536）。他の保存候補は探索�
 | 専用probe | `95fd72e2b8cc9ee2fa356ff6e453af5056cd3988d3537df39a4da345e0350eb4` |
 | 専用engine | `5263cd1590a0141c37a7c067972c3a496608d614f2e48acc256fe0775bd556c9` |
 
-入口は `tools/final_pair_search_review.py`。終了済み実験は再実行しない。
+入口は `tools/learning/gold_silver/final_pair_search_review.py`。終了済み実験は再実行しない。
 監査の静的再生手順は `results/learning-pilot/audit-final-pair-review-v1.py` に保持した。
 専用評価コピーを運用エンジンに組み込まず、今回の金銀連結特徴は**採用保留で終了**する。

@@ -13,6 +13,12 @@ make release
 [Releases](https://github.com/gikou-official/Gikou/releases) の Windows 版 zip から
 `params.bin` 等のデータファイルを `bin/` にコピーしてください（`gikou.exe` は不要）。
 
+## ツールとテストの案内
+
+用途別の入口は [tools/README.md](../tools/README.md) と
+[test/README.md](../test/README.md) を参照。
+普段の定跡・解析、共通の学習部品、終了済み実験の再現・監査を分けて案内しています。
+
 ## 学習準備の検証ツール
 
 `make learning-probe -j2` は通常エンジンとは別に
@@ -25,8 +31,8 @@ Huffman処理でUSI着手列を検証します。`--layout` は対象ABIを表�
 
 ```sh
 make learning-probe -j2
-python3 -m unittest discover -s test -p test_prepare_learning_data.py -v
-python3 tools/prepare_learning_data.py \
+python3 -m unittest discover -s test -t . -p test_prepare_learning_data.py -v
+python3 tools/learning/data/prepare_learning_data.py \
   --output results/learning-pilot/my-preparation-001
 ```
 
@@ -44,7 +50,7 @@ python3 tools/prepare_learning_data.py \
 準備済みJSONLを元棋譜と照合し、全局面を更新なしで検証する入口：
 
 ```sh
-python3 tools/validate_learning_input.py \
+python3 tools/learning/data/validate_learning_input.py \
   results/learning-pilot/2026-10-11-preparation-v2/manifest.json \
   --output results/learning-pilot/my-input-validation-001
 ```
@@ -57,7 +63,7 @@ python3 tools/validate_learning_input.py \
 静止探索の固定末端を、trainから64局面に限って検証する入口：
 
 ```sh
-python3 tools/check_qsearch_leaves.py \
+python3 tools/learning/checks/check_qsearch_leaves.py \
   results/learning-pilot/2026-10-11-preparation-v2/manifest.json \
   --output results/learning-pilot/my-qsearch-leaves-001.json
 ```
@@ -73,7 +79,7 @@ validationの基準末端だけを準備する場合は、`check_qsearch_leaves.
 手動差分の別名ファイル保存・再読込を検証する入口：
 
 ```sh
-python3 tools/check_tempo_export.py \
+python3 tools/learning/checks/check_tempo_export.py \
   results/learning-pilot/2026-10-11-preparation-v2/manifest.json \
   results/learning-pilot/2026-10-11-input-validation-v1/qsearch-leaves-v1.json \
   --output results/learning-pilot/my-candidate-export-001
@@ -82,23 +88,23 @@ python3 tools/check_tempo_export.py \
 出力先は新規ディレクトリとし、`bin/` 配下への保存は拒否します。
 これは手動の検査用差分であり、学習を実行した候補ではありません。
 
-固定末端パイロットのrunnerは `tools/tempo_pilot.py` です。既定は更新0のdry-runで、
+固定末端パイロットのrunnerは `tools/learning/tempo/tempo_pilot.py` です。既定は更新0のdry-runで、
 `--backup` の検証済みコピーを必須にします。新規backupを作るときだけ
 `--create-backup` を付け、backup先は新しいディレクトリの `manifest.json` を指定します。
 `--run` は実学習が明示的に有効な設定のみ受け付けます。現在の設定は無効です。
 具体的なコマンドと確認結果は[dry-run記録](experiments/learning/framework/2026-10-11-tempo-pilot-dry-run.md)を参照。
 
 教師の由来を固定する次段階は、[教師更新の設計](experiments/learning/data/2026-10-11-teacher-refresh-plan.md)を参照。
-`tools/prepare_teacher_refresh.py` はtrain36／validation18の対象選択と合法性検査だけを行い、
+`tools/learning/data/prepare_teacher_refresh.py` はtrain36／validation18の対象選択と合法性検査だけを行い、
 新しい教師cpはnullのまま保存します。探索・学習・現行データの上書きは行いません。
 
-教師生成runnerは `tools/refresh_teachers.py` です。既定は探索0のdry-runで、
+教師生成runnerは `tools/learning/data/refresh_teachers.py` です。既定は探索0のdry-runで、
 `--run` は教師探索だけを有効化した計画コピーを必須にします。
 固定54局面・depth15・1スレッド・最大30秒／局面で、学習や配備は行いません。
 入力・runtime照合、部分保存、実行フラグの条件とdry-run記録は
 [教師生成runnerの検証](experiments/learning/data/2026-10-11-teacher-refresh-dry-run.md)を参照。
 
-監査済み新教師36／18件用は `tools/refreshed_tempo_pilot.py` です。
+監査済み新教師36／18件用は `tools/learning/tempo/refreshed_tempo_pilot.py` です。
 既定は更新0のdry-run、実学習には有効な実行用計画コピーと `--run` が必要です。
 旧64／64件runnerは維持します。[新runnerの条件と検証](experiments/learning/tempo/2026-10-11-refreshed-runner-validation.md)を参照。
 

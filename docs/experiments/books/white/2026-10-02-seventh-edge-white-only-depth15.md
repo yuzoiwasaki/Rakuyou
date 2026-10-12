@@ -18,7 +18,7 @@
 - 生データ：`results/shin-seventh-edge-white-only-depth15-100games.json`（Git管理外）。
 
 ```sh
-caffeinate -i python3 tools/paired_selfplay.py \
+caffeinate -i python3 tools/analysis/paired_selfplay.py \
   --depth 15 --threads 1 --hash 512 \
   --shin-book on \
   --shin-book-file books/experiments/white/shin-yonenaga-white-book-seventh-edge-experiment.txt \
@@ -37,15 +37,15 @@ caffeinate -i python3 tools/paired_selfplay.py \
 
 ## 完了・整合性確認
 
-`tools/review_white_runs.py` で100局の連番、設定、後手固定、初手△６二玉、記録と指し手列、着手元集計、投了側と勝者、保存済み集計の一致を確認した。81局が投了、19局が256手上限で終了。平均177.12手。完全棋譜は100局すべて異なる。
+`tools/analysis/review_white_runs.py` で100局の連番、設定、後手固定、初手△６二玉、記録と指し手列、着手元集計、投了側と勝者、保存済み集計の一致を確認した。81局が投了、19局が256手上限で終了。平均177.12手。完全棋譜は100局すべて異なる。
 
 盤面再生により298手の `dedicated_book` 着手すべてが定跡の局面・着手に一致することを確認した。配置・持駒・手番の再生チェックは成功したが、全着手の独立した合法性判定や連続王手の千日手判定は実施していない。同一盤面・持駒・手番の4回出現は9局で、すべて保存上は上限引き分けだった。
 
 再集計：
 
 ```sh
-python3 tools/review_white_runs.py results/shin-seventh-edge-white-only-depth15-100games.json
-python3 tools/audit_white_positions.py results/shin-seventh-edge-white-only-depth15-100games.json
+python3 tools/analysis/review_white_runs.py results/shin-seventh-edge-white-only-depth15-100games.json
+python3 tools/analysis/audit_white_positions.py results/shin-seventh-edge-white-only-depth15-100games.json
 ```
 
 ## 成績と既存条件との比較
@@ -163,7 +163,7 @@ python3 tools/audit_white_positions.py results/shin-seventh-edge-white-only-dept
 例（残る５入力も上表の設定に置換する。深さ28のタイムアウトは900秒）：
 
 ```sh
-caffeinate -i python3 tools/analyze_positions.py \
+caffeinate -i python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/seventh-trial-2026-10-02-post100-white.json \
   --depth 24 --multipv 5 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku on --fresh-engine --timeout 600 \

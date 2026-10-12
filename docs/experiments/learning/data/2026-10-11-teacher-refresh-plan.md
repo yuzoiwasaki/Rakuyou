@@ -88,7 +88,7 @@ mate／特殊終端／boundsは生結果と除外理由を残し、cpへ換算�
 ## 今回の準備結果と再現
 
 ```sh
-python3 tools/prepare_teacher_refresh.py \
+python3 tools/learning/data/prepare_teacher_refresh.py \
   results/learning-pilot/2026-10-11-preparation-v2/manifest.json \
   --output results/learning-pilot/2026-10-11-teacher-refresh-preparation-v1
 ```
@@ -102,7 +102,7 @@ python3 tools/prepare_teacher_refresh.py \
 | 成果物 | SHA-256 |
 | --- | --- |
 | 計画JSON | `2f4353ac1bca81dcbf3c9aff396142f8e0925290babaa2a8b729fa5e08fa9f90` |
-| `tools/prepare_teacher_refresh.py` | `a93c9743f2b709e05ce10f6a077de29d36bc23177e1b5b56cf6b0c95d204543b` |
+| `tools/learning/data/prepare_teacher_refresh.py` | `a93c9743f2b709e05ce10f6a077de29d36bc23177e1b5b56cf6b0c95d204543b` |
 | 準備 `manifest.json` | `a4662b0f349560cfa3f03b2fef536d5c6000f9e4d5ee6b75a569f306ed9be5fc` |
 | `train.pending.jsonl` | `46fdf47a254bf6bd0d16f01118ca0525e46a1dfe2b8e064ddfd2d714686aae98` |
 | `validation.pending.jsonl` | `3276e6f02c916ad2f3a6baf12d44389f32bab3463ba1b6ab24c0ed6accf82819` |

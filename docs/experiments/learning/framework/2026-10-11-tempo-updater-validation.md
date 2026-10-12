@@ -6,7 +6,7 @@
 
 ## 実装と検証
 
-`tools/tempo_updater.py` は手番差分3係数だけのRMSprop状態を扱うライブラリ。
+`tools/learning/core/tempo_updater.py` は手番差分3係数だけのRMSprop状態を扱うライブラリ。
 エンジン、教師ファイルreader、params writer、実データ学習CLIは含まない。
 呼出し側が、平均損失と差分L2の勾配を渡す方式とした。
 
@@ -32,8 +32,8 @@ Python版を含め、復元時に内容SHA・設定・入力binding・版を照�
 既存の更新なしreaderを解除するものではない。
 
 ```sh
-python3 -m unittest discover -s test -p test_tempo_updater.py -v
-python3 tools/check_tempo_updater.py \
+python3 -m unittest discover -s test -t . -p test_tempo_updater.py -v
+python3 tools/learning/checks/check_tempo_updater.py \
   --output results/learning-pilot/2026-10-11-input-validation-v1/updater-synthetic-v1.json
 ```
 

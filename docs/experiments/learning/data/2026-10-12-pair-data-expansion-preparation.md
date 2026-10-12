@@ -54,7 +54,7 @@ seed・順序・1対局1局面を保ち、同じ方法で成立する最小の�
 
 ## 最小限の実装と検証
 
-`tools/prepare_pair_expansion.py` は既存の入力reader、選択関数、pending形式、
+`tools/learning/data/prepare_pair_expansion.py` は既存の入力reader、選択関数、pending形式、
 静的評価probeを組み合わせる準備専用入口。探索・学習の実行経路は持たない。
 旧36／18件の生成・学習runnerや終了済みマーカーは変更していない。
 
@@ -64,7 +64,7 @@ seed・順序・1対局1局面を保ち、同じ方法で成立する最小の�
 保存済みJSONLと計画のSHA、null教師、現行runtime、元バックアップを別途監査し通過した。
 
 ```sh
-python3 tools/prepare_pair_expansion.py \
+python3 tools/learning/data/prepare_pair_expansion.py \
   --output results/learning-pilot/2026-10-12-pair-expansion-preparation-v1
 ```
 

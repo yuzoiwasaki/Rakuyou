@@ -21,7 +21,7 @@
   retry／resume／時間延長／深掘りは0。マーカーを解除せず、この実行を閉じる。
 
 ```sh
-python3 tools/refresh_teachers.py \
+python3 tools/learning/data/refresh_teachers.py \
   results/learning-pilot/2026-10-11-teacher-refresh-preparation-v1/manifest.json \
   --plan results/learning-pilot/2026-10-11-teacher-refresh-run-v1-plan.json \
   --output results/learning-pilot/2026-10-11-teacher-refresh-run-v1 --run
@@ -50,7 +50,7 @@ mate／bounds／特殊終端／known-win／PV内繰り返し／不合法PV／途
 
 ## 独立した監査
 
-`tools/audit_refreshed_teachers.py` を追加。教師探索を行わず、次を保存済み結果から照合する。
+`tools/learning/data/audit_refreshed_teachers.py` を追加。教師探索を行わず、次を保存済み結果から照合する。
 
 - 完了した生成reportと対象54件の完全な対応、重複なし、pendingの元棋譜／root／split情報不変。
 - 参照計画と実行コピーの差が探索フラグだけであること、入力の元／コピーSHA一致。
@@ -65,7 +65,7 @@ mate／bounds／特殊終端／known-win／PV内繰り返し／不合法PV／途
 追加した監査を保存した。旧監査を上書きせず、再監査にも探索は含まれない。
 
 ```sh
-python3 tools/audit_refreshed_teachers.py \
+python3 tools/learning/data/audit_refreshed_teachers.py \
   results/learning-pilot/2026-10-11-teacher-refresh-run-v1/report.json \
   --output results/learning-pilot/2026-10-11-teacher-refresh-run-v1/audit-v2.json
 ```
@@ -84,7 +84,7 @@ python3 tools/audit_refreshed_teachers.py \
 | `train.teachers.jsonl` | `d6cee53a5ab79355979c5a8da50b25c9b5b1796d545ceb3b94a858768e1c7809` |
 | `validation.teachers.jsonl` | `07841aa7c9707c9d7bbbad499a2bbaff038f29109b55bda827051a696b93a45f` |
 | 実行用計画コピー | `28ac58f074d208f2bb8a7aed6cc178b7754b6e678dce900dbd9948ea572eadba` |
-| `tools/audit_refreshed_teachers.py` | `5d5e94700ece005881c16f21a77a7ea6aec8131aaa03594e1ff9245bdd856b50` |
+| `tools/learning/data/audit_refreshed_teachers.py` | `5d5e94700ece005881c16f21a77a7ea6aec8131aaa03594e1ff9245bdd856b50` |
 
 生成＋監査のまとまりを完了した。この54件の新教師については現在のruntime由来を確認できた。
 過去の教師全体の歴史的params同一性が証明されたわけではない。

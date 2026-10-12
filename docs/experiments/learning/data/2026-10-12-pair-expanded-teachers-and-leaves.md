@@ -40,7 +40,7 @@ OwnBook OFF、Ponder OFF、局面ごと新規プロセス、30秒上限。対象
 隔離済みbaseline実行環境をSHA照合して使用し、通常のreleaseやparamsを書き換えていない。
 生成区間は02:49:38〜02:51:52 UTC、約134秒。これは前後処理を含む当該実行の実測である。
 
-旧36／18件のrunner・監査・readerは変更せず、`tools/pair_teacher_generation.py` が
+旧36／18件のrunner・監査・readerは変更せず、`tools/learning/data/pair_teacher_generation.py` が
 180件の件数と準備SHAを接続した。生成ループ・教師判定・コマンド／PV監査は既存方式を流用。
 基準の無効計画は保持し、実行用コピーのteacher_search_enabledだけtrue。
 学習・配備フラグはfalseのまま。探索0 dry-runで180rootとUSI readinessを先に確認した。
@@ -48,10 +48,10 @@ OwnBook OFF、Ponder OFF、局面ごと新規プロセス、30秒上限。対象
 実際のツールSHAと入力コピーを保存し、HEADだけをコードの同一性の根拠にしていない。
 
 ```sh
-python3 tools/pair_teacher_generation.py \
+python3 tools/learning/data/pair_teacher_generation.py \
   --plan results/learning-pilot/2026-10-12-pair-teacher-run-v1-plan.json \
   --output results/learning-pilot/2026-10-12-pair-teacher-run-v1 --run
-python3 tools/pair_teacher_generation.py \
+python3 tools/learning/data/pair_teacher_generation.py \
   --audit results/learning-pilot/2026-10-12-pair-teacher-run-v1/report.json \
   --output results/learning-pilot/2026-10-12-pair-teacher-run-v1/audit-v1.json
 ```
@@ -62,7 +62,7 @@ python3 tools/pair_teacher_generation.py \
 
 ## 固定末端と学習未実施の確認
 
-`tools/prepare_pair_leaves.py` で、既存の静止探索probe・末端判定を使い、
+`tools/learning/data/prepare_pair_leaves.py` で、既存の静止探索probe・末端判定を使い、
 現行基準の固定末端を準備した。探索の繰返しや差分係数による再探索は行わない。
 全178末端が受入可能で、rootとleafのSFENは集合間で非重複。
 PV全履歴の反復なし、整数評価の内訳からの再構成・cached/full一致・手番の偶奇を確認した。
@@ -79,7 +79,7 @@ PV全履歴の反復なし、整数評価の内訳からの再構成・cached/fu
 学習結果や勾配を見て特徴・係数・条件を変更する処理は行っていない。
 
 ```sh
-python3 tools/prepare_pair_leaves.py \
+python3 tools/learning/data/prepare_pair_leaves.py \
   results/learning-pilot/2026-10-12-pair-teacher-run-v1/report.json \
   --output results/learning-pilot/2026-10-12-pair-leaves-v1
 ```

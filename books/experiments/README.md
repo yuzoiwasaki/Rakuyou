@@ -13,7 +13,7 @@
 移動前のGUI設定を使う場合は、このディレクトリの実ファイルを選び直す。
 終了済みの対局や探索を自動的に再開しない。
 
-再生成は `tools/build_shin_book.py` にJSONと出力txtを明示する。
+再生成は `tools/books/build_shin_book.py` にJSONと出力txtを明示する。
 先手の単独試験版は `--side black --experimental`、後手７筋版は `--experimental`。
 後手△２五歩版は現行の `books/sources/white/shin-yonenaga-white-candidates.json` を
 `--source`、上表の追加JSONを `--extension` に指定する。

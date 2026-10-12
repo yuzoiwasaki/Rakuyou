@@ -15,7 +15,7 @@
 
 `prepare_learning_data.Probe` の任意引数でこれらの検査モードを選べるようにした。
 従来の再生・静的評価モードの既定動作は維持している。
-`tools/check_tempo_rounding.py` はtrainの固定ルートだけを使い、
+`tools/learning/checks/check_tempo_rounding.py` はtrainの固定ルートだけを使い、
 次の2つを独立に確認する。
 
 1. packed値から整数評価を再構成し、ネイティブの `ComputeFinalScore` と厳密照合する。
@@ -33,9 +33,9 @@ Pythonの `//` は負数で下方向へ丸めるため、そのまま置き換�
 
 ```sh
 make learning-probe -j2
-python3 -m unittest discover -s test -p 'test_tempo*.py' -v
-python3 -m unittest discover -s test -p 'test_*learning*.py' -v
-python3 tools/check_tempo_rounding.py \
+python3 -m unittest discover -s test -t . -p 'test_tempo*.py' -v
+python3 -m unittest discover -s test -t . -p 'test_*learning*.py' -v
+python3 tools/learning/checks/check_tempo_rounding.py \
   results/learning-pilot/2026-10-11-preparation-v2/manifest.json \
   --output results/learning-pilot/2026-10-11-input-validation-v1/tempo-rounding-v1.json
 ```

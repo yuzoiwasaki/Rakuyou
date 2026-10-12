@@ -20,7 +20,7 @@ batch上限128、平均化係数0.9995、保存0／5／10／20、局面全体の
 train143（先手71／後手72、draw47）、validation35（先手17／後手18、draw12）。
 勝敗損失OFF、打切りdrawは勝ちや正式裁定済みdrawではない。test局面は使用しない。
 
-`tools/expanded_pair_pilot.py` は旧金銀連結の目的関数・更新器・native候補確認・選択規則を
+`tools/learning/gold_silver/expanded_pair_pilot.py` は旧金銀連結の目的関数・更新器・native候補確認・選択規則を
 変えず、143／35件と保存SHAを接続した。旧36／18件runnerと終了済み結果は変更していない。
 固定末端と監査のSHA、特徴定義、Configを照合し、異なる条件や不足入力を拒否する。
 
@@ -105,4 +105,4 @@ run／序盤の相関、少数の各層という制約は残る。これを理�
 状態はcheckpoint-00/05/10/20.jsonに保存。
 生成ディレクトリの `mutual-pair-learning-attempt-v1.json` が再実行を拒否する。
 結果監査の再生手順は `results/learning-pilot/audit-expanded-pair-run-v1.py` に保存。
-学習・dry-runの入口は `tools/expanded_pair_pilot.py`。終了済み実学習は再実行しない。
+学習・dry-runの入口は `tools/learning/gold_silver/expanded_pair_pilot.py`。終了済み実学習は再実行しない。

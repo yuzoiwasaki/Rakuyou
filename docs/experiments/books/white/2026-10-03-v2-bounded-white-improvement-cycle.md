@@ -19,10 +19,10 @@
 
 各保存summaryは再計算と一致し、実行エラーは０。通常側の標準定跡あり、深さ15、１スレッド/Hash512MB、Ponder off、BookMaxPly20、上限256手。先後交代と後手固定では対局間の探索状態の経歴が異なるため、合算しても実行別成績を保持する。
 
-再現用に `tools/review_v2_white_cycle.py` を追加した。各局面は盤面・持駒・手番で一致判定し、１対局を各局面につき１回だけ数える。先手新米長玉の100局は対象に含めない。旧JSONに `game_number` がない場合、参照番号はファイル内の１始まりの対局配列番号である。配置再生は独立した全面合法性・千日手裁定ではない。
+再現用に `tools/analysis/review_v2_white_cycle.py` を追加した。各局面は盤面・持駒・手番で一致判定し、１対局を各局面につき１回だけ数える。先手新米長玉の100局は対象に含めない。旧JSONに `game_number` がない場合、参照番号はファイル内の１始まりの対局配列番号である。配置再生は独立した全面合法性・千日手裁定ではない。
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/review_v2_white_cycle.py
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/review_v2_white_cycle.py
 ```
 
 | 候補 | 着手直前 | 全到達局数 | 実行別局数（初回／再試行／固定） | 勝／敗／分 | 代表指し手列だけで数えた局数 |
@@ -77,7 +77,7 @@ Cは22手目であり、定跡化にはBookMaxPlyの変更が必要。AやBの18
 入力：`docs/experiments/positions/book/v2-bounded-cycle-2026-10-03-white.json`（B・Cの２局面）。Aを含む３入力手順・計55手は、探索とは別に実行ファイルの `legalmoves` と照合した。
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/v2-bounded-cycle-2026-10-03-white.json \
   --depth 28 --multipv 5 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku on --fresh-engine --timeout 900 \
@@ -101,7 +101,7 @@ Cは△１四歩と△３二飛が同点で、△９四歩も近い。実戦で�
 Bに `2d2e` を加えた先手19手目を、新米長玉OFF、深さ24、MultiPV5、１スレッド/Hash512MB、定跡なし、新規プロセスで無制限解析した。全５候補が完走、28.322秒、エラーなし。
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/v2-bounded-cycle-2026-10-03-opponent.json \
   --depth 24 --multipv 5 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku off --fresh-engine --timeout 600 \
@@ -128,7 +128,7 @@ Bを選んだ理由は、実戦に出た▲６五歩に対し同条件の深さ2
 
 ```sh
 run_white_cycle() {
-  caffeinate -i python3 tools/paired_selfplay.py \
+  caffeinate -i python3 tools/analysis/paired_selfplay.py \
     --engine bin/release --book-file bin/book.bin \
     --shin-book on --shin-book-file "$1" --book-max-ply 20 \
     --shin-side white --games 50 --depth 15 --threads 1 --hash 512 \
@@ -203,7 +203,7 @@ B非到達群もv2は98局で33勝50敗15分（41.33%）、試験版は93局で3
 再集計（読取のみ）：
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/review_v2_white_cycle.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/review_v2_white_cycle.py \
   results/v2-cycle-baseline-r1-white-depth15-50games.json \
   results/v2-cycle-pawn25-r1-white-depth15-50games.json \
   results/v2-cycle-pawn25-r2-white-depth15-50games.json \

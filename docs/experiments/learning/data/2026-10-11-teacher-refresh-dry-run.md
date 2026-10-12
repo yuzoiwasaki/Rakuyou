@@ -8,7 +8,7 @@
 
 ## 実装
 
-`tools/refresh_teachers.py` は既定でdry-run。固定した準備manifestのSHAから54局面を読み、
+`tools/learning/data/refresh_teachers.py` は既定でdry-run。固定した準備manifestのSHAから54局面を読み、
 未生成cp・split・元棋譜の由来を保持する。testを入力として扱わない。
 
 実行前に準備と計画の対応、pending JSONLのSHA、36／18件の件数、運用6ファイル、
@@ -36,7 +36,7 @@ mate／bounds／特殊終端／known-win cp（絶対値31000以上）／PV内繰
 ## dry-run結果
 
 ```sh
-python3 tools/refresh_teachers.py \
+python3 tools/learning/data/refresh_teachers.py \
   results/learning-pilot/2026-10-11-teacher-refresh-preparation-v1/manifest.json \
   --output results/learning-pilot/2026-10-11-teacher-refresh-dry-run-v1
 ```
@@ -70,7 +70,7 @@ dirty状態、実行環境、開始終了時刻、USI送信コマンドと出力
 | `results/learning-pilot/2026-10-11-teacher-refresh-dry-run-v1/report.json` | `e1e69434c4760e4331e5cd2a8e1f36b93119da3eefd9110d9dbbb98274ebe166` |
 | `train.teachers.jsonl` | `e793d7aeabc135c2dc511da7d33f8d7989b900a6bc9b5a66f55963bf1b6ec178` |
 | `validation.teachers.jsonl` | `49417da17b235d017967c8283f5508fef3678703129e9529612ff9faf95be466` |
-| `tools/refresh_teachers.py` | `2aeca389bc9496415e9e3995a6a10d1543f3dcb3c6236f582aedd0c9a6ee6b4f` |
+| `tools/learning/data/refresh_teachers.py` | `2aeca389bc9496415e9e3995a6a10d1543f3dcb3c6236f582aedd0c9a6ee6b4f` |
 
 ## 次の段階
 

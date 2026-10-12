@@ -21,7 +21,7 @@
 
 ```sh
 mkdir -p results/book-tools
-python3 tools/build_shin_book.py --side black --experimental \
+python3 tools/books/build_shin_book.py --side black --experimental \
   --source books/archive/black/shin-yonenaga-black-pawn26-experiment.json \
   --output results/book-tools/black-pawn26.txt
 ```

@@ -115,7 +115,7 @@ trainでも10／20更新の先手draw平均損失差は+1.644e−6、後手draw�
 | `results/learning-pilot/2026-10-12-gold-silver-pair-run-v1/audit-v1.json` | `bc805e0224375ac40359d5378c8ade883a8cb6d6e39e8a67bfb79b7a4bcd4d88` |
 | `results/gold-silver-pair-tools/gold-silver-pair-probe` | `12129e4b52f4e2604ee4b5476f674eb4b27eddd8c97cfa3ee5b60c874c67105d` |
 
-再現入口は `tools/gold_silver_pair_pilot.py`。結果・候補はGit管理外の `results/`、
+再現入口は `tools/learning/gold_silver/gold_silver_pair_pilot.py`。結果・候補はGit管理外の `results/`、
 実装・テスト・本レポートはGit管理対象。終了済み実学習は再実行しない。
 元教師と固定末端の由来は[前回の教師接続](../data/2026-10-11-refreshed-pilot-preparation.md)、
 特徴の動機は[3局4区間の比較](2026-10-12-gold-silver-functional-example-review.md)を参照。

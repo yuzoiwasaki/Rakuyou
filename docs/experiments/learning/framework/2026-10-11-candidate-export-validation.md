@@ -6,7 +6,7 @@
 
 ## 候補ファイルの出力
 
-`tools/tempo_export.py` は、固定ベースのSHAとネイティブABIを確認してコピーし、
+`tools/learning/core/tempo_export.py` は、固定ベースのSHAとネイティブABIを確認してコピーし、
 手番3係数の12バイトだけを変更する。ゼロ差分は全byte一致を保つ。
 手番第4成分、進行度、駒価値、KP/PP、その他すべての評価成分はそのまま保存する。
 
@@ -18,14 +18,14 @@
   新規保存後もベースのSHAが変わっていないことを確認する。
 - 変更を許す12バイト以外の全領域をhash照合し、第4成分までpacked値を検査する。
 
-`tools/check_tempo_export.py` は、手動差分 `(0.25,-0.5,0.75)` を保存し、
+`tools/learning/checks/check_tempo_export.py` は、手動差分 `(0.25,-0.5,0.75)` を保存し、
 既存train64固定末端でネイティブprobeから再読込する。
 元データをメモリ上で同じraw値だけ摂動した結果と、再読込結果を比較する。
 学習を行って得た差分ではなく、候補を選択・採用する検査でもない。
 
 ```sh
-python3 -m unittest discover -s test -p test_tempo_export.py -v
-python3 tools/check_tempo_export.py \
+python3 -m unittest discover -s test -t . -p test_tempo_export.py -v
+python3 tools/learning/checks/check_tempo_export.py \
   results/learning-pilot/2026-10-11-preparation-v2/manifest.json \
   results/learning-pilot/2026-10-11-input-validation-v1/qsearch-leaves-v1.json \
   --output results/learning-pilot/2026-10-11-candidate-export-v1
@@ -51,7 +51,7 @@ validationを選ぶと常にprepare-onlyとし、教師との損失・勾配・�
 testを選ぶ入口は設けていない。
 
 ```sh
-python3 tools/check_qsearch_leaves.py \
+python3 tools/learning/checks/check_qsearch_leaves.py \
   results/learning-pilot/2026-10-11-preparation-v2/manifest.json \
   --split validation --prepare-only \
   --output results/learning-pilot/2026-10-11-input-validation-v1/validation-leaves-v1.json

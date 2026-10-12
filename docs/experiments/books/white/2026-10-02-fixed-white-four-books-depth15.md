@@ -146,10 +146,10 @@ v2の△２四歩後、▲６七銀入口では▲５八金左が27局、▲６�
 
 全400局について、100局完了、番号1～100、先後とプレイヤー、△６二玉、記録と実着手列、投了者と勝者、終局理由、手の取得元の再集計、保存summaryの一致を検証した。エラーは全条件０件。各条件の完全な着手列は100種類で重複なし。ただしこれは同一局面の出現や対局間の相関がないことを意味しない。全着手の独立した合法性リプレイ検証は今回行っていない。
 
-再集計用に `tools/review_white_runs.py` を追加した。JSONを標準出力へ出し、生データは変更しない。
+再集計用に `tools/analysis/review_white_runs.py` を追加した。JSONを標準出力へ出し、生データは変更しない。
 
 ```sh
-python3 tools/review_white_runs.py \
+python3 tools/analysis/review_white_runs.py \
   results/shin-v1-white-only-depth15-100games.json \
   results/shin-v2-white-only-depth15-100games.json \
   results/shin-no-book-white-only-depth15-100games.json \
@@ -171,7 +171,7 @@ python3 tools/review_white_runs.py \
 
 ### 反復局面の具体的な監査
 
-新しい `tools/audit_white_positions.py` で駒配置・持ち駒・手番を再現し、同一局面が４回現れる対局を抽出した。
+新しい `tools/analysis/audit_white_positions.py` で駒配置・持ち駒・手番を再現し、同一局面が４回現れる対局を抽出した。
 
 | 条件 | ４回出現のある局数 | 保存結果 |
 |---|---:|---|

@@ -1,6 +1,6 @@
 # 解析局面定義
 
-このディレクトリには、`tools/analyze_positions.py`へ渡す局面定義JSONを実験系統ごとに保存します。
+このディレクトリには、`tools/analysis/analyze_positions.py`へ渡す局面定義JSONを実験系統ごとに保存します。
 各JSONは初期局面からのUSI指し手列、局面ID、必要に応じて強制探索する`searchmoves`を記録します。
 
 - `historical/`: 本家米長玉の棋譜と現代化した本家系

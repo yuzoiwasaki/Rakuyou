@@ -120,11 +120,11 @@
 生成・テスト：
 
 ```sh
-python3 tools/build_shin_book.py \
+python3 tools/books/build_shin_book.py \
   --source books/experiments/white/shin-yonenaga-white-seventh-edge-experiment.json \
   --experimental \
   --output books/experiments/white/shin-yonenaga-white-book-seventh-edge-experiment.txt
-python3 test/test_seventh_trial_book.py
+python3 test/books/test_seventh_trial_book.py
 ```
 
 新規８テストが成功した。13局面すべての `dedicated_book` 着手、▲４八玉を先に指した場合の合流、▲１六歩への探索フォールバック、OwnBook off、通常側の標準定跡維持、明示的出力とv1/v2保護を確認した。既存定跡テスト５件と解析ツールの３件も成功。エンジン・v1・v2のSHA-256は開始時と一致した。
@@ -134,7 +134,7 @@ python3 test/test_seventh_trial_book.py
 ## 次の100局（Codex外で実行）
 
 ```sh
-python3 tools/paired_selfplay.py \
+python3 tools/analysis/paired_selfplay.py \
   --depth 15 --threads 1 --hash 512 \
   --shin-book on \
   --shin-book-file books/experiments/white/shin-yonenaga-white-book-seventh-edge-experiment.txt \

@@ -19,7 +19,7 @@
 - 更新0、対局0、配備false、候補再選択false。実行中は各探索結果を逐次保存した。
 
 ```sh
-python3 tools/run_tempo_search.py \
+python3 tools/learning/tempo/run_tempo_search.py \
   results/learning-pilot/2026-10-11-full-search-preparation-v1/manifest.json \
   --output results/learning-pilot/2026-10-11-full-search-comparison-v1
 ```
@@ -80,7 +80,7 @@ learning_modeの静止探索と条件が異なる。
 | 成果物 | SHA-256 |
 | --- | --- |
 | `results/learning-pilot/2026-10-11-full-search-comparison-v1/report.json` | `a6e87fa8822f85c6f314873dfbf9ebf7e1d170760208164f922eba81754801fe` |
-| `tools/run_tempo_search.py` | `8d4526829c27da78b10105a57b17016e1ccf1f781fb217181be95aeaf35c7f91` |
+| `tools/learning/tempo/run_tempo_search.py` | `8d4526829c27da78b10105a57b17016e1ccf1f781fb217181be95aeaf35c7f91` |
 | paramsの手番12バイト以外の領域 | `71bfb53f862c67896921726d9edb7404729c381804dbfb42aa5698df186b121a` |
 
 この比較は24回で閉じる。候補は検査用のまま、追加学習・係数調整・採用・対局へは進めない。

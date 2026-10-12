@@ -31,7 +31,7 @@ validation18件は小さく、過去実験でも使った集合なので、独�
 
 ## 実装と実行制約
 
-`tools/refreshed_tempo_pilot.py` は既定でdry-run。
+`tools/learning/tempo/refreshed_tempo_pilot.py` は既定でdry-run。
 実行用計画コピーの変更は `real_data_training_enabled` だけに限定し、
 `--run` がある場合はtrue、ない場合はfalseを必須にする。
 配備・勝敗学習は常に無効、対象件数・optimizer・入力SHAなどの変更は拒否する。
@@ -52,7 +52,7 @@ validation18件は小さく、過去実験でも使った集合なので、独�
 ## dry-runとテスト
 
 ```sh
-python3 tools/refreshed_tempo_pilot.py \
+python3 tools/learning/tempo/refreshed_tempo_pilot.py \
   results/learning-pilot/2026-10-11-refreshed-pilot-preparation-v1/report.json \
   results/learning-pilot/2026-10-11-teacher-refresh-run-v1/report.json \
   results/learning-pilot/2026-10-11-teacher-refresh-run-v1/audit-v2.json \
@@ -75,7 +75,7 @@ python3 tools/refreshed_tempo_pilot.py \
 | `results/learning-pilot/2026-10-11-refreshed-runner-dry-run-v1/report.json` | `07660d91e7018de09812e5c96b9285409bcc9f5079d07c4e75efa60105bf53b6` |
 | `additional-backup/manifest.json` | `aecc1951a85f95f68a5e395442b1c7de5a92308ef9620b01d78bc177efa58ffc` |
 | 新しい計画JSON | `37c5eed0827627d7abea44c79460d64b5e7448b5123d060cb6a80da848d671db` |
-| `tools/refreshed_tempo_pilot.py` | `b8b9fc1bf089c928db980ae158530d4c6241018a9ccf027ed663432f904b1513` |
+| `tools/learning/tempo/refreshed_tempo_pilot.py` | `b8b9fc1bf089c928db980ae158530d4c6241018a9ccf027ed663432f904b1513` |
 
 ## 次の段階
 

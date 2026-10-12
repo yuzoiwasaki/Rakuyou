@@ -6,7 +6,7 @@
 
 ## 実装
 
-`tools/validate_learning_input.py` は、準備済みmanifestとJSONLを読む専用入口。
+`tools/learning/data/validate_learning_input.py` は、準備済みmanifestとJSONLを読む専用入口。
 既存 `--learn` は呼ばず、棋戦フィルターを経由しない。
 歴史的教師の由来が未確認であることを保持したまま、検証用途だけで入力を受け付ける。
 
@@ -31,8 +31,8 @@
 
 ```sh
 make learning-probe -j2
-python3 -m unittest discover -s test -p 'test_*learning*.py' -v
-python3 tools/validate_learning_input.py \
+python3 -m unittest discover -s test -t . -p 'test_*learning*.py' -v
+python3 tools/learning/data/validate_learning_input.py \
   results/learning-pilot/2026-10-11-preparation-v2/manifest.json \
   --output results/learning-pilot/2026-10-11-input-validation-v1
 ```

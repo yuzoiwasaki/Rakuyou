@@ -21,15 +21,15 @@ BookMaxPly20、256手上限、１手タイムアウト300秒は保存設定で�
 新米長玉側のOwnBook・専用定跡設定、実行時期・探索状態の経歴は異なる。
 当時のバイナリハッシュ自動記録がないため現在のバイナリとの同一性は断定しない。
 
-`tools/review_black_runs.py` を追加した。全６ファイルでerrors０、100局完了。
+`tools/analysis/review_black_runs.py` を追加した。全６ファイルでerrors０、100局完了。
 全600局のsummary再計算、pair番号・先後交代、recordsと指し手配列、着手source集計、
 投了側と勝者、256手分けとresultを照合した。さらに対象の先手300局を
 盤面・持駒・手番で再生し、駒所有・捕獲・成り・持駒に矛盾がないことを確認した。
 これは全着手の独立合法性や連続王手千日手裁定の検証ではない。
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/review_black_runs.py
-PYTHONDONTWRITEBYTECODE=1 python3 test/test_review_black_runs.py
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/review_black_runs.py
+PYTHONDONTWRITEBYTECODE=1 python3 test/analysis/test_review_black_runs.py
 ```
 
 テストは生データ・エンジンに依存せず、正常データ、pair不整合、結果不整合、
@@ -140,7 +140,7 @@ source集計不整合、引き分けの半点処理の５件を確認する。
 `a1a5e25ada0d7be1375b45168586f00f7feaa29f1a87074a85b0e4b09c571f1b`。
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/black-entry-2026-10-03-shin.json \
   --depth 24 --multipv 5 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku on --fresh-engine --timeout 600 \
@@ -233,19 +233,19 @@ PVは `2g2f 6c6d 2f2e 6b6c 6i7h 2b8h+ 7i8h 3a2b`。
 ONのPVと通常側の実際の選択を同一視せず、僅差候補を一手に断定しない。
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/black-entry-2026-10-03-opponent.json \
   --depth 24 --multipv 5 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku off --fresh-engine --timeout 600 \
   --output results/black-entry-2026-10-03-opponent-depth24.json
 
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/black-entry-2026-10-03-recheck-shin.json \
   --depth 28 --multipv 5 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku on --fresh-engine --timeout 900 \
   --output results/black-entry-2026-10-03-recheck-shin-depth28.json
 
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/black-entry-2026-10-03-followup-shin.json \
   --depth 24 --multipv 5 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku on --fresh-engine --timeout 600 \
@@ -950,7 +950,7 @@ bestmove/candidate_bestmove/首位PVが▲７六歩で一致した。
 再現コマンド（リポジトリ直下、既存出力を上書きしないこと）：
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/black-silver-entry-2026-10-04-shin.json \
   --engine bin/release --depth 24 --multipv 4 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku on --fresh-engine --timeout 900 \
@@ -1128,13 +1128,13 @@ OFFの開始列/PV144着手とON２件の開始列/PV301着手、計445着手を
 再現コマンド（リポジトリ直下、既存出力を上書きしないこと）：
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/black-silver38-2026-10-04-opponent.json \
   --engine bin/release --depth 24 --multipv 5 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku off --fresh-engine --timeout 900 \
   --output results/black-silver38-2026-10-04-opponent-depth24.json
 
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/black-silver38-2026-10-04-preparations-shin.json \
   --engine bin/release --depth 24 --multipv 5 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku on --fresh-engine --timeout 900 \
@@ -1223,7 +1223,7 @@ bestmove/candidate_bestmove/首位PVは▲２六歩で一致。
 現在のエンジンSHA-256は前節と同じ `6f7891c4…`。
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/black-silver38-2026-10-04-pawn84-recheck-shin.json \
   --engine bin/release --depth 28 --multipv 5 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku on --fresh-engine --timeout 900 \
@@ -1297,7 +1297,7 @@ PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
 定跡・エンジン・補正・BookMaxPlyは変更せず、追加対局・コミット・プッシュは未実施。
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/black-silver38-2026-10-04-bishop-exchange-shin.json \
   --engine bin/release --depth 24 --multipv 5 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku on --fresh-engine --timeout 900 \
@@ -1397,7 +1397,7 @@ P*2d 2b7g+ 8i7g B*4d 2f8f 2a3c 2d2c+ 3b2c
 開始列５手も別途合法手確認。解析ツールのライフサイクル３テスト成功。
 エンジン・専用定跡・25cp補正・BookMaxPlyは変更せず、追加対局・コミット・プッシュは未実施。
 
-再現は `tools/analyze_positions.py` に上記各入力を指定し、
+再現は `tools/analysis/analyze_positions.py` に上記各入力を指定し、
 `--depth 24 --multipv 5 --threads 1 --hash 512 --fresh-engine --timeout 900`。
 通常側は `--shin-yonenaga-gyoku off`、先手準備は同`on`。
 生データは以下に保存し、既存出力は上書きしない。
@@ -1486,7 +1486,7 @@ P*2d 2b7g+ 8i7g B*4d 2f8f 2a3c 2d2c+ 3b2c
 再現コマンド（リポジトリ直下、既存出力を上書きしないこと）：
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/black-silver38-2026-10-04-pawn85-preparation-shin.json \
   --engine bin/release --depth 28 --multipv 5 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku on --fresh-engine --timeout 900 \
@@ -1662,12 +1662,12 @@ r1／r2の第１局は最初の146着手が同じで、独立した100標本と�
 再現は以下の２本を順番に実行する（生データがあるため、再実行時は出力名を変える）：
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/black-silver38-loss-review-2026-10-05-shin.json \
   --engine bin/release --depth 24 --multipv 5 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku on --fresh-engine --timeout 900 \
   --output results/black-silver38-loss-review-2026-10-05-shin-depth24.json
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/black-silver38-loss-followup-2026-10-05-shin.json \
   --engine bin/release --depth 24 --multipv 5 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku on --fresh-engine --timeout 900 \
@@ -1760,7 +1760,7 @@ MultiPV設定５でも合法な比較対象は２手なので返る候補は２�
 再現（既存出力を上書きしないこと）：
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/black-silver38-exchange-recheck-2026-10-05-shin.json \
   --engine bin/release --depth 26 --multipv 5 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku on --fresh-engine --timeout 900 \
@@ -1844,7 +1844,7 @@ PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
 再現（既存出力を上書きしないこと）：
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/black-silver38-silver32-2026-10-05-shin.json \
   --engine bin/release --depth 24 --multipv 5 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku on --fresh-engine --timeout 900 \
@@ -1917,7 +1917,7 @@ P*5e 5d7d 4i3h 7a7b
 再現（既存出力を上書きしないこと）：
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/black-silver38-silver32-recheck-2026-10-05-shin.json \
   --engine bin/release --depth 26 --multipv 5 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku on --fresh-engine --timeout 900 \
@@ -2010,7 +2010,7 @@ PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
 再現（既存出力を上書きしないこと）：
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/black-silver38-rook32-2026-10-05-shin.json \
   --engine bin/release --depth 24 --multipv 5 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku on --fresh-engine --timeout 900 \
@@ -2371,12 +2371,12 @@ BookMaxPly20・評価補正25cp・現行試験定跡・後手v2は変更しな�
 再現時は既存出力を上書きしないこと：
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/black-silver38-rook42-preparation-2026-10-06-shin.json \
   --engine bin/release --depth 24 --multipv 5 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku on --fresh-engine --timeout 900 \
   --output results/black-silver38-rook42-preparation-2026-10-06-shin-depth24.json
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/black-silver38-rook42-preparation-limited-2026-10-06-shin.json \
   --engine bin/release --depth 24 --multipv 4 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku on --fresh-engine --timeout 900 \
@@ -2452,7 +2452,7 @@ PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
 再現時は既存出力を上書きしないこと：
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/black-silver38-rook42-common17-recheck-2026-10-06-shin.json \
   --engine bin/release --depth 26 --multipv 5 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku on --fresh-engine --timeout 900 \
@@ -2544,7 +2544,7 @@ PV中の接続は安全性・棋力改善の証明ではなく、長い定跡登
 再現時は既存出力を上書きしないこと：
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/black-silver38-rook42-pawn76-gold52-2026-10-06-shin.json \
   --engine bin/release --depth 24 --multipv 5 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku on --fresh-engine --timeout 900 \
@@ -2874,7 +2874,7 @@ baseline-r2第26・46局。baseline-r1第41局は途中で玉５九へ戻って�
 再現時は既存出力を上書きしないこと：
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/black-silver38-pawn84-transition-2026-10-07-shin.json \
   --engine bin/release --depth 24 --multipv 5 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku on --fresh-engine --timeout 900 \
@@ -2954,7 +2954,7 @@ PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
 再現時は既存出力を上書きしないこと：
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/black-silver38-pawn84-common13-limited-2026-10-07-shin.json \
   --engine bin/release --depth 26 --multipv 4 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku on --fresh-engine --timeout 900 \
@@ -3068,7 +3068,7 @@ Ponder OFF・BookMaxPly20・最大256手・待機300秒。
 再現時は既存出力を上書きしないこと：
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/black-king48-direct-root-2026-10-07-normal.json \
   --engine bin/release --depth 26 --multipv 5 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku off --fresh-engine --timeout 900 \
@@ -3240,7 +3240,7 @@ r2の６局は全て右側を維持した。13手目の１手登録だけで、�
 再現時は既存出力を上書きしないこと：
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/black-silver38-pawn25-bishop33-followup-2026-10-08-shin.json \
   --engine bin/release --depth 26 --multipv 3 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku on --fresh-engine --timeout 900 \
@@ -3313,7 +3313,7 @@ PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
 再現時は既存出力を上書きしないこと：
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python3 tools/analyze_positions.py \
+PYTHONDONTWRITEBYTECODE=1 python3 tools/analysis/analyze_positions.py \
   docs/experiments/positions/book/black-silver38-pawn25-bishop33-unrestricted-2026-10-08-shin.json \
   --engine bin/release --depth 24 --multipv 5 --threads 1 --hash 512 \
   --shin-yonenaga-gyoku on --fresh-engine --timeout 900 \
