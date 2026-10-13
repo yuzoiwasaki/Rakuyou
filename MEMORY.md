@@ -114,11 +114,43 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   SHAe35097e34aa32eaafea939f2f04870bf5f6a5ea213a8ab97cd612b37db03c8bc;
   auditSHA1478201f8a9e7b77c14c0053876318c7e1b8c8da3d336d338d492b463e6bb4cc.
   average-20.txtSHA81ed1ad3a9b37827df31be85e4617d2dc39a96d311db3bd70853cb964dc474d3.
-- NEXT discuss fixedcandidate searchcheck orseparate-game validation design.
-  Firstwinner-loss experiment closed;no automatictuning/additionallearning/
-  dataextension/reselection/adoption. User requestedcoarsecommit+push of
-  outcome preparation/implementation/result;check git history/status for
-  savedrevision andremote synchronization. No newexperiment in thissave step.
+- Outcome pilot committed/pushed56e5657. Userauthorizedfixed20normalcheck;
+  COMPLETE6valroots xbaseline/candidate depth15/thread1/hash64/ON/bookOFF/
+  fresh/30s,12searches,no exclusions/retries/refill. Same6strata minSHA
+  20261011:id chosenbeforequality. Existingexporter/zeroSHA/canonicalguard
+  reused;changed350216bytes onlyKP/PP,178static historiesmatch20candidate.
+  Operationalengine+baselinefiles isolatedandunchanged;no newbuild/QS.
+  Bestchange1/6(White-loss32 K7a8b->G4a5b),PVchange6/6,cpdiff-19..+56.
+  White-lossline G5b,R5h,G6b centralgolddefense butlaterR5a+ invasion;
+  receiveresilience/strengthnotdemonstrated. Samebaseline6best/cp/PV/nodes
+  reproduced. New2guards andbyte/PV/provenanceauditpass;inputsbackupverified.
+  [Outcome normal-search](docs/experiments/learning/data/2026-10-13-selfplay-outcome-normal-search.md).
+  results/learning-pilot/2026-10-13-outcome-search-review-v1/report.json
+  SHAd96d50ff65cc9b5b68905de49f85a957a2d204130b1df2e59454baf4af71d7e0;
+  auditSHAa34498cd5d298eb775c5ff6988eae6bdcd4d77e70f25ff333a6ea6d9226e766b.
+  ExportedparamsSHA4e4c73c77060b7a40e782c9daf189a67bcb7acb1fc571f34af7acd59f22f4ed5,
+  isolatedonly/notadopted. Run normal-search-review-attempt-v1.json locks12.
+  Correctedpriorimitationreportstrata: e3cc..:21:35 isBlackdraw,617d..:3:47
+  Blackloss;oldraw/score/exclusionunchanged. No newtestgames orlearning.
+- UserauthorizedsingleWhite-loss root K8bvsG5b contentcheck;COMPLETE4normal
+  searches (two models xdepth15/20) restrictedMOVES[7a8b,4a5b],MultiPV2,
+  thread1/hash64/ON/bookOFF/fresh/30s,no retries/exclusions/learning.
+  ALL4 preferG5b. Baselinegold/kingcp depth15 -55/-140,depth20 -128/-176;
+  candidate15 -149/-153,20 -198/-231. Goldadvantage85/48 baselinevs4/33
+  candidate;notlearner-createdstrength. G5b supportsS5c/P6c butR3b support
+  removed,castlingdelayed;PV20laterK8b. Same8PV endpoints delta0..+1cp only.
+  Fixedcandidate impactssearchtree,doesnotdemonstratebetterresilience/wins.
+  [King/gold contentcheck](docs/experiments/learning/data/2026-10-13-outcome-king-gold-content-check.md).
+  results/learning-pilot/2026-10-13-outcome-king-gold-comparison-v1/report.json
+  SHAc69b3b14af588cbfd1e8245f3b5a2c65b16ca0476eb710ca807b9a18c22092cd;
+  auditSHAec2fefd988bfc6be393fc50eeec254e86b0d1148ae72645c366f89560d1fcee2.
+  Parent king-gold-comparison-attempt-v1.json locks4searches. New2guards pass,
+  commands/PV/staticendpoint/inputaudit andbackupverified. Runtime/books kept.
+- NEXT discuss closure/save ofinitialoutcome pilot. Adoptionevidenceweak;
+  recommendbaselinekeptandfirsttrial paused. No automatic furthersearch/
+  learning/tuning/dataextension/adoption. User requestedcoarsecommit+push of
+  normalcheck/contentcheck andpriorstratum-labelcorrection;check git history/
+  status for revision andremote synchronization. Priorcandidates retained.
 
 ## Next research direction: thickness and territorial control
 
@@ -306,7 +338,7 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   onlyallowedKP/PP lanes;88static fullhistories reproduce saved20candidate.
   Candidateenginebyte-identicaltooperational inisolatedruntime;sourcebin kept.
   Trainbestmovechanged3/6,actualbest0/6,PVchanged6/6,cpdiff-126..+114.
-  Diagnosticbestsame6/6,PVchanged6/6;5validcpdiff-15..+187;candidateBlack-loss
+  Diagnosticbestsame6/6,PVchanged6/6;5validcpdiff-15..+187;candidateBlack-draw
   id e3ccacfa..:21:35 PVrepetitionexcluded,no refill/retry. Smallstaticdelta
   changessearchtree;searchscoreincreaseisnotstrengthproof. Baseline6best/cp/PV
   matchpriorcomparison;1nodescount differsby1(recorded). No adoption.

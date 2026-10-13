@@ -2,6 +2,10 @@
 
 [学習レポート目次へ戻る](../README.md)
 
+- [後手負け局面の△５二金：二手の限定比較、現行評価でも支持](2026-10-13-outcome-king-gold-content-check.md)
+
+- [勝敗学習20更新候補：6局面の通常探索比較](2026-10-13-selfplay-outcome-normal-search.md)
+
 - [勝敗ベースの自己対局学習：96／23件・20更新、検証の改善はごく小さい](2026-10-13-selfplay-outcome-first-result.md)
 
 - [勝敗ベースの自己対局学習：既存143／35件の再利用と更新0準備](2026-10-13-selfplay-outcome-preparation.md)
