@@ -2,6 +2,10 @@
 
 [学習レポート目次へ戻る](../README.md)
 
+- [勝敗ベースの自己対局学習：96／23件・20更新、検証の改善はごく小さい](2026-10-13-selfplay-outcome-first-result.md)
+
+- [勝敗ベースの自己対局学習：既存143／35件の再利用と更新0準備](2026-10-13-selfplay-outcome-preparation.md)
+
 - [対局を分けた模倣学習：有効4／4組・20更新、小さな転移の兆候](2026-10-13-game-split-imitation-transfer-result.md)
 
 - [対局で分ける模倣学習：12／12元局面の選択と静的監査](2026-10-12-game-split-imitation-root-preparation.md)

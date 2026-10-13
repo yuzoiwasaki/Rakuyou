@@ -75,6 +75,51 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   baseline plus deltas instead. Do not treat self-generated teachers as an
   independent stronger teacher.
 
+## Current work: outcome-based self-play learning
+
+- Userrequested outcome-based self-play learning;reuse existing scaffolding,
+  notredo corpus/splits. Previous saved/pushed checkpointbc1156a;outcome
+  preparation andresult are saved in the nextcoarsecommit. Prior trials kept.
+- PREPARATION complete using unchanged143/35 ROOTS,one/game,originalrun
+  split31train/8val/8test. Rawterminal labels revalidated all178;Shin side and
+  historiesmatch. Decisive96train(48wins/48losses),23val(11wins/12losses).
+  Truncateddraw47/12 maskedfromloss/keys/denominator,keptforimpact;White
+  draw24/6. No formal draw labels,winning-White target1. No newtestgames.
+- NewlossmeanlogisticCE sigmoid(cp/600),equal selected-game weights,deltaL2.
+  Use currentstaticROOT evaluation+existing sparseKP/PP,no cp teacher ormove
+  imitation,nonew normal/QS/data selection. Zero178/native packed baselines
+  match;outcome finite gradients and masks8tests pass. Sourceolder-game runtime
+  hashes unknown;reusedvalidation notunseen,notwinratecalibration/strengthproof.
+- Train-only25290keys,initialloss.6815263001,L2_1e-6 atcap.01 ratiosmedian
+  .249%,p90.934%,87weakkeys>25%. Native staticcapmax5cp;progress/tempo/etc
+  protected. Oldbackups+newextras verified,zero checkpoint+labelaudit pass.
+  [Outcome preparation](docs/experiments/learning/data/2026-10-13-selfplay-outcome-preparation.md).
+  results/learning-pilot/2026-10-13-outcome-preparation-v1/report.json
+  SHAac1edd4bbe2d15552bd980aebc05a3179174f9929b57af615ea1c3f131295d9e;
+  saved-label-auditSHA34af3efa9e216c9988090509fb76732fac0aee85df674a97c068ebb6980c0ee9.
+- Userauthorized firstoutcome20-run COMPLETE,unchanged96/23 decisiveroots,
+  draw47/12masked,fullbatch96,L2_1e-6,rate/step.001,cap.01,averaging.9995,
+  saved0/5/10/20,selectedfixed20. No oldcandidateinitialization.
+  Trainintegerloss+.10348%,smooth+.10832%;valinteger+.002929%,smooth+.002176%.
+  ValBlack-.01502%,White+.01456%,wins+.02935%,losses-.02968%;8valinteger
+  changes,4outcome-directionbetter/4worse. No strength/generalizationclaim.
+  Valdraw6/12 change+1cp(mean+.5),eachside3/6;no outcome lossfor draw.
+  Whole178integermax3cp,smoothmax2.470;avgmax.00491154,current.00763347,
+  caphits0. New3guards pass;20trajectory/gradients/averages/4checkpoints exact,
+  packed712scores/labels/summary auditmatch. Oldbackups,new7files+audit2
+  verified. No new normal/QS/games/selection/tuning;runtime/books/oldcandidates
+  kept. Candidate savednotadopted. Outcome prep learning-attempt-v1.json locks.
+  [Outcome firstresult](docs/experiments/learning/data/2026-10-13-selfplay-outcome-first-result.md).
+  results/learning-pilot/2026-10-13-outcome-run-v1/report.json
+  SHAe35097e34aa32eaafea939f2f04870bf5f6a5ea213a8ab97cd612b37db03c8bc;
+  auditSHA1478201f8a9e7b77c14c0053876318c7e1b8c8da3d336d338d492b463e6bb4cc.
+  average-20.txtSHA81ed1ad3a9b37827df31be85e4617d2dc39a96d311db3bd70853cb964dc474d3.
+- NEXT discuss fixedcandidate searchcheck orseparate-game validation design.
+  Firstwinner-loss experiment closed;no automatictuning/additionallearning/
+  dataextension/reselection/adoption. User requestedcoarsecommit+push of
+  outcome preparation/implementation/result;check git history/status for
+  savedrevision andremote synchronization. No newexperiment in thissave step.
+
 ## Next research direction: thickness and territorial control
 
 - The user wants to explore thickness as a defining Shin-Yonenaga-Gyoku style;
