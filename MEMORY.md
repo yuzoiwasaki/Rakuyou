@@ -3,6 +3,25 @@
 This file is the resume map: current state, durable decisions, constraints, and
 links to evidence. Detailed experiment history belongs in `docs/experiments/`.
 
+## Latest handoff: overall learning review (2026-10-14)
+
+- User requested a review of all learning work, then documentation, commit and
+  push for Sol to read before continuing. The [overall review](docs/experiments/learning/2026-10-14-overall-learning-review.md)
+  separates verified observations, hypotheses, and prioritized proposals.
+- Initial mechanics/safety work was appropriate; tiny updates, sparse evidence,
+  reused validation and teacher/goal mismatch limit usefulness judgments.
+  No candidate has demonstrated sufficient style or strength benefit for adoption.
+- Recommended next design: evaluate when to build or abandon thickness through
+  move comparisons; choose observable update scales in isolated experiments;
+  compare search-only, outcome-only and mixed teachers for strength learning.
+  Keep losing games. Do not infer playing-strength loss from outcome-label loss.
+- Retain runtime isolation and data provenance, but do not treat old 20-update
+  settings as universal requirements for new experiments. Preserve closed runs
+  and their attempt markers. New experiment settings remain to be designed.
+- This handoff is documentation only: no code changes, experiments, audit reruns,
+  or adoption. User intends to continue with Sol; the review is not a fixed
+  execution plan. Historical NEXT entries below describe their original stages.
+
 ## Project and runtime
 
 - Rakuyou is a personal experimental fork of Gikou 2. Preserve upstream
