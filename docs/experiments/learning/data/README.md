@@ -2,9 +2,17 @@
 
 [学習レポート目次へ戻る](../README.md)
 
+- [拡大した勝敗学習：256／64件・20更新、負け局面の悪化傾向が残る](2026-10-14-outcome-expanded-result.md)
+
+- [拡大した勝敗学習：383／80局面と別枠draw6件の更新0監査](2026-10-14-outcome-expanded-preparation.md)
+
+- [勝敗学習のデータ拡大：決着256／64件を確保、draw不足で383／80元局面](2026-10-13-outcome-expansion-selection.md)
+
 - [後手負け局面の△５二金：二手の限定比較、現行評価でも支持](2026-10-13-outcome-king-gold-content-check.md)
 
 - [勝敗学習20更新候補：6局面の通常探索比較](2026-10-13-selfplay-outcome-normal-search.md)
+
+- [負け棋譜で評価が上がった4局面：形と最終結果の距離](2026-10-14-outcome-loss-position-review.md)
 
 - [勝敗ベースの自己対局学習：96／23件・20更新、検証の改善はごく小さい](2026-10-13-selfplay-outcome-first-result.md)
 

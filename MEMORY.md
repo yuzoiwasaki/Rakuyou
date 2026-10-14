@@ -146,11 +146,76 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   auditSHAec2fefd988bfc6be393fc50eeec254e86b0d1148ae72645c366f89560d1fcee2.
   Parent king-gold-comparison-attempt-v1.json locks4searches. New2guards pass,
   commands/PV/staticendpoint/inputaudit andbackupverified. Runtime/books kept.
-- NEXT discuss closure/save ofinitialoutcome pilot. Adoptionevidenceweak;
-  recommendbaselinekeptandfirsttrial paused. No automatic furthersearch/
-  learning/tuning/dataextension/adoption. User requestedcoarsecommit+push of
-  normalcheck/contentcheck andpriorstratum-labelcorrection;check git history/
-  status for revision andremote synchronization. Priorcandidates retained.
+- Normal/content checks committed/pushed3d2664e. Userrequestedmoreoutcome
+  learning;authorized384/96 selection/staticaudit only,conditions unchanged.
+  COMPLETE PARTIAL:train383/val80 roots,supervised256/64 asplanned;
+  masked127/16. Strata trainwins/losses each64,Bdraw63/Wdraw64;
+  valdecisiveeach16,Bdraw14/Wdraw2. Allselectedgamesnewrelative263usedkeys.
+  Underoldrun split only2unusedWhiteDraw games exist,14short beforeselection.
+  Nativeactual-nextmovehistory repeats exclude3drawroots (trainB1,valB2),
+  legalbutchildrepeats,notformalrepetitionadjudication. NO replacement/refill.
+  Raw39train/valruns reextracted withold24-80/depth15cp/abs1000eligibility;
+  no cp/feature/improvement ranking,seed20261011/SHAroundrobin,one/game,
+  predeclared runcap24each (sizeallocationchange only),prefix/root isolation.
+  Train31/val8run,max24each;testkeysmetadataonly,no rawtestgames.
+  Saved463labels/histories/nativeSFEN-Huffman auditsmatch;3tests pass;
+  oldbackup+new7files968008bytesverified. No searches/QS/updates/gradient
+  extraction;runtime/books/oldcandidates unchanged,selection_completeFalse.
+  [Outcome expansion selection](docs/experiments/learning/data/2026-10-13-outcome-expansion-selection.md).
+  results/learning-pilot/2026-10-13-outcome-expansion-selection-v1/manifest.json
+  SHA68a62bb9ba5a4abaad369ab230c9c0ee63ff93d69afa6c3c330d5c1f28fd067b;
+  auditSHA89133379b680075f777d539272882de0bfec25038bb6d5a5e1400e07cfbc4cd9.
+- Useraccepted383/80 partialdataset+oldWhiteDraw6 SEPARATEdiagnostic and
+  authorizedconnection/scaleaudit only. PREPARATION COMPLETE469zero roots
+  (383train/80newval/6old diagnostic),sameKP/PP/logistic loss/masks/updater.
+  Newrawlabels/histories/packed/factors reaudited469;old6 gamesdisjointfrom
+  newsets,allmasked,notcountednewval. Train-only40052keys from256decisive,
+  val64decisive,draw127/16 plusold6. Initialtrainloss.7018227312 (newdata,
+  notcomparabletoold .6815). L2_1e-6 capratiosmedian.601%,p90 2.223%,258
+  weakkeys>25%(~.64%). Samecapstatic469max5cp,protectedlanesfixed;
+  gradient10finitechecks/zero checkpoint exact. No valqualityloss measured.
+  New2guards pass;oldcopies+new28files45290476bytesverified. No searches/
+  QS/updates/refill/newgames/oldcandidateoverwrite;runtime/books kept.
+  [Expanded outcome preparation](docs/experiments/learning/data/2026-10-14-outcome-expanded-preparation.md).
+  results/learning-pilot/2026-10-14-outcome-expanded-preparation-v1/report.json
+  SHA1034b6b043f079463b27e65724d016c08ceedb38f069064c6c6b58d0f0cc62c0;
+  saved-label-auditSHAafd61f4f96ebcff7534af60d1b0630cca5d7b4bd8e290b211058affa069365a9.
+- Userauthorized expandedoutcome20 COMPLETED unchanged256/64 decisive,
+  draw127/16+oldWhite6 separate. Zero/currentbase,full256,L2_1e-6,step/rate
+  .001,cap.01,average.9995,save0/5/10/20,selectedfixed20. Old96/23 untouched.
+  Trainintegerloss+.07905%,smooth+.07903%;newvalinteger+.006343%,smooth
+  +.000645%. ValBlack-.01581%,White+.02840%,win+.04558%,loss-.04929%;
+  35valintegerchanges19towardwinner/16away. Winner-up/loser-worse persists.
+  Newdraw16 changes4(mean+.125cp),White2changes1(+1);oldWhite6 changes
+  [0,+1,+1,+1,0,-1],separate(mean+.333cp). No drawoutcomeloss.
+  Whole469integermax2cp,smoothmax2.284;avgmax.00491140,current.00763850,
+  caphits0. New3guards pass;20train-onlytrajectory/gradient/averages/4states
+  exactaudit,1876packedscore/label/summary checks match;oldbackups+new8files
+  60352380bytes+audit2 verified. No normal/QS/games/tuning/refill;runtime/
+  books/25cp/oldcandidates unchanged. Savedcandidate,notadopted.
+  [Expanded outcome result](docs/experiments/learning/data/2026-10-14-outcome-expanded-result.md).
+  results/learning-pilot/2026-10-14-outcome-expanded-run-v1/report.json
+  SHA4e56b5c65dd751b8875480ab93238e5e90d02452a0c4469932a809600efa7241;
+  auditSHA58fb7b54f7ae6ca840622b7a17ebaa7cb05e39f711d3aaedeb138671ad191ed6.
+  average-20.txtSHAf202d90b3b62f25326006f5e2875fe1f9ac281fd134b3d359eddf5a9a8e3abc5.
+  Expandedprep learning-attempt-v1.json locks20;neverretry/bypass.
+- Saved-data loss diagnosis COMPLETE4validation integer-up losses: earliest
+  Black25,Black59/White62 largestrawsmooth,positive-staticWhite66. No new
+  searches/probe/updates/games. SourceSHA/labels/rootSFEN replay match;
+  PP accountsmostupwarddelta inall4 (KP+.024..+.160,PP+.688..+1.407cp).
+  Early/fightingpositions cannotblame finaldefeat entirelyonrootshape;
+  White62 showsreal kingpressure (P7d/G*7c). Othercases priorsearch/static
+  differ,oldruntimeunknown;notproof ofblunders orcurrentstrengthdecline.
+  Keep losinggames;do notdiscard unilaterally. Consultteacher weighting/
+  auxiliarysearchtargets before anynexttrial;no conditionchange decided.
+  [Loss-position review](docs/experiments/learning/data/2026-10-14-outcome-loss-position-review.md).
+  results/learning-pilot/2026-10-14-outcome-loss-position-review-v1/report.json
+  SHAd6b893d2314d74e30038cdadd0b1721749aa64880cf421e4a09e47e86e529906.
+- NEXT compare teacher-label designs before furtherchanges.
+  Expandedtrialclosed;no automaticfurther
+  learning/tuning/refill/reselection/dataextension/search/games/adoption.
+  Userauthorized onecoarsecommit forselection/preparation/expandedrun and
+  lossdiagnosis;pushnotrequested. Nextscope isproposal,notanotherlearningrun.
 
 ## Next research direction: thickness and territorial control
 
