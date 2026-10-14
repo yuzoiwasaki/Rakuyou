@@ -12,6 +12,10 @@
 
 - [勝敗学習20更新候補：6局面の通常探索比較](2026-10-13-selfplay-outcome-normal-search.md)
 
+- [進行度で重み付けした勝敗学習：20更新、負け側の悪化は残る](2026-10-14-outcome-stage-weighted-result.md)
+
+- [次の勝敗学習案：進行度で最終結果の重みを変える](2026-10-14-outcome-stage-weighting-plan.md)
+
 - [負け棋譜で評価が上がった4局面：形と最終結果の距離](2026-10-14-outcome-loss-position-review.md)
 
 - [勝敗ベースの自己対局学習：96／23件・20更新、検証の改善はごく小さい](2026-10-13-selfplay-outcome-first-result.md)

@@ -211,11 +211,39 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   [Loss-position review](docs/experiments/learning/data/2026-10-14-outcome-loss-position-review.md).
   results/learning-pilot/2026-10-14-outcome-loss-position-review-v1/report.json
   SHAd6b893d2314d74e30038cdadd0b1721749aa64880cf421e4a09e47e86e529906.
-- NEXT compare teacher-label designs before furtherchanges.
+- Expandedselection/preparation/run/lossdiagnosis committed9186105;notpushed.
+  Userauthorized trial: savedprogress w=.25+.75*p,normalizewithin4trainstrata to
+  preserve64each/total256;zero/currentbase andallotherconditionsunchanged.
+  Existing256trainprogress .195.. .820;unbalancedrawweights win79.441 vs
+  loss75.756,so stratum-normalization needed. Unweightedvalidationunchanged.
+  Compareterminaldistance/hybridteachers alternatives;progressfirstisminimal,
+  notguaranteedfix ofsharedPP orstatic tacticalblindness. Newisolatedrunner/
+  objective/auditor reusebaselineguards/updater/evaluation;7tests pass and
+  actual256 finitegradient10keys maxerror3.32e-13,totalweight256 exact.
+  Fixedsingle20run COMPLETED atresults/learning-pilot/
+  2026-10-14-outcome-stage-weighted-run-v1;stage-weighted-attempt-v1.json
+  inexpandedprep locksrun. Weightedtrainloss+.08570%,equaltraininteger
+  +.08090%/smooth+.07891%. Valinteger+.006342%/smooth+.002043%;previous
+  +.006343%/+.000645%. Valwin+.04558%/loss-.04930% integer;loss smooth
+  -.04829% vsold-.05016%,stillworse. Black-.01218%,White+.02479% integer.
+  Val37changed20better17worse;oldcandidatevsnewval80only2integerchanges,
+  max1cp(oneBlacklossdown,oneWhitelossup). Drawval16/old6 integerunchanged
+  versusoldcandidate;baselinevaldraw4/16mean+.125cp,old6+.333cp.
+  Whole469maxinteger3cp/smooth2.388;avgmax.00491108,current.00763567,
+  caphits0. Full20trajectory/averages/weights/4checkpoints and1876packed/
+  label/summary checks auditedexact;oldbackup/new13files212950151bytes+
+  audit2 verified. No additionalsearches/QS/games/tuning/adoption;baseline
+  runtime/books/25cp/oldcandidates preserved. Candidate saved,notadopted.
+  [Stage-weighted result](docs/experiments/learning/data/2026-10-14-outcome-stage-weighted-result.md).
+  reportSHAe5761371cb3d48ce22a5c55b2c7e686421782bd4f50a8ecabc323e7998dc7344;
+  auditSHAa36b075a59c8d06e64cd73b6442ad45e6cdfbe26ae39536b15d759e628886efc;
+  average20SHAa9fa96a514378dc31513609bf850323f341a4e4d5caadcecb23a57fd6cfd8605.
+  [Stage-weighting plan](docs/experiments/learning/data/2026-10-14-outcome-stage-weighting-plan.md).
+- NEXT consultnextdirection;stage-weightedtrialclosed.
   Expandedtrialclosed;no automaticfurther
   learning/tuning/refill/reselection/dataextension/search/games/adoption.
-  Userauthorized onecoarsecommit forselection/preparation/expandedrun and
-  lossdiagnosis;pushnotrequested. Nextscope isproposal,notanotherlearningrun.
+  Userrequestedcoarsecommit ofstage-weightedimplementation/plan/results;
+  pushnotrequested. Existing7tests andsaved-resultaudit passed.
 
 ## Next research direction: thickness and territorial control
 
