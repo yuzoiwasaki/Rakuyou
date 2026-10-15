@@ -3,7 +3,69 @@
 This file is the resume map: current state, durable decisions, constraints, and
 links to evidence. Detailed experiment history belongs in `docs/experiments/`.
 
-## Latest handoff: overall learning review (2026-10-14)
+## Current direction: thickness through move comparisons (2026-10-15)
+
+- User agreed to follow the overall review: specify when to build/maintain
+  thickness and when to stop advancing before designing another learning run.
+- Prepared discussion pairs from the same three previously reviewed train
+  games: A Black67 G5h6g vs R6h6g (recapture/rebuild mutual support with S5f);
+  B White68 G5c6d vs G5c6c (support S7e/P6e vs retain rear support);
+  C Black115 P8f8e vs horse6f5e (continue attack vs remove pawn threatening G5f).
+  C is the normal Black side of a White-Shin run, not a Shin failure label.
+- Provisional preferences A gold/B advanced gold/C horse capture are discussion
+  proposals, not confirmed labels or best-move claims. Actual continuations
+  verified; alternatives' later play and compensation remain unexamined.
+  Source/split SHA matched; existing probe --replay only verified six legal
+  branches, child occurrence1 and independent Board SFEN agreement. No params
+  loaded, no new evaluation/search/learning/games or feature/tool framework.
+- These three seen games are teaching examples, not unseen validation. Before
+  learning, confirm preferences and check same-root alternatives, then design
+  observable update scales and game-disjoint evaluation. Old20 conditions are
+  not mandatory for new work. Runtime/books/25cp/closed candidates kept.
+- [Discussion and proposed success criteria](docs/experiments/learning/gold-silver/2026-10-15-thickness-move-pair-discussion.md).
+  results/learning-pilot/2026-10-15-thickness-move-pairs-v1/report.json
+  SHA b4cb8eeefed85c4900318967cd2538d4f0bb057061867a5b9791120eb3ac1022.
+- User approved same-root comparison. Fixed3roots xdepth15/20 MultiPV2,
+  restrictedpair/thread1/hash64/ON/bookOFF/fresh/30s/max6/no retries.
+  COMPLETE PARTIAL5/6: A15 G6g-104/R6g-748;A20 -130/-801;
+  B15 G6d-122/G6c-300;B20 -116/-389;C15 P8e-411/horse5e-725.
+  C20 timedout,closederror1;no retry/refill,failedattempttranscript unavailable.
+  Currentbaseline alreadyranksA/B desiredmoveshigher amongpair,notunrestricted
+  bestmove proof. Arookrecapture leads...R7f/R5g/G6g;BpassivegoldallowsSxP6e.
+  C preferredP8e line ...Sx8e/horse5e,thenR3h/P*8d/Kx8d: attackfirst then
+  pawncapture protectsG5f inthatline. Do NOT forcehorse-first stylelabel;
+  notanestablishedblunder orproof ofgold safety,depth20missing.
+  A/B keepasbasicchecks,C ascounterexample;threepairstrainsetnotcreated.
+- Saved5records/10PV commands/rawscores/legalreplay/Boardtrace audited;
+  allprotectedruntime/source/isolatedcopySHAandnewbackupcopiesverified.
+  Auditacceptssavedrecords only,complete_scopeFalse. Searches6attempted,
+  no separateQS/learning/games/export/adoption/featurechanges.
+  comparison-attempt-v1.json inpairdirectorylocksrun;donotbypass.
+  [Comparison result](docs/experiments/learning/gold-silver/2026-10-15-thickness-move-comparison.md).
+  results/learning-pilot/2026-10-15-thickness-move-comparison-v1/report.json
+  SHA4bade11e36bd0c775ac48ba80ede60b6099153b013587f4b8f00d0b8c28b7510.
+- Userauthorized boundednextcandidate review. Reusedsame2train games,2pairs
+  fixedbeforecurrentsearch fromactualsupportmovevsprioropponentPValternative:
+  A Black59 S4g5f vs B7g6f;B White60 G5b6c vs G5b4c. No newgames/test/val.
+  depth15only/MultiPV2/restricted/thread1/hash64/ON/bookOFF/fresh/30s/max2,
+  complete2/2,errors0,no retries/refill. A S5f-14/B6f+66,gap-80cp;
+  B G6c-88/G4c-25,gap-63cp. Audit4legalPV/rawscores/trace/inputs/copiespass.
+  A bothPVdevelopS5f fromdifferentsources andknightexchange,so notclean
+  stylelabel. Bprovisionalfirstcandidate: G6c/P*6e/G5c supportsS6d thenS7e;
+  alternateG4c/B4b/P3e isdifferentviablecentralplan. ShortPVno immediatefree
+  gold/silverloss,notasafetyproof. Neitherlabelconfirmednor63cpgeneraltolerance.
+  OldC20timeoutnotrerun. No learning/newfeature/games/runtimechanges.
+  [Two style candidates](docs/experiments/learning/gold-silver/2026-10-15-thickness-style-candidates.md).
+  results/learning-pilot/2026-10-15-thickness-style-comparison-v1/report.json
+  SHA6914a03a7f1554d0960f9d9d68f5cf9a640ae9a8934b45e85aa55c23ed5efa01.
+  Parent2026-10-15-thickness-style-candidates-v1/comparison-attempt-v1.json
+  locks2searches;donotbypass. Theseareseen illustrativegames,notvalidation.
+- NEXT consultB gold/silver/pawnplan preference andsafety/learningdesign.
+  No automaticmorecandidatehunting/search/training/adoption.
+  Userrequestedonecoarsecommit/push ofdiscussion/comparison/candidate reports
+  andMEMORY. Savedrawlogs/scripts remaininignoredresults;reports recordSHA.
+
+## Review handoff (2026-10-14)
 
 - User requested a review of all learning work, then documentation, commit and
   push for Sol to read before continuing. The [overall review](docs/experiments/learning/2026-10-14-overall-learning-review.md)

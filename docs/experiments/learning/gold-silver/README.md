@@ -2,6 +2,12 @@
 
 [学習レポート目次へ戻る](../README.md)
 
+- [現行基準が選びにくい厚みの手：銀側へ金を寄せる構想を相談候補に](2026-10-15-thickness-style-candidates.md)
+
+- [厚みの指し手3組を探索比較：2組は基準でも上位、守りの仮ラベルは保留](2026-10-15-thickness-move-comparison.md)
+
+- [厚みを築く・保つ・控える：最初の指し手比較3組](2026-10-15-thickness-move-pair-discussion.md)
+
 - [前線の金銀と前方の利き：少数例の確認、特徴は保留](2026-10-12-front-gold-silver-control-review.md)
 
 - [支えられた金の前進：159／43件・20更新、採用保留](2026-10-12-supported-gold-advance-learning-result.md)
