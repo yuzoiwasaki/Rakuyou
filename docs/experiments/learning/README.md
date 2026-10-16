@@ -4,6 +4,10 @@
 
 [自己学習の全体レビュー：厚みの個性と棋力、次の優先順位](2026-10-14-overall-learning-review.md)
 
+[探索評価・勝敗・混合の同条件比較と実行手順](data/2026-10-15-hybrid-learning-plan.md)
+
+[探索・勝敗・混合：初回結果と停止理由](data/2026-10-16-hybrid-learning-result.md)
+
 ## 分類
 
 | テーマ | 目次 |

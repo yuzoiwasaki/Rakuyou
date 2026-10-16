@@ -3,7 +3,51 @@
 This file is the resume map: current state, durable decisions, constraints, and
 links to evidence. Detailed experiment history belongs in `docs/experiments/`.
 
-## Current direction: thickness through move comparisons (2026-10-15)
+## Current direction: matched search/outcome/hybrid learning (2026-10-15)
+
+- User found the specific G6c preference-label discussion unhelpful because the
+  move is unusual. Stop that case's preference confirmation and further digging;
+  retained examples are diagnostics, not approved imitation labels.
+- User agreed to implement search-only, outcome-only and 50/50 mixed learning.
+  Parent handles design/integration; bounded Sol implementation/test delegation
+  was authorized to reduce token use. User can run long commands externally.
+- New isolated `tools/learning/hybrid/` reuses expanded 383/80 roots plus six old
+  draw diagnostics. Primary cohort is the same 256/64 decisive roots for all
+  arms, subject to shared documented teacher exclusions. Draws stay diagnostic.
+  Current depth15 root teachers are generated once; all arms predict ROOT static
+  scores. No historical cp teachers or old QS leaves are silently mixed in.
+- New train-only backtracking optimizer permits up to 200 updates, .02cp step,
+  .5cp per-key cap and 100cp train-position impact cap. Validation never selects
+  steps/checkpoints. L2 1e-6; no averaging. Native scoring reports both losses,
+  sides/outcomes and separate draw impact; no automatic adoption/arm selection.
+- [Plan and external commands](docs/experiments/learning/data/2026-10-15-hybrid-learning-plan.md).
+  Keep old experiment markers and runtime/books/25cp unchanged. Historical NEXT
+  entries below do not override this user-approved direction.
+- Implementation/preparation completed; final verification checked 2026-10-16.
+  Full suite: 302 tests passed (29 new hybrid tests). One old outcome-search test
+  now uses its own temporary marker so real closed experiments cannot affect it.
+  All469 saved root scores/packed components match native zero-overlay evaluation.
+  At implementation verification, no real searches/updates had run yet (completed below).
+- Prepared `results/learning-pilot/2026-10-15-hybrid-v1/` with isolated baseline.
+  Plan SHA `daf08198939a16af32c03b662a54a93e080bf17c202e776be7ad79afc29df51c`;
+  dataset SHA `ad48bff61e63c542b6767fc2d58bca237389c893c5d3b22cbc66350bac0db8fe`.
+  Preparation/code/runtime bindings rechecked successfully. Do not rerun prepare.
+- User completed teachers + runner on 2026-10-16: accepted318/excluded2,
+  common train255/validation63. Search/outcome/mixed stopped at63/64/74 updates.
+  Validation outcome improvement +0.650/+0.192/+0.360%, search metric
+  +0.149/+0.020/+0.067%; these are loss improvements, NOT win rates.
+  All three worsen outcome loss on losing-game roots, including training roots.
+  Saved arithmetic confirms all21 next proposals exceed100cp in each arm:
+  boundary stop, not proven convergence. Code/runtime/teacher bindings checked.
+- [Result and next priorities](docs/experiments/learning/data/2026-10-16-hybrid-learning-result.md).
+  NEXT proposed: isolated search-only candidate behavior/paired-game comparison;
+  before further learning, address optimizer stopping globally at the100cp boundary.
+  Mixed superiority, thickness gains and strength gains remain unproven.
+  No extra searches/learning/games/export/adoption during result review.
+  User requested a single commit and push of implementation and result documentation.
+  Raw experiment artifacts remain local under ignored results/; reports record hashes.
+
+## Previous direction: thickness through move comparisons (2026-10-15)
 
 - User agreed to follow the overall review: specify when to build/maintain
   thickness and when to stop advancing before designing another learning run.
