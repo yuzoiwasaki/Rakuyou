@@ -28,6 +28,10 @@
 
 [制約内更新の初回結果：係数境界での減速と修正方針](data/2026-10-17-constrained-training-result.md)
 
+[制約付き更新v2：係数の個別制限と局面補正・実行手順](data/2026-10-17-constrained-training-v2-plan.md)
+
+[制約付き更新v2の結果：境界後も改善、探索教師候補を次の確認へ](data/2026-10-17-constrained-training-v2-result.md)
+
 ## 分類
 
 | テーマ | 目次 |

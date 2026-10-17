@@ -211,6 +211,34 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   test and exact pre-root-cap reproduction before another run. Freeze v1 code
   and results; do not extend budget or mutate plan. No adoption/new games.
 
+- User requested checkpoint commit then continuation. Committed audit/v1 code/results
+  as1694621; no push requested. v1 remains frozen.
+  Implemented projected.py + runner_v2.py: legacy independent coefficient clipping;
+  only root-cap-violating proposals get cyclic slab/box/step-box correction.
+  Strict objective decrease, all bounds checked; no v1 global coefficient step limit.
+  PREPARED results/learning-pilot/2026-10-17-constrained-training-v2, six zero-start
+  legacy/projected x3 teachers, same data/limits/max200. Do not reprepare.
+  [v2 plan](docs/experiments/learning/data/2026-10-17-constrained-training-v2-plan.md).
+  Plan SHA59756c4f23ac36021785d103c55b6d46099589739b97b30785ba4566b6d2e137.
+  Full355 tests passed; then added restart test and targeted6 passed.
+  Saved0/25/50 checkpoints x3: hypothetical next step exactly matches legacy at9
+  points. All3 old stopping checkpoints admit feasible improving corrected step,
+  3/4/4 sweeps. No real iterative training/candidate save/search during prep.
+  COMPLETE user run6/6: projected all200, root corrections140/142/133 updates
+  (search/outcome/mixed); legacy exact reproduction; pre-correction prefixes
+ 60/58/67 exactly match legacy. All train/coef caps respected.
+  Val outcome improvements search .986649%, outcome .170904%, mixed .515802%.
+  Train loss-group outcome now improves all3 (+.421/+2.042/+1.780%).
+  Val loss-group still worsens (-.696/-2.345/-2.178%); search most improved.
+  Outcome/mixed same val-loss root exceeds100cp (+113.122/+108.949); outcome
+  train-draw diagnostic also+113.664, outside constrained255. Search all469<=100.
+  [v2 result/next priorities](docs/experiments/learning/data/2026-10-17-constrained-training-v2-result.md).
+  comparison SHA0a866f893df29e04a1db299d7518e0b3b92a0b9bcdc4aaee8c3fd651d8a4c842.
+  NEXT recommend isolated projected-search export +24 exposed behavior roots;
+  audit/reuse original baseline and oldsearch logs for3-way comparison, only24
+  new searches if bindings match. Not yet implemented/exported/searched.
+  No adoption; outcome/mixed tuning, extra updates and mass games on hold.
+
 ## Previous direction: thickness through move comparisons (2026-10-15)
 
 - User agreed to follow the overall review: specify when to build/maintain
