@@ -40,12 +40,37 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   Saved arithmetic confirms all21 next proposals exceed100cp in each arm:
   boundary stop, not proven convergence. Code/runtime/teacher bindings checked.
 - [Result and next priorities](docs/experiments/learning/data/2026-10-16-hybrid-learning-result.md).
-  NEXT proposed: isolated search-only candidate behavior/paired-game comparison;
-  before further learning, address optimizer stopping globally at the100cp boundary.
-  Mixed superiority, thickness gains and strength gains remain unproven.
-  No extra searches/learning/games/export/adoption during result review.
-  User requested a single commit and push of implementation and result documentation.
-  Raw experiment artifacts remain local under ignored results/; reports record hashes.
+  Initial implementation/result committed and pushed as58e1309.
+- User requested continuation. First implement a24-root same-position behavior
+  comparison, before games: existing paired_selfplay hardcodes ON/OFF and lacks
+  adequate repetition adjudication. Both variants here use ShinON/bookOFF.
+  Select6 per side/result stratum by fixed ID hash from accepted validation63;
+  already exposed diagnostic data, not an unseen strength test. Fresh depth15,
+  thread1/hash64/timeout30,48 searches. Long run remains external/user-executed.
+- Search-only isolated export completed:469 static evaluations match saved arm;
+  zero export and byte-region audits pass. No search or deployment in export.
+  `results/learning-pilot/2026-10-15-hybrid-v1/search/export-audit.json`
+  SHA327cb6343abd48941232be7a947c7125ca1bff551ffd46d95b6121020faa53af.
+  Do not rerun export; retain existing isolated runtime.
+- [Behavior plan and commands](docs/experiments/learning/data/2026-10-16-hybrid-behavior-plan.md).
+  New code lives in tools/learning/playtest; frozen hybrid code stays unchanged.
+  PREPARED results/learning-pilot/2026-10-16-hybrid-behavior-v1; do not reprepare.
+  Plan SHA8e350fdcd7f5651a75c77ec0dc4f134b3f1ae0d295764c24391c8d085e8f0765.
+  All309 tests pass (7 new);24 native root replays legal/nonrepeated with matching
+  SFEN/Huffman; both isolated USI readiness checks pass, no go/search/game sent.
+  COMPLETE user run2026-10-17:48/48 success,24 regular pairs,6 changed moves.
+  Changes by Blackloss/Blackwin/Whiteloss/Whitewin=3/1/1/1 of6 each.
+  Baseline24 bestmoves/cp reproduce teacher generation exactly.48 saved records,
+  bindings/checksums and native PV legality/diagnoses rechecked without search.
+  Behavior reaches move choices, but strength/thickness gains remain unproven.
+  [Behavior result](docs/experiments/learning/data/2026-10-17-hybrid-behavior-result.md).
+  Report SHA0db293a5ea9347c5e922f5e316ad060cdc7d0a44f38216d90773d1a0efa45980.
+  User approved next small paired-game stage and requested a behavior-stage
+  checkpoint commit before implementing it. No paired games have run yet.
+  NEXT: keep search candidate fixed; prepare small paired games from
+  separately fixed starts with proper adjudication. Before further learning,
+  address optimizer stopping globally at100cp. Mixed superiority, thickness and
+  strength gains remain unproven. Raw experiment artifacts stay in ignored results/.
 
 ## Previous direction: thickness through move comparisons (2026-10-15)
 

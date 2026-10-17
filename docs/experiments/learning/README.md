@@ -8,6 +8,10 @@
 
 [探索・勝敗・混合：初回結果と停止理由](data/2026-10-16-hybrid-learning-result.md)
 
+[探索教師候補の指し手比較：計画と実行手順](data/2026-10-16-hybrid-behavior-plan.md)
+
+[探索教師候補の指し手比較：24局面中6局面で変化](data/2026-10-17-hybrid-behavior-result.md)
+
 ## 分類
 
 | テーマ | 目次 |
