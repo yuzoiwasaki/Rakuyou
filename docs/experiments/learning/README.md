@@ -18,6 +18,10 @@
 
 [負け４局の検討：打込み・大駒交換と攻防の見積り](data/2026-10-17-hybrid-match-loss-review.md)
 
+[負け２局面の深さ15・20診断：実行手順](data/2026-10-17-hybrid-diagnostic-plan.md)
+
+[負け２局面の診断結果：深さによる変化と次の方針](data/2026-10-17-hybrid-diagnostic-result.md)
+
 ## 分類
 
 | テーマ | 目次 |

@@ -144,10 +144,30 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   [Four-game review](docs/experiments/learning/data/2026-10-17-hybrid-match-loss-review.md).
   No new searches/games/learning/code/runtime changes. NEXT proposed: same-history
   game7 beforeply79 andgame4 beforeply88, baseline/candidate xdepth15/20 (8 searches),
-  fresh processes, user-run. Not yet prepared or executed. Distinguish tactical
+  fresh processes, user-run. Preparation completed below. Distinguish tactical
   horizon/continuation valuation from candidate-specific effects; no move labels.
   Before further learning address optimizer stopping globally at100cp.
   Raw artifacts remain in ignored results/.
+- Review committed asf342df0; user requested continuation after commit (no push requested).
+  PREPARED diagnostic.py, two roots xbaseline/candidate xdepth15/20 =8 searches.
+  Output results/learning-pilot/2026-10-17-hybrid-diagnostic-v1; do not reprepare.
+  [Diagnostic plan/command](docs/experiments/learning/data/2026-10-17-hybrid-diagnostic-plan.md).
+  Threads1/hash64/ON/bookOFF/fresh/fullhistory/watchdog300. Completed failures
+  retained without retry; other jobs continue. Incomplete marker blocks restart.
+  Related21 tests pass; both USI ready and saved two bestmove/PV native checks pass.
+  Plan SHA12c77cbe39fbdc9acac26dace78722ae4728b31fb2d6e095f58aa2f77af276d7.
+  Source match/hybrid/behavior code and runtime unchanged.
+  COMPLETE user run8/8 successful; requested/reported depth and bestmove/PV agree.
+  Game7 d15 baseline/candidate G8f -377/-47; d20 R8h -960/S*3c -1028.
+  Game4 baseline G*8g +548/+643 atd15/20; candidate N4e +345 ->G*8g +604.
+  No persistent candidate-specific thickness failure isolated; d20 is not ground truth.
+  Bindings/eight saved records/commands and native bestmove/PV legality checked.
+  [Diagnostic result](docs/experiments/learning/data/2026-10-17-hybrid-diagnostic-result.md).
+  Report SHA9b1472fe632e1e92f3b12924b6c4c7732cef2dfebd91b63510bc9f2fecdee1ae.
+  NEXT recommend stop digging these roots; design optimizer constraint handling
+  before new learning. Compare direction adjustment vs soft penalty, not merely
+  raising100cp. No new implementation/training authorized by result alone.
+  No new searches/learning/deployment in result-review turn.
 
 ## Previous direction: thickness through move comparisons (2026-10-15)
 
