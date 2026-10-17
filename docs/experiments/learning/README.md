@@ -22,6 +22,12 @@
 
 [負け２局面の診断結果：深さによる変化と次の方針](data/2026-10-17-hybrid-diagnostic-result.md)
 
+[100cp境界の診断：上限内にも改善方向が残っていた](data/2026-10-17-constraint-direction-audit.md)
+
+[上限内で方向を変える更新器：旧方式との比較・実行手順](data/2026-10-17-constrained-training-plan.md)
+
+[制約内更新の初回結果：係数境界での減速と修正方針](data/2026-10-17-constrained-training-result.md)
+
 ## 分類
 
 | テーマ | 目次 |

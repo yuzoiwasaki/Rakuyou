@@ -169,6 +169,48 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   raising100cp. No new implementation/training authorized by result alone.
   No new searches/learning/deployment in result-review turn.
 
+- Diagnostic implementation/results committed and pushed as3971b90 (includesf342df0).
+  User authorized proceeding after checkpoint. New isolated constraints/audit.py
+  completed train-only saved-checkpoint direction diagnosis, no candidate saved.
+  Each arm has1 training root near100cp; coefficient-bound counts115/120/148.
+  All3 admit a hypothetical improving step with BOTH old bounds intact after
+  direction correction. No validation used, no iterative training/search/export.
+  Four geometry/constraint tests pass; input SHA unchanged and all bounds checked.
+  [Audit and next design](docs/experiments/learning/data/2026-10-17-constraint-direction-audit.md).
+  results/learning-pilot/2026-10-17-constraint-audit-v1/report.json
+  SHA982f96544ac2375191877eec6246e91b3d2a5979b55b04e8b8d843f382f63449.
+  NEXT implement robust constrained-direction training in separate module/run,
+  compare old/new from zero delta with same data/teachers/budget for all3 arms.
+  Prioritize hard-bound direction adjustment over soft penalty or cap increase;
+  prototype is not exact projection nor a convergence/strength guarantee.
+
+- User authorized continuation. Implemented separate constraints/optimizer.py and
+  runner.py: active-bound feasible direction, all-bound step limit, train-only
+  Armijo acceptance, explicit numerical stops. No frozen hybrid changes.
+  PREPARED six runs legacy/direction xsearch/outcome/mixed, each zero-start max200,
+  same255train/63validation, teachers, .5cp coefficient/100cp root caps.
+  Legacy must exactly reproduce original delta/trajectory/stopping. Validation
+  only after all6 training runs; native469 reports; no export/search/adoption.
+  [Plan and external command](docs/experiments/learning/data/2026-10-17-constrained-training-plan.md).
+  results/learning-pilot/2026-10-17-constrained-training-v1; do not reprepare.
+  Plan SHAb5e2a3927196191631d2b03a218bc2199671982952dd81403671c514d4d7f044.
+  Full349 tests passed, then added iteration-limit test; targeted8 optimizer tests
+  passed (12 constraints tests incl audit). Native469 zero scores match; all3
+  saved checkpoints admit improving feasible hypothetical step in new code.
+  No real iterative training yet. Each update atomically checkpointed/resumable.
+  COMPLETE user run: legacy reproduces all3 original checkpoints exactly.
+  direction all200 updates but worse train objective and val-outcome than legacy.
+  Active position constraints=0 throughout all3: maxtrain94.53/92.81/90.23cp
+  (search/outcome/mixed). ~half steps<.001 due coefficient-bound global step limit.
+  This implementation slows before reaching100cp; did not exercise root-bound
+  direction correction. Loss-group outcome loss still worsens train andval.
+  [Result/implementation limitation](docs/experiments/learning/data/2026-10-17-constrained-training-result.md).
+  comparison SHA49e10b33c7efb4234f6a6436183a97ed25d2e3d491512e7d9af0e89efe865608.
+  NEXT prioritize independent coefficient clipping (legacy behavior until root
+  cap) with bounded correction only when needed; synthetic near-coefficient-cap
+  test and exact pre-root-cap reproduction before another run. Freeze v1 code
+  and results; do not extend budget or mutate plan. No adoption/new games.
+
 ## Previous direction: thickness through move comparisons (2026-10-15)
 
 - User agreed to follow the overall review: specify when to build/maintain
