@@ -134,9 +134,20 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   NEXT recommended: review games3/4 and7/8 (both-color losses) for support/king
   safety/defense vs tactics before additional games or learning; no special move
   labels. Candidate adoption and mass games on hold. No new searches in review.
-  User requested committing/pushing match implementation, fixes and results,
-  then considering next steps. No next-stage work started. Before further learning address
-  optimizer stopping globally at100cp. Raw artifacts remain in ignored results/.
+  Match implementation/fixes/results committed and pushed as111153c (also46300be).
+- User approved saved-only review first, then narrowly selected extra searches.
+  COMPLETE games3/4/7/8 review: no common excessive-advance/thickness cause isolated.
+  Game7 gold-drop check wins rook for gold; both earlier PVs omit it, candidate
+  recognizes it atply81. Game4 ply88 PV already anticipates pawn drops +G*8c
+  while +544; later assessment changes, not simply an unseen king attack.
+  Games3/8 major-piece exchanges also prevent simple hanging-piece claims.
+  [Four-game review](docs/experiments/learning/data/2026-10-17-hybrid-match-loss-review.md).
+  No new searches/games/learning/code/runtime changes. NEXT proposed: same-history
+  game7 beforeply79 andgame4 beforeply88, baseline/candidate xdepth15/20 (8 searches),
+  fresh processes, user-run. Not yet prepared or executed. Distinguish tactical
+  horizon/continuation valuation from candidate-specific effects; no move labels.
+  Before further learning address optimizer stopping globally at100cp.
+  Raw artifacts remain in ignored results/.
 
 ## Previous direction: thickness through move comparisons (2026-10-15)
 

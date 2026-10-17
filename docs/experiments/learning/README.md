@@ -16,6 +16,8 @@
 
 [探索教師候補の16局試走：６勝８敗２分](data/2026-10-17-hybrid-match-result.md)
 
+[負け４局の検討：打込み・大駒交換と攻防の見積り](data/2026-10-17-hybrid-match-loss-review.md)
+
 ## 分類
 
 | テーマ | 目次 |
