@@ -12,6 +12,10 @@
 
 [探索教師候補の指し手比較：24局面中6局面で変化](data/2026-10-17-hybrid-behavior-result.md)
 
+[探索教師候補と現行版：８開始局面・16局の対局計画](data/2026-10-17-hybrid-match-plan.md)
+
+[探索教師候補の16局試走：６勝８敗２分](data/2026-10-17-hybrid-match-result.md)
+
 ## 分類
 
 | テーマ | 目次 |

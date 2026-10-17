@@ -67,10 +67,76 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   Report SHA0db293a5ea9347c5e922f5e316ad060cdc7d0a44f38216d90773d1a0efa45980.
   User approved next small paired-game stage and requested a behavior-stage
   checkpoint commit before implementing it. No paired games have run yet.
-  NEXT: keep search candidate fixed; prepare small paired games from
-  separately fixed starts with proper adjudication. Before further learning,
-  address optimizer stopping globally at100cp. Mixed superiority, thickness and
-  strength gains remain unproven. Raw experiment artifacts stay in ignored results/.
+- Behavior checkpoint committed as46300be (not pushed). User authorized proceeding.
+  [Paired-match plan](docs/experiments/learning/data/2026-10-17-hybrid-match-plan.md).
+  New match.py + independent native referee; existing engine/hybrid/behavior
+  code unchanged. Fixed8 manually authored12-ply starts,4 Black-Shin/4 White-Shin
+  contexts across rook choices;2 color-swapped games each. Not an unseen sample.
+  Both ShinON/bookOFF/thread1/hash64/depth15,timeout30,256 additional-ply cap.
+  Formal fourfold/perpetual-check/mate/CSA declaration; illegal/timeouts/errors
+  never count as losses, ply cap stays unresolved. Fresh processes per game.
+  Per-ply logs; completed games resumable; failed/incomplete attempts block retry.
+- PREPARED results/learning-pilot/2026-10-17-hybrid-match-v1,8starts/16games.
+  Plan SHA2dafaed708152a303987289dca8e95dd326247b0aab5e7b867eb318e340c77db.
+  Referee results/match-tools/match-referee separately compiled, build.json binds
+  inputs/objects/headers/recipe; do not rebuild default or overwrite artifacts.
+  All330 tests pass (13 native +8 match new);8 roots legal/nonrepeated/ongoing,
+  distinct from each other and469 learning roots; both USI readiness checks pass.
+  No real searches/games/learning/adoption performed in this implementation turn.
+  NEXT external: `python3 -m tools.learning.playtest.match run` (no prepare/build).
+  Read summary.txt/report.json and games/ after user completes;16-game depth pilot
+  is not an equal-time strength estimate or adoption evidence. Candidate stays fixed.
+- v1 user run FAILED game1 atply107/additional95: referee underpromotion
+  enumeration constructed forbidden White lance9d9i through asserting FromSfen.
+  Actual candidate move1e2f legal; infrastructure failure, not a game result.
+  Fix native token construction via unchecked Create then IsOk; assertions kept.
+  Old v1 logs/attempts/runtime/build retained. New v2 binary/results prepared.
+  Verified106 saved-history states identical, ply107 legal,95 saved PVs legal;
+  no new search. All332 tests pass, including2 added regression tests.
+  Same starts/games/settings/runtime verified in restart-audit.json.
+  Restart16 games from original openings (cannot restore in-game search state).
+  v2 output results/learning-pilot/2026-10-17-hybrid-match-v2 (superseded below).
+  Plan SHA30c3858259ba614b143e467befc468805b0a77865068a97d98a6db149ce8935a.
+  Referee results/match-tools-v2/match-referee; do not overwrite old or new build.
+  NEXT external unchanged: `python3 -m tools.learning.playtest.match run`;
+  default now v2, no prepare/build required. Read v2 summary/report after run.
+- v2 user run: game1 complete candidateBlack win by resignation; game2 rejected
+  normal bestmove8f8g atply147 because last printed info depth12/cp9559.
+  Source IterativeDeepening throttles final info, so reported depth is not actual
+  completion depth. Harness now accepts normal bestmove with valid1..15 printed
+  depth, flags lower printed depth/stale PV; timeout/errors still fail.
+  No engine/referee/candidate/settings changes. Old v2 failure retained.
+  v3 prepared output results/learning-pilot/2026-10-17-hybrid-match-v3 (superseded below).
+  Game1 legally/result audited and imported with sourceSHA; game2 starts afresh.
+  Same16-game schedule/runtime/settings/referee checked, old logs bound in plan.
+  Plan SHAd137ecafde0e6342d98f2df2cdec9cc7109b035f95b73b2efb1c382d5b0ab124.
+  NEXT external same `python3 -m tools.learning.playtest.match run`, starts game2.
+  No build/prepare needed. Read v3 results; previous errors aren't scored losses.
+  No additional real searches/games in this fix.
+- v3 game2 timed out after112 plies on baselineBlack depth15 search. Logs show
+  stop then depth15/time30004ms + resign; do NOT score post-stop resignation.
+  Extend both watchdogs30->300seconds; go depth15 unchanged, no engine change.
+  match.play now reads depth/timeout from frozen plan instead of hardcoded30.
+  Ten match tests pass incl both-player timeout forwarding. No real new searches.
+  CURRENT prepared results/learning-pilot/2026-10-17-hybrid-match-v4.
+  Plan SHA1261a85999e80c3436ee63c7c0bb721b4553c73da1ec3a174ab15db299a04d97.
+  Oldv3 failure retained and bound. Game1 re-audited legal/resign/no-stop, imported;
+  restart game2. Starts/runtime/referee and settings except watchdog unchanged.
+  NEXT external: `python3 -m tools.learning.playtest.match run`; defaults v4.
+  No build/prepare. Review v4 summary/report after user run. 300s completion untested.
+- v4 COMPLETE user run:16/16games8/8pairs;candidate6W8L2D,unresolved0/errors0.
+  Black3W3L2D,White3W5L; start-design Shin side2W6L vs other4W2L2D.
+  These are exploratory8 fixed openings, not proof of strength/style change.
+  All16 sealed game/report matches, bindings and native final replay/results pass:
+  14 resignations,2 formal repetition draws (games11/13). Old failed runs retained.
+  Report SHA8ab4156ed910defb45d6ccb6c3ef612f7d73ffcd0c827c984940f75f56dca5b5.
+  [Match result](docs/experiments/learning/data/2026-10-17-hybrid-match-result.md).
+  NEXT recommended: review games3/4 and7/8 (both-color losses) for support/king
+  safety/defense vs tactics before additional games or learning; no special move
+  labels. Candidate adoption and mass games on hold. No new searches in review.
+  User requested committing/pushing match implementation, fixes and results,
+  then considering next steps. No next-stage work started. Before further learning address
+  optimizer stopping globally at100cp. Raw artifacts remain in ignored results/.
 
 ## Previous direction: thickness through move comparisons (2026-10-15)
 
