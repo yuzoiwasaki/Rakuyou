@@ -239,6 +239,53 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   new searches if bindings match. Not yet implemented/exported/searched.
   No adoption; outcome/mixed tuning, extra updates and mass games on hold.
 
+- User requested commit and next stage: v2 implementation/results committed646ea4b,
+  no push requested. Isolated projected-search export complete, zero/byte audits
+  and469 native table/sidecar scores match; both source and prior runtime retained.
+  export-audit SHA53302ff9f5ec39d1d119721668fb3fa2e6a592a4dcbf29beccfbfb82e0af2805.
+  PREPARED results/learning-pilot/2026-10-17-projected-behavior-v1,24 old roots,
+  new projected-search only. Audited48 baseline/oldsearch saved records, PVs and
+  commands; reused with SHA bindings for3-way comparison. No new real searches.
+  [Plan/command](docs/experiments/learning/data/2026-10-17-projected-behavior-plan.md).
+  Plan SHA93c93349404b05d8fa23b42a0e59120ffcc7ee4d075bdea0653a3ef09d07d7bd.
+  Same depth15/thread1/hash64/fresh/ON/bookOFF/timeout30 as old behavior stage.
+  Full359 tests passed, then added timeout/reuse test; targeted4 passed.
+  New engine ready verified. Export/prepare complete; do not repeat.
+  COMPLETE user run24/24 success,24 valid triples. Changed vsbaseline6,vsold4.
+  Of6 old changes:3 retained,2 different new moves,1 baseline reversion;1 new
+  change among18 formerly same. New changes concentrated seen loss roots.
+  Root5 G5h supports S6h/S4g beforeP7e, but old PV also G5h afterP7e; no proof
+  of newly learned thickness. Root3 P3f vsoldK2h,root15 B3c vsG5b,root1 revertsB*3c.
+  All24 PVs/native diagnosis, source bindings, commands and report recomputation pass.
+  [Result/next match proposal](docs/experiments/learning/data/2026-10-17-projected-behavior-result.md).
+  Report SHA4497f2309806f67ff96d732988cbff638fc0ed3bec9360fe552cfc3bb4bf2579.
+  NEXT recommend16 fresh games vsbaseline, same8starts/color swaps/depth15 as
+  old pilot to compare descriptively. No reuse of old games with changed opponent.
+  Already-exposed diagnostic starts, not independent/equal-time strength proof.
+  Not yet implemented/prepared/run. No adoption or new labels/deeper root hunts.
+
+- User approved trying16 games. PREPARED projected-match-v1 with new constraints/match.py,
+  old match rules/play/saved/aggregate reused unchanged. Same8starts,16fresh games,
+  depth15/thread1/hash64/ON/bookOFF/watchdog300/additional256. No imported old games.
+  Fixed projected-search vsbaseline; native referee unchanged. Completed-only resume;
+  failed/incomplete attempt blocks retry, errors not losses, caps unresolved.
+  [Plan/command](docs/experiments/learning/data/2026-10-17-projected-match-plan.md).
+  results/learning-pilot/2026-10-17-projected-match-v1, do not reprepare.
+  Plan SHA24a39a47a10819292983846d3e109665bc31cde419b546e2421ca18540ecb8b1.
+  Related27 tests pass;8 native starts match legal/nonrepeated/ongoing;both engines
+  ready with no go. No actual new games/searches in preparation.
+  COMPLETE user run2026-10-18:16/16,8pairs;9W5L0D2unresolved0errors.
+  All16 native histories/last_referee match,14 resignations and2maxply verified;
+  no stop commands. Unresolved games1/9 at268plies, not draws or scored wins/losses.
+  Black3W3L2U,White6W2L. Opening-Shin-side3W4L1U vsother6W1L1U.
+  Old6W8L2D comparison promising, not independent/equal-time strength proof.
+  [Match result](docs/experiments/learning/data/2026-10-18-projected-match-result.md).
+  Report SHA33458f93b4c2a7a1dd63dfc309ec2766e28df2262691b07977a7ed8dce662fdc.
+  NEXT recommend saved games10/12 (Shin losses->wins) and6 (win->loss) review,
+  then fixed candidate on prospectively chosen unused starts, separately designed
+  equal-time trial if practical strength is target. No rerunning/lengthening
+  unfinished games, training or adoption now. No cause/style claim yet.
+
 ## Previous direction: thickness through move comparisons (2026-10-15)
 
 - User agreed to follow the overall review: specify when to build/maintain

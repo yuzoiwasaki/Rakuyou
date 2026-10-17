@@ -32,6 +32,14 @@
 
 [制約付き更新v2の結果：境界後も改善、探索教師候補を次の確認へ](data/2026-10-17-constrained-training-v2-result.md)
 
+[探索教師v2の指し手比較：保存結果を再利用した24局面の実行手順](data/2026-10-17-projected-behavior-plan.md)
+
+[探索教師v2の指し手比較結果：旧候補から４局面で変化](data/2026-10-17-projected-behavior-result.md)
+
+[探索教師v2と現行版：16局対局の実行手順](data/2026-10-17-projected-match-plan.md)
+
+[探索教師v2の16局試走：９勝５敗２未決着](data/2026-10-18-projected-match-result.md)
+
 ## 分類
 
 | テーマ | 目次 |
