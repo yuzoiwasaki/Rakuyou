@@ -402,6 +402,19 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   and equal-game weights1/(G*m) before implementing/running weighted training.
   Selection no longer applies archivedabs(cp)<=1000; don't hide late saturated
   positions or select replacements. Original validation remains exposed.
+- Temporal teachers COMPLETE625:619accepted/6excluded,0failed. All6 train:
+  repeated PV5,mate1. Bindings/raw records/checksums/aggregate verified.
+  Combined original+new750train/187validation from255/63 games; train241x3,
+  13x2,1x1 roots; validation61x3,2x2. Equal-game1/(G*m) weights confirmed.
+  Addedtrain abs>=1000:116/495,>=3000:16/495; latter2.16% total weight,
+  1.25% zero-delta absolute score-derivative mass (not parameter gradient).
+  No post-score exclusions/refill. TeacherSHA
+  d4314ebdd4306b3f4132bbfb6a4f59d86965327050b559f9c50aad92dbd43a18.
+  [Result/next implementation](docs/experiments/learning/data/2026-10-18-temporal-teachers-result.md).
+  NEXT implement weighted search-only objective/projected runner, zero-base200,
+  same caps with all750train roots; original/added metrics separated. Test
+  equal-game weighting, old-objective equivalence and finite-difference gradient.
+  No training/search/game/deployment during this teacher-result review.
 
 ## Previous direction: thickness through move comparisons (2026-10-15)
 

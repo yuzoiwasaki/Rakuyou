@@ -58,6 +58,8 @@
 
 [時間を離した局面追加：625局面の教師作成と実行手順](data/2026-10-18-temporal-teachers-plan.md)
 
+[追加教師の結果：619採用・６除外と対局ごとの重み](data/2026-10-18-temporal-teachers-result.md)
+
 ## 分類
 
 | テーマ | 目次 |
