@@ -384,6 +384,24 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   teacher and zero-base restart/projected optimizer. Fix selection and search
   budget before execution. No extra roots selected yet. Validation remains exposed;
   do not cherry-pick exchange events or mix recent evaluation games into training.
+- User requested push/continuation:59f7046 and2671fa7 pushed to main.
+  Temporal selection COMPLETE: original+24/+48plies, no score/progress/event
+  selection/refill; same318 games/splits. Additional501train/124val,11 beyond
+  saved game endings excluded; no collision/legality/repetition exclusions.
+  396 additions beyondply80. Native/Board625 roots match, zero cross-split runs.
+  Selection SHA3c9921f8cd477c0c4008b6a2476deb025656b04d086e0aba1acec3a4c71de89e.
+  PREPARED625 teachers + static frames in2026-10-18-temporal-teachers-v2.
+  Reuse old318 teachers separately; no candidate params used. Same depth15 with
+  watchdog300seconds. Native match referee avoids old underpromotion crash.
+  v1 preparation retained, zero searches, superseded after pre-run import fix.
+  Related13 tests pass; USI ready/no go. Plan SHA
+  11627de89e378595069283c7d0b07bb7d1646a1b39b962766d5fbd9794ffc47a.
+  [Plan/command](docs/experiments/learning/data/2026-10-18-temporal-teachers-plan.md).
+  NEXT external: `python3 -m tools.learning.constraints.temporal_teachers teachers`.
+  No prepare/build needed. After completion inspect exclusions/cp distribution
+  and equal-game weights1/(G*m) before implementing/running weighted training.
+  Selection no longer applies archivedabs(cp)<=1000; don't hide late saturated
+  positions or select replacements. Original validation remains exposed.
 
 ## Previous direction: thickness through move comparisons (2026-10-15)
 
