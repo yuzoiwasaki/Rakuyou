@@ -46,6 +46,14 @@
 
 [別開始局面の16局結果：７勝８敗１分と新米長玉側への偏り](data/2026-10-18-alternate-match-result.md)
 
+[対局開始局面と運用定跡の照合：手順のずれと次の比較案](data/2026-10-18-start-book-audit.md)
+
+[運用定跡の入口からの14局比較：計画と実行手順](data/2026-10-18-book-match-plan.md)
+
+[運用定跡からの14局結果：６勝６敗２分](data/2026-10-18-book-match-result.md)
+
+[定跡入口の４局検討：支えの働きと交換後の守備](data/2026-10-18-book-match-review.md)
+
 ## 分類
 
 | テーマ | 目次 |

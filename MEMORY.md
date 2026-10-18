@@ -324,6 +324,51 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   operational books/intended formations before more games/retraining/time tests.
   Keep candidate fixed; no cherry-picking favorable starts, no new labels.
   No new experiments in result-review turn.
+- User requested commit/push then continuation: checkpoint d66a92e pushed to main.
+  Completed saved-only book/start audit (no searches/games/training): manual
+  Black roots diverge at ply3 (S3h vs book P7f), White-fourth at ply8 (S7b vs
+  S5c); other strata outside book coverage. No subsequent registered-position
+  transposition through ply12. All16 starts +17 book continuations native legal.
+  [Audit and next proposal](docs/experiments/learning/data/2026-10-18-start-book-audit.md).
+  Audit SHA40106553ab176f4bde40a56403942e644ab5b47a4c40ac7783d641d4d0b29ad6.
+  NEXT proposed: fixed current candidate, all7 canonical operational-book leaf
+  prefixes (2 Black/5 White), color swaps14games, bookOFF thereafter. Verify
+  position duplicates/re-entry before freezing plan. Not prepared or executed.
+  This tests book-aligned entry continuations, not independent strength or book
+  selection; retain all unfavorable prior results. Adoption remains held.
+- User approved book-aligned comparison. PREPARED book_match.py, all7 canonical
+  leaf prefixes /14 color-swapped games; same fixed candidate/runtime/settings.
+  Native legal/ongoing/nonrepeated, independent Board SFEN exact, no duplicate
+  roots including rotation/color swap, no immediate registered-book re-entry.
+  Related33 tests pass; both USI readiness checks pass with no go sent.
+  [Plan and command](docs/experiments/learning/data/2026-10-18-book-match-plan.md).
+  Output results/learning-pilot/2026-10-18-projected-book-match-v1; do not reprepare.
+  Plan SHAb595cf14fac08a04522d03411f6fd2a3c9da06a97a5b640b8a09ab4e5fe286d7.
+  NEXT external: `python3 -m tools.learning.constraints.book_match run`.
+  No new games/search/training/deployment during preparation. Review by entrance,
+  candidate color and Shin side; seven related branches are not independent.
+- Book match COMPLETE:14/14games7/7pairs;6W6L2D,0unresolved/errors.
+  Each candidate color3W3L1D. Candidate Shin-side4W3L; other2W3L2D.
+  Both engines combined Shin-side7W5L2D; prior one-sided losses did not recur,
+  but changed strata/prefix lengths prevent causal book/formation conclusions.
+  Native replay all14 histories equals saved referee; report games match records.
+  Twelve resignations, formal repetitions game2/7 at66/80plies.
+  [Result](docs/experiments/learning/data/2026-10-18-book-match-result.md).
+  Report SHAc47fbe4a9b5d21063f0affac3b4854da29e18eb9f24c848484ba9a42293f7e59.
+  NEXT recommend saved-only review games5/6 (both-color losses) and11/12
+  (first both-color wins), support/advancement and king safety. Result-selected
+  diagnostics, not labels. No more games/training yet; adoption held.
+- Saved-only four-game review COMPLETE (5/6/11/12); no search or learning.
+  Game5 candidate built anaguma but 2-file pressure displaced guards; game6
+  candidate had K8b/S5c,S8c/G5b,G7b but central exchanges removed defenders.
+  Game11 candidate won after king escape into enemy camp, not sustained thickness.
+  Game12 S8c recaptured N on7b and promoted pawn on8c while central guards stayed.
+  Pairs diverge atply9/18; no same-position causal attribution or preference labels.
+  [Review and next direction](docs/experiments/learning/data/2026-10-18-book-match-review.md).
+  NEXT recommend pause this candidate's repeated opening trials/deep case searches;
+  audit existing training coverage of exchanges/remaining defenders before choosing
+  data expansion or teacher changes. Mixed learning remains an option, not proven
+  better by these games. No data relabeling/extra experiments/deployment performed.
 
 ## Previous direction: thickness through move comparisons (2026-10-15)
 
