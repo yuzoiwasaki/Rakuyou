@@ -60,6 +60,8 @@
 
 [追加教師の結果：619採用・６除外と対局ごとの重み](data/2026-10-18-temporal-teachers-result.md)
 
+[対局均等重みの学習：750局面・探索教師のみの実行手順](data/2026-10-18-temporal-training-plan.md)
+
 ## 分類
 
 | テーマ | 目次 |

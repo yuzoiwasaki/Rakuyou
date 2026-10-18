@@ -415,6 +415,20 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   same caps with all750train roots; original/added metrics separated. Test
   equal-game weighting, old-objective equivalence and finite-difference gradient.
   No training/search/game/deployment during this teacher-result review.
+- User authorized weighted implementation. PREPARED temporal-training-v1:
+  750train/187validation,107964 train-only keys, one zero-start search-only run,
+  equal-game objective/gradient1/(G*m), existing200/caps/projected correction.
+  Frozen projected/old objective untouched; new weighted modules separate.
+  Old projected-search delta compared on same cohorts after training, no old
+  retraining. Metrics original/added/all and side/outcome, weighted per subgroup;
+  native+smooth,151 old non-teacher root diagnostics retained.
+  Related45tests pass incl finite differences, equal-game replication, old mean
+  equivalence, cap checks/resume. Native zero1088 positions/packed parts match.
+  No real training checkpoints/search/games/deployment yet.
+  [Plan/command](docs/experiments/learning/data/2026-10-18-temporal-training-plan.md).
+  Plan SHA45856588f3fd9947f7a290c34c22c981b5567a788a8e639e6abeeea061ef62fa.
+  NEXT external: `python3 -m tools.learning.constraints.temporal_runner run`.
+  No prepare/build needed; final train-stopped state, no validation selection.
 
 ## Previous direction: thickness through move comparisons (2026-10-15)
 
