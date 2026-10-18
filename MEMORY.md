@@ -286,6 +286,45 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   equal-time trial if practical strength is target. No rerunning/lengthening
   unfinished games, training or adoption now. No cause/style claim yet.
 
+- User requested commit then continue. Behavior/match implementation/results
+  committed eec4b60, no push requested. Saved review games10/12/6 COMPLETE.
+  First old/new divergences atplies14/16/16, so later comparisons not same roots.
+  Game10 edge attack with knight/lance/pawn, game12 king escape to7d/8d/8e
+  and exchanges/counterattack; neither proves stronger thickness. Game6 loses
+  king-side gold/silver through B*6b/G*6b sequence; defensive replies exist,
+  later PV already anticipates much of exchanges, not simply unseen threats.
+  [Review](docs/experiments/learning/data/2026-10-18-projected-match-review.md).
+  Native replay/new3+old12 and independent piece/capture/check tracing pass.
+  NEXT recommend fixed candidate on prospectively defined different starts,
+  same depth15 first to isolate opening dependence; equal-time separate later.
+  No deeper root searches/labels/training/adoption. New-start trial not prepared.
+
+- User authorized continuation. PREPARED alternate_match.py with8 fixed12-ply
+  alternatives: Black-Shin ply11 P5f->P7f,White-Shin ply12 S5c->P9d, acrosssame4
+  rook strata. Config fixed before evaluation/search, no result filtering.
+  Candidate/runtime/settings unchanged;16fresh games,same depth15/watchdog300.
+  Novelty audit checks all469 saved learning root histories +32 prior match full
+  histories, including180deg color swap and transpositions;8 roots unique/legal/
+  nonrepeated/ongoing, independent Board SFEN matches. Not universal unseen claim;
+  nearby opening variants, not independent random sample; later transpositions possible.
+  [Plan/command](docs/experiments/learning/data/2026-10-18-alternate-match-plan.md).
+  results/learning-pilot/2026-10-18-projected-alternate-match-v1; do not reprepare.
+  Plan SHAe89c5eb2f5e4597750507f6a7a0ed09a3a3e5c35afc014eb823f559f2146cfff.
+  Related30 tests pass; both fixed engines ready/no go. No games/searches yet.
+  COMPLETE user run16/16:7W8L1D0U0errors, Black4W3L1D/White3W5L.
+  Candidate Shin-side0W7L1D vsother7W1L; baseline Shin-side1W7L.
+  Thus both engines combined onShin-side1W14L1D. Initial saved13ply search
+  scores negative forShin context inall8 (white-static about-600), also negative
+  in prior starts. Start/engine-common difficulty plausible, not isolated cause.
+  All16 native histories/last_referee match;15 resign/1formal repetition(game3,
+  102plies),no stop. Not stable strength proof; adoption held.
+  [Result/next priorities](docs/experiments/learning/data/2026-10-18-alternate-match-result.md).
+  Report SHA889711c5cf109e3c8b025c7d9eceda41f9272cc14f133374f2ef62b26ea5099e.
+  NEXT recommend saved-only representativeness audit of manual12ply starts vs
+  operational books/intended formations before more games/retraining/time tests.
+  Keep candidate fixed; no cherry-picking favorable starts, no new labels.
+  No new experiments in result-review turn.
+
 ## Previous direction: thickness through move comparisons (2026-10-15)
 
 - User agreed to follow the overall review: specify when to build/maintain

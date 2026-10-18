@@ -40,6 +40,12 @@
 
 [探索教師v2の16局試走：９勝５敗２未決着](data/2026-10-18-projected-match-result.md)
 
+[探索教師v2の改善２局・悪化１局：端攻め、玉の脱出、守備駒の交換](data/2026-10-18-projected-match-review.md)
+
+[探索教師v2：別の開始８局面による16局試走の実行手順](data/2026-10-18-alternate-match-plan.md)
+
+[別開始局面の16局結果：７勝８敗１分と新米長玉側への偏り](data/2026-10-18-alternate-match-result.md)
+
 ## 分類
 
 | テーマ | 目次 |

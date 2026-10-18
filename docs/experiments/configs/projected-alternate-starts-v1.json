@@ -1,0 +1,142 @@
+{
+  "schema": "projected-alternate-starts-v1",
+  "selection": "Fixed before any evaluation/search: same eight rook/side strata; Black-Shin plays P7f instead of P5f on ply11; White-Shin plays P9d instead of S5c on ply12. No score or game-result filtering. Novelty is checked only against the documented saved corpus, not all shogi positions.",
+  "starts": [
+    {
+      "id": "black-shin-fourth-rook-alternate",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "3i3h",
+        "8b4b",
+        "2g2f",
+        "5a6b",
+        "4h3i",
+        "7a7b",
+        "7i6h",
+        "4c4d",
+        "7g7f",
+        "6b7a"
+      ]
+    },
+    {
+      "id": "black-shin-third-rook-alternate",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "3i3h",
+        "8b3b",
+        "2g2f",
+        "5a6b",
+        "4h3i",
+        "7a7b",
+        "7i6h",
+        "4c4d",
+        "7g7f",
+        "6b7a"
+      ]
+    },
+    {
+      "id": "black-shin-central-rook-alternate",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "3i3h",
+        "8b5b",
+        "2g2f",
+        "5a6b",
+        "4h3i",
+        "7a7b",
+        "7i6h",
+        "5c5d",
+        "7g7f",
+        "6b7a"
+      ]
+    },
+    {
+      "id": "black-shin-static-rook-alternate",
+      "moves": [
+        "5i4h",
+        "8c8d",
+        "3i3h",
+        "3c3d",
+        "2g2f",
+        "5a4b",
+        "4h3i",
+        "7a6b",
+        "7i6h",
+        "6c6d",
+        "7g7f",
+        "6b6c"
+      ]
+    },
+    {
+      "id": "white-shin-fourth-rook-alternate",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2h6h",
+        "5c5d",
+        "3i3h",
+        "3a4b",
+        "5i4h",
+        "7a7b",
+        "6g6f",
+        "6b7a",
+        "7i7h",
+        "9c9d"
+      ]
+    },
+    {
+      "id": "white-shin-third-rook-alternate",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2h7h",
+        "5c5d",
+        "3i3h",
+        "3a4b",
+        "5i4h",
+        "7a7b",
+        "6g6f",
+        "6b7a",
+        "7i6h",
+        "9c9d"
+      ]
+    },
+    {
+      "id": "white-shin-central-rook-alternate",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2h5h",
+        "5c5d",
+        "3i3h",
+        "3a4b",
+        "5i4h",
+        "7a7b",
+        "5g5f",
+        "6b7a",
+        "7i6h",
+        "9c9d"
+      ]
+    },
+    {
+      "id": "white-shin-static-rook-alternate",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2g2f",
+        "5c5d",
+        "3i3h",
+        "3a4b",
+        "5i4h",
+        "7a7b",
+        "2f2e",
+        "6b7a",
+        "7i6h",
+        "9c9d"
+      ]
+    }
+  ]
+}
