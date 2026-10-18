@@ -443,6 +443,16 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   search consistency separately. No rate sweep or new data simultaneously.
   Prior mixed underperformance remains evidence; no guarantee of benefit.
   Hold temporal candidate games/adoption/budget extension. No new run prepared.
+- User approved fixed50/50 comparison. PREPARED temporal-mixed-v1, same750/187,
+  keys/weights/caps/projected200, zero start. Reuses saved old-search and temporal
+  search comparison; only mixed training/native evaluation runs anew.
+  Related48tests pass; control checkpoint/loss/caps/checksums verified on load.
+  No real mixed updates/search/games/deployment yet.
+  [Plan/command](docs/experiments/learning/data/2026-10-18-temporal-mixed-plan.md).
+  Plan SHA7d898f1a31d2add717ea785bc12fb77d3d2f93c90b15d224e7f196237e97f37f.
+  NEXT external: `python3 -m tools.learning.constraints.temporal_mixed run`.
+  Summary includes loss stratum plus original/added/all. No ratio sweep, no
+  validation checkpoint selection; interpret outcome and search tradeoffs together.
 
 ## Previous direction: thickness through move comparisons (2026-10-15)
 
