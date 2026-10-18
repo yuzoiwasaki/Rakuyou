@@ -369,6 +369,21 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   audit existing training coverage of exchanges/remaining defenders before choosing
   data expansion or teacher changes. Mixed learning remains an option, not proven
   better by these games. No data relabeling/extra experiments/deployment performed.
+- User requested continued work with checkpoint commits. Book-stage implementation
+  and reports committed59f7046 (not pushed in this turn).
+  Saved-only coverage audit COMPLETE: accepted255train/63validation, one root/game,
+  only Shin-side turn, selected24..80ply. Train progress>=.5:119, validation25.
+  Actual next12plies include GS capture85/17, own near-king GS capture36/2,
+  own GS immediate recapture44/9 (train/validation). Teacher PV12 counts89/21,
+  30/7,46/12. These are event proxies, not good/bad thickness labels.
+  Three tests pass, all318 saved PV12 native legal/Board matching. No new search.
+  [Coverage and next design](docs/experiments/learning/data/2026-10-18-training-coverage.md).
+  Audit SHA f11a435d3b0ae647dc84c46b7109cc1a61ea8dbfb42fe66206efd622572dbb2c.
+  NEXT design small time-separated multi-root extension within existing train
+  games (tentative total<=3/game), preserve run split, equal game weights, current
+  teacher and zero-base restart/projected optimizer. Fix selection and search
+  budget before execution. No extra roots selected yet. Validation remains exposed;
+  do not cherry-pick exchange events or mix recent evaluation games into training.
 
 ## Previous direction: thickness through move comparisons (2026-10-15)
 
