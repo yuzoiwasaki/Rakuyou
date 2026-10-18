@@ -62,6 +62,8 @@
 
 [対局均等重みの学習：750局面・探索教師のみの実行手順](data/2026-10-18-temporal-training-plan.md)
 
+[時間を離した局面追加の結果：適合は進んだが検証の改善は縮小](data/2026-10-18-temporal-training-result.md)
+
 ## 分類
 
 | テーマ | 目次 |

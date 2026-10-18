@@ -429,6 +429,20 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   Plan SHA45856588f3fd9947f7a290c34c22c981b5567a788a8e639e6abeeea061ef62fa.
   NEXT external: `python3 -m tools.learning.constraints.temporal_runner run`.
   No prepare/build needed; final train-stopped state, no validation selection.
+- Temporal training COMPLETE200/update_budget;114 corrected updates, final loss
+  .650286389, smooth train impact99.99864cp. Bindings/state/caps/last loss checked.
+  Additional train fit improves, but original/additional validation both below
+  old candidate. Val all outcome/search+.117914/.131353% vsold+.453099/.179968%.
+  Losing-game outcome loss worsens train−2.41226%,val−2.948122% (old−.787046,
+  −1.175095). Of373 train loss roots,137 teacher-down/candidate-up; validation
+  53/95 likewise. Not solely optimistic teachers; shared fitting tradeoffs possible.
+  [Result and next comparison](docs/experiments/learning/data/2026-10-18-temporal-training-result.md).
+  Comparison SHAd100aaf8938fa7cc0f4baf10d6d61f728e9ffc3eede1d137061baa5ce95858a1.
+  NEXT proposed one50/50 mixed comparison on SAME750 weighted rows/zero start/
+  caps/budget, current search result fixed control; judge loss strata and original
+  search consistency separately. No rate sweep or new data simultaneously.
+  Prior mixed underperformance remains evidence; no guarantee of benefit.
+  Hold temporal candidate games/adoption/budget extension. No new run prepared.
 
 ## Previous direction: thickness through move comparisons (2026-10-15)
 
