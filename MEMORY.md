@@ -453,6 +453,19 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   NEXT external: `python3 -m tools.learning.constraints.temporal_mixed run`.
   Summary includes loss stratum plus original/added/all. No ratio sweep, no
   validation checkpoint selection; interpret outcome and search tradeoffs together.
+- Mixed COMPLETE200/update_budget; loss.6198657166692091,110 corrected updates.
+  Train-loss outcome−.189044% vs temporal-search−2.41226%; val-loss still
+  −2.398772% vs−2.948122%, old−1.175095%. Val all outcome/search+.214871/
+  .121815% vsold+.453099/.179968%. ValBlack outcome−.3561%,White+.803076%.
+  One exposed White-loss original root dce17654..:1:62 changes−305->−192cp;
+  smooth+113.2668,not cap violation (100cp constrained train only).
+  Bindings/checkpoint/last loss/train caps/control reuse/sidecar verified.
+  [Result and pause decision](docs/experiments/learning/data/2026-10-19-temporal-mixed-result.md).
+  Comparison SHA519057bae412e3237dc8d6df441ceec76131cf39210ea7634ed0324f8ad2c839.
+  Recommend hold games/adoption/budget extension/ratio sweep for this series.
+  NEXT if continuing: saved train-only group-gradient conflict/boundary diagnostic,
+  compare original/additional and win/loss groups before proposing features or
+  relaxed caps. No claim of proven representation failure. No new run prepared.
 
 ## Previous direction: thickness through move comparisons (2026-10-15)
 
