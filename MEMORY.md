@@ -466,6 +466,18 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   NEXT if continuing: saved train-only group-gradient conflict/boundary diagnostic,
   compare original/additional and win/loss groups before proposing features or
   relaxed caps. No claim of proven representation failure. No new run prepared.
+- Train-only gradient conflict audit COMPLETE (search/mixed zero/final4states).
+  Full-cohort1/(G*m) contributions reconstruct total+L2. Mixed win/loss cosine
+  −.8213 zero/−.8361 final; original/additional+.2896/+.2147. Atzero no caps
+  hit yet mean descent worsens loss-group mixed objective locally. Final position
+  correction flips loss-group first-order change from positive to negative;
+  constraints not sole cause and may protect this group. No representation proof.
+  [Diagnostic](docs/experiments/learning/data/2026-10-19-gradient-conflict.md).
+  Audit SHA92a05627df9c1fbcc0e7745477b61201240cfbdaa83b7445f84d903682a8d0c2.
+  Two tests pass; hypothetical directions only, no saved candidate updates/search.
+  NEXT if continuing: bounded train-only feasibility diagnostic of common
+  win/loss improvement under SAME caps before accepting new optimizer/feature
+  changes. No ratio sweep, cap relaxation or games recommended yet.
 
 ## Previous direction: thickness through move comparisons (2026-10-15)
 
