@@ -74,6 +74,8 @@
 
 [両群の改善を確認する混合学習：固定１条件の比較と実行手順](data/2026-10-20-temporal-guarded-plan.md)
 
+[両群確認型の結果：敗局群の改善は検証にも移った](data/2026-10-20-temporal-guarded-result.md)
+
 ## 分類
 
 | テーマ | 目次 |
