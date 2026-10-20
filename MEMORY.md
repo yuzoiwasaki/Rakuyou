@@ -12,9 +12,14 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   group-gradient sum succeeds. At final, ordinary corrected direction succeeds;
   balanced direction needs one halving. Neither method is universally better.
   [Evidence and limitations](docs/experiments/learning/data/2026-10-20-common-direction.md).
-  NEXT proposed: one zero-start fixed200 comparison with group-loss acceptance,
-  ordinary direction first and balanced fallback; same data/ratio/caps. Not yet
-  implemented or run. Do not extend old checkpoints or select by validation.
+  Follow-up implemented: one zero-start fixed200 comparison with group-loss
+  acceptance, ordinary direction first then balanced fallback; same data/ratio/
+  caps and20 backtracks per direction (diagnostic used6). Five smooth train
+  losses must decrease >1e-12; stop if both directions fail. Saved ordinary
+  mixed is control. No checkpoint extension or validation selection.
+  [Plan and command](docs/experiments/learning/data/2026-10-20-temporal-guarded-plan.md).
+  Related57 tests pass, including5 new tests. Real learning not started.
+  NEXT external: `python3 -m tools.learning.constraints.temporal_guarded run`.
 - User found the specific G6c preference-label discussion unhelpful because the
   move is unusual. Stop that case's preference confirmation and further digging;
   retained examples are diagnostics, not approved imitation labels.
