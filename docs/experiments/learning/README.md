@@ -76,6 +76,8 @@
 
 [両群確認型の結果：敗局群の改善は検証にも移った](data/2026-10-20-temporal-guarded-result.md)
 
+[両群確認型の指し手比較：24局面・48探索の実行手順](data/2026-10-20-guarded-behavior-plan.md)
+
 ## 分類
 
 | テーマ | 目次 |

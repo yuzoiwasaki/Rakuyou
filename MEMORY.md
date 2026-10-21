@@ -26,8 +26,15 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   Validation search+.079795% (ordinary+.121815%). Smooth confirms direction.
   Saved bindings, trajectory, final losses/caps and sidecar checked.
   [Result](docs/experiments/learning/data/2026-10-20-temporal-guarded-result.md).
-  NEXT proposed: freeze candidate, small baseline/candidate behavior comparison
-  balanced across original/additional, side/result; no score-based root picking.
+  Follow-up behavior implemented:24 roots,3 per original/additional x side/result
+  stratum, fixed hash ordering, distinct games within each stratum; no score-based
+  selection.48 fresh baseline/candidate d15 searches,1thread/hash64/bookOFF/ShinON,
+  timeout120s both. Related62+7 tests pass. Export1088 static checks pass,
+  zero export and byte-region checks pass; current bin unchanged.
+  PREPARED24 roots from23 games; native replay and both USI readiness checks
+  pass, no go sent. Added-root Huffman IDs derived by native replay.
+  [Behavior plan](docs/experiments/learning/data/2026-10-20-guarded-behavior-plan.md).
+  NEXT external: `python3 -m tools.learning.constraints.guarded_behavior run`.
   No further training/ratio sweep or adoption; games await behavior review.
 - User found the specific G6c preference-label discussion unhelpful because the
   move is unusual. Stop that case's preference confirmation and further digging;
