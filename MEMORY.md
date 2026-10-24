@@ -3,6 +3,32 @@
 This file is the resume map: current state, durable decisions, constraints, and
 links to evidence. Detailed experiment history belongs in `docs/experiments/`.
 
+## Current direction: user-led thickness dialogue (recorded 2026-10-25)
+
+- Learning series explicitly paused. Root/QS-leaf proposal below is deferred.
+  No learning/search/games/deployment or scoring implementation in this dialogue.
+- User teaches thickness via historical positions and hypothetical arrangements.
+  [Durable dialogue record](docs/experiments/learning/thickness/2026-10-25-dialogue.md)
+  preserves judgments, eight boards, roles, uncertainties and assistant corrections.
+  Board snapshots + manifest tracked; full games/local interactive HTML remain in
+  results/thickness-dialogue/{first-game,b-concepts,main-game}/, not Git.
+- Key distinctions: thickness vs local superiority/solidity/balance/effectiveness;
+  rank pawns important but not absolute; direct support vs numerical reinforcement.
+  Shin restriction targets effective enemy attack; ordinary king-head rank play
+  can instead pressure enemy king. Exchanges not universally prohibited: compare
+  resulting formations, drops and attack; favorable after exchange is not
+  automatically continued restriction. Support pieces should be retained/replaced.
+- Main-game B40 and C56 are user's success examples, A24 not thick yet. C slightly
+  preferred for knight/silver participation and6e support; B rook/gold synergy good.
+  B pawn7e is WHITE: assistant misread it; withdraw claim B has no rank pawn.
+  G7d directly supports it; R7b supplies numbers. Losing pawn allows enemy setup.
+  C still needs king/major-piece coordination; K7b is NOT a settled best square.
+- If enemy rook shifts to2-file, thickness remains but restriction weakens. User
+  would exploit local numbers to attack8-file/enemy bishop before enemy attack.
+  Do not turn this into an engine-verified winning line or approved move label.
+- User requested documentation/commit now, no further questions at this checkpoint.
+  NEXT await direction; use saved boards/judgments rather than restarting definitions.
+
 ## Current direction: matched search/outcome/hybrid learning (2026-10-15)
 
 - Latest completed (2026-10-20): train-only bounded common-direction diagnostic

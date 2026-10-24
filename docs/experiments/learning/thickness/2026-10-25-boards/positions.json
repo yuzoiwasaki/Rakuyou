@@ -1,0 +1,2031 @@
+{
+  "note": "Dialogue references, not training labels. Actual snapshots and hypothetical arrangements are distinguished. No full game histories.",
+  "positions": [
+    {
+      "id": "first-game-12",
+      "type": "actual",
+      "game": "2011年12月21日 公開プレマッチ",
+      "plies": 12,
+      "sfen": "ln1g1g1nl/1rsk3b1/ppp1spppp/3pp4/9/2PP5/PP2PPPPP/1B1R2S2/LNSG1GKNL b -",
+      "pieces": [
+        {
+          "file": 9,
+          "rank": 1,
+          "label": "香",
+          "white": true
+        },
+        {
+          "file": 9,
+          "rank": 9,
+          "label": "香",
+          "white": false
+        },
+        {
+          "file": 8,
+          "rank": 1,
+          "label": "桂",
+          "white": true
+        },
+        {
+          "file": 8,
+          "rank": 9,
+          "label": "桂",
+          "white": false
+        },
+        {
+          "file": 7,
+          "rank": 9,
+          "label": "銀",
+          "white": false
+        },
+        {
+          "file": 6,
+          "rank": 1,
+          "label": "金",
+          "white": true
+        },
+        {
+          "file": 6,
+          "rank": 9,
+          "label": "金",
+          "white": false
+        },
+        {
+          "file": 4,
+          "rank": 1,
+          "label": "金",
+          "white": true
+        },
+        {
+          "file": 4,
+          "rank": 9,
+          "label": "金",
+          "white": false
+        },
+        {
+          "file": 2,
+          "rank": 1,
+          "label": "桂",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 9,
+          "label": "桂",
+          "white": false
+        },
+        {
+          "file": 1,
+          "rank": 1,
+          "label": "香",
+          "white": true
+        },
+        {
+          "file": 1,
+          "rank": 9,
+          "label": "香",
+          "white": false
+        },
+        {
+          "file": 1,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 1,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 2,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 3,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 3,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 4,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 4,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 5,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 7,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 8,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 8,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 9,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 9,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 8,
+          "rank": 2,
+          "label": "飛",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 2,
+          "label": "角",
+          "white": true
+        },
+        {
+          "file": 8,
+          "rank": 8,
+          "label": "角",
+          "white": false
+        },
+        {
+          "file": 7,
+          "rank": 6,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 6,
+          "rank": 2,
+          "label": "玉",
+          "white": true
+        },
+        {
+          "file": 6,
+          "rank": 8,
+          "label": "飛",
+          "white": false
+        },
+        {
+          "file": 5,
+          "rank": 4,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 3,
+          "rank": 8,
+          "label": "銀",
+          "white": false
+        },
+        {
+          "file": 5,
+          "rank": 3,
+          "label": "銀",
+          "white": true
+        },
+        {
+          "file": 3,
+          "rank": 9,
+          "label": "玉",
+          "white": false
+        },
+        {
+          "file": 6,
+          "rank": 4,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 6,
+          "rank": 6,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 7,
+          "rank": 2,
+          "label": "銀",
+          "white": true
+        }
+      ],
+      "hands": [
+        "なし",
+        "なし"
+      ],
+      "image": "first-game-12.png",
+      "image_sha256": "6ba833744a824e1629d9de779b0681d50cd8d509c196e1b758b6e932b3751ad3"
+    },
+    {
+      "id": "first-game-20",
+      "type": "actual",
+      "game": "2011年12月21日 公開プレマッチ",
+      "plies": 20,
+      "sfen": "l4g1nl/1rgk3b1/ppnsspppp/2ppp4/9/P1PP5/1PN1PPPPP/1BSRG1S2/L4GKNL b -",
+      "pieces": [
+        {
+          "file": 9,
+          "rank": 1,
+          "label": "香",
+          "white": true
+        },
+        {
+          "file": 9,
+          "rank": 9,
+          "label": "香",
+          "white": false
+        },
+        {
+          "file": 4,
+          "rank": 1,
+          "label": "金",
+          "white": true
+        },
+        {
+          "file": 4,
+          "rank": 9,
+          "label": "金",
+          "white": false
+        },
+        {
+          "file": 2,
+          "rank": 1,
+          "label": "桂",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 9,
+          "label": "桂",
+          "white": false
+        },
+        {
+          "file": 1,
+          "rank": 1,
+          "label": "香",
+          "white": true
+        },
+        {
+          "file": 1,
+          "rank": 9,
+          "label": "香",
+          "white": false
+        },
+        {
+          "file": 1,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 1,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 2,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 3,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 3,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 4,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 4,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 5,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 8,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 8,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 9,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 8,
+          "rank": 2,
+          "label": "飛",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 2,
+          "label": "角",
+          "white": true
+        },
+        {
+          "file": 8,
+          "rank": 8,
+          "label": "角",
+          "white": false
+        },
+        {
+          "file": 7,
+          "rank": 6,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 6,
+          "rank": 2,
+          "label": "玉",
+          "white": true
+        },
+        {
+          "file": 6,
+          "rank": 8,
+          "label": "飛",
+          "white": false
+        },
+        {
+          "file": 5,
+          "rank": 4,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 3,
+          "rank": 8,
+          "label": "銀",
+          "white": false
+        },
+        {
+          "file": 5,
+          "rank": 3,
+          "label": "銀",
+          "white": true
+        },
+        {
+          "file": 3,
+          "rank": 9,
+          "label": "玉",
+          "white": false
+        },
+        {
+          "file": 6,
+          "rank": 4,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 6,
+          "rank": 6,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 9,
+          "rank": 6,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 6,
+          "rank": 3,
+          "label": "銀",
+          "white": true
+        },
+        {
+          "file": 7,
+          "rank": 7,
+          "label": "桂",
+          "white": false
+        },
+        {
+          "file": 7,
+          "rank": 4,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 7,
+          "rank": 8,
+          "label": "銀",
+          "white": false
+        },
+        {
+          "file": 7,
+          "rank": 3,
+          "label": "桂",
+          "white": true
+        },
+        {
+          "file": 5,
+          "rank": 8,
+          "label": "金",
+          "white": false
+        },
+        {
+          "file": 7,
+          "rank": 2,
+          "label": "金",
+          "white": true
+        }
+      ],
+      "hands": [
+        "なし",
+        "なし"
+      ],
+      "image": "first-game-20.png",
+      "image_sha256": "8b5f58ac679766cbad45e376390c2dae49a18f298fb29676ecd423bbcb4d1cb3"
+    },
+    {
+      "id": "first-game-28",
+      "type": "actual",
+      "game": "2011年12月21日 公開プレマッチ",
+      "plies": 28,
+      "sfen": "l4g1nl/1rgk3b1/3sspppp/ppp1p4/3R5/P1P2P3/1P2P1PPP/1BS1G1S2/L4GKNL b NPnp",
+      "pieces": [
+        {
+          "file": 9,
+          "rank": 1,
+          "label": "香",
+          "white": true
+        },
+        {
+          "file": 9,
+          "rank": 9,
+          "label": "香",
+          "white": false
+        },
+        {
+          "file": 4,
+          "rank": 1,
+          "label": "金",
+          "white": true
+        },
+        {
+          "file": 4,
+          "rank": 9,
+          "label": "金",
+          "white": false
+        },
+        {
+          "file": 2,
+          "rank": 1,
+          "label": "桂",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 9,
+          "label": "桂",
+          "white": false
+        },
+        {
+          "file": 1,
+          "rank": 1,
+          "label": "香",
+          "white": true
+        },
+        {
+          "file": 1,
+          "rank": 9,
+          "label": "香",
+          "white": false
+        },
+        {
+          "file": 1,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 1,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 2,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 3,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 3,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 4,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 5,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 8,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 8,
+          "rank": 2,
+          "label": "飛",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 2,
+          "label": "角",
+          "white": true
+        },
+        {
+          "file": 8,
+          "rank": 8,
+          "label": "角",
+          "white": false
+        },
+        {
+          "file": 7,
+          "rank": 6,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 6,
+          "rank": 2,
+          "label": "玉",
+          "white": true
+        },
+        {
+          "file": 5,
+          "rank": 4,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 3,
+          "rank": 8,
+          "label": "銀",
+          "white": false
+        },
+        {
+          "file": 5,
+          "rank": 3,
+          "label": "銀",
+          "white": true
+        },
+        {
+          "file": 3,
+          "rank": 9,
+          "label": "玉",
+          "white": false
+        },
+        {
+          "file": 9,
+          "rank": 6,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 6,
+          "rank": 3,
+          "label": "銀",
+          "white": true
+        },
+        {
+          "file": 7,
+          "rank": 4,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 7,
+          "rank": 8,
+          "label": "銀",
+          "white": false
+        },
+        {
+          "file": 5,
+          "rank": 8,
+          "label": "金",
+          "white": false
+        },
+        {
+          "file": 7,
+          "rank": 2,
+          "label": "金",
+          "white": true
+        },
+        {
+          "file": 4,
+          "rank": 6,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 9,
+          "rank": 4,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 6,
+          "rank": 5,
+          "label": "飛",
+          "white": false
+        },
+        {
+          "file": 8,
+          "rank": 4,
+          "label": "歩",
+          "white": true
+        }
+      ],
+      "hands": [
+        "桂 歩",
+        "歩 桂"
+      ],
+      "image": "first-game-28.png",
+      "image_sha256": "e036b685ee2a9fd1de8b2b180d5c039e42b3e5b992934f080918a30d7842bc09"
+    },
+    {
+      "id": "main-game-24",
+      "type": "actual",
+      "game": "2012年1月14日 第１回電王戦",
+      "plies": 24,
+      "sfen": "ln5nl/1rgk2gb1/p1psspppp/1p1pp4/2P6/7R1/PP2PPPPP/1B2G1S2/LNS2GKNL b P",
+      "pieces": [
+        {
+          "file": 9,
+          "rank": 1,
+          "label": "香",
+          "white": true
+        },
+        {
+          "file": 9,
+          "rank": 9,
+          "label": "香",
+          "white": false
+        },
+        {
+          "file": 8,
+          "rank": 1,
+          "label": "桂",
+          "white": true
+        },
+        {
+          "file": 8,
+          "rank": 9,
+          "label": "桂",
+          "white": false
+        },
+        {
+          "file": 7,
+          "rank": 9,
+          "label": "銀",
+          "white": false
+        },
+        {
+          "file": 4,
+          "rank": 9,
+          "label": "金",
+          "white": false
+        },
+        {
+          "file": 2,
+          "rank": 1,
+          "label": "桂",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 9,
+          "label": "桂",
+          "white": false
+        },
+        {
+          "file": 1,
+          "rank": 1,
+          "label": "香",
+          "white": true
+        },
+        {
+          "file": 1,
+          "rank": 9,
+          "label": "香",
+          "white": false
+        },
+        {
+          "file": 1,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 1,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 2,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 3,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 3,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 4,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 4,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 5,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 7,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 8,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 9,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 9,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 8,
+          "rank": 2,
+          "label": "飛",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 2,
+          "label": "角",
+          "white": true
+        },
+        {
+          "file": 8,
+          "rank": 8,
+          "label": "角",
+          "white": false
+        },
+        {
+          "file": 6,
+          "rank": 2,
+          "label": "玉",
+          "white": true
+        },
+        {
+          "file": 3,
+          "rank": 8,
+          "label": "銀",
+          "white": false
+        },
+        {
+          "file": 5,
+          "rank": 4,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 5,
+          "rank": 3,
+          "label": "銀",
+          "white": true
+        },
+        {
+          "file": 3,
+          "rank": 9,
+          "label": "玉",
+          "white": false
+        },
+        {
+          "file": 5,
+          "rank": 8,
+          "label": "金",
+          "white": false
+        },
+        {
+          "file": 6,
+          "rank": 3,
+          "label": "銀",
+          "white": true
+        },
+        {
+          "file": 6,
+          "rank": 4,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 3,
+          "rank": 2,
+          "label": "金",
+          "white": true
+        },
+        {
+          "file": 7,
+          "rank": 5,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 8,
+          "rank": 4,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 6,
+          "label": "飛",
+          "white": false
+        },
+        {
+          "file": 7,
+          "rank": 2,
+          "label": "金",
+          "white": true
+        }
+      ],
+      "hands": [
+        "歩",
+        "なし"
+      ],
+      "image": "main-game-24.png",
+      "image_sha256": "8c11eefcca943b39480837642a1744b71fb82a2aa34941f029e8204e6a4438b5"
+    },
+    {
+      "id": "main-game-40",
+      "type": "actual",
+      "game": "2012年1月14日 第１回電王戦",
+      "plies": 40,
+      "sfen": "ln5nl/2rk2gb1/p2sspppp/1pg1p4/2pp5/P7P/1P1SPPPP1/1B2G1S2/LNR2GKNL b 2P",
+      "pieces": [
+        {
+          "file": 9,
+          "rank": 1,
+          "label": "香",
+          "white": true
+        },
+        {
+          "file": 9,
+          "rank": 9,
+          "label": "香",
+          "white": false
+        },
+        {
+          "file": 8,
+          "rank": 1,
+          "label": "桂",
+          "white": true
+        },
+        {
+          "file": 8,
+          "rank": 9,
+          "label": "桂",
+          "white": false
+        },
+        {
+          "file": 4,
+          "rank": 9,
+          "label": "金",
+          "white": false
+        },
+        {
+          "file": 2,
+          "rank": 1,
+          "label": "桂",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 9,
+          "label": "桂",
+          "white": false
+        },
+        {
+          "file": 1,
+          "rank": 1,
+          "label": "香",
+          "white": true
+        },
+        {
+          "file": 1,
+          "rank": 9,
+          "label": "香",
+          "white": false
+        },
+        {
+          "file": 1,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 3,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 3,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 4,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 4,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 5,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 8,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 9,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 2,
+          "label": "角",
+          "white": true
+        },
+        {
+          "file": 8,
+          "rank": 8,
+          "label": "角",
+          "white": false
+        },
+        {
+          "file": 6,
+          "rank": 2,
+          "label": "玉",
+          "white": true
+        },
+        {
+          "file": 3,
+          "rank": 8,
+          "label": "銀",
+          "white": false
+        },
+        {
+          "file": 5,
+          "rank": 4,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 5,
+          "rank": 3,
+          "label": "銀",
+          "white": true
+        },
+        {
+          "file": 3,
+          "rank": 9,
+          "label": "玉",
+          "white": false
+        },
+        {
+          "file": 5,
+          "rank": 8,
+          "label": "金",
+          "white": false
+        },
+        {
+          "file": 6,
+          "rank": 3,
+          "label": "銀",
+          "white": true
+        },
+        {
+          "file": 3,
+          "rank": 2,
+          "label": "金",
+          "white": true
+        },
+        {
+          "file": 8,
+          "rank": 4,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 9,
+          "rank": 6,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 7,
+          "rank": 4,
+          "label": "金",
+          "white": true
+        },
+        {
+          "file": 6,
+          "rank": 7,
+          "label": "銀",
+          "white": false
+        },
+        {
+          "file": 7,
+          "rank": 5,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 7,
+          "rank": 9,
+          "label": "飛",
+          "white": false
+        },
+        {
+          "file": 7,
+          "rank": 2,
+          "label": "飛",
+          "white": true
+        },
+        {
+          "file": 1,
+          "rank": 6,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 6,
+          "rank": 5,
+          "label": "歩",
+          "white": true
+        }
+      ],
+      "hands": [
+        "歩2",
+        "なし"
+      ],
+      "image": "main-game-40.png",
+      "image_sha256": "0610bdd7c7b8418ad5f205998052c012a01b1d74d024a8517fb439f66d14fd20"
+    },
+    {
+      "id": "main-game-56",
+      "type": "actual",
+      "game": "2012年1月14日 第１回電王戦",
+      "plies": 56,
+      "sfen": "l6nl/1r1k2gb1/p1ns1pppp/2gsp4/Pppp5/R7P/1P1SPPPP1/1B2G1SK1/LN3G1NL b 2P",
+      "pieces": [
+        {
+          "file": 9,
+          "rank": 1,
+          "label": "香",
+          "white": true
+        },
+        {
+          "file": 9,
+          "rank": 9,
+          "label": "香",
+          "white": false
+        },
+        {
+          "file": 8,
+          "rank": 9,
+          "label": "桂",
+          "white": false
+        },
+        {
+          "file": 4,
+          "rank": 9,
+          "label": "金",
+          "white": false
+        },
+        {
+          "file": 2,
+          "rank": 1,
+          "label": "桂",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 9,
+          "label": "桂",
+          "white": false
+        },
+        {
+          "file": 1,
+          "rank": 1,
+          "label": "香",
+          "white": true
+        },
+        {
+          "file": 1,
+          "rank": 9,
+          "label": "香",
+          "white": false
+        },
+        {
+          "file": 1,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 3,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 3,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 4,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 4,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 5,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 8,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 9,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 2,
+          "label": "角",
+          "white": true
+        },
+        {
+          "file": 8,
+          "rank": 8,
+          "label": "角",
+          "white": false
+        },
+        {
+          "file": 6,
+          "rank": 2,
+          "label": "玉",
+          "white": true
+        },
+        {
+          "file": 3,
+          "rank": 8,
+          "label": "銀",
+          "white": false
+        },
+        {
+          "file": 5,
+          "rank": 4,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 5,
+          "rank": 8,
+          "label": "金",
+          "white": false
+        },
+        {
+          "file": 6,
+          "rank": 3,
+          "label": "銀",
+          "white": true
+        },
+        {
+          "file": 3,
+          "rank": 2,
+          "label": "金",
+          "white": true
+        },
+        {
+          "file": 7,
+          "rank": 4,
+          "label": "金",
+          "white": true
+        },
+        {
+          "file": 6,
+          "rank": 7,
+          "label": "銀",
+          "white": false
+        },
+        {
+          "file": 1,
+          "rank": 6,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 9,
+          "rank": 5,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 6,
+          "rank": 4,
+          "label": "銀",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 8,
+          "label": "玉",
+          "white": false
+        },
+        {
+          "file": 8,
+          "rank": 5,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 7,
+          "rank": 5,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 8,
+          "rank": 2,
+          "label": "飛",
+          "white": true
+        },
+        {
+          "file": 6,
+          "rank": 5,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 9,
+          "rank": 6,
+          "label": "飛",
+          "white": false
+        },
+        {
+          "file": 7,
+          "rank": 3,
+          "label": "桂",
+          "white": true
+        }
+      ],
+      "hands": [
+        "歩2",
+        "なし"
+      ],
+      "image": "main-game-56.png",
+      "image_sha256": "1d2017c8aab52976c203eac88927fb8948639bab7f86a685435046182bc15a68"
+    },
+    {
+      "id": "concept-central",
+      "type": "hypothetical_arrangement",
+      "base": "first-game-20",
+      "changes": [
+        [
+          5,
+          4,
+          5,
+          5,
+          "歩"
+        ],
+        [
+          6,
+          3,
+          5,
+          4,
+          "銀"
+        ],
+        [
+          7,
+          2,
+          6,
+          3,
+          "金"
+        ]
+      ],
+      "pieces": [
+        {
+          "file": 9,
+          "rank": 1,
+          "label": "香",
+          "white": true
+        },
+        {
+          "file": 9,
+          "rank": 9,
+          "label": "香",
+          "white": false
+        },
+        {
+          "file": 4,
+          "rank": 1,
+          "label": "金",
+          "white": true
+        },
+        {
+          "file": 4,
+          "rank": 9,
+          "label": "金",
+          "white": false
+        },
+        {
+          "file": 2,
+          "rank": 1,
+          "label": "桂",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 9,
+          "label": "桂",
+          "white": false
+        },
+        {
+          "file": 1,
+          "rank": 1,
+          "label": "香",
+          "white": true
+        },
+        {
+          "file": 1,
+          "rank": 9,
+          "label": "香",
+          "white": false
+        },
+        {
+          "file": 1,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 1,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 2,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 3,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 3,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 4,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 4,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 5,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 8,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 8,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 9,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 8,
+          "rank": 2,
+          "label": "飛",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 2,
+          "label": "角",
+          "white": true
+        },
+        {
+          "file": 8,
+          "rank": 8,
+          "label": "角",
+          "white": false
+        },
+        {
+          "file": 7,
+          "rank": 6,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 6,
+          "rank": 2,
+          "label": "玉",
+          "white": true
+        },
+        {
+          "file": 6,
+          "rank": 8,
+          "label": "飛",
+          "white": false
+        },
+        {
+          "file": 5,
+          "rank": 5,
+          "label": "歩",
+          "white": true,
+          "changed": true
+        },
+        {
+          "file": 3,
+          "rank": 8,
+          "label": "銀",
+          "white": false
+        },
+        {
+          "file": 5,
+          "rank": 3,
+          "label": "銀",
+          "white": true
+        },
+        {
+          "file": 3,
+          "rank": 9,
+          "label": "玉",
+          "white": false
+        },
+        {
+          "file": 6,
+          "rank": 4,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 6,
+          "rank": 6,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 9,
+          "rank": 6,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 5,
+          "rank": 4,
+          "label": "銀",
+          "white": true,
+          "changed": true
+        },
+        {
+          "file": 7,
+          "rank": 7,
+          "label": "桂",
+          "white": false
+        },
+        {
+          "file": 7,
+          "rank": 4,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 7,
+          "rank": 8,
+          "label": "銀",
+          "white": false
+        },
+        {
+          "file": 7,
+          "rank": 3,
+          "label": "桂",
+          "white": true
+        },
+        {
+          "file": 5,
+          "rank": 8,
+          "label": "金",
+          "white": false
+        },
+        {
+          "file": 6,
+          "rank": 3,
+          "label": "金",
+          "white": true,
+          "changed": true
+        }
+      ],
+      "hands": [
+        "なし",
+        "なし"
+      ],
+      "image": "concept-central.png",
+      "image_sha256": "6842507c01e30bf8ad583045d233313d65ff788146f0b603cf1a64dc44123f5f"
+    },
+    {
+      "id": "concept-eighth",
+      "type": "hypothetical_arrangement",
+      "base": "first-game-20",
+      "changes": [
+        [
+          8,
+          3,
+          8,
+          5,
+          "歩"
+        ],
+        [
+          7,
+          2,
+          8,
+          4,
+          "金"
+        ]
+      ],
+      "pieces": [
+        {
+          "file": 9,
+          "rank": 1,
+          "label": "香",
+          "white": true
+        },
+        {
+          "file": 9,
+          "rank": 9,
+          "label": "香",
+          "white": false
+        },
+        {
+          "file": 4,
+          "rank": 1,
+          "label": "金",
+          "white": true
+        },
+        {
+          "file": 4,
+          "rank": 9,
+          "label": "金",
+          "white": false
+        },
+        {
+          "file": 2,
+          "rank": 1,
+          "label": "桂",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 9,
+          "label": "桂",
+          "white": false
+        },
+        {
+          "file": 1,
+          "rank": 1,
+          "label": "香",
+          "white": true
+        },
+        {
+          "file": 1,
+          "rank": 9,
+          "label": "香",
+          "white": false
+        },
+        {
+          "file": 1,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 1,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 2,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 3,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 3,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 4,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 4,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 5,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 8,
+          "rank": 5,
+          "label": "歩",
+          "white": true,
+          "changed": true
+        },
+        {
+          "file": 8,
+          "rank": 7,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 9,
+          "rank": 3,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 8,
+          "rank": 2,
+          "label": "飛",
+          "white": true
+        },
+        {
+          "file": 2,
+          "rank": 2,
+          "label": "角",
+          "white": true
+        },
+        {
+          "file": 8,
+          "rank": 8,
+          "label": "角",
+          "white": false
+        },
+        {
+          "file": 7,
+          "rank": 6,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 6,
+          "rank": 2,
+          "label": "玉",
+          "white": true
+        },
+        {
+          "file": 6,
+          "rank": 8,
+          "label": "飛",
+          "white": false
+        },
+        {
+          "file": 5,
+          "rank": 4,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 3,
+          "rank": 8,
+          "label": "銀",
+          "white": false
+        },
+        {
+          "file": 5,
+          "rank": 3,
+          "label": "銀",
+          "white": true
+        },
+        {
+          "file": 3,
+          "rank": 9,
+          "label": "玉",
+          "white": false
+        },
+        {
+          "file": 6,
+          "rank": 4,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 6,
+          "rank": 6,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 9,
+          "rank": 6,
+          "label": "歩",
+          "white": false
+        },
+        {
+          "file": 6,
+          "rank": 3,
+          "label": "銀",
+          "white": true
+        },
+        {
+          "file": 7,
+          "rank": 7,
+          "label": "桂",
+          "white": false
+        },
+        {
+          "file": 7,
+          "rank": 4,
+          "label": "歩",
+          "white": true
+        },
+        {
+          "file": 7,
+          "rank": 8,
+          "label": "銀",
+          "white": false
+        },
+        {
+          "file": 7,
+          "rank": 3,
+          "label": "桂",
+          "white": true
+        },
+        {
+          "file": 5,
+          "rank": 8,
+          "label": "金",
+          "white": false
+        },
+        {
+          "file": 8,
+          "rank": 4,
+          "label": "金",
+          "white": true,
+          "changed": true
+        }
+      ],
+      "hands": [
+        "なし",
+        "なし"
+      ],
+      "image": "concept-eighth.png",
+      "image_sha256": "4571add9e67b7f8c5f956288a6b7ed41fd736d4e3f3121fce1309f0d2f5dd167"
+    }
+  ]
+}
