@@ -34,8 +34,15 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   PREPARED24 roots from23 games; native replay and both USI readiness checks
   pass, no go sent. Added-root Huffman IDs derived by native replay.
   [Behavior plan](docs/experiments/learning/data/2026-10-20-guarded-behavior-plan.md).
-  NEXT external: `python3 -m tools.learning.constraints.guarded_behavior run`.
-  No further training/ratio sweep or adoption; games await behavior review.
+  COMPLETE user run reviewed2026-10-24:48/48 successful,24 regular pairs,10
+  changed moves (original6/additional4; win5/loss5). All saved records/PVs and
+  plan/runtime bindings checked without search. Changes include a gold move
+  toward own king, knight preparation, attacking silver drop and move-order
+  swaps; no consistent thickness or strength improvement established.
+  [Result](docs/experiments/learning/data/2026-10-24-guarded-behavior-result.md).
+  NEXT proposed: fixed candidate vsbaseline, fresh14 games on7 operational-book
+  prefixes with color swaps; exposed starts, exploratory only. Not prepared yet.
+  No further training/ratio sweep, deeper case searches or deployment.
 - User found the specific G6c preference-label discussion unhelpful because the
   move is unusual. Stop that case's preference confirmation and further digging;
   retained examples are diagnostics, not approved imitation labels.

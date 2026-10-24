@@ -78,6 +78,8 @@
 
 [両群確認型の指し手比較：24局面・48探索の実行手順](data/2026-10-20-guarded-behavior-plan.md)
 
+[両群確認型の指し手比較結果：24局面中10局面で変化](data/2026-10-24-guarded-behavior-result.md)
+
 ## 分類
 
 | テーマ | 目次 |
