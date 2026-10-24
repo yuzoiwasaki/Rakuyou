@@ -46,7 +46,15 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   Related66+10 tests pass. PREPARED2026-10-24-guarded-book-match-v1;7 native
   start replays, plan reload, both USI readiness checks pass. No searches/games.
   [Plan](docs/experiments/learning/data/2026-10-24-guarded-match-plan.md).
-  NEXT external: `python3 -m tools.learning.constraints.guarded_match run`.
+  COMPLETE14/14,7/7 pairs:5W8L1D,0errors/unresolved. Black3W3L1D,
+  White2W5L; Shin-side2W5L versus opponent-side3W3L1D. First5 pairs split,
+  pair6 bothlosses, pair7 draw/loss. All histories replayed and bindings checked;
+  one lower-reported-depth flag(game5 ply157), no stop commands.
+  Saved reviews games1/8/11/12 show useful silver advance but also exposed king
+  and exchanges removing guards; no consistent thickness/strength gain.
+  [Result and pause](docs/experiments/learning/data/2026-10-24-guarded-match-result.md).
+  NEXT: hold candidate adoption/extra games/updates; reconsider teacher target
+  and separate style vsstrength evaluation before another implementation.
   No further training/ratio sweep, deeper case searches or deployment.
 - User found the specific G6c preference-label discussion unhelpful because the
   move is unusual. Stop that case's preference confirmation and further digging;
