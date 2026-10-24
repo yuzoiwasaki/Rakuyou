@@ -40,8 +40,13 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   toward own king, knight preparation, attacking silver drop and move-order
   swaps; no consistent thickness or strength improvement established.
   [Result](docs/experiments/learning/data/2026-10-24-guarded-behavior-result.md).
-  NEXT proposed: fixed candidate vsbaseline, fresh14 games on7 operational-book
-  prefixes with color swaps; exposed starts, exploratory only. Not prepared yet.
+  Follow-up implemented: fixed candidate vsbaseline, fresh14 games on same7
+  operational-book prefixes with color swaps; exposed starts, exploratory only.
+  Same d15/thread1/hash64/timeout300/max256 additional plies; native referee.
+  Related66+10 tests pass. PREPARED2026-10-24-guarded-book-match-v1;7 native
+  start replays, plan reload, both USI readiness checks pass. No searches/games.
+  [Plan](docs/experiments/learning/data/2026-10-24-guarded-match-plan.md).
+  NEXT external: `python3 -m tools.learning.constraints.guarded_match run`.
   No further training/ratio sweep, deeper case searches or deployment.
 - User found the specific G6c preference-label discussion unhelpful because the
   move is unusual. Stop that case's preference confirmation and further digging;
