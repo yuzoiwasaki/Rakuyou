@@ -53,8 +53,14 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   Saved reviews games1/8/11/12 show useful silver advance but also exposed king
   and exchanges removing guards; no consistent thickness/strength gain.
   [Result and pause](docs/experiments/learning/data/2026-10-24-guarded-match-result.md).
-  NEXT: hold candidate adoption/extra games/updates; reconsider teacher target
-  and separate style vsstrength evaluation before another implementation.
+  Pushed through32abceb toorigin/main. Design review completed: current root
+  static fitting differs from native RootStrap (QS score, gradient at QS leaf).
+  NEXT implement bounded preparation/audit of baseline frozen-QS leaves for
+  same750/187 roots and saved d15 teachers; no new deep teachers or learning yet.
+  If preparation is sound, compare fresh zero-start root vsleaf search-only
+  runs with shared data/keys/caps, then reevaluate actual candidate QS scores.
+  Hypothesis only, not established cause. Style remains separate; no G6c labels.
+  [Design](docs/experiments/learning/data/2026-10-24-next-learning-design.md).
   No further training/ratio sweep, deeper case searches or deployment.
 - User found the specific G6c preference-label discussion unhelpful because the
   move is unusual. Stop that case's preference confirmation and further digging;
