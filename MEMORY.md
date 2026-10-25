@@ -23,11 +23,24 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   B pawn7e is WHITE: assistant misread it; withdraw claim B has no rank pawn.
   G7d directly supports it; R7b supplies numbers. Losing pawn allows enemy setup.
   C still needs king/major-piece coordination; K7b is NOT a settled best square.
-- If enemy rook shifts to2-file, thickness remains but restriction weakens. User
-  would exploit local numbers to attack8-file/enemy bishop before enemy attack.
-  Do not turn this into an engine-verified winning line or approved move label.
-- User requested documentation/commit now, no further questions at this checkpoint.
-  NEXT await direction; use saved boards/judgments rather than restarting definitions.
+- Visual check COMPLETE: B40 White R7b->8b confirms prior reinforcement concern.
+  C56 Black R9f->2f CORRECTS prior verbal interpretation: keep restricting, do not
+  attack yet; rook still covers8f horizontally. Black S5f/P5f blocking that ray
+  is an example of a real opening for White P8f, not a mandatory attack pattern.
+  Wait for own readiness or actual enemy overextension; rook relocation alone
+  is not an attack trigger. Hypothetical diagrams remain local in
+  results/thickness-dialogue/understanding-check/.
+- [Follow-up dialogue](docs/experiments/learning/thickness/2026-10-25-dialogue-followup.md)
+  records this correction and user teaching from privately supplied Doronuma-ryu
+  book photos. No book images/text/kifu reproductions in Git.
+  G7h primarily castles for later attack; Fig4 already assembled, then pushing.
+  P5e/S5f expand territory AND support rank; enemy silver leaving the area and
+  own silver joining improve local participation. P7e also cramps the opponent.
+  Forward pressure gives some indirect king protection (offensive defense),
+  distinct from direct castle solidity. Reluctant silver capture is a special
+  certainty-versus-complication choice, not a general rule against material gain.
+- NEXT: dialogue can continue with another case at user's direction. Preserve
+  contextual judgments; no scoring implementation or learning restart authorized.
 
 ## Current direction: matched search/outcome/hybrid learning (2026-10-15)
 
