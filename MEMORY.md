@@ -39,8 +39,24 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   Forward pressure gives some indirect king protection (offensive defense),
   distinct from direct castle solidity. Reluctant silver capture is a special
   certainty-versus-complication choice, not a general rule against material gain.
-- NEXT: dialogue can continue with another case at user's direction. Preserve
-  contextual judgments; no scoring implementation or learning restart authorized.
+- [Main-game continuation dialogue](docs/experiments/learning/thickness/2026-10-25-main-game-continuation.md)
+  records D70/E82/F88 and actual79 vs ...P8f Px8f K7b reference variation.
+  User's final distinction: thickness succeeded even if overall position equal;
+  later handling and winning chances remain separate. E's initially favorable
+  impression was reconsidered after P*7f; Px6f/P4d suspected, not proven errors.
+  D calls for gold/major-piece activation with exchange risks; rook roles include
+  supporting thickness, opposite-wing attack and covering thin2-file. Returning
+  king7b can reopen an8-file plan. Reference variation: equal but no dissatisfaction.
+  User identifies earlier B5g as opportunity enabling ...P3d and offensive setup,
+  not necessarily a blunder; do not attribute the opportunity only to P*6f.
+  Diagrams/HTML remain local in results/thickness-dialogue/main-game-continuation/
+  and main-game-79-variation/. Native reference-line replay/SFEN checked, no search.
+  Ware Yaburetari reference was secondary; original book not inspected (see report).
+- NEXT: another book case when user supplies it. User wants understanding before
+  learning restart and asks about transfer from non-Shin games. Proposed distinction:
+  general thickness concepts vs formation-specific judgments vs actual training
+  data. Cross-check book insights against Shin positions; do not automatically mix
+  book games/outcomes into teachers. No learning/scoring restart authorized.
 
 ## Current direction: matched search/outcome/hybrid learning (2026-10-15)
 
