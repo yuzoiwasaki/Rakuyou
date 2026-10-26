@@ -8,6 +8,8 @@
 
 [新米長玉の対話：厚みの成功と、攻めへの移行（本局D・E・Fと参考変化）](thickness/2026-10-25-main-game-continuation.md)
 
+[厚みの対話：第８局・位を攻めに使う判断と玉頭の制空権](thickness/2026-10-26-book-game08-dialogue.md)
+
 [自己学習の全体レビュー：厚みの個性と棋力、次の優先順位](2026-10-14-overall-learning-review.md)
 
 [探索評価・勝敗・混合の同条件比較と実行手順](data/2026-10-15-hybrid-learning-plan.md)

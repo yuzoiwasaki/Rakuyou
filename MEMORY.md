@@ -3,10 +3,20 @@
 This file is the resume map: current state, durable decisions, constraints, and
 links to evidence. Detailed experiment history belongs in `docs/experiments/`.
 
-## Current direction: user-led thickness dialogue (recorded 2026-10-25)
+## Current direction: user-led thickness dialogue (updated 2026-10-26)
 
 - Learning series explicitly paused. Root/QS-leaf proposal below is deferred.
   No learning/search/games/deployment or scoring implementation in this dialogue.
+- Agreed style direction: prefer thickness as an identity, while allowing a
+  balanced right-king approach when conditions do not support building it.
+  Do not force gold/silver advancement merely to reproduce a shape.
+  Against static rook too, watch the opponent's attack speed and direction;
+  prioritize defense when needed, build thickness if feasible, otherwise exploit
+  an opponent opening to start a fight. Completed thickness is not a prerequisite
+  for fighting. These are user-approved strategic aims, not verified rules.
+  Rank acquisition is also conditional: if supporting golds/silvers will be late,
+  taking a rank too early may be undesirable. Neither pawn-first nor preparation-
+  first is fixed; coordinate rank and support with the opponent's play.
 - User teaches thickness via historical positions and hypothetical arrangements.
   [Durable dialogue record](docs/experiments/learning/thickness/2026-10-25-dialogue.md)
   preserves judgments, eight boards, roles, uncertainties and assistant corrections.
@@ -52,7 +62,18 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   Diagrams/HTML remain local in results/thickness-dialogue/main-game-continuation/
   and main-game-79-variation/. Native reference-line replay/SFEN checked, no search.
   Ware Yaburetari reference was secondary; original book not inspected (see report).
-- NEXT: another book case when user supplies it. User wants understanding before
+- [Book game08 dialogue](docs/experiments/learning/thickness/2026-10-26-book-game08-dialogue.md)
+  COMPLETE: privately supplied pp87-97 vs Nakahara. Fig5: opponent's2-file attack
+  means no time for slow buildup; use rank pawn P7d to start fighting. Fig8 S6e
+  is an attacking move, NOT necessarily thickness-building (assistant corrected).
+  Fig11: advanced silvers give king-head territorial control, simultaneously
+  attacking and making own king harder to attack; can outweigh some material loss.
+  Distinguish individual move purpose from resulting formation's effect.
+  This game too is vs ranging rook; differences from Shin concern king/rook
+  placement and pressure targets, not merely opponent's opening category.
+  Book images/text/kifu remain outside Git. No learning or search performed.
+- NEXT: another book case when user supplies it; today's dialogue finished.
+  User wants understanding before
   learning restart and asks about transfer from non-Shin games. Proposed distinction:
   general thickness concepts vs formation-specific judgments vs actual training
   data. Cross-check book insights against Shin positions; do not automatically mix
