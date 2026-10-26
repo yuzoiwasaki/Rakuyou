@@ -1,5 +1,11 @@
 # 同じ基準評価による通常探索の再現性確認：3局面・6探索
 
+保守注記（2026-10-26）：探索再現性の単発確認は完了したため、専用の
+`check_tempo_search_repeatability.py` とその専用テストは削除した。
+本文は実施当時の記録で、該当コマンドは現行ツリーでは実行できない。
+当時のコードは `git show 530ca09:tools/learning/tempo/check_tempo_search_repeatability.py`
+で参照できる。結果レポートとローカル出力は保持している。
+
 2026年10月11日、ソース基準 `67d450f`。
 [通常探索比較](2026-10-11-tempo-full-search-comparison.md)で差が目立った3局面を、
 基準パラメータだけで各2回再検索した。前回を含む各3回で、cp・bestmove・PV・nodesが

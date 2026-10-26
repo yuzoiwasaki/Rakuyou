@@ -7,6 +7,26 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
 
 - Learning series explicitly paused. Root/QS-leaf proposal below is deferred.
   No learning/search/games/deployment or scoring implementation in this dialogue.
+- Collaboration: user (~amateur4-dan) supplies intended style, conceptual
+  distinctions and counterexamples, not assumed best-move labels; user regards
+  Rakuyou as stronger. Separate style preference, conceptual mismatch and reading
+  differences; use search/games when authorized to test actual strength.
+- Incremental cleanup in progress: keep clearly reusable match,
+  position/rules and operational tools plus meaningful tests; remove retired
+  experiment-specific scripts/tests, retaining concise Markdown findings and Git
+  history. Avoid committing future disposable scripts by default.
+  Initial inventory (2026-10-26): tracked Python226 files/20433 lines;
+  C++ .cc48/18880 lines plus .h66/11991 lines. Counts include repository-wide files.
+  IMPORTANT dependency before pruning: playtest/match imports hybrid data/runner
+  and behavior; these reach imitation, tempo and core. Extract needed match
+  utilities first, not wholesale directory deletion. paired_selfplay.py has a
+  reusable USI base; audit_white_positions.Board is used by local diagram scripts.
+  First pass (2026-10-26): removed standalone constraints/audit.py and tempo/
+  check_tempo_search_repeatability.py plus their two dedicated tests. No retained
+  code imports them; historical reports now mark retired commands and point to
+  commit530ca09 for source recovery. Local sources/results untouched. Next pass
+  should again target isolated retired tools before shared-library extraction.
+  Cleanup is current-tree maintenance, not rewriting Git history.
 - Agreed style direction: prefer thickness as an identity, while allowing a
   balanced right-king approach when conditions do not support building it.
   Do not force gold/silver advancement merely to reproduce a shape.
