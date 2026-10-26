@@ -26,6 +26,10 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   code imports them; historical reports now mark retired commands and point to
   commit530ca09 for source recovery. Local sources/results untouched. Next pass
   should again target isolated retired tools before shared-library extraction.
+  Second pass (2026-10-26): removed four standalone imitation auditors
+  (preparation, pilot, search_review, transfer_pilot; audit_*.py),360 lines.
+  No remaining Python references; corresponding result reports retain findings
+  and source-recovery pointers to fd3596f. Reusable sparse/native/match code kept.
   Cleanup is current-tree maintenance, not rewriting Git history.
 - Agreed style direction: prefer thickness as an identity, while allowing a
   balanced right-king approach when conditions do not support building it.

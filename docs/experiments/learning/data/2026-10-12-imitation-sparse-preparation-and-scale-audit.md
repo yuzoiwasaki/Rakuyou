@@ -1,5 +1,9 @@
 # 新米長玉2局の模倣学習：KP・PP差分の準備と上限監査
 
+保守注記（2026-10-26）：完了済み実験専用の監査スクリプト `audit_imitation_preparation.py` は整理に伴い削除した。
+本文は当時の実施記録で、監査結果とローカル出力は保持している。必要なら
+`git show fd3596f:tools/learning/imitation/audit_imitation_preparation.py` でコードを参照できる。
+
 2026年10月12日。[実戦手比較](2026-10-12-historical-move-comparison-and-pilot-plan.md)で固定した
 6組について、棋譜の手を好む小さな差分を既存KP・PPに学ばせるための準備を終えた。
 6組全てが有効で、学習更新は0。ゼロ差分とnative表への加算、対称性、勾配を監査した。

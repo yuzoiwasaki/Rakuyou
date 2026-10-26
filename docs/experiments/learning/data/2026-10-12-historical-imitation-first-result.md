@@ -1,5 +1,9 @@
 # 新米長玉2局の模倣学習：6組・20更新、実戦手を好む方向を確認
 
+保守注記（2026-10-26）：完了済み実験専用の監査スクリプト `audit_imitation_pilot.py` は整理に伴い削除した。
+本文は当時の実施記録で、監査結果とローカル出力は保持している。必要なら
+`git show fd3596f:tools/learning/imitation/audit_imitation_pilot.py` でコードを参照できる。
+
 2026年10月12日。[KP・PP差分の準備監査](2026-10-12-imitation-sparse-preparation-and-scale-audit.md)後、
 ユーザーの了承した±0.01cp上限で、一度だけ20更新した。
 6組全てで、固定末端の評価差が実戦手を好む方向へ2〜4cp動いた。
