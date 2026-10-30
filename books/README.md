@@ -37,10 +37,8 @@ python3 tools/books/build_operational_shin_book.py --check
 
 ## 生成元・試験版の資料
 
-- [experiments/](experiments/README.md)：▲３六歩追加、旧▲２五歩の別構想、後手△２五歩、７筋構想。
-  JSONと生成txtを先後別に保存。
-- [archive/](archive/README.md)：旧系列の生成元JSON。
-  JSONから旧定跡を再生成できる。
+- [試行錯誤の要約](HISTORY.md)：未採用候補の経緯と旧ファイルの参照方法。
+  試験版・旧系列のファイルは整理済みで、本採用の生成元とtxtを保持する。
 - [先手の採用判断](../docs/experiments/books/black/2026-10-10-black-book-independent-review.md)と
   [後手の採用判断](../docs/experiments/books/white/2026-10-03-v2-bounded-white-improvement-cycle.md)：
   対局結果、手順、比較条件は各実験レポートを参照。

@@ -27,9 +27,9 @@ python3 tools/analysis/paired_selfplay.py \
 python3 tools/analysis/paired_selfplay.py \
   --depth 15 --threads 1 --hash 512 \
   --shin-book on \
-  --shin-book-file books/shin-yonenaga-white-book.txt \
+  --shin-book-file books/shin-yonenaga-book-v1.txt \
   --shin-side white --games 100 \
-  --output results/shin-v1-white-only-depth15-100games.json
+  --output results/shin-operational-white-only-depth15-100games.json
 ```
 
 既定値では各エンジンを1スレッド、ハッシュ128 MBで動かし、結果を
@@ -84,84 +84,30 @@ python3 tools/analysis/paired_selfplay.py --depth 10 --shin-book on
 python3 tools/analysis/paired_selfplay.py --book-file path/to/book.bin --book-max-ply 30
 ```
 
-最初の後手新米長玉専用定跡は、レビュー済みの候補JSONから生成します。
-主筋６局面と副枝３局面を採用し、順位が不安定な▲５八金左後の２候補は
-含めません。候補JSONは根拠の記録、生成したテキストはエンジンが読む定跡です。
+現行の専用定跡は先手６局面・後手11局面を合わせた共通17局面です。
+生成元との一致確認と、読み込みなどの確認は次の通りです。
 
 ```sh
-python3 tools/books/build_shin_book.py
-make release
-python3 test/books/test_shin_book.py
+python3 tools/books/build_operational_shin_book.py --check
+python3 -m unittest test.books.test_operational_shin_book
+```
+
+対局時は、新米長玉側に共通定跡を明示します。
+
+```sh
 python3 tools/analysis/paired_selfplay.py \
   --depth 15 --threads 1 --hash 512 \
   --shin-book on \
-  --shin-book-file books/shin-yonenaga-white-book.txt \
+  --shin-book-file books/shin-yonenaga-book-v1.txt \
   --pairs 50
 ```
 
 `--shin-book-file` は新米長玉側にだけ `ShinBookFile` を設定します。
 通常側は引き続き `book.bin` を使い、専用定跡にない局面では新米長玉側は
-標準定跡へ戻らず探索します。`--shin-book on` が必要です。生成ファイルは
-`開始局面からのUSI手順 | 後手の定跡手` を１行ずつ記し、エンジンは手順で
-再現した局面を照合します。対局JSONでは専用定跡手を `dedicated_book`、
-通常側の標準定跡手を `book` と記録します。
-
-第二版の試験用定跡は第一版に、▲７八銀 △８四歩後の▲６七銀と▲５八金左への
-△２四歩だけを追加します。深さ30では両局面で首位でしたが、深さ28とは順位が
-変わったため、棋力向上は未確認です。第一版の候補JSONと定跡ファイルは変更せず、
-追加候補は別ファイルに記録します。次のコマンドで11局面の試験用定跡を生成し、
-２局面で実際に`dedicated_book`として使われることを確認できます。
-
-2026-10-03にこのv2を後手の第一運用版として採用しました。ファイル名は
-変更していません。[定跡一覧・運用設定](../books/README.md)を参照してください。
-これは運用の区切りであり、棋力向上や勝ち越しを証明したという意味ではありません。
-
-```sh
-python3 tools/books/build_shin_book.py \
-  --extension books/sources/white/shin-yonenaga-white-v2-experiment.json
-python3 test/books/test_shin_book.py
-```
-
-対局時は第一版と同じエンジン設定で、試験用定跡ファイルを明示します。
-
-```sh
-python3 tools/analysis/paired_selfplay.py \
-  --depth 15 --threads 1 --hash 512 \
-  --shin-book on \
-  --shin-book-file books/shin-yonenaga-white-book-v2-experiment.txt \
-  --pairs 50 \
-  --output results/shin-dedicated-v2-vs-normal-depth15-100games.json
-```
-
-得点率は後手番50局を第一版と比較し、追加した２局面への到達数と定跡手の
-使用数も確認します。第一版は`books/shin-yonenaga-white-book.txt`を指定して
-同じ条件で再実行できます。
-
-７四歩型の構想を試す独立実験定跡は、端歩で待ち、飛車先を保留して条件が
-整った局面で△７四歩～△７三銀へ進む13局面です。準備手に最善候補より
-評価の低い選択も含むため、正式定跡や棋力向上確認済みの版ではありません。
-v1・v2と分けて明示的に生成します。
-
-```sh
-python3 tools/books/build_shin_book.py \
-  --source books/experiments/white/shin-yonenaga-white-seventh-edge-experiment.json \
-  --experimental \
-  --output books/experiments/white/shin-yonenaga-white-book-seventh-edge-experiment.txt
-python3 test/books/test_seventh_trial_book.py
-python3 tools/analysis/paired_selfplay.py \
-  --depth 15 --threads 1 --hash 512 \
-  --shin-book on \
-  --shin-book-file books/experiments/white/shin-yonenaga-white-book-seventh-edge-experiment.txt \
-  --shin-side white --games 100 \
-  --book-max-ply 20 --max-plies 256 --timeout 300 \
-  --output results/shin-seventh-edge-white-only-depth15-100games.json
-```
-
-`--experimental` は出力先の明示が必要で、v1・v2への上書きを禁止します。
-未登録の局面は探索へ戻るため、勝率だけでなく△７四歩の定跡使用局数と
-△７四歩・△７三銀の実際の同時配置を確認します。到達が少なければ、構想
-自体の良し悪しとは区別します。根拠と制約は
-`docs/experiments/books/white/2026-10-02-early-silver72-and-seventh-trial.md` に記録しています。
+標準定跡へ戻らず探索します。`--shin-book on` が必要です。
+対局JSONでは専用定跡手を `dedicated_book`、通常側の標準定跡手を `book` と記録します。
+採用は棋力向上の証明ではありません。[運用設定](../books/README.md)と
+[試行錯誤の要約](../books/HISTORY.md)を参照してください。旧試験定跡は整理済みです。
 
 初版の終局判定は、エンジンの投了・入玉宣言と最大手数です。千日手などの厳密な
 ルール判定はまだ行いません。比較時は深さ、スレッド数、ハッシュを変えずに実行します。

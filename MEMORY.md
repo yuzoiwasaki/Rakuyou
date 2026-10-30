@@ -31,6 +31,24 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   No remaining Python references; corresponding result reports retain findings
   and source-recovery pointers to fd3596f. Reusable sparse/native/match code kept.
   Cleanup is current-tree maintenance, not rewriting Git history.
+- Broader cleanup preference (2026-10-30): user explicitly permits removing
+  unadopted book variants and most experiment-specific tools/tests; pick manageable
+  batches, retaining concise findings rather than full rerun infrastructure.
+  Operational common17 and its black6/white11 sources/build chain stay; filenames
+  containing "experiment" can still be operational, so never select by name alone.
+  Next candidate batches: historical position/config JSON (117+5 files, usages
+  need checking), then retired learning packages/tests after extracting genuinely
+  reusable USI/referee/replay/export utilities needed by retained tools.
+  Current learning trees:117 tool files/85 test files, not a blanket deletion list.
+  Keep operational integration checks, meaningful engine/rules tests; prune tests
+  with removed features. Book cleanup completed below.
+- Book cleanup (2026-10-30): removed16 files under books/experiments and
+  books/archive plus3 trial/comparison tests. Kept operational17, selected6/11,
+  all operational source JSON/builders and operational integration checks.
+  [Concise trial history](books/HISTORY.md) replaces candidate directory indexes;
+  source recovery at47f19a8. Historical reports kept, no raw results removed.
+  docs/selfplay.md now uses current operational book. No engine/book-content change.
+  Verified source consistency (17 positions) and all12 remaining book tests.
 - Agreed style direction: prefer thickness as an identity, while allowing a
   balanced right-king approach when conditions do not support building it.
   Do not force gold/silver advancement merely to reproduce a shape.
@@ -1277,8 +1295,8 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
 - Two supplemental White-book analyses formerly kept in ignored `results/`
   are now tracked under `docs/experiments/books/white/`; parent report links
   point to them. Raw JSON remains in `results/`.
-- Book source JSON is grouped under `books/sources/`, held candidates under
-  `books/experiments/`, and retired reproducible sources under `books/archive/`.
+- Operational book source JSON remains under `books/sources/`. Unadopted
+  experiments/archive were removed2026-10-30; books/HISTORY.md summarizes them.
   Active book text paths and contents were preserved during cleanup.
 - Tools and tests were moved into category packages; imports and CLI entry
   points were updated. The last full verification after that move passed 196
