@@ -3,7 +3,7 @@
 This file is the resume map: current state, durable decisions, constraints, and
 links to evidence. Detailed experiment history belongs in `docs/experiments/`.
 
-## Current direction: user-led thickness dialogue (updated 2026-10-26)
+## Current direction: user-led thickness dialogue (updated 2026-10-30)
 
 - Learning series explicitly paused. Root/QS-leaf proposal below is deferred.
   No learning/search/games/deployment or scoring implementation in this dialogue.
@@ -96,6 +96,16 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   This game too is vs ranging rook; differences from Shin concern king/rook
   placement and pressure targets, not merely opponent's opening category.
   Book images/text/kifu remain outside Git. No learning or search performed.
+- [Book game09 dialogue](docs/experiments/learning/thickness/2026-10-30-book-game09-dialogue.md)
+  COMPLETE: private pp98-109 vs Oyama. G6h prepares king defense before P6e
+  opening battle; not just adding forward thickness. Fig7 thickness serves both
+  pressure and defense, slightly more pressure. ...P9e attacks thin edge while
+  bypassing thickness; own dense pieces also block the king's desired rightward
+  escape (not merely ineffective thickness). G8h/K7h is concrete defense, not
+  "restored thickness": opens escape, pressures rook/seeks gold-for-rook exchange,
+  activates idle gold. User adds Shin countercase: against attack from below,
+  upper pieces may support entering king. Consider attack/escape directions;
+  no concrete Shin entering-king example verified here. No learning/search.
 - NEXT: another book case when user supplies it; today's dialogue finished.
   User wants understanding before
   learning restart and asks about transfer from non-Shin games. Proposed distinction:
