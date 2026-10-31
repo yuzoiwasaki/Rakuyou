@@ -124,7 +124,44 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   activates idle gold. User adds Shin countercase: against attack from below,
   upper pieces may support entering king. Consider attack/escape directions;
   no concrete Shin entering-king example verified here. No learning/search.
-- NEXT: another book case when user supplies it; today's dialogue finished.
+- Book game10 dialogue COMPLETE (2026-10-31): read private pp110-121,
+  vs Oyama, 32nd Osho match game5. Photos IMG_5443..5448 remain outside Git.
+  User correction: Fig5 S6g primarily counters the promoted pawn. Black has
+  pushed the opponent back with ranks, but must prevent the promoted pawn made
+  meanwhile from becoming active; this balances the position, not primarily
+  further thickness-building. User confirms Fig6-7 thickness is successful and
+  as intended, while practical play remains difficult. Do not equate difficulty
+  breaking through or overall equality with failure to build thickness.
+  Fig12 user qualifies assistant's broad defensive reading: thickness works
+  mainly vertically; controlling the upper area is the valid part. Do not
+  generalize this into protection against every attack direction or attribute
+  all defensive resilience to thickness. Rook6f attack/defense is noted in book.
+  Fig9 user broadly agrees that enemy G6c->5d makes existing thickness easier
+  to use offensively, rather than adding thickness. Adds active intent to strip
+  away enemy defenders and make attacking easier; do not describe this only as
+  passively benefiting from an opponent formation change.
+  No search/learning.
+- Book game11 dialogue COMPLETE (2026-10-31): read private pp122-134 vs Mori
+  Keiji (33rd Osho game1), IMG_5449..5455; images/text/kifu outside Git.
+  Book highlights early7-file rank lost, S6h->7g regrouping, then regained rank
+  and P6d wedge; opponent missed8-file pawn exchange timing. Initial question:
+  Fig7-8 has no7-file rank pawn yet, but silver/gold placement prevents effective
+  ...P8e and prepares regaining rank. Is this already thickness or preparation?
+  User correction: Fig7-8 is NOT yet thickness. Black built thickness with the
+  initial rank, opponent's activity erased it, and Black is now reorganizing
+  to rebuild. Preventing a specific advance alone does not establish thickness.
+  User judges still equal because opponent's formation is not solid either;
+  loss of thickness is distinct from overall disadvantage. No search/learning.
+  User confirms Fig10-11 thickness has been rebuilt, following regained7-file
+  rank, P6d wedge and G6e advance. This contrasts with Fig7-8 reorganization.
+  On G7f->6e and the bishop/silver exchange, user tentatively places purpose
+  between thickness-building and concrete attack: thickness still matters,
+  but it is already middlegame, so attack must also be considered. Do not turn
+  this into a definite claim of thickness reinforcement or a fixed priority.
+- [Games10-11 durable dialogue record](docs/experiments/learning/thickness/2026-10-31-book-games10-11-dialogue.md)
+  preserves user corrections and qualifications.
+- NEXT: await another user-supplied case or further questions. Games10-11
+  dialogue complete; learning remains paused.
   User wants understanding before
   learning restart and asks about transfer from non-Shin games. Proposed distinction:
   general thickness concepts vs formation-specific judgments vs actual training
