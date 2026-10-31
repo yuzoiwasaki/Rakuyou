@@ -3,7 +3,7 @@
 This file is the resume map: current state, durable decisions, constraints, and
 links to evidence. Detailed experiment history belongs in `docs/experiments/`.
 
-## Current direction: user-led thickness dialogue (updated 2026-10-30)
+## Current direction: user-led thickness dialogue (updated 2026-10-31)
 
 - Learning series explicitly paused. Root/QS-leaf proposal below is deferred.
   No learning/search/games/deployment or scoring implementation in this dialogue.
@@ -182,9 +182,34 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   alone do not prove understanding; tactical deterrence overgeneralization remains
   a known caution. Next agreed direction: a few Rakuyou Shin positions, assistant
   explains first and user corrects, to check conceptual transfer.
-- NEXT: after this commit/push-only checkpoint, choose a small Shin position
-  review when work resumes. No selection/new verification begun this turn;
+- Shin transfer review STARTED (2026-10-31): saved guarded-book-match game05,
+  ply40, White baseline Shin side. First assistant judgment: thickness not yet
+  established; P8e is advanced but S8c/G7b are still behind and do not directly
+  support it, Black R8h faces that file; central P6e belongs to Black. White's
+  king-area grouping alone is not forward control. User confirms thickness is
+  not yet established. Adds that whether to build it from here depends on the
+  situation and preference; absence of thickness is not a mandate to build it.
+  Assistant's wish to connect advanced pawns and defenders is therefore not an
+  agreed strategic prescription for this position.
+  Selected by formation inspection (games05/09/11 at30/40); previously audited
+  match, NOT unseen validation. Local board/positions/source hash retained in
+  results/thickness-dialogue/shin-transfer-2026-10-31/. Python replay only,
+  no engine search, learning or games. Do not infer overall disadvantage.
+- Transfer board B prepared: saved match game13 ply70, White baseline; local
+  example-b/ under same directory. Formation-selected after inspecting saved
+  games06/07/10/13/14 at40/50/60/70; not unseen evaluation. Assistant tentative
+  judgment: partial central thickness, P5e directly supported by S5d supported
+  by G6c, influencing5-6 files; not broad king-head thickness around K8b.
+  Knight/rook/bishop attacking activity is not automatically thickness. User
+  agrees with the partial central thickness interpretation. Python replay and
+  visual diagram check only; no search.
+- NEXT: boards A (no thickness) and B (partial central thickness) confirmed;
+  consider whether any further transfer example is needed. Keep
+  thickness diagnosis separate from whether building it is appropriate;
   engine learning/scoring implementation remains paused and separately designed.
+  [Durable transfer dialogue record](docs/experiments/learning/thickness/2026-10-31-shin-transfer-dialogue.md)
+  preserves selection, confirmation and limits. User requested commit/push checkpoint
+  before further work; no additional example or learning started at this checkpoint.
   User wants understanding before
   learning restart and asks about transfer from non-Shin games. Proposed distinction:
   general thickness concepts vs formation-specific judgments vs actual training
