@@ -14,6 +14,8 @@
 
 [厚みの対話：第10・11局・方向性と、消された厚みの再建](thickness/2026-10-31-book-games10-11-dialogue.md)
 
+[厚みの対話：第12局・中央の勢力、牽制、玉の備えと対話の一区切り](thickness/2026-10-31-book-game12-dialogue.md)
+
 [自己学習の全体レビュー：厚みの個性と棋力、次の優先順位](2026-10-14-overall-learning-review.md)
 
 [探索評価・勝敗・混合の同条件比較と実行手順](data/2026-10-15-hybrid-learning-plan.md)

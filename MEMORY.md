@@ -160,8 +160,31 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   this into a definite claim of thickness reinforcement or a fixed priority.
 - [Games10-11 durable dialogue record](docs/experiments/learning/thickness/2026-10-31-book-games10-11-dialogue.md)
   preserves user corrections and qualifications.
-- NEXT: await another user-supplied case or further questions. Games10-11
-  dialogue complete; learning remains paused.
+- Book game12 dialogue COMPLETE (2026-10-31): private pp135-146 vs Kiriyama,
+  IMG_5456..5462 read; photos/text/kifu outside Git. Book emphasizes S6f left
+  against central initiative, knight help maintaining ranks, then G7h before
+  attack and P6c promotion while allowing rook capture. Initial question concerns
+  G7h after Fig8: concrete king-defense preparation enabling later attack versus
+  further thickness-building. User agrees: G7h shores up king defense so Black
+  can fight strongly using existing thickness; this preparation supports later
+  P6c promotion while allowing rook capture. Do not call it further forward
+  thickness expansion. No search/learning.
+  S6f-left question: assistant described exchanging the5-file pawn, advancing
+  silver to stop enemy progress and preserve6-file rank. User says half correct:
+  additionally it increases Black's5-file influence, preventing enemy P*5e.
+  Track influence gained in the contested file, not only preservation elsewhere.
+  N3g correction: user agrees the knight deters opponent's attack, but says
+  calling this help supporting thickness may overstate it. Assistant had extended
+  the book's indirect rank-securing explanation too far. Keep concrete tactical
+  deterrence distinct from a general claim that the knight supports thickness.
+- [Game12 durable dialogue record](docs/experiments/learning/thickness/2026-10-31-book-game12-dialogue.md).
+  User agrees to wrap up book-based thickness teaching for now. Fewer questions
+  alone do not prove understanding; tactical deterrence overgeneralization remains
+  a known caution. Next agreed direction: a few Rakuyou Shin positions, assistant
+  explains first and user corrects, to check conceptual transfer.
+- NEXT: after this commit/push-only checkpoint, choose a small Shin position
+  review when work resumes. No selection/new verification begun this turn;
+  engine learning/scoring implementation remains paused and separately designed.
   User wants understanding before
   learning restart and asks about transfer from non-Shin games. Proposed distinction:
   general thickness concepts vs formation-specific judgments vs actual training
