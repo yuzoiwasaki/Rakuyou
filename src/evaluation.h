@@ -87,6 +87,7 @@ struct EvalDetail {
     king_safety += rhs.king_safety;
     king_preference += rhs.king_preference;
     sliders     += rhs.sliders;
+    support_chain += rhs.support_chain;
     return *this;
   }
 
@@ -98,6 +99,7 @@ struct EvalDetail {
     king_safety -= rhs.king_safety;
     king_preference -= rhs.king_preference;
     sliders     -= rhs.sliders;
+    support_chain -= rhs.support_chain;
     return *this;
   }
 
@@ -126,6 +128,9 @@ struct EvalDetail {
 
   /** 飛び駒に関する評価値. */
   PackedScore sliders{0};
+
+  /** Experimental pawn support chain; PP format, no tempo or progress weights. */
+  PackedScore support_chain{0};
 };
 
 /**
@@ -142,6 +147,10 @@ class Evaluation {
 
   /** 新米長玉の玉位置選好を有効または無効にします. */
   static void SetShinYonenagaGyoku(bool enabled);
+
+  /** Experimental, default zero; set before creating search nodes. Range 0..10cp. */
+  static void SetSupportChainBonus(int centipawns);
+  static bool HasPawnSupportChain(const Position& pos, Color side);
 
   /**
    * 局面の評価値を計算します.

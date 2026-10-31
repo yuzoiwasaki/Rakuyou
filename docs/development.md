@@ -26,6 +26,14 @@ python3 -m unittest discover -s test -t .
 Git管理外の `results/` 内データを参照します。学習用probeは通常エンジンとは別の
 実行ファイルとして `results/` に出力されます。
 
+試験用の歩・金銀支持関係は、USIオプション `ExperimentalSupportChainBonus` で
+0〜10cp相当を指定します。既定0で無効です。評価のキャッシュを作る前に設定し、
+比較には設定ごとに新しいプロセスを使います。運用採用された評価項ではありません。
+ネイティブ検査は `make support-chain-test` でビルドできます。
+`results/support-chain-tools/native-test bin/params.bin` の標準入力に
+`sfen <SFEN>` または `moves <初期局面からのUSI指し手列>` を１行ずつ渡すと、
+0/10設定で全評価・差分更新・手の巻き戻しを検査します。探索は行いません。
+
 ## 学習データ
 
 学習ツールは `tools/learning/` にあります。入力・教師・特徴・更新方法ごとの説明と

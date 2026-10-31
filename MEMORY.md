@@ -242,11 +242,23 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   and SFEN checked;42 total with rotation/reflection and geometry fixture checks.
   Disposable script/results local in results/thickness-dialogue/
   support-chain-audit-2026-10-31/. No feature code added to engine.
-- NEXT: ask user about old A59 (P6e,S5f,S6g), positive despite subsequent enemy
-  N*5e and later Nx6g+ Gx6g. Is this thickness plus a separate tactical issue?
-  Do not label exchange bad/forced or automatically remove feature activation.
+- User confirms old A59 (P6e,S5f,S6g) is partial thickness and sees it as
+  effectively restraining enemy attacking pieces. This too is thickness, despite
+  subsequent N*5e and later Nx6g+ Gx6g. No coefficient specified. Do not label
+  exchange bad/forced or automatically remove feature activation.
+  [Native implementation/verification COMPLETE](docs/experiments/learning/thickness/2026-10-31-support-chain-native.md):
+  ExperimentalSupportChainBonus default0 range0..10; independent PP-format field,
+  symmetric, (1-progress) taper; no parameter file/layout change. All/full-delta
+  paths and probe parts updated. Native tester target support-chain-test.
+  42+42 rotated cases match Python;17 saved histories/2508 moves with0/10,
+  make/unmake/null and full/incremental agree.17 final zero scores match old probe.
+  Isolated O2/assert engine readyok checked, no go. Runtime bin files unchanged.
+  Artifacts under results/thickness-dialogue/support-chain-native-2026-10-31/.
+- NEXT: prepare bounded28-root x0/10 search plan (max56), fresh processes,
+  same experimental binary both sides; native/source manifest must match HEAD.
+  No search/training/games or deployment yet. User50cp was example, not setting.
   Narrow occurrence also limits general coverage; root0 does not imply no search
-  effect. Hold scoring connection pending conceptual answer, no weight specified.
+  effect. Initial10cp remains a bounded experimental setting, not user rating.
 
 ## Current direction: matched search/outcome/hybrid learning (2026-10-15)
 

@@ -93,7 +93,7 @@ bool LegalToken(const std::string& token, const Position& pos, Move* move) {
 
 void PrintParts(std::ostringstream& out, const EvalDetail& detail) {
   const PackedScore kp = detail.kp[kBlack] + detail.kp[kWhite] + detail.king_preference;
-  const PackedScore others = detail.controls + detail.two_pieces + detail.king_safety + detail.sliders;
+  const PackedScore others = detail.controls + detail.two_pieces + detail.king_safety + detail.sliders + detail.support_chain;
   out << "{\"kp\":[";
   for (int i = 0; i < 4; ++i) { if (i) out << ','; out << kp[i]; }
   out << "],\"others\":[";

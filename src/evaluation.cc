@@ -30,6 +30,7 @@ std::unique_ptr<EvalParameters> g_eval_params(new EvalParameters);
 namespace {
 
 bool g_shin_yonenaga_gyoku_enabled = true;
+int g_support_chain_bonus = 0;
 
 }  // namespace
 
@@ -37,7 +38,7 @@ Score EvalDetail::ComputeFinalScore(Color side_to_move,
                                     double* const progress_output) const {
 
   PackedScore kp_total = kp[kBlack] + kp[kWhite] + king_preference;
-  PackedScore others = controls + two_pieces + king_safety + sliders;
+  PackedScore others = controls + two_pieces + king_safety + sliders + support_chain;
   int64_t sum = 0;
 
   // 1. 進行度を求める
@@ -133,6 +134,14 @@ PackedScore EvaluateKingPreference(const Position& pos) {
     score += PackedScore(kOpeningPenalty, 0, 0, 0);
   }
   return score;
+}
+
+// A deliberately narrow geometric feature, not a safety/thickness classifier.
+PackedScore EvaluateSupportChain(const Position& pos) {
+  if (g_support_chain_bonus == 0) return PackedScore(0);
+  const int difference = int(Evaluation::HasPawnSupportChain(pos, kBlack))
+                       - int(Evaluation::HasPawnSupportChain(pos, kWhite));
+  return PackedScore(difference * g_support_chain_bonus * kFvScale, 0, 0, 0);
 }
 
 /**
@@ -588,6 +597,7 @@ EvalDetail Evaluation::EvaluateAll(const Position& pos,
   // 3. 玉の安全度
   sum.king_safety = EvaluateKingSafety(pos);
   sum.king_preference = EvaluateKingPreference(pos);
+  sum.support_chain = EvaluateSupportChain(pos);
 
   // 4. 飛車・角・香車の利き
   sum.sliders = EvaluateSlidingPieces(pos);
@@ -637,6 +647,7 @@ EvalDetail Evaluation::EvaluateDifference(const Position& pos,
   // 2. 玉の安全度（末端評価）
   diff.king_safety = EvaluateKingSafety(pos) - previous_eval.king_safety;
   diff.king_preference = EvaluateKingPreference(pos) - previous_eval.king_preference;
+  diff.support_chain = EvaluateSupportChain(pos) - previous_eval.support_chain;
 
   // 3. 飛車・角・香車の利き（末端評価）
   diff.sliders = EvaluateSlidingPieces(pos) - previous_eval.sliders;
@@ -650,6 +661,34 @@ void Evaluation::Init() {
 
 void Evaluation::SetShinYonenagaGyoku(const bool enabled) {
   g_shin_yonenaga_gyoku_enabled = enabled;
+}
+
+void Evaluation::SetSupportChainBonus(const int centipawns) {
+  assert(centipawns >= 0 && centipawns <= 10);
+  g_support_chain_bonus = std::max(0, std::min(10, centipawns));
+}
+
+bool Evaluation::HasPawnSupportChain(const Position& pos, const Color side) {
+  const Bitboard guards = pos.pieces(side, kGold, kSilver);
+  if (guards.count() < 2) return false;
+  Bitboard pawns = pos.pieces(side, kPawn) & rank_bb<5, 5>();
+  while (pawns.any()) {
+    const Square pawn = pawns.pop_first_one();
+    if (pawn.file() == kFile1 || pawn.file() == kFile9) continue;
+    Bitboard fronts = guards;
+    while (fronts.any()) {
+      const Square front = fronts.pop_first_one();
+      if (relative_rank(side, front.rank()) != kRank6) continue;
+      if (!step_attacks_bb(pos.piece_on(front), front).test(pawn)) continue;
+      Bitboard rears = guards;
+      while (rears.any()) {
+        const Square rear = rears.pop_first_one();
+        if (rear == front || relative_rank(side, rear.rank()) < kRank6) continue;
+        if (step_attacks_bb(pos.piece_on(rear), rear).test(front)) return true;
+      }
+    }
+  }
+  return false;
 }
 
 void Evaluation::ReadParametersFromFile(const char* file_name) {

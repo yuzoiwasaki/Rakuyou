@@ -223,6 +223,7 @@ void ExecuteCommand(const std::string& command, Node* const node,
   } else if (type == "setoption") {
     SetUsiOption(is, usi_options);
     Evaluation::SetShinYonenagaGyoku((*usi_options)["ShinYonenagaGyoku"]);
+    Evaluation::SetSupportChainBonus((*usi_options)["ExperimentalSupportChainBonus"]);
 
   } else if (type == "usinewgame") {
     thinking->StartNewGame();
@@ -327,6 +328,9 @@ UsiOptions::UsiOptions() {
 
   // 新米長玉の固定初手と玉位置選好を使うか否か
   map_.emplace("ShinYonenagaGyoku", UsiOption(true));
+
+  // Experimental pawn support chain; zero preserves the normal evaluation.
+  map_.emplace("ExperimentalSupportChainBonus", UsiOption(0, 0, 10));
 
   // 定跡ファイル
   map_.emplace("BookFile", UsiOption("book.bin"));
