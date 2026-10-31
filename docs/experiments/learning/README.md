@@ -20,6 +20,8 @@
 
 [次の設計案：小さい評価差分で指し方を確かめ、その後に学習する](thickness/2026-10-31-next-design.md)
 
+[五段目の歩と金銀２枚：出現確認と、支え役への攻撃の相談](thickness/2026-10-31-support-chain-occurrence.md)
+
 [自己学習の全体レビュー：厚みの個性と棋力、次の優先順位](2026-10-14-overall-learning-review.md)
 
 [探索評価・勝敗・混合の同条件比較と実行手順](data/2026-10-15-hybrid-learning-plan.md)

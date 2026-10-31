@@ -234,9 +234,19 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   remain assistant proposals, not individually user-approved choices.
   Source review confirms native evaluation already has controls/king safety/sliders
   besides KP/PP; duplication risk and root-versus-QS-leaf issue remain.
-- NEXT: discuss current proposal, then implement bounded counting/occurrence audit
-  as first unit if proceeding. No new feature implementation/search/training/games
-  executed during design; old automatic experiment markers remain untouched.
+- User accepted proceeding and offered judgments as needed; example "50 points"
+  is not a chosen weight. Counting audit COMPLETE, no scoring/search/learning.
+  [Occurrence report](docs/experiments/learning/thickness/2026-10-31-support-chain-occurrence.md):
+  fixed28 roots have1 activation (game07 ply32 BLACK, opponent side);0 on Shin
+  side. Known A/B/C White0/1/0. Historical11 roots also replayed, source hashes
+  and SFEN checked;42 total with rotation/reflection and geometry fixture checks.
+  Disposable script/results local in results/thickness-dialogue/
+  support-chain-audit-2026-10-31/. No feature code added to engine.
+- NEXT: ask user about old A59 (P6e,S5f,S6g), positive despite subsequent enemy
+  N*5e and later Nx6g+ Gx6g. Is this thickness plus a separate tactical issue?
+  Do not label exchange bad/forced or automatically remove feature activation.
+  Narrow occurrence also limits general coverage; root0 does not imply no search
+  effect. Hold scoring connection pending conceptual answer, no weight specified.
 
 ## Current direction: matched search/outcome/hybrid learning (2026-10-15)
 
