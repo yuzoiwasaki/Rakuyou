@@ -203,8 +203,15 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   Knight/rook/bishop attacking activity is not automatically thickness. User
   agrees with the partial central thickness interpretation. Python replay and
   visual diagram check only; no search.
-- NEXT: boards A (no thickness) and B (partial central thickness) confirmed;
-  consider whether any further transfer example is needed. Keep
+- Transfer board C prepared on resume: saved match game07 ply50, White baseline;
+  local example-c/ under same directory. White S7e supports P6f wedge pressing
+  Black G6g; Black P6e must not be mistaken for White rank. Assistant tentative
+  view: concrete attacking foothold rather than established thickness, with
+  advanced silver separated from own golds and rear formation. User confirms
+  this distinction. Do not infer this attack is bad. Python replay/visual check,
+  no search.
+- NEXT: all three transfer examples A/B/C confirmed. Small conceptual review
+  can now close; discuss how to use the understanding before implementation. Keep
   thickness diagnosis separate from whether building it is appropriate;
   engine learning/scoring implementation remains paused and separately designed.
   [Durable transfer dialogue record](docs/experiments/learning/thickness/2026-10-31-shin-transfer-dialogue.md)
