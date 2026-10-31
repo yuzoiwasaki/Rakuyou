@@ -210,10 +210,8 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   advanced silver separated from own golds and rear formation. User confirms
   this distinction. Do not infer this attack is bad. Python replay/visual check,
   no search.
-- NEXT: all three transfer examples A/B/C confirmed. Small conceptual review
-  can now close; discuss how to use the understanding before implementation. Keep
-  thickness diagnosis separate from whether building it is appropriate;
-  engine learning/scoring implementation remains paused and separately designed.
+- All three transfer examples A/B/C confirmed; conceptual review closed for now.
+  Keep thickness diagnosis separate from whether building it is appropriate.
   [Durable transfer dialogue record](docs/experiments/learning/thickness/2026-10-31-shin-transfer-dialogue.md)
   preserves selection, confirmation and limits. User requested commit/push checkpoint
   before further work; no additional example or learning started at this checkpoint.
@@ -222,6 +220,23 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   general thickness concepts vs formation-specific judgments vs actual training
   data. Cross-check book insights against Shin positions; do not automatically mix
   book games/outcomes into teachers. No learning/scoring restart authorized.
+- NEW design request (2026-10-31): user permits considering direct evaluation
+  changes or learning, asks recommendation and checkpoint commits. This reopens
+  design, not an instruction to execute an unspecified training run.
+  [Current proposal](docs/experiments/learning/thickness/2026-10-31-next-design.md):
+  first a small isolated evaluation experiment, then learning if useful behavior
+  appears. Proposed narrow feature: fifth-rank pawn supported from behind by
+  G/S, itself supported by another G/S behind or level; files2..8, binary per
+  side. Not a definition of all thickness. First count without scoring on A/B/C,
+  fixed28 stored roots and known vulnerable-support counterexamples. Then proposed
+  0 versus10cp*(1-progress) trial, maximum10cp absolute, separate default-OFF
+  switch, symmetric sides, unchanged operational parameters. Numbers/feature
+  remain assistant proposals, not individually user-approved choices.
+  Source review confirms native evaluation already has controls/king safety/sliders
+  besides KP/PP; duplication risk and root-versus-QS-leaf issue remain.
+- NEXT: discuss current proposal, then implement bounded counting/occurrence audit
+  as first unit if proceeding. No new feature implementation/search/training/games
+  executed during design; old automatic experiment markers remain untouched.
 
 ## Current direction: matched search/outcome/hybrid learning (2026-10-15)
 
