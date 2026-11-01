@@ -317,15 +317,25 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   user says14-32 Black looks like ordinary high-Mino+S5f, questionable as thickness.
   Assistant's partial-thickness label withdrawn, not hard "no thickness" ground truth.
   User prefers WHITE bonus10 PV: clear intent/interesting; baseline R8c->K8b feels odd.
-  Separately, moving Black P5g to5e hypothetically would look thick with rank control.
+  Initial P5g->5e thickness judgment was later QUALIFIED by opposing White P5d;
+  see follow-up below, not an unconditional positive label.
   Local pawn-contrast.html shows both arms' original/one-pawn-relocated boards;
   only5g/5e differ, no legal path claimed (S5f blocks actual pawn advance).
   Current binary feature=1 for all four; misses this distinction. Straight-only
   pawn/supporter condition would reject user-approved A59 P6e/S5f/S6g, so not adopted.
-- NEXT: compare this original/hypothetical pair with approved A59: rank location/
-  breadth, GS placement and restraint of enemy advance. Candidate explanatory axes,
-  not established numeric rules. Keep style preference separate from thickness label;
-  no coefficient increase, automatic learning or fresh search yet.
+- User follow-up: bonus10 WHITE rising-gold formation is good, experiment direction
+  seems promising. BLACK hypothetical P5e still questionable as thickness with
+  opposing P5d; without P5d it looks imposing/thick. Little apparent effect here
+  because no relevant enemy king/attacking pieces ahead. Separate existence/effect
+  and style preference; not proof of strength or feature causality.
+  opposition.html/json in local repaired-14-review/ adds3 comparison boards + A59.
+  P5d omitted off-board (not put in hand), explicitly schematic, no search/scoring;
+  exactly one pawn removed, original retained. A59 hands displayed correctly.
+- NEXT: use separate observations for GS support, secured space/opposing pressure,
+  functional targets and style preference. Before code changes, consider saved-only
+  counting of opposing pawn and support direction on known examples; manually review
+  king pressure/attacker restraint rather than proximity alone. No blanket exclusion
+  for diagonal support or opposing pawn, no coefficient increase or auto-learning.
   User50cp was example, not setting.
   Narrow occurrence also limits general coverage; root0 does not imply no search
   effect. Initial10cp remains a bounded experimental setting, not user rating.
