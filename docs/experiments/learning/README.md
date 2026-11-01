@@ -149,3 +149,5 @@
 [合法手ゼロ時の確率計算を修正：回帰検査と失敗3局面の探索完了](thickness/2026-11-01-terminal-picker-fix.md)
 
 [高美濃＋５六銀型と５筋の位：ユーザーの訂正と次の特徴設計](thickness/2026-11-01-pawn-rank-contrast.md)
+
+[支持方向と対向歩の監査：２条件だけでは高美濃型と既承認の厚みを区別できない](thickness/2026-11-01-support-context-audit.md)

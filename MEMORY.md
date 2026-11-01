@@ -331,11 +331,19 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   opposition.html/json in local repaired-14-review/ adds3 comparison boards + A59.
   P5d omitted off-board (not put in hand), explicitly schematic, no search/scoring;
   exactly one pawn removed, original retained. A59 hands displayed correctly.
-- NEXT: use separate observations for GS support, secured space/opposing pressure,
-  functional targets and style preference. Before code changes, consider saved-only
-  counting of opposing pawn and support direction on known examples; manually review
-  king pressure/attacker restraint rather than proximity alone. No blanket exclusion
-  for diagonal support or opposing pawn, no coefficient increase or auto-learning.
+- [Support context audit COMPLETE](docs/experiments/learning/thickness/2026-11-01-support-context-audit.md):
+  saved42/contrast4/PV977 states, active9/4/114. Classified each existing chain by
+  same-file vs diagonal support and enemy unpromoted pawn immediately ahead.
+  All rotation/reflection checks and saved PV activation reconciliation pass.
+  Artifacts results/thickness-dialogue/support-context-audit-2026-11-01/.
+  Key limitation: ordinary high-Mino+S5f and approved A59 BOTH diagonal/unopposed.
+  Hypothetical P5e adds straight/opposed; removing P5d makes straight/unopposed.
+  Thus straight-only loses A59; opposing-pawn exclusion leaves high-Mino false match.
+  Neither axis alone resolves user distinction; no new scoring/code/search/learning.
+- NEXT: compare concrete enemy advances restrained in high-Mino vs A59 and what
+  support movement/exchange permits. Piece proximity is not role/effect; inspect
+  actual board relations before teacher labels or coefficients. Keep style preference
+  separate, no automatic exclusion rule or extra bonus from these counts.
   User50cp was example, not setting.
   Narrow occurrence also limits general coverage; root0 does not imply no search
   effect. Initial10cp remains a bounded experimental setting, not user rating.
