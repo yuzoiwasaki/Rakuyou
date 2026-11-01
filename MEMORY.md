@@ -357,13 +357,19 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   advance. Explicitly adopts broader "手厚い将棋" goal, no mandatory rank/thickness.
   Keep support, function, tactical cost and preference separate; no false-negative
   rejection merely because not thick, no fixed numeric labels from user preference.
-- NEXT: review remaining changed saved PVs in order12-32,03-32,13-64 with user.
-  Packet results/thickness-dialogue/teatsui-review-2026-11-01/index.html ready;
-  all displayed states of6 PVs match native replay. User judgments pending.
-  No fresh search; saved results precede terminal-picker fix, clearly disclosed.
-  Review White's responding plans too, not only Black bestmove. After dialogue,
-  design any further comparison with both fixes in same binary for both settings.
-  Existing feature remains default0 trial0/10; no formula expansion/training yet.
+- User prefers bonus10 on12-32 too, correctly flags different Black initial moves
+  confound comparison. Authorized discretion on small fixed-root follow-up.
+- [Fixed White12 comparison COMPLETE](docs/experiments/learning/thickness/2026-11-01-fixed-white-12.md):
+  roots after Black4f4e and3g4e, each0/10,d15,thread1/hash64/bookOFF/ShinON,
+  fresh processes,60s cap,max4. Same isolated engine with BOTH fixes. All4 complete,
+  all bestmoves B3c8h+; each pair PV differs. All4 PVs legally replay, hashes unchanged.
+  Artifacts results/thickness-dialogue/fixed-white-12-2026-11-01/. No retries/deeper
+  follow-ups. No observed White initial-move change, not proof of no eval effect.
+  Preserve preferred whole-line judgment separately from causal/strength claim.
+- NEXT: lightly review remaining saved03-32,13-64, then summarize style evidence
+  before more searches/training. Packet teatsui-review-2026-11-01/index.html ready;
+  states of6 saved PVs replayed. Those OLD lines precede terminal-picker fix, disclosed.
+  User judgments on03/13 pending; keep feature default0/trial0-10 without expansion.
   User50cp was example, not setting.
   Narrow occurrence also limits general coverage; root0 does not imply no search
   effect. Initial10cp remains a bounded experimental setting, not user rating.
