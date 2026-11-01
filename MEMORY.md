@@ -306,9 +306,26 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   (64.4/93.1/53.9s); all3 PVs native replay legal. No runtime/data changes.
   Local artifacts results/thickness-dialogue/no-legal-moves-2026-11-01/.
   No new full comparison, no bonus10 smoke, no old-result refill.
-- NEXT: review saved changed boards from repaired comparison, judge thickness
-  meaning with user as needed, then design any further comparison using same fixes
-  on both arms. Do not increase coefficient or claim strength from these smokes.
+- Saved-board review14-32 prepared; local interactive diagrams and positions:
+  results/thickness-dialogue/repaired-14-review/index.html. All diagram states match
+  native replay; no new search. Baseline N8i7g P8d8e R6h8h P9c9d S6g5f;
+  bonus10 P9f9e G5b4c S6g5f. Both form BLACK P6e/S5f/G4g support chain.
+  Important: changed mover is Black ranging rook; Shin is White. This is not a
+  demonstrated improvement of Shin's own thickness. Initial diagrams compare
+  offsets5/3 (clearly labeled), controls allow equal offsets and full saved PV.
+- [Rank-pawn contrast/user correction](docs/experiments/learning/thickness/2026-11-01-pawn-rank-contrast.md):
+  user says14-32 Black looks like ordinary high-Mino+S5f, questionable as thickness.
+  Assistant's partial-thickness label withdrawn, not hard "no thickness" ground truth.
+  User prefers WHITE bonus10 PV: clear intent/interesting; baseline R8c->K8b feels odd.
+  Separately, moving Black P5g to5e hypothetically would look thick with rank control.
+  Local pawn-contrast.html shows both arms' original/one-pawn-relocated boards;
+  only5g/5e differ, no legal path claimed (S5f blocks actual pawn advance).
+  Current binary feature=1 for all four; misses this distinction. Straight-only
+  pawn/supporter condition would reject user-approved A59 P6e/S5f/S6g, so not adopted.
+- NEXT: compare this original/hypothetical pair with approved A59: rank location/
+  breadth, GS placement and restraint of enemy advance. Candidate explanatory axes,
+  not established numeric rules. Keep style preference separate from thickness label;
+  no coefficient increase, automatic learning or fresh search yet.
   User50cp was example, not setting.
   Narrow occurrence also limits general coverage; root0 does not imply no search
   effect. Initial10cp remains a bounded experimental setting, not user rating.
