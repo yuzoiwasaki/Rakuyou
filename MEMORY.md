@@ -272,10 +272,17 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   recapture construction, unchanged since initial import. Wrong attacker-square
   filtering and forced nonpromotion are candidates, precise cause not established.
   Full/delta checks on saved moves did not exercise all hypothetical search moves.
-- NEXT: reproduce hypothetical recapture assertion minimally, identify cause,
-  repair/test before a new comparison plan. Same repair on both0/10 sides; don't
-  simply disable assertions or combine old successes with fresh results. User
-  requested a clean commit/push checkpoint here; no coefficient sweep or refill.
+- [Recapture fix](docs/experiments/learning/thickness/2026-11-01-recapture-fix.md):
+  fixed-03-64 P*9i reproduces old assertion without search. White lance9c attacks9i,
+  old code chose unrelated1a lance and forced nonpromotion. Select actual attacker
+  and apply mandatory P/L/N promotion; geometric feature helper, not legal generator.
+  New reusable make move-feature-recapture-test passes18 cases + frozen extraction.
+  Isolated O2/assert engine passes fresh d9 smoke at0/10, both S*5e/-355cp/17678nodes;
+  both PVs replay legally. Local diagnosis in recapture-debug-2026-11-01/.
+  Token interruption unrelated; runtime/data unchanged. Old56 results preserved.
+- NEXT: freeze a NEW comparison plan/output using repaired same binary for both0/10.
+  Do not mix old successes with fresh results. Smoke does not establish all32
+  failures resolved or thickness effectiveness; no coefficient sweep or refill.
   User50cp was example, not setting.
   Narrow occurrence also limits general coverage; root0 does not imply no search
   effect. Initial10cp remains a bounded experimental setting, not user rating.

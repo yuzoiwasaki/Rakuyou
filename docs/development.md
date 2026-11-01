@@ -34,6 +34,10 @@ Git管理外の `results/` 内データを参照します。学習用probeは通
 `sfen <SFEN>` または `moves <初期局面からのUSI指し手列>` を１行ずつ渡すと、
 0/10設定で全評価・差分更新・手の巻き戻しを検査します。探索は行いません。
 
+指し手特徴の仮想的な取り返し処理は、`make move-feature-recapture-test` と
+`results/move-feature-tools/recapture-test bin/params.bin` で検査できます。
+歩・香・桂の強制成り、実際に利く駒の選択、先後反転と停止した局面を確認します。
+
 ## 学習データ
 
 学習ツールは `tools/learning/` にあります。入力・教師・特徴・更新方法ごとの説明と

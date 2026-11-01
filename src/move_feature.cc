@@ -418,21 +418,6 @@ PieceType GetMostValuablePieceType(Bitboard pieces, const T& board) {
   return most_valuable_pt;
 }
 
-template<typename T>
-PieceType GetLeastValuablePieceType(Bitboard pieces, const T& board) {
-  PieceType least_valuable_pt = kNoPieceType;
-  Score min_value = kScoreInfinite;
-  pieces.ForEach([&](Square s) {
-    PieceType pt = board.piece_on(s).type();
-    Score value = Material::exchange_value(pt);
-    if (value < min_value) {
-      least_valuable_pt = pt;
-      min_value = value;
-    }
-  });
-  return least_valuable_pt;
-}
-
 ExtendedBoard GetNewExtendedBoard(const ExtendedBoard& old_eb, Move move) {
   ExtendedBoard new_eb = old_eb;
 
@@ -614,6 +599,26 @@ bool IsPawnDropInterruptingOwnRook(Move move, const Position& pos) {
 }
 
 } // namespace
+
+Move move_feature_detail::MakeRecapture(const Color side, const Square target,
+                                       Bitboard attackers, const ExtendedBoard& after) {
+  Square from = kSquareNone;
+  Score best = kScoreInfinite;
+  // Choose a square from the actual attacking set, not every piece of its type.
+  while (attackers.any()) {
+    const Square square = attackers.pop_first_one();
+    const Piece piece = after.piece_on(square);
+    assert(piece != kNoPiece && piece.color() == side);
+    const Score value = Material::exchange_value(piece.type());
+    if (value < best) { best = value; from = square; }
+  }
+  if (from == kSquareNone) return kMoveNone;
+  const Piece piece = after.piece_on(from);
+  const Rank rank = relative_rank(side, target.rank());
+  const bool promote = ((piece.is(kPawn) || piece.is(kLance)) && rank == kRank1)
+                    || (piece.is(kKnight) && rank <= kRank2);
+  return Move(piece, from, target, promote, after.piece_on(target));
+}
 
 const int kNumBinaryMoveFeatures = key_chain.total_size_of_keys();
 const int kNumMoveFeatures = kNumBinaryMoveFeatures + kNumContinuousMoveFeatures;
@@ -1018,25 +1023,26 @@ MoveFeatureList ExtractMoveFeatures(const Move move, const Position& pos,
 
       // 相手の取り返しの手を求める
       Bitboard opp_attackers = pos.AttackersTo<~kColor>(move.to(), new_occ);
-      PieceType opp_attacker = GetLeastValuablePieceType(opp_attackers, new_eb);
-      Square attacker_sq = (pos.pieces(~kColor, opp_attacker) & new_occ).first_one();
-      Move recapture(Piece(~kColor, opp_attacker),
-                     attacker_sq, move.to(), false, move.piece_after_move());
+      const Move recapture = move_feature_detail::MakeRecapture(
+          ~kColor, move.to(), opp_attackers, new_eb);
+      if (recapture != kMoveNone) {
+        const Square attacker_sq = recapture.from();
 
-      // 取り返した後の駒の配置及び利きを求める
-      ExtendedBoard next_eb = new_eb;
-      next_eb.MakeCaptureMove(recapture);
-      Bitboard next_opp_pieces = new_opp_pieces.andnot(square_bb(attacker_sq));
-      Bitboard next_own_controls = next_eb.GetControlledSquares(kColor);
-      Bitboard next_opp_controls = next_eb.GetControlledSquares(~kColor);
+        // 取り返した後の駒の配置及び利きを求める
+        ExtendedBoard next_eb = new_eb;
+        next_eb.MakeCaptureMove(recapture);
+        Bitboard next_opp_pieces = new_opp_pieces.andnot(square_bb(attacker_sq));
+        Bitboard next_own_controls = next_eb.GetControlledSquares(kColor);
+        Bitboard next_opp_controls = next_eb.GetControlledSquares(~kColor);
 
-      // 次の局面でタダ取りできる相手の駒を求める
-      Bitboard next_victims = next_opp_pieces & next_own_controls.andnot(next_opp_controls);
+        // 次の局面でタダ取りできる相手の駒を求める
+        Bitboard next_victims = next_opp_pieces & next_own_controls.andnot(next_opp_controls);
 
-      // 新たにタダ取りできるようになった相手の駒のうち、最高の駒を求める
-      PieceType victim_pt = GetMostValuablePieceType(next_victims.andnot(old_victims), next_eb);
+        // 新たにタダ取りできるようになった相手の駒のうち、最高の駒を求める
+        PieceType victim_pt = GetMostValuablePieceType(next_victims.andnot(old_victims), next_eb);
 
-      add_feature(kCaptureAfterSacrifice(pt, victim_pt));
+        add_feature(kCaptureAfterSacrifice(pt, victim_pt));
+      }
     }
   }
 

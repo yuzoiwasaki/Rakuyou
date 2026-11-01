@@ -141,3 +141,5 @@
 参照計画：[初回手番](../configs/tempo-pilot-v1.json)、
 [新教師の手番](../configs/refreshed-tempo-pilot-v1.json)、[教師更新](../configs/teacher-refresh-v1.json)。
 ビルド・実行方法は [開発手順](../../development.md) を参照。
+
+[仮想的な取り返し処理：停止の再現、駒選択と強制成りの修正](thickness/2026-11-01-recapture-fix.md)

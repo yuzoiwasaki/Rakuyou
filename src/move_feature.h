@@ -25,6 +25,7 @@
 #include "bitboard.h"
 #include "move.h"
 class Position;
+class ExtendedBoard;
 class HistoryStats;
 class GainsStats;
 
@@ -53,6 +54,13 @@ struct MoveFeatureList : std::vector<MoveFeatureIndex> {
    */
   Array<float, kNumContinuousMoveFeatures> continuous_values;
 };
+
+namespace move_feature_detail {
+// Geometric recapture for feature extraction, not a legal-move selector:
+// pins/king safety are ignored; only mandatory promotions are applied.
+Move MakeRecapture(Color side, Square target, Bitboard attackers,
+                   const ExtendedBoard& after);
+}  // namespace move_feature_detail
 
 extern const int kNumBinaryMoveFeatures;
 extern const int kNumMoveFeatures;
