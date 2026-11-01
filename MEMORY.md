@@ -296,9 +296,19 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
 - Responsibility: user explicitly keeps design, thickness interpretation and final
   responsibility with Astra. Sol may execute clearly specified independent work,
   reviewed by Astra. Long deterministic batches can run externally to save tokens.
-- NEXT: minimally reproduce/diagnose legal-move-zero assertion before more searches;
-  do not refill this completed batch or increase coefficient. Review saved changed
-  boards afterward, consulting user on thickness meaning as needed.
+- [Terminal picker fix](docs/experiments/learning/thickness/2026-11-01-terminal-picker-fix.md):
+  diagnostic02-64 bonus0 captured valid in-check/no-legal-moves SFEN. Old picker
+  asserted on this frozen position; probability-stage empty list now skips scoring,
+  returns none through existing end stage, letting search handle mate/pawn-drop mate.
+  3-line guard; probability assertions retained. make movepick-terminal-test passes
+  both colors/depth7,8,9; shallow pseudo-legal evasions require search legality filter.
+  Separate O2/assert smoke02/08/14-64 bonus0,d15,max3,120s each ALL complete
+  (64.4/93.1/53.9s); all3 PVs native replay legal. No runtime/data changes.
+  Local artifacts results/thickness-dialogue/no-legal-moves-2026-11-01/.
+  No new full comparison, no bonus10 smoke, no old-result refill.
+- NEXT: review saved changed boards from repaired comparison, judge thickness
+  meaning with user as needed, then design any further comparison using same fixes
+  on both arms. Do not increase coefficient or claim strength from these smokes.
   User50cp was example, not setting.
   Narrow occurrence also limits general coverage; root0 does not imply no search
   effect. Initial10cp remains a bounded experimental setting, not user rating.

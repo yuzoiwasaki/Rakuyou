@@ -85,6 +85,13 @@ ifeq ($(TARGET),move-feature-recapture-test)
  output_file := results/move-feature-tools/recapture-test
  LDFLAGS += -Wl,-rpath,@loader_path/../../lib/libomp-x86_64/lib
 endif
+ifeq ($(TARGET),movepick-terminal-test)
+ sources := $(filter-out src/main.cc,$(wildcard src/*.cc)) test/analysis/movepick_terminal_test.cc
+ CXXFLAGS += -O2 -g3
+ INCLUDES += -Isrc
+ output_file := results/move-feature-tools/terminal-test
+ LDFLAGS += -Wl,-rpath,@loader_path/../../lib/libomp-x86_64/lib
+endif
 ifeq ($(TARGET),gold-silver-pair-probe)
  sources := $(filter-out src/main.cc,$(wildcard src/*.cc)) tools/learning/native/gold_silver_pair_probe.cc
  CXXFLAGS += -O2 -g3
@@ -129,9 +136,9 @@ directories += $(dir $(output_file))
 #
 # 4. Public Targets
 #
-.PHONY: gikou release cluster consultation development profile test coverage learning-probe king-safety-probe support-chain-test move-feature-recapture-test gold-silver-pair-probe supported-pawn-probe run-coverage clean scaffold libomp-x86_64
+.PHONY: gikou release cluster consultation development profile test coverage learning-probe king-safety-probe support-chain-test move-feature-recapture-test movepick-terminal-test gold-silver-pair-probe supported-pawn-probe run-coverage clean scaffold libomp-x86_64
 
-gikou release cluster consultation development profile test coverage learning-probe king-safety-probe support-chain-test move-feature-recapture-test gold-silver-pair-probe supported-pawn-probe:
+gikou release cluster consultation development profile test coverage learning-probe king-safety-probe support-chain-test move-feature-recapture-test movepick-terminal-test gold-silver-pair-probe supported-pawn-probe:
 	$(MAKE) TARGET=$@ executable
 
 run-coverage: coverage

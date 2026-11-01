@@ -328,6 +328,9 @@ void MovePicker::GenerateNext() {
       end_ = GenerateMoves<kAllMoves>(pos_, cur_);
       end_ = RemoveIllegalMoves(pos_, cur_, end_);
       size_t num_moves = end_ - cur_;
+      // Terminal positions have no distribution to score. Let the search
+      // handle mate (including pawn-drop mate) after NextMove returns none.
+      if (num_moves == 0) return;
 
       // 指し手の実現確率を計算する
       const HistoryStats* cmh = (ss_-1)->countermoves_history;

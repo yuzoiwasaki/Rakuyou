@@ -38,6 +38,9 @@ Git管理外の `results/` 内データを参照します。学習用probeは通
 `results/move-feature-tools/recapture-test bin/params.bin` で検査できます。
 歩・香・桂の強制成り、実際に利く駒の選択、先後反転と停止した局面を確認します。
 
+合法手のない局面での指し手生成は `make movepick-terminal-test` と
+`results/move-feature-tools/terminal-test bin/params.bin` で検査できます。
+
 ## 学習データ
 
 学習ツールは `tools/learning/` にあります。入力・教師・特徴・更新方法ごとの説明と

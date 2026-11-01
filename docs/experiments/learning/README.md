@@ -145,3 +145,5 @@
 [仮想的な取り返し処理：停止の再現、駒選択と強制成りの修正](thickness/2026-11-01-recapture-fix.md)
 
 [取り返し修正後の探索比較：49件完了、4局面で指し手変化、別の停止を確認](thickness/2026-11-01-repaired-search.md)
+
+[合法手ゼロ時の確率計算を修正：回帰検査と失敗3局面の探索完了](thickness/2026-11-01-terminal-picker-fix.md)
