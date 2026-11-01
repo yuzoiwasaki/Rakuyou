@@ -3,8 +3,14 @@
 This file is the resume map: current state, durable decisions, constraints, and
 links to evidence. Detailed experiment history belongs in `docs/experiments/`.
 
-## Current direction: thickness evaluation experiment (updated 2026-11-01)
+## Current direction: hand-solid (teatsui) shogi experiment (updated 2026-11-01)
 
+- USER OBJECTIVE UPDATE: aim for "手厚い将棋", not mandatory thickness/rank completion.
+  Clear rank or completed thickness is optional if direction is hand-solid.
+  Latest A59 judgment: currently defense-oriented, preferred GS-solid defense;
+  more advanced GS/pawns might count as thickness. Supersedes earlier positive
+  thickness label, NOT rejection of the preferred shape. Gold advance also liked.
+  See docs/experiments/learning/thickness/2026-11-01-teatsui-direction.md.
 - Learning series remains paused; Root/QS-leaf proposal below deferred.
   User subsequently authorized the isolated support-chain evaluation experiment
   below, including bounded searches. No training/games/deployment yet. Older
@@ -340,10 +346,24 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   Hypothetical P5e adds straight/opposed; removing P5d makes straight/unopposed.
   Thus straight-only loses A59; opposing-pawn exclusion leaves high-Mino false match.
   Neither axis alone resolves user distinction; no new scoring/code/search/learning.
-- NEXT: compare concrete enemy advances restrained in high-Mino vs A59 and what
-  support movement/exchange permits. Piece proximity is not role/effect; inspect
-  actual board relations before teacher labels or coefficients. Keep style preference
-  separate, no automatic exclusion rule or extra bonus from these counts.
+- Concrete restraint review completed (latest user interpretation below): A59 S6g supports
+  S5f AND guards P7f against rook7b on open7c/7d/7e. Illustrative ...R7b7f S6g7f
+  validated by native replay from uniquely matched original59-ply history.
+  Not a best-play line or proof of causality; ordinary high-Mino G4g also supports
+  S5f but does not guard7f. Different whole positions, not controlled ablation.
+  Local diagram+case+replay: results/thickness-dialogue/restraint-review-2026-11-01/.
+- User answer: A59 currently more ordinary defense than thickness; GS/pawns would
+  need more rise to call thick. Still likes the hand-solid GS defense, and prior gold
+  advance. Explicitly adopts broader "手厚い将棋" goal, no mandatory rank/thickness.
+  Keep support, function, tactical cost and preference separate; no false-negative
+  rejection merely because not thick, no fixed numeric labels from user preference.
+- NEXT: review remaining changed saved PVs in order12-32,03-32,13-64 with user.
+  Packet results/thickness-dialogue/teatsui-review-2026-11-01/index.html ready;
+  all displayed states of6 PVs match native replay. User judgments pending.
+  No fresh search; saved results precede terminal-picker fix, clearly disclosed.
+  Review White's responding plans too, not only Black bestmove. After dialogue,
+  design any further comparison with both fixes in same binary for both settings.
+  Existing feature remains default0 trial0/10; no formula expansion/training yet.
   User50cp was example, not setting.
   Narrow occurrence also limits general coverage; root0 does not imply no search
   effect. Initial10cp remains a bounded experimental setting, not user rating.

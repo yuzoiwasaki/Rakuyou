@@ -2,6 +2,8 @@
 
 [実験レポート全体](../README.md)
 
+[現在の目標：厚みの完成を必須にせず、手厚い将棋を目指す](thickness/2026-11-01-teatsui-direction.md)
+
 [厚みの盤面対話：ユーザーの判断と８図の記録（学習休止中）](thickness/2026-10-25-dialogue.md)
 
 [厚みの対話・続編：攻める時機の修正と、玉頭位取りから得た見方](thickness/2026-10-25-dialogue-followup.md)
