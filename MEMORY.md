@@ -9,6 +9,9 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   User subsequently authorized the isolated support-chain evaluation experiment
   below, including bounded searches. No training/games/deployment yet. Older
   dialogue-only restrictions do not override this explicit later experiment.
+- Cost preference (2026-11-01): user offers external command execution for long
+  runs and Sol for simple tasks; keep Astra for design/interpretation where useful.
+  Avoid spending tokens repeatedly monitoring deterministic batches.
 - Collaboration: user (~amateur4-dan) supplies intended style, conceptual
   distinctions and counterexamples, not assumed best-move labels; user regards
   Rakuyou as stronger. Separate style preference, conceptual mismatch and reading
@@ -280,9 +283,22 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   Isolated O2/assert engine passes fresh d9 smoke at0/10, both S*5e/-355cp/17678nodes;
   both PVs replay legally. Local diagnosis in recapture-debug-2026-11-01/.
   Token interruption unrelated; runtime/data unchanged. Old56 results preserved.
-- NEXT: freeze a NEW comparison plan/output using repaired same binary for both0/10.
-  Do not mix old successes with fresh results. Smoke does not establish all32
-  failures resolved or thickness effectiveness; no coefficient sweep or refill.
+- [Repaired comparison COMPLETE](docs/experiments/learning/thickness/2026-11-01-repaired-search.md):
+  56 attempts,49 depth15 complete,6 assertions,1 timeout.0:25/3/0;10:24/3/1.
+  24 complete pairs,4 bestmove changes,20 PV changes. All49 PVs replayed legally;
+  max position occurrences2; all binary/data/source hashes unchanged.
+  Artifacts: results/thickness-dialogue/support-chain-repaired-search-2026-11-01/.
+  No old Move::IsOk assertion. New6 assert legal_moves.size()>=1 at
+  move_probability.cc:699, roots02/08/14 ply64 BOTH settings.01-64 bonus10 timeout.
+  Changed03-32 candidate PV features opponent thickness;12-32 feature only baseline;
+  13-64 neither PV;14-32 own feature appears earlier candidate but replies differ.
+  Behavior changed, desired thickness/strength improvement not yet established.
+- Responsibility: user explicitly keeps design, thickness interpretation and final
+  responsibility with Astra. Sol may execute clearly specified independent work,
+  reviewed by Astra. Long deterministic batches can run externally to save tokens.
+- NEXT: minimally reproduce/diagnose legal-move-zero assertion before more searches;
+  do not refill this completed batch or increase coefficient. Review saved changed
+  boards afterward, consulting user on thickness meaning as needed.
   User50cp was example, not setting.
   Narrow occurrence also limits general coverage; root0 does not imply no search
   effect. Initial10cp remains a bounded experimental setting, not user rating.
