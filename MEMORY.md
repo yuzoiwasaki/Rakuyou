@@ -3,10 +3,12 @@
 This file is the resume map: current state, durable decisions, constraints, and
 links to evidence. Detailed experiment history belongs in `docs/experiments/`.
 
-## Current direction: user-led thickness dialogue (updated 2026-10-31)
+## Current direction: thickness evaluation experiment (updated 2026-11-01)
 
-- Learning series explicitly paused. Root/QS-leaf proposal below is deferred.
-  No learning/search/games/deployment or scoring implementation in this dialogue.
+- Learning series remains paused; Root/QS-leaf proposal below deferred.
+  User subsequently authorized the isolated support-chain evaluation experiment
+  below, including bounded searches. No training/games/deployment yet. Older
+  dialogue-only restrictions do not override this explicit later experiment.
 - Collaboration: user (~amateur4-dan) supplies intended style, conceptual
   distinctions and counterexamples, not assumed best-move labels; user regards
   Rakuyou as stronger. Separate style preference, conceptual mismatch and reading
@@ -254,9 +256,27 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   make/unmake/null and full/incremental agree.17 final zero scores match old probe.
   Isolated O2/assert engine readyok checked, no go. Runtime bin files unchanged.
   Artifacts under results/thickness-dialogue/support-chain-native-2026-10-31/.
-- NEXT: prepare bounded28-root x0/10 search plan (max56), fresh processes,
-  same experimental binary both sides; native/source manifest must match HEAD.
-  No search/training/games or deployment yet. User50cp was example, not setting.
+- Support-chain comparison FINISHED under explicit user continue/checkpoint request:
+  [Fixed search plan](docs/experiments/learning/thickness/2026-10-31-support-chain-search-plan.md),
+  28 roots x0/10, d15/thread1/hash64/bookOFF/ShinON/fresh,120s each,max56.
+  Native replay all28 matches audit SFEN; source/binary and3 data files bound.
+  Results in results/thickness-dialogue/support-chain-search-2026-10-31/;
+  existing plan blocks auto-rerun. No forced comparison/training/games/deployment.
+- [Comparison result and failure diagnosis](docs/experiments/learning/thickness/2026-11-01-support-chain-search-result.md):
+  56 attempts saved;23 complete d15,32 Move::IsOk asserts,1 timeout.0:10 complete,
+  17assert/1timeout;10:13complete/15assert.9 complete pairs,0 bestmove changes,
+  6 PV changes; effect inconclusive. All23 PVs replayed natively, no repetitions;
+  input/runtime bindings unchanged. complete.json means attempts finished, not
+  all successful. Never rerun this output directory or silently fill failures.
+  26 matching OS reports (binary UUID) point to move_feature.cc:1023 hypothetical
+  recapture construction, unchanged since initial import. Wrong attacker-square
+  filtering and forced nonpromotion are candidates, precise cause not established.
+  Full/delta checks on saved moves did not exercise all hypothetical search moves.
+- NEXT: reproduce hypothetical recapture assertion minimally, identify cause,
+  repair/test before a new comparison plan. Same repair on both0/10 sides; don't
+  simply disable assertions or combine old successes with fresh results. User
+  requested a clean commit/push checkpoint here; no coefficient sweep or refill.
+  User50cp was example, not setting.
   Narrow occurrence also limits general coverage; root0 does not imply no search
   effect. Initial10cp remains a bounded experimental setting, not user rating.
 

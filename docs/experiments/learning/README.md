@@ -24,6 +24,10 @@
 
 [支持関係の試験項：既定無効で実装、探索前の照合を完了](thickness/2026-10-31-support-chain-native.md)
 
+[支持関係の試験項：固定28局面、0/10の探索比較計画](thickness/2026-10-31-support-chain-search-plan.md)
+
+[支持関係の探索比較：異常終了が多く、効果は未判定](thickness/2026-11-01-support-chain-search-result.md)
+
 [自己学習の全体レビュー：厚みの個性と棋力、次の優先順位](2026-10-14-overall-learning-review.md)
 
 [探索評価・勝敗・混合の同条件比較と実行手順](data/2026-10-15-hybrid-learning-plan.md)
