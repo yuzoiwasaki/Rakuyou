@@ -366,10 +366,37 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   Artifacts results/thickness-dialogue/fixed-white-12-2026-11-01/. No retries/deeper
   follow-ups. No observed White initial-move change, not proof of no eval effect.
   Preserve preferred whole-line judgment separately from causal/strength claim.
-- NEXT: lightly review remaining saved03-32,13-64, then summarize style evidence
-  before more searches/training. Packet teatsui-review-2026-11-01/index.html ready;
-  states of6 saved PVs replayed. Those OLD lines precede terminal-picker fix, disclosed.
-  User judgments on03/13 pending; keep feature default0/trial0-10 without expansion.
+- Review03 packet prepared 2026-11-02: teatsui-review-2026-11-01/game03.html
+  starts at equal12-ply offsets, with root/step controls. Baseline White P4e,L*7d,
+  B3c6f capture; bonus10 edge exchanges then G5b6c,S7c7d supporting P7e.
+  These are different resulting positions/opponent moves, not controlled choices.
+  User03 answer: bonus10 "not bad, perhaps my preference"; tentative style positive,
+  not decisive superiority/strength/causality. No new search.
+- Last review13 prepared: teatsui-review-2026-11-01/game13.html starts at root64,
+  equal8/16 offsets available.0 B7g5e P*3e;10 N3g2e P4d4e then exchanges.
+  Do not presume10 is hand-solid; user may prefer either/neither or find tactical
+  comparison unhelpful. Old saved PV data already native-checked, no new searches.
+- User13 answer COMPLETE:0 more natural;10 final diagram allows proposed ...P3e
+  restraint and pressing play closer to thickness. Overall similar, White concept
+  interesting. Proposed follow-up is user reading, not newly searched best move.
+  All4 changed-root reviews done:14/12 prefer10,03 tentative10,13 roughly equal
+  with0 naturalness/10 pressing potential. Keep whole-line confounds explicit.
+- [16-game pilot READY, NOT STARTED](docs/experiments/learning/thickness/2026-11-02-teatsui-match-plan.md):
+  user wants bonus10 games, possible style adoption if strength comparable.
+  Local results/teatsui-match-2026-11-02/match.py reuses tested playtest match runner.
+  Eight existing12-ply starts x candidate color swap, same binary BOTH fixes,
+  baseline0/candidate10, both ShinON,d15/thread1/hash64/bookOFF,300s/move,
+  max256 additional plies; cap unresolved, errors stop/no retries, OS run lock.
+  Both runtimes isolated copies, data links; binary/source/data/script hashes frozen.
+  Referee built,25 existing tests pass;8 legal distinct ongoing starts;2 depth3
+  preflight searches legal and bonus set BEFORE isready. No match games yet.
+  Startup initially lacked book.bin even with OwnBookOFF; fixed read-only link,
+  old preflight plan/failure retained, no go before correction. Final plan sealed.
+- NEXT external execution: from repo root,
+  caffeinate -i python3 results/teatsui-match-2026-11-02/match.py run
+  Then inspect report/summary and both games of every opening, including losses.
+  No automatic deployment/default change or coefficient sweep.16 known-start games
+  cannot prove strength equivalence; fixed depth not equal time. No training.
   User50cp was example, not setting.
   Narrow occurrence also limits general coverage; root0 does not imply no search
   effect. Initial10cp remains a bounded experimental setting, not user rating.

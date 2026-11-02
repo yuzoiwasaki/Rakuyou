@@ -2,6 +2,8 @@
 
 [実験レポート全体](../README.md)
 
+[加点0対10：手厚い棋風の16局予備対局（準備完了）](thickness/2026-11-02-teatsui-match-plan.md)
+
 [現在の目標：厚みの完成を必須にせず、手厚い将棋を目指す](thickness/2026-11-01-teatsui-direction.md)
 
 [厚みの盤面対話：ユーザーの判断と８図の記録（学習休止中）](thickness/2026-10-25-dialogue.md)
