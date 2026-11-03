@@ -381,7 +381,7 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   interesting. Proposed follow-up is user reading, not newly searched best move.
   All4 changed-root reviews done:14/12 prefer10,03 tentative10,13 roughly equal
   with0 naturalness/10 pressing potential. Keep whole-line confounds explicit.
-- [16-game pilot READY, NOT STARTED](docs/experiments/learning/thickness/2026-11-02-teatsui-match-plan.md):
+- [Original16-game pilot FAILED game1](docs/experiments/learning/thickness/2026-11-02-teatsui-match-plan.md):
   user wants bonus10 games, possible style adoption if strength comparable.
   Local results/teatsui-match-2026-11-02/match.py reuses tested playtest match runner.
   Eight existing12-ply starts x candidate color swap, same binary BOTH fixes,
@@ -392,11 +392,23 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   preflight searches legal and bonus set BEFORE isready. No match games yet.
   Startup initially lacked book.bin even with OwnBookOFF; fixed read-only link,
   old preflight plan/failure retained, no go before correction. Final plan sealed.
+- Old pilot FAILED: game1 accepted115 plies; baseline0 White move116 hit300s.
+  Depth14 at219.521s/2,213,419nodes; after stop, info depth15 time300000 and
+  bestmove R*8g returned. Not evidence of completed d15, no assert/crash evidence.
+  Prior114/115 took260.797/187.524s. Old hashes unchanged,0finished/1error, no score.
+  Keep old attempt/files untouched, no auto-retry or accepting post-stop bestmove.
+- [Timed16 pilot READY, NOT STARTED](docs/experiments/learning/thickness/2026-11-03-teatsui-timed-match.md):
+  new results/teatsui-match-timed-2026-11-03/, same8 starts/color swaps/binary0vs10.
+  go depth15 btime0 wtime0 byoyomi10000, margin100ms,30s response watchdog.
+  Depth15 CAP not requirement; lower-depth info normal. Same rules/max256 unresolved.
+  No engine/scoring code change; old outcomes not mixed, starts fresh from beginning.
+  Preflight4 searches: initial depth3 + failed116 root depth15cap for both settings.
+  Both failed-root searches returned legal R*8g in9.911/9.908s, reported depth10.
+  Referee copy identical; options before ready and time options on every go verified.
 - NEXT external execution: from repo root,
-  caffeinate -i python3 results/teatsui-match-2026-11-02/match.py run
-  Then inspect report/summary and both games of every opening, including losses.
-  No automatic deployment/default change or coefficient sweep.16 known-start games
-  cannot prove strength equivalence; fixed depth not equal time. No training.
+  caffeinate -i python3 results/teatsui-match-timed-2026-11-03/match.py run
+  Inspect new report/summary and both games per start, including losses. No automatic
+  deployment/coefficient sweep;16 known-start games cannot prove equivalence.
   User50cp was example, not setting.
   Narrow occurrence also limits general coverage; root0 does not imply no search
   effect. Initial10cp remains a bounded experimental setting, not user rating.
