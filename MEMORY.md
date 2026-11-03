@@ -414,10 +414,18 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   results/teatsui-match-review-2026-11-03/. No new search.
   Feature incidence56 candidate/29 baseline out of1712 states each; correlated
   states and different lines, not proof of style/strength. No automatic deployment.
-- NEXT: saved-game content review starting with both losses05/06 and wins15/16,
-  then other losses; identify overextension/defense gaps/GS use. Do not declare
-  no tactical weakness from legality checks alone. Discuss optional style trial
-  vs broader validation after review; retain default0/trial10, no training/sweep.
+- [Saved-game content review prepared](docs/experiments/learning/thickness/2026-11-03-teatsui-game-review.md):
+  Local teatsui-game-review-2026-11-03/index.html shows full05/06/15/16 and checkpoints.
+  05 Black edge pawn advance met ...P2f/...P2g+ and center attack, early deterioration.
+  06 White near equal until9-file defense pressured around80, different line from05.
+  15 Black favored from initial searched position;16 White negative much of game,
+  ...G*5i Rx5i S*4g then opponent resigns, abrupt score swing not proof of forced mate.
+  All4 have no support feature in played states; cannot claim thickness cause or no
+  search-branch influence. Remaining losses indexed by3 own cp<-300 observations:
+  02:92,03:65,05:33,06:80,07:13,10:28,12:34,13:none (late tactical review needed).
+- NEXT: user review05 edge attack vs defense and06 edge counterattack, then consider
+  loss12 (feature occurs) and13 abrupt ending. No confirmed absence of tactical flaws,
+  no adoption/extra search yet. Keep style trial versus stronger validation separate.
   User50cp was example, not setting.
   Narrow occurrence also limits general coverage; root0 does not imply no search
   effect. Initial10cp remains a bounded experimental setting, not user rating.

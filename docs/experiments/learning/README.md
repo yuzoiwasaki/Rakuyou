@@ -161,3 +161,5 @@
 [支持方向と対向歩の監査：２条件だけでは高美濃型と既承認の厚みを区別できない](thickness/2026-11-01-support-context-audit.md)
 
 [第12局の先手初手を固定：後手0/10の４探索は同じ初手](thickness/2026-11-01-fixed-white-12.md)
+
+[16局の内容確認：２敗した組と２勝した組、敗戦レビューの位置](thickness/2026-11-03-teatsui-game-review.md)
