@@ -397,7 +397,7 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   bestmove R*8g returned. Not evidence of completed d15, no assert/crash evidence.
   Prior114/115 took260.797/187.524s. Old hashes unchanged,0finished/1error, no score.
   Keep old attempt/files untouched, no auto-retry or accepting post-stop bestmove.
-- [Timed16 pilot READY, NOT STARTED](docs/experiments/learning/thickness/2026-11-03-teatsui-timed-match.md):
+- [Timed16 pilot COMPLETE](docs/experiments/learning/thickness/2026-11-03-teatsui-timed-match.md):
   new results/teatsui-match-timed-2026-11-03/, same8 starts/color swaps/binary0vs10.
   go depth15 btime0 wtime0 byoyomi10000, margin100ms,30s response watchdog.
   Depth15 CAP not requirement; lower-depth info normal. Same rules/max256 unresolved.
@@ -405,10 +405,19 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   Preflight4 searches: initial depth3 + failed116 root depth15cap for both settings.
   Both failed-root searches returned legal R*8g in9.911/9.908s, reported depth10.
   Referee copy identical; options before ready and time options on every go verified.
-- NEXT external execution: from repo root,
-  caffeinate -i python3 results/teatsui-match-timed-2026-11-03/match.py run
-  Inspect new report/summary and both games per start, including losses. No automatic
-  deployment/coefficient sweep;16 known-start games cannot prove equivalence.
+- [Timed16 results audited](docs/experiments/learning/thickness/2026-11-03-teatsui-match-result.md):
+  candidate8W8L,Black4/4 White4/4,0draw/unresolved/errors. All16 resign endings.
+  Pairs:6 splits, candidate loses both05/06 (black-Shin central rook), wins both15/16
+  (white-Shin static rook).8 known starts, paired outcomes not16 independent samples.
+  All16 native referee replay + SFEN/results/options/go commands/hash checks pass;
+  no watchdog stop or assert. Sources/runtime unchanged. Audit local
+  results/teatsui-match-review-2026-11-03/. No new search.
+  Feature incidence56 candidate/29 baseline out of1712 states each; correlated
+  states and different lines, not proof of style/strength. No automatic deployment.
+- NEXT: saved-game content review starting with both losses05/06 and wins15/16,
+  then other losses; identify overextension/defense gaps/GS use. Do not declare
+  no tactical weakness from legality checks alone. Discuss optional style trial
+  vs broader validation after review; retain default0/trial10, no training/sweep.
   User50cp was example, not setting.
   Narrow occurrence also limits general coverage; root0 does not imply no search
   effect. Initial10cp remains a bounded experimental setting, not user rating.
