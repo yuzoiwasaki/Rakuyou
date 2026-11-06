@@ -2,6 +2,8 @@
 
 [実験レポート全体](../README.md)
 
+[新米長玉＋加点0/10：同じ通常相手との16局比較計画](thickness/2026-11-06-normal-comparison-plan.md)
+
 [加点10の16局結果：8勝8敗、全局正常完了](thickness/2026-11-03-teatsui-match-result.md)
 
 [16局対局のtimeout診断と、１手10秒・深さ15上限の新計画](thickness/2026-11-03-teatsui-timed-match.md)
