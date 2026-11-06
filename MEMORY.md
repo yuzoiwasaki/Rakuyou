@@ -423,9 +423,30 @@ links to evidence. Detailed experiment history belongs in `docs/experiments/`.
   All4 have no support feature in played states; cannot claim thickness cause or no
   search-branch influence. Remaining losses indexed by3 own cp<-300 observations:
   02:92,03:65,05:33,06:80,07:13,10:28,12:34,13:none (late tactical review needed).
-- NEXT: user review05 edge attack vs defense and06 edge counterattack, then consider
-  loss12 (feature occurs) and13 abrupt ending. No confirmed absence of tactical flaws,
-  no adoption/extra search yet. Keep style trial versus stronger validation separate.
+- User05 judgment: initial edge attack looks natural/not bad; later position poor,
+  cannot distinguish flawed plan from later tactical mistake. Do not penalize edge
+  attack based on this alone.
+- Review UI fixed: option values were missing, yielding NaN on selection. Added
+  numeric values to match review + prior3-case review pages/generators. Direct
+  results/teatsui-game-review-2026-11-03/game06.html opens game6 at68ply.
+  Node DOM checks confirm4 selectors change boards and next moves; no data changes.
+- CORRECTION user06: concerning silver is DEFENSE, not attack or a drop. Saved
+  line76 S8c9b captures pawn,80 S9b9c captures tokin,83 P9d9c+ takes silver.
+  Do not conflate with separate68 S*8h. Retract assistant "silver-drop attack".
+  User unsure bonus causes this; paused at weekly limit then resumed2026-11-06.
+- [Defense diagnostic COMPLETE](docs/experiments/learning/thickness/2026-11-06-defense-diagnostic.md):
+  before72 and76,each0/10,fresh,d15cap/10s/100ms margin/30s watchdog,max4.
+  before72 BOTH P*9d (old R5a5e); before76 BOTH P*8d (old S8c9b).
+  All4 completed,PV legal,hashes unchanged. Reported depths12/11. Neither original
+  move reproduced: cold hash/time variability limits causality. No evidence here
+  bonus10 specifically causes suspect defense; not proof of no effect or best moves.
+  Local results/teatsui-defense-diagnostic-2026-11-06/. No coefficient/code change.
+- NEXT: prepare comparison vs NORMAL at user's request: Shin+10 vs normal alongside
+  Shin+0 vs same normal. Normal ShinOFF/bonus0, same repaired binary/data, same
+  starts/colors/time across trials. Verify start formation matches focal Shin side;
+  freeze game count/plan before external execution. NOT YET PREPARED/RUN.
+  Avoid more06 deep dives without new evidence; keep optional style adoption separate
+  from strength proof. User wants concise resume state given remaining context.
   User50cp was example, not setting.
   Narrow occurrence also limits general coverage; root0 does not imply no search
   effect. Initial10cp remains a bounded experimental setting, not user rating.

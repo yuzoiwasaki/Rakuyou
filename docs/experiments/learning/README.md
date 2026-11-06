@@ -163,3 +163,5 @@
 [第12局の先手初手を固定：後手0/10の４探索は同じ初手](thickness/2026-11-01-fixed-white-12.md)
 
 [16局の内容確認：２敗した組と２勝した組、敗戦レビューの位置](thickness/2026-11-03-teatsui-game-review.md)
+
+[第6局の受けの訂正と同一局面0/10確認：初手は両設定で一致](thickness/2026-11-06-defense-diagnostic.md)
