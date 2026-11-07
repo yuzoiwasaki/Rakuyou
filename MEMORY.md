@@ -68,7 +68,25 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   Evidence `results/teatsui-pair7-diagnostic-2026-11-07/` (report,parent-review,raw).
 - NEXT: diagnostic closed. No coefficient/safety penalty/training change justified
   by these two cases alone. Continue preference/function review of other saved games
-  or, if user wants, compare saved after35 PV plans without assuming0 is better.
+  Pair5 user review: tentative preference0 because rook-file breakthrough looks
+  promising;10 rook seems less effective, but user explicitly does not see10 as
+  very bad. Modest preference/positional impression, not a tactical verdict.
+  At48 both White K7a/G7b/S6b/S7c; other gold0 G5b vs10 G5a, rook0 R8b vs10 R1d.
+  Opponent structures differ. Rook activity is a phase-dependent review consideration;
+  do not attribute this preference to king safety or winning alone.
+  Pair6 at48 user feedback: +0 G7d is immediately restrained by P*7e, so not
+  established thickness, though the shape is not bad. Saved continuation49 P*7e,
+  50 G7d7c confirms retreat. Do not infer advance alone restrains the opponent,
+  or label the move a blunder. No user comparison with +10 established yet.
+  [Design criteria/reference set](docs/experiments/learning/thickness/2026-11-07-style-design-criteria.md)
+  prepared:6 qualitative cases/15 saved positions with full histories/source hashes,
+  `results/teatsui-review-reference-2026-11-07/cases.json`. Not training targets,
+  no numeric labels, no independent validation. Preserve acceptable non-thick forms
+  and reversal of preference32→48. No new engine searches or evaluation changes.
+  NEXT proposed: bounded non-scoring position annotation of support shape vs king
+  pressure/invasion/support-piece pressure, reusing existing evaluation concepts.
+  Not implemented; distinguish legal threats from effective threats. Avoid adding
+  broad activity/safety bonuses or binary thickness penalties.
   Keep operational default0; experiment10 unadopted. No more searches automatically.
 - No extra searches or matches automatically. User can supply shape/function preference;
   separate it from tactical correctness and strength. Learning remains paused.
@@ -108,6 +126,20 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   nor proved irrelevant. Diagnostic is closed; avoid more06 digging without evidence.
 
 ## Durable style understanding
+
+- Desired flow clarified: use GS/pawn thickness to restrain the opponent's attack,
+  then gradually activate major pieces using that breathing room. This is a
+  contextual plan, not a requirement to fully suppress all counterplay before any
+  attack or a fixed move-count phase rule. Evaluate actual restraint, not just shape.
+
+- User cautions against expanding scope into general major-piece activity scoring.
+  In Shin Yonenaga openings, gold/silver activation and formation may take priority;
+  temporary rook/bishop inactivity is acceptable. Consider major-piece use from
+  middlegame onward, contextually, not a fixed phase switch or mandatory early
+  development. Do not add/strengthen activity bonuses or weaken existing evaluation
+  from this teaching alone. Focus remains GS/pawn coordination, own king safety and
+  responses to enemy pressure. The assistant's broad generalization after pair5
+  is qualified by this user clarification (2026-11-07).
 
 - Thickness also depends on own king solidity and whether the opponent is attacking.
   Forward pawn/GS shape is insufficient when rear invasion or tactical counterplay
