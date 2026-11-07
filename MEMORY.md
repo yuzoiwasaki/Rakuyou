@@ -94,8 +94,21 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   visual check not performed. No search/build/evaluation changes.
   Pair6 48 G7d supported by S8c,49 P*7e attacks it while support remains,50 G7c
   supported by G7b/N8a. Support alone is not sustainable restraint.
-  NEXT: inspect annotated cases before defining any score; do not infer danger
-  from geometric controls or add penalties for every legally available pawn attack.
+  Annotation UI is developer observation aid, NOT a user review task. Keep purpose
+  sharp; ask user only when their answer changes a design decision, with rationale.
+  Compared lowering bonus, safety gating, wider GS bonus: none currently justified;
+  prior pair/advance learning reviewed, not reopened. See design criteria addendum.
+  Latest user feedback on pair7 game14 after35 (Horse4a): ...K8b is NEUTRAL,
+  neither plus nor minus. Horse4a is effective pressure and White struggles somewhat.
+  Desired plan: avoid rushing attack, contain the horse and play patiently.
+  K8b legal via referee only, not preferred move/teacher. P1e individually unjudged.
+  NEXT: consider how existing evaluation/search represents containing the horse
+  while preserving own coordination. No specific containing move, feature formula,
+  coefficient or new experiment fixed yet. Do not equate horse presence/mobility
+  alone with danger or introduce a blanket penalty. No more tools for their own sake.
+  HANDOFF: user already created a newer chat, accidentally returned here, plans
+  to move there. Read this latest map and linked design criteria; do not repeat
+  K8b question or assume the newer chat's contents are visible in this thread.
   Keep operational default0; experiment10 unadopted. No more searches automatically.
 - No extra searches or matches automatically. User can supply shape/function preference;
   separate it from tactical correctness and strength. Learning remains paused.
