@@ -17,6 +17,10 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   tactical correctness and measured strength; explain with concrete squares/pieces.
 - No bonus adjustment or formal adoption has been decided. Learning is paused.
   Do not turn an exploratory result into automatic deployment or a new training run.
+- Latest agreed workflow: use **bonus10 as the review/experimental baseline**,
+  examine concrete discomfort as it arises, and accumulate contextual understanding
+  before readjusting evaluation. Not operational adoption; default0 remains.
+  Do not add a new scoring rule per example or make tools the objective.
 
 ## Current result and next step: normal comparison completed
 
@@ -102,13 +106,44 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   neither plus nor minus. Horse4a is effective pressure and White struggles somewhat.
   Desired plan: avoid rushing attack, contain the horse and play patiently.
   K8b legal via referee only, not preferred move/teacher. P1e individually unjudged.
-  NEXT: consider how existing evaluation/search represents containing the horse
-  while preserving own coordination. No specific containing move, feature formula,
-  coefficient or new experiment fixed yet. Do not equate horse presence/mobility
-  alone with danger or introduce a blanket penalty. No more tools for their own sake.
-  HANDOFF: user already created a newer chat, accidentally returned here, plans
-  to move there. Read this latest map and linked design criteria; do not repeat
-  K8b question or assume the newer chat's contents are visible in this thread.
+  [Containment design](docs/experiments/learning/thickness/2026-11-07-horse-containment-design.md):
+  resumed from latest disk state; existing eval represents parts of horse/GS/king
+  relations, but sustainable restraint not established. Saved after41 bonus10 d7–11
+  PV already has G5b6c N7g6e S5c4b; d14 selects P5e. Candidate organization exists,
+  not proof of confinement/superiority or search-pruning failure. Different from35root.
+  User CONFIRMS effective restraint incl retreat/reasonable exchange, not physical
+  trapping. Sente horse is "もたれ": no immediate concrete attack, aims to acquire
+  pieces from gote's attack/exchanges and then break formation. User prefers not
+  taking that bait, patiently preserving coordination; not a universal no-attack rule.
+  Pair7 discussion is closed for now. User agreed to continue saved-game review
+  from bonus10 and defer evaluation retuning until recurring issues are understood.
+  No automatic G6c comparison; saved plan not approved best move.
+  Pair6 bonus10/game11 at48→54→58: defend8-file with P*8d, exchange2-file
+  pawns, then P*8b supports S8c against R8f/S8e. K7a/G6a,G6c/S5d,S8c stay.
+  Astra selected; Sol native-checked44/48/54/58 and saved PV (48 already predicts58).
+  User: somewhat unnatural; insufficient defensive pieces on8-file, breakthrough
+  foreseeable; hand-solid shogi should defend reliably. Not a general ban on2-file
+  exchange or proven forced line. Unchanged GS placement/support != adequate defense.
+  User specifies: anticipate P*8e then silver attack; return rook to8b to reinforce
+  8d, so original44 R8b2b deployment seems questionable. Keep rook's defensive role;
+  S8c blocks direct R8b→8d ray now, distinguish backing after moves/exchanges.
+  Distinguish pair6 concrete defensive shortage from pair7 latent "もたれ"/reaction.
+  Saved44PV already includes P*8e Px8e Sx8e P*8b (actual47 is Rx8e);
+  no claim pressure was unseen. Pair6 closed for now: check whether defense remains
+  after exchanges before transferring pieces to attack. No numeric penalty/search.
+  Details in style-design-criteria final section.
+  Pair1 bonus10/game2,40→49,47S5g5f/49S5f4e takes pawn,
+  own K2h/G3h,G5h/S2g/R4i unchanged; opponent S5e also active. Do not infer
+  thick/safe because placement unchanged or won.
+  Astra selected; Sol native-verified40/47/48/49. Existing viewer, no new searches.
+  User: silver counterplay not very concerning;43 G4g looks natural to reinforce
+  where opponent attacks. Actual43 Px5e invites enemy silver, concerning. User
+  allows actual may be best; G4g is a proposed natural defense, not a best-move label.
+  Sol native-check:43 G5h4g legal, supportsP5f. Actual43P5f5e capturesWP5e;
+  WS4d captures it on48. No alternative search or superiority established.
+  NEXT continue dialogue from bonus10 saved games as useful; retain defensive
+  participation and reinforce-before-exchange preference. No fixed new experiment.
+  K8b remains neutral; no horse-presence/mobility blanket penalty or automatic tuning.
   Keep operational default0; experiment10 unadopted. No more searches automatically.
 - No extra searches or matches automatically. User can supply shape/function preference;
   separate it from tactical correctness and strength. Learning remains paused.
@@ -148,6 +183,11 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   nor proved irrelevant. Diagnostic is closed; avoid more06 digging without evidence.
 
 ## Durable style understanding
+
+- User explicitly values sufficient defensive pieces in own camp; prefer avoiding
+  positions likely to be broken through or pushed back because defenders are too few.
+  Track participating defenders (rook included) and what remains after exchanges,
+  not only unchanged GS shape. No numeric feature/blanket retreat rule approved.
 
 - Desired flow clarified: use GS/pawn thickness to restrain the opponent's attack,
   then gradually activate major pieces using that breathing room. This is a
