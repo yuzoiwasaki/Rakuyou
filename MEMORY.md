@@ -56,10 +56,20 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   White chain only42 (...P5e supported by S6d/S5c), +6 White, gone on43 Px5e.
   This does not exclude effects on search branches or establish bad-move causality.
   Evidence `results/teatsui-king-safety-review-2026-11-07/static_audit.json`.
-- NEXT proposed, NOT implemented/run: bounded same-history0/10 fixed-node diagnostic
-  on pair7 game14 after35 and41 (before ...P2d and ...P5e). Freeze limits and minimal
-  reproducibility control first. Keep coefficient/default unchanged; no new safety
-  penalty or training based only on the two preferences. See report for scope/limits.
+- [Pair7 bounded diagnostic](docs/experiments/learning/thickness/2026-11-07-pair7-diagnostic.md)
+  COMPLETE8/8: after35/41,0/10 twice fresh, go depth15 nodes200000 (iteration
+  threshold, overshoots). Four same-config repeats exactly match bestmove/score/
+  depth/nodes/PV. All110 PVs+8bestmoves legal; bindings unchanged; no retries.
+  after35:0 ...P1e (d13,278013,-570cp),10 ...P2d (d14,287093,-540cp).
+  after41:both ...P5e;0 d14,214594,-617cp;10 d14,328767,-474cp.
+  Both after41 PVs include Px5e Sx5e N6e: cannot claim knight jump unseen.
+  Score143cp difference is NOT raw bonus effect; search paths differ. after35
+  selection influence reproduced but0 also advances a flank pawn, not proven safer.
+  Evidence `results/teatsui-pair7-diagnostic-2026-11-07/` (report,parent-review,raw).
+- NEXT: diagnostic closed. No coefficient/safety penalty/training change justified
+  by these two cases alone. Continue preference/function review of other saved games
+  or, if user wants, compare saved after35 PV plans without assuming0 is better.
+  Keep operational default0; experiment10 unadopted. No more searches automatically.
 - No extra searches or matches automatically. User can supply shape/function preference;
   separate it from tactical correctness and strength. Learning remains paused.
 - Preserve sealed plans, raw games and attempt markers; do not rerun prepare/preflight.
