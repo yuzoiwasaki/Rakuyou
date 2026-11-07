@@ -83,10 +83,19 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   `results/teatsui-review-reference-2026-11-07/cases.json`. Not training targets,
   no numeric labels, no independent validation. Preserve acceptable non-thick forms
   and reversal of preference32→48. No new engine searches or evaluation changes.
-  NEXT proposed: bounded non-scoring position annotation of support shape vs king
-  pressure/invasion/support-piece pressure, reusing existing evaluation concepts.
-  Not implemented; distinguish legal threats from effective threats. Avoid adding
-  broad activity/safety bonuses or binary thickness penalties.
+  [Non-scoring annotations](docs/experiments/learning/thickness/2026-11-07-position-annotations.md)
+  implemented on all15 saved states: chains, raw geometric king/ring attacks,
+  unpromoted GS attackers/defenders, enemy pieces in own home3ranks. Pins ignored,
+  no legal/effective threat or danger rating. King excluded only from ring defense,
+  retained as a GS defender. Native chain bools agree; attackmap parity not claimed.
+  `results/teatsui-position-annotations-2026-11-07/index.html` with sixcase/state
+  selection and overlays; JSON preserves original feedback, histories and hashes.
+  Six geometry/replay/symmetry tests and480 Node UI combinations passed; browser
+  visual check not performed. No search/build/evaluation changes.
+  Pair6 48 G7d supported by S8c,49 P*7e attacks it while support remains,50 G7c
+  supported by G7b/N8a. Support alone is not sustainable restraint.
+  NEXT: inspect annotated cases before defining any score; do not infer danger
+  from geometric controls or add penalties for every legally available pawn attack.
   Keep operational default0; experiment10 unadopted. No more searches automatically.
 - No extra searches or matches automatically. User can supply shape/function preference;
   separate it from tactical correctness and strength. Learning remains paused.

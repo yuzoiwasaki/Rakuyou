@@ -2,6 +2,8 @@
 
 [実験レポート全体](../README.md)
 
+[15局面の注釈：支持形・玉と金銀への利きを点数化せず表示](thickness/2026-11-07-position-annotations.md)
+
 [手厚い将棋の設計基準：6つの対話参照例と次の範囲](thickness/2026-11-07-style-design-criteria.md)
 
 [組7の2局面診断：2筋の選択差は再現、5五歩は両設定が選択](thickness/2026-11-07-pair7-diagnostic.md)
