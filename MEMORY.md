@@ -18,43 +18,34 @@ is the last full historical map). Historical NEXT headings are not active tasks.
 - No bonus adjustment or formal adoption has been decided. Learning is paused.
   Do not turn an exploratory result into automatic deployment or a new training run.
 
-## Next step: prepared 0/10 comparison against normal
+## Current result and next step: normal comparison completed
 
-[Fixed design, verification and external command](docs/experiments/learning/thickness/2026-11-06-normal-comparison-plan.md).
+[Result and all-eight-pair review entry](docs/experiments/learning/thickness/2026-11-07-normal-comparison-result.md).
+[Fixed design](docs/experiments/learning/thickness/2026-11-06-normal-comparison-plan.md).
 
-- **READY; 0 match games run at last verification.** Sol preparation and Astra
-  final review complete 2026-11-07. Check actual saved status before resuming.
-- Output: `results/teatsui-vs-normal-2026-11-06/`. Local `match.py` reuses unchanged
-  shared match/referee code. `plan.json`, `preflight.json`, `preparation-review.json`
-  contain frozen inputs and validation evidence; raw artifacts are Git-ignored.
-- Eight known 12-ply starts × Shin bonus0/10 =16 games. Focal Shin takes the color
-  named by each start, NOT both-color swaps on one history. Each arm:4Black/4White.
-  Same normal opponent: `ShinYonenagaGyoku=false`, `ExperimentalSupportChainBonus=0`.
-- Same repaired binary/data; fresh engines each game; sequential games; bonus order
-  balanced within each color. Shin arms differ only in bonus0/10. Bonus10 remains
-  the existing symmetric evaluation feature, not a bonus restricted to focal color.
-- d15 **cap**, 10s/move, margin100ms, watchdog30s, thread1/hash64, book/ponderOFF.
-  Max256 additional plies remains unresolved. Errors stop; no automatic retries.
-- Verified:6 local +25 shared tests;8 legal/distinct/ongoing/unrepeated starts;
-  exactly6 fresh d3 preflight searches, legal moves/options before isready/timed go.
-  Astra checked239 frozen file bindings, saved commands,8 SFENs and6 moves.
-- Plan SHA: `ef4acbf95fced90aa2e249467b62e736b23f2ad8021eb57b7af4458b5fb47dd3`.
-  Do not rerun prepare/preflight, overwrite plans or remove attempt markers.
-- External execution from repository root, when user proceeds:
-
-```sh
-caffeinate -i python3 results/teatsui-vs-normal-2026-11-06/match.py run
-```
-
-- After completion: audit saved histories/options/hashes/results, then aggregate
-  each arm and color plus differences within the same8 starts. Exclude unresolved,
-  errors and unrun games from scored denominators; show their counts separately.
-- Review **all8 pairs**, initially at total plies32/48/64 (or earlier terminal state).
-  Distinguish gold/silver function, defensive holes, tactics and style preference;
-  ask user about uncertain kifu judgments. No extra searches automatically.
-- Known related starts are not16 independent samples. No normal-vs-normal control:
-  this tests bonus differences conditional on these starts, not isolated Shin effect
-  or general strength equivalence. Neither a tied score nor preferred shape adopts10.
+- Completed16/16; comparable8/8. Shin+0 and Shin+10 each3W5L; no draws,
+  unresolved/errors/unrun. +0 Black1W3L/White2W2L; +10 Black2W2L/White1W3L.
+- Pair deltas10−0: +1,+1,0,−1,0,0,−1,0. All games ended by resignation.
+  No strength equivalence, adjustment or adoption established. Existing default0 remains.
+- Source `results/teatsui-vs-normal-2026-11-06/`; all239 frozen bindings intact,
+  all16 histories/options/go/bestmoves audited with native referee, no new searches.
+  Evidence in `results/teatsui-vs-normal-review-2026-11-07/audit.json`.
+- IMPORTANT: pairs1/2 (the two +10-only wins) first diverge at ply18 on NORMAL
+  side despite identical preceding moves/settings. Time-limited search variability
+  confounds direct attribution of those wins to bonus. Other pairs also not causal proof.
+- Review UI `results/teatsui-vs-normal-review-2026-11-07/index.html`: all8 pairs,
+  total32/48/64 snapshots and full navigation. User style judgment still pending.
+- NEXT: ask about pair4 at32→48→64: +0 G7g→7f and S5f/S4f develops upward,
+  while +10 at48 has P5f/S5g. Do not assume +10 consistently creates preferred form.
+  Pair7 is another useful contrast: +10 GS advance markedly but loses; no diagnosed
+  blunder or thickness success/failure yet. Avoid judging merely by advancement.
+- No extra searches or matches automatically. User can supply shape/function preference;
+  separate it from tactical correctness and strength. Learning remains paused.
+- Preserve sealed plans, raw games and attempt markers; do not rerun prepare/preflight.
+  Original plan SHA `ef4acbf95fced90aa2e249467b62e736b23f2ad8021eb57b7af4458b5fb47dd3`.
+  Same repaired engine/data, normal ShinOFF/bonus0, focal ShinON/bonus0 or10,
+  eight12ply known starts, focal color fixed, d15cap/10s/margin100ms/thread1/hash64.
+  No normal-vs-normal control; do not infer isolated Shin effect or pool old pilot.
 
 ## Recent evidence and unresolved interpretation
 
