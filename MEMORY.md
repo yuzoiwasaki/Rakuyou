@@ -34,11 +34,32 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   side despite identical preceding moves/settings. Time-limited search variability
   confounds direct attribution of those wins to bonus. Other pairs also not causal proof.
 - Review UI `results/teatsui-vs-normal-review-2026-11-07/index.html`: all8 pairs,
-  total32/48/64 snapshots and full navigation. User style judgment still pending.
-- NEXT: ask about pair4 at32→48→64: +0 G7g→7f and S5f/S4f develops upward,
-  while +10 at48 has P5f/S5g. Do not assume +10 consistently creates preferred form.
-  Pair7 is another useful contrast: +10 GS advance markedly but loses; no diagnosed
-  blunder or thickness success/failure yet. Avoid judging merely by advancement.
+  total32/48/64 snapshots and full navigation. User has reviewed pair4 through48; see below.
+- Pair4 user feedback: at32 both acceptable and +10 also preferred style; at48
+  prefers +0 as unhurried, solid play: central pawn/silver and king-side preparation
+  both matter. +10 becomes a mutual attack, K3i/R2i proximity also worries user;
+  user judges it somewhat worse. Preserve preference vs tentative positional judgment;
+  no proven blunder or bonus causality. Do not reject +10's32 shape or add a penalty.
+- Pair7 user feedback: prefers +10 at32, reverses to +0 at48; suspects +10 play
+  after32 is mistaken. No specific bad move established. +10 plays ...P5e/S5e/P*5f
+  at42/44/46; +0 organizes K8b/S7b/S6c/P*6d. Opponent continuations differ.
+  User clarified: own king solidity and whether opponent is attacking matter to
+  thickness. +10's ...P2d/P2e/P2f timing feels wrong with enemy horse invading at4a
+  and attacking from behind; ...P5e/S5e is exploited by N6e. This is contextual
+  prioritization criticism, not a blanket ban on pawn advances or a proven losing move.
+- [Safety/support code review and68 static positions](docs/experiments/learning/thickness/2026-11-07-king-safety-and-support.md)
+  completed without search/build/code change. Existing safety, KP, controls, sliders
+  already represent king/attacker relations; support bonus adds independently and
+  has no safety gate. Existing weights' adequacy not established; no term breakdown.
+  Pair4 game7(+10) has no chain32–48; game8(+0) Black chain32–46, hypothetical
+  +10 gives Black+6 at32 (actual game bonus0). Pair7 game13(+0) none; game14(+10)
+  White chain only42 (...P5e supported by S6d/S5c), +6 White, gone on43 Px5e.
+  This does not exclude effects on search branches or establish bad-move causality.
+  Evidence `results/teatsui-king-safety-review-2026-11-07/static_audit.json`.
+- NEXT proposed, NOT implemented/run: bounded same-history0/10 fixed-node diagnostic
+  on pair7 game14 after35 and41 (before ...P2d and ...P5e). Freeze limits and minimal
+  reproducibility control first. Keep coefficient/default unchanged; no new safety
+  penalty or training based only on the two preferences. See report for scope/limits.
 - No extra searches or matches automatically. User can supply shape/function preference;
   separate it from tactical correctness and strength. Learning remains paused.
 - Preserve sealed plans, raw games and attempt markers; do not rerun prepare/preflight.
@@ -77,6 +98,11 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   nor proved irrelevant. Diagnostic is closed; avoid more06 digging without evidence.
 
 ## Durable style understanding
+
+- Thickness also depends on own king solidity and whether the opponent is attacking.
+  Forward pawn/GS shape is insufficient when rear invasion or tactical counterplay
+  undermines it. Pair7: user dislikes flank pawn tempos under horse pressure and
+  central push exploited by a knight jump; preserve contextual timing, not move bans.
 
 - [Current direction](docs/experiments/learning/thickness/2026-11-01-teatsui-direction.md):
   A59 is now judged preferred solid G/S defense, not established thickness;
