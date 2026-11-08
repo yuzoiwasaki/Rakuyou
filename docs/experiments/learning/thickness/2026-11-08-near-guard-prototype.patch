@@ -1,0 +1,61 @@
+--- src/evaluation.cc
++++ isolated/evaluation.cc
+@@ -18,6 +18,9 @@
+  */
+ 
+ #include "evaluation.h"
++#include <cstdio>
++#include <cstdlib>
++#include <cstring>
+ 
+ #include "common/arraymap.h"
+ #include "common/math.h"
+@@ -369,10 +372,47 @@
+   }
+ }
+ 
++
++int NearGuardBonusCp() {
++  static const int bonus = []() {
++    const char* value = std::getenv("RAKUYOU_NEAR_GS_CP");
++    if (value == nullptr || std::strcmp(value, "0") == 0) return 0;
++    if (std::strcmp(value, "10") == 0) return 10;
++    std::fprintf(stderr, "RAKUYOU_NEAR_GS_CP must be 0 or 10\n");
++    std::abort();
++  }();
++  return bonus;
++}
++
++template<Color kColor>
++int NearGuardCount(const Position& pos) {
++  const Square king = pos.king_square(kColor);
++  const Bitboard king_control = pos.AttacksFrom<kColor, kKing>(king);
++  Bitboard guards = pos.pieces(kColor, kGold, kSilver);
++  int count = 0;
++  while (guards.any()) {
++    const Square square = guards.pop_first_one();
++    if (Square::distance(king, square) > 2) continue;
++    const int without_king = pos.num_controls(kColor, square)
++        - int(king_control.test(square));
++    if (without_king >= 1) ++count;
++  }
++  return count;
++}
++
++PackedScore NearGuardScore(const Position& pos) {
++  const int bonus = NearGuardBonusCp();
++  if (bonus == 0) return PackedScore(0);
++  const int delta = NearGuardCount<kBlack>(pos) - NearGuardCount<kWhite>(pos);
++  const int raw = bonus * delta * kFvScale;
++  return PackedScore(raw, 0, raw, 0);
++}
++
+ inline PackedScore EvaluateKingSafety(const Position& pos) {
+   PackedScore score_black = EvaluateKingSafety<kBlack>(pos);
+   PackedScore score_white = EvaluateKingSafety<kWhite>(pos);
+-  return score_black + score_white;
++  return NearGuardBonusCp() == 0 ? score_black + score_white
++                                 : score_black + score_white + NearGuardScore(pos);
+ }
+ 
+ /**

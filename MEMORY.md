@@ -1,6 +1,6 @@
 # Rakuyou resume map
 
-Updated 2026-11-07. Read this on resume; open linked reports only as needed.
+Updated 2026-11-08. Read this on resume; open linked reports only as needed.
 This file holds current state, durable constraints and next steps, not a changelog.
 Earlier details remain in experiment reports and Git history (`a87f406:MEMORY.md`
 is the last full historical map). Historical NEXT headings are not active tasks.
@@ -141,10 +141,155 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   allows actual may be best; G4g is a proposed natural defense, not a best-move label.
   Sol native-check:43 G5h4g legal, supportsP5f. Actual43P5f5e capturesWP5e;
   WS4d captures it on48. No alternative search or superiority established.
-  NEXT continue dialogue from bonus10 saved games as useful; retain defensive
-  participation and reinforce-before-exchange preference. No fixed new experiment.
+  [Pair1 bounded comparison](docs/experiments/learning/thickness/2026-11-07-pair1-gold-comparison.md) COMPLETE:
+  after42 fullhistory,+10 fixed,MultiPV2,searchmoves5h4g/5f5e,d15/nodes400000,
+  watchdog120s,fresh,exactly1go/no repeats. Astra design/pre-go/final review; Sol ran
+  and verified.21.384s,d15/351804nodes:Px5e−142cp/G4g−190cp (Black),both unbounded.
+  All30PVs+bestmove native legal,bindings intact. G4g supportsP5f thenS5f but other
+  flank pressure remains; pawn PV usesP*6d/Gx6d/B9g/Gx5e/B3a+→H2a takes knight,
+  unlike actual silver capture.48cp isn't isolated defense value or best-play proof.
+  Pair2 +10/game3 48→55: user finds exchange unappealing, not clearly bad; already
+  pressed near36 with too few defenders. Enemy S2e/P2f resemble a foothold, so
+  giving S+2P risks drops beyond it; no square specified. "Counterattack material"
+  was assistant hypothesis. NEXT if needed: discuss defense before the advance; no tuning.
+  User's early ideas: B retreat to5i then P3f, P4f→4e counterattack as opponent
+  starts, or keep R2h for2-file defense. Timing/order open; human concepts, no
+  immediate-legality or superiority claim. Actual R2h→7h19→8h29, B8h→7g25;
+  P3g/P4g remain through32. B5i diagonal needs3g cleared; S4f blocks immediate
+  P4f preparation at32; S2g blocks direct R2h→2f ray. No search/eval change.
+  User reads White P3e(18)→R2b(28)→S3d(30) as a coordinated attack that
+  restrains free P3f play; Black P2f(5)/S2g(15) preceded P3e. User considers
+  avoiding that formation or finding a P3f counter; cleared3g could admit G/N
+  defense as well as B5i diagonal. Timing/line unchosen, no best-move label.
+  Output results/teatsui-pair1-gold-comparison-2026-11-07/,finalplan plan-v2.json;
+  old pre-go plan/script retained,0old searches. Comparison closed; no more searches
+  automatically. User accepts incorporating human intuition here: bring an inactive
+  piece to the contested area, adding defense AND restraining enemy advance together.
+  User qualifies: no need to fixate on dual-purpose activation. Core conditional idea:
+  if defenders suffice, capture a pawn and use pawn drops to repel; if insufficient,
+  avoid premature capture, add defenders and slow enemy entry before being breached.
+  Count participation AFTER exchanges incl held-pawn resources/tempo; not raw-count
+  threshold or universal anti-capture. Actual43 forced breach is not established.
+  No formula/weight/training set;48cp isn't approved tolerance. User permits broader
+  dialogue from genuine uncertainty; don't force every next case into capture/drop
+  theme. Continue saved+10 dialogue; no automatic feature or repeat search.
+  Pair8 bonus10/game15,38→49 edge exchange. Bishop9g→8h→9i;
+  at49 clear diagonal to enemyS4d, both holdL, W P9c/K7a/R8b. Astra selection,
+  Sol saved-history/geometry check; no search. User: edge attack before48 naturally
+  targets weak bishop head; success unknown. Bishop effectiveness barely changes,
+  don't emphasize its relocation/diagonal as main issue (assistant corrected).
+  Natural concrete-target attack is compatible with defensive style; no best-move label.
+  Samegame15 at54→64: G2c→3d→4d, supportedS5c, attacksB5e; allowsBlack+P2a
+  (no knight capture;N already3c). Assistant sees gold role change, tradeoff unknown.
+  User: GxP2b possible, but allowing tokin to activate gold also natural, feels
+  Yonenaga-like (user style association). LaterL5c+ may hurt; not whole-plan rejection.
+  Activity can justify allowing entry; don't turn defensive-count preference into
+  always-prevent-entry rule. Astra selected/Sol saved-check, no new search.
+  Sol confirms hypothetical58G2c2b legal pawn capture; actual69L*5f70P4e4f71L5f5c+
+  takesS5c (G4d supporter, no other direct White control5c).72G4e73S*5b follows.
+  Actual tactical loss distinct from natural gold plan; no alternative superiority proof.
+  USER CORRECTION: L5c+ hurts chiefly by creating a promoted piece near king,
+  plus captured silver (70WhitePx4f also takesSilver; not one-sided silver loss).
+  R8b obstructs king escape. Retract emphasis on lost G4d supporter
+  as main explanation. Own rook can be useful defense(pair6) or escape obstruction
+  here depending on position; no blanket R8b rule or forced-mate claim.
+  Pair5 +10/game10 64→73: user confirms the central defense works locally.
+  White R1d supports P*5d through clear2d/3d/4d; Black S5e retreats6f after
+  66/72 drops. This does not establish lasting restraint, whole-king safety,
+  best play, win cause or bonus adoption. No search.
+  Pair3 +10/game6: user's final judgment is that the king-side edge attack was
+  wrong in this game and should be approached more cautiously. White P2g+ takes S2g at36;
+  another Black silver falls46. White drops S*4e48/S*3f50 and promotes on2g52,
+  taking G2g. Silver identity in hand is not traceable. User stresses weakened
+  defense/formation disruption and opponent use of gained pieces. In upper-king
+  thickness play G/S can matter more than a major piece; B-for-S alone isn't good.
+  Contextual function, not general piece-value reversal or tuning. No new search.
+  Pair4 +10/game7: user says Black already poor by58 and suspects worsening
+  around45 B6f1a+ (takes L); H3g at65 is a target, not effective shelter.
+  Saved66 N3c4e attacks it,68 P*4f/70 S*3g chase,72 S3g4f+ takes horse.
+  Exact losing move unproved. The later seven-position static audit below checks
+  existing evaluation around44/45/48; no new search.
+  User now explicitly wants evaluation to value own-king defense more: thin Shin
+  cannot rely on B-for-S or lance gain/horse alone when defense is stripped.
+  Prioritize defense here; concrete feature/weight undecided, no code change.
   K8b remains neutral; no horse-presence/mobility blanket penalty or automatic tuning.
   Keep operational default0; experiment10 unadopted. No more searches automatically.
+- [Seven saved-position static evaluation audit](docs/experiments/learning/thickness/2026-11-08-seven-static-audit.md)
+  completed: game06 after32/37, game07 after44/45/48, game10 after64/73,
+  ShinON/+10 with no search. Native diagnostic separated Black/White king_safety,
+  checked eight-neighbor inputs, raw4 scores, fixed-progress contributions,
+  complete evaluation and rounding residual. All7 legal histories/SFENs and
+  original239 bindings matched. Game06 own-king-safety contribution falls
+  +331→+130cp across32→37 while controls also falls; game07 is already
+  -1211cp after44; game10 White own safety stays near+172→+178cp.
+  These are existing-term responses, not causal proof or tuning coefficients.
+  Follow-up candidate comparison below is complete; no coefficient decided.
+- [Pair4 game07 after44 defensive candidate comparison](docs/experiments/learning/thickness/2026-11-08-pair4-defense-comparison.md)
+  completed one fresh MultiPV2 search, ShinON/+10, restricted to actual6f1a+
+  and user P*4f. Common unbounded d14/495040nodes: -133 vs -548cp;
+  28/28 PVs native legal, plan/raw/bindings intact, no retry. User's P*4f
+  attacks R4e and is supported by S5g, but its saved PV chooses ...R4d then
+  pawn pushes and B1a+, not a continuing-defense line. Actual-root PV uses
+  captured lance at4h defensively; actual game has different White response.
+  USER REVISION: at44 White has captured Black N4e after37 P4f4e,
+  38 ...Px4e,39 Nx4e, a bishop exchange and42 ...R7e. User suspects
+  the37 pawn advance was poor and Black was already worse earlier; this is
+  not a proven forced loss or identified losing move. USER: assistant's37 G4i4h
+  is "not bad", but prefers a plan of S3h4g, K3i3h and G4i4h (king/gold
+  order flexible); G4h first is also acceptable, not a fixed move-order label.
+  The plan opens R2i's lateral route. S3h4g alone is native legal;
+  if K/G vacate3i/4i, rook path3i–7i clears before own N8i. Later moves
+  depend on unspecified opponent replies; no superiority established by the
+  saved game alone. The later fixed prototype comparison is below.
+  A separate branch was discussed but not decided or created.
+- [Supported near-king G/S prototype](docs/experiments/learning/thickness/2026-11-08-near-guard-prototype.md)
+  tested one isolated correction: count unpromoted G/S within king distance2
+  with non-king own support, add10cp per Black−White count; existing support
+  bonus10 stayed fixed. Off matched original; native full/diff/unmake/rotation
+  and target fixtures passed. Four fixed searches completed: game07 after36
+  p0 preferred actual P4e (-247 vs G4h -353), p10 preferred G4h (-292 vs
+  P4e -405), all common d15/3 roots; game10 after65 retained P*5d at both
+  0/10. G4h PV includes S4g/K3h; S4g first temporarily loses local support.
+  USER: S4g is optional; G4h first is acceptable if it advances the defensive
+  plan. S4g's immediate ranking need not recover for this trial to proceed.
+  This is a prototype candidate, not strength proof or operational adoption.
+- [Unrestricted three-root check](docs/experiments/learning/thickness/2026-11-08-near-guard-generality.md)
+  completed with the same isolated binary, lambda0/10 and support10:6/6 fresh
+  searches, all common d15,90 PVs native legal, bindings unchanged. At game07
+  after36 unrestricted baseline already chose G4h; trial chose S4g. At unused
+  game11 after43 both chose R2b (earlier rook concern remains), at game15
+  after59 both chose G3d (only the initial gold activity preserved). The
+  restricted P4e→G4h shift is not a demonstrated general improvement.
+  USER DIRECTION: anticipate the opponent's attack and add or preserve the
+  defenders that can participate, including their location and role after
+  exchanges; this is not limited to rook defense or nearby G/S counts.
+  Near-guard support can count R8b and later P*8b support equally as one,
+  although participation on the 8th file after silver movement/exchanges differs.
+- [Rear-participation prototype](docs/experiments/learning/thickness/2026-11-08-rear-participation-prototype.md)
+  replaced near-guard10 with one isolated 0/10 term; support10/ShinON stayed
+  fixed. Static R8b-vs-P8b participation differed as intended, but four fixed
+  searches chose R2b at game11 after43 under both settings; positive game10
+  after65 kept P*5d under both. All common d15, 60 PVs native legal, bindings
+  unchanged. Trial PV later uses S8c7b→S8e7f→P*8c, so it is not the same P*8b line.
+  USER: P*8b gets pushed back. This prompted the candidate comparison below;
+  term10 remains unadopted.
+- [Pair6 game11 gold defense comparison](docs/experiments/learning/thickness/2026-11-08-pair6-gold-defense-comparison.md)
+  completed one same-root White MultiPV2 search at after43 with original fixed
+  engine/ShinON/support10: legal G6a7b supports S8c/R8b but blocks S7b retreat
+  and R2b path. Common unbounded d15: G7b -443 vs actual R2b -195cp; best R2b.
+  30 PVs native legal, bindings unchanged. G7b line meets a different central
+  attack and White also counterattacks; this does not reject defense as a policy.
+  This led to the single contact-deficit trial below; no move-quality label.
+- [King-contact deficit prototype](docs/experiments/learning/thickness/2026-11-08-king-contact-deficit-prototype.md)
+  added one isolated 0/10 term for enemy-vs-own controls next to each king,
+  with near-guard/rear terms off, support10/ShinON fixed. Off matched original;
+  full/diff/unmake/rotation/12 fixtures passed. Six fixed fresh searches all
+  common d15, 90 PVs native legal, bindings unchanged: game06 after28 changed
+  from actual edge P1e at0 to S5g4h at10; game07 after36 kept G4h and positive
+  game10 after65 kept P*5d at both. The move change fits the user's caution
+  about king-side edge attacks but is not a best-move/strength proof.
+  NEXT: review this bounded result with user/Astra; term10 stays unadopted.
+  No automatic extra search, coefficient, operational code or branch change.
 - No extra searches or matches automatically. User can supply shape/function preference;
   separate it from tactical correctness and strength. Learning remains paused.
 - Preserve sealed plans, raw games and attempt markers; do not rerun prepare/preflight.
