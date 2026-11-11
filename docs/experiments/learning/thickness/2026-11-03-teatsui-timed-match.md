@@ -63,8 +63,9 @@
 
 ## 実行
 
+リポジトリのルートから実行する。
+
 ```sh
-cd /Users/yuzo.iwasaki/Rakuyou
 caffeinate -i python3 results/teatsui-match-timed-2026-11-03/match.py run
 ```
 

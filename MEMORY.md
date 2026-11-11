@@ -1,6 +1,6 @@
 # Rakuyou resume map
 
-Updated 2026-11-08. Read this on resume; open linked reports only as needed.
+Updated 2026-11-11. Read this on resume; open linked reports only as needed.
 This file holds current state, durable constraints and next steps, not a changelog.
 Earlier details remain in experiment reports and Git history (`a87f406:MEMORY.md`
 is the last full historical map). Historical NEXT headings are not active tasks.
@@ -9,18 +9,61 @@ is the last full historical map). Historical NEXT headings are not active tasks.
 
 - Aim for the user's preferred **手厚い将棋**. Completed thickness or a rank pawn
   is not mandatory. Do not force gold/silver advancement merely to copy a shape.
-- Design, interpretation and final review belong to **Astra**; delegate settled
-  implementation, validation and aggregation to **Sol**. This division is approved.
-  User can run long batches externally; avoid repeated monitoring of deterministic runs.
+- **Astra** handles ordinary user dialogue, design, review and final-answer drafts.
+  **Sol** works in the background on implementation, validation and aggregation.
+  This is the user's requested division of work. The user can run long batches
+  externally; avoid repeated monitoring of deterministic runs.
 - User (~amateur 4-dan) supplies style preferences, concepts and counterexamples,
   not assumed best-move labels. Separate preference, positional interpretation,
   tactical correctness and measured strength; explain with concrete squares/pieces.
 - No bonus adjustment or formal adoption has been decided. Learning is paused.
   Do not turn an exploratory result into automatic deployment or a new training run.
+- [Private rook-foothold trial](results/teatsui-rook-foothold-2026-11-11/result.md):
+  D10/support10 fixed, four timed searches. Static replay detected an enemy rook
+  drop foothold after game07 handed over its rook, but both trial groups still
+  chose RxB6f; positive old game10 kept P*5d. The 60cp rule remains unadopted.
+  Prior [own-side](results/teatsui-local-contact-own-defense-2026-11-11/result.md)
+  and symmetric local-contact trials also did not change their target first moves.
+  [Saved r60 49→58 PV boards](results/teatsui-rook-foothold-2026-11-11/variation-review.md)
+  show a shape the user likes but does not yet trust: beyond the saved PV,
+  59R2a2b+ G2c2b 61B*3a is legal and the bishop attacks G2b/S5c. No forced
+  continuation or king safety is established.
+  Current unadopted experimental baseline: D10/support10/ShinON, without rook60.
+  Proposed next: bounded examination from this saved PV's 58-ply position around
+  R2a2b+ ...G2c2b B*3a; no search has been run from there.
+  All isolated plans, raw records and patches stay private; no operational change.
+- [Private pair4 rook choice](results/teatsui-pair4-rook-retreat-comparison-2026-11-11/result.md):
+  new D10 game07 after49, one timed two-move search compared the game RxB6f
+  with legal R6d retreat. White-view d13 reported scores were −254/−252cp;
+  retreat was the bestmove by 2cp, with materially different continuations.
+  This does not establish a better defense or explain the later loss.
 - Latest agreed workflow: use **bonus10 as the review/experimental baseline**,
   examine concrete discomfort as it arises, and accumulate contextual understanding
   before readjusting evaluation. Not operational adoption; default0 remains.
   Do not add a new scoring rule per example or make tools the objective.
+
+## Current result: narrow bishop-contact versus normal
+
+- [Private audit and viewer](results/teatsui-edge-bishop-contact-vs-normal-2026-11-09/current-state.md):
+  eight saved games, four known paired starts, candidate D10/support10/ShinON
+  fixed with narrow C0/100 versus original normal. C0 3W1L; C100 0W3L1 unresolved
+  (256 added plies, not draw). Comparable3/4, all three C100 losses. All 246
+  bindings, 1,033 timed commands and eight legal histories passed audit; all four
+  first divergences were candidate moves. Narrow C was inactive in every saved
+  actual position; this does not exclude effects in searched hypothetical lines.
+  C100 remains unadopted and on hold; use D10/support10 as the development review
+  baseline. Pair1 C100 game02 after57–64: user judged the silver retreat and
+  return to take a dropped pawn ineffective, allowing a comfortable White attack;
+  proposed legal 59G4i3h to support S2g and avoid that round trip. The knight
+  attack remains; no best move, safe silver or C effect is proved.
+  [Private note](results/teatsui-edge-bishop-contact-vs-normal-2026-11-09/review-entry-pair1-game02.md).
+  [Bounded C0 comparison](results/teatsui-pair1-silver-gold-defense-2026-11-11/result.md):
+  one timed two-move go preferred G3h; completed d10 gave S1f +353/G3h +444cp.
+  Reported d11 S1f `mate -2` may be an unfinished-root score artifact and is not
+  mate evidence. G3h lets the knight take S2g but recaptures with the gold;
+  no move-quality proof or new evaluation term follows. C/E trials stay ended,
+  with private raw/patches preserved; D10/support10 remains an unadopted review baseline.
+  Preserve sealed plan/raw/attempt records; no automatic rerun or coefficient change.
 
 ## Current result and next step: normal comparison completed
 
@@ -288,9 +331,76 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   from actual edge P1e at0 to S5g4h at10; game07 after36 kept G4h and positive
   game10 after65 kept P*5d at both. The move change fits the user's caution
   about king-side edge attacks but is not a best-move/strength proof.
-  NEXT: review this bounded result with user/Astra; term10 stays unadopted.
-  No automatic extra search, coefficient, operational code or branch change.
-- No extra searches or matches automatically. User can supply shape/function preference;
+  Term10 stays unadopted; no coefficient, operational code or branch change.
+- [Contact-deficit versus normal result](docs/experiments/learning/thickness/2026-11-08-contact-deficit-normal-comparison-preparation.md):
+  eight saved games and four known starts audited; original support10/ShinON
+  fixed for both candidate arms, normal ShinOFF/support0. Contact0 1W2L1
+  unresolved (256-ply limit); contact10 1W2L1 repetition draw. Comparable3/4,
+  paired score difference total +0.5. All histories legal, 987 timed commands
+  and bindings checked, no large clock anomaly. Private `results/teatsui-contact-deficit-vs-normal-2026-11-08/`
+  has audit and all four pairs' 32/48/64 viewer. Pair4 first diverges on the
+  normal side; results do not establish coefficient causality or strength.
+  First local review completed; positive style feedback is recorded privately in
+  `review-entry-pair3-game06.json` in that results directory. Not strength proof.
+  Second local review completed; private judgment and deferred adjustment request
+  are in `review-entry-pair2-game03.json`. Later evaluation work should more strongly
+  discourage own-king-side edge attacks whose consequences weaken defense; no
+  blanket edge-attack ban or coefficient specified. No tuning now.
+  Any edge-attack penalty amount remains undecided; the suggested -10 was only
+  an example. Third local review completed; private judgment is in
+  `review-entry-pair4-game07.json`. Retain the contextual concern about handing
+  an opponent a rook when the own formation is lopsided and thin; no blanket
+  exchange ban or retreat square specified. The edge concern led to the small
+  private trial below; the rook-exchange concern remains contextual.
+- Private `results/teatsui-king-edge-shield-2026-11-08/result.md`: edge-shield
+  0/40 trial kept contact-deficit10, support10 and ShinON fixed. Off matched
+  prior D10; 20 fixtures and six approved fresh searches passed (common d15,
+  90 legal PVs). Main game03 after54 chose 2e2d at both settings and advanced
+  P1e later; the original timed P1e first move did not reproduce even at0.
+  Silver-preparation and positive P*8d roots kept their first moves. Edge
+  suppression/strength improvement is unconfirmed; the new term is unadopted.
+  [Private same-root timed follow-up](results/teatsui-king-edge-shield-timed-2026-11-08/result.md):
+  two approved fresh 10-second searches also chose 2e2d at both settings;
+  29 legal PVs, common last nonbound reported depth14. Both later push P1e,
+  while the original game chose it first. Fresh searches lack the game's TT
+  history; the cause of non-reproduction is unknown. No adoption or extra go.
+  [Private three-case edge-pawn reference](results/teatsui-king-edge-shield-2026-11-08/edge-pawn-natural-reference.md)
+  registered three pushes that the user now explicitly wants to avoid.
+  The old game15 move was called natural earlier, but the user clarified it is
+  natural yet bad; the prior assistant reading as an acceptable example is
+  withdrawn. Rook location is not very relevant to this judgment. All three
+  have focal E0→1; loss causality is unproven. In old game15 the original
+  White-side score was −141cp before P9e, with its large decline only much
+  later (86 −151→88 −721→90 −1576); keep the user's avoid-it judgment separate
+  from an unproven blunder claim. Details are in the private reference above.
+  [Private 100cp replacement trial](results/teatsui-king-edge-shield-100-2026-11-08/result.md):
+  fixed D10/support10/ShinON, edge0/100 only; static off/flip/full-diff checks
+  passed. Six fixed 10-second fresh searches, 88 legal PVs: new game03 after54
+  chose 2e2d at both settings (actual P1e first move still unreproduced);
+  old game15 after39 chose the user-disliked P9e at both, even while the
+  White edge deficit remained through its saved 100cp PV; positive P*8d held.
+  Suppression/strength gain is unconfirmed. Keep 100cp unadopted; no further
+  coefficients, roots or searches are authorized automatically.
+  [Private same-root c comparison](results/teatsui-king-edge-shield-100-c-comparison-2026-11-09/result.md):
+  one approved timed MultiPV2 go, old game15 after39 White. At common nonbound
+  reported d14 the original P9e scored −182cp vs G6b −310cp; 28 PVs legal.
+  P9e's edge deficit later cleared by P*9b in its PV, while G6b kept P9d/E0.
+  This two-move reading neither proves move quality nor adopts the 100cp term.
+  Latest user correction: quiet P1f→1e when the opponent does not contest the
+  edge should be excluded; only edge-bishop-head attacks should be mildly
+  discouraged. Current E ignores enemy pawns/bishop/contact and is too broad.
+  Keep the isolated support10 + contactD10 + edge100 trial (ShinON, near/rear
+  off) as historical evidence only. [Private correction](results/teatsui-king-edge-shield-100-2026-11-08/quiet-edge-advance-correction-2026-11-09.md).
+  [New narrow bishop-contact trial](results/teatsui-edge-bishop-contact-2026-11-09/result.md):
+  D10/support10/ShinON fixed, old E/near/rear off; static off equality and 19
+  fixtures passed. Four fresh 10-second searches and59 legal PVs: a chose 2e2d
+  at0/100, c chose9d9e at0/100; C cleared when the opposing bishop left the
+  edge. Target scope is corrected, suppression and strength remain unconfirmed.
+  Keep the narrow term only as a future experiment candidate, not operational adoption.
+  None of the three pushes is established as a blunder. [Private saved-score context](results/teatsui-king-edge-shield-100-2026-11-08/score-context-2026-11-09.md)
+  separates the gradual old game06 decline, new game03 rebound/late drop and
+  old game15 recovery from the user's positional preference.
+- No other searches or matches automatically. User can supply shape/function preference;
   separate it from tactical correctness and strength. Learning remains paused.
 - Preserve sealed plans, raw games and attempt markers; do not rerun prepare/preflight.
   Original plan SHA `ef4acbf95fced90aa2e249467b62e736b23f2ad8021eb57b7af4458b5fb47dd3`.
@@ -423,3 +533,12 @@ is the last full historical map). Historical NEXT headings are not active tasks.
 - Public docs use repository-relative paths. READMEs explain usage/roles, reports
   preserve experiment details, MEMORY holds only current resume essentials.
   Keep this map short; replace superseded status instead of appending full histories.
+- User preference: do not push new tracked text with personal home-directory names
+  or environment identifiers. Check tracked diffs before committing; previously
+  removed history does not need rewriting now.
+- After the current eight-game comparison, archive needed dialogue and experiment
+  records privately, verify that archive, then remove obsolete tracked artifacts.
+  Aim for adopted C++ changes, essential regression tests, reusable match tools
+  and concise build/design documentation. Detailed user dialogue need not remain
+  public. User accepts records remaining in Git history: clean the current tree,
+  without rewriting history. Do not remove active experiment dependencies now.

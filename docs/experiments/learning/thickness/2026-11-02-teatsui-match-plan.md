@@ -62,7 +62,6 @@ candidateの勝敗・引分・未決着・エラー、先後別成績、同じ�
 途中局は自動的には再試行しない。
 
 ```sh
-cd /Users/yuzo.iwasaki/Rakuyou
 caffeinate -i python3 results/teatsui-match-2026-11-02/match.py run
 ```
 
