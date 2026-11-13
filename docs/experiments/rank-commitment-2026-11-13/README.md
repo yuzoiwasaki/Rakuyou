@@ -65,8 +65,10 @@ root history and the three saved PVs. All42 displayed states were matched to
 native replay; no new searches.
 
 Both sides play S4d/Gx4d/P5c+/R3b. At49 the previously preferred line plays
-P*6b, whereas the detailed restricted searches play G4f before White's
+P*6b, whereas the detailed restricted searches play P4f before White's
 P*5e/R5i/S*5g sequence. The latter is NOT established as a refutation of the
-former: Black's own move differs first. Review the need for G4f versus immediate
+former: Black's own move differs first. Review the need for P4f versus immediate
 P*6b before attributing tactical trouble to the whole S4d plan. User review of
 this branch is pending. Baseline and trial coefficients remain unchanged.
+
+Nov14 follow-up: corrected P4f (not gold); [two continuation searches](continuation-result.md) and [new viewer](continuation-review.html). Both correction0, after49; P*6b receives better finite-search evaluation, with both roots still White-favored. See the new concrete continuations before judging.

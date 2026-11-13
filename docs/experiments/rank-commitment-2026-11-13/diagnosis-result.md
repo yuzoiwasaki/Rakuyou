@@ -15,7 +15,7 @@ Exactly two fresh searches, same unchanged binary/support10/D10, correction0/10,
 | 0 | −117 | −335 | S3f first |
 | 10 | −117 | −243 | S3f first |
 
-Scores are Black-view cp at depth13. S3f has identical final PV in both settings. S4d final lines differ after S4d/Gx4d/P5c+/R3b/G4f/P*5e/R5i/S*5g: OFF P*6b, ON P*6h. This does not show direct improvement by92cp; changed search paths and evaluation functions prevent that inference.
+Scores are Black-view cp at depth13. S3f has identical final PV in both settings. S4d final lines differ after S4d/Gx4d/P5c+/R3b/P4f/P*5e/R5i/S*5g: OFF P*6b, ON P*6h. This does not show direct improvement by92cp; changed search paths and evaluation functions prevent that inference.
 
 The previous unrestricted time-limited result (OFF S4d vs ON S3f) is not reproduced as a ranking reversal under these diagnostic conditions. Both select S3f; S4d is not worse with the correction in this diagnostic. Restricted MultiPV changes search behavior, so this is not a disproof that the correction influenced the earlier run, nor an adjudication of the user's preferred S4d.
 

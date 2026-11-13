@@ -1,6 +1,6 @@
 # Rakuyou resume map
 
-Updated 2026-11-13. Read this on resume; open linked reports only as needed.
+Updated 2026-11-14. Read this on resume; open linked reports only as needed.
 This file holds current state, durable constraints and next steps, not a changelog.
 Earlier details remain in experiment reports and Git history (`a87f406:MEMORY.md`
 is the last full historical map). Historical NEXT headings are not active tasks.
@@ -101,11 +101,23 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   42 native-matched states, saved root history/PVs tracked alongside it. Both
   panels compare BLACK/Shin. Left previously preferred OFF line vs right
   restricted d13 S4d line (select OFF/ON); common through48 R3b. At49 LEFT
-  P*6b but RIGHT G4f, then P*5e/R5i/S*5g. Do NOT present right's defense as
+  P*6b but RIGHT P4f, then P*5e/R5i/S*5g. Do NOT present right's defense as
   a refutation of left; own move diverges first. Starts49, user judgment pending
-  on whether G4f is necessary or immediate P*6b preferable. No eval changes.
+  on whether P4f is necessary or immediate P*6b preferable. No eval changes.
   User authorizes incremental commits; checkpoint5680e37 archives trial/trace
   patches, source hashes and reports. No push requested in this turn.
+- **Nov14 continuation and piece-name correction**:
+  User correctly notes 4g4f is P4f, NOT G4f; native board confirms. Corrected
+  prose/labels/tracked reports; generated move captions were already correct.
+  User tentatively prefers P*6b but needs continuation before firm judgment.
+  [New review](docs/experiments/rank-commitment-2026-11-13/continuation-review.html),
+  [report](docs/experiments/rank-commitment-2026-11-13/continuation-result.md).
+  Exactly2 fresh10s/depth15cap searches after49, BOTH correction0/support10/D10.
+  Both d15: P*6b -> G7a, White+248; P4f -> S*5e, White+403. Black equivalent
+  −248/−403 favors P*6b relatively, not proof of winning/superior play.
+  Left +P6c/P*5e/+PxS7b/Gx7b/R9f; right now S*5e rather than ancestor P*5e.
+  All30 reported PVs legal;39 viewer states native matched, bindings unchanged.
+  Both panels BLACK/Shin, starts50. Await concrete continuation review; no tuning.
 - Latest adoption direction (2026-11-12): user wants BOTH support10 and D10
   adopted in principle, then fine-tune concrete issues. Proceed toward deployment
   after bounded confirmation if no major problem; do not endlessly require proof
@@ -177,7 +189,7 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   [Pair1 review prepared](results/teatsui-support-contact-factorial-2026-11-11/pair1-review.md):
   paired index.html starts34, all saved boards native-SFEN matched;70 static
   positions14–48 checked without search. Game04 chain P5e/S4f/G4g at33–38,
-  changes to P5e/G5f/S5g at41–42 and P5e/G4f/S5g at43; game03 none14–48.
+  changes to P5e/G5f/S5g at41–42 and P5e/P4f/S5g at43; game03 none14–48.
   At34 game04 K3i/R2h versus game03 K2h/R7h, so no safe/thick claim from chain.
   Later38P*4e39S5g41G5f43Gx4f45Gx5e46R4g+ is active gold play with enemy
   rook entry, not established defensive success. USER at34: left/support0 is
