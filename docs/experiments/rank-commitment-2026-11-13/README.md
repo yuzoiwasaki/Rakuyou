@@ -56,3 +56,17 @@ thread and a fresh process. Logging is capped at20,000 qualifying calls.
 Both patches were applied sequentially to a temporary adopted-source copy;
 every resulting source hash matched the tested snapshots exactly. Trace runs
 matched all non-time reported fields of the original fixed-depth searches.
+
+## Next positional review
+
+[Liquidation comparison](liquidation-review.html) is standalone and works
+without the ignored results directory. `liquidation-review-data.json` retains
+root history and the three saved PVs. All42 displayed states were matched to
+native replay; no new searches.
+
+Both sides play S4d/Gx4d/P5c+/R3b. At49 the previously preferred line plays
+P*6b, whereas the detailed restricted searches play G4f before White's
+P*5e/R5i/S*5g sequence. The latter is NOT established as a refutation of the
+former: Black's own move differs first. Review the need for G4f versus immediate
+P*6b before attributing tactical trouble to the whole S4d plan. User review of
+this branch is pending. Baseline and trial coefficients remain unchanged.

@@ -96,6 +96,16 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   S4d. Historical unrestricted timed divergence remains causally unresolved.
   Next useful positional review: defenses R3b/P*5e/S*5g after S4d liquidation,
   rather than assuming trial causes all reluctance to attack. Trial unadopted.
+- **Current positional review, no new searches**:
+  [Standalone liquidation viewer](docs/experiments/rank-commitment-2026-11-13/liquidation-review.html),
+  42 native-matched states, saved root history/PVs tracked alongside it. Both
+  panels compare BLACK/Shin. Left previously preferred OFF line vs right
+  restricted d13 S4d line (select OFF/ON); common through48 R3b. At49 LEFT
+  P*6b but RIGHT G4f, then P*5e/R5i/S*5g. Do NOT present right's defense as
+  a refutation of left; own move diverges first. Starts49, user judgment pending
+  on whether G4f is necessary or immediate P*6b preferable. No eval changes.
+  User authorizes incremental commits; checkpoint5680e37 archives trial/trace
+  patches, source hashes and reports. No push requested in this turn.
 - Latest adoption direction (2026-11-12): user wants BOTH support10 and D10
   adopted in principle, then fine-tune concrete issues. Proceed toward deployment
   after bounded confirmation if no major problem; do not endlessly require proof
