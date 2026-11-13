@@ -7,6 +7,23 @@ is the last full historical map). Historical NEXT headings are not active tasks.
 
 ## Current objective and collaboration
 
+- **NEXT: user-run rank0/10 eight-game batch prepared, 0/8 started**:
+  [Command/design](docs/experiments/rank-counter-match-2026-11-14/README.md).
+  Run `caffeinate -i python3 -u docs/experiments/rank-counter-match-2026-11-14/match.py run`.
+  Output `results/teatsui-rank-counter-match-2026-11-14/`. Fixed known12-ply
+  starts indices2,3,4,5 (Black central/static, White fourth/third), each rank0/10,
+  ShinON/support10/D10 vs same fixed normal ShinOFF/support0/D0. depth15cap,
+  10s,256 added plies,thread1/hash64/bookOFF. No tuning, pooling or adoption.
+  Seven tests +six depth3 legal connection checks pass; status0/8, no games.
+  First setup failed on missing ShinBookFile; archived setup-failed directory,
+  copied book and prepared new plan, no changes to coefficients or starts.
+  Ctrl+C once finishes current game then stops; same run resumes next game.
+  Second interrupt/error preserves incomplete record and blocks automatic retry.
+  Don't rerun prepare/preflight or modify bound scripts/inputs during batch.
+  After user completes: audit records/options/clocks/hashes, then compare style
+  at divergences. Latest user: P4f seems slow/not useful later, tentative left
+  P*6b preference, not certainty. Keep both counterplay and attack-timing cases.
+
 - **Current adopted baseline (2026-11-13)**: support10 + D10, separate installed
   launcher `bin/teatsui-2026-11-13/rakuyou`, engine id
   `Rakuyou support10 D10 2026-11-13`. GUI registration was NOT changed automatically.
