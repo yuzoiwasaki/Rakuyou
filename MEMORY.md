@@ -1,12 +1,180 @@
 # Rakuyou resume map
 
-Updated 2026-11-11. Read this on resume; open linked reports only as needed.
+Updated 2026-11-13. Read this on resume; open linked reports only as needed.
 This file holds current state, durable constraints and next steps, not a changelog.
 Earlier details remain in experiment reports and Git history (`a87f406:MEMORY.md`
 is the last full historical map). Historical NEXT headings are not active tasks.
 
 ## Current objective and collaboration
 
+- **Current adopted baseline (2026-11-13)**: support10 + D10, separate installed
+  launcher `bin/teatsui-2026-11-13/rakuyou`, engine id
+  `Rakuyou support10 D10 2026-11-13`. GUI registration was NOT changed automatically.
+  [Usage/rebuild/rollback](adopted/support-contact-2026-11-13/README.md).
+  `ExperimentalSupportChainBonus` default10 (historical name retained), new
+  `KingContactDeficitBonus` default10, both0..10; no legacy D-env dependency.
+  ShinON/OwnBookON/BookMaxPly20, copied existing17-position ShinBookFile by default.
+  Old `bin/release`, root `src/`, data and frozen plans unchanged. Adopted patch,
+  base hashes and rebuild script tracked under `adopted/support-contact-2026-11-13/`;
+  regular root `make release` still builds OLD source. Separate snapshot/build,
+  validation and installation manifests in `results/adopted-support-contact-2026-11-13/`.
+  130 static positions x4 settings exact parity;8 depth7 search pairs plus2
+  defaults match best/score/depth/nodes/PV; installed launcher from unrelated cwd
+  passed both initial Shin moves; patch reconstructs validated source exactly.
+  Old experimental no-adoption/default0 statements below describe historical
+  status and are superseded ONLY for support/D; other prototypes stay unadopted.
+  Latest user emphasis: BASIC aim is thick shogi with supported pawn territory;
+  low formation/bait/opposite-flank counter is an OPTION when support cannot
+  be sustained, not replacement of that aim. No new strategic feature or tuning.
+- Latest adoption direction (2026-11-12): user wants BOTH support10 and D10
+  adopted in principle, then fine-tune concrete issues. Proceed toward deployment
+  after bounded confirmation if no major problem; do not endlessly require proof
+  of strength. Separate baseline installed as above; learning paused.
+  [Confirmation16 instructions](results/teatsui-support-contact-confirmation-2026-11-12/README.md):
+  same four arms/binaries/time controls, four16-ply starts vs fourth/static rook,
+  source12-ply starts + mutual single-step1/9-file pawn development(indices0,3,4,7).
+  Fixed without search/result selection; derived familiar positions, not unseen.
+  [Confirmation result](results/teatsui-support-contact-confirmation-2026-11-12/result.md):
+ 16/16 externally complete; s0d0/s0d10/s10d10 each1W3L, s10d0 0W3L1D.
+  Native audit passed16 histories/1914 timed commands/257 bindings/clocks;
+  game02 repetition draw, no unresolved/errors. Combined and neither have same
+  W/L in all4 starts; not equivalence or improvement proof, no pooling prior4W.
+  Saved triage:04 positive late scores then187 mate−22/resign after186S*3g
+  (not verified forced mate);07 all arms lose;10 R2b deployment then43B*1g
+  drives R2f away and45BxS5c+;13 wins. Focused index-pair3.html at40 compares
+  11/neither vs10/both, all saved boards native matched; NORMAL first diverges27.
+  [User review of10](results/teatsui-support-contact-confirmation-2026-11-12/game10-user-review.md):
+  after40 already bad; earlier34S8c8d forcefully supports rank and is questionable.
+  User prefers34G4a5b to guardS5c, then counterattack once enemy silver advances
+  and its center of gravity shifts to attack. Native G4a5b legal after33/39;
+  no search, forced line or proof entire tactic prevented. Do not force rank
+  maintenance before defensive coordination; not a blanket no-advance rule.
+  Both10 adoption intention remains, no feature causality/new penalty decided.
+  USER clarifies: keep rank only when sustainable. Here addingS still leaves
+  too few participants against enemyR+S; don't force defense. Use rank as bait,
+  keep low formation, counterattack after enemy commitment. Deliberate bait
+  differs from passive submission; no universal count threshold/retreat rule
+  or proven forced counterattack. Preserve with prior favorable maintained-rank
+  examples and criticism of being pushed back, rather than overriding either.
+  USER now leans toward this as better strategic direction than failed attempts
+  to add eval encouraging more defensive participants: take rank, but if support
+  is insufficient don't commit pieces to holding it; consolidate own camp and
+  counterattack on opposite flank after opponent attacks/commits. Tentative plan,
+  not unsupported-pawn bonus, forced sacrifice/opposite-flank rule, cancellation
+  of support10 adoption, or authorization for a new feature/training/search.
+  [Nov13 candidate check](results/teatsui-game10-gold-candidate-2026-11-13/result.md)
+  after user asked about evaluation experimentation: static after34 S8d vsG5b
+  bothD=0/supportraw0; White static−59/+154cp already favorsG5b. Exactly1
+  fresh10s MultiPV2 restricted go, reported common d14 S8d−228/G5b−231cp;
+ 28 PVs native legal, bindings unchanged. G5b PV includes S7f bishop trade
+  then P1e/P1f counterplay, but laterP*8d drivesS8c9b. Actual game line differs.
+  Near tie not move-quality proof/approved tolerance; don't add arbitrary bonus
+  to force root choice. No new eval term/weight or operational change.
+  Integration completed separately as above; preserve this concrete later
+  refinement case. Next design bounded improvements only when needed.
+  Do not rerun completed matches/preflight. Preserve frozen experiments.
+- Latest user direction (2026-11-11): investigate adoption of BOTH support10 and
+  D10, with **support10 the priority** (corrects initial D-first interpretation).
+  Additional matches and subsequent improvements are welcome; user chooses to
+  run long matches externally. No automatic operational adoption or learning.
+  [Prepared factorial16 instructions](results/teatsui-support-contact-factorial-2026-11-11/README.md):
+  four arms support0/10 x D0/10, candidate ShinON vs fixed normal ShinOFF/0/0;
+  four known third/central-rook starts (indices1,2,5,6), each arm Black2/White2.
+  Same isolated trial binary for all candidates, depth15cap/10s/thread1/hash64,
+  256 added plies unresolved. Plan sealed; local6 + existing10 tests passed;
+  ten depth3 preflight searches passed. **Main16 completed externally**.
+  [Result](results/teatsui-support-contact-factorial-2026-11-11/result.md):
+  s0d0 1W3L, s10d0 2W2L, s0d10 2W1L1unresolved, s10d10 4W0L.
+  Read-only audit passed all16 native histories,2222 timed commands/options,
+  clocks and257 bindings; no searches. Game06 reached256 added plies, not draw.
+  Do not rerun prepare/preflight/matches or modify bound inputs.
+  Next review: pair1 games03/04 (D10 fixed, support0/10), first divergence
+  candidate15 S3h2g vs P4g4f; combined-only win. Pair2 games06/07 next,
+  candidate29 P9g9f vs S5g4f, unresolved vs win. Support at D0 extra win
+  pair3 first diverged on NORMAL17; cannot attribute that win to support.
+  Four of eight support comparisons first diverge on normal side. Combined
+  result promising, not strength/synergy/adoption proof. No tuning performed.
+  [Pair1 review prepared](results/teatsui-support-contact-factorial-2026-11-11/pair1-review.md):
+  paired index.html starts34, all saved boards native-SFEN matched;70 static
+  positions14–48 checked without search. Game04 chain P5e/S4f/G4g at33–38,
+  changes to P5e/G5f/S5g at41–42 and P5e/G4f/S5g at43; game03 none14–48.
+  At34 game04 K3i/R2h versus game03 K2h/R7h, so no safe/thick claim from chain.
+  Later38P*4e39S5g41G5f43Gx4f45Gx5e46R4g+ is active gold play with enemy
+  rook entry, not established defensive success. USER at34: left/support0 is
+  more natural; right/support10 somewhat unnatural/overextended. In this shape
+  rook should be on left, and too few pieces participate at4e, inviting attack.
+  Chain alone is NOT a positive style example; winning does not override this.
+  No exact rook square/order, blanket left-rook rule, proven blunder/bonus
+  causality or numeric change. Next useful analysis: participation at4e and
+  after exchanges, whether preparation could make the formation viable.
+  USER elaboration: enemy attacking pieces already on4-file; avoid forcing
+  advance, add pieces and contain attack. Ideas R2f lateral defense, or P2e
+  preparation + P*4f to repel. Against ...R5e user revised to P2d BEFORE
+  taking rook with bishop (opponent reply unspecified), not after bishop trade.
+  Rook role/lateral participation matters, not a mandatory left-side location.
+  Native legality only: at34 P2e legal, R2f blocked by P2f and P*4f by S4f.
+  Illustrative assistant branch from28: P2e Px4e Px4e Rx4e P*4f R5e P2d
+  all legal, not forced or chosen best plan. Recorded privately; no search.
+  [Pair2 review](results/teatsui-support-contact-factorial-2026-11-11/pair2-review.md)
+  prepared: index-pair2.html opens44, games06/07 (D10 fixed); all boards match
+  saved native SFEN,50 static positions28–52 checked, no search. Right/support10
+  at44 P5d/S5e/R5f cooperate vertically while enemy+S6g has entered;43R5f
+  escaped that silver's attack on5h. K2h/G3h/S2g remain. Narrow support raw
+  differential0 throughout both histories28–52; this P/S/R chain is outside
+  feature definition. Not proof of absent search-branch effects or safe king.
+  USER: right at44 is acceptable despite enemy+S6g. Contextual acceptable
+  example, not safe-king/best-play/win-causality proof. USER clarified reasons:
+  retained pawn territory/own positional assets, silver rather than rook invasion,
+  and solid compact own-king surroundings. Assistant's rook-participation-only
+  explanation was insufficient. Can allow entry if own advantage develops before
+  intruder becomes effective; contextual timing, not a proven win/tempo threshold
+  or blanket harmless-silver rule. Keep assets, king solidity, intruder role and
+  time to effective use together; no automatic scoring change.
+  USER connects this to prior Yonenaga book game10 (vs Oyama), enemy tokin
+  behind pawn territory: invasion is still a negative, but build/use own assets
+  to gain advantage before it becomes effective. Oct31 games10–11 dialogue
+  records S6g as tokin preparation/balance, not just forward-thickness support.
+  Accepting invasion does not erase its cost or mean ignoring it; avoid universal
+  prevent-entry/attack-first rules and crediting thickness for all rear defense.
+  [Next pair3 review prepared](results/teatsui-support-contact-factorial-2026-11-11/pair3-review.md):
+  index-pair3.html opens32, upper White side; games09/10 support0/10, D10 fixed,
+  both wins. Left K7a/G6a,G6c/S8c,S5c with P5e/P2e; right same K/G but
+  S7b,S5c, P8e/P7d/N7c. Discuss32 then40–48, right later promotes pawn8i.
+  First divergence NORMAL Black19, so no support-causality claim. All saved
+  boards native-SFEN matched; no new search. USER prefers support10: support0
+  rook-file breakthrough/being pushed into submission is concerning; support10
+  uses tokin effectively in attack and White looks good. This is later-plan
+  preference AND positional judgment, not just32 shape (tokin appears48).
+  No single bad move, forced breach or coefficient causality established.
+  USER clarification: tokin itself is not essential; the favorable point is
+  attacking the opponent's thin area effectively. Do not turn this into a
+  tokin-creation objective or piece-specific preference.
+  [Pair4 review prepared](results/teatsui-support-contact-factorial-2026-11-11/pair4-review.md):
+  index-pair4.html opens40, White above, left16/support0 right13/support10,
+  D10 fixed; both won. Left P*8c after rook-file exchange; right bishop exchange
+  and B*3c, then R2b and receives9-file pressure. First divergence NORMAL19.
+  All saved boards native-SFEN matched, no search. USER roughly equal; tentative
+  naturalness lean support0, support10 also not bad. Not a clear preference0.
+  [Four-pair synthesis](results/teatsui-support-contact-factorial-2026-11-11/review-synthesis.md):
+  pair1 prefers0, pair2 accepts10 (no explicit comparison), pair3 prefers10,
+  pair4 roughly equal. Not preference win-rate tally or isolated D evidence.
+  Combined remains promising candidate; no coefficient change justified yet.
+  [D comparison prepared](results/teatsui-support-contact-factorial-2026-11-11/d-comparison-review.md):
+  index-d-pair1.html02/04 at34; index-d-pair2.html05/07 at44, support10 fixed.
+  All saved states native-SFEN matched;28 static snapshots checked, no search.
+  D10/game04 is already-disliked overextension, not automatically safe due to D.
+  D0/game02 is NOT earlier preferred03; no transfer of user preference.
+  Next user review mainly05/07:05 king-side edge attack,35PxB3e36PxS2g+
+  37Gx2g then horse lost44;07 is earlier accepted central assets/solid king.
+  Black D mostly0 in sampled played states; no search-branch causal inference.
+  USER judges05/D0 bad: edge attack failed and invited counterattack; prefers
+  07/D10. Favorable positional/style evidence, not forced-loss or D-causality
+  proof;04 concern remains. Confirmation prepared separately as above with
+  coefficients unchanged; separate baseline adopted after result review.
+  Do not convert containment preference into always-prevent-entry rule; this
+  acceptable coordination also falls outside the narrow support feature.
+  Known development sample; four games/arm cannot establish strength/equivalence.
+  Keep both desirable and concerning examples; no tuning midway or pooling old runs.
 - Aim for the user's preferred **手厚い将棋**. Completed thickness or a rank pawn
   is not mandatory. Do not force gold/silver advancement merely to copy a shape.
 - **Astra** handles ordinary user dialogue, design, review and final-answer drafts.
@@ -16,8 +184,8 @@ is the last full historical map). Historical NEXT headings are not active tasks.
 - User (~amateur 4-dan) supplies style preferences, concepts and counterexamples,
   not assumed best-move labels. Separate preference, positional interpretation,
   tactical correctness and measured strength; explain with concrete squares/pieces.
-- No bonus adjustment or formal adoption has been decided. Learning is paused.
-  Do not turn an exploratory result into automatic deployment or a new training run.
+- Coefficients remain10/10; separate adopted baseline available as above.
+  Learning remains paused; no new bait/counterattack term implemented.
 - [Private rook-foothold trial](results/teatsui-rook-foothold-2026-11-11/result.md):
   D10/support10 fixed, four timed searches. Static replay detected an enemy rook
   drop foothold after game07 handed over its rook, but both trial groups still
@@ -29,8 +197,15 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   59R2a2b+ G2c2b 61B*3a is legal and the bishop attacks G2b/S5c. No forced
   continuation or king safety is established.
   Current unadopted experimental baseline: D10/support10/ShinON, without rook60.
-  Proposed next: bounded examination from this saved PV's 58-ply position around
-  R2a2b+ ...G2c2b B*3a; no search has been run from there.
+  [Bounded continuation](results/teatsui-rook-continuation-2026-11-11/result.md)
+  completed two fresh 10-second searches, D10/support10/ShinON, rook term OFF:
+  after59 R2a2b+ chose G2c2b (reported d13, White -84cp); after61 B*3a
+  chose P*5b (d12, -16cp). Both final PVs use P*5b to support S5c, allow
+  B3a2b+ taking G2b, then B3b1d; White holds the captured rook. All25 PVs
+  and2 bestmoves native legal, prior bindings unchanged. Different roots/scores
+  are not an improvement measure. No forced attack, king safety or sound original
+  exchange established. User requested only a little more: close this local check,
+  no further search or adjustment automatically; discuss concrete defense if useful.
   All isolated plans, raw records and patches stay private; no operational change.
 - [Private pair4 rook choice](results/teatsui-pair4-rook-retreat-comparison-2026-11-11/result.md):
   new D10 game07 after49, one timed two-move search compared the game RxB6f
@@ -439,6 +614,11 @@ is the last full historical map). Historical NEXT headings are not active tasks.
 
 ## Durable style understanding
 
+- Basic goal remains supported pawn territory and thick shogi. If participating
+  pieces cannot sustain it against the opponent's attack, keep a low solid camp
+  and retain the option of using that rank as bait for opposite-flank counterplay.
+  Do not force support or replace thickness with a universal bait strategy.
+
 - User explicitly values sufficient defensive pieces in own camp; prefer avoiding
   positions likely to be broken through or pushed back because defenders are too few.
   Track participating defenders (rook included) and what remains after exchanges,
@@ -501,9 +681,10 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   GUI operation uses ShinON/OwnBookON/BookMaxPly20, combined file explicitly;
   uncovered positions search, no standard-book fallback. Experiment bookOFF is separate.
   [Sources/builders](books/README.md); [retired trials](books/HISTORY.md).
-- Operational binary/data identities and isolated repaired engine identity are
-  saved in current `preparation-review.json` and frozen plan. No learning candidate
-  or support-chain bonus has been installed into the operational runtime.
+- Old binary/data and repaired-engine identities remain in frozen plans.
+  Adopted support10/D10 binary is separately installed under
+  `bin/teatsui-2026-11-13/`; installation manifest preserves old/new identities.
+  No learning candidate or additional trial feature was installed.
 
 ## Paused research and repository safeguards
 

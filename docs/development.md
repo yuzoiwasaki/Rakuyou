@@ -2,6 +2,10 @@
 
 ## ビルド
 
+現在のsupport10 / D10採用版は、過去の実験入力を保全するため別ビルドで管理しています。
+[採用版の起動・再ビルド手順](../adopted/support-contact-2026-11-13/README.md)を参照してください。
+以下の通常ビルド手順は、変更を凍結した旧 `src/` と `bin/release` に対応します。
+
 技巧は SSE 4.2 前提のため、Apple Silicon では x86_64 (Rosetta) でビルドします。
 初回は `brew install cmake` で CMake を用意し、OpenMP ランタイムをビルドします。
 
@@ -28,7 +32,8 @@ Git管理外の `results/` 内データを参照します。学習用probeは通
 
 試験用の歩・金銀支持関係は、USIオプション `ExperimentalSupportChainBonus` で
 0〜10cp相当を指定します。既定0で無効です。評価のキャッシュを作る前に設定し、
-比較には設定ごとに新しいプロセスを使います。運用採用された評価項ではありません。
+比較には設定ごとに新しいプロセスを使います。この既定0は旧ソースの設定です。
+別ビルドの採用版ではsupport10とD10を既定値として使います。
 ネイティブ検査は `make support-chain-test` でビルドできます。
 `results/support-chain-tools/native-test bin/params.bin` の標準入力に
 `sfen <SFEN>` または `moves <初期局面からのUSI指し手列>` を１行ずつ渡すと、
