@@ -1,0 +1,44 @@
+--- a/src/evaluation.cc
++++ b/src/evaluation.cc
+@@ -21,0 +22 @@
++#include "rank_trace.h"
+@@ -156,0 +158,2 @@
++  const bool black=RankOvercommitment<kBlack>(pos), white=RankOvercommitment<kWhite>(pos);
++  RankTraceLog(pos,cp,black,white);
+@@ -158 +161 @@
+-  const int delta=int(RankOvercommitment<kWhite>(pos))-int(RankOvercommitment<kBlack>(pos));
++  const int delta=int(white)-int(black);
+--- a/src/search.cc
++++ b/src/search.cc
+@@ -26,0 +27 @@
++#include "rank_trace.h"
+@@ -774,0 +776,2 @@
++    RankTraceScope rank_trace_scope(kIsRoot, kIsRoot ? move.ToSfen() : "", int(depth));
++
+--- /dev/null
++++ b/src/rank_trace.h
+@@ -0,0 +1,24 @@
++#ifndef RAKUYOU_RANK_TRACE_H_
++#define RAKUYOU_RANK_TRACE_H_
++#include <cstdio>
++#include <cstdlib>
++#include <string>
++struct RankTraceContext { std::string move="outside"; int depth=0; };
++inline RankTraceContext& RankTraceCurrent() { static thread_local RankTraceContext context; return context; }
++struct RankTraceScope {
++  RankTraceContext previous;
++  RankTraceScope(bool root, const std::string& move,int depth):previous(RankTraceCurrent()) {
++    if(root) { RankTraceCurrent().move=move;RankTraceCurrent().depth=depth; }
++  }
++  ~RankTraceScope() { RankTraceCurrent()=previous; }
++};
++inline void RankTraceLog(const Position& pos,int cp,bool black,bool white) {
++  if(!black && !white) return;
++  static FILE* output=[](){const char* path=std::getenv("RAKUYOU_RANK_TRACE_PATH");return path?std::fopen(path,"w"):nullptr;}();
++  if(!output) return;
++  static unsigned long calls=0;
++  if(++calls>20000) {if(calls==20001) std::fprintf(output,"TRUNCATED\n");return;}
++  const auto& context=RankTraceCurrent();
++  std::fprintf(output,"%s\t%d\t%d\t%d\t%d\t%s\n",context.move.c_str(),context.depth,cp,int(black),int(white),pos.ToSfen().c_str());
++}
++#endif

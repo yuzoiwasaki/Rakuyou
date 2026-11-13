@@ -25,7 +25,77 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   status and are superseded ONLY for support/D; other prototypes stay unadopted.
   Latest user emphasis: BASIC aim is thick shogi with supported pawn territory;
   low formation/bait/opposite-flank counter is an OPTION when support cannot
-  be sustained, not replacement of that aim. No new strategic feature or tuning.
+  be sustained, not replacement of that aim. No new strategic feature in the installed baseline.
+- Tracked research checkpoint: [patches, source hashes and reports](docs/experiments/rank-commitment-2026-11-13/README.md). Full raw runs remain local/ignored.
+- **Latest isolated counterplay-related trial (2026-11-13), UNADOPTED**:
+  [Result/design/limits](results/teatsui-rank-commitment-2026-11-13/result.md).
+  User authorized trying implementation after pushing baseline. Snapshot-only
+  symmetric boolean 0/10cp penalty, tapered by1-progress, for advanced GS support
+  of a fifth-rank pawn when enemy major attacks and geometric participants exceed
+  defenders (direct plus one rear-slider layer; ignores pins/hands/tempo).
+  Not an unsupported-pawn bonus or full counterattack model. Static29 positions
+  pass, OFF equals adopted, full/incremental/unmake/color rotation checked.
+  Exactly6 fresh10s searches,85 legal PVs, bindings unchanged. Target after33:
+  OFF B7g+ vs ON P2e; common d14 White−171/−196, ON final d15−132. Neither G5b;
+  OFF also does not reproduce historical S8d. ON permits Rx8e then P*8d/P3e,
+  immediate counterplay, not low consolidation then waiting for commitment.
+  Central and positive control pairs retain G7h / P*5d respectively, same d14
+  scores/PVs. Final target OFF PV flags at added plies5–7; ON/controls none.
+  No strength claim or coefficient escalation. User strongly approves ON line's
+  timing (see below); do not force G5b. Installed baseline unchanged.
+  Artifacts ignored under results; no long matches or new adoption performed.
+  [Saved paired PV viewer](results/teatsui-rank-commitment-2026-11-13/review.html)
+  now prepared: left trial0 final d14, right trial10 final d15, starts at38.
+  All32 displayed states match native saved replay; no new search. Review35/38/44:
+  ON gives rank to R8e, P*8d drives rook, P3e then P2f/B*5e; G remains4a.
+  USER strongly prefers right/trial10: exploits Black S7f attacking commitment
+  and attacks with initiative. P2e/P3e precede S7f; Bx7g+/P2f/B*5e follow it.
+  This is a favorable counterplay example despite no prior G5b consolidation;
+  do not force a waiting/fortifying move just to match the earlier verbal plan.
+  Next bounded check: preserve favorable supported-rank cases and examine nearby
+  positions; no coefficient escalation or operational adoption authorized here.
+- **Fixed follow-up completed, same trial0/10, no tuning**:
+  [Report](results/teatsui-rank-followup-2026-11-13/result.md), six fresh10s
+  searches /85 legal PVs, bindings unchanged. Before original root(after31),
+  both P8e then P2e/rank relinquishment. Approved line after39 S7f: both Bx7g+
+  and identical d14 PV/−241; continuation now P3f/S6g rather than prior P2f.
+  Accepted maintained-rank game07 after44 DOES change: OFF S5e4d/Gx4d/P5c+;
+  ON S2g3f/P*5g/P9f/P9d/G5i retains S5e/P5d in its short final PV.
+  OFF final d13−228, ON final d14−191 (ON d13−63 not stable final score).
+  [Review central pair](results/teatsui-rank-followup-2026-11-13/review.html):
+  13 native-matched states, starts45, left0/right10. BOTH panels compare BLACK
+  (Shin), confirmed game07 metadata. Inherited White/Shin SVG label corrected
+  in generator and viewer; compare lower-side Black. USER prefers LEFT/OFF:
+  S3f purpose unclear, enemy already has promoted piece so attack decisively;
+  liquidation/resulting position looks better. Thickness/rank are assets to USE
+  at the right moment, not shapes to preserve at all times. Both preferred
+  counterplay and this rejected side effect must be retained. Trial stays held.
+  All final PV prefixes unflagged; off-PV branch effects not identified, timing
+  differs. No claim of strength, broad safety or forced counterplay. No adoption.
+- **Central-choice diagnosis (no tuning)**:
+  [Report](results/teatsui-rank-diagnosis-2026-11-13/result.md). All reported
+  supported-root PV prefixes:233 occurrences/97 distinct positions, flags0 and
+  identical static scores OFF/ON. No direct penalty found in S4d line.
+  Exactly2 fresh restricted MultiPV2 fixed-depth13 searches,52 legal PVs:
+  both choose S3f−117 with identical PV; S4d OFF−335/ON−243 (different lines).
+  Earlier unrestricted timed ranking reversal not reproduced under this
+  different search setup. Does not refute user preference or prove causality.
+  Off-PV branch effects unresolved. Do not invent attack bonus/force S4d or
+  narrow predicate without evidence. Isolated tracing is now complete below;
+  trial remains unadopted, baseline intact.
+- **Root-branch trace completed, no eval changes**:
+  [Report](results/teatsui-rank-trace-2026-11-13/result.md). Isolated binary,
+  exactly2 restricted d13/MultiPV2 searches; all reported non-time info fields
+  (including nodes/scores/PVs) match original diagnostic;52 legal PVs.
+  Qualifying S4d-branch calls ONLY flag White:4494 OFF(observed)/5268 ON,
+  no Black flags. S3f has mostly White flags plus9 calls/3 Black positions.
+  All2425 distinct hit SFENs checked with original native probe. Counts include
+  incremental parent/child evaluations, not independent nodes or causal weights.
+  Example White P5e/G5d vs Black R5f/S4d; static effect favors Black's attack.
+  No observed direct penalty on Black liquidation; don't narrow rule or force
+  S4d. Historical unrestricted timed divergence remains causally unresolved.
+  Next useful positional review: defenses R3b/P*5e/S*5g after S4d liquidation,
+  rather than assuming trial causes all reluctance to attack. Trial unadopted.
 - Latest adoption direction (2026-11-12): user wants BOTH support10 and D10
   adopted in principle, then fine-tune concrete issues. Proceed toward deployment
   after bounded confirmation if no major problem; do not endlessly require proof
@@ -185,7 +255,7 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   not assumed best-move labels. Separate preference, positional interpretation,
   tactical correctness and measured strength; explain with concrete squares/pieces.
 - Coefficients remain10/10; separate adopted baseline available as above.
-  Learning remains paused; no new bait/counterattack term implemented.
+  Learning remains paused; isolated rank-commitment prototype above is unadopted.
 - [Private rook-foothold trial](results/teatsui-rook-foothold-2026-11-11/result.md):
   D10/support10 fixed, four timed searches. Static replay detected an enemy rook
   drop foothold after game07 handed over its rook, but both trial groups still
