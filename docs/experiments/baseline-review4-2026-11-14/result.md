@@ -22,3 +22,11 @@ User finds the central counterplay natural but feels attack speed reverses somew
 - 70 S4f /71 Bx1a+ /72 P5g+ /73 P*5e /74 R5a /75 P8d: Black's pawn drop attacks White's rook on5d and induces a retreat before continuing toward the king. This is a concrete tempo change in the played game, not proof that the overall position was previously favorable. White pre-move scores at54/56/60/72 were −472/−510/−596/−861cp, gradually worsening rather than one sign reversal.
 
 Replayed saved PVs at54,56,60,72 with the native referee: all legal. No new searches. Next bounded comparison, if continued: after55, L*5g versus Sx5d with the adopted engine; review defense gained versus attack speed before changing evaluation.
+
+## Lightweight screening after closing the ambiguous game3 review
+
+User requests clear actionable issues, not exhaustive losing-move analysis. No new searches. Screened saved actual moves and selected PVs of games1,2,4. Game1 has51 S3f/53 S2g, already anticipated in51 PV; purpose may be waiting, so do not classify as wasted tempi without evidence. Game2's rook relocation and later knight loss occur amid active counterplay; no clear evaluation defect established from this screen. Neither warrants immediate candidate-search work.
+
+Game4 has a concrete visual review candidate at68–76: P*2e/Rx2e/R3d/R2i, then P*2e/Rx2e/G2d/R2i, then P*2e. First two pawns are captured; White also relocates rook and gold. The third pawn is defended by G2d, so these are not identical repetitions. Black then77 P*2b. Saved72 PV already includes this sequence and P*2b; do not describe it as an unexpected tactical oversight or proven waste. Native referee replayed saved PVs68/70/72/74/76 legally. No coefficient change is justified yet.
+
+[Focused actual-game viewer](../../../results/teatsui-baseline-review4-2026-11-14/review-static-pawns.html): both White/top, SAME game left67/right76. Uses already native-verified states. Ask whether the pawn expenditure produces useful activity; skip if no clear objection. The fixed14-ply start's immediate P2d exchange remains a separate setup issue to address when preparing future batches, not evidence to tune evaluation. Existing frozen starts and results unchanged.

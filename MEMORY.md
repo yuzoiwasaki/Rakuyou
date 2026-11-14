@@ -19,6 +19,16 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   of every remaining loss or a new match batch. Distinguish fixed-start setup
   defects from engine behavior; propose concrete corrections only with evidence.
 
+- Lightweight screen of other baseline games completed, no searches.
+  Games1/2: no clear actionable defect identified; do not pursue minor shuffles.
+  Game4 possible short visual review:68–76 P*2e repeats; first two captured,
+  rook/gold relocate, third pawn defended by G2d. Not identical repetition or
+  established waste; saved72 PV already predicts77 P*2b. Five saved PVs legal.
+  [Focused viewer](results/teatsui-baseline-review4-2026-11-14/review-static-pawns.html):
+  both White/top, same game left67/right76. Await judgment; skip if ambiguous.
+  For future batches reconsider game4 fixed start permitting immediate P2d;
+  do not modify frozen inputs or infer an evaluation defect from start imbalance.
+
 - **Completed four-game baseline and timing diagnostic (reference)**.
   User rejected rank10 and exchange-burden prototypes after positional review
   and diagnostic failure to separate desired/undesired support. Keep support10/D10.
