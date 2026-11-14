@@ -7,7 +7,19 @@ is the last full historical map). Historical NEXT headings are not active tasks.
 
 ## Current objective and collaboration
 
-- **NEXT: user reviews completed four-game baseline; no tuning yet**.
+- **Review policy: prioritize clear, actionable defects; skip ambiguous losses**.
+  User explicitly does not want exhaustive losing-game or losing-move diagnosis.
+  Screen saved games regardless of result for concrete unnatural piece use,
+  plainly inadequate defense or unsustainable support. Investigate only when
+  the defect and intended improvement can be explained; small score differences
+  or losing results alone do not justify tuning or further candidate searches.
+  Skip baseline game3 now: initial counterplay natural, no clear culprit.
+  Cancel the proposed after47 P9d/S7f comparison; no further searches this case.
+  Keep support10/D10. Next work is lightweight screening, not automatic review
+  of every remaining loss or a new match batch. Distinguish fixed-start setup
+  defects from engine behavior; propose concrete corrections only with evidence.
+
+- **Completed four-game baseline and timing diagnostic (reference)**.
   User rejected rank10 and exchange-burden prototypes after positional review
   and diagnostic failure to separate desired/undesired support. Keep support10/D10.
   [Run instructions](docs/experiments/baseline-review4-2026-11-14/README.md),
@@ -24,17 +36,17 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   USER: central plan natural, but attack speed seems to reverse midstream.
   Saved-game timing windows56 L*5g/57 L*5h and73 P*5e (hits rook5d),74 R5a,
   75 P8d. At54 saved PV anticipated56 Sx5d instead; consider bounded comparison
-  after55 L*5g versus Sx5d next. Four saved PVs native-replayed legal, no search.
+  after55 L*5g versus Sx5d was subsequently checked. Four saved PVs native-replayed legal, no search.
   Do not treat gradual worsening as a proven single blunder or reject counterplay.
   Timing diagnostic completed: [report](docs/experiments/baseline-tempo-2026-11-14/result.md).
   Two timed searches plus two justified fixeddepth11 checks after cutoff artifacts;
   94 PVs legal,53 viewer states native-matched,original bindings unchanged.
   After45 unrestricted: S6e−239 first /S4c−765. After55 restricted: L*5g−477,
   S6ex5d−336. White perspective; neither establishes equality. User initial plan
-  natural is not contradicted. Immediate exchange then L*5e merits review.
+  natural is not contradicted. User now skips this ambiguous case.
   [Viewer](results/teatsui-baseline-tempo-fixed11-2026-11-14/review.html):
   BOTH WHITE/TOP; LEFT played L*5g, RIGHT Sx5d, fixeddepth11 predicted lines.
-  Earlier46 PV chooses48 S7f vs actual P9d; next direct comparison after47 if useful.
+  Earlier46 PV chooses48 S7f vs actual P9d; proposed comparison CANCELLED by review policy.
   Known development starts, no paired ablation or strength proof. Historical
   next/review instructions below are superseded by this decision.
 

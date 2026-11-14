@@ -21,4 +21,8 @@ At46 the engine still prefers the played S6e. This supports keeping central coun
 
 At56 immediate Sx5d scores141cp higher. PV begins S6ex5d/S5ex5d/S6cx5d/P*9c/L*5e: silver exchange first, then use the lance. Played L*5g meets L*5h, followed by silver exchanges. The difference supports investigating move order and where the lance is used, but neither line restores equality in this search. These shallow diagnostics do not establish a unique losing move or a coefficient defect. Timed depth12/13 shows only64cp separation, indicating uncertainty in the size of the difference.
 
-[Candidate viewer](../../../results/teatsui-baseline-tempo-fixed11-2026-11-14/review.html): both WHITE/TOP. Default56, LEFT played L*5g, RIGHT S6ex5d. Predicted lines, not actual games or forced sequences. Dropdown46 shows unrestricted top two moves. Next useful bounded check, after user review: actual after47, P9d versus S7f; keep evaluation unchanged.
+[Candidate viewer](../../../results/teatsui-baseline-tempo-fixed11-2026-11-14/review.html): both WHITE/TOP. Default56, LEFT played L*5g, RIGHT S6ex5d. Predicted lines, not actual games or forced sequences. Dropdown46 shows unrestricted top two moves. A comparison after47, P9d versus S7f, was proposed but is now cancelled: user prefers skipping losses without a clear actionable defect. Keep evaluation unchanged.
+
+## Review disposition
+
+User chose to skip this case. The initial plan appears natural and no clear losing move or actionable evaluation defect has emerged. Do not continue per-move diagnosis just because the game was lost. Future review should screen wins and losses for plainly problematic behavior, then investigate a concrete correction. No further searches or changes to evaluation follow from this report.
