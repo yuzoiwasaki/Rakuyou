@@ -68,6 +68,20 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   engine prints partial candidate results on time limit. Distinguish from fixed
   completed-depth output, never interpret sentinel mate rows as proven mates.
 
+- **User P*5d idea after49 checked, no tuning**:
+  [Report](docs/experiments/pawn-interpose-2026-11-14/result.md),
+  [viewer](results/teatsui-pawn-interpose-2026-11-14/review.html).
+  Selected G7h/S5g PV after48 R5b: P*5d/Sx5d/RxN3c native legal; Silver5d
+  blocks rook5b ray but Bishop2b still controls3c. Four completed-depth12 MP2
+  diagnostics (3 planned + direct Rx3c comparison),96 legal PVs/94 board states.
+  Root48 Black RxR−98 vsP*5d−173. White afterdrop prefers P*5f+265 vsSx5d+234,
+  moving S5g before taking. AfterSx5d unrestricted Black Bx3c+−174/RxR−392;
+  targeted directRx3c−333 vsBx3c+−47. Do not compare values across searches.
+  Bishop-first Bx3c+/Bx3c/Rx3c retains dragon; directRx3c/Bx3c/Bx3c+ gives
+  opponent a rook. User idea valid geometry, not forced reply or winning proof.
+  Viewer default49 choice; dropdown capture order/White replies, explicit sides.
+  Await review; unchanged rank0/support10/D10, frozen inputs verified.
+
 - **Current adopted baseline (2026-11-13)**: support10 + D10, separate installed
   launcher `bin/teatsui-2026-11-13/rakuyou`, engine id
   `Rakuyou support10 D10 2026-11-13`. GUI registration was NOT changed automatically.
