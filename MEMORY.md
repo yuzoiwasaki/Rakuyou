@@ -1,13 +1,13 @@
 # Rakuyou resume map
 
-Updated 2026-11-14. Read this on resume; open linked reports only as needed.
+Updated 2026-11-15. Read this on resume; open linked reports only as needed.
 This file holds current state, durable constraints and next steps, not a changelog.
 Earlier details remain in experiment reports and Git history (`a87f406:MEMORY.md`
 is the last full historical map). Historical NEXT headings are not active tasks.
 
 ## Current objective and collaboration
 
-- **NEXT: user runs two initial-position games with normal-side book ON**.
+- **NEXT: user judges king-route change in completed normal-book pair**.
   Explicitly authorized after closing silver-retreat case. Keep adopted ShinON/
   support10/D10 bookOFF; normal fixed Rakuyou ShinOFF/support0/D0 bookON through
   ply20, native default filters/random choice. Initial position/colors reversed,
@@ -15,8 +15,17 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   [Instructions](docs/experiments/startpos-normal-book-2026-11-14/README.md),
   [evidence](docs/experiments/startpos-normal-book-2026-11-14/prepared.json).
   Eleven tests passed; eight real preflight probes:3 book,3 depth3 search,
-  2 native first moves. Main0/2, user runs long games. Await Completed2/2;
-  audit including per-game book hits, then screen clear opening/style issues.
+  2 native first moves. User completed2/2, adopted side loses both.
+  [Audit/report](docs/experiments/startpos-normal-book-2026-11-14/result.md):
+  240 bindings intact,204 timed searches+5 book+2 opening,2 histories legal.
+  Book only game1 plies2/4; game2 plies1/3/5, then searches. No sustained book test.
+  [Viewer](results/teatsui-startpos-normal-book-2026-11-14/review.html):
+  default game1 BOTH BLACK/BOTTOM, same game left31/right43,211 native states.
+  Concrete style question: ShinON Black33 K5i,35 K6h,39 K7i,43 K8h abandons
+  Shin king shape; coherent left-side castling, not established blunder or bug.
+  Saved scores near0 then+255 at53; no claim switch immediately causes loss.
+  Game2 no clear opening defect identified; do not force per-loss analysis.
+  No new searches/evaluation change; await judgment, skip if acceptable.
   Book may end early in unusual positions; no matched-pair book-effect claim,
   no pooling previous results or evaluation changes. Root README stays simple.
 

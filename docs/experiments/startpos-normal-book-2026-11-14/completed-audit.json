@@ -1,0 +1,96 @@
+{
+  "status": "passed",
+  "searches_run": 0,
+  "referee_only": true,
+  "plan_sha256": "e07bc202f235402ef50193872591fcbbc0e2ec98040465a19c184b7849911cae",
+  "frozen_bindings_verified": 240,
+  "report_sha256": "38febf5ac21b76cdfdf9ca660b31bba0c2aa45db2f7047b2086cc84afcec0ca8",
+  "games": [
+    {
+      "number": 1,
+      "pair": 1,
+      "contact_deficit_cp": 10,
+      "role": "support10d10",
+      "support_bonus": 10,
+      "color": "black",
+      "result": "white_win",
+      "reason": "resign",
+      "book_plies": [
+        2,
+        4
+      ],
+      "total_plies": 98,
+      "terminal_referee_result": "ongoing",
+      "added_plies": 99,
+      "sha256": "77dbbe1a97322da42c30827cefa3ae615fb15cca5dc2723e33bff81a4381eabe"
+    },
+    {
+      "number": 2,
+      "pair": 2,
+      "contact_deficit_cp": 10,
+      "role": "support10d10",
+      "support_bonus": 10,
+      "color": "white",
+      "result": "black_win",
+      "reason": "resign",
+      "book_plies": [
+        1,
+        3,
+        5
+      ],
+      "total_plies": 111,
+      "terminal_referee_result": "ongoing",
+      "added_plies": 112,
+      "sha256": "23d749078551b83c002ba3849117c0fc53a962488c62447fe07e8f00e9f848bc"
+    }
+  ],
+  "arms": {
+    "support10d10": {
+      "total": {
+        "wins": 0,
+        "losses": 2,
+        "draws": 0,
+        "unresolved": 0,
+        "errors": 0,
+        "unrun": 0,
+        "score_rate": 0.0,
+        "scored_games": 2
+      },
+      "by_color": {
+        "black": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0,
+          "unresolved": 0,
+          "errors": 0,
+          "unrun": 0,
+          "score_rate": 0.0,
+          "scored_games": 1
+        },
+        "white": {
+          "wins": 0,
+          "losses": 1,
+          "draws": 0,
+          "unresolved": 0,
+          "errors": 0,
+          "unrun": 0,
+          "score_rate": 0.0,
+          "scored_games": 1
+        }
+      }
+    }
+  },
+  "clock": {
+    "native_first_moves": 2,
+    "book_moves": 5,
+    "timed_go": 204,
+    "max_wall_ms": 9912,
+    "max_usi_ms": 9908
+  },
+  "diagnostics": {
+    "native_fixed_opening": 2,
+    "normal_book_move": 5,
+    "reported_depth_below_requested": 132,
+    "mate_early_depth": 2
+  }
+}

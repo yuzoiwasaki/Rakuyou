@@ -1,0 +1,14 @@
+<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>通常側定跡ON：２局レビュー</title>
+<style>body{font-family:system-ui;max-width:1280px;margin:20px auto;padding:16px;background:#faf9f6;color:#222}p{line-height:1.7}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}svg{width:100%;max-height:600px}button,select{font-size:16px;padding:8px;margin:3px}input{width:100%}pre{white-space:pre-wrap;overflow-wrap:anywhere}@media(max-width:700px){.grid{grid-template-columns:1fr}}</style>
+<h1>通常側定跡ON：囲いの選択</h1>
+<p>左右は同じ対局の異なる時点です。補正の有無を比較する図ではありません。左を基準として固定し、右で続きを進められます。初期局面からの実戦棋譜です。全局採用済みsupport10＋D10、追加探索なし。</p>
+<select id="choose" aria-label="対局" onchange="choose(+this.value)"><option value="1" selected>第１局：採用版が先手／負け</option><option value="2">第２局：採用版が後手／負け</option></select>
+<p id="context"></p><p id="note"></p>
+<button onclick="show(0)">初期局面</button><button onclick="show(31)">31手</button><button onclick="show(33)">33手</button><button onclick="show(39)">39手</button><button onclick="show(43)">43手</button><button onclick="show(53)">53手</button><button onclick="show(n-1)">←１手</button><button onclick="show(n+1)">１手→</button><button onclick="anchor=n;show(n)">現在の局面を左に固定</button>
+<input id="seek" aria-label="右盤面の総手数" type="range" min="0" oninput="show(+this.value)"><div class="grid" id="panels"></div>
+<script>const games=/*DATA*/;let c=3,n=46,anchor=38;
+/*SVG*/
+function show(i){const g=games[c];n=Math.max(0,Math.min(g.states.length-1,i));const seek=document.getElementById('seek');seek.max=g.states.length-1;seek.value=n;document.getElementById('panels').innerHTML=[anchor,n].map((ply,j)=>{const s=g.states[ply];return `<section><h2>${j?'続き':'基準'}：${ply}手目 ${s.move}</h2>${svg(s)}<p>${g.states.slice(Math.max(1,ply-7),ply+1).map(t=>`${t.ply}: ${t.move}`).join(' → ')}</p><details><summary>SFEN</summary><pre>${s.sfen}</pre></details></section>`;}).join('');}
+function choose(k){c=k;document.getElementById('choose').value=k;const g=games[k];document.getElementById('context').textContent=`左右とも${g.color==='white'?'上側の後手':'下側の先手'}が新米長玉ON・support10＋D10です。結果：${g.result}。`;document.getElementById('note').textContent=k===1?'通常側の定跡は２・４手目だけ。採用版の玉は33手目▲５九玉、35手目▲６八玉、39手目▲７九玉、43手目▲８八玉と左へ囲い直します。新米長玉ON設定のままですが、新米長玉の形を選んでいません。左右は同じ対局の31手目と43手目です。囲いの変更が自然かを見る候補で、敗着・設定不良との断定ではありません。':'通常側は１・３・５手目に定跡を使い四間飛車へ。採用版は玉７一、銀８三と構え、後に飛車を２二へ回して２筋と端から攻めます。序盤の明確な修正点はまだ特定していません。曖昧なら深追いしません。';anchor=k===1?31:30;show(k===1?43:46);}
+document.addEventListener('keydown',e=>{if(['INPUT','SELECT'].includes(e.target.tagName))return;if(e.key==='ArrowLeft')show(n-1);if(e.key==='ArrowRight')show(n+1);});choose(1);
+</script></html>
