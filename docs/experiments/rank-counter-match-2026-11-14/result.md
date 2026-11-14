@@ -38,3 +38,11 @@ Suggested checkpoints44/48/58 (72 available for continuation): OFF permits White
 ## User central-pair verdict and candidate check
 
 User judges the central pair roughly equal. Right wants earlier N3g to restrain the faster enemy attack; left wants G7h against S7f while retaining its interesting counterplay. This is a timing/defense issue in both examples, not a rank0/10 preference. [Bounded candidate comparison](../counter-timing-2026-11-14/result.md) checks the concrete suggestions without changing coefficients.
+
+## White versus fourth rook: next review
+
+User explicitly closed the G7h/silver/P*5d branch; preserve its lessons without further searches or move-specific tuning. Proceed to the other losing pair.
+
+[Focused fourth-rook viewer](../../../results/teatsui-rank-counter-match-2026-11-14/review-fourth.html): games05/06, left rank0/right rank10, BOTH WHITE/TOP. Opens44; checkpoints52/64/74. Same1247 native-matched saved boards, no new search.
+
+OFF exchanges bishops, plays R2b at40 and attacks on2-file/edge. ON moves S8c8d at44, R3b5b at46, N8a7c at48, then answers P5d with S5c5d at52 while advancing7/8-file pawns. Both eventually lose. The first divergence is NORMAL Black19 K2h versus S6f, so the different formations and attack timing cannot be attributed solely to the rank correction. User judgment on reinforcement/counterplay versus overextension is pending. Do not infer greater strength from the longer game05 or re-open the just-closed branch without reason.

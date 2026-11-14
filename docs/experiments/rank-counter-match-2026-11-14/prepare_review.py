@@ -37,3 +37,12 @@ focused=focused.replace('<h1>補正0／10：保存棋譜の比較</h1>', '<h1>�
 focused=focused.replace('<button onclick="show(40)">40手</button>', '<button onclick="show(44)">44手・攻防の前</button>')
 focused=focused.replace('<button onclick="show(60)">60手</button>', '<button onclick="show(58)">58手・駒交換後</button><button onclick="show(72)">72手・その後</button>')
 (OUT/'review-central.html').write_text(focused)
+
+# Fourth-rook pair: White is the comparison side in both panels.
+fourth=html.replace('DATA',json.dumps(pairs,ensure_ascii=False)).replace('SVG',svg)
+fourth=fourth.replace('choose(3);</script>', 'choose(2);show(44);</script>')
+fourth=fourth.replace('<h1>補正0／10：保存棋譜の比較</h1>', '<h1>後手・対四間飛車：受けと反撃の比較</h1><p><strong>今回は左右とも上側の後手（新米長玉）を見ます。</strong>左が補正0・第５局、右が補正10・第６局。両方とも最終的には負けました。初回分岐は相手側の19手目（左▲２八玉／右▲６六銀）です。</p><p>44手目から52・64手目へ進めて確認してください。左は角交換後、２筋と端へ攻めを向けます。右は△８四銀と出て、△５二飛で中央に対応しながら７・８筋で反撃します。終盤の勝敗だけでなく、駒の配置と攻めのタイミングを比較してください。追加探索はしていません。</p>')
+fourth=fourth.replace('<button onclick="show(40)">40手</button>', '<button onclick="show(44)">44手・構え</button>')
+fourth=fourth.replace('<button onclick="show(48)">48手</button>', '<button onclick="show(52)">52手・中央の対応</button>')
+fourth=fourth.replace('<button onclick="show(60)">60手</button>', '<button onclick="show(64)">64手・反撃の進行</button><button onclick="show(74)">74手・その後</button>')
+(OUT/'review-fourth.html').write_text(fourth)

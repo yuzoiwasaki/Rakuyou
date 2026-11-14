@@ -82,6 +82,15 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   Viewer default49 choice; dropdown capture order/White replies, explicit sides.
   Await review; unchanged rank0/support10/D10, frozen inputs verified.
 
+- **CURRENT review: White fourth-rook pair; earlier branch closed**:
+  User explicitly stops G7h/silver/P*5d investigation here. Preserve lessons,
+  no further searches or move-specific tuning on that branch.
+  [Focused viewer](results/teatsui-rank-counter-match-2026-11-14/review-fourth.html)
+  games05/06 left0/right10, BOTH WHITE/TOP, opens44; inspect52/64/74.
+  Left bishop trade/R2b then2-file/edge attack; right S8d44/R5b46/N7c48,
+  S5d52 against P5d while7/8-file pawns advance. Bothlose. FIRST divergence
+  normalBlack19 K2h/S6f, no clean causal claim. Await user review; no searches.
+
 - **Current adopted baseline (2026-11-13)**: support10 + D10, separate installed
   launcher `bin/teatsui-2026-11-13/rakuyou`, engine id
   `Rakuyou support10 D10 2026-11-13`. GUI registration was NOT changed automatically.
