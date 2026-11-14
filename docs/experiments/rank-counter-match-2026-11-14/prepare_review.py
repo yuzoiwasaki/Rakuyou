@@ -46,3 +46,11 @@ fourth=fourth.replace('<button onclick="show(40)">40手</button>', '<button oncl
 fourth=fourth.replace('<button onclick="show(48)">48手</button>', '<button onclick="show(52)">52手・中央の対応</button>')
 fourth=fourth.replace('<button onclick="show(60)">60手</button>', '<button onclick="show(64)">64手・反撃の進行</button><button onclick="show(74)">74手・その後</button>')
 (OUT/'review-fourth.html').write_text(fourth)
+
+# Final pair review: Black/static, both wins.
+static=html.replace('DATA',json.dumps(pairs,ensure_ascii=False)).replace('SVG',svg)
+static=static.replace('choose(3);</script>', 'choose(1);show(40);</script>')
+static=static.replace('<h1>補正0／10：保存棋譜の比較</h1>', '<h1>先手・対居飛車：攻めの組み立てを比較</h1><p><strong>今回は左右とも下側の先手（新米長玉）を見ます。</strong>左が補正0・第４局、右が補正10・第３局。両方とも最終的には勝ちました。初回分岐は23手目（左▲３八金／右▲４六銀）です。</p><p>40手目から49・59手目へ進めて確認してください。左は中央の位と▲３七桂を用意し、のちに端へ攻めを向けます。右は早く３筋へ銀・飛車を使い、銀交換のあと▲７五銀打と別の筋にも駒を働かせます。どちらの構え・攻め方が自然に感じられるかを比較してください。勝利だけで中盤の全ての手を肯定する比較ではありません。追加探索はしていません。</p>')
+static=static.replace('<button onclick="show(48)">48手</button>', '<button onclick="show(49)">49手・３筋の攻防</button>')
+static=static.replace('<button onclick="show(60)">60手</button>', '<button onclick="show(59)">59手・攻めの展開</button><button onclick="show(81)">81手・その後</button>')
+(OUT/'review-static.html').write_text(static)

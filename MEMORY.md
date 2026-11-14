@@ -97,6 +97,15 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   No search/forced-line proof. Next remaining batch review: Black/static bothwin;
   then summarize adoption direction without reopening deep tactical branches.
 
+- **CURRENT: last pair review Black/static (both wins)**:
+  [Focused viewer](results/teatsui-rank-counter-match-2026-11-14/review-static.html)
+  left04/rank0, right03/rank10, BOTH BLACK/BOTTOM. Opens40; inspect49/59/81.
+  First divergence23 G3h/S4f. Left central P5e/N3g then edge attack, giving
+  S4f to B at58 while taking lance1a59. Right early3-file silver/rook activity,
+  silver trade47–48/R3d49, then S*7e55/P*7d57. Bothwin, no blanket endorsement
+  of middlegame or causal claim. Await user preference, then synthesize four
+  pair reviews for adoption direction. No searches or coefficient changes.
+
 - **Current adopted baseline (2026-11-13)**: support10 + D10, separate installed
   launcher `bin/teatsui-2026-11-13/rakuyou`, engine id
   `Rakuyou support10 D10 2026-11-13`. GUI registration was NOT changed automatically.

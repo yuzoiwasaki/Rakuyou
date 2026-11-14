@@ -54,3 +54,9 @@ User judges both roughly equal, neither good. RIGHT/rank10 should capture P5e ra
 Native legality only (no search): after47 P*5e,48 P5d5e is legal. The illustrative continuation49 S6f5e 50 P*5d is also legal and the dropped pawn attacks the silver. P5d5e alone does not directly attack S6f, so preserve the intended multi-move plan rather than claiming an immediate silver attack. Opponent Sx5e is not forced and no tactical superiority has been proven.
 
 Review synthesis so far: White/third-rook extra-win pair favors rank10 stylistically; Black/central and White/fourth are both roughly equal with concrete timing/coordination issues. Black/static (both wins) is still unreviewed. No new coefficient changes or adoption decision; don't resume a long tactical branch without user direction.
+
+## Final pair review: Black versus static rook
+
+[Focused static-rook viewer](../../../results/teatsui-rank-counter-match-2026-11-14/review-static.html) opens40, games04/03 left rank0/right rank10, BOTH BLACK/BOTTOM. Check49/59, optional81. Same audited board data; no new search or evaluation change.
+
+First divergence23 Black G3h versus S4f. OFF develops central P5e and N3g, later turns to the edge: P1e/Px1e/Lx1e, while White BxS4f at58 and Black LxL1a+ at59. ON attacks the3-file earlier, exchanges silvers at47–48, R3d49, then S*7e55 and P*7d57. Both ultimately win, but this does not validate every opening/middlegame choice or isolate correction causality. User's judgment of the structure and attack timing is pending; this is the last unreviewed pair of the batch.
