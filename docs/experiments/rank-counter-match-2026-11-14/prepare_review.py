@@ -29,3 +29,11 @@ function choose(k){c=k;document.getElementById('choose').value=k;const p=pairs[c
 document.addEventListener('keydown',e=>{if(['INPUT','SELECT'].includes(e.target.tagName))return;if(e.key==='ArrowLeft')show(n-1);if(e.key==='ArrowRight')show(n+1);});choose(3);</script></html>'''
 (OUT/'review.html').write_text(html.replace('DATA',json.dumps(pairs,ensure_ascii=False)).replace('SVG',svg))
 (OUT/'review-check.json').write_text(json.dumps(dict(native_matched_states=count,games=8,searches=0),indent=2)+'\n');print('Native-matched displayed states:',count)
+
+# Dedicated entry for the next review; all game data remain identical.
+focused=html.replace('DATA',json.dumps(pairs,ensure_ascii=False)).replace('SVG',svg)
+focused=focused.replace('choose(3);</script>', 'choose(0);show(44);</script>')
+focused=focused.replace('<h1>補正0／10：保存棋譜の比較</h1>', '<h1>先手・対中飛車：中央の攻めと自陣の守り</h1><p><strong>今回は左右とも下側の先手（新米長玉）を見ます。</strong>左が補正0、右が補正10。両方とも最終的には負けました。初回分岐は23手目の端歩（左▲１六歩／右▲９六歩）です。</p><p>まず44手目で先手の駒の働きを比べ、48・58手目へ進めて攻防を見てください。左は成銀の侵入を許しながら５筋の飛車と歩を活用。右は47手目▲５五歩で動きますが、その後は玉側の攻防が続きます。勝敗だけでなく、どちらの構想に主張があるかを確認する比較です。表示は保存棋譜で、追加探索はしていません。</p>')
+focused=focused.replace('<button onclick="show(40)">40手</button>', '<button onclick="show(44)">44手・攻防の前</button>')
+focused=focused.replace('<button onclick="show(60)">60手</button>', '<button onclick="show(58)">58手・駒交換後</button><button onclick="show(72)">72手・その後</button>')
+(OUT/'review-central.html').write_text(focused)

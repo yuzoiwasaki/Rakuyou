@@ -28,3 +28,9 @@ User prefers RIGHT/rank10. LEFT/rank0 lets Black break through the8-file and is 
 Preserve the distinction: avoid futile support of an unsustainable rank, but add defenders when defense is viable and connects to active counterplay. Do not reinterpret this as a blanket preference for abandoning territory or avoiding gold/silver reinforcement. Together with the earlier central liquidation preference, supported thickness must also be converted into attack at the right moment.
 
 Next review should cover a losing pair (Black versus central rook or White versus fourth rook), rather than only the extra win. The first divergence in this reviewed winning pair remains on the normal opponent's17th move. Trial remains unadopted; no new search or tuning.
+
+## Next review: Black versus central rook
+
+[Focused viewer](../../../results/teatsui-rank-counter-match-2026-11-14/review-central.html) opens games01/02 at44, left rank0/right rank10. BOTH compare BLACK at the BOTTOM. All boards are from the same audited histories; no search. First divergence23 is P1f versus P9f by Black, followed by different opponent plans.
+
+Suggested checkpoints44/48/58 (72 available for continuation): OFF permits White's promoted silver on6g, uses the rook on5d and P*5c, then later turns toward the edge. ON builds S4g/P4f/P3f, retreats R5h5i at45, then DOES push P5e at47 and trades on the king side; do not describe it simply as refusing to attack or preserving rank forever. White S4f and the bishop/silver exchange at57–58 precede pressure near the king; R5i is captured at72. User judgment pending on the earlier construction/attack timing, not a forced-tactic or causal verdict. Both games end in resignation losses, so the longer game02 is not by itself evidence of better play.

@@ -21,8 +21,12 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   right adds defenders and has S*7f counterplay. Record as favorable style case,
   not causal/strength proof. Viable defense should still add pieces; do not
   turn unsustainable-support avoidance into blanket abandonment/no-reinforcement.
-  Next review a losing pair (Black central or White fourth) before adoption;
-  preserve prior good-counter/bad-attack-timing examples.
+  NOW review Black central games01/02, user requested; [focused viewer](results/teatsui-rank-counter-match-2026-11-14/review-central.html)
+  opens44, compare BOTH BLACK/BOTTOM; left0/right10. Check44/48/58, optional72.
+  First divergence23 P1f/P9f, later opponent plans differ. Left admits promoted
+  silver6g but uses R5d/P*5c; right DOES push P5e47, king-side exchanges follow,
+  and R5i is captured72. Do not frame as unconditional refusal to attack.
+  User judgment pending, no search/tuning; preserve earlier counter/timing cases.
   Frozen known12-ply starts2,3,4,5; support10/D10/ShinON vs fixednormal,10s/d15,
   no tuning or adoption. Prepared scripts/tests and initial failed setup archived.
   No new searches this audit/review turn. User authorized incremental commits.
