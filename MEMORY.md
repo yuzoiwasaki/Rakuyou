@@ -7,6 +7,21 @@ is the last full historical map). Historical NEXT headings are not active tasks.
 
 ## Current objective and collaboration
 
+- **NEXT: user runs initial-position two-game comparison**.
+  User wants to discover obvious opening defects from the actual starting board,
+  accepts normal Rakuyou rather than requiring upstream Gikou2. Prior comparisons
+  already used ShinOFF normal opponent, but had fixed mid-opening histories.
+  [Instructions](docs/experiments/startpos-pair-2026-11-14/README.md),
+  [prepared evidence](docs/experiments/startpos-pair-2026-11-14/prepared.json).
+  Startpos, colors reversed, adopted ShinON/support10/D10 vs fixed normal
+  ShinOFF/support0/D0. Both booksOFF; existing native first move K4h/K6b retained,
+  all later moves searched. Depth15cap/10s/256totalplies,1thread/Hash64.
+  Nine runner tests passed; eight real preflight probes (six depth3 searches,
+  two native first moves) legal. Main games0/2; user runs long games.
+  Await Completed2/2 then audit and screen obvious opening/style issues, not
+  exhaustive diagnosis. No claim normal Rakuyou equals upstream Gikou2.
+  Previous game4 pawn-repeat case now skipped: user sees no definite problem.
+
 - **Review policy: prioritize clear, actionable defects; skip ambiguous losses**.
   User explicitly does not want exhaustive losing-game or losing-move diagnosis.
   Screen saved games regardless of result for concrete unnatural piece use,
@@ -15,8 +30,8 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   or losing results alone do not justify tuning or further candidate searches.
   Skip baseline game3 now: initial counterplay natural, no clear culprit.
   Cancel the proposed after47 P9d/S7f comparison; no further searches this case.
-  Keep support10/D10. Next work is lightweight screening, not automatic review
-  of every remaining loss or a new match batch. Distinguish fixed-start setup
+  Keep support10/D10. Initial-position batch now explicitly authorized above;
+  review remains lightweight rather than exhaustive losing-game diagnosis. Distinguish fixed-start setup
   defects from engine behavior; propose concrete corrections only with evidence.
 
 - Lightweight screen of other baseline games completed, no searches.
@@ -25,7 +40,7 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   rook/gold relocate, third pawn defended by G2d. Not identical repetition or
   established waste; saved72 PV already predicts77 P*2b. Five saved PVs legal.
   [Focused viewer](results/teatsui-baseline-review4-2026-11-14/review-static-pawns.html):
-  both White/top, same game left67/right76. Await judgment; skip if ambiguous.
+  both White/top, same game left67/right76. USER unsure; skipped, no tuning.
   For future batches reconsider game4 fixed start permitting immediate P2d;
   do not modify frozen inputs or infer an evaluation defect from start imbalance.
 
