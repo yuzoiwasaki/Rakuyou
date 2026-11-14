@@ -1,0 +1,841 @@
+{
+  "positions": 29,
+  "probe_parity": true,
+  "items": [
+    {
+      "sfen": "ln1g3rl/1ks1g4/pppp1pn2/4p3p/P3s1bP1/2PP1PS1P/BP3S3/6GK1/LN1GR2NL w 2P2p 1",
+      "occurrences": [
+        {
+          "kind": "actual",
+          "game": 2,
+          "ply": 55
+        }
+      ],
+      "black": {
+        "pawn": "2e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "2a",
+          "3c"
+        ],
+        "defenders": [
+          "3f"
+        ],
+        "direct_attackers": [
+          "2a",
+          "3c"
+        ]
+      },
+      "white": null
+    },
+    {
+      "sfen": "ln1g3rl/1ks1g4/pppp1pn2/4p3p/P5bP1/2PP1sS1P/BP3S3/6GK1/LN1GR2NL b 2P3p 1",
+      "occurrences": [
+        {
+          "kind": "actual",
+          "game": 2,
+          "ply": 56
+        }
+      ],
+      "black": {
+        "pawn": "2e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "2a",
+          "3c"
+        ],
+        "defenders": [
+          "3f"
+        ],
+        "direct_attackers": [
+          "2a",
+          "3c"
+        ]
+      },
+      "white": null
+    },
+    {
+      "sfen": "ln5r1/1k1g5/3p1p3/psp1sb1P1/1p1P2pG1/2P1pP2L/PRN4Sp/4S2K1/L3BG1NP b GNPl3p 1",
+      "occurrences": [
+        {
+          "kind": "actual",
+          "game": 5,
+          "ply": 118
+        }
+      ],
+      "black": null,
+      "white": {
+        "pawn": "8e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "7g",
+          "8g"
+        ],
+        "defenders": [
+          "8d"
+        ],
+        "direct_attackers": [
+          "7g",
+          "8g"
+        ]
+      }
+    },
+    {
+      "sfen": "ln5r1/1k1g5/3p1p3/psp1sb1P1/1p1P2pG1/2P1pP2L/PRN4Sp/4SB1K1/L4G1NP w GNPl3p 1",
+      "occurrences": [
+        {
+          "kind": "actual",
+          "game": 5,
+          "ply": 119
+        }
+      ],
+      "black": null,
+      "white": {
+        "pawn": "8e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "7g",
+          "8g"
+        ],
+        "defenders": [
+          "8d"
+        ],
+        "direct_attackers": [
+          "7g",
+          "8g"
+        ]
+      }
+    },
+    {
+      "sfen": "ln5r1/1k7/2gp1p3/psp1sb1P1/1p1P2pG1/2P1pP2L/PRN4Sp/4SB1K1/L4G1NP b GNPl3p 1",
+      "occurrences": [
+        {
+          "kind": "actual",
+          "game": 5,
+          "ply": 120
+        }
+      ],
+      "black": null,
+      "white": {
+        "pawn": "8e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "7g",
+          "8g"
+        ],
+        "defenders": [
+          "8d"
+        ],
+        "direct_attackers": [
+          "7g",
+          "8g"
+        ]
+      }
+    },
+    {
+      "sfen": "ln5r1/1k7/2gp1p3/psp1sb1P1/1p1P2pG1/P1P1pP2L/1RN4Sp/4SB1K1/L4G1NP w GNPl3p 1",
+      "occurrences": [
+        {
+          "kind": "actual",
+          "game": 5,
+          "ply": 121
+        }
+      ],
+      "black": null,
+      "white": {
+        "pawn": "8e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "7g",
+          "8g"
+        ],
+        "defenders": [
+          "8d"
+        ],
+        "direct_attackers": [
+          "7g",
+          "8g"
+        ]
+      }
+    },
+    {
+      "sfen": "lnkg3nl/3r5/pspg1p2p/1p2sbp2/2Ppp2p1/2S2P3/P1B1P1PPP/3RG1SK1/LN3G1NL b Pp 1",
+      "occurrences": [
+        {
+          "kind": "actual",
+          "game": 7,
+          "ply": 42
+        },
+        {
+          "kind": "pv",
+          "game": 7,
+          "rootply": 41,
+          "added": 1
+        }
+      ],
+      "black": null,
+      "white": {
+        "pawn": "6e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "6h",
+          "7f"
+        ],
+        "defenders": [
+          "5d"
+        ],
+        "direct_attackers": [
+          "6h",
+          "7f"
+        ]
+      }
+    },
+    {
+      "sfen": "l1k5l/s1g4r1/p1ngspn2/1P2pbp2/3p3Pp/PBS2R1S1/2N1PPP1P/3G3K1/L4G1NL b 5P 1",
+      "occurrences": [
+        {
+          "kind": "actual",
+          "game": 8,
+          "ply": 68
+        },
+        {
+          "kind": "pv",
+          "game": 8,
+          "rootply": 67,
+          "added": 1
+        }
+      ],
+      "black": {
+        "pawn": "2e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "2b",
+          "3c"
+        ],
+        "defenders": [
+          "2f"
+        ],
+        "direct_attackers": [
+          "2b",
+          "3c"
+        ]
+      },
+      "white": null
+    },
+    {
+      "sfen": "l1k5l/s1g4r1/p1ngspn2/1P2pbp2/2Sp3Pp/PB3R1S1/2N1PPP1P/3G3K1/L4G1NL w 5P 1",
+      "occurrences": [
+        {
+          "kind": "actual",
+          "game": 8,
+          "ply": 69
+        },
+        {
+          "kind": "pv",
+          "game": 8,
+          "rootply": 67,
+          "added": 2
+        },
+        {
+          "kind": "pv",
+          "game": 8,
+          "rootply": 69,
+          "added": 0
+        }
+      ],
+      "black": {
+        "pawn": "2e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "2b",
+          "3c"
+        ],
+        "defenders": [
+          "2f"
+        ],
+        "direct_attackers": [
+          "2b",
+          "3c"
+        ]
+      },
+      "white": null
+    },
+    {
+      "sfen": "lr5nl/3g1kg2/p2sp1b2/2Pp2s1p/2Sn1pp2/PPpBP2PP/3P2NS1/3G2GK1/LN3R2L b 4p 1",
+      "occurrences": [
+        {
+          "kind": "pv",
+          "game": 3,
+          "rootply": 62,
+          "added": 14
+        }
+      ],
+      "black": null,
+      "white": {
+        "pawn": "4e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "3g",
+          "4i"
+        ],
+        "defenders": [
+          "3d"
+        ],
+        "direct_attackers": [
+          "3g",
+          "4i"
+        ]
+      }
+    },
+    {
+      "sfen": "lnkg4l/7r1/1spg1pn2/pp2sbp1p/2Ppp4/P1S2P1PP/2B1PGP2/3R2SK1/LN3G1NL b 2Pp 1",
+      "occurrences": [
+        {
+          "kind": "pv",
+          "game": 7,
+          "rootply": 31,
+          "added": 19
+        },
+        {
+          "kind": "pv",
+          "game": 7,
+          "rootply": 33,
+          "added": 17
+        }
+      ],
+      "black": null,
+      "white": {
+        "pawn": "6e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "6h",
+          "7f"
+        ],
+        "defenders": [
+          "5d"
+        ],
+        "direct_attackers": [
+          "6h",
+          "7f"
+        ]
+      }
+    },
+    {
+      "sfen": "ln4bnl/1kgr5/ps1g1pp2/1ppsp2p1/3p4p/P1S6/B1N1PPPPP/3RG1SK1/L4G1NL b 3p 1",
+      "occurrences": [
+        {
+          "kind": "pv",
+          "game": 8,
+          "rootply": 33,
+          "added": 13
+        }
+      ],
+      "black": null,
+      "white": {
+        "pawn": "6e",
+        "attacker_count": 3,
+        "defender_count": 1,
+        "attackers": [
+          "6h",
+          "7f",
+          "7g"
+        ],
+        "defenders": [
+          "6d"
+        ],
+        "direct_attackers": [
+          "6h",
+          "7f",
+          "7g"
+        ]
+      }
+    },
+    {
+      "sfen": "lnk4nl/s1gr5/p2g1p3/1PSspbp2/2p4pp/P1Rp5/B1N1PPPPP/4G1SK1/L4G1NL b P2p 1",
+      "occurrences": [
+        {
+          "kind": "pv",
+          "game": 8,
+          "rootply": 43,
+          "added": 13
+        }
+      ],
+      "black": null,
+      "white": {
+        "pawn": "7e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "7f",
+          "9g"
+        ],
+        "defenders": [
+          "6d"
+        ],
+        "direct_attackers": [
+          "7f",
+          "9g"
+        ]
+      }
+    },
+    {
+      "sfen": "lnk4nl/s1gr5/p2S1p3/1P1spbp2/2p4pp/P1Rp5/B1N1PPPPP/4G1SK1/L4G1NL w GP2p 1",
+      "occurrences": [
+        {
+          "kind": "pv",
+          "game": 8,
+          "rootply": 43,
+          "added": 14
+        }
+      ],
+      "black": null,
+      "white": {
+        "pawn": "7e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "7f",
+          "9g"
+        ],
+        "defenders": [
+          "6d"
+        ],
+        "direct_attackers": [
+          "7f",
+          "9g"
+        ]
+      }
+    },
+    {
+      "sfen": "lnk4nl/s2r5/p2g1p3/1P1spbp2/2p4pp/P1Rp5/B1N1PPPPP/4G1SK1/L4G1NL b GPs2p 1",
+      "occurrences": [
+        {
+          "kind": "pv",
+          "game": 8,
+          "rootply": 43,
+          "added": 15
+        }
+      ],
+      "black": null,
+      "white": {
+        "pawn": "7e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "7f",
+          "9g"
+        ],
+        "defenders": [
+          "6d"
+        ],
+        "direct_attackers": [
+          "7f",
+          "9g"
+        ]
+      }
+    },
+    {
+      "sfen": "lnk5l/s1g4r1/p2gspn2/1Pp1pbp2/1S1p3Pp/P4R1S1/B1N1PPP1P/3G2GK1/L6NL b 4P 1",
+      "occurrences": [
+        {
+          "kind": "pv",
+          "game": 8,
+          "rootply": 57,
+          "added": 7
+        }
+      ],
+      "black": {
+        "pawn": "2e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "2b",
+          "3c"
+        ],
+        "defenders": [
+          "2f"
+        ],
+        "direct_attackers": [
+          "2b",
+          "3c"
+        ]
+      },
+      "white": null
+    },
+    {
+      "sfen": "lnk5l/s1g4r1/p2gspn2/1Pp1pRp2/1S1p3Pp/P6S1/B1N1PPP1P/3G2GK1/L6NL w B4P 1",
+      "occurrences": [
+        {
+          "kind": "pv",
+          "game": 8,
+          "rootply": 57,
+          "added": 8
+        }
+      ],
+      "black": {
+        "pawn": "2e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "2b",
+          "3c"
+        ],
+        "defenders": [
+          "2f"
+        ],
+        "direct_attackers": [
+          "2b",
+          "3c"
+        ]
+      },
+      "white": null
+    },
+    {
+      "sfen": "lnk5l/s1g4r1/p2g1pn2/1Pp1psp2/1S1p3Pp/P6S1/B1N1PPP1P/3G2GK1/L6NL b B4Pr 1",
+      "occurrences": [
+        {
+          "kind": "pv",
+          "game": 8,
+          "rootply": 57,
+          "added": 9
+        }
+      ],
+      "black": {
+        "pawn": "2e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "2b",
+          "3c"
+        ],
+        "defenders": [
+          "2f"
+        ],
+        "direct_attackers": [
+          "2b",
+          "3c"
+        ]
+      },
+      "white": null
+    },
+    {
+      "sfen": "lnk5l/s1g4r1/p2g1pn2/1PpPpsp2/1S1p3Pp/P6S1/B1N1PPP1P/3G2GK1/L6NL w B3Pr 1",
+      "occurrences": [
+        {
+          "kind": "pv",
+          "game": 8,
+          "rootply": 57,
+          "added": 10
+        }
+      ],
+      "black": {
+        "pawn": "2e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "2b",
+          "3c"
+        ],
+        "defenders": [
+          "2f"
+        ],
+        "direct_attackers": [
+          "2b",
+          "3c"
+        ]
+      },
+      "white": null
+    },
+    {
+      "sfen": "lnk5l/s1gg3r1/p4pn2/1PpPpsp2/1S1p3Pp/P6S1/B1N1PPP1P/3G2GK1/L6NL b B3Pr 1",
+      "occurrences": [
+        {
+          "kind": "pv",
+          "game": 8,
+          "rootply": 57,
+          "added": 11
+        }
+      ],
+      "black": {
+        "pawn": "2e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "2b",
+          "3c"
+        ],
+        "defenders": [
+          "2f"
+        ],
+        "direct_attackers": [
+          "2b",
+          "3c"
+        ]
+      },
+      "white": null
+    },
+    {
+      "sfen": "lnk5l/s1gg3r1/p4pn2/1PSPpsp2/3p3Pp/P6S1/B1N1PPP1P/3G2GK1/L6NL w B4Pr 1",
+      "occurrences": [
+        {
+          "kind": "pv",
+          "game": 8,
+          "rootply": 57,
+          "added": 12
+        }
+      ],
+      "black": {
+        "pawn": "2e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "2b",
+          "3c"
+        ],
+        "defenders": [
+          "2f"
+        ],
+        "direct_attackers": [
+          "2b",
+          "3c"
+        ]
+      },
+      "white": null
+    },
+    {
+      "sfen": "lnk5l/s1gg3r1/p4pn2/1PSPpsp2/3p3Pp/P6S1/B1N1PPP1P/3G2GK1/Lr5NL b B4P 1",
+      "occurrences": [
+        {
+          "kind": "pv",
+          "game": 8,
+          "rootply": 57,
+          "added": 13
+        }
+      ],
+      "black": {
+        "pawn": "2e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "2b",
+          "3c"
+        ],
+        "defenders": [
+          "2f"
+        ],
+        "direct_attackers": [
+          "2b",
+          "3c"
+        ]
+      },
+      "white": null
+    },
+    {
+      "sfen": "lnk5l/s1gg3r1/p2+P1pn2/1PS1psp2/3p3Pp/P6S1/B1N1PPP1P/3G2GK1/Lr5NL w B4P 1",
+      "occurrences": [
+        {
+          "kind": "pv",
+          "game": 8,
+          "rootply": 57,
+          "added": 14
+        }
+      ],
+      "black": {
+        "pawn": "2e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "2b",
+          "3c"
+        ],
+        "defenders": [
+          "2f"
+        ],
+        "direct_attackers": [
+          "2b",
+          "3c"
+        ]
+      },
+      "white": null
+    },
+    {
+      "sfen": "lnk5l/s1g4r1/p2g1pn2/1PS1psp2/3p3Pp/P6S1/B1N1PPP1P/3G2GK1/Lr5NL b B4Pp 1",
+      "occurrences": [
+        {
+          "kind": "pv",
+          "game": 8,
+          "rootply": 57,
+          "added": 15
+        }
+      ],
+      "black": {
+        "pawn": "2e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "2b",
+          "3c"
+        ],
+        "defenders": [
+          "2f"
+        ],
+        "direct_attackers": [
+          "2b",
+          "3c"
+        ]
+      },
+      "white": null
+    },
+    {
+      "sfen": "lnk5l/s1g4r1/p2+S1pn2/1P2psp2/3p3Pp/P6S1/B1N1PPP1P/3G2GK1/Lr5NL w BG4Pp 1",
+      "occurrences": [
+        {
+          "kind": "pv",
+          "game": 8,
+          "rootply": 57,
+          "added": 16
+        }
+      ],
+      "black": {
+        "pawn": "2e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "2b",
+          "3c"
+        ],
+        "defenders": [
+          "2f"
+        ],
+        "direct_attackers": [
+          "2b",
+          "3c"
+        ]
+      },
+      "white": null
+    },
+    {
+      "sfen": "l1k5l/s1g4r1/p1ngspn2/1P2pbp2/2Bp3Pp/P1S2R1S1/2N1PPP1P/3G2GK1/L6NL b 5P 1",
+      "occurrences": [
+        {
+          "kind": "pv",
+          "game": 8,
+          "rootply": 61,
+          "added": 7
+        }
+      ],
+      "black": {
+        "pawn": "2e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "2b",
+          "3c"
+        ],
+        "defenders": [
+          "2f"
+        ],
+        "direct_attackers": [
+          "2b",
+          "3c"
+        ]
+      },
+      "white": null
+    },
+    {
+      "sfen": "l1k5l/s1g4r1/p1ngspn2/1P2pbp2/3p3Pp/P1S2R1S1/B1N1PPP1P/3G2GK1/L6NL w 5P 1",
+      "occurrences": [
+        {
+          "kind": "pv",
+          "game": 8,
+          "rootply": 61,
+          "added": 8
+        }
+      ],
+      "black": {
+        "pawn": "2e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "2b",
+          "3c"
+        ],
+        "defenders": [
+          "2f"
+        ],
+        "direct_attackers": [
+          "2b",
+          "3c"
+        ]
+      },
+      "white": null
+    },
+    {
+      "sfen": "l1k5l/s1g4r1/p1ngspn2/1P2pbp2/3p3Pp/P1S2R1S1/B1N1PPP1P/3G3K1/L4G1NL b 5P 1",
+      "occurrences": [
+        {
+          "kind": "pv",
+          "game": 8,
+          "rootply": 65,
+          "added": 3
+        }
+      ],
+      "black": {
+        "pawn": "2e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "2b",
+          "3c"
+        ],
+        "defenders": [
+          "2f"
+        ],
+        "direct_attackers": [
+          "2b",
+          "3c"
+        ]
+      },
+      "white": null
+    },
+    {
+      "sfen": "l1k5l/s1g4r1/p1ngspn2/1P2pbp2/2Sp3Pp/P4R1S1/B1N1PPP1P/3G3K1/L4G1NL w 5P 1",
+      "occurrences": [
+        {
+          "kind": "pv",
+          "game": 8,
+          "rootply": 65,
+          "added": 4
+        }
+      ],
+      "black": {
+        "pawn": "2e",
+        "attacker_count": 2,
+        "defender_count": 1,
+        "attackers": [
+          "2b",
+          "3c"
+        ],
+        "defenders": [
+          "2f"
+        ],
+        "direct_attackers": [
+          "2b",
+          "3c"
+        ]
+      },
+      "white": null
+    }
+  ]
+}

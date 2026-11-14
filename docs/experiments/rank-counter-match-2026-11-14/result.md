@@ -60,3 +60,9 @@ Review synthesis so far: White/third-rook extra-win pair favors rank10 stylistic
 [Focused static-rook viewer](../../../results/teatsui-rank-counter-match-2026-11-14/review-static.html) opens40, games04/03 left rank0/right rank10, BOTH BLACK/BOTTOM. Check49/59, optional81. Same audited board data; no new search or evaluation change.
 
 First divergence23 Black G3h versus S4f. OFF develops central P5e and N3g, later turns to the edge: P1e/Px1e/Lx1e, while White BxS4f at58 and Black LxL1a+ at59. ON attacks the3-file earlier, exchanges silvers at47–48, R3d49, then S*7e55 and P*7d57. Both ultimately win, but this does not validate every opening/middlegame choice or isolate correction causality. User's judgment of the structure and attack timing is pending; this is the last unreviewed pair of the batch.
+
+## Final user static-rook judgment and synthesis
+
+User slightly prefers LEFT/rank0 as more natural, though imperfect. RIGHT/rank10's major-piece excursions and S*7e feel unnatural. Four-pair style verdicts: White/third favors rank10, Black/central and White/fourth roughly equal, Black/static slightly favors rank0. One extra win does not establish a consistent style improvement. Trial stays unadopted.
+
+[Trigger-pattern audit](../rank-trigger-review-2026-11-14/result.md) compares actual positions and saved PVs without new searches. No actual hits in either static-rook game; good07 has a temporary attacking/exchange position hit. Counts alone do not distinguish good counterplay from unwanted support; no narrowing is justified yet.

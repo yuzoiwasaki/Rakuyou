@@ -103,8 +103,27 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   First divergence23 G3h/S4f. Left central P5e/N3g then edge attack, giving
   S4f to B at58 while taking lance1a59. Right early3-file silver/rook activity,
   silver trade47–48/R3d49, then S*7e55/P*7d57. Bothwin, no blanket endorsement
-  of middlegame or causal claim. Await user preference, then synthesize four
-  pair reviews for adoption direction. No searches or coefficient changes.
+  of middlegame or causal claim. USER slightly prefers LEFT/rank0: more natural,
+  right major-piece excursions and S*7e awkward. Four pairs: third favors10,
+  central/fourth equal, static slightly0. Trial held/unadopted; no tuning.
+
+- **Trigger-pattern comparison completed (zero searches), trial still held**:
+  [Report](docs/experiments/rank-trigger-review-2026-11-14/result.md).
+ 1247 actual states OFF/ON static checked. Games03/04(static) no hits at all;
+  good07 only42 P6e: White P6e defendedS5d vs Black R6h/S7f, White−6cp.
+  This is temporary attack/exchange into43Sx6e44Sx6e45Rx6e46S*7f, liked by user.
+ 136 saved candidate PVs moves13–80 in03/04/07/08,1756 unique prefixes legal.
+ 03 only1 PV hit,root62+14: WHITE P4e/S3d vs Black R4i/N3g, favorsBlack;
+  no direct explanation of awkward S*7e55. 04none,07three,08twenty-one hits.
+ 29 active SFENs annotated by copied native witness probe; all other fields
+  exactly match original. Frozen match bindings intact; no source/eval changes.
+  Same2vs1 geometry in liked/disliked contexts, no supported narrowing threshold.
+  Unreported search branches still unobserved: absence of game/PV hits is NOT
+  proof of no indirect influence. Predicate also catches temporary attacking
+  exchanges, so future design would need enduring burden vs viable exchange
+  distinction, not force root moves or suppress all reinforcement. Not implemented.
+  No automatic reopening of closed tactical branch. Next decision with user;
+  installed support10/D10 unchanged, rank10 remains an archived prototype.
 
 - **Current adopted baseline (2026-11-13)**: support10 + D10, separate installed
   launcher `bin/teatsui-2026-11-13/rakuyou`, engine id

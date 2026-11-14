@@ -1,0 +1,17 @@
+{
+  "results/teatsui-rank-counter-match-2026-11-14/games/01.json": "9e9a750906acae8148b88206131eb60f96e6b77a316c79155fdda3ae09033c09",
+  "results/teatsui-rank-counter-match-2026-11-14/games/06.json": "419c511680b2c2a099ab8ada92fbdeaad66c3abd1619e838553501d970704e8f",
+  "results/teatsui-rank-counter-match-2026-11-14/games/07.json": "77cec6f99ac0747a452c184e88dd01658eafb02f33719f59fb15fbb54eccb611",
+  "results/teatsui-rank-counter-match-2026-11-14/games/04.json": "f50612eb53b69153d3dda96dcd7ade11c079161e873bef9ce853d304bc1fe4dd",
+  "results/teatsui-rank-counter-match-2026-11-14/games/08.json": "e53338a1bb937728ce0b6c9deed4b53047f05aadcdb49d0458078a95b4b9bc93",
+  "results/teatsui-rank-counter-match-2026-11-14/games/05.json": "fc0b97804c2972599222c8a6b46668df38fc6f228b03a90cd5fe04e7ffa8fd9f",
+  "results/teatsui-rank-counter-match-2026-11-14/games/02.json": "9877ae73b4e89ec3b27ad81db5b72c8d1d7b4db2c6660e7c562d5dbca8402838",
+  "results/teatsui-rank-counter-match-2026-11-14/games/03.json": "9c2a1b4a57fe343f2f4e7980758136c16a256974964a4dec4d2950d5b0c503bc",
+  "results/teatsui-rank-commitment-2026-11-13/native-probe": "9e2e035aa8030e0ceceaf90e2294c01e64c80191db9e80ee4f00dc5c66640265",
+  "results/teatsui-rank-trigger-review-2026-11-14/native-probe": "0f1e0053be9885deaad462e1dbf779fffeba53c561ffba11af634f244073c427",
+  "results/teatsui-rank-trigger-review-2026-11-14/build_probe.py": "9d736768ee746e45f2846a2a509cd97d3a8d7a5b434a24e4114427be6a29561f",
+  "results/teatsui-rank-trigger-review-2026-11-14/probe.cc": "c09691eade2040e427b400856f0b66732b705021dcc94f42027fada60dbba62b",
+  "results/teatsui-rank-trigger-review-2026-11-14/scan.py": "80739a941491b3c3fc1132e7abef1f7f81a6b988504dd604e40387585ffa3db3",
+  "results/teatsui-rank-trigger-review-2026-11-14/scan_pvs.py": "d1b532cf38e8123f25ad4fff47b4f6bdf3a769d7acebb9f66e3dd225b4165378",
+  "results/teatsui-rank-trigger-review-2026-11-14/witness.py": "458da19693d5d5ff07bed414f9a95f4891b770f677e4519b4b989cc7eb1594da"
+}
