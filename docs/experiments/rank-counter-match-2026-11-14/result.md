@@ -20,3 +20,11 @@ The only changed outcome is White versus third rook. Its FIRST divergence is the
 Look at40/48/60: in07 rank10 White's central counterplay includes R6b at40, the silver exchange on6e, S*7f at46, then SxB7g+ at48; later P5f/P*6f/P5g+ and B*7i. In08 rank0 White's silver retreats8c9b at46 after Black P*8d, while Black gains lateral rook activity. These are concrete trajectory differences to discuss, not an established causal mechanism or style verdict. User judgment pending. Keep the other3 pairs available, including both losses against central/fourth rook, instead of reviewing only the extra win.
 
 Operational baseline and trial coefficient unchanged. Next: user positional review of the White third-rook pair, then review concerning examples before any adoption decision. Do not rerun preparation/preflight/matches. Future audits create new output names instead of overwriting the completed audit.
+
+## User review: White versus third rook
+
+User prefers RIGHT/rank10. LEFT/rank0 lets Black break through the8-file and is suppressed. RIGHT adds defenders appropriately and can counterattack with S*7f. This is the user's positional judgment, not a verified forced sequence or isolated causal effect of the correction.
+
+Preserve the distinction: avoid futile support of an unsustainable rank, but add defenders when defense is viable and connects to active counterplay. Do not reinterpret this as a blanket preference for abandoning territory or avoiding gold/silver reinforcement. Together with the earlier central liquidation preference, supported thickness must also be converted into attack at the right moment.
+
+Next review should cover a losing pair (Black versus central rook or White versus fourth rook), rather than only the extra win. The first divergence in this reviewed winning pair remains on the normal opponent's17th move. Trial remains unadopted; no new search or tuning.

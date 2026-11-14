@@ -17,8 +17,12 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   [Paired viewer](results/teatsui-rank-counter-match-2026-11-14/review.html)
   all4 pairs,1247 native-matched states. Defaults08/07(left0/right10), compare
   BOTH WHITE/TOP; starts40, inspect48/60 for central counterplay vs retreat.
-  User positional judgment pending. Do not infer style/strength from one extra
-  win; preserve all pairs and previous good-counter/bad-attack-timing examples.
+  USER prefers RIGHT/rank10: left allows8-file breakthrough and suppression;
+  right adds defenders and has S*7f counterplay. Record as favorable style case,
+  not causal/strength proof. Viable defense should still add pieces; do not
+  turn unsustainable-support avoidance into blanket abandonment/no-reinforcement.
+  Next review a losing pair (Black central or White fourth) before adoption;
+  preserve prior good-counter/bad-attack-timing examples.
   Frozen known12-ply starts2,3,4,5; support10/D10/ShinON vs fixednormal,10s/d15,
   no tuning or adoption. Prepared scripts/tests and initial failed setup archived.
   No new searches this audit/review turn. User authorized incremental commits.
