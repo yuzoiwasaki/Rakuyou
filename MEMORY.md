@@ -89,7 +89,13 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   games05/06 left0/right10, BOTH WHITE/TOP, opens44; inspect52/64/74.
   Left bishop trade/R2b then2-file/edge attack; right S8d44/R5b46/N7c48,
   S5d52 against P5d while7/8-file pawns advance. Bothlose. FIRST divergence
-  normalBlack19 K2h/S6f, no clean causal claim. Await user review; no searches.
+  normalBlack19 K2h/S6f, no clean causal claim.
+  USER: roughly equal/neither good. Right should Px5e instead of N7c which
+  becomes target and is captured; wants to repel silver. Left dropped bishop
+  cramped, edge attack somewhat forced. Native legality only:48 Px5e legal;
+  illustrative49 Sx5e50 P*5d legal (pawn drop attacks silver, not Px5e alone).
+  No search/forced-line proof. Next remaining batch review: Black/static bothwin;
+  then summarize adoption direction without reopening deep tactical branches.
 
 - **Current adopted baseline (2026-11-13)**: support10 + D10, separate installed
   launcher `bin/teatsui-2026-11-13/rakuyou`, engine id

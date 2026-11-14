@@ -46,3 +46,11 @@ User explicitly closed the G7h/silver/P*5d branch; preserve its lessons without 
 [Focused fourth-rook viewer](../../../results/teatsui-rank-counter-match-2026-11-14/review-fourth.html): games05/06, left rank0/right rank10, BOTH WHITE/TOP. Opens44; checkpoints52/64/74. Same1247 native-matched saved boards, no new search.
 
 OFF exchanges bishops, plays R2b at40 and attacks on2-file/edge. ON moves S8c8d at44, R3b5b at46, N8a7c at48, then answers P5d with S5c5d at52 while advancing7/8-file pawns. Both eventually lose. The first divergence is NORMAL Black19 K2h versus S6f, so the different formations and attack timing cannot be attributed solely to the rank correction. User judgment on reinforcement/counterplay versus overextension is pending. Do not infer greater strength from the longer game05 or re-open the just-closed branch without reason.
+
+## User verdict: White versus fourth rook
+
+User judges both roughly equal, neither good. RIGHT/rank10 should capture P5e rather than play N7c; the knight becomes a target and is captured. User would prefer repelling the silver. LEFT/rank0's dropped bishop is cramped and edge attack seems overextended.
+
+Native legality only (no search): after47 P*5e,48 P5d5e is legal. The illustrative continuation49 S6f5e 50 P*5d is also legal and the dropped pawn attacks the silver. P5d5e alone does not directly attack S6f, so preserve the intended multi-move plan rather than claiming an immediate silver attack. Opponent Sx5e is not forced and no tactical superiority has been proven.
+
+Review synthesis so far: White/third-rook extra-win pair favors rank10 stylistically; Black/central and White/fourth are both roughly equal with concrete timing/coordination issues. Black/static (both wins) is still unreviewed. No new coefficient changes or adoption decision; don't resume a long tactical branch without user direction.
