@@ -1,0 +1,115 @@
+{
+  "settings": {
+    "byoyomi_margin_ms": 100,
+    "byoyomi_ms": 10000,
+    "depth": 15,
+    "depth_is_cap": true,
+    "fresh_engines_per_game": true,
+    "hash_mb": 64,
+    "max_additional_plies": 256,
+    "own_book": {
+      "normal": true,
+      "support10d10": false
+    },
+    "ponder": false,
+    "threads": 1,
+    "timeout": 30
+  },
+  "roles": {
+    "normal": {
+      "book_max_ply": 20,
+      "contact_deficit_cp": 0,
+      "own_book": true,
+      "shin": false,
+      "support_bonus": 0
+    },
+    "support10d10": {
+      "book_max_ply": 0,
+      "contact_deficit_cp": 10,
+      "own_book": false,
+      "shin": true,
+      "support_bonus": 10
+    }
+  },
+  "scheduled_games": 2,
+  "completed_games": 0,
+  "tests_passed": 11,
+  "preflight": [
+    {
+      "role": "support10d10",
+      "history": [],
+      "move": "5i4h",
+      "source": "fixed_opening",
+      "clock_status": "native_opening_no_search"
+    },
+    {
+      "role": "normal",
+      "history": [],
+      "move": "7g7f",
+      "source": "book",
+      "clock_status": "book_no_search"
+    },
+    {
+      "role": "support10d10",
+      "history": [
+        "7g7f"
+      ],
+      "move": "5a6b",
+      "source": "fixed_opening",
+      "clock_status": "native_opening_no_search"
+    },
+    {
+      "role": "normal",
+      "history": [
+        "7g7f"
+      ],
+      "move": "3c3d",
+      "source": "book",
+      "clock_status": "book_no_search"
+    },
+    {
+      "role": "support10d10",
+      "history": [
+        "5i4h",
+        "3c3d"
+      ],
+      "move": "7g7f",
+      "source": "search",
+      "clock_status": "consistent"
+    },
+    {
+      "role": "normal",
+      "history": [
+        "5i4h",
+        "3c3d"
+      ],
+      "move": "7g7f",
+      "source": "search",
+      "clock_status": "consistent"
+    },
+    {
+      "role": "support10d10",
+      "history": [
+        "7g7f",
+        "5a6b",
+        "2g2f"
+      ],
+      "move": "3c3d",
+      "source": "search",
+      "clock_status": "consistent"
+    },
+    {
+      "role": "normal",
+      "history": [
+        "7g7f",
+        "5a6b",
+        "2g2f"
+      ],
+      "move": "7c7d",
+      "source": "book",
+      "clock_status": "book_no_search"
+    }
+  ],
+  "plan_sha256": "e07bc202f235402ef50193872591fcbbc0e2ec98040465a19c184b7849911cae",
+  "preflight_sha256": "6b5644f531747c28b1249246d2864d9d0ade55fa5f3551717fd9acf3e75dadc4"
+}

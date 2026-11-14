@@ -7,7 +7,20 @@ is the last full historical map). Historical NEXT headings are not active tasks.
 
 ## Current objective and collaboration
 
-- **Current: move36 silver-retreat comparison completed; await user view**.
+- **NEXT: user runs two initial-position games with normal-side book ON**.
+  Explicitly authorized after closing silver-retreat case. Keep adopted ShinON/
+  support10/D10 bookOFF; normal fixed Rakuyou ShinOFF/support0/D0 bookON through
+  ply20, native default filters/random choice. Initial position/colors reversed,
+  native K4h/K6b first move retained, depth15cap/10s/256totalplies/1thread/Hash64.
+  [Instructions](docs/experiments/startpos-normal-book-2026-11-14/README.md),
+  [evidence](docs/experiments/startpos-normal-book-2026-11-14/prepared.json).
+  Eleven tests passed; eight real preflight probes:3 book,3 depth3 search,
+  2 native first moves. Main0/2, user runs long games. Await Completed2/2;
+  audit including per-game book hits, then screen clear opening/style issues.
+  Book may end early in unusual positions; no matched-pair book-effect claim,
+  no pooling previous results or evaluation changes. Root README stays simple.
+
+- **Closed: move36 silver-retreat comparison accepted as tolerable**.
   User prefers retreat at35 P*7e: thin White king and knight loss make Sx7e
   undesirable. [Diagnostic](docs/experiments/startpos-silver-retreat-2026-11-14/result.md):
   one fresh fixeddepth13 MultiPV2, S7dx7e−48 vs S7d6c−61 (WHITE view),13cp gap.
@@ -17,7 +30,10 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   26 PVs legal,37 viewer states native-matched,original240 bindings unchanged.
   [Viewer](results/teatsui-startpos-silver-retreat-2026-11-14/review.html):
   BOTH WHITE/TOP; LEFT Sx7e, RIGHT S6c, predicted lines from same after35 root.
-  Keep support10/D10; no arbitrary retreat bonus, await style judgment.
+  USER: retreat natural; P7e/knight-head weakness suggests slight disadvantage,
+  informally around−200, but if−61 is accurate it is acceptable for White.
+  Treat human impression and searched score separately. Close case, keep support10/D10;
+  no arbitrary retreat bonus or further searches absent repeated concrete issues.
 
 - **NEXT: review one opening candidate from completed initial-position pair**.
   User wants to discover obvious opening defects from the actual starting board,
