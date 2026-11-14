@@ -1,0 +1,14 @@
+<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>support10＋D10 ４局レビュー</title>
+<style>body{font-family:system-ui;max-width:1280px;margin:20px auto;padding:16px;background:#faf9f6;color:#222}p{line-height:1.7}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}svg{width:100%;max-height:600px}button,select{font-size:16px;padding:8px;margin:3px}input{width:100%}pre{white-space:pre-wrap;overflow-wrap:anywhere}@media(max-width:700px){.grid{grid-template-columns:1fr}}</style>
+<h1>support10＋D10：保存棋譜のレビュー</h1>
+<p>左右は同じ対局の異なる時点です。補正の有無を比較する図ではありません。左を基準として固定し、右で続きを進められます。総手数は固定した開始14手を含みます。全局採用済みsupport10＋D10、追加探索なし。</p>
+<select id="choose" aria-label="対局" onchange="choose(+this.value)"><option value="1">第１局：先手・対四間飛車／勝ち</option><option value="2">第２局：先手・対三間飛車／勝ち</option><option value="3" selected>第３局：後手・対中飛車／負け</option><option value="4">第４局：後手・対居飛車／負け</option></select>
+<p id="context"></p><p id="note"></p>
+<button onclick="show(14)">開始14手</button><button onclick="show(38)">38手</button><button onclick="show(46)">46手</button><button onclick="show(54)">54手</button><button onclick="show(60)">60手</button><button onclick="show(n-1)">←１手</button><button onclick="show(n+1)">１手→</button><button onclick="anchor=n;show(n)">現在の局面を左に固定</button>
+<input id="seek" aria-label="右盤面の総手数" type="range" min="0" oninput="show(+this.value)"><div class="grid" id="panels"></div>
+<script>const games=/*DATA*/;let c=3,n=46,anchor=38;
+/*SVG*/
+function show(i){const g=games[c];n=Math.max(0,Math.min(g.states.length-1,i));const seek=document.getElementById('seek');seek.max=g.states.length-1;seek.value=n;document.getElementById('panels').innerHTML=[anchor,n].map((ply,j)=>{const s=g.states[ply];return `<section><h2>${j?'続き':'基準'}：${ply}手目 ${s.move}</h2>${svg(s)}<p>${g.states.slice(Math.max(1,ply-7),ply+1).map(t=>`${t.ply}: ${t.move}`).join(' → ')}</p><details><summary>SFEN</summary><pre>${s.sfen}</pre></details></section>`;}).join('');}
+function choose(k){c=k;document.getElementById('choose').value=k;const g=games[k];document.getElementById('context').textContent=`左右とも${g.color==='white'?'上側の後手':'下側の先手'}が新米長玉・support10＋D10です。結果：${g.result}。`;document.getElementById('note').textContent=k===3?'まず38手目の構えから確認します。先手は39手目▲９五歩から端へ、後手は44手目△５七歩打・46手目△６五銀から中央へ動きます。受けと反撃の釣り合いを見てください。この手が敗着だと断定する図ではありません。':k===4?'開始直後の15手目▲２四歩から２筋の交換。固定開始局面の条件と、その後の指し手を分けて確認します。序盤では大きく悪化しますが、その後評価差を縮める場面もあります。':'勝った局も、構えや攻め方が自然か確認できます。';anchor=k===4?14:38;show(k===4?30:46);}
+document.addEventListener('keydown',e=>{if(['INPUT','SELECT'].includes(e.target.tagName))return;if(e.key==='ArrowLeft')show(n-1);if(e.key==='ArrowRight')show(n+1);});choose(3);
+</script></html>

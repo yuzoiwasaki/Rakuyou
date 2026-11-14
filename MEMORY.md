@@ -7,15 +7,20 @@ is the last full historical map). Historical NEXT headings are not active tasks.
 
 ## Current objective and collaboration
 
-- **NEXT: user runs four adopted-baseline games; no further tuning yet**.
+- **NEXT: user reviews completed four-game baseline; no tuning yet**.
   User rejected rank10 and exchange-burden prototypes after positional review
   and diagnostic failure to separate desired/undesired support. Keep support10/D10.
   [Run instructions](docs/experiments/baseline-review4-2026-11-14/README.md),
   [prepared evidence](docs/experiments/baseline-review4-2026-11-14/prepared.json).
   Four derived14-ply starts: Black fourth/third, White central/static; adopted
   runtime versus fixed normal, depth15cap/10s/256 added plies. Seven tests and
-  four depth3 preflight searches passed; main games0/4. User runs long matches.
-  Await Completed4/4, audit histories then review defense/counterplay/conversion.
+  four depth3 preflight searches passed. User completed4: Black2W/White2L.
+  [Result/audit](docs/experiments/baseline-review4-2026-11-14/result.md):
+  240 bindings,492 timed searches,4 histories passed;548 viewer states native-matched.
+  [Viewer](results/teatsui-baseline-review4-2026-11-14/review.html) defaults
+  game3 White/top, SAME GAME left38/right46; advance54/60. Edge defense versus
+  central counterplay; no culprit asserted. Game4 starts already disadvantaged
+  by early P2d breakthrough; review opening conditions separately. No new searches.
   Known development starts, no paired ablation or strength proof. Historical
   next/review instructions below are superseded by this decision.
 
