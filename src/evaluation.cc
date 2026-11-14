@@ -30,7 +30,8 @@ std::unique_ptr<EvalParameters> g_eval_params(new EvalParameters);
 namespace {
 
 bool g_shin_yonenaga_gyoku_enabled = true;
-int g_support_chain_bonus = 0;
+int g_support_chain_bonus = 10;
+int g_king_contact_deficit_bonus = 10;
 
 }  // namespace
 
@@ -369,10 +370,44 @@ PackedScore EvaluateKingSafety(const Position& pos) {
   }
 }
 
+
+int KingContactDeficitBonusCp() {
+  return g_king_contact_deficit_bonus;
+}
+
+template<Color kColor>
+int KingContactDeficit(const Position& pos) {
+  const Square king = pos.king_square(kColor);
+  int total = 0;
+  for (int df = -1; df <= 1; ++df) {
+    const int file = static_cast<int>(king.file()) + df;
+    if (file < 0 || file >= 9) continue;
+    for (int dr = -1; dr <= 1; ++dr) {
+      const int rank = static_cast<int>(king.rank()) + dr;
+      if ((df == 0 && dr == 0) || rank < 0 || rank >= 9) continue;
+      const Square t(static_cast<File>(file), static_cast<Rank>(rank));
+      const int a = std::min(3, pos.num_controls(~kColor, t));
+      const int d = std::min(3, std::max(0, pos.num_controls(kColor, t) - 1));
+      total += std::max(0, a - d);
+    }
+  }
+  return total;
+}
+
+PackedScore KingContactDeficitScore(const Position& pos) {
+  const int bonus = KingContactDeficitBonusCp();
+  if (bonus == 0) return PackedScore(0);
+  const int delta = KingContactDeficit<kWhite>(pos)
+                  - KingContactDeficit<kBlack>(pos);
+  const int raw = bonus * delta * kFvScale;
+  return PackedScore(raw, 0, raw, 0);
+}
+
 inline PackedScore EvaluateKingSafety(const Position& pos) {
   PackedScore score_black = EvaluateKingSafety<kBlack>(pos);
   PackedScore score_white = EvaluateKingSafety<kWhite>(pos);
-  return score_black + score_white;
+  return KingContactDeficitBonusCp() == 0 ? score_black + score_white
+                                          : score_black + score_white + KingContactDeficitScore(pos);
 }
 
 /**
@@ -661,6 +696,11 @@ void Evaluation::Init() {
 
 void Evaluation::SetShinYonenagaGyoku(const bool enabled) {
   g_shin_yonenaga_gyoku_enabled = enabled;
+}
+
+void Evaluation::SetKingContactDeficitBonus(const int centipawns) {
+  assert(centipawns >= 0 && centipawns <= 10);
+  g_king_contact_deficit_bonus = std::max(0, std::min(10, centipawns));
 }
 
 void Evaluation::SetSupportChainBonus(const int centipawns) {

@@ -23,7 +23,7 @@ INFO_RE = re.compile(r"\bdepth (\d+).*?\bscore (cp|mate) ([^ ]+)(?:.*?\bpv (.*))
 
 class UsiEngine:
     def __init__(self, executable, shin_yonenaga_gyoku, own_book, threads, hash_mb,
-                 book_file, book_max_ply, shin_book_file=None):
+                 book_file, book_max_ply, shin_book_file=None, support=None, contact=None):
         self.executable = executable.resolve()
         self.shin_yonenaga_gyoku = shin_yonenaga_gyoku
         self.own_book = own_book
@@ -42,6 +42,11 @@ class UsiEngine:
         self.wait_for("usiok", 10)
         self.send("setoption name ShinYonenagaGyoku value "
                   + ("true" if shin_yonenaga_gyoku else "false"))
+        # Normal comparator disables both adopted terms as well as the king preference.
+        support = (10 if shin_yonenaga_gyoku else 0) if support is None else support
+        contact = (10 if shin_yonenaga_gyoku else 0) if contact is None else contact
+        self.send(f"setoption name ExperimentalSupportChainBonus value {support}")
+        self.send(f"setoption name KingContactDeficitBonus value {contact}")
         self.send("setoption name OwnBook value " + ("true" if own_book else "false"))
         self.send(f"setoption name Threads value {threads}")
         self.send(f"setoption name USI_Hash value {hash_mb}")

@@ -35,10 +35,7 @@ python3 tools/books/build_operational_shin_book.py --check
 共通txtのSHA-256は
 `d080bc78583695da22641509ca93682653baa4761cb633f4f144ec1aef7c7e07`。
 
-## 生成元・試験版の資料
+## 過去の実験
 
-- [試行錯誤の要約](HISTORY.md)：未採用候補の経緯と旧ファイルの参照方法。
-  試験版・旧系列のファイルは整理済みで、本採用の生成元とtxtを保持する。
-- [先手の採用判断](../docs/experiments/books/black/2026-10-10-black-book-independent-review.md)と
-  [後手の採用判断](../docs/experiments/books/white/2026-10-03-v2-bounded-white-improvement-cycle.md)：
-  対局結果、手順、比較条件は各実験レポートを参照。
+採用前の判断・不採用候補は `archive/pre-adoption-cleanup-2026-11-15` に保存しています。
+生成元と単独版のファイル名には互換性のため従来の `experiment` 表記を残しています。

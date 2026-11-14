@@ -66,6 +66,8 @@ class Engine:
         self.wait_for("usiok", 10)
         options = {
             "ShinYonenagaGyoku": "true" if shin_yonenaga_gyoku else "false",
+            "ExperimentalSupportChainBonus": "10" if shin_yonenaga_gyoku else "0",
+            "KingContactDeficitBonus": "10" if shin_yonenaga_gyoku else "0",
             "OwnBook": "false",
             "Threads": str(threads),
             "USI_Hash": str(hash_mb),
