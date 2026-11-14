@@ -7,6 +7,18 @@ is the last full historical map). Historical NEXT headings are not active tasks.
 
 ## Current objective and collaboration
 
+- **Current: move36 silver-retreat comparison completed; await user view**.
+  User prefers retreat at35 P*7e: thin White king and knight loss make Sx7e
+  undesirable. [Diagnostic](docs/experiments/startpos-silver-retreat-2026-11-14/result.md):
+  one fresh fixeddepth13 MultiPV2, S7dx7e−48 vs S7d6c−61 (WHITE view),13cp gap.
+  No tactical refutation of retreat or proof of a coefficient defect. No tuning.
+  Retreat PV S6c/G7h/R8a/N3g/G5b/K4h: retains knight/king6b, not full castle proof.
+  Capture PV bishop retreats (unlike actual game); no guaranteed bishop compensation.
+  26 PVs legal,37 viewer states native-matched,original240 bindings unchanged.
+  [Viewer](results/teatsui-startpos-silver-retreat-2026-11-14/review.html):
+  BOTH WHITE/TOP; LEFT Sx7e, RIGHT S6c, predicted lines from same after35 root.
+  Keep support10/D10; no arbitrary retreat bonus, await style judgment.
+
 - **NEXT: review one opening candidate from completed initial-position pair**.
   User wants to discover obvious opening defects from the actual starting board,
   accepts normal Rakuyou rather than requiring upstream Gikou2. Prior comparisons
@@ -25,7 +37,7 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   provide compensation. Do not call it a blunder; ask if early commitment acceptable.
   [Viewer](results/teatsui-startpos-pair-2026-11-14/review.html) defaults game2,
   BOTH WHITE/TOP,same game left35/right42;advance48/58. Game1 BLACK/BOTTOM.
-  Await positional judgment; skip if ambiguous. No tuning or further searches. No claim normal Rakuyou equals upstream Gikou2.
+  User identified move36 retreat preference; bounded comparison completed above. No claim normal Rakuyou equals upstream Gikou2.
   Previous game4 pawn-repeat case now skipped: user sees no definite problem.
 
 - **Review policy: prioritize clear, actionable defects; skip ambiguous losses**.
