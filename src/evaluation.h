@@ -148,8 +148,10 @@ class Evaluation {
   /** 新米長玉の玉位置選好を有効または無効にします. */
   static void SetShinYonenagaGyoku(bool enabled);
 
-  /** Experimental, default zero; set before creating search nodes. Range 0..10cp. */
+  /** Adopted baseline, default 10; set before creating search nodes. Range 0..10cp. */
   static void SetSupportChainBonus(int centipawns);
+  /** King-contact deficit, default10; set before creating search nodes. */
+  static void SetKingContactDeficitBonus(int centipawns);
   static bool HasPawnSupportChain(const Position& pos, Color side);
 
   /**

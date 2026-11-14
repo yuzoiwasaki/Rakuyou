@@ -1,59 +1,61 @@
 # 開発手順
 
-## ビルド
+## ビルドと起動
 
-現在のsupport10 / D10採用版は、過去の実験入力を保全するため別ビルドで管理しています。
-[採用版の起動・再ビルド手順](../adopted/support-contact-2026-11-13/README.md)を参照してください。
-以下の通常ビルド手順は、変更を凍結した旧 `src/` と `bin/release` に対応します。
-
-技巧は SSE 4.2 前提のため、Apple Silicon では x86_64 (Rosetta) でビルドします。
-初回は `brew install cmake` で CMake を用意し、OpenMP ランタイムをビルドします。
+Apple Siliconではx86_64（Rosetta）でビルドします。初回はCMakeを用意してOpenMPランタイムをビルドします。
 
 ```sh
 make libomp-x86_64
-make release
+make release -j2
 ```
 
-実行ファイルは `bin/release` です。評価データがない場合は、[技巧の Releases](https://github.com/gikou-official/Gikou/releases)
-から Windows 版 zip を取得し、`params.bin` など必要なデータを `bin/` に置きます。`gikou.exe` は使いません。
-
-## ツールとテスト
-
-[tools/](../tools/) は定跡・解析・学習に、[test/](../test/) は対応するテストに分類しています。
-Python テストはリポジトリのルートから実行します。
+実行ファイルは `bin/release` です。`params.bin`、`progress.bin`、`probability.bin`、`book.bin` を `bin/` に配置してください。データは[技巧の配布物](https://github.com/gikou-official/Gikou/releases)から取得できます。評価データはGit管理しません。
 
 ```sh
-python3 -m unittest discover -s test -t .
+tools/run-engine.sh
 ```
 
-一部のツールやテストは、`bin/` の評価データ、個別にビルドするprobe、または
-Git管理外の `results/` 内データを参照します。学習用probeは通常エンジンとは別の
-実行ファイルとして `results/` に出力されます。
+GUIにも `tools/run-engine.sh` を登録できます。起動ディレクトリを `bin/` に揃えるためのランチャーです。ビルド時に専用定跡も `bin/` へコピーします。
 
-試験用の歩・金銀支持関係は、USIオプション `ExperimentalSupportChainBonus` で
-0〜10cp相当を指定します。既定0で無効です。評価のキャッシュを作る前に設定し、
-比較には設定ごとに新しいプロセスを使います。この既定0は旧ソースの設定です。
-別ビルドの採用版ではsupport10とD10を既定値として使います。
-ネイティブ検査は `make support-chain-test` でビルドできます。
-`results/support-chain-tools/native-test bin/params.bin` の標準入力に
-`sfen <SFEN>` または `moves <初期局面からのUSI指し手列>` を１行ずつ渡すと、
-0/10設定で全評価・差分更新・手の巻き戻しを検査します。探索は行いません。
+## 設定
 
-指し手特徴の仮想的な取り返し処理は、`make move-feature-recapture-test` と
-`results/move-feature-tools/recapture-test bin/params.bin` で検査できます。
-歩・香・桂の強制成り、実際に利く駒の選択、先後反転と停止した局面を確認します。
+新米長玉とsupport10・D10は通常ビルドに統合済みです。日付付きパッチを別途適用する必要はありません。
 
-合法手のない局面での指し手生成は `make movepick-terminal-test` と
-`results/move-feature-tools/terminal-test bin/params.bin` で検査できます。
+| USI設定 | 既定値 |
+| --- | --- |
+| ShinYonenagaGyoku | true |
+| ExperimentalSupportChainBonus | 10 |
+| KingContactDeficitBonus | 10 |
+| OwnBook | true |
+| BookMaxPly | 20 |
+| ShinBookFile | shin-yonenaga-book-v1.txt |
 
-## 学習データ
+supportは歩と金銀の支持関係、Dは玉周辺の敵の利き超過に関する評価項です。supportのUSI名は既存GUI設定との互換性のため維持しています。通常側と比較する場合は新米長玉OFFに加えてsupportとDを両方0にしてください。GUIに保存された旧設定は自動更新されないため、採用版では10/10を確認してください。設定は探索前に指定し、比較には新しいプロセスを使います。
 
-学習ツールは `tools/learning/` にあります。入力・教師・特徴・更新方法ごとの説明と
-実験結果は[学習レポートの目次](experiments/learning/README.md)を参照してください。
-個別の実験手順や設定は対応するレポートに記録します。
+[定跡の生成・確認](../books/README.md)と[比較対局](selfplay.md)も参照してください。
 
-学習用の棋譜、評価データ、候補、checkpoint、監査結果は `results/` に保存します。
-入力と重要な出力のSHA-256を記録し、既存ファイルを上書きしない新しい出力先を使います。
-`bin/` の現行評価データは実験出力先にせず、元データは別のバックアップを確認するまで
-削除しません。通常の Gikou `--learn` は評価パラメータを再初期化します。学習方式や
-実験設定の詳細は[学習レポートの目次](experiments/learning/README.md)から確認してください。
+## 検証
+
+```sh
+make support-chain-test move-feature-recapture-test movepick-terminal-test -j2
+python3 -m unittest discover -s test -t .
+python3 tools/books/build_operational_shin_book.py --check
+results/move-feature-tools/recapture-test bin/params.bin
+results/move-feature-tools/terminal-test bin/params.bin
+```
+
+Pythonの実エンジン検査には `bin/release` と評価データが必要です。ネイティブ検査はassert有効で、全評価・差分更新・巻き戻し、取り返し、合法手のない局面を確認します。採用評価の回帰検査はsupport/Dの４設定を保存済みの基準値と照合します。
+
+## ブランチ運用
+
+`main` は採用済みのコードと必要な資料だけを置きます。変更前に `feature/<目的>`、`fix/<目的>`、`experiment/<目的>` 等の作業ブランチを作り、検証した変更だけをレビューしてマージします。
+
+```sh
+git switch main
+git switch -c feature/example
+# 実装・検証・コミット後、差分をレビューしてmainへマージ
+```
+
+不採用の実験コード・レポートは実験ブランチに残し、mainへ持ち込みません。棋譜・ログ・生成物はGit管理外の `results/` へ保存します。READMEはプロジェクトの短い紹介に留めます。
+
+整理前の実験資料は `archive/pre-adoption-cleanup-2026-11-15`（`f488a64`）にあります。必要なら別worktreeで参照できます。旧実験は当時のソース・ローカル生成物を前提にしており、新mainでそのまま再実行するものではありません。履歴の書き換えはしていません。

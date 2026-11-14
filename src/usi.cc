@@ -216,6 +216,9 @@ void ExecuteCommand(const std::string& command, Node* const node,
     SYNCED_PRINTF("usiok\n");
 
   } else if (type == "isready") {
+    Evaluation::SetShinYonenagaGyoku((*usi_options)["ShinYonenagaGyoku"]);
+    Evaluation::SetSupportChainBonus((*usi_options)["ExperimentalSupportChainBonus"]);
+    Evaluation::SetKingContactDeficitBonus((*usi_options)["KingContactDeficitBonus"]);
     thinking->Initialize();
     Evaluation::ReadParametersFromFile("params.bin");
     SYNCED_PRINTF("readyok\n");
@@ -224,6 +227,7 @@ void ExecuteCommand(const std::string& command, Node* const node,
     SetUsiOption(is, usi_options);
     Evaluation::SetShinYonenagaGyoku((*usi_options)["ShinYonenagaGyoku"]);
     Evaluation::SetSupportChainBonus((*usi_options)["ExperimentalSupportChainBonus"]);
+    Evaluation::SetKingContactDeficitBonus((*usi_options)["KingContactDeficitBonus"]);
 
   } else if (type == "usinewgame") {
     thinking->StartNewGame();
@@ -329,14 +333,15 @@ UsiOptions::UsiOptions() {
   // 新米長玉の固定初手と玉位置選好を使うか否か
   map_.emplace("ShinYonenagaGyoku", UsiOption(true));
 
-  // Experimental pawn support chain; zero preserves the normal evaluation.
-  map_.emplace("ExperimentalSupportChainBonus", UsiOption(0, 0, 10));
+  // Adopted baseline; retain the historical option name for GUI compatibility.
+  map_.emplace("ExperimentalSupportChainBonus", UsiOption(10, 0, 10));
+  map_.emplace("KingContactDeficitBonus", UsiOption(10, 0, 10));
 
   // 定跡ファイル
   map_.emplace("BookFile", UsiOption("book.bin"));
 
   // 新米長玉専用の局面定跡。空なら従来のBookFileを使う。
-  map_.emplace("ShinBookFile", UsiOption(""));
+  map_.emplace("ShinBookFile", UsiOption("shin-yonenaga-book-v1.txt"));
 
   // 定跡を用いる最大手数
   map_.emplace("BookMaxPly", UsiOption(20, 0, 50));

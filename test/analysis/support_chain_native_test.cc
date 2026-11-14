@@ -1,4 +1,4 @@
-// Standalone native check for the experimental evaluation term.
+// Native regression check for adopted support and king-contact evaluation.
 // Input: "sfen <SFEN>" or "moves <legal start-position moves>"; no search.
 #ifdef NDEBUG
 #error "This check must be built with assertions enabled."
@@ -44,7 +44,8 @@ int main(int argc,char** argv) {
   for(std::string line;std::getline(std::cin,line);) {
     const bool sfen=line.compare(0,5,"sfen ")==0;
     if(!sfen && line.compare(0,6,"moves ")!=0) return 2;
-    for(int bonus : {0,10}) {
+    for(int contact : {0,10}) for(int bonus : {0,10}) {
+      Evaluation::SetKingContactDeficitBonus(contact);
       Evaluation::SetSupportChainBonus(bonus);
       Node node(sfen ? Position::FromSfen(line.substr(5)) : Position::CreateStartPosition());
       std::vector<Move> moves;
@@ -60,7 +61,7 @@ int main(int argc,char** argv) {
       if(!node.in_check()) {
         node.MakeNullMove();Check(node,bonus);node.UnmakeNullMove();Check(node,bonus);
       }
-      std::cout << bonus << ' ' << int(Evaluation::HasPawnSupportChain(node,kBlack))
+      std::cout << contact << ' ' << bonus << ' ' << int(Evaluation::HasPawnSupportChain(node,kBlack))
                 << ' ' << int(Evaluation::HasPawnSupportChain(node,kWhite))
                 << ' ' << node.Evaluate() << '\n';
       for(auto it=moves.rbegin();it!=moves.rend();++it) {

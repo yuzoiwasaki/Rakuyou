@@ -1,163 +1,21 @@
-# 新米長玉と通常のRakuyouの比較対局
+# 比較対局と局面解析
 
-`tools/analysis/paired_selfplay.py` はRakuyouを2つ起動し、新米長玉をオンにした側と
-オフにした通常側を対戦させます。既定では1組ごとに先後を交代します。
-`--shin-side black|white` で新米長玉の手番を固定できます。将棋所は使いません。
+先後１局ずつの簡易対局：
 
 ```sh
-python3 tools/analysis/paired_selfplay.py --depth 5
+python3 tools/analysis/paired_selfplay.py --depth 15 --threads 1 --hash 64 --pairs 1
 ```
 
-強さを比較する最初の実験では、深さ15で50組（100局）を実行します。
+採用側は新米長玉ON・support10・D10、通常側は新米長玉OFF・support0・D0です。通常側は標準定跡を使い、採用側は既定で定跡OFFです。採用側にも定跡を使う場合は `--shin-book on --shin-book-file books/shin-yonenaga-book-v1.txt` を指定します。
+
+このツールは固定深さの簡易確認用です。秒読み10秒の実験ランナーではありません。手数上限を引き分けとして集計し、独立した合法手・千日手判定器を備えていないため、集計をそのまま棋力の証明に使わないでください。正式な比較実験の条件や判定器は実験ブランチで準備します。
+
+結果はGit管理外の `results/` へ保存します。終了済み対局から再開する場合：
 
 ```sh
-python3 tools/analysis/paired_selfplay.py \
-  --depth 15 \
-  --threads 1 \
-  --hash 512 \
-  --shin-book off \
-  --pairs 50
+python3 tools/analysis/paired_selfplay.py --resume results/example.json
 ```
 
-後手専用定跡を後手100局で検証するときは、`--pairs` の代わりに `--games` を
-指定します。`black` は新米長玉が先手、`white` は後手です。通常側はどちらの
-手番でも標準定跡を使います。
+再開には同じ実行ファイル・設定を使ってください。以前のバージョンの棋譜に新しい版の対局を継ぎ足さないでください。失敗した対局は再開時に再試行する仕様です。
 
-```sh
-python3 tools/analysis/paired_selfplay.py \
-  --depth 15 --threads 1 --hash 512 \
-  --shin-book on \
-  --shin-book-file books/shin-yonenaga-book-v1.txt \
-  --shin-side white --games 100 \
-  --output results/shin-operational-white-only-depth15-100games.json
-```
-
-既定値では各エンジンを1スレッド、ハッシュ128 MBで動かし、結果を
-`results/shin-book-off-vs-normal-日時.json` などに保存します。JSONには設定、勝敗、USI形式の
-指し手、指し手の取得元（固定初手・定跡・通常探索）、各手で最後に出力された
-評価値と読み筋が入ります。
-
-各局が終わるたびにJSONを一時ファイルへ書き、完成後に置き換えます。途中で
-`Ctrl-C` を押しても、完了済みの対局は残ります。表示されたファイルを指定すると、
-保存済みの条件と結果から再開できます。
-
-```sh
-python3 tools/analysis/paired_selfplay.py --resume results/shin-book-off-vs-normal-日時.json
-```
-
-再開時に全体の組数を増やすこともできます。
-
-```sh
-python3 tools/analysis/paired_selfplay.py \
-  --resume results/shin-book-off-vs-normal-日時.json \
-  --pairs 200
-```
-
-先後固定の結果も `--resume` で再開でき、`--games` で目標局数を増やせます。
-再開時は保存済みの手番設定を使用します。先後交代のJSONには `requested_pairs`、
-固定のJSONには `requested_games` と `settings.shin_side` を保存します。
-固定対局の各局には `game_number` を記録し、`summary.pairs_completed` は
-`null` です。古い先後交代JSONも引き続き再開できます。
-
-JSONの `summary` には勝敗、スコア率、先後別成績、平均手数、終局理由、
-指し手の取得元が集計されます。実行中は経過時間と推定残り時間を表示します。
-エンジン終了や応答待ちの失敗は `errors` に保存され、次回の再開時に同じ対局から
-再試行します。
-
-負荷や条件を変える場合は、例えば次のように指定します。
-
-```sh
-python3 tools/analysis/paired_selfplay.py --depth 10 --threads 2 --hash 256
-```
-
-通常側は比較対象として常に定跡を使います。新米長玉側は既定で定跡なしです。
-新米長玉側も定跡ありにする場合は次のように指定します。
-
-```sh
-python3 tools/analysis/paired_selfplay.py --depth 10 --shin-book on
-```
-
-別の定跡ファイルを試す場合は `--book-file`、定跡を使う最大手数を変える場合は
-`--book-max-ply` を指定できます。
-
-```sh
-python3 tools/analysis/paired_selfplay.py --book-file path/to/book.bin --book-max-ply 30
-```
-
-現行の専用定跡は先手６局面・後手11局面を合わせた共通17局面です。
-生成元との一致確認と、読み込みなどの確認は次の通りです。
-
-```sh
-python3 tools/books/build_operational_shin_book.py --check
-python3 -m unittest test.books.test_operational_shin_book
-```
-
-対局時は、新米長玉側に共通定跡を明示します。
-
-```sh
-python3 tools/analysis/paired_selfplay.py \
-  --depth 15 --threads 1 --hash 512 \
-  --shin-book on \
-  --shin-book-file books/shin-yonenaga-book-v1.txt \
-  --pairs 50
-```
-
-`--shin-book-file` は新米長玉側にだけ `ShinBookFile` を設定します。
-通常側は引き続き `book.bin` を使い、専用定跡にない局面では新米長玉側は
-標準定跡へ戻らず探索します。`--shin-book on` が必要です。
-対局JSONでは専用定跡手を `dedicated_book`、通常側の標準定跡手を `book` と記録します。
-採用は棋力向上の証明ではありません。[運用設定](../books/README.md)と
-[試行錯誤の要約](../books/HISTORY.md)を参照してください。旧試験定跡は整理済みです。
-
-初版の終局判定は、エンジンの投了・入玉宣言と最大手数です。千日手などの厳密な
-ルール判定はまだ行いません。比較時は深さ、スレッド数、ハッシュを変えずに実行します。
-各局の `source_counts_by_player` を見ると、固定初手や定跡が実際に使われた回数を
-プレイヤー別に確認できます。
-
-複数の結果JSONから、先後別成績、頻出する序盤手順、序盤の評価低下候補を
-Markdownにまとめるには `tools/analysis/analyze_selfplay.py` を使います。
-
-```sh
-python3 tools/analysis/analyze_selfplay.py \
-  results/shin-book-off-vs-normal-depth15-100games.json \
-  results/shin-book-on-vs-normal-depth15-100games.json \
-  --output docs/experiments/selfplay/2026-09-26-selfplay-opening-analysis.md
-```
-
-評価低下候補は、新米長玉エンジンによる評価を同じエンジンの2手後の評価と
-比較します。その間に双方が1手ずつ指すため、悪手を確定する表ではありません。
-深い再解析を行う局面を選ぶために使います。
-
-選んだ局面だけを定跡なしのMultiPVで深く読むには、局面の指し手列をJSONに
-保存して`tools/analysis/analyze_positions.py`へ渡します。
-
-```sh
-python3 tools/analysis/analyze_positions.py \
-  docs/experiments/positions/anti-fourth-file-rook/anti-fourth-file-rook.json \
-  --depth 20 \
-  --multipv 3 \
-  --threads 1 \
-  --hash 512 \
-  --output results/anti-fourth-file-rook-depth20-multipv3.json
-```
-
-結果は局面ごとに保存され、候補手、評価値、読み筋、探索深さ、ノード数、時間を
-記録します。生JSONは`results/`に置き、判断に使った結果を実験レポートへ残します。
-局面定義に`"searchmoves": ["7c7d"]`のような配列を加えると、指定した候補手だけを
-強制探索できます。MultiPVに現れない構想の評価値を確認するときに使います。
-
-深い探索の負荷を測るときは`--depth 40 --stop-after 900 --timeout 960`のように
-指定できます。時間で停止した場合は、停止指示を送る**前**に全候補がそろっていた
-最後の深さのMultiPVを保存し、結果の`stopped_early`を`true`にします。到達深さを確認してから
-候補の順位を解釈してください。`candidate_bestmove`は保存した候補表の１位の手、
-`bestmove`はエンジンが返したUSIの`bestmove`です。時間停止時は後者が停止後の
-探索を反映し、二つの手が異なる場合があります。候補表の評価値と対応するのは
-`candidate_bestmove`です。
-
-通常側の主要応手を選ぶ場合は、新米長玉の評価補正を無効にします。
-
-```sh
-python3 tools/analysis/analyze_positions.py positions.json \
-  --depth 24 --multipv 5 --shin-yonenaga-gyoku off \
-  --output results/opponent-replies.json
-```
+局面解析には `tools/analysis/analyze_positions.py` を使用できます。入力形式・オプションは `--help` を参照してください。新米長玉ONではsupport10/D10、OFFでは0/0を設定します。候補手の読み筋は予測であり、強制手順ではありません。

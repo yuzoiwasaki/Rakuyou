@@ -57,20 +57,8 @@ ifeq ($(TARGET),development)  # 開発用・デバッグ用
 	sources  := $(shell ls src/*.cc)
 	CXXFLAGS += -O2 -g3
 endif
-ifeq ($(TARGET),learning-probe) # 探索・学習を行わないデータ検証用
-	sources := $(filter-out src/main.cc,$(wildcard src/*.cc)) tools/learning/native/learning_data_probe.cc
-	CXXFLAGS += -O2 -g3
-	INCLUDES += -Isrc
-	output_file := results/learning-tools/learning-data-probe
-	LDFLAGS += -Wl,-rpath,@loader_path/../../lib/libomp-x86_64/lib
-endif
-ifeq ($(TARGET),king-safety-probe)
- sources := $(filter-out src/main.cc,$(wildcard src/*.cc)) tools/learning/native/learning_data_probe.cc
- CXXFLAGS += -O2 -g3 -DKING_SAFETY_PROBE
- INCLUDES += -Isrc
- output_file := results/king-safety-tools/king-safety-probe
- LDFLAGS += -Wl,-rpath,@loader_path/../../lib/libomp-x86_64/lib
-endif
+
+
 ifeq ($(TARGET),support-chain-test)
  sources := $(filter-out src/main.cc,$(wildcard src/*.cc)) test/analysis/support_chain_native_test.cc
  CXXFLAGS += -O2 -g3
@@ -92,20 +80,8 @@ ifeq ($(TARGET),movepick-terminal-test)
  output_file := results/move-feature-tools/terminal-test
  LDFLAGS += -Wl,-rpath,@loader_path/../../lib/libomp-x86_64/lib
 endif
-ifeq ($(TARGET),gold-silver-pair-probe)
- sources := $(filter-out src/main.cc,$(wildcard src/*.cc)) tools/learning/native/gold_silver_pair_probe.cc
- CXXFLAGS += -O2 -g3
- INCLUDES += -Isrc
- output_file := results/gold-silver-pair-tools/gold-silver-pair-probe
- LDFLAGS += -Wl,-rpath,@loader_path/../../lib/libomp-x86_64/lib
-endif
-ifeq ($(TARGET),supported-pawn-probe)
- sources := $(filter-out src/main.cc,$(wildcard src/*.cc)) tools/learning/native/supported_pawn_probe.cc
- CXXFLAGS += -O2 -g3
- INCLUDES += -Isrc
- output_file := results/supported-pawn-tools/supported-pawn-probe
- LDFLAGS += -Wl,-rpath,@loader_path/../../lib/libomp-x86_64/lib
-endif
+
+
 ifeq ($(TARGET),profile)      # プロファイル用
 	sources  := $(shell ls src/*.cc)
 	CXXFLAGS += -O3 -DNDEBUG -pg
@@ -136,9 +112,9 @@ directories += $(dir $(output_file))
 #
 # 4. Public Targets
 #
-.PHONY: gikou release cluster consultation development profile test coverage learning-probe king-safety-probe support-chain-test move-feature-recapture-test movepick-terminal-test gold-silver-pair-probe supported-pawn-probe run-coverage clean scaffold libomp-x86_64
+.PHONY: gikou release cluster consultation development profile test coverage support-chain-test move-feature-recapture-test movepick-terminal-test run-coverage clean scaffold libomp-x86_64
 
-gikou release cluster consultation development profile test coverage learning-probe king-safety-probe support-chain-test move-feature-recapture-test movepick-terminal-test gold-silver-pair-probe supported-pawn-probe:
+gikou release cluster consultation development profile test coverage support-chain-test move-feature-recapture-test movepick-terminal-test:
 	$(MAKE) TARGET=$@ executable
 
 run-coverage: coverage
@@ -180,6 +156,7 @@ endif
 #
 .PHONY: executable
 executable: $(directories) $(objects)
+	cp books/shin-yonenaga-book-v1.txt $(dir $(output_file))shin-yonenaga-book-v1.txt
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(output_file) $(objects) $(LIBRARIES)
 	
 $(directories):
