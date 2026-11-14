@@ -34,3 +34,7 @@ Next review should cover a losing pair (Black versus central rook or White versu
 [Focused viewer](../../../results/teatsui-rank-counter-match-2026-11-14/review-central.html) opens games01/02 at44, left rank0/right rank10. BOTH compare BLACK at the BOTTOM. All boards are from the same audited histories; no search. First divergence23 is P1f versus P9f by Black, followed by different opponent plans.
 
 Suggested checkpoints44/48/58 (72 available for continuation): OFF permits White's promoted silver on6g, uses the rook on5d and P*5c, then later turns toward the edge. ON builds S4g/P4f/P3f, retreats R5h5i at45, then DOES push P5e at47 and trades on the king side; do not describe it simply as refusing to attack or preserving rank forever. White S4f and the bishop/silver exchange at57–58 precede pressure near the king; R5i is captured at72. User judgment pending on the earlier construction/attack timing, not a forced-tactic or causal verdict. Both games end in resignation losses, so the longer game02 is not by itself evidence of better play.
+
+## User central-pair verdict and candidate check
+
+User judges the central pair roughly equal. Right wants earlier N3g to restrain the faster enemy attack; left wants G7h against S7f while retaining its interesting counterplay. This is a timing/defense issue in both examples, not a rank0/10 preference. [Bounded candidate comparison](../counter-timing-2026-11-14/result.md) checks the concrete suggestions without changing coefficients.

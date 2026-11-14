@@ -26,10 +26,28 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   First divergence23 P1f/P9f, later opponent plans differ. Left admits promoted
   silver6g but uses R5d/P*5c; right DOES push P5e47, king-side exchanges follow,
   and R5i is captured72. Do not frame as unconditional refusal to attack.
-  User judgment pending, no search/tuning; preserve earlier counter/timing cases.
+  USER judges central pair roughly equal: right counterattack intent visible,
+  but enemy attack arrives first; wants early N3g to restrain it. Left interesting
+  but wants G7h against S7f. Key: restrain/slow enemy so counterplay arrives in time.
+  No rank0/10 superiority verdict; preserve both as timing/defense examples.
+  Bounded diagnostic now checks left37 P5e/G7h at after36(rank0), right41 P9e/N3g
+  at after40 and45 R5i/N3g at after44(rank10); same coefficients, no tuning.
   Frozen known12-ply starts2,3,4,5; support10/D10/ShinON vs fixednormal,10s/d15,
   no tuning or adoption. Prepared scripts/tests and initial failed setup archived.
   No new searches this audit/review turn. User authorized incremental commits.
+
+- **Timing diagnostic completed; next user review, no tuning**:
+  [Report](docs/experiments/counter-timing-2026-11-14/result.md),
+  [candidate viewer](results/teatsui-counter-timing-2026-11-14/review.html).
+  Exactly3 fresh10s restricted MultiPV2 searches;84 legal PVs,115 native-matched
+  viewer states, frozen inputs unchanged. Same original per-game rank0/10.
+  Common d14 Black: left37 P5e−77/G7h−120; right41 P9e−187/N3g−435;
+  right45 R5i−356/N3g−491. G7h PV retains P5e central attack; no tactical
+  refutation established. N3g meets P*2e/Px2e/Nx2e: at41 P*2f/Nx3g+/Kx3g;
+  at45 Nx2e/Rx2e, allowing opponent activity. Earlier P3f/N3g preparation
+  untested, not refuted. Do not force root moves or add arbitrary bonuses.
+  Viewer BOTH BLACK/BOTTOM, LEFT played-candidate new PV, RIGHT suggested PV
+  (NOT rank0/10 panels). Dropdown for37/41/45, defaults37. Await user review.
 
 - **Current adopted baseline (2026-11-13)**: support10 + D10, separate installed
   launcher `bin/teatsui-2026-11-13/rakuyou`, engine id
