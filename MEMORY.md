@@ -47,7 +47,26 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   at45 Nx2e/Rx2e, allowing opponent activity. Earlier P3f/N3g preparation
   untested, not refuted. Do not force root moves or add arbitrary bonuses.
   Viewer BOTH BLACK/BOTTOM, LEFT played-candidate new PV, RIGHT suggested PV
-  (NOT rank0/10 panels). Dropdown for37/41/45, defaults37. Await user review.
+  (NOT rank0/10 panels). Dropdown for37/41/45, defaults37.
+  USER prefers G7h and suggests retreat/advance instead of taking P4e later.
+  Current bounded check: selected G7h PV after46 P4e, all8 legal moves of
+  Black S3f/S4f, rank0/support10/D10, one10s MultiPV8 search, no tuning.
+
+- **Silver-choice follow-up completed, no tuning**:
+  [Report](docs/experiments/silver-choice-2026-11-14/result.md),
+  [viewer](results/teatsui-silver-choice-fixed-2026-11-14/review.html).
+  Root selected G7h PV after46 P4e (not actual game); all8 legal S3f/S4f moves.
+  Initial10s MultiPV8 stops within d11, lower rows mate−2 are not established
+  mates; diagnostic-only. One justified additional fixed-depth11 run (11.3s)
+  completes all8, rank0/support10/D10 unchanged: S4f5g−246 first, S4f5e−437
+  second, both Sx4e−509; other silver moves−1139 or worse. All Black-view.
+  Retreat PV S5g/R5b/Rx5b/Gx5b/R*2a/B1c/S6h/R*5h; counterplay retained.
+  All176 emitted PVs legal,201 displayed states native matched, bindings intact.
+  Viewer BOTH BLACK/BOTTOM; LEFT prior S3fx4e, RIGHT dropdown alternatives,
+  defaults S4f5g. Await user review. No superiority/adoption claim.
+  IMPORTANT: timed MultiPV depth labels alone do not certify completed iteration;
+  engine prints partial candidate results on time limit. Distinguish from fixed
+  completed-depth output, never interpret sentinel mate rows as proven mates.
 
 - **Current adopted baseline (2026-11-13)**: support10 + D10, separate installed
   launcher `bin/teatsui-2026-11-13/rakuyou`, engine id
