@@ -1,5 +1,7 @@
 # Exchange-burden diagnostic prototype — 2026-11-14
 
+**Decision 2026-11-14: not adopted.** User chose to retain support10/D10 and review four further baseline games. Preserve this prototype as diagnostic evidence; no operational evaluation change.
+
 User authorized trying an exchange-aware direction. Implemented a small native diagnostic, not an evaluation hook: start from the original rank-count predicate's first witness; enumerate legal enemy captures of that pawn and legal immediate same-square recaptures; use the existing Swap::Evaluate (SEE) to estimate the recapture's material result. If any capture has no recapture with SEE>=0, mark a possible local burden. Both nonpromotion/promotion forms are checked when applicable.
 
 The enemy-to-move hypothetical position is reconstructed from SFEN so turn-dependent legality caches are correct. Skip if either king is already in check; do not model a forced tempo switch under check. Immediate moves are legal, but subsequent SEE exchanges are an approximation and do not prove a legal forced sequence. It ignores other-square counters, drops, king safety, initiative, recapture placement and attack speed. Only the first original triggering pawn is diagnosed; production use would require considering every eligible pawn. No coefficient or threshold fitted to search results.

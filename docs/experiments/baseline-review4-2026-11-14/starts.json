@@ -1,0 +1,159 @@
+{
+  "schema": "rakuyou-hybrid-match-starts-v1",
+  "selection": "Known12-ply openings plus fixed mutual9-file pawn development (9g9f,9c9d), selected indices0,1,6,7. Fixed without search/result selection, not unseen validation.",
+  "starts": [
+    {
+      "id": "black-shin-fourth-rook",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "3i3h",
+        "8b4b",
+        "2g2f",
+        "5a6b",
+        "4h3i",
+        "7a7b",
+        "7i6h",
+        "4c4d",
+        "5g5f",
+        "6b7a",
+        "9g9f",
+        "9c9d"
+      ]
+    },
+    {
+      "id": "black-shin-third-rook",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "3i3h",
+        "8b3b",
+        "2g2f",
+        "5a6b",
+        "4h3i",
+        "7a7b",
+        "7i6h",
+        "4c4d",
+        "5g5f",
+        "6b7a",
+        "9g9f",
+        "9c9d"
+      ]
+    },
+    {
+      "id": "black-shin-central-rook",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "3i3h",
+        "8b5b",
+        "2g2f",
+        "5a6b",
+        "4h3i",
+        "7a7b",
+        "7i6h",
+        "5c5d",
+        "5g5f",
+        "6b7a",
+        "9g9f",
+        "9c9d"
+      ]
+    },
+    {
+      "id": "black-shin-static-rook",
+      "moves": [
+        "5i4h",
+        "8c8d",
+        "3i3h",
+        "3c3d",
+        "2g2f",
+        "5a4b",
+        "4h3i",
+        "7a6b",
+        "7i6h",
+        "6c6d",
+        "5g5f",
+        "6b6c",
+        "9g9f",
+        "9c9d"
+      ]
+    },
+    {
+      "id": "white-shin-fourth-rook",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2h6h",
+        "5c5d",
+        "3i3h",
+        "3a4b",
+        "5i4h",
+        "7a7b",
+        "6g6f",
+        "6b7a",
+        "7i7h",
+        "4b5c",
+        "9g9f",
+        "9c9d"
+      ]
+    },
+    {
+      "id": "white-shin-third-rook",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2h7h",
+        "5c5d",
+        "3i3h",
+        "3a4b",
+        "5i4h",
+        "7a7b",
+        "6g6f",
+        "6b7a",
+        "7i6h",
+        "4b5c",
+        "9g9f",
+        "9c9d"
+      ]
+    },
+    {
+      "id": "white-shin-central-rook",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2h5h",
+        "5c5d",
+        "3i3h",
+        "3a4b",
+        "5i4h",
+        "7a7b",
+        "5g5f",
+        "6b7a",
+        "7i6h",
+        "4b5c",
+        "9g9f",
+        "9c9d"
+      ]
+    },
+    {
+      "id": "white-shin-static-rook",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2g2f",
+        "5c5d",
+        "3i3h",
+        "3a4b",
+        "5i4h",
+        "7a7b",
+        "2f2e",
+        "6b7a",
+        "7i6h",
+        "4b5c",
+        "9g9f",
+        "9c9d"
+      ]
+    }
+  ],
+  "source_sha256": "491bfe5342007ba0305db59b1d488eed443904deab2a2a9cd3a9570b0314c38a"
+}

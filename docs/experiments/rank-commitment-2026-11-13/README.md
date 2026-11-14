@@ -1,5 +1,7 @@
 # Rank commitment prototype (unadopted)
 
+**Decision 2026-11-14: not adopted.** User chose to retain support10/D10 and review four further baseline games. Preserve this prototype as diagnostic evidence; no operational evaluation change.
+
 Checkpoint of the counterplay experiment and the user's positional judgments.
 The operational baseline remains support10/D10. These patches are research
 artifacts; neither changes normal builds nor installs the prototype.

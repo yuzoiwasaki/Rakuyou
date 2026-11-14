@@ -7,7 +7,19 @@ is the last full historical map). Historical NEXT headings are not active tasks.
 
 ## Current objective and collaboration
 
-- **NEXT: review completed rank0/10 eight-game batch (do not rerun)**:
+- **NEXT: user runs four adopted-baseline games; no further tuning yet**.
+  User rejected rank10 and exchange-burden prototypes after positional review
+  and diagnostic failure to separate desired/undesired support. Keep support10/D10.
+  [Run instructions](docs/experiments/baseline-review4-2026-11-14/README.md),
+  [prepared evidence](docs/experiments/baseline-review4-2026-11-14/prepared.json).
+  Four derived14-ply starts: Black fourth/third, White central/static; adopted
+  runtime versus fixed normal, depth15cap/10s/256 added plies. Seven tests and
+  four depth3 preflight searches passed; main games0/4. User runs long matches.
+  Await Completed4/4, audit histories then review defense/counterplay/conversion.
+  Known development starts, no paired ablation or strength proof. Historical
+  next/review instructions below are superseded by this decision.
+
+- **Historical: completed rank0/10 eight-game batch (do not rerun)**:
   [Result/audit](docs/experiments/rank-counter-match-2026-11-14/result.md).
   User completed8 in~3h. rank0 1W3L; rank10 2W2L; four scored pairs mean+0.25.
   Read-only audit8 histories/1151 timed go/252 bindings/options/env/clocks passed.
