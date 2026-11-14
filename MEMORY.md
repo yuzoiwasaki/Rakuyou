@@ -21,6 +21,11 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   game3 White/top, SAME GAME left38/right46; advance54/60. Edge defense versus
   central counterplay; no culprit asserted. Game4 starts already disadvantaged
   by early P2d breakthrough; review opening conditions separately. No new searches.
+  USER: central plan natural, but attack speed seems to reverse midstream.
+  Saved-game timing windows56 L*5g/57 L*5h and73 P*5e (hits rook5d),74 R5a,
+  75 P8d. At54 saved PV anticipated56 Sx5d instead; consider bounded comparison
+  after55 L*5g versus Sx5d next. Four saved PVs native-replayed legal, no search.
+  Do not treat gradual worsening as a proven single blunder or reject counterplay.
   Known development starts, no paired ablation or strength proof. Historical
   next/review instructions below are superseded by this decision.
 
