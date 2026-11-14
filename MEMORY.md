@@ -7,7 +7,7 @@ is the last full historical map). Historical NEXT headings are not active tasks.
 
 ## Current objective and collaboration
 
-- **NEXT: user runs initial-position two-game comparison**.
+- **NEXT: review one opening candidate from completed initial-position pair**.
   User wants to discover obvious opening defects from the actual starting board,
   accepts normal Rakuyou rather than requiring upstream Gikou2. Prior comparisons
   already used ShinOFF normal opponent, but had fixed mid-opening histories.
@@ -17,9 +17,15 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   ShinOFF/support0/D0. Both booksOFF; existing native first move K4h/K6b retained,
   all later moves searched. Depth15cap/10s/256totalplies,1thread/Hash64.
   Nine runner tests passed; eight real preflight probes (six depth3 searches,
-  two native first moves) legal. Main games0/2; user runs long games.
-  Await Completed2/2 then audit and screen obvious opening/style issues, not
-  exhaustive diagnosis. No claim normal Rakuyou equals upstream Gikou2.
+  two native first moves) legal. User completed2/2: both adopted-side losses.
+  [Result/audit](docs/experiments/startpos-pair-2026-11-14/result.md):240 bindings,
+  335 timed searches+2 native moves,2 histories passed;337 displayed states verified.
+  No new searches. Game1 no clear opening defect. Game2 candidate35–48:
+  Sx7e/P*7d/P8f leads to knight loss and Kx7c, but Sx7g+ and B*8h/Bx9i+
+  provide compensation. Do not call it a blunder; ask if early commitment acceptable.
+  [Viewer](results/teatsui-startpos-pair-2026-11-14/review.html) defaults game2,
+  BOTH WHITE/TOP,same game left35/right42;advance48/58. Game1 BLACK/BOTTOM.
+  Await positional judgment; skip if ambiguous. No tuning or further searches. No claim normal Rakuyou equals upstream Gikou2.
   Previous game4 pawn-repeat case now skipped: user sees no definite problem.
 
 - **Review policy: prioritize clear, actionable defects; skip ambiguous losses**.
