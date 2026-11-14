@@ -7,22 +7,21 @@ is the last full historical map). Historical NEXT headings are not active tasks.
 
 ## Current objective and collaboration
 
-- **NEXT: user-run rank0/10 eight-game batch prepared, 0/8 started**:
-  [Command/design](docs/experiments/rank-counter-match-2026-11-14/README.md).
-  Run `caffeinate -i python3 -u docs/experiments/rank-counter-match-2026-11-14/match.py run`.
-  Output `results/teatsui-rank-counter-match-2026-11-14/`. Fixed known12-ply
-  starts indices2,3,4,5 (Black central/static, White fourth/third), each rank0/10,
-  ShinON/support10/D10 vs same fixed normal ShinOFF/support0/D0. depth15cap,
-  10s,256 added plies,thread1/hash64/bookOFF. No tuning, pooling or adoption.
-  Seven tests +six depth3 legal connection checks pass; status0/8, no games.
-  First setup failed on missing ShinBookFile; archived setup-failed directory,
-  copied book and prepared new plan, no changes to coefficients or starts.
-  Ctrl+C once finishes current game then stops; same run resumes next game.
-  Second interrupt/error preserves incomplete record and blocks automatic retry.
-  Don't rerun prepare/preflight or modify bound scripts/inputs during batch.
-  After user completes: audit records/options/clocks/hashes, then compare style
-  at divergences. Latest user: P4f seems slow/not useful later, tentative left
-  P*6b preference, not certainty. Keep both counterplay and attack-timing cases.
+- **NEXT: review completed rank0/10 eight-game batch (do not rerun)**:
+  [Result/audit](docs/experiments/rank-counter-match-2026-11-14/result.md).
+  User completed8 in~3h. rank0 1W3L; rank10 2W2L; four scored pairs mean+0.25.
+  Read-only audit8 histories/1151 timed go/252 bindings/options/env/clocks passed.
+  Black central bothlose; Black static bothwin; White fourth bothlose; White
+  third rank0lose/rank10win. Third-rook FIRST divergence is NORMAL Black17
+  S6g vsK2h, so not clean correction causality; fourth also normal-side19.
+  [Paired viewer](results/teatsui-rank-counter-match-2026-11-14/review.html)
+  all4 pairs,1247 native-matched states. Defaults08/07(left0/right10), compare
+  BOTH WHITE/TOP; starts40, inspect48/60 for central counterplay vs retreat.
+  User positional judgment pending. Do not infer style/strength from one extra
+  win; preserve all pairs and previous good-counter/bad-attack-timing examples.
+  Frozen known12-ply starts2,3,4,5; support10/D10/ShinON vs fixednormal,10s/d15,
+  no tuning or adoption. Prepared scripts/tests and initial failed setup archived.
+  No new searches this audit/review turn. User authorized incremental commits.
 
 - **Current adopted baseline (2026-11-13)**: support10 + D10, separate installed
   launcher `bin/teatsui-2026-11-13/rakuyou`, engine id

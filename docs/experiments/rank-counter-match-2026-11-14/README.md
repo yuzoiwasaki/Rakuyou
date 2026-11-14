@@ -1,6 +1,6 @@
 # 位の支え過ぎ補正0/10：８局比較
 
-準備・動作確認済み。本対局は未開始（0/8）。リポジトリのルートで実行：
+**８局完了・監査済みです。再実行は不要です。** [結果と比較盤面](result.md)を参照してください。以下は実行時の手順記録です。
 
 ```sh
 caffeinate -i python3 -u docs/experiments/rank-counter-match-2026-11-14/match.py run
