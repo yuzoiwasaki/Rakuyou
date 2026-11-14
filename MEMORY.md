@@ -125,6 +125,23 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   No automatic reopening of closed tactical branch. Next decision with user;
   installed support10/D10 unchanged, rank10 remains an archived prototype.
 
+- **Exchange-aware prototype tried; diagnostic contrast fails, no integration**:
+  [Report/source/checks](docs/experiments/exchange-burden-2026-11-14/result.md).
+  User authorized next direction. Native probe enumerates legal enemy captures
+  of original first witness pawn and immediate legal recaptures, estimates SEE.
+  Potential burden if any capture has no recapture with SEE>=0. Hypothetical
+  turn rebuilt bySFEN; skip either king in check. No evaluation hook/weight.
+ 63 cases pass:29 originals+29 witnesses+5 new knight-loss/mirror/rotation/pin/
+  check cases; other probe fields exactly match reference. No engine searches.
+  KEY failure: original criticized S8d/S7f and liked game07 P6e/S5d both have
+  enemy silver captureSEE198, recaptureSEE0 (pawn still lost), or rookcapture
+  −378/recapture576. Both exempted; local material cannot separate them.
+  Synthetic knight capture produces recapture−310 and is detected, but that
+  doesn't solve intended real contrast. Do NOT integrate/run matches/tune
+  threshold. SEE ignores broader placement/tempo/counterplay; first-witness
+  diagnostic only. Trial archived, adopted support10/D10 and rank10 unchanged.
+  Further context design unimplemented; no reopening closed tactical branches.
+
 - **Current adopted baseline (2026-11-13)**: support10 + D10, separate installed
   launcher `bin/teatsui-2026-11-13/rakuyou`, engine id
   `Rakuyou support10 D10 2026-11-13`. GUI registration was NOT changed automatically.
