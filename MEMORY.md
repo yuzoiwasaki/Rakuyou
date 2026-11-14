@@ -26,6 +26,15 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   75 P8d. At54 saved PV anticipated56 Sx5d instead; consider bounded comparison
   after55 L*5g versus Sx5d next. Four saved PVs native-replayed legal, no search.
   Do not treat gradual worsening as a proven single blunder or reject counterplay.
+  Timing diagnostic completed: [report](docs/experiments/baseline-tempo-2026-11-14/result.md).
+  Two timed searches plus two justified fixeddepth11 checks after cutoff artifacts;
+  94 PVs legal,53 viewer states native-matched,original bindings unchanged.
+  After45 unrestricted: S6e−239 first /S4c−765. After55 restricted: L*5g−477,
+  S6ex5d−336. White perspective; neither establishes equality. User initial plan
+  natural is not contradicted. Immediate exchange then L*5e merits review.
+  [Viewer](results/teatsui-baseline-tempo-fixed11-2026-11-14/review.html):
+  BOTH WHITE/TOP; LEFT played L*5g, RIGHT Sx5d, fixeddepth11 predicted lines.
+  Earlier46 PV chooses48 S7f vs actual P9d; next direct comparison after47 if useful.
   Known development starts, no paired ablation or strength proof. Historical
   next/review instructions below are superseded by this decision.
 
