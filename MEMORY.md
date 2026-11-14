@@ -7,7 +7,7 @@ is the last full historical map). Historical NEXT headings are not active tasks.
 
 ## Current objective and collaboration
 
-- **NEXT: user judges king-route change in completed normal-book pair**.
+- **Closed: normal-book pair reviewed; late king-route change accepted**.
   Explicitly authorized after closing silver-retreat case. Keep adopted ShinON/
   support10/D10 bookOFF; normal fixed Rakuyou ShinOFF/support0/D0 bookON through
   ply20, native default filters/random choice. Initial position/colors reversed,
@@ -25,7 +25,10 @@ is the last full historical map). Historical NEXT headings are not active tasks.
   Shin king shape; coherent left-side castling, not established blunder or bug.
   Saved scores near0 then+255 at53; no claim switch immediately causes loss.
   Game2 no clear opening defect identified; do not force per-loss analysis.
-  No new searches/evaluation change; await judgment, skip if acceptable.
+  USER accepts this king-route change after the pieces have developed.
+  Correct early abandonment of the intended king setup if observed; do not
+  penalize later recastling indiscriminately. No numerical ply cutoff agreed.
+  This case closed, no further searches or evaluation change. Keep support10/D10.
   Book may end early in unusual positions; no matched-pair book-effect claim,
   no pooling previous results or evaluation changes. Root README stays simple.
 
