@@ -1,0 +1,184 @@
+{
+  "positions": [
+    {
+      "id": "opening-1",
+      "source": "previous100 game1 first12plies",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7g7f",
+        "7a6b",
+        "2g2f",
+        "4a3b",
+        "6i7h",
+        "4c4d",
+        "3i3h",
+        "6c6d",
+        "4h3i",
+        "6b6c"
+      ]
+    },
+    {
+      "id": "opening-2",
+      "source": "previous100 game2 first12plies",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2h6h",
+        "5c5d",
+        "3i3h",
+        "3a4b",
+        "5i4h",
+        "4b5c",
+        "4h3i",
+        "7a7b",
+        "6g6f",
+        "6b7a"
+      ]
+    },
+    {
+      "id": "opening-3",
+      "source": "previous100 game3 first12plies",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7g7f",
+        "7a6b",
+        "2g2f",
+        "6c6d",
+        "2f2e",
+        "2b8h+",
+        "7i8h",
+        "3a2b",
+        "3i3h",
+        "6b6c"
+      ]
+    },
+    {
+      "id": "opening-4",
+      "source": "previous100 game5 first12plies",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7g7f",
+        "7a6b",
+        "2g2f",
+        "4a3b",
+        "2f2e",
+        "6c6d",
+        "2e2d",
+        "2c2d",
+        "2h2d",
+        "6b6c"
+      ]
+    },
+    {
+      "id": "opening-5",
+      "source": "previous100 game7 first12plies",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7g7f",
+        "8b4b",
+        "3i3h",
+        "5a6b",
+        "2g2f",
+        "4c4d",
+        "9g9f",
+        "3a3b",
+        "4h3i",
+        "9c9d"
+      ]
+    },
+    {
+      "id": "opening-6",
+      "source": "previous100 game9 first12plies",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7g7f",
+        "8b4b",
+        "3i3h",
+        "5a6b",
+        "2g2f",
+        "4c4d",
+        "9g9f",
+        "2b3c",
+        "9f9e",
+        "3a3b"
+      ]
+    },
+    {
+      "id": "opening-7",
+      "source": "previous100 game11 first12plies",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7g7f",
+        "7a6b",
+        "2g2f",
+        "6c6d",
+        "2f2e",
+        "6b6c",
+        "3i3h",
+        "2b8h+",
+        "7i8h",
+        "3a3b"
+      ]
+    },
+    {
+      "id": "opening-8",
+      "source": "previous100 game13 first12plies",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7g7f",
+        "7a6b",
+        "2g2f",
+        "6c6d",
+        "2f2e",
+        "6b6c",
+        "3i3h",
+        "6c5d",
+        "4g4f",
+        "4a3b"
+      ]
+    },
+    {
+      "id": "opening-9",
+      "source": "previous100 game15 first12plies",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7g7f",
+        "7a6b",
+        "2g2f",
+        "8c8d",
+        "2f2e",
+        "2b8h+",
+        "7i8h",
+        "3a3b",
+        "3i3h",
+        "3b3c"
+      ]
+    },
+    {
+      "id": "opening-10",
+      "source": "previous100 game17 first12plies",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7g7f",
+        "7a6b",
+        "2g2f",
+        "4a3b",
+        "6i7h",
+        "6c6d",
+        "2f2e",
+        "2b8h+",
+        "7i8h",
+        "3a2b"
+      ]
+    }
+  ]
+}

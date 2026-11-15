@@ -2,6 +2,8 @@
 
 Updated 2026-11-15.
 
+- Root-recheck PR3 next step: user runs `tools/experiments/root_recheck_match.py --output results/new-name.json` (20 games,10 fixed12-ply starts x color swap, candidate vs baseline, bothON/10/10, booksOFF,2s/move, max256).20 short preflight slots and resume/hash/overwrite/lock checks passed. Additional12 historical positions at1s:10 same moves; deep audit of2 disagreements favors baseline once/candidate once. No tuning since first prototype. See branch note; full batch not run yet.
+
 - Active search trial: `experiment/root-candidate-recheck`, based on origin/main851dc0f, independent of opening PR2. Root likely near-fail-low alternative gets one wider-window PV verification per root invocation. Separate `bin/match-root-recheck`; baseline bin/match unchanged. Gx8g found at depth15 and within250k/300k reported nodes; other cases cost more.6-case diagnostics and8 shallow golden checks pass; not adopted. See docs/experiments/root-candidate-recheck.md. Opening work remains on experiment/early-silver68 (local f341b5d); do not merge either automatically.
 
 - Adopted baseline: `src/` includes support10 and king-contact deficit D10; normal `make release` builds it. No separate adoption patch required.
