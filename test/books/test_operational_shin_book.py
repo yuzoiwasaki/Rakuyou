@@ -42,9 +42,10 @@ class CompilationTest(unittest.TestCase):
 
 class EngineTest(unittest.TestCase):
     def make_engine(self, own=True, shin=True, max_ply=20):
-        if not (ROOT / "bin/release").is_file():
-            self.skipTest("build bin/release first")
-        return UsiEngine(ROOT / "bin/release", shin, own, 1, 64,
+        binary = ROOT / ("bin/release" if shin else "bin/development")
+        if not binary.is_file():
+            self.skipTest("build release and development first")
+        return UsiEngine(binary, shin, own, 1, 64,
                          None, max_ply, builder.OUTPUT)
 
     def test_all_seventeen_entries_in_one_engine(self):

@@ -21,6 +21,19 @@ from pathlib import Path
 INFO_RE = re.compile(r"\bdepth (\d+).*?\bscore (cp|mate) ([^ ]+)(?:.*?\bpv (.*))?$")
 
 
+def set_style_options(engine, names, shin, support, contact):
+    requested = {"ShinYonenagaGyoku": "true" if shin else "false",
+                 "ExperimentalSupportChainBonus": str(support),
+                 "KingContactDeficitBonus": str(contact)}
+    available = set(requested) & names
+    if not available and (shin, support, contact) == (True, 10, 10):
+        return  # Production Rakuyou fixes these values internally.
+    if available != set(requested):
+        raise ValueError("Style comparison requires make development and --engine bin/development")
+    for name, value in requested.items():
+        engine.send(f"setoption name {name} value {value}")
+
+
 class UsiEngine:
     def __init__(self, executable, shin_yonenaga_gyoku, own_book, threads, hash_mb,
                  book_file, book_max_ply, shin_book_file=None, support=None, contact=None):
@@ -28,6 +41,7 @@ class UsiEngine:
         self.shin_yonenaga_gyoku = shin_yonenaga_gyoku
         self.own_book = own_book
         self.lines = queue.Queue()
+        self.option_names = set()
         self.process = subprocess.Popen(
             [str(self.executable)],
             cwd=str(self.executable.parent),
@@ -40,13 +54,13 @@ class UsiEngine:
         threading.Thread(target=self._read_output, daemon=True).start()
         self.send("usi")
         self.wait_for("usiok", 10)
-        self.send("setoption name ShinYonenagaGyoku value "
-                  + ("true" if shin_yonenaga_gyoku else "false"))
-        # Normal comparator disables both adopted terms as well as the king preference.
         support = (10 if shin_yonenaga_gyoku else 0) if support is None else support
         contact = (10 if shin_yonenaga_gyoku else 0) if contact is None else contact
-        self.send(f"setoption name ExperimentalSupportChainBonus value {support}")
-        self.send(f"setoption name KingContactDeficitBonus value {contact}")
+        try:
+            set_style_options(self, self.option_names, shin_yonenaga_gyoku, support, contact)
+        except ValueError:
+            self.close()
+            raise
         self.send("setoption name OwnBook value " + ("true" if own_book else "false"))
         self.send(f"setoption name Threads value {threads}")
         self.send(f"setoption name USI_Hash value {hash_mb}")
@@ -81,6 +95,8 @@ class UsiEngine:
                 if self.process.poll() is not None:
                     raise RuntimeError(f"Engine exited while waiting for {prefix}")
                 continue
+            if line.startswith("option name "):
+                self.option_names.add(line.split(" type ", 1)[0][len("option name "):])
             if line.startswith(prefix):
                 return line
 
@@ -285,7 +301,7 @@ def format_duration(seconds):
 def parse_args():
     parser = argparse.ArgumentParser(
         description="新米長玉と通常のRakuyouを先後交代または先後固定で対戦させます。")
-    parser.add_argument("--engine", type=Path, default=Path("bin/release"))
+    parser.add_argument("--engine", type=Path, default=Path("bin/development"))
     parser.add_argument("--depth", type=int, default=5)
     parser.add_argument("--threads", type=int, default=1)
     parser.add_argument("--hash", type=int, default=128, dest="hash_mb")

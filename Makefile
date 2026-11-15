@@ -53,9 +53,10 @@ ifeq ($(TARGET),consultation) # 合議アルゴリズムのマスター側（デ
 	sources  := $(shell ls src/*.cc)
 	CXXFLAGS += -O3 -DCONSULTATION
 endif
-ifeq ($(TARGET),development)  # 開発用・デバッグ用
+ifeq ($(TARGET),development)  # 開発用・デバッグ用（棋風の比較設定を公開）
 	sources  := $(shell ls src/*.cc)
-	CXXFLAGS += -O2 -g3
+	CXXFLAGS += -O2 -g3 -DRAKUYOU_DEVELOPMENT_OPTIONS
+	object_dir := obj/development-options
 endif
 
 

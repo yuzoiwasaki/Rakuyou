@@ -17,26 +17,34 @@ tools/run-engine.sh
 
 GUIにも `tools/run-engine.sh` を登録できます。起動ディレクトリを `bin/` に揃えるためのランチャーです。ビルド時に専用定跡も `bin/` へコピーします。
 
-## 設定
+## 通常版の設定
 
-新米長玉とsupport10・D10は通常ビルドに統合済みです。日付付きパッチを別途適用する必要はありません。
+通常版は新米長玉ON・support10・D10で固定しています。この３項目は将棋所の設定画面に表示せず、古いGUI設定からOFFや0が送られても無視します。内部の評価処理は採用版と同じです。
 
 | USI設定 | 既定値 |
 | --- | --- |
-| ShinYonenagaGyoku | true |
-| ExperimentalSupportChainBonus | 10 |
-| KingContactDeficitBonus | 10 |
 | OwnBook | true |
 | BookMaxPly | 20 |
 | ShinBookFile | shin-yonenaga-book-v1.txt |
 
-supportは歩と金銀の支持関係、Dは玉周辺の敵の利き超過に関する評価項です。supportのUSI名は既存GUI設定との互換性のため維持しています。通常側と比較する場合は新米長玉OFFに加えてsupportとDを両方0にしてください。GUIに保存された旧設定は自動更新されないため、採用版では10/10を確認してください。設定は探索前に指定し、比較には新しいプロセスを使います。
+定跡を使うか・どの定跡を使うかは引き続き選択できます。OwnBookをOFFにしても最初の▲４八玉／△６二玉は残ります。将棋所が古い項目を表示する場合は、実行ファイルを更新したうえでエンジンを再登録してください。以前の日付付き実行ファイルにはこの変更は適用されません。
+
+## 開発用ビルド
+
+```sh
+make development -j2
+```
+
+`bin/development` は `Rakuyou (development)` と表示され、`ShinYonenagaGyoku`、`ExperimentalSupportChainBonus`、`KingContactDeficitBonus` を公開します。既定値はON/10/10です。通常側と比較する場合はOFF/0/0にします。設定は探索前に指定し、比較には新しいプロセスを使います。
+
+Makefileのdevelopmentターゲットだけが `RAKUYOU_DEVELOPMENT_OPTIONS` を定義します。通常ビルドとはオブジェクトの保存先も分離しています。supportのUSI名は比較ツールの互換性のため維持しています。
 
 [定跡の生成・確認](../books/README.md)と[比較対局](selfplay.md)も参照してください。
 
 ## 検証
 
 ```sh
+make release development -j2
 make support-chain-test move-feature-recapture-test movepick-terminal-test -j2
 python3 -m unittest discover -s test -t .
 python3 tools/books/build_operational_shin_book.py --check
@@ -44,7 +52,7 @@ results/move-feature-tools/recapture-test bin/params.bin
 results/move-feature-tools/terminal-test bin/params.bin
 ```
 
-Pythonの実エンジン検査には `bin/release` と評価データが必要です。ネイティブ検査はassert有効で、全評価・差分更新・巻き戻し、取り返し、合法手のない局面を確認します。採用評価の回帰検査はsupport/Dの４設定を保存済みの基準値と照合します。
+Pythonの実エンジン検査には `bin/release`、`bin/development` と評価データが必要です。ネイティブ検査はassert有効で、全評価・差分更新・巻き戻し、取り返し、合法手のない局面を確認します。採用評価の回帰検査はsupport/Dの４設定を保存済みの基準値と照合します。
 
 ## ブランチ運用
 
