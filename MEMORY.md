@@ -2,6 +2,8 @@
 
 Updated 2026-11-15.
 
+- Active search trial: `experiment/root-candidate-recheck`, based on origin/main851dc0f, independent of opening PR2. Root likely near-fail-low alternative gets one wider-window PV verification per root invocation. Separate `bin/match-root-recheck`; baseline bin/match unchanged. Gx8g found at depth15 and within250k/300k reported nodes; other cases cost more.6-case diagnostics and8 shallow golden checks pass; not adopted. See docs/experiments/root-candidate-recheck.md. Opening work remains on experiment/early-silver68 (local f341b5d); do not merge either automatically.
+
 - Adopted baseline: `src/` includes support10 and king-contact deficit D10; normal `make release` builds it. No separate adoption patch required.
 - Release fixes ShinON/support10/D10: the3 style options are hidden and stale GUI setoption commands ignored. OwnBook/ShinBookFile remain editable. USI name Rakuyou; register `tools/run-engine.sh` for the current build. Dated snapshots are unchanged.
 - `make development` builds `bin/development` with `RAKUYOU_DEVELOPMENT_OPTIONS` and a separate object directory; exposes3 style options under name Rakuyou (development). `make match` builds optimized `bin/match` (-O3 -DNDEBUG) with the same comparison options and separate obj/match; comparison tool defaults to match to avoid expensive debug checks. Position analysis defaults to release; OFF can use match. Release remains fixed ON/10/10.

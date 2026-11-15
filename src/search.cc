@@ -751,6 +751,7 @@ moves_loop: // 王手がかかっている場合は、ここからスタート�
   int move_count = 0;
   int searched_move_count = 0;
   int quiet_count = 0;
+  bool root_candidate_rechecked = false;
   Array<Move, 64> quiets_searched;
   double probability = 0;
 
@@ -941,6 +942,18 @@ moves_loop: // 王手がかかっている場合は、ここからスタート�
       score = new_depth < kOnePly
             ? -QuiecenceSearch<kNonPvNode>(node, -(alpha+1), -alpha, kDepthZero, ply+1)
             : -MainSearch<kNonPvNode>(node, -(alpha+1), -alpha, new_depth, ply+1, !cut_node);
+    }
+
+    // Experimental: verify one likely root alternative that narrowly failed low.
+    // Use a wider PV window, without adding a positional bonus or extra depth.
+    if (kIsRoot && !is_pv_move && !root_candidate_rechecked
+        && depth >= MoveProbability::kAppliedDepth && probability >= 0.25
+        && score <= alpha && score >= alpha - 128
+        && abs(alpha) < kScoreKnownWin) {
+      root_candidate_rechecked = true;
+      Score verification_alpha = std::max(alpha - 128, -kScoreInfinite);
+      score = -MainSearch<kPvNode>(node, -beta, -verification_alpha,
+                                  new_depth, ply+1, false);
     }
 
     // PVノードにおいて、α値を更新しそうな場合は、full-windowで再探索する
