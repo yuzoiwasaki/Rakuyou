@@ -2,6 +2,8 @@
 
 Updated 2026-11-15.
 
+- README changelog: keep only2–3 major dated milestones; omit minor changes or move history to a separate file if it grows. Add the current opening revision only after adoption. Consolidate trial books and retain only necessary sources/tools/tests before merging PR2; do not change match inputs during the running40-game batch.
+
 - Completed targeted ten-game batch: previous2W3L, candidate1W1L3unresolved; candidate sole win is non-trigger control. See branch experiment note. Re-bogin concern at Black47 reproduced: retained search state depth15 chooses S46 (-170), fresh depth15 B68 (-163), retained depth18/22 B68 (-172/-145). No defense bonus/book/search patch justified yet; keep diagnostic for future comparisons. PR2 remains unmerged.
 - Previous user-run batch: `tools/experiments/early_silver68_ten.py` runs5 targeted starts x previous/candidate =10 games. Both arms start from early silver68 positions; conditional pawn46/silver47 and bogin gold58/gold67/king58 are compared. Trial book now26 positions; native load and no-trigger controls tested. Black book limit32 in both arms, normal side20; other depth15/Hash512/256 settings unchanged. Use a new output; old six-game input bindings intentionally differ after runner extension.
 - Trial book update: user prefers pawn46 then silver38-to47 (keep silver57) over king39 in the reviewed fourth-rook position. Branch-only books/early-silver68-pawn46-trial.txt registers this conditional line and early silver68 entry; operational book remains unchanged.4 new tests pass. Early-silver opening as a whole still needs review against static rook; no automatic adoption.
