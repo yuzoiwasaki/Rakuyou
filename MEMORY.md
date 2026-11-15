@@ -2,6 +2,8 @@
 
 Updated 2026-11-15.
 
+- Latest40 games:7W29L4max-plies, conditional additions never hit; adoption paused. Game23 move55 Gx8g versus P8e: fresh singlePV depth15 misses Gx8g, depth18+ or restrictedMultiPV2 depth15 finds it. Root capture reduction is0; B*7h/R8h is searched. Disabling shallow quiet pruning fails and costs4.8x nodes, rejected/restored. Full historical reproduction not achieved (batch retains cross-game state). See branch experiment note; no engine patch adopted.
+
 - README changelog: keep only2–3 major dated milestones; omit minor changes or move history to a separate file if it grows. Add the current opening revision only after adoption. Consolidate trial books and retain only necessary sources/tools/tests before merging PR2; do not change match inputs during the running40-game batch.
 
 - Completed targeted ten-game batch: previous2W3L, candidate1W1L3unresolved; candidate sole win is non-trigger control. See branch experiment note. Re-bogin concern at Black47 reproduced: retained search state depth15 chooses S46 (-170), fresh depth15 B68 (-163), retained depth18/22 B68 (-172/-145). No defense bonus/book/search patch justified yet; keep diagnostic for future comparisons. PR2 remains unmerged.
