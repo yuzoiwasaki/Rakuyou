@@ -10,11 +10,22 @@ from tools.analysis.paired_selfplay import UsiEngine
 ROOT = Path(__file__).resolve().parents[2]
 
 
+class RecordingEngine(UsiEngine):
+    def __init__(self, *args, **kwargs):
+        self.diagnostics = []
+        super().__init__(*args, **kwargs)
+
+    def _read_output(self):
+        for line in self.process.stdout:
+            self.diagnostics.append(line.rstrip())
+            self.lines.put(line.rstrip())
+
+
 class EarlySilverBookTest(unittest.TestCase):
     def engine(self, book=OUTPUT, own_book=True):
         if not (ROOT / 'bin/match').is_file():
             self.skipTest('make match first')
-        return UsiEngine(ROOT / 'bin/match', True, own_book, 1, 64, None, 20, book)
+        return RecordingEngine(ROOT / 'bin/match', True, own_book, 1, 64, None, 32, book)
 
     def test_reproduction_and_only_expected_changes(self):
         self.assertEqual(OUTPUT.read_text(), build())
@@ -22,12 +33,14 @@ class EarlySilverBookTest(unittest.TestCase):
                          'd080bc78583695da22641509ca93682653baa4761cb633f4f144ec1aef7c7e07')
         original, trial = set(rows(BASE.read_text())), set(rows(OUTPUT.read_text()))
         self.assertEqual(original - trial, {'5i4h 3c3d | 7g7f'})
-        self.assertEqual(len(trial - original), 3)
-        self.assertEqual(len(trial), 19)
+        self.assertEqual(len(trial - original), 10)
+        self.assertEqual(len(trial), 26)
 
     def test_entries_are_legal_and_returned_by_engine(self):
         e = self.engine()
         try:
+            self.assertIn('info string ShinBookFile loaded 26 positions', e.diagnostics)
+            self.assertFalse(any('ShinBookFile line' in line for line in e.diagnostics))
             for entry in json.loads(SOURCE.read_text())['entries']:
                 moves = entry['moves']
                 for n, move in enumerate(moves):
@@ -38,6 +51,16 @@ class EarlySilverBookTest(unittest.TestCase):
                 self.assertEqual(e.choose_move(moves, 1, 30)[::2],
                                  (entry['book_move'], 'dedicated_book'))
             self.assertEqual(json.loads(SOURCE.read_text())['entries'][2]['book_move'], '3h4g')
+        finally:
+            e.close()
+
+    def test_gold_plan_does_not_trigger_before_attacking_silver_advance(self):
+        entries = json.loads(SOURCE.read_text())['entries']
+        root = next(e['moves'] for e in entries if e['id'] == 'bogin-silver83-move17-ply17-4i5h')
+        e = self.engine()
+        try:
+            for moves in [root[:14], ['5i4h', '3c3d', '7i6h', '7a6b']]:
+                self.assertEqual(e.choose_move(moves, 1, 30)[2], 'search')
         finally:
             e.close()
 

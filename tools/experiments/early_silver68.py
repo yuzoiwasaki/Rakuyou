@@ -50,7 +50,7 @@ def jobs():
 
 def summary(games):
     result = {}
-    for arm in ('baseline76', 'trial68'):
+    for arm in dict.fromkeys(g['arm'] for g in games):
         subset = [g for g in games if g['arm'] == arm]
         counts = Counter(g['status'] for g in subset)
         wins = sum(g.get('winner') == 'shin' for g in subset)
@@ -100,8 +100,10 @@ def play(g, settings, checkpoint):
     engines = []
     try:
         for shin in (True, False):
+            book = ROOT / g.get('shin_book', str(BOOK.relative_to(ROOT)))
             engines.append(UsiEngine(ROOT / 'bin/match', shin, True, 1, settings['hash'],
-                                     ROOT / 'bin/book.bin', 20, BOOK if shin else None,
+                                     ROOT / 'bin/book.bin', settings.get('shin_book_max_ply', 20) if shin else 20,
+                                     book if shin else None,
                                      support=10 if shin else 0, contact=10 if shin else 0))
         for e in engines:
             e.new_game()
@@ -128,7 +130,7 @@ def play(g, settings, checkpoint):
             if ply >= settings['max_plies']:
                 g.update(status='unresolved', reason='max_plies')
                 break
-            if ply < 4:
+            if ply < len(g['prefix']):
                 move, analysis, source = g['prefix'][ply], None, 'fixed_start'
             else:
                 move, analysis, source = e.choose_move(g['moves'], settings['depth'], 300)

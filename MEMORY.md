@@ -2,6 +2,7 @@
 
 Updated 2026-11-15.
 
+- Next user-run batch: `tools/experiments/early_silver68_ten.py` runs5 targeted starts x previous/candidate =10 games. Both arms start from early silver68 positions; conditional pawn46/silver47 and bogin gold58/gold67/king58 are compared. Trial book now26 positions; native load and no-trigger controls tested. Black book limit32 in both arms, normal side20; other depth15/Hash512/256 settings unchanged. Use a new output; old six-game input bindings intentionally differ after runner extension.
 - Trial book update: user prefers pawn46 then silver38-to47 (keep silver57) over king39 in the reviewed fourth-rook position. Branch-only books/early-silver68-pawn46-trial.txt registers this conditional line and early silver68 entry; operational book remains unchanged.4 new tests pass. Early-silver opening as a whole still needs review against static rook; no automatic adoption.
 - Active experiment: `experiment/early-silver68` compares Black move3 pawn76/silver68 against fixed White rook42/pawn84/silver62 replies (6 games). `docs/experiments/early-silver68.md` has the plan and commands. Initial six games completed; no evaluation/operational-book changes. New candidate book is separate; the six-game runner retains original conditions. Keep experiment runner/notes off main; adoption needs review and approval.
 - Adopted baseline: `src/` includes support10 and king-contact deficit D10; normal `make release` builds it. No separate adoption patch required.
