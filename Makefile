@@ -59,6 +59,12 @@ ifeq ($(TARGET),development)  # 開発用・デバッグ用（棋風の比較設
 	object_dir := obj/development-options
 endif
 
+ifeq ($(TARGET),match)        # 比較対局用（通常版の最適化・棋風設定を公開）
+	sources  := $(shell ls src/*.cc)
+	CXXFLAGS += -O3 -DNDEBUG -DRAKUYOU_DEVELOPMENT_OPTIONS
+	object_dir := obj/match
+endif
+
 
 ifeq ($(TARGET),support-chain-test)
  sources := $(filter-out src/main.cc,$(wildcard src/*.cc)) test/analysis/support_chain_native_test.cc
@@ -113,9 +119,9 @@ directories += $(dir $(output_file))
 #
 # 4. Public Targets
 #
-.PHONY: gikou release cluster consultation development profile test coverage support-chain-test move-feature-recapture-test movepick-terminal-test run-coverage clean scaffold libomp-x86_64
+.PHONY: gikou release cluster consultation development match profile test coverage support-chain-test move-feature-recapture-test movepick-terminal-test run-coverage clean scaffold libomp-x86_64
 
-gikou release cluster consultation development profile test coverage support-chain-test move-feature-recapture-test movepick-terminal-test:
+gikou release cluster consultation development match profile test coverage support-chain-test move-feature-recapture-test movepick-terminal-test:
 	$(MAKE) TARGET=$@ executable
 
 run-coverage: coverage

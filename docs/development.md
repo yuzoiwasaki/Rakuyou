@@ -37,14 +37,22 @@ make development -j2
 
 `bin/development` は `Rakuyou (development)` と表示され、`ShinYonenagaGyoku`、`ExperimentalSupportChainBonus`、`KingContactDeficitBonus` を公開します。既定値はON/10/10です。通常側と比較する場合はOFF/0/0にします。設定は探索前に指定し、比較には新しいプロセスを使います。
 
-Makefileのdevelopmentターゲットだけが `RAKUYOU_DEVELOPMENT_OPTIONS` を定義します。通常ビルドとはオブジェクトの保存先も分離しています。supportのUSI名は比較ツールの互換性のため維持しています。
+`development` は内部検査を有効にしたデバッグ用です。大量の対局には、通常版と同じ `-O3 -DNDEBUG` の比較対局用ビルドを使用します。
+
+```sh
+make match -j2
+```
+
+`bin/match` は `Rakuyou (match)` と表示され、developmentと同じ比較設定を公開します。評価・探索のロジックは変更しません。
+
+Makefileのdevelopmentとmatchターゲットが `RAKUYOU_DEVELOPMENT_OPTIONS` を定義します。通常ビルドとはオブジェクトの保存先も分離しています。supportのUSI名は比較ツールの互換性のため維持しています。
 
 [定跡の生成・確認](../books/README.md)と[比較対局](selfplay.md)も参照してください。
 
 ## 検証
 
 ```sh
-make release development -j2
+make release development match -j2
 make support-chain-test move-feature-recapture-test movepick-terminal-test -j2
 python3 -m unittest discover -s test -t .
 python3 tools/books/build_operational_shin_book.py --check
@@ -52,7 +60,7 @@ results/move-feature-tools/recapture-test bin/params.bin
 results/move-feature-tools/terminal-test bin/params.bin
 ```
 
-Pythonの実エンジン検査には `bin/release`、`bin/development` と評価データが必要です。ネイティブ検査はassert有効で、全評価・差分更新・巻き戻し、取り返し、合法手のない局面を確認します。採用評価の回帰検査はsupport/Dの４設定を保存済みの基準値と照合します。
+Pythonの実エンジン検査には `bin/release`、`bin/development`、`bin/match` と評価データが必要です。ネイティブ検査はassert有効で、全評価・差分更新・巻き戻し、取り返し、合法手のない局面を確認します。採用評価の回帰検査はsupport/Dの４設定を保存済みの基準値と照合します。
 
 ## ブランチ運用
 

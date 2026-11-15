@@ -38,7 +38,11 @@
 namespace {
 
 #ifdef RAKUYOU_DEVELOPMENT_OPTIONS
+#ifdef NDEBUG
+const auto kProgramName = "Rakuyou (match)";
+#else
 const auto kProgramName = "Rakuyou (development)";
+#endif
 #else
 const auto kProgramName = "Rakuyou";
 #endif
