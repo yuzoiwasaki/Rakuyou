@@ -2,6 +2,7 @@
 
 Updated 2026-11-15.
 
+- Active experiment: `experiment/early-silver68` compares Black move3 pawn76/silver68 against fixed White rook42/pawn84/silver62 replies (6 games). `docs/experiments/early-silver68.md` has the plan and commands. No evaluation/book changes; long run is user-operated. Keep experiment runner/notes off main; adoption needs review and approval.
 - Adopted baseline: `src/` includes support10 and king-contact deficit D10; normal `make release` builds it. No separate adoption patch required.
 - Release fixes ShinON/support10/D10: the3 style options are hidden and stale GUI setoption commands ignored. OwnBook/ShinBookFile remain editable. USI name Rakuyou; register `tools/run-engine.sh` for the current build. Dated snapshots are unchanged.
 - `make development` builds `bin/development` with `RAKUYOU_DEVELOPMENT_OPTIONS` and a separate object directory; exposes3 style options under name Rakuyou (development). `make match` builds optimized `bin/match` (-O3 -DNDEBUG) with the same comparison options and separate obj/match; comparison tool defaults to match to avoid expensive debug checks. Position analysis defaults to release; OFF can use match. Release remains fixed ON/10/10.
