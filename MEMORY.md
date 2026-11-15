@@ -3,7 +3,9 @@
 Updated 2026-11-15.
 
 - Adopted baseline: `src/` includes support10 and king-contact deficit D10; normal `make release` builds it. No separate adoption patch required.
-- USI name remains Rakuyou. Keep the root README a short project introduction.
+- Release fixes ShinON/support10/D10: the3 style options are hidden and stale GUI setoption commands ignored. OwnBook/ShinBookFile remain editable. USI name Rakuyou; register `tools/run-engine.sh` for the current build. Dated snapshots are unchanged.
+- `make development` builds `bin/development` with `RAKUYOU_DEVELOPMENT_OPTIONS` and a separate object directory; exposes3 style options under name Rakuyou (development). Comparison tool defaults to this binary; rejects fixed release for OFF/0/0. Position analysis defaults to release, OFF requires development.
+- Fixed-style change validated:21 Python tests pass, including release ignoring stale settings before/after isready, unchanged default search values, development4-setting search parity, standard/dedicated book handling. Keep README short.
 - Work on task branches. Only adopted code, maintained tools/tests and short docs belong on main; no dated trial reports or one-off runners.
 - Before cleanup: `archive/pre-adoption-cleanup-2026-11-15` (`f488a64`). Old reports, scripts and decisions are recoverable there. Ignored `results/` and previous runtime snapshots remain local; old experiment hash checks require the old tree.
 - Rank-commitment and exchange-burden prototypes were rejected. No new evaluation terms or training adopted.

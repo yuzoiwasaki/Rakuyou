@@ -41,12 +41,13 @@ class AdoptedEvaluationTest(unittest.TestCase):
         output = subprocess.run([str(binary)], input='usi\nquit\n', cwd=ROOT / 'bin',
                                 text=True, capture_output=True, check=True, timeout=10).stdout
         self.assertIn('id name Rakuyou\n', output)
-        self.assertIn('option name ExperimentalSupportChainBonus type spin default 10 min 0 max 10', output)
-        self.assertIn('option name KingContactDeficitBonus type spin default 10 min 0 max 10', output)
+        for name in ('ShinYonenagaGyoku','ExperimentalSupportChainBonus','KingContactDeficitBonus'):
+            self.assertNotIn('option name '+name+' ',output)
+        self.assertIn('option name OwnBook type check default true',output)
         self.assertIn('option name ShinBookFile type filename default shin-yonenaga-book-v1.txt', output)
 
     def test_fixed_depth_search_matches_adopted_reference(self):
-        binary = ROOT / 'bin/release'
+        binary = ROOT / 'bin/development'
         if not binary.is_file():
             self.skipTest('make release first')
         data = json.loads((HERE / 'search_reference.json').read_text())
@@ -62,3 +63,46 @@ class AdoptedEvaluationTest(unittest.TestCase):
                     self.assertEqual({k: analysis[k] for k in ('depth', 'score_type', 'score', 'pv')}, case['analysis'])
                 finally:
                     engine.close()
+
+
+    def test_development_exposes_style_options(self):
+        binary = ROOT / 'bin/development'
+        if not binary.is_file():self.skipTest('make development first')
+        output = subprocess.run([str(binary)],input='usi\nquit\n',cwd=ROOT/'bin',
+                                text=True,capture_output=True,check=True,timeout=10).stdout
+        self.assertIn('id name Rakuyou (development)',output)
+        for name in ('ShinYonenagaGyoku','ExperimentalSupportChainBonus','KingContactDeficitBonus'):
+            self.assertIn('option name '+name+' ',output)
+
+    def test_release_ignores_stale_style_settings(self):
+        binary=ROOT/'bin/release'
+        if not binary.is_file():self.skipTest('make release first')
+        commands=['setoption name ShinYonenagaGyoku value false',
+                  'setoption name ExperimentalSupportChainBonus value 0',
+                  'setoption name KingContactDeficitBonus value 0']
+        class StaleGuiEngine(UsiEngine):
+            def send(self,command):
+                if command=='isready':
+                    for old in commands:super().send(old)
+                super().send(command)
+        engine=StaleGuiEngine(binary,True,False,1,64,None,0)
+        try:
+            for command in commands:engine.send(command)
+            engine.new_game()
+            self.assertEqual(engine.choose_move([],1,30)[::2],('5i4h','fixed_opening'))
+            self.assertEqual(engine.choose_move(['7g7f'],1,30)[::2],('5a6b','fixed_opening'))
+            data=json.loads((HERE/'search_reference.json').read_text())
+            for case in data['cases']:
+                if (case['support'],case['contact'])!=(10,10):continue
+                engine.new_game()
+                best,analysis,source=engine.choose_move(case['moves'],7,30)
+                self.assertEqual(source,'search')
+                self.assertEqual(best,case['bestmove'])
+                self.assertEqual({k:analysis[k] for k in ('depth','score_type','score','pv')},case['analysis'])
+        finally:engine.close()
+
+    def test_comparison_tool_rejects_fixed_release(self):
+        binary=ROOT/'bin/release'
+        if not binary.is_file():self.skipTest('make release first')
+        with self.assertRaisesRegex(ValueError,'make development'):
+            UsiEngine(binary,False,False,1,64,None,0)

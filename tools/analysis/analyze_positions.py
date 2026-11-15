@@ -30,6 +30,9 @@ FIELD_PATTERNS = {
 }
 
 
+from tools.analysis.paired_selfplay import set_style_options
+
+
 def parse_info(line):
     matches = {name: pattern.search(line) for name, pattern in FIELD_PATTERNS.items()}
     if not matches["depth"] or not matches["score"] or not matches["pv"]:
@@ -52,6 +55,7 @@ class Engine:
                  shin_yonenaga_gyoku):
         self.executable = executable.resolve()
         self.lines = queue.Queue()
+        self.option_names = set()
         self.process = subprocess.Popen(
             [str(self.executable)],
             cwd=str(self.executable.parent),
@@ -64,10 +68,14 @@ class Engine:
         threading.Thread(target=self._read_output, daemon=True).start()
         self.send("usi")
         self.wait_for("usiok", 10)
+        try:
+            set_style_options(self, self.option_names, shin_yonenaga_gyoku,
+                              10 if shin_yonenaga_gyoku else 0,
+                              10 if shin_yonenaga_gyoku else 0)
+        except ValueError:
+            self.close()
+            raise
         options = {
-            "ShinYonenagaGyoku": "true" if shin_yonenaga_gyoku else "false",
-            "ExperimentalSupportChainBonus": "10" if shin_yonenaga_gyoku else "0",
-            "KingContactDeficitBonus": "10" if shin_yonenaga_gyoku else "0",
             "OwnBook": "false",
             "Threads": str(threads),
             "USI_Hash": str(hash_mb),
@@ -101,6 +109,8 @@ class Engine:
                 if self.process.poll() is not None:
                     raise RuntimeError(f"Engine exited while waiting for {prefix}")
                 continue
+            if line.startswith("option name "):
+                self.option_names.add(line.split(" type ", 1)[0][len("option name "):])
             if line.startswith(prefix):
                 return line
 

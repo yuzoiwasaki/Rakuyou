@@ -37,8 +37,25 @@
 
 namespace {
 
+#ifdef RAKUYOU_DEVELOPMENT_OPTIONS
+const auto kProgramName = "Rakuyou (development)";
+#else
 const auto kProgramName = "Rakuyou";
+#endif
 const auto kAuthorName  = "Yuzo Iwasaki, based on Gikou by Yosuke Demura";
+
+// Keep internal defaults available to thinking/evaluation, but release builds
+// neither advertise nor accept changes to the adopted playing style.
+bool IsFixedStyleOption(const std::string& name) {
+#ifdef RAKUYOU_DEVELOPMENT_OPTIONS
+  (void)name;
+  return false;
+#else
+  return name == "ShinYonenagaGyoku"
+      || name == "ExperimentalSupportChainBonus"
+      || name == "KingContactDeficitBonus";
+#endif
+}
 
 /**
  * USIコマンドを記憶するためのキューです.
@@ -144,6 +161,9 @@ void SetUsiOption(std::istream& is, UsiOptions* const usi_options) {
       std::getline(is >> std::ws, value);
     }
   }
+
+  // Ignore stale GUI settings for style options fixed in release builds.
+  if (IsFixedStyleOption(name)) return;
 
   // 2. 値を保存する
   (*usi_options)[name] = value;
@@ -371,6 +391,7 @@ void UsiOptions::PrintListOfOptions() {
   for (const auto& element : map_) {
     const std::string& name = element.first;
     const UsiOption& option = element.second;
+    if (IsFixedStyleOption(name)) continue;
 
     // USI_PonderとUSI_Hashに関しては、将棋所で対局を開始するときに必ず送られてくるので、
     // エンジンがoptionコマンドで指定する必要はない。

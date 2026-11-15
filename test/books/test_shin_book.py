@@ -47,7 +47,10 @@ class ShinBookTest(unittest.TestCase):
             engine.close()
 
     def test_normal_side_keeps_standard_book(self):
-        engine = UsiEngine(self.engine_path, False, True, 1, 64, None, 20)
+        binary = ROOT / "bin/development"
+        if not binary.is_file():
+            self.skipTest("make development first")
+        engine = UsiEngine(binary, False, True, 1, 64, None, 20)
         try:
             self.assertEqual(engine.choose_move([], 1, 30)[2], "book")
         finally:
