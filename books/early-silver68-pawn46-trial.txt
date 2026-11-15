@@ -1,0 +1,20 @@
+# Trial only: early silver68; reviewed pawn46 and silver38-to47
+5i4h 3c3d 7g7f 7a6b | 2g2f
+5i4h 3c3d 7g7f 7a6b 2g2f 6c6d | 2f2e
+5i4h 3c3d 7g7f 7a6b 2g2f 6c6d 2f2e 6b6c | 3i3h
+5i4h 3c3d 7g7f 8b4b | 3i3h
+5i4h 3c3d 7g7f 8b4b 3i3h 5a6b | 2g2f
+7g7f 5a6b 2h6h | 5c5d
+7g7f 5a6b 2h6h 5c5d 3i3h | 3a4b
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h | 4b5c
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i | 7a7b
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f | 6b7a
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6b7a 7i7h | 8c8d
+7g7f 5a6b 2h6h 5c5d 5i4h | 3a4b
+7g7f 5a6b 2h6h 5c5d 6g6f | 3a4b
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6b7a 6f6e | 8c8d
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6b7a 7i7h 8c8d 7h6g | 2c2d
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6b7a 7i7h 8c8d 6i5h | 2c2d
+5i4h 3c3d | 7i6h
+5i4h 3c3d 7i6h 8b4b 2g2f 5a6b 3i3h 7a7b 5g5f 4c4d 6h5g 3a3b 9g9f 9c9d | 4g4f
+5i4h 3c3d 7i6h 8b4b 2g2f 5a6b 3i3h 7a7b 5g5f 4c4d 6h5g 3a3b 9g9f 9c9d 4g4f 6b7a | 3h4g

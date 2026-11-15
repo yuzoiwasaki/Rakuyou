@@ -1,0 +1,63 @@
+{
+  "initial_position": "startpos",
+  "side": "black",
+  "description": "Experimental early silver entry plus user-approved pawn46/silver38-to47 structure. Preserve silver57. Not a strength claim or default release book.",
+  "entries": [
+    {
+      "id": "early_silver68_entry",
+      "moves": [
+        "5i4h",
+        "3c3d"
+      ],
+      "book_move": "7i6h",
+      "status": "experimental",
+      "note": "Still under evaluation against static rook; only the reviewed fourth-rook structure is approved in principle."
+    },
+    {
+      "id": "fourth_rook_prepare_silver47",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7i6h",
+        "8b4b",
+        "2g2f",
+        "5a6b",
+        "3i3h",
+        "7a7b",
+        "5g5f",
+        "4c4d",
+        "6h5g",
+        "3a3b",
+        "9g9f",
+        "9c9d"
+      ],
+      "book_move": "4g4f",
+      "status": "experimental",
+      "note": "User prefers the structure to immediate king39. Restricted depth22: pawn46 -172 versus king39 -41; deliberate style choice."
+    },
+    {
+      "id": "fourth_rook_silver38_to47_after_king71",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7i6h",
+        "8b4b",
+        "2g2f",
+        "5a6b",
+        "3i3h",
+        "7a7b",
+        "5g5f",
+        "4c4d",
+        "6h5g",
+        "3a3b",
+        "9g9f",
+        "9c9d",
+        "4g4f",
+        "6b7a"
+      ],
+      "book_move": "3h4g",
+      "status": "experimental",
+      "note": "Only this reviewed reply/position is registered. Keep the silver on57; other responses search."
+    }
+  ]
+}
