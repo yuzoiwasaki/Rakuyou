@@ -29,7 +29,7 @@ def set_style_options(engine, names, shin, support, contact):
     if not available and (shin, support, contact) == (True, 10, 10):
         return  # Production Rakuyou fixes these values internally.
     if available != set(requested):
-        raise ValueError("Style comparison requires make development and --engine bin/development")
+        raise ValueError("Style comparison requires make match and --engine bin/match (or make development for debug checks)")
     for name, value in requested.items():
         engine.send(f"setoption name {name} value {value}")
 
@@ -301,7 +301,7 @@ def format_duration(seconds):
 def parse_args():
     parser = argparse.ArgumentParser(
         description="新米長玉と通常のRakuyouを先後交代または先後固定で対戦させます。")
-    parser.add_argument("--engine", type=Path, default=Path("bin/development"))
+    parser.add_argument("--engine", type=Path, default=Path("bin/match"))
     parser.add_argument("--depth", type=int, default=5)
     parser.add_argument("--threads", type=int, default=1)
     parser.add_argument("--hash", type=int, default=128, dest="hash_mb")

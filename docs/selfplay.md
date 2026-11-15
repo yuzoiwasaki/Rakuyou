@@ -3,11 +3,11 @@
 先後１局ずつの簡易対局：
 
 ```sh
-make development -j2
+make match -j2
 python3 tools/analysis/paired_selfplay.py --depth 15 --threads 1 --hash 64 --pairs 1
 ```
 
-比較には既定で `bin/development` を使用します。通常版は棋風が固定されているため、通常側OFFとの比較には使えません。
+比較には既定で `bin/match` を使用します。通常版と同じ最適化・内部検査無効のビルドです。`bin/development` は重い内部検査を行うため、長時間の対局には使いません。通常版は棋風が固定されているため、通常側OFFとの比較には使えません。
 
 採用側は新米長玉ON・support10・D10、通常側は新米長玉OFF・support0・D0です。通常側は標準定跡を使い、採用側は既定で定跡OFFです。採用側にも定跡を使う場合は `--shin-book on --shin-book-file books/shin-yonenaga-book-v1.txt` を指定します。
 
@@ -21,4 +21,4 @@ python3 tools/analysis/paired_selfplay.py --resume results/example.json
 
 再開には同じ実行ファイル・設定を使ってください。以前のバージョンの棋譜に新しい版の対局を継ぎ足さないでください。失敗した対局は再開時に再試行する仕様です。
 
-局面解析には `tools/analysis/analyze_positions.py` を使用できます。入力形式・オプションは `--help` を参照してください。局面解析の既定は `bin/release`・新米長玉ONです。OFF/0/0を調べる場合は `--engine bin/development --shin-yonenaga-gyoku off` を指定してください。候補手の読み筋は予測であり、強制手順ではありません。
+局面解析には `tools/analysis/analyze_positions.py` を使用できます。入力形式・オプションは `--help` を参照してください。局面解析の既定は `bin/release`・新米長玉ONです。OFF/0/0を調べる場合は `--engine bin/match --shin-yonenaga-gyoku off` を指定してください。候補手の読み筋は予測であり、強制手順ではありません。

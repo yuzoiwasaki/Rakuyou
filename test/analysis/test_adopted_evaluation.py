@@ -104,5 +104,44 @@ class AdoptedEvaluationTest(unittest.TestCase):
     def test_comparison_tool_rejects_fixed_release(self):
         binary=ROOT/'bin/release'
         if not binary.is_file():self.skipTest('make release first')
-        with self.assertRaisesRegex(ValueError,'make development'):
+        with self.assertRaisesRegex(ValueError,'make match'):
             UsiEngine(binary,False,False,1,64,None,0)
+
+    def test_match_options_and_search_parity(self):
+        binary = ROOT / 'bin/match'
+        if not binary.is_file():
+            self.skipTest('make match first')
+        output = subprocess.run([str(binary)], input='usi\nquit\n', cwd=ROOT / 'bin',
+                                text=True, capture_output=True, check=True, timeout=10).stdout
+        self.assertIn('id name Rakuyou (match)', output)
+        for name in ('ShinYonenagaGyoku', 'ExperimentalSupportChainBonus', 'KingContactDeficitBonus'):
+            self.assertIn('option name ' + name + ' ', output)
+        data = json.loads((HERE / 'search_reference.json').read_text())
+        for case in data['cases']:
+            with self.subTest(position=case['position'], support=case['support'], contact=case['contact']):
+                engine = UsiEngine(binary, True, False, 1, 64, None, 0,
+                                   support=case['support'], contact=case['contact'])
+                try:
+                    engine.new_game()
+                    best, analysis, source = engine.choose_move(case['moves'], 7, 30)
+                    self.assertEqual(source, 'search')
+                    self.assertEqual(best, case['bestmove'])
+                    self.assertEqual({k: analysis[k] for k in ('depth', 'score_type', 'score', 'pv')}, case['analysis'])
+                finally:
+                    engine.close()
+
+    def test_match_normal_side_matches_development(self):
+        binaries = [ROOT / 'bin/match', ROOT / 'bin/development']
+        if not all(p.is_file() for p in binaries):
+            self.skipTest('make match development first')
+        moves = json.loads((HERE / 'search_reference.json').read_text())['cases'][0]['moves']
+        results = []
+        for binary in binaries:
+            engine = UsiEngine(binary, False, False, 1, 64, None, 0)
+            try:
+                engine.new_game()
+                best, analysis, source = engine.choose_move(moves, 7, 30)
+                results.append((best, source, {k: analysis[k] for k in ('depth', 'score_type', 'score', 'pv')}))
+            finally:
+                engine.close()
+        self.assertEqual(results[0], results[1])
