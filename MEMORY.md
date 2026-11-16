@@ -2,6 +2,8 @@
 
 Updated 2026-11-15.
 
+- 2026-11-17 PR2 review: startpos20 finished formal4W6L/candidate5W4L1maxplies (candidate ahead at cap); hashes match, no errors/resumes. Only candidate move3 hits; trajectories cluster heavily (four candidate losses identical through158). Reviewed round01-candidate early8-file exchange: depth22 after12 best−163, after40 best−70 (actual P5f−135); practical scores remain near balance until~80, worsen in90s. No clear opening rejection found. Local board results/early-silver68-startpos-review/review.html at40/60 awaits user style assessment. Do not merge yet.
+
 - 2026-11-16: PR3 closed without merge, branch preserved after6W11L3unresolved. Returned to PR2 experiment/early-silver68; bin/match rebuilt and SHA-identical to pre-trial baseline. Next user batch: early_silver68_twenty.py, startpos Black formal10/candidate10 vs normal White, both Black books32/normal20, depth15/Hash512/max256. Native random opponent book, not matched seeds.20x8-ply preflight and5 book tests pass; resume/hash/overwrite/lock checked. No merging yet.
 
 - Latest40 games:7W29L4max-plies, conditional additions never hit; adoption paused. Game23 move55 Gx8g versus P8e: fresh singlePV depth15 misses Gx8g, depth18+ or restrictedMultiPV2 depth15 finds it. Root capture reduction is0; B*7h/R8h is searched. Disabling shallow quiet pruning fails and costs4.8x nodes, rejected/restored. Full historical reproduction not achieved (batch retains cross-game state). See branch experiment note; no engine patch adopted.
