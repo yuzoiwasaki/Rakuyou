@@ -1,11 +1,5 @@
-# Rakuyou Shin-Yonenaga-Gyoku provisional operational book v1
-# Black: pawn76 right-side six; White: unchanged v2 eleven
-# USI moves from startpos | book move (either side)
-# Source: books/shin-yonenaga-black-book-pawn76-right-side-experiment.txt
-# Rakuyou Shin-Yonenaga-Gyoku Black book standalone experiment
-# USI moves from startpos | Black book move
-# black_pawn76_entry
-5i4h 3c3d | 7g7f
+# Rakuyou Shin-Yonenaga-Gyoku operational book
+# USI moves from startpos | book move
 # black_pawn76_silver62_pawn26
 5i4h 3c3d 7g7f 7a6b | 2g2f
 # black_pawn76_silver62_pawn64_pawn25
@@ -16,9 +10,6 @@
 5i4h 3c3d 7g7f 8b4b | 3i3h
 # black_pawn76_rook42_silver38_king62_pawn26
 5i4h 3c3d 7g7f 8b4b 3i3h 5a6b | 2g2f
-# Source: books/shin-yonenaga-white-book-v2-experiment.txt
-# Rakuyou Shin-Yonenaga-Gyoku White book v2 experiment
-# USI moves from startpos | White book move
 # base_54_pawn
 7g7f 5a6b 2h6h | 5c5d
 # mainline_after_38_silver
@@ -41,3 +32,23 @@
 7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6b7a 7i7h 8c8d 7h6g | 2c2d
 # v2_after_58_gold
 7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6b7a 7i7h 8c8d 6i5h | 2c2d
+# early_silver68_entry
+5i4h 3c3d | 7i6h
+# fourth_rook_prepare_silver47
+5i4h 3c3d 7i6h 8b4b 2g2f 5a6b 3i3h 7a7b 5g5f 4c4d 6h5g 3a3b 9g9f 9c9d | 4g4f
+# fourth_rook_silver38_to47_after_king71
+5i4h 3c3d 7i6h 8b4b 2g2f 5a6b 3i3h 7a7b 5g5f 4c4d 6h5g 3a3b 9g9f 9c9d 4g4f 6b7a | 3h4g
+# bogin-silver83-move17-ply17-4i5h
+5i4h 3c3d 7i6h 8c8d 6i7h 8d8e 7g7f 8e8f 8g8f 8b8f 6h7g 8f8b P*8g 7a7b 2g2f 7b8c | 4i5h
+# bogin-silver83-move17-ply21-6g6f
+5i4h 3c3d 7i6h 8c8d 6i7h 8d8e 7g7f 8e8f 8g8f 8b8f 6h7g 8f8b P*8g 7a7b 2g2f 7b8c 4i5h 8c7d 2f2e 2b3c | 6g6f
+# bogin-silver83-move17-ply23-5h6g
+5i4h 3c3d 7i6h 8c8d 6i7h 8d8e 7g7f 8e8f 8g8f 8b8f 6h7g 8f8b P*8g 7a7b 2g2f 7b8c 4i5h 8c7d 2f2e 2b3c 6g6f 6c6d | 5h6g
+# bogin-silver83-move17-ply25-4h5h
+5i4h 3c3d 7i6h 8c8d 6i7h 8d8e 7g7f 8e8f 8g8f 8b8f 6h7g 8f8b P*8g 7a7b 2g2f 7b8c 4i5h 8c7d 2f2e 2b3c 6g6f 6c6d 5h6g 3a3b | 4h5h
+# bogin-silver74-move19-ply19-4i5h
+5i4h 3c3d 7i6h 8c8d 6i7h 8d8e 7g7f 8e8f 8g8f 8b8f 6h7g 8f8b P*8g 7a7b 2g2f 7b8c 2f2e 8c7d | 4i5h
+# bogin-silver74-move19-ply25-5h6g
+5i4h 3c3d 7i6h 8c8d 6i7h 8d8e 7g7f 8e8f 8g8f 8b8f 6h7g 8f8b P*8g 7a7b 2g2f 7b8c 2f2e 8c7d 4i5h 2b3c 6g6f 6c6d 5g5f 6a5b | 5h6g
+# bogin-silver74-move19-ply27-4h5h
+5i4h 3c3d 7i6h 8c8d 6i7h 8d8e 7g7f 8e8f 8g8f 8b8f 6h7g 8f8b P*8g 7a7b 2g2f 7b8c 2f2e 8c7d 4i5h 2b3c 6g6f 6c6d 5g5f 6a5b 5h6g 5a4b | 4h5h

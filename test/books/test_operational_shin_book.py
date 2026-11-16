@@ -1,131 +1,134 @@
-"""Check the provisional combined book without playing additional games."""
-
-# Permit direct CLI execution as well as package imports.
-import sys as _sys
-from pathlib import Path as _RepoPath
-if not __package__:
-    _sys.path.insert(0, str(_RepoPath(__file__).resolve().parents[2]))
-
-import hashlib
-import sys
-import unittest
+"""Maintain the operational book's legality, reproduction and scope."""
+import copy
+import json
 from pathlib import Path
-from unittest.mock import patch
+import tempfile
+import unittest
 
-ROOT = Path(__file__).resolve().parents[2]
 from tools.books import build_operational_shin_book as builder
 from tools.analysis.paired_selfplay import UsiEngine
 
-
-def rows(path):
-    return [line for line in path.read_text().splitlines()
-            if line and not line.startswith("#")]
+ROOT = Path(__file__).resolve().parents[2]
 
 
-class CompilationTest(unittest.TestCase):
-    def test_reproducible_exact_union_and_unchanged_inputs(self):
-        self.assertEqual(builder.OUTPUT.read_text(), builder.compile_operational_book())
-        black = rows(ROOT / builder.BLACK_BOOK)
-        white = rows(ROOT / builder.WHITE_BOOK)
-        self.assertEqual((len(black), len(white)), (6, 11))
-        self.assertEqual(rows(builder.OUTPUT), black + white)
-        for name, sha in [
-                (builder.BLACK_BOOK, "cb8d7e3e3a4ed2817752ea93d4890837fa43c91db752b5ce3a1dc534f38bb7eb"),
-                (builder.WHITE_BOOK, "28e59ec12cb86ada7280687d130e29bdb28eb0d550840d634c73e003aa2ffc62")]:
-            self.assertEqual(hashlib.sha256((ROOT / name).read_bytes()).hexdigest(), sha)
+class OperationalBookTest(unittest.TestCase):
+    def entries(self):
+        return json.loads(builder.SOURCE.read_text())['entries']
 
-    def test_stale_selected_book_is_rejected(self):
-        with patch.object(builder, "compile_book", return_value="# stale\n"):
-            with self.assertRaisesRegex(ValueError, "differs from its source"):
-                builder.compile_operational_book()
-
-
-class EngineTest(unittest.TestCase):
-    def make_engine(self, own=True, shin=True, max_ply=20):
-        binary = ROOT / ("bin/release" if shin else "bin/development")
+    def engine(self, own=True, max_ply=32, shin=True):
+        binary = ROOT / ('bin/release' if shin else 'bin/match')
         if not binary.is_file():
-            self.skipTest("build release and development first")
-        return UsiEngine(binary, shin, own, 1, 64,
-                         None, max_ply, builder.OUTPUT)
+            self.skipTest('make release and make match first')
+        return UsiEngine(binary, shin, own, 1, 64, None, max_ply, builder.OUTPUT)
 
-    def test_all_seventeen_entries_in_one_engine(self):
-        engine = self.make_engine()
+    def legal(self, engine, moves):
+        engine.send('position startpos' + (' moves ' + ' '.join(moves) if moves else ''))
+        engine.send('legalmoves')
+        engine.send('d')
+        legal = set()
+        while True:
+            line = engine.lines.get(timeout=10)
+            if line.startswith('move: '):
+                return legal
+            words = line.split()
+            if words and all(builder.MOVE.fullmatch(w) for w in words):
+                legal.update(words)
+
+    def test_reproduction_and_invalid_source_rejection(self):
+        self.assertEqual(builder.OUTPUT.read_text(), builder.compile_operational_book())
+        data = json.loads(builder.SOURCE.read_text())
+        for mutation in ('duplicate', 'side', 'move'):
+            bad = copy.deepcopy(data)
+            if mutation == 'duplicate':
+                bad['entries'].append(bad['entries'][0])
+            elif mutation == 'side':
+                bad['entries'][0]['side'] = 'white'
+            else:
+                bad['entries'][0]['book_move'] = 'invalid'
+            with tempfile.TemporaryDirectory() as folder:
+                source = Path(folder) / 'source.json'
+                source.write_text(json.dumps(bad))
+                with self.assertRaises(ValueError):
+                    builder.compile_operational_book(source)
+
+    def test_native_load_legality_and_every_entry(self):
+        e = self.engine()
         try:
-            # Ask for another ready cycle so the loader's full diagnostics
-            # can be inspected rather than silently accepting rejected rows.
-            engine.send("isready")
+            e.send('isready')
             diagnostics = []
             while True:
-                line = engine.lines.get(timeout=30)
+                line = e.lines.get(timeout=30)
                 diagnostics.append(line)
-                if line.startswith("readyok"):
+                if line == 'readyok':
                     break
-            self.assertIn("info string ShinBookFile loaded 17 positions", diagnostics)
-            self.assertFalse(any("ShinBookFile line" in line or
-                                 "Failed to open ShinBookFile" in line
-                                 for line in diagnostics))
-            for row in rows(builder.OUTPUT):
-                moves, book_move = row.split(" | ")
-                with self.subTest(moves=moves):
-                    self.assertEqual(engine.choose_move(moves.split(), 1, 30)[::2],
-                                     (book_move, "dedicated_book"))
-            self.assertEqual(engine.choose_move([], 1, 30)[::2],
-                             ("5i4h", "fixed_opening"))
-            self.assertEqual(engine.choose_move(["7g7f"], 1, 30)[::2],
-                             ("5a6b", "fixed_opening"))
+            self.assertIn(f'info string ShinBookFile loaded {len(self.entries())} positions', diagnostics)
+            self.assertFalse(any('ShinBookFile line' in s or 'Failed to open ShinBookFile' in s
+                                 for s in diagnostics))
+            for entry in self.entries():
+                moves = entry['moves']
+                for n, move in enumerate(moves + [entry['book_move']]):
+                    self.assertIn(move, self.legal(e, moves[:n]))
+                self.assertEqual(e.choose_move(moves, 1, 30)[::2],
+                                 (entry['book_move'], 'dedicated_book'))
+            self.assertEqual(e.choose_move(['5i4h', '3c3d'], 1, 30)[0], '7i6h')
+            silver = next(x for x in self.entries()
+                          if x['id']=='fourth_rook_silver38_to47_after_king71')
+            self.assertEqual(silver['book_move'], '3h4g')
         finally:
-            engine.close()
+            e.close()
 
-    def test_transpositions_on_both_sides(self):
-        engine = self.make_engine()
+    def test_unregistered_replies_do_not_force_formation(self):
+        entries = {x['id']: x for x in self.entries()}
+        bogin = entries['bogin-silver83-move17-ply17-4i5h']['moves']
+        fourth = entries['fourth_rook_prepare_silver47']['moves']
+        e = self.engine()
         try:
+            for moves in [bogin[:14], ['5i4h', '3c3d', '7i6h', '7a6b'],
+                          fourth + ['4g4f', '4a5b']]:
+                self.assertIn(moves[-1], self.legal(e, moves[:-1]))
+                self.assertEqual(e.choose_move(moves, 1, 30)[2], 'search')
+        finally:
+            e.close()
+
+    def test_transpositions_and_fixed_first_moves(self):
+        e = self.engine()
+        try:
+            for moves, expected in [([], '5i4h'), (['7g7f'], '5a6b')]:
+                self.assertEqual(e.choose_move(moves, 1, 30)[::2], (expected, 'fixed_opening'))
             for moves, expected in [
-                    (["5i4h", "7a6b", "7g7f", "3c3d"], "2g2f"),
-                    (["7g7f", "5a6b", "2h6h", "5c5d", "5i4h", "3a4b", "3i3h"], "4b5c")]:
-                self.assertEqual(engine.choose_move(moves, 1, 30)[::2],
-                                 (expected, "dedicated_book"))
+                (['5i4h','7a6b','7g7f','3c3d'], '2g2f'),
+                (['7g7f','5a6b','2h6h','5c5d','5i4h','3a4b','3i3h'], '4b5c')]:
+                self.assertEqual(e.choose_move(moves, 1, 30)[::2], (expected, 'dedicated_book'))
         finally:
-            engine.close()
+            e.close()
 
-    def test_unknown_and_held_additions_remain_search(self):
-        engine = self.make_engine()
-        try:
-            for moves in [
-                    ["5i4h", "3c3d", "7g7f", "4c4d"],
-                    ["7g7f", "5a6b", "2g2f"],
-                    "5i4h 3c3d 7g7f 7a6b 2g2f 4a3b 6i7h 4c4d".split(),
-                    "7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6b7a 7i7h 8c8d 7h6g 2c2d 6f6e".split()]:
-                with self.subTest(moves=moves):
-                    self.assertEqual(engine.choose_move(moves, 1, 30)[2], "search")
-        finally:
-            engine.close()
-
-    def test_ownbook_off_and_ply_boundaries(self):
-        for own, max_ply, expected in [(False, 20, "search"),
-                                       (True, 2, "search"),
-                                       (True, 3, "dedicated_book")]:
-            engine = self.make_engine(own=own, max_ply=max_ply)
+    def test_book_off_and_late_entry_limit(self):
+        entry = max(self.entries(), key=lambda x:len(x['moves']))
+        ply = len(entry['moves']) + 1
+        self.assertGreater(ply, 20)
+        self.assertLessEqual(ply, 32)
+        for own, limit, expected in [(False,32,'search'), (True,ply-1,'search'),
+                                     (True,ply,'dedicated_book')]:
+            e = self.engine(own=own, max_ply=limit)
             try:
-                for moves in [["5i4h", "3c3d"], ["7g7f", "5a6b", "2h6h"]]:
-                    # Black entry is move3; White entry is move4.
-                    source = expected if len(moves) == 2 else "search"
-                    self.assertEqual(engine.choose_move(moves, 1, 30)[2], source)
+                self.assertEqual(e.choose_move(entry['moves'], 1, 30)[2], expected)
             finally:
-                engine.close()
-        engine = self.make_engine(max_ply=4)
+                e.close()
+
+    def test_default_limit_and_normal_standard_book(self):
+        e = self.engine(shin=False)
         try:
-            self.assertEqual(engine.choose_move(["7g7f", "5a6b", "2h6h"], 1, 30)[2],
-                             "dedicated_book")
+            self.assertEqual(e.choose_move([], 1, 30)[2], 'book')
+            e.send('usi')
+            lines=[]
+            while True:
+                line=e.lines.get(timeout=10)
+                lines.append(line)
+                if line=='usiok':break
+            self.assertIn('option name BookMaxPly type spin default 32 min 0 max 50', lines)
         finally:
-            engine.close()
-
-    def test_normal_side_still_uses_standard_book(self):
-        engine = self.make_engine(shin=False)
-        try:
-            self.assertEqual(engine.choose_move([], 1, 30)[2], "book")
-        finally:
-            engine.close()
+            e.close()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()
