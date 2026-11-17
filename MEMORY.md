@@ -1,8 +1,8 @@
 # Rakuyou resume map
 
-Updated 2026-11-17.
+Updated 2026-11-18.
 
-- PR2 merged at main960a2bc. Active experiment/white-king62: user approved White K62/S63/G72/N73/R81 shape. Separate trial book41 rows (16 overlay entries) implemented; operational book/C++ unchanged. Existing6 + trial3 tests pass. User now permits later K71 and prioritizes smooth S63 development over concern about Black N74. Depth22 follow-up supports trying current trial without more forced book moves; next user-run White10 games. See docs/experiments/white-king62.md and results/white-king62/preflight.json. No PR or adoption yet.
+- PR2 merged at main960a2bc. Active experiment/white-king62: user approved White K62/S63/G72/N73/R81 shape. Separate trial book41 rows (16 overlay entries) implemented; operational book/C++ unchanged. Existing6 + trial3 tests pass. User now permits later K71 and prioritizes smooth S63 development over concern about Black N74. Depth22 follow-up supports trying current trial without more forced book moves; White10 games finished 2W8L, no errors/caps; quiet P96 branch0W7L, early P65 branch2W1L. Nine games return king toward file5 early; not established as cause. Review game9 at results/white-king62/batch-game9.html before further edits. See docs/experiments/white-king62.md and results/white-king62/preflight.json. No PR or adoption yet.
 - Operational book: `books/shin-yonenaga-book-v1.txt`, generated from `books/shin-yonenaga-book.json` by `tools/books/build_operational_shin_book.py`.26 reviewed positions (Black15/White11); identical position/move rows to the tested candidate. Black starts with S68 and includes exact-position P46/S38-to47 and developed bogin gold/king plans. White entries unchanged.
 - BookMaxPly default32 enables the later entries. Existing GUI settings may retain20 or an old trial file path; see books/README.md. No GUI configuration was changed automatically.
 - Adopted engine remains ShinON/support10/D10. Release hides fixed style options; stale style setoption values are ignored. OwnBook/ShinBookFile remain editable.
