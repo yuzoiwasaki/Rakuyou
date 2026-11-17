@@ -1,73 +1,57 @@
 #!/usr/bin/env python3
-"""Reproduce the first provisional combined Shin-Yonenaga-Gyoku book.
+"""Generate the operational book from its single maintained source.
 
-This composes the selected books without changing any position or move.
-Engine integration tests, not this compiler, check full move legality.
+Native engine tests check legality and transposed-position collisions.
 """
-
-# Permit direct CLI execution as well as package imports.
-import sys as _sys
-from pathlib import Path as _RepoPath
-if not __package__:
-    _sys.path.insert(0, str(_RepoPath(__file__).resolve().parents[2]))
-
 import argparse
+import json
 from pathlib import Path
-
-from tools.books.build_shin_book import compile_book
-
+import re
 
 ROOT = Path(__file__).resolve().parents[2]
-BLACK_SOURCE = "books/sources/black/shin-yonenaga-black-pawn76-right-side-experiment.json"
-BLACK_BOOK = "books/shin-yonenaga-black-book-pawn76-right-side-experiment.txt"
-WHITE_SOURCE = "books/sources/white/shin-yonenaga-white-candidates.json"
-WHITE_EXTENSION = "books/sources/white/shin-yonenaga-white-v2-experiment.json"
-WHITE_BOOK = "books/shin-yonenaga-white-book-v2-experiment.txt"
-OUTPUT = ROOT / "books/shin-yonenaga-book-v1.txt"
+SOURCE = ROOT / 'books/shin-yonenaga-book.json'
+OUTPUT = ROOT / 'books/shin-yonenaga-book-v1.txt'
+MOVE = re.compile(r'(?:[1-9][a-i][1-9][a-i]\+?|[PLNSGBR]\*[1-9][a-i])\Z')
 
 
-def compile_operational_book(root=ROOT):
-    selected = [
-        (BLACK_BOOK, 6, compile_book(root / BLACK_SOURCE,
-                                   experimental=True, side="black")),
-        (WHITE_BOOK, 11, compile_book(root / WHITE_SOURCE,
-                                    root / WHITE_EXTENSION)),
-    ]
-    lines = ["# Rakuyou Shin-Yonenaga-Gyoku provisional operational book v1",
-             "# Black: pawn76 right-side six; White: unchanged v2 eleven",
-             "# USI moves from startpos | book move (either side)"]
-    seen = set()
-    for name, expected, compiled in selected:
-        if (root / name).read_text(encoding="utf-8") != compiled:
-            raise ValueError(f"selected book differs from its source: {name}")
-        rows = [line for line in compiled.splitlines()
-                if line and not line.startswith("#")]
-        if len(rows) != expected:
-            raise ValueError(f"expected {expected} positions: {name}")
-        for row in rows:
-            parent = row.split(" | ", 1)[0]
-            if parent in seen:
-                raise ValueError(f"duplicate sequence: {parent}")
-            seen.add(parent)
-        lines.append(f"# Source: {name}")
-        lines.extend(compiled.splitlines())
-    return "\n".join(lines) + "\n"
+def compile_operational_book(source=SOURCE):
+    data = json.loads(source.read_text(encoding='utf-8'))
+    if data.get('initial_position') != 'startpos':
+        raise ValueError('Expected startpos source')
+    lines = ['# Rakuyou Shin-Yonenaga-Gyoku operational book',
+             '# USI moves from startpos | book move']
+    seen, ids = set(), set()
+    for entry in data['entries']:
+        side, moves, move = entry['side'], entry['moves'], entry['book_move']
+        if side not in ('black', 'white') or not moves:
+            raise ValueError('Expected an explicit side and nonempty move sequence')
+        if len(moves) % 2 != (side == 'white'):
+            raise ValueError(f"Wrong side to move: {entry['id']}")
+        if not all(isinstance(m, str) and MOVE.fullmatch(m) for m in moves + [move]):
+            raise ValueError(f"Invalid USI move: {entry['id']}")
+        if tuple(moves) in seen or entry['id'] in ids:
+            raise ValueError(f"Duplicate entry: {entry['id']}")
+        seen.add(tuple(moves))
+        ids.add(entry['id'])
+        lines.extend([f"# {entry['id']}", f"{' '.join(moves)} | {move}"])
+    if not seen:
+        raise ValueError('Empty book')
+    return '\n'.join(lines) + '\n'
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--check", action="store_true",
-                        help="verify the committed combined file without writing")
+    parser.add_argument('--check', action='store_true', help='verify without writing')
     args = parser.parse_args()
-    book = compile_operational_book()
+    content = compile_operational_book()
     if args.check:
-        if OUTPUT.read_text(encoding="utf-8") != book:
-            parser.exit(1, "Combined book differs; regenerate it.\n")
-        print("Combined book matches selected sources: 17 positions")
+        if OUTPUT.read_text(encoding='utf-8') != content:
+            parser.exit(1, 'Operational book differs; regenerate it.\n')
+        print('Operational book matches source')
     else:
-        OUTPUT.write_text(book, encoding="utf-8")
-        print(f"Wrote {OUTPUT.relative_to(ROOT)}: 17 positions")
+        OUTPUT.write_text(content, encoding='utf-8')
+        print(f'Wrote {OUTPUT.relative_to(ROOT)}')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

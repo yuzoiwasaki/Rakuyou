@@ -1,0 +1,498 @@
+{
+  "initial_position": "startpos",
+  "entries": [
+    {
+      "id": "black_pawn76_silver62_pawn26",
+      "side": "black",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7g7f",
+        "7a6b"
+      ],
+      "book_move": "2g2f"
+    },
+    {
+      "id": "black_pawn76_silver62_pawn64_pawn25",
+      "side": "black",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7g7f",
+        "7a6b",
+        "2g2f",
+        "6c6d"
+      ],
+      "book_move": "2f2e"
+    },
+    {
+      "id": "black_pawn76_pawn25_silver63_silver38",
+      "side": "black",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7g7f",
+        "7a6b",
+        "2g2f",
+        "6c6d",
+        "2f2e",
+        "6b6c"
+      ],
+      "book_move": "3i3h"
+    },
+    {
+      "id": "black_pawn76_rook42_silver38",
+      "side": "black",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7g7f",
+        "8b4b"
+      ],
+      "book_move": "3i3h"
+    },
+    {
+      "id": "black_pawn76_rook42_silver38_king62_pawn26",
+      "side": "black",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7g7f",
+        "8b4b",
+        "3i3h",
+        "5a6b"
+      ],
+      "book_move": "2g2f"
+    },
+    {
+      "id": "base_54_pawn",
+      "side": "white",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2h6h"
+      ],
+      "book_move": "5c5d"
+    },
+    {
+      "id": "mainline_after_38_silver",
+      "side": "white",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2h6h",
+        "5c5d",
+        "3i3h"
+      ],
+      "book_move": "3a4b"
+    },
+    {
+      "id": "mainline_after_48_king",
+      "side": "white",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2h6h",
+        "5c5d",
+        "3i3h",
+        "3a4b",
+        "5i4h"
+      ],
+      "book_move": "4b5c"
+    },
+    {
+      "id": "mainline_after_39_king",
+      "side": "white",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2h6h",
+        "5c5d",
+        "3i3h",
+        "3a4b",
+        "5i4h",
+        "4b5c",
+        "4h3i"
+      ],
+      "book_move": "7a7b"
+    },
+    {
+      "id": "mainline_after_66_pawn",
+      "side": "white",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2h6h",
+        "5c5d",
+        "3i3h",
+        "3a4b",
+        "5i4h",
+        "4b5c",
+        "4h3i",
+        "7a7b",
+        "6g6f"
+      ],
+      "book_move": "6b7a"
+    },
+    {
+      "id": "mainline_after_78_silver",
+      "side": "white",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2h6h",
+        "5c5d",
+        "3i3h",
+        "3a4b",
+        "5i4h",
+        "4b5c",
+        "4h3i",
+        "7a7b",
+        "6g6f",
+        "6b7a",
+        "7i7h"
+      ],
+      "book_move": "8c8d"
+    },
+    {
+      "id": "54_after_48_king",
+      "side": "white",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2h6h",
+        "5c5d",
+        "5i4h"
+      ],
+      "book_move": "3a4b"
+    },
+    {
+      "id": "54_after_66_pawn",
+      "side": "white",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2h6h",
+        "5c5d",
+        "6g6f"
+      ],
+      "book_move": "3a4b"
+    },
+    {
+      "id": "mainline_after_65_pawn",
+      "side": "white",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2h6h",
+        "5c5d",
+        "3i3h",
+        "3a4b",
+        "5i4h",
+        "4b5c",
+        "4h3i",
+        "7a7b",
+        "6g6f",
+        "6b7a",
+        "6f6e"
+      ],
+      "book_move": "8c8d"
+    },
+    {
+      "id": "v2_after_67_silver",
+      "side": "white",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2h6h",
+        "5c5d",
+        "3i3h",
+        "3a4b",
+        "5i4h",
+        "4b5c",
+        "4h3i",
+        "7a7b",
+        "6g6f",
+        "6b7a",
+        "7i7h",
+        "8c8d",
+        "7h6g"
+      ],
+      "book_move": "2c2d"
+    },
+    {
+      "id": "v2_after_58_gold",
+      "side": "white",
+      "moves": [
+        "7g7f",
+        "5a6b",
+        "2h6h",
+        "5c5d",
+        "3i3h",
+        "3a4b",
+        "5i4h",
+        "4b5c",
+        "4h3i",
+        "7a7b",
+        "6g6f",
+        "6b7a",
+        "7i7h",
+        "8c8d",
+        "6i5h"
+      ],
+      "book_move": "2c2d"
+    },
+    {
+      "id": "early_silver68_entry",
+      "side": "black",
+      "moves": [
+        "5i4h",
+        "3c3d"
+      ],
+      "book_move": "7i6h"
+    },
+    {
+      "id": "fourth_rook_prepare_silver47",
+      "side": "black",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7i6h",
+        "8b4b",
+        "2g2f",
+        "5a6b",
+        "3i3h",
+        "7a7b",
+        "5g5f",
+        "4c4d",
+        "6h5g",
+        "3a3b",
+        "9g9f",
+        "9c9d"
+      ],
+      "book_move": "4g4f"
+    },
+    {
+      "id": "fourth_rook_silver38_to47_after_king71",
+      "side": "black",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7i6h",
+        "8b4b",
+        "2g2f",
+        "5a6b",
+        "3i3h",
+        "7a7b",
+        "5g5f",
+        "4c4d",
+        "6h5g",
+        "3a3b",
+        "9g9f",
+        "9c9d",
+        "4g4f",
+        "6b7a"
+      ],
+      "book_move": "3h4g"
+    },
+    {
+      "id": "bogin-silver83-move17-ply17-4i5h",
+      "side": "black",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7i6h",
+        "8c8d",
+        "6i7h",
+        "8d8e",
+        "7g7f",
+        "8e8f",
+        "8g8f",
+        "8b8f",
+        "6h7g",
+        "8f8b",
+        "P*8g",
+        "7a7b",
+        "2g2f",
+        "7b8c"
+      ],
+      "book_move": "4i5h"
+    },
+    {
+      "id": "bogin-silver83-move17-ply21-6g6f",
+      "side": "black",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7i6h",
+        "8c8d",
+        "6i7h",
+        "8d8e",
+        "7g7f",
+        "8e8f",
+        "8g8f",
+        "8b8f",
+        "6h7g",
+        "8f8b",
+        "P*8g",
+        "7a7b",
+        "2g2f",
+        "7b8c",
+        "4i5h",
+        "8c7d",
+        "2f2e",
+        "2b3c"
+      ],
+      "book_move": "6g6f"
+    },
+    {
+      "id": "bogin-silver83-move17-ply23-5h6g",
+      "side": "black",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7i6h",
+        "8c8d",
+        "6i7h",
+        "8d8e",
+        "7g7f",
+        "8e8f",
+        "8g8f",
+        "8b8f",
+        "6h7g",
+        "8f8b",
+        "P*8g",
+        "7a7b",
+        "2g2f",
+        "7b8c",
+        "4i5h",
+        "8c7d",
+        "2f2e",
+        "2b3c",
+        "6g6f",
+        "6c6d"
+      ],
+      "book_move": "5h6g"
+    },
+    {
+      "id": "bogin-silver83-move17-ply25-4h5h",
+      "side": "black",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7i6h",
+        "8c8d",
+        "6i7h",
+        "8d8e",
+        "7g7f",
+        "8e8f",
+        "8g8f",
+        "8b8f",
+        "6h7g",
+        "8f8b",
+        "P*8g",
+        "7a7b",
+        "2g2f",
+        "7b8c",
+        "4i5h",
+        "8c7d",
+        "2f2e",
+        "2b3c",
+        "6g6f",
+        "6c6d",
+        "5h6g",
+        "3a3b"
+      ],
+      "book_move": "4h5h"
+    },
+    {
+      "id": "bogin-silver74-move19-ply19-4i5h",
+      "side": "black",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7i6h",
+        "8c8d",
+        "6i7h",
+        "8d8e",
+        "7g7f",
+        "8e8f",
+        "8g8f",
+        "8b8f",
+        "6h7g",
+        "8f8b",
+        "P*8g",
+        "7a7b",
+        "2g2f",
+        "7b8c",
+        "2f2e",
+        "8c7d"
+      ],
+      "book_move": "4i5h"
+    },
+    {
+      "id": "bogin-silver74-move19-ply25-5h6g",
+      "side": "black",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7i6h",
+        "8c8d",
+        "6i7h",
+        "8d8e",
+        "7g7f",
+        "8e8f",
+        "8g8f",
+        "8b8f",
+        "6h7g",
+        "8f8b",
+        "P*8g",
+        "7a7b",
+        "2g2f",
+        "7b8c",
+        "2f2e",
+        "8c7d",
+        "4i5h",
+        "2b3c",
+        "6g6f",
+        "6c6d",
+        "5g5f",
+        "6a5b"
+      ],
+      "book_move": "5h6g"
+    },
+    {
+      "id": "bogin-silver74-move19-ply27-4h5h",
+      "side": "black",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7i6h",
+        "8c8d",
+        "6i7h",
+        "8d8e",
+        "7g7f",
+        "8e8f",
+        "8g8f",
+        "8b8f",
+        "6h7g",
+        "8f8b",
+        "P*8g",
+        "7a7b",
+        "2g2f",
+        "7b8c",
+        "2f2e",
+        "8c7d",
+        "4i5h",
+        "2b3c",
+        "6g6f",
+        "6c6d",
+        "5g5f",
+        "6a5b",
+        "5h6g",
+        "5a4b"
+      ],
+      "book_move": "4h5h"
+    }
+  ]
+}

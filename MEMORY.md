@@ -1,21 +1,19 @@
 # Rakuyou resume map
 
-Updated 2026-11-15.
+Updated 2026-11-17.
 
-- Adopted baseline: `src/` includes support10 and king-contact deficit D10; normal `make release` builds it. No separate adoption patch required.
-- Release fixes ShinON/support10/D10: the3 style options are hidden and stale GUI setoption commands ignored. OwnBook/ShinBookFile remain editable. USI name Rakuyou; register `tools/run-engine.sh` for the current build. Dated snapshots are unchanged.
-- `make development` builds `bin/development` with `RAKUYOU_DEVELOPMENT_OPTIONS` and a separate object directory; exposes3 style options under name Rakuyou (development). `make match` builds optimized `bin/match` (-O3 -DNDEBUG) with the same comparison options and separate obj/match; comparison tool defaults to match to avoid expensive debug checks. Position analysis defaults to release; OFF can use match. Release remains fixed ON/10/10.
-- Fixed-style change validated:21 Python tests pass, including release ignoring stale settings before/after isready, unchanged default search values, development4-setting search parity, standard/dedicated book handling. Keep README short.
-- Fast comparison build validated:23 Python tests pass;8 golden search cases across4 support/D settings and normal-side parity pass. Two bounded node searches match release/development results; match runs at release speed. Two24-ply paired preflight games pass. Long100-game run must start a new output with bin/match, not resume the old development run.
-- Before implementation, consult the user about direct main commits versus a task branch and PR. Minor changes may go directly to main with approval; new features and evaluation changes normally use branches and PRs, with merging only after validation, review, discussion and explicit user approval. Only adopted code, maintained tools/tests and short docs belong on main; no dated trial reports or one-off runners.
-- Before cleanup: `archive/pre-adoption-cleanup-2026-11-15` (`f488a64`). Old reports, scripts and decisions are recoverable there. Ignored `results/` and previous runtime snapshots remain local; old experiment hash checks require the old tree.
-- Rank-commitment and exchange-burden prototypes were rejected. No new evaluation terms or training adopted.
-- Style: thick, coherent shogi; sustain viable territory, allow bait/counterplay when support is unsustainable, and convert thickness into attack when appropriate.
-- Review obvious actionable defects regardless of game result. Skip losses without a clear issue; small score differences alone do not justify tuning.
-- User runs long matches from prepared commands. Short bounded diagnostics are fine. Never infer strength from the small development batches.
-- Recent initial-position pairs: adopted side lost both games in bookOFF and normal-bookON batches. Not pooled strength evidence. Normal book was used only2/3 moves in the latter pair.
-- Silver retreat at move36 of the bookOFF White game is acceptable: Sx7e−48 vs S6c−61 at depth13; user prefers natural retreat with a thin king. No correction adopted.
-- Recastling after development is acceptable (bookON Black33 K5i through43 K8h). Early abandonment of the intended king setup would be a correction candidate; no blanket penalty or hard ply cutoff agreed.
-- `docs/development.md`: operational settings, tests, recovery and branch workflow. `books/README.md`: current book reproduction.
-- Cleanup validated:18 Python tests passed;132 native positions×4 settings and8 fixed-depth search cases match the adopted reference. Book17 positions reproducible; recapture18 cases and terminal move-picker checks pass.
-- Repository reduced from758 tracked files to148;615 obsolete files removed and5 maintained test/launcher files added. Cleanup branch: `chore/adopt-support10-d10-cleanup`. Old `bin/release` backed up at ignored `results/adoption-cleanup-2026-11-15/previous-release`.
+- PR2 (`experiment/early-silver68`) is prepared for final review, not merged. User accepted the opening style; no strength improvement is claimed. Do not merge without explicit approval.
+- Operational book: `books/shin-yonenaga-book-v1.txt`, generated from `books/shin-yonenaga-book.json` by `tools/books/build_operational_shin_book.py`.26 reviewed positions (Black15/White11); identical position/move rows to the tested candidate. Black starts with S68 and includes exact-position P46/S38-to47 and developed bogin gold/king plans. White entries unchanged.
+- BookMaxPly default32 enables the later entries. Existing GUI settings may retain20 or an old trial file path; see books/README.md. No GUI configuration was changed automatically.
+- Adopted engine remains ShinON/support10/D10. Release hides fixed style options; stale style setoption values are ignored. OwnBook/ShinBookFile remain editable.
+- `make release`: optimized fixed style. `make match`: optimized configurable comparison engine. `make development`: debug checks, much slower; do not use for long batches. Evaluation and search are unchanged by PR2.
+- Maintained book tests are consolidated into test/books/test_operational_shin_book.py. Experiment runners, duplicate books/sources and historical-only tests were removed from this PR's final tree.
+- Final validation: release/match rebuilt; all17 maintained Python tests pass with no skips.26 book rows match the tested candidate exactly, reproduction check passes, and bin/ book matches the committed book.
+- Full pre-integration opening history is saved at `archive/early-silver68-before-integration-2026-11-17` (`99e4859`). Ignored results/ remain local; replay old runners from the archived revision with their original inputs.
+- Search experiment PR3 was closed without adoption. Its branch `experiment/root-candidate-recheck` is preserved; do not mix that search patch into PR2.
+- Before new implementation, consult the user about direct main versus branch/PR. Minor changes can go directly to main only with approval. User reviews and explicitly approves merges. Keep main limited to adopted code, necessary tools/tests and concise docs.
+- User runs long matches. Short bounded diagnostics are fine. Review clear style defects; skip ambiguous losses and do not tune to every lost game.
+- Aim: thick, coherent shogi; support sustainable territory, permit counterplay and turn thickness into attack. No blanket requirement to preserve territory or avoid king recastling.
+- README keeps2–3 major dated milestones. Omit minor items or move history to a separate file if needed.
+- Public README text should stand alone for new readers, without references to the current review or trial. Remove Draft when submitting a finished PR for review; the user performs the merge.
+- Earlier repository cleanup is archived at `archive/pre-adoption-cleanup-2026-11-15` (`f488a64`). See docs/development.md for builds, checks and recovery.

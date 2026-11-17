@@ -9,6 +9,7 @@ Rakuyou is a personal experimental fork of Gikou 2.
 - Keep generated games, binaries and logs in ignored directories. Do not add dated experiment reports or one-off runners to `main`.
 - Preserve upstream copyright headers. Use repository-relative paths in tracked files.
 - Keep README short and human-facing. Put configuration and build details in `docs/development.md`.
+- Write public documentation for readers unfamiliar with the development discussion. Mark a PR ready for review when presenting the finished change; the user reviews and merges it.
 - Update the short resume map in `MEMORY.md` after meaningful work; detailed experimental history belongs on experiment branches.
 - Prefer small changes with relevant verification. Review concrete style defects, not every loss; skip ambiguous cases.
 

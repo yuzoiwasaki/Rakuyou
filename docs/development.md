@@ -24,10 +24,13 @@ GUIにも `tools/run-engine.sh` を登録できます。起動ディレクトリ
 | USI設定 | 既定値 |
 | --- | --- |
 | OwnBook | true |
-| BookMaxPly | 20 |
+| BookMaxPly | 32 |
 | ShinBookFile | shin-yonenaga-book-v1.txt |
 
 定跡を使うか・どの定跡を使うかは引き続き選択できます。OwnBookをOFFにしても最初の▲４八玉／△６二玉は残ります。将棋所が古い項目を表示する場合は、実行ファイルを更新したうえでエンジンを再登録してください。以前の日付付き実行ファイルにはこの変更は適用されません。
+
+既存のGUI設定にBookMaxPly=20が保存されている場合は32へ変更してください。
+ShinBookFileで以前の試作ファイルを指定している場合は、正式な`shin-yonenaga-book-v1.txt`へ切り替えます。
 
 ## 開発用ビルド
 
@@ -77,3 +80,5 @@ git switch -c feature/example
 不採用の実験コード・レポートは実験ブランチに残し、mainへ持ち込みません。棋譜・ログ・生成物はGit管理外の `results/` へ保存します。READMEはプロジェクトの短い紹介に留めます。
 
 整理前の実験資料は `archive/pre-adoption-cleanup-2026-11-15`（`f488a64`）にあります。必要なら別worktreeで参照できます。旧実験は当時のソース・ローカル生成物を前提にしており、新mainでそのまま再実行するものではありません。履歴の書き換えはしていません。
+
+序盤定跡の統合前の実験履歴は `archive/early-silver68-before-integration-2026-11-17`（`99e4859`）に保存しています。試作の対局ランナーと検証メモはこの退避ブランチから参照できます。

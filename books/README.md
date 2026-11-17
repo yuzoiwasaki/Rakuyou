@@ -1,41 +1,22 @@
 # 新米長玉定跡
 
-共通v1は **先手▲７六歩・右側構想6局面＋後手v2の11局面** の定跡ファイル。
-通常は [shin-yonenaga-book-v1.txt](shin-yonenaga-book-v1.txt) を使用する。
+使用する定跡は [shin-yonenaga-book-v1.txt](shin-yonenaga-book-v1.txt) の1つです。
+先手15局面・後手11局面を収録しています。
+生成元は [shin-yonenaga-book.json](shin-yonenaga-book.json) です。
 
-## 定跡ファイル
+## 使用設定
 
-| 用途 | ファイル | 局面数 |
-| --- | --- | ---: |
-| 先後共通 | [共通v1](shin-yonenaga-book-v1.txt) | 17 |
-| 先手単独・生成時の照合用 | [▲７六歩・右側構想](shin-yonenaga-black-book-pawn76-right-side-experiment.txt) | 6 |
-| 後手単独・生成時の照合用 | [後手v2](shin-yonenaga-white-book-v2-experiment.txt) | 11 |
+OwnBookをON、BookMaxPlyを32にし、ShinBookFileに`shin-yonenaga-book-v1.txt`を指定します。
+ビルド時に定跡ファイルを`bin/`へコピーします。設定の変更後はエンジンを再起動してください。
 
-## 使い方
+盤面・持駒・手番が一致すれば手順前後でも使用し、未登録局面は探索します。
+通常定跡での補完はありません。初手▲4八玉／△6二玉はエンジン側の機能です。
 
-通常版は新米長玉ONで固定されています。将棋所等では `OwnBook` をON、`BookMaxPly` を20にし、
-`ShinBookFile` で `books/shin-yonenaga-book-v1.txt` を選択する。
-既存設定は自動的に切り替わらない。変更後はエンジンを再起動する。
-
-盤面・持駒・手番が登録局面と一致すると定跡を使い、未登録局面は探索へ抜ける。
-標準定跡による補完はない。初手▲４八玉／△６二玉はエンジン側の機能で、17局面には含めない。
-玉戻りも合法のまま。開発版で新米長玉をOFFにした通常側の標準定跡は `BookFile` で別に指定する。
-
-## 生成元と確認
-
-生成元JSONは [sources/](sources/README.md) に先後別で保存する。
-リポジトリ直下で、書込みなしの確認は次の通り。
+## 再生成・確認
 
 ```sh
 python3 tools/books/build_operational_shin_book.py --check
 ```
 
-再生成する場合は同コマンドから `--check` を外す。
-選択したJSONをコンパイルし、既存の単独版との一致と先手6／後手11局面を確認して結合する。
-共通txtのSHA-256は
-`d080bc78583695da22641509ca93682653baa4761cb633f4f144ec1aef7c7e07`。
-
-## 過去の実験
-
-採用前の判断・不採用候補は `archive/pre-adoption-cleanup-2026-11-15` に保存しています。
-生成元と単独版のファイル名には互換性のため従来の `experiment` 表記を残しています。
+生成元を編集した場合は、`--check`を外して正式txtを再生成します。
+合法性・定跡命中・適用条件は`test/books/test_operational_shin_book.py`で確認します。
