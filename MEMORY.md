@@ -19,3 +19,5 @@ Updated 2026-11-18.
 - Earlier repository cleanup is archived at `archive/pre-adoption-cleanup-2026-11-15` (`f488a64`). See docs/development.md for builds, checks and recovery.
 
 - Latest White trial diagnostic: user proposes G72 before P84 and taking Black P65. After N73/S67/G72/S56/R81/P65, depth22 restricted Px65 -511 vs P34 -252. Capture PV trades knights and activates Black silver. No book change; review results/white-king62/gold72-review.html (White at top, left capture).
+
+- User asks P34 instead of R81. After P34/P65/Px65/Nx65, depth22 Bx88+ -459 vs Nx65 -1732 (Black Bx22+). Bx88+ PV allows Nx53+/Kx53/Rx88, so K62 not maintained. Review results/white-king62/bishop34-review.html; no book edits.

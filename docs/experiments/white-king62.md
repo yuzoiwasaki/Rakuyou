@@ -150,3 +150,16 @@ knight18-{attack,defense}-{input,analysis}.json に保存。
 入力出力 gold72-{input,analysis}.json、gold72-rook81-{input,analysis}.json。
 盤面 results/white-king62/gold72-review.html は22△8一飛まで備えた局面から
 左△同歩、右△3四歩。17手目まで実戦、以後は検討手順。全手順をnative合法手で検証。
+
+
+## △8一飛を△3四歩に替える追加確認
+
+ユーザーの指定に沿い、22△3四歩23▲6五歩24△同歩25▲同桂を確認。
+この局面の深さ22・限定MultiPV2（新規プロセス、定跡OFF、Hash512、15秒上限）は
+△8八角成−459、△同桂−1732。△同桂では▲2二角成と角を取られる。
+△8八角成を先にすると▲5三桂成△同玉▲8八飛で、6二玉維持にはならない読み筋。
+従前の23手目での△同歩の値−482と、25手目からの値−459を混同しない。
+角道を開ける案が単純な受けの改善になるとは確認できず、定跡変更なし。
+診断 bishop34-capture-{input,analysis}.json。
+盤面 results/white-king62/bishop34-review.html は左△8一飛、右△3四歩の後に
+双方▲6五歩△同歩と進めた既存深さ22PV。全手順のnative合法性を確認済み。
