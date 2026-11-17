@@ -17,3 +17,5 @@ Updated 2026-11-18.
 - README keeps2–3 major dated milestones. Omit minor items or move history to a separate file if needed.
 - Public README text should stand alone for new readers, without references to the current review or trial. Remove Draft when submitting a finished PR for review; the user performs the merge.
 - Earlier repository cleanup is archived at `archive/pre-adoption-cleanup-2026-11-15` (`f488a64`). See docs/development.md for builds, checks and recovery.
+
+- Latest White trial diagnostic: user proposes G72 before P84 and taking Black P65. After N73/S67/G72/S56/R81/P65, depth22 restricted Px65 -511 vs P34 -252. Capture PV trades knights and activates Black silver. No book change; review results/white-king62/gold72-review.html (White at top, left capture).
