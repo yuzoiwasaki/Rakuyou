@@ -2,7 +2,7 @@
 
 Updated 2026-11-17.
 
-- PR2 (`experiment/early-silver68`) is prepared for final review, not merged. User accepted the opening style; no strength improvement is claimed. Do not merge without explicit approval.
+- PR2 merged at main960a2bc. Active branch experiment/white-king62 studies White vs fourth rook: retain S72, prefer P64/S63 then G72/P74/N73/R81 with king62. Initial PV reaches requested setup; early P65 needs separate defense and may lead to K71. No engine/book change yet. See docs/experiments/white-king62.md; local board results/white-king62/review.html awaits user review.
 - Operational book: `books/shin-yonenaga-book-v1.txt`, generated from `books/shin-yonenaga-book.json` by `tools/books/build_operational_shin_book.py`.26 reviewed positions (Black15/White11); identical position/move rows to the tested candidate. Black starts with S68 and includes exact-position P46/S38-to47 and developed bogin gold/king plans. White entries unchanged.
 - BookMaxPly default32 enables the later entries. Existing GUI settings may retain20 or an old trial file path; see books/README.md. No GUI configuration was changed automatically.
 - Adopted engine remains ShinON/support10/D10. Release hides fixed style options; stale style setoption values are ignored. OwnBook/ShinBookFile remain editable.
