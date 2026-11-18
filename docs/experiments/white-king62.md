@@ -360,3 +360,15 @@ gold43-after-p36-input.json は準備のみで未実行。構想自体を否定�
 診断 pawn44-first/pawn44-black/pawn44-followup の各input/analysis。
 盤面 results/white-king62/pawn44-review.html：右△4四歩、上側後手、40手目△4三金初期表示。
 全手順native合法性/SFEN確認済み。
+
+
+## 49▲5三銀成への△同玉
+
+ユーザーはpawn44案PVの49▲5三銀成に、△同金ではなく△同玉を提案。
+新規プロセス・定跡OFF・Threads1/Hash512・深さ24目標・限定MultiPV2・20秒上限。
+共通完了深さ21で△同金−119、△同玉−436（後手視点）。
+△同玉のPVは▲6六歩打△1三角▲6五歩△4六角▲4七金△6八角成▲同角△4二玉。
+△同金のPVは▲4五歩△1三角▲4四歩△6三玉と続く。
+同金でも玉を固定するわけではないが、この限定探索では同玉を同程度とは評価していない。
+浅めの共通深さであり、評価差を確定形勢とは扱わない。両候補と全PVのnative合法性確認済み。
+診断 silver53-recapture-{input,analysis}.json。定跡・評価変更なし。
