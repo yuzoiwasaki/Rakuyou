@@ -19,7 +19,7 @@
 # mainline_after_39_king
 7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i | 7a7b
 # mainline_after_66_pawn
-7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f | 6c6d
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f | 8c8d
 # mainline_after_78_silver
 7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6b7a 7i7h | 8c8d
 # 54_after_48_king
@@ -52,33 +52,45 @@
 5i4h 3c3d 7i6h 8c8d 6i7h 8d8e 7g7f 8e8f 8g8f 8b8f 6h7g 8f8b P*8g 7a7b 2g2f 7b8c 2f2e 8c7d 4i5h 2b3c 6g6f 6c6d 5g5f 6a5b | 5h6g
 # bogin-silver74-move19-ply27-4h5h
 5i4h 3c3d 7i6h 8c8d 6i7h 8d8e 7g7f 8e8f 8g8f 8b8f 6h7g 8f8b P*8g 7a7b 2g2f 7b8c 2f2e 8c7d 4i5h 2b3c 6g6f 6c6d 5g5f 6a5b 5h6g 5a4b | 4h5h
-# king62-reviewed-ply14
-7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6c6d 9g9f | 7b6c
-# king62-reviewed-ply16
-7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6c6d 9g9f 7b6c 6i5h | 7c7d
-# king62-reviewed-ply18
-7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6c6d 9g9f 7b6c 6i5h 7c7d 7i7h | 8c8d
-# king62-reviewed-ply20
-7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6c6d 9g9f 7b6c 6i5h 7c7d 7i7h 8c8d 6f6e | 6d6e
-# king62-reviewed-ply22
-7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6c6d 9g9f 7b6c 6i5h 7c7d 7i7h 8c8d 6f6e 6d6e 6h6e | P*6d
-# king62-reviewed-ply24
-7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6c6d 9g9f 7b6c 6i5h 7c7d 7i7h 8c8d 6f6e 6d6e 6h6e P*6d 6e6h | 8d8e
-# king62-reviewed-ply26
-7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6c6d 9g9f 7b6c 6i5h 7c7d 7i7h 8c8d 6f6e 6d6e 6h6e P*6d 6e6h 8d8e 8h7g | 8a7c
-# king62-reviewed-ply28
-7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6c6d 9g9f 7b6c 6i5h 7c7d 7i7h 8c8d 6f6e 6d6e 6h6e P*6d 6e6h 8d8e 8h7g 8a7c 7h6g | 1c1d
-# king62-reviewed-ply30
-7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6c6d 9g9f 7b6c 6i5h 7c7d 7i7h 8c8d 6f6e 6d6e 6h6e P*6d 6e6h 8d8e 8h7g 8a7c 7h6g 1c1d 4g4f | 8b8a
-# king62-reviewed-ply32
-7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6c6d 9g9f 7b6c 6i5h 7c7d 7i7h 8c8d 6f6e 6d6e 6h6e P*6d 6e6h 8d8e 8h7g 8a7c 7h6g 1c1d 4g4f 8b8a 5h4g | 6a7b
-# king62-silver63-after-7i7h
-7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6c6d 7i7h | 7b6c
-# king62-silver63-after-6i5h
-7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6c6d 6i5h | 7b6c
-# king62-early65-ply14
-7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6c6d 6f6e | 6d6e
-# king62-early65-ply16
-7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6c6d 6f6e 6d6e 6h6e | 7b6c
-# king62-early65-ply18
-7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6c6d 6f6e 6d6e 6h6e 7b6c 6e6h | P*6d
+# early-p85-after-9g9f
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 9g9f | 8d8e
+# early-p85-after-7i7h
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h | 8d8e
+# early-p85-after-6i5h
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 6i5h | 8d8e
+# white16-after-b77-ply16
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 9g9f 8d8e 8h7g | 6c6d
+# white16-after-b77-ply18
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 9g9f 8d8e 8h7g 6c6d 7i7h | 7c7d
+# white16-after-b77-ply20
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 9g9f 8d8e 8h7g 6c6d 7i7h 7c7d 6i5h | 8a7c
+# white16-after-b77-ply22
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 9g9f 8d8e 8h7g 6c6d 7i7h 7c7d 6i5h 8a7c 4g4f | 1c1d
+# white16-after-b77-ply24
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 9g9f 8d8e 8h7g 6c6d 7i7h 7c7d 6i5h 8a7c 4g4f 1c1d 1g1f | 7b6c
+# white16-after-b77-ply26
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 9g9f 8d8e 8h7g 6c6d 7i7h 7c7d 6i5h 8a7c 4g4f 1c1d 1g1f 7b6c 5h4g | 3c3d
+# white16-after-b77-ply28
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 9g9f 8d8e 8h7g 6c6d 7i7h 7c7d 6i5h 8a7c 4g4f 1c1d 1g1f 7b6c 5h4g 3c3d 3i2h | 8b8a
+# white16-after-b77-ply30
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 9g9f 8d8e 8h7g 6c6d 7i7h 7c7d 6i5h 8a7c 4g4f 1c1d 1g1f 7b6c 5h4g 3c3d 3i2h 8b8a 5g5f | 6a7b
+# white16-after-b77-ply32
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 9g9f 8d8e 8h7g 6c6d 7i7h 7c7d 6i5h 8a7c 4g4f 1c1d 1g1f 7b6c 5h4g 3c3d 3i2h 8b8a 5g5f 6a7b 3g3f | 4a4b
+# white16-after-s78-b77-ply16
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g | 6c6d
+# white16-after-s78-b77-ply18
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6i5h | 7c7d
+# white16-after-s78-b77-ply20
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6i5h 7c7d 1g1f | 1c1d
+# white16-after-s78-b77-ply22
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6i5h 7c7d 1g1f 1c1d 6f6e | 6d6e
+# white16-after-s78-b77-ply24
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6i5h 7c7d 1g1f 1c1d 6f6e 6d6e 6h6e | P*6d
+# white16-after-s78-b77-ply26
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6i5h 7c7d 1g1f 1c1d 6f6e 6d6e 6h6e P*6d 6e6i | 7b6c
+# white16-after-s78-b77-ply28
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6i5h 7c7d 1g1f 1c1d 6f6e 6d6e 6h6e P*6d 6e6i 7b6c 4g4f | 8a7c
+# white16-after-s78-b77-ply30
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6i5h 7c7d 1g1f 1c1d 6f6e 6d6e 6h6e P*6d 6e6i 7b6c 4g4f 8a7c 7h6g | 8b8a
+# white16-after-s78-b77-ply32
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6i5h 7c7d 1g1f 1c1d 6f6e 6d6e 6h6e P*6d 6e6i 7b6c 4g4f 8a7c 7h6g 8b8a 3i2h | 4a5b

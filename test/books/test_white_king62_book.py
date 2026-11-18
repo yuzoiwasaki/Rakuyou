@@ -20,8 +20,12 @@ class WhiteKing62BookTest(unittest.TestCase):
         trial=rows(OUTPUT.read_text())
         root=json.loads(SOURCE.read_text())['entries'][0]['moves']
         self.assertEqual(base-trial, {' '.join(root)+' | 6b7a'})
-        self.assertEqual(len(trial),41)
+        self.assertEqual(len(trial),47)
         self.assertEqual(OUTPUT.read_text(),build())
+        entries=json.loads(SOURCE.read_text())['entries']
+        self.assertEqual(entries[0]['book_move'],'8c8d')
+        self.assertFalse(any(e['book_move']=='9c9d' for e in entries))
+        self.assertTrue(all(len(e['moves']) < 32 for e in entries))
 
     def test_native_entries_and_legality(self):
         e=self.engine();helper=operational_tests.OperationalBookTest()
@@ -30,7 +34,7 @@ class WhiteKing62BookTest(unittest.TestCase):
             while True:
                 line=e.lines.get(timeout=30);lines.append(line)
                 if line=='readyok':break
-            self.assertIn('info string ShinBookFile loaded 41 positions',lines)
+            self.assertIn('info string ShinBookFile loaded 47 positions',lines)
             self.assertFalse(any('ShinBookFile line' in s for s in lines))
             for entry in json.loads(SOURCE.read_text())['entries']:
                 moves=entry['moves']
@@ -41,11 +45,13 @@ class WhiteKing62BookTest(unittest.TestCase):
 
     def test_unregistered_reply_and_book_off_search(self):
         root=json.loads(SOURCE.read_text())['entries'][0]['moves']
-        moves=root+['6c6d','9i9h']
+        moves=root+['8c8d','9i9h']
         e=self.engine()
         try:
             self.assertIn(moves[-1],operational_tests.OperationalBookTest().legal(e,moves[:-1]))
             self.assertEqual(e.choose_move(moves,1,30)[2],'search')
+            for reply in [root+['8c8d','6f6e'], root+['8c8d','9g9f','8d8e','7i7h']]:
+                self.assertEqual(e.choose_move(reply,1,30)[2],'search')
         finally:e.close()
         e=self.engine(False)
         try:self.assertEqual(e.choose_move(root,1,30)[2],'search')

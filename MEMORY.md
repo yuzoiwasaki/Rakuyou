@@ -2,7 +2,7 @@
 
 Updated 2026-11-18.
 
-- PR2 merged at main960a2bc. Active experiment/white-king62: user approved White K62/S63/G72/N73/R81 shape. Separate trial book41 rows (16 overlay entries) implemented; operational book/C++ unchanged. Existing6 + trial3 tests pass. User now permits later K71 and prioritizes smooth S63 development over concern about Black N74. Depth22 follow-up supports trying current trial without more forced book moves; White10 games finished 2W8L, no errors/caps; quiet P96 branch0W7L, early P65 branch2W1L. Nine games return king toward file5 early; not established as cause. User dislikes White18 G52right; requests N73 and holding K62. Depth22 restricted comparison G52right -75 vs N73 -385. After N73/S67, restricted R81 -345 vs G72 -439/P84 -455; R81 is next candidate, not proven improvement. Trial unchanged. Board results/white-king62/knight18-review.html. See docs/experiments/white-king62.md and results/white-king62/preflight.json. No PR or adoption yet.
+- PR2 merged at main960a2bc. Active experiment/white-king62 now trials early P84/P85 before P64, inducing B77 before Black N77. User approved shape and requests no fixed P94. Trial book updated to47 rows (22 overlay entries), native tests9 pass; production book/C++ untouched. Short depth12 preflight maintains K62/R81 but S63 is not guaranteed (one G63). Next user-run White10 games. See docs/experiments/white-king62.md and results/white-king62/early-p85-review.html. No PR/adoption yet.
 - Operational book: `books/shin-yonenaga-book-v1.txt`, generated from `books/shin-yonenaga-book.json` by `tools/books/build_operational_shin_book.py`.26 reviewed positions (Black15/White11); identical position/move rows to the tested candidate. Black starts with S68 and includes exact-position P46/S38-to47 and developed bogin gold/king plans. White entries unchanged.
 - BookMaxPly default32 enables the later entries. Existing GUI settings may retain20 or an old trial file path; see books/README.md. No GUI configuration was changed automatically.
 - Adopted engine remains ShinON/support10/D10. Release hides fixed style options; stale style setoption values are ignored. OwnBook/ShinBookFile remain editable.
@@ -17,11 +17,3 @@ Updated 2026-11-18.
 - README keeps2–3 major dated milestones. Omit minor items or move history to a separate file if needed.
 - Public README text should stand alone for new readers, without references to the current review or trial. Remove Draft when submitting a finished PR for review; the user performs the merge.
 - Earlier repository cleanup is archived at `archive/pre-adoption-cleanup-2026-11-15` (`f488a64`). See docs/development.md for builds, checks and recovery.
-
-- Latest White trial diagnostic: user proposes G72 before P84 and taking Black P65. After N73/S67/G72/S56/R81/P65, depth22 restricted Px65 -511 vs P34 -252. Capture PV trades knights and activates Black silver. No book change; review results/white-king62/gold72-review.html (White at top, left capture).
-
-- User asks P34 instead of R81. After P34/P65/Px65/Nx65, depth22 Bx88+ -459 vs Nx65 -1732 (Black Bx22+). Bx88+ PV allows Nx53+/Kx53/Rx88, so K62 not maintained. Review results/white-king62/bishop34-review.html; no book edits.
-
-- Latest: user proposes White30 P84 instead of G73 after knight exchange/P*64/S56 and doubts -511. Depth24 G73 -447 vs P84 -537; after P84 normal OFF engine also chooses Black N*45 (+511), then S44/P*65. Review results/white-king62/exchange-p84-review.html; no trial-book change.
-
-- Latest promising direction: user proposes P85/B77 before Black N77. Investigated White12 P84 then14 P85 (before P64). After B77,16 P64 PV reaches K62/S63/N73/R81/G72, including Px65/Rx65/P*64 against early attack in S78 branch. Depth22 -256 (P96 branch)/-227 (S78 branch), not strength proof. Board results/white-king62/early-p85-review.html. Trial still unchanged; user review next, then check earlier P65/non-B77 replies.
