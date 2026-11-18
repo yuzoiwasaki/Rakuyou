@@ -94,3 +94,13 @@
 7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6i5h 7c7d 1g1f 1c1d 6f6e 6d6e 6h6e P*6d 6e6i 7b6c 4g4f 8a7c 7h6g | 8b8a
 # white16-after-s78-b77-ply32
 7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6i5h 7c7d 1g1f 1c1d 6f6e 6d6e 6h6e P*6d 6e6i 7b6c 4g4f 8a7c 7h6g 8b8a 3i2h | 4a5b
+# gold32-trial-ply28
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6f6e 6d6e 6h6e P*6d 6e6h 7c7d 6i5h 8a7c 4g4f 1c1d 1g1f | 4a3b
+# gold32-trial-ply30
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6f6e 6d6e 6h6e P*6d 6e6h 7c7d 6i5h 8a7c 4g4f 1c1d 1g1f 4a3b 7h6g | 7b6c
+# gold32-trial-ply32
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6f6e 6d6e 6h6e P*6d 6e6h 7c7d 6i5h 8a7c 4g4f 1c1d 1g1f 4a3b 7h6g 7b6c 3i2h | 6a7b
+# gold32-trial-ply34
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6f6e 6d6e 6h6e P*6d 6e6h 7c7d 6i5h 8a7c 4g4f 1c1d 1g1f 4a3b 7h6g 7b6c 3i2h 6a7b 5g5f | 8b8a
+# gold32-trial-ply36
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6f6e 6d6e 6h6e P*6d 6e6h 7c7d 6i5h 8a7c 4g4f 1c1d 1g1f 4a3b 7h6g 7b6c 3i2h 6a7b 5g5f 8b8a 9g9f | 4c4d

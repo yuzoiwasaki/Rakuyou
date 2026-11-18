@@ -12,7 +12,7 @@ class WhiteKing62BookTest(unittest.TestCase):
     def engine(self, own=True):
         if not (ROOT/'bin/match').is_file():
             self.skipTest('make match first')
-        return UsiEngine(ROOT/'bin/match',True,own,1,64,None,32,OUTPUT)
+        return UsiEngine(ROOT/'bin/match',True,own,1,64,None,36,OUTPUT)
 
     def test_only_reviewed_root_is_replaced(self):
         rows=lambda text:{s for s in text.splitlines() if s and not s.startswith('#')}
@@ -20,12 +20,12 @@ class WhiteKing62BookTest(unittest.TestCase):
         trial=rows(OUTPUT.read_text())
         root=json.loads(SOURCE.read_text())['entries'][0]['moves']
         self.assertEqual(base-trial, {' '.join(root)+' | 6b7a'})
-        self.assertEqual(len(trial),47)
+        self.assertEqual(len(trial),52)
         self.assertEqual(OUTPUT.read_text(),build())
         entries=json.loads(SOURCE.read_text())['entries']
         self.assertEqual(entries[0]['book_move'],'8c8d')
         self.assertFalse(any(e['book_move']=='9c9d' for e in entries))
-        self.assertTrue(all(len(e['moves']) < 32 for e in entries))
+        self.assertTrue(all(len(e['moves']) < 36 for e in entries))
 
     def test_native_entries_and_legality(self):
         e=self.engine();helper=operational_tests.OperationalBookTest()
@@ -34,7 +34,7 @@ class WhiteKing62BookTest(unittest.TestCase):
             while True:
                 line=e.lines.get(timeout=30);lines.append(line)
                 if line=='readyok':break
-            self.assertIn('info string ShinBookFile loaded 47 positions',lines)
+            self.assertIn('info string ShinBookFile loaded 52 positions',lines)
             self.assertFalse(any('ShinBookFile line' in s for s in lines))
             for entry in json.loads(SOURCE.read_text())['entries']:
                 moves=entry['moves']
@@ -55,4 +55,15 @@ class WhiteKing62BookTest(unittest.TestCase):
         finally:e.close()
         e=self.engine(False)
         try:self.assertEqual(e.choose_move(root,1,30)[2],'search')
+        finally:e.close()
+
+    def test_late_entry_respects_book_limit(self):
+        entry=next(e for e in json.loads(SOURCE.read_text())['entries'] if e['id']=='gold32-trial-ply36')
+        e=self.engine()
+        try:
+            self.assertEqual(e.choose_move(entry['moves'],1,30)[::2],('4c4d','dedicated_book'))
+            e.send('setoption name BookMaxPly value 32')
+            e.send('isready')
+            e.wait_for('readyok',30)
+            self.assertEqual(e.choose_move(entry['moves'],1,30)[2],'search')
         finally:e.close()
