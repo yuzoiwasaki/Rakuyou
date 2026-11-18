@@ -17,3 +17,5 @@ Updated 2026-11-18.
 - README keeps2–3 major dated milestones. Omit minor items or move history to a separate file if needed.
 - Public README text should stand alone for new readers, without references to the current review or trial. Remove Draft when submitting a finished PR for review; the user performs the merge.
 - Earlier repository cleanup is archived at `archive/pre-adoption-cleanup-2026-11-15` (`f488a64`). See docs/development.md for builds, checks and recovery.
+
+- User prefers game3 shape and proposes G32+G72. Depth24 with P94 deferred: White28 G32 -157/G52 -164; after G32/S67/S63/K28, White32 G72 -224 vs G52 -164. Candidate reaches requested shape but PV later K52. See results/white-king62/gold32-review.html (right G32+G72, White top). No trial-book changes pending review.
