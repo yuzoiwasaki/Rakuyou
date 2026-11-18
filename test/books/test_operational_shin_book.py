@@ -74,6 +74,10 @@ class OperationalBookTest(unittest.TestCase):
             silver = next(x for x in self.entries()
                           if x['id']=='fourth_rook_silver38_to47_after_king71')
             self.assertEqual(silver['book_move'], '3h4g')
+            white = [x for x in self.entries() if x['side']=='white']
+            self.assertFalse(any(x['book_move'].startswith('4a') or x['book_move']=='9c9d' for x in white))
+            self.assertIn('6a7b', {x['book_move'] for x in white})
+            self.assertEqual(next(x['book_move'] for x in white if x['id']=='fourth_rook_capture_early_pawn65'), '6d6e')
         finally:
             e.close()
 
@@ -81,10 +85,14 @@ class OperationalBookTest(unittest.TestCase):
         entries = {x['id']: x for x in self.entries()}
         bogin = entries['bogin-silver83-move17-ply17-4i5h']['moves']
         fourth = entries['fourth_rook_prepare_silver47']['moves']
+        white = entries['mainline_after_66_pawn']['moves']
+        # Early attacks and skipping B77 must not force the quiet formation.
+        white_replies = [white + ['8c8d','6f6e'],
+                         white + ['8c8d','9g9f','8d8e','7i7h']]
         e = self.engine()
         try:
             for moves in [bogin[:14], ['5i4h', '3c3d', '7i6h', '7a6b'],
-                          fourth + ['4g4f', '4a5b']]:
+                          fourth + ['4g4f', '4a5b']] + white_replies:
                 self.assertIn(moves[-1], self.legal(e, moves[:-1]))
                 self.assertEqual(e.choose_move(moves, 1, 30)[2], 'search')
         finally:

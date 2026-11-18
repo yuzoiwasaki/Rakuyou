@@ -18,20 +18,10 @@
 7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h | 4b5c
 # mainline_after_39_king
 7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i | 7a7b
-# mainline_after_66_pawn
-7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f | 6b7a
-# mainline_after_78_silver
-7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6b7a 7i7h | 8c8d
 # 54_after_48_king
 7g7f 5a6b 2h6h 5c5d 5i4h | 3a4b
 # 54_after_66_pawn
 7g7f 5a6b 2h6h 5c5d 6g6f | 3a4b
-# mainline_after_65_pawn
-7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6b7a 6f6e | 8c8d
-# v2_after_67_silver
-7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6b7a 7i7h 8c8d 7h6g | 2c2d
-# v2_after_58_gold
-7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 6b7a 7i7h 8c8d 6i5h | 2c2d
 # early_silver68_entry
 5i4h 3c3d | 7i6h
 # fourth_rook_prepare_silver47
@@ -52,3 +42,45 @@
 5i4h 3c3d 7i6h 8c8d 6i7h 8d8e 7g7f 8e8f 8g8f 8b8f 6h7g 8f8b P*8g 7a7b 2g2f 7b8c 2f2e 8c7d 4i5h 2b3c 6g6f 6c6d 5g5f 6a5b | 5h6g
 # bogin-silver74-move19-ply27-4h5h
 5i4h 3c3d 7i6h 8c8d 6i7h 8d8e 7g7f 8e8f 8g8f 8b8f 6h7g 8f8b P*8g 7a7b 2g2f 7b8c 2f2e 8c7d 4i5h 2b3c 6g6f 6c6d 5g5f 6a5b 5h6g 5a4b | 4h5h
+# mainline_after_66_pawn
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f | 8c8d
+# fourth_rook_pawn85_after_9g9f
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 9g9f | 8d8e
+# fourth_rook_pawn85_after_7i7h
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h | 8d8e
+# fourth_rook_pawn85_after_6i5h
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 6i5h | 8d8e
+# fourth_rook_pawn96_line_ply16
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 9g9f 8d8e 8h7g | 6c6d
+# fourth_rook_pawn96_line_ply18
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 9g9f 8d8e 8h7g 6c6d 7i7h | 7c7d
+# fourth_rook_pawn96_line_ply20
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 9g9f 8d8e 8h7g 6c6d 7i7h 7c7d 6i5h | 8a7c
+# fourth_rook_pawn96_line_ply22
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 9g9f 8d8e 8h7g 6c6d 7i7h 7c7d 6i5h 8a7c 4g4f | 1c1d
+# fourth_rook_pawn96_line_ply24
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 9g9f 8d8e 8h7g 6c6d 7i7h 7c7d 6i5h 8a7c 4g4f 1c1d 1g1f | 7b6c
+# fourth_rook_pawn96_line_ply26
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 9g9f 8d8e 8h7g 6c6d 7i7h 7c7d 6i5h 8a7c 4g4f 1c1d 1g1f 7b6c 5h4g | 3c3d
+# fourth_rook_pawn96_line_ply28
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 9g9f 8d8e 8h7g 6c6d 7i7h 7c7d 6i5h 8a7c 4g4f 1c1d 1g1f 7b6c 5h4g 3c3d 3i2h | 8b8a
+# fourth_rook_pawn96_line_ply30
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 9g9f 8d8e 8h7g 6c6d 7i7h 7c7d 6i5h 8a7c 4g4f 1c1d 1g1f 7b6c 5h4g 3c3d 3i2h 8b8a 5g5f | 6a7b
+# fourth_rook_silver78_line_ply16
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g | 6c6d
+# fourth_rook_silver78_line_ply18
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6i5h | 7c7d
+# fourth_rook_silver78_line_ply20
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6i5h 7c7d 1g1f | 1c1d
+# fourth_rook_silver78_line_ply22
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6i5h 7c7d 1g1f 1c1d 6f6e | 6d6e
+# fourth_rook_silver78_line_ply24
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6i5h 7c7d 1g1f 1c1d 6f6e 6d6e 6h6e | P*6d
+# fourth_rook_silver78_line_ply26
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6i5h 7c7d 1g1f 1c1d 6f6e 6d6e 6h6e P*6d 6e6i | 7b6c
+# fourth_rook_silver78_line_ply28
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6i5h 7c7d 1g1f 1c1d 6f6e 6d6e 6h6e P*6d 6e6i 7b6c 4g4f | 8a7c
+# fourth_rook_silver78_line_ply30
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6i5h 7c7d 1g1f 1c1d 6f6e 6d6e 6h6e P*6d 6e6i 7b6c 4g4f 8a7c 7h6g | 8b8a
+# fourth_rook_capture_early_pawn65
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6f6e | 6d6e

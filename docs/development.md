@@ -82,3 +82,5 @@ git switch -c feature/example
 整理前の実験資料は `archive/pre-adoption-cleanup-2026-11-15`（`f488a64`）にあります。必要なら別worktreeで参照できます。旧実験は当時のソース・ローカル生成物を前提にしており、新mainでそのまま再実行するものではありません。履歴の書き換えはしていません。
 
 序盤定跡の統合前の実験履歴は `archive/early-silver68-before-integration-2026-11-17`（`99e4859`）に保存しています。試作の対局ランナーと検証メモはこの退避ブランチから参照できます。
+
+後手定跡の統合前の検討資料・比較ランナーは `archive/white-king62-before-integration-2026-11-18`（`25ee593`）に保存しています。
