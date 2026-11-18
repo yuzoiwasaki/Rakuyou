@@ -19,3 +19,5 @@ Updated 2026-11-18.
 - Earlier repository cleanup is archived at `archive/pre-adoption-cleanup-2026-11-15` (`f488a64`). See docs/development.md for builds, checks and recovery.
 
 - User prefers game3 shape and proposes G32+G72. Depth24 with P94 deferred: White28 G32 -157/G52 -164; after G32/S67/S63/K28, White32 G72 -224 vs G52 -164. Candidate reaches requested shape but PV later K52. See results/white-king62/gold32-review.html (right G32+G72, White top). No trial-book changes pending review.
+
+- Latest: user wants N33/B13 instead of P24 from G32/G72 shape. P33 still blocks knight: must prepare P34. Depth24 legal comparison B13 first -186/P24 -254/P34 -272. B13 PV then P44/P34/N33 retains K62 and both golds; P34 first allows bishop exchange. Normal-side reply includes S47 and edge attack, so not forced. Board results/white-king62/knight33-review.html, right B13-first. No book edits.
