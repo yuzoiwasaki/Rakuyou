@@ -27,3 +27,5 @@ Updated 2026-11-18.
 - Latest local question: pawn44 PV49 Sx53+ recapture. Limited common depth21 (24 target/20s): Gx53 -119 vs Kx53 -436; Kx53 allows P*66/P65 and PV later K42. Both full PVs native legal. Results silver53-recapture-analysis.json. No code/book changes.
 
 - User requests Draft PR now, to refine during testing. Agreed core candidate: early P85, S63/G72/N73/R81, capture Black P65 where verified. G52 vs G32 remains flexible; G32/B13/N33 attack plan is optional and may be rejected independently. Comparison20 games pending user report; do not merge or mark ready yet. Clean experimental docs/tools and integrate adopted book before final review.
+
+- Draft PR4 comparison finished: results/gold32-comparison-20261118-202509; previous4W5L1cap (cap White-1980), candidate2W8L, no errors. G32 hit10/10, G72 registration9/10, P44 registration4/10. Recommend omit fixed G32 add-on, retain early P85/S63/G72/N73/R81 and sound Px65; not proof G32 bad. Candidate game2 achieved G43/N33/B13 and stayed near even to64, lost later. Board results/white-king62/gold32-match-review.html. No book removal yet; awaiting discussion.
