@@ -23,3 +23,5 @@ Updated 2026-11-18.
 - User asks P34 instead of R81. After P34/P65/Px65/Nx65, depth22 Bx88+ -459 vs Nx65 -1732 (Black Bx22+). Bx88+ PV allows Nx53+/Kx53/Rx88, so K62 not maintained. Review results/white-king62/bishop34-review.html; no book edits.
 
 - Latest: user proposes White30 P84 instead of G73 after knight exchange/P*64/S56 and doubts -511. Depth24 G73 -447 vs P84 -537; after P84 normal OFF engine also chooses Black N*45 (+511), then S44/P*65. Review results/white-king62/exchange-p84-review.html; no trial-book change.
+
+- Latest promising direction: user proposes P85/B77 before Black N77. Investigated White12 P84 then14 P85 (before P64). After B77,16 P64 PV reaches K62/S63/N73/R81/G72, including Px65/Rx65/P*64 against early attack in S78 branch. Depth22 -256 (P96 branch)/-227 (S78 branch), not strength proof. Board results/white-king62/early-p85-review.html. Trial still unchanged; user review next, then check earlier P65/non-B77 replies.
