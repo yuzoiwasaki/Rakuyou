@@ -1,8 +1,12 @@
 # Rakuyou resume map
 
-Updated 2026-11-18.
+Updated 2026-11-19.
 
-- PR #4 (https://github.com/yuzoiwasaki/Rakuyou/pull/4), branch `experiment/white-king62`, integrates the approved White fourth-rook book update. User reviews and merges; do not merge automatically.
+- Active branch: `experiment/bogin-bishop-transfer`, based on merged main `2bdf140`. User authorized trying bishop relocation first on one branch; decide later whether the other defensive-search idea shares the branch. Do not merge automatically.
+- Trial files: `experiments/bogin-bishop-transfer/`. Six conditional book additions (including a move-order transposition) at plies31/33/35/37/39 prepare P45/P36/N37 then B79/B46, retaining R58. `prepare.py` builds isolated baseline/candidate books under ignored results/ and checks all native legal moves, book hits and fallback. Trial BookMaxPly40 for both arms; installed book/defaults/C++ unchanged. This is a narrow known-game11 experiment, not adopted or strength-validated.
+- Main40 (20261118-231607):14W21L5caps. Loss screening and bounded diagnostics in `results/main-20261119-review/`; game15 B31 tactical idea was deprioritized by user. Two retained themes: bogin bishop relocation (active), and game26 R72/Px75 defense against rook/bishop participation (deferred; evaluation vs search cause not established).
+
+- PR #4 (https://github.com/yuzoiwasaki/Rakuyou/pull/4), branch `experiment/white-king62`, was merged by the user as main `2bdf140`; it integrates the approved White fourth-rook book update.
 - Operational book: `books/shin-yonenaga-book-v1.txt`, generated from `books/shin-yonenaga-book.json` by `tools/books/build_operational_shin_book.py`.42 positions (Black15 unchanged, White27). White advances P84/P85 before P64 and uses reviewed S63/G72/N73/R81 and Px65 lines. Unregistered positions return to search.
 - Fixed G32 adoption was rejected. White's 4a gold destination and P94 are not prescribed. King location and formation are not forced against arbitrary replies. Evaluation/search C++ is unchanged.
 - BookMaxPly remains32; use OwnBook ON and the operational filename. Builds copy the book to bin/. Existing GUI settings may need manual adjustment; see books/README.md.
