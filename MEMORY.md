@@ -3,6 +3,7 @@
 Updated 2026-11-19.
 
 - Active branch: `experiment/bogin-bishop-transfer`, based on merged main `2bdf140`. User authorized trying bishop relocation first on one branch; decide later whether the other defensive-search idea shares the branch. Do not merge automatically.
+- Latest steering: user dislikes K39 into central rook; pause bishop-transfer book trial and prioritize early P26/P25, exchanging the second-file pawn then R26 if allowed. Avoid early P46/P36. Results/preview in `results/bogin-floating-rook/`; conditional exchange/R26 ~equal, but White can refuse with B33 (then R26 -195 vs S38 -124 at depth22). No floating-rook book implementation yet. Branch README records both branches; next review the floating-rook formation with user.
 - Trial files: `experiments/bogin-bishop-transfer/`. Six conditional book additions (including a move-order transposition) at plies31/33/35/37/39 prepare P45/P36/N37 then B79/B46, retaining R58. `prepare.py` builds isolated baseline/candidate books under ignored results/ and checks all native legal moves, book hits and fallback. Trial BookMaxPly40 for both arms; installed book/defaults/C++ unchanged. This is a narrow known-game11 experiment, not adopted or strength-validated.
 - Main40 (20261118-231607):14W21L5caps. Loss screening and bounded diagnostics in `results/main-20261119-review/`; game15 B31 tactical idea was deprioritized by user. Two retained themes: bogin bishop relocation (active), and game26 R72/Px75 defense against rook/bishop participation (deferred; evaluation vs search cause not established).
 
