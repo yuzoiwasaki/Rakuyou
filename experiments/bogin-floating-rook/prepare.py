@@ -70,6 +70,14 @@ def main():
         # The move order G32 / S85 can transpose into the reviewed S38 entry.
         transposed = root + ['2g2f','7b8c','2f2e','8c8d','2e2d','2c2d','2h2d','4a3b','2d2f','8d8e']
         assert engine.choose_move(transposed, 1, 30)[::2] == ('3i3h', 'dedicated_book')
+        # S42 is not equivalent to the bogin S83 shape: do not force R26 vs B33.
+        s42 = next(e for e in additions if e['id'] == 'floating_s42_ply15')['moves']
+        for reply in ('2b3c', 'P*8f'):
+            moves = s42 + ['2g2f', '4a3b', '2f2e', reply]
+            assert reply in legal(engine, moves[:-1])
+            assert engine.choose_move(moves, 1, 30)[2] == 'search'
+        moves = s42 + ['2g2f', '7a7b', '2f2e', '2b3c']
+        assert engine.choose_move(moves, 1, 30)[2] == 'search'
         engine.send('setoption name OwnBook value false')
         assert engine.choose_move(additions[0]['moves'], 1, 30)[2] == 'search'
     finally:
