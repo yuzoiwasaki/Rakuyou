@@ -55,6 +55,13 @@ def main():
             move, _, origin = engine.choose_move(moves, 1, 30)
             assert (move, origin) == (entry['book_move'], 'dedicated_book'), entry['id']
         root = additions[0]['moves']
+        promotion = next(e for e in additions if e['id'] == 'floating_exchange_ply23')
+        defended = next(e for e in additions if e['id'] == 'floating_exchange_ply23_after_g32')
+        assert engine.choose_move(promotion['moves'], 1, 30)[::2] == ('2d2c+', 'dedicated_book')
+        assert engine.choose_move(defended['moves'], 1, 30)[::2] == ('2d2f', 'dedicated_book')
+        after_promotion = promotion['moves'] + ['2d2c+', '4a3b']
+        assert '4a3b' in legal(engine, after_promotion[:-1])
+        assert engine.choose_move(after_promotion, 1, 30)[2] == 'search'
         blocked = root + ['2g2f', '7b8c', '2f2e', '2b3c', '2h2f']
         exchanged = root + ['2g2f', '7b8c', '2f2e', '8c8d', '2e2d', '2c2d', '2h2d', '8d8e', '2d2f']
         for moves in (blocked + ['P*8f'], exchanged + ['P*8f'], root + ['2g2f', '5a4b']):
