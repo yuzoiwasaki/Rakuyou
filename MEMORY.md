@@ -1,6 +1,8 @@
 # Rakuyou resume map
 
-Updated 2026-11-20.
+Updated 2026-11-21.
+
+- User accepts left K39/S66 counterplay as playable and authorized S42 comparison10. Command: `caffeinate -i python3 experiments/bogin-floating-rook/run_matches.py --s42`, output `results/floating-rook-s42-10games.json`. Five nested known starts14/16/18/20/22 x baseline/candidate; all Black Shin10/D10 vs White normal bookOFF; d15/10s/512MB/1thread/256 added plies. Baseline58 shares all candidate61 entries except floating_s42_ply23/25/27 (R26/S38/K39), so pawn exchange is common and control searches afterward, not forced R28. Existing mode/book unchanged. Native all58 control hits/three search fallbacks checked;10 two-ply smoke slots passed (last pair search vs booked R26). User runs full batch; do not pool or infer strength from nested starts. Trial hit counts include common entries; inspect specific post-exchange IDs.
 
 - Central-silver pressure checked (9 bounded roots, bookOFF, d23 cap/10s/MultiPV2/fresh engines). Root retreat R28 -131 vs R26 -185 d23; no clear forced rook trap. After R26/P*23/S38/S54, K39 -44 vs R36 -90 restricted d22; after K39/S45, S66 +187 or P75 +166 d21; after R36/S45, R66/R26 both0 with repetition PV. Not played games or strength proof. Existing P45 line blocks direct S54-S45. Preview `results/floating-rook-s42/silver-pressure-preview.html` (both Black bottom; left K39/S45/S66, right R36/S45/R66); all displayed moves native-legal. Detailed raw logs and docs updated; book unchanged pending user shape review.
 

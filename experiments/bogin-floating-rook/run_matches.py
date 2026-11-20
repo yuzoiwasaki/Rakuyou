@@ -14,7 +14,7 @@ import time
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 from tools.analysis.paired_selfplay import UsiEngine
-from prepare import legal, main as prepare_books
+from prepare import legal, main as prepare_books, compile_operational_book
 
 
 def digest(path):
@@ -66,7 +66,30 @@ def position_key(engine, moves):
             return key
 
 
-def run(output, smoke, startpos=False):
+def prepare_s42_control():
+    """Same entry book; only the three post-exchange commitments are removed."""
+    out = ROOT / 'results/bogin-floating-rook'
+    candidate = json.loads((out / 'candidate-source.json').read_text())
+    omitted = {'floating_s42_ply23', 'floating_s42_ply25', 'floating_s42_ply27'}
+    removed = [e for e in candidate['entries'] if e['id'] in omitted]
+    assert {e['id'] for e in removed} == omitted
+    control = {**candidate, 'entries': [e for e in candidate['entries'] if e['id'] not in omitted]}
+    source = out / 's42-search-source.json'
+    book = out / 's42-search-book.txt'
+    source.write_text(json.dumps(control, indent=2) + '\n')
+    book.write_text(compile_operational_book(source))
+    engine = UsiEngine(ROOT / 'bin/match', True, True, 1, 64, None, 32, book)
+    try:
+        for entry in control['entries']:
+            assert engine.choose_move(entry['moves'], 1, 30)[::2] == (entry['book_move'], 'dedicated_book'), entry['id']
+        for entry in removed:
+            assert engine.choose_move(entry['moves'], 1, 30)[2] == 'search', entry['id']
+    finally:
+        engine.close()
+    return book
+
+
+def run(output, smoke, startpos=False, s42=False):
     for name in list(os.environ):
         if name.startswith('RAKUYOU'):
             del os.environ[name]
@@ -74,12 +97,12 @@ def run(output, smoke, startpos=False):
                   threads=1, hash_mb=64 if smoke else 512, book_max_ply=32,
                   added_plies=2 if smoke else 256, smoke=smoke,
                   shin='ShinON/support10/D10', normal='normalOFF/support0/D0',
-                  normal_book=startpos, normal_book_max_ply=20, startpos=startpos)
+                  normal_book=startpos, normal_book_max_ply=20, startpos=startpos, s42=s42)
     executable = ROOT / 'bin/match'
     inputs = [executable] + [ROOT / 'bin' / f for f in
                              ('params.bin', 'progress.bin', 'probability.bin')]
     inputs += [Path(__file__), Path(__file__).with_name('prepare.py'),
-               Path(__file__).with_name('entries.json'), Path(__file__).with_name('starts.json'),
+               Path(__file__).with_name('entries.json'), Path(__file__).with_name('s42-starts.json' if s42 else 'starts.json'),
                ROOT / 'tools/analysis/paired_selfplay.py',
                ROOT / 'tools/books/build_operational_shin_book.py',
                ROOT / 'books/shin-yonenaga-book.json']
@@ -98,13 +121,15 @@ def run(output, smoke, startpos=False):
             raise ValueError('Frozen normal book changed')
     else:
         prepare_books()
+        control_book = prepare_s42_control() if s42 else None
         snapshot.mkdir(parents=True, exist_ok=False)
         for arm in ('baseline', 'candidate'):
-            content = (ROOT / f'results/bogin-floating-rook/{arm}-book.txt').read_bytes()
+            book = control_book if s42 and arm == 'baseline' else ROOT / f'results/bogin-floating-rook/{arm}-book.txt'
+            content = book.read_bytes()
             (snapshot / f'{arm}.txt').write_bytes(content)
         if startpos:
             (snapshot / 'normal.bin').write_bytes((ROOT / 'bin/book.bin').read_bytes())
-        starts = json.loads(Path(__file__).with_name('starts.json').read_text())
+        starts = json.loads(Path(__file__).with_name('s42-starts.json' if s42 else 'starts.json').read_text())
         games = []
         for i, start in enumerate(starts['starts']):
             for arm in (('baseline', 'candidate') if i % 2 == 0 else ('candidate', 'baseline')):
@@ -205,16 +230,20 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--smoke', action='store_true', help='depth1, two added plies; separate output')
     parser.add_argument('--output', type=Path)
-    parser.add_argument('--startpos', action='store_true', help='candidate vs normal, startpos, ten games per color')
+    modes = parser.add_mutually_exclusive_group()
+    modes.add_argument('--s42', action='store_true', help='S42 entry, five paired starts; baseline searches after pawn exchange')
+    modes.add_argument('--startpos', action='store_true', help='candidate vs normal, startpos, ten games per color')
     args = parser.parse_args()
     name = 'floating-rook-startpos20' if args.startpos else 'floating-rook-10games'
+    if args.s42:
+        name = 'floating-rook-s42-10games'
     if args.smoke:
         name += '-smoke'
     output = (args.output or ROOT / f'results/{name}.json').resolve()
     output.parent.mkdir(parents=True, exist_ok=True)
     with output.with_suffix('.lock').open('w') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        run(output, args.smoke, args.startpos)
+        run(output, args.smoke, args.startpos, args.s42)
 
 
 if __name__ == '__main__':
