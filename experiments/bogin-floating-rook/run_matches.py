@@ -159,7 +159,7 @@ def run(output, smoke, startpos=False, s42=False, knight77=False, history_half=F
                           status='pending', winner=None, resumes=0) for i in range(20)]
             starts['description'] = ('Twenty start-position games, candidate Shin10/10 vs normal0/0; '
                 'ten per color, normal book ON through20 with native random/default filters; '
-                'Shin book ON through32, native first-move rule retained. '
+                f'Shin book ON through{config["book_max_ply"]}, native first-move rule retained. '
                 'Screen natural openings/style, not controlled strength proof. No pooling or automatic adoption.')
         data = dict(config=config, input_sha256=hashes, description=starts['description'],
                     book_sha256={a: digest(snapshot / f'{a}.txt') for a in ('baseline', 'candidate')},
@@ -193,6 +193,8 @@ def run(output, smoke, startpos=False, s42=False, knight77=False, history_half=F
                 e.new_game()
                 engines.append(e)
             delta = json.loads(Path(__file__).with_name('knight77.json' if formation else 'entries.json').read_text())['entries']
+            if startpos and formation:
+                delta += json.loads(Path(__file__).with_name('entries.json').read_text())['entries']
             trial_keys = {position_key(engines[shin_side], e['moves']): e['id'] for e in delta}
             game.setdefault('trial_book_hits', [])
             # Validate fixture history before spending time on its continuation.
@@ -248,6 +250,7 @@ def main():
     parser.add_argument('--smoke', action='store_true', help='depth1, two added plies; separate output')
     parser.add_argument('--output', type=Path)
     modes = parser.add_mutually_exclusive_group()
+    modes.add_argument('--formation-startpos', action='store_true', help='latest66-position floating-rook book, original search, startpos ten games per color; cap44')
     modes.add_argument('--history-half', action='store_true', help='same knight77 book for both arms; only candidate Shin engine halves shared history per search')
     modes.add_argument('--knight77', action='store_true', help='five paired starts, previous floating-rook book vs N77/P96/B97 additions; both cap44')
     modes.add_argument('--s42', action='store_true', help='S42 entry, five paired starts; baseline searches after pawn exchange')
@@ -260,13 +263,15 @@ def main():
         name = 'floating-rook-knight77-10games'
     if args.history_half:
         name = 'history-half-knight77-10games'
+    if args.formation_startpos:
+        name = 'floating-rook-formation-startpos20'
     if args.smoke:
         name += '-smoke'
     output = (args.output or ROOT / f'results/{name}.json').resolve()
     output.parent.mkdir(parents=True, exist_ok=True)
     with output.with_suffix('.lock').open('w') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        run(output, args.smoke, args.startpos, args.s42, args.knight77, args.history_half)
+        run(output, args.smoke, args.startpos or args.formation_startpos, args.s42, args.knight77 or args.formation_startpos, args.history_half)
 
 
 if __name__ == '__main__':
