@@ -16,6 +16,7 @@ sys.path.insert(0, str(ROOT))
 from tools.analysis.paired_selfplay import UsiEngine
 from prepare import legal, main as prepare_books, compile_operational_book
 from prepare_knight77 import prepare as prepare_knight77
+from prepare_history_half import prepare as prepare_history_half
 
 
 def digest(path):
@@ -90,17 +91,19 @@ def prepare_s42_control():
     return book
 
 
-def run(output, smoke, startpos=False, s42=False, knight77=False):
+def run(output, smoke, startpos=False, s42=False, knight77=False, history_half=False):
     for name in list(os.environ):
         if name.startswith('RAKUYOU'):
             del os.environ[name]
-    starts_file = Path(__file__).with_name('knight77.json' if knight77 else 's42-starts.json' if s42 else 'starts.json')
+    formation = knight77 or history_half
+    starts_file = Path(__file__).with_name('knight77.json' if formation else 's42-starts.json' if s42 else 'starts.json')
     config = dict(depth=1 if smoke else 15, byoyomi_ms=100 if smoke else 10000,
-                  threads=1, hash_mb=64 if smoke else 512, book_max_ply=44 if knight77 else 32,
+                  threads=1, hash_mb=64 if smoke else 512, book_max_ply=44 if formation else 32,
                   added_plies=2 if smoke else 256, smoke=smoke,
                   shin='ShinON/support10/D10', normal='normalOFF/support0/D0',
-                  normal_book=startpos, normal_book_max_ply=20, startpos=startpos, s42=s42, knight77=knight77)
+                  normal_book=startpos, normal_book_max_ply=20, startpos=startpos, s42=s42, knight77=knight77, history_half=history_half)
     executable = ROOT / 'bin/match'
+    candidate_executable = prepare_history_half() if history_half else executable
     inputs = [executable] + [ROOT / 'bin' / f for f in
                              ('params.bin', 'progress.bin', 'probability.bin')]
     inputs += [Path(__file__), Path(__file__).with_name('prepare.py'),
@@ -108,7 +111,9 @@ def run(output, smoke, startpos=False, s42=False, knight77=False):
                ROOT / 'tools/analysis/paired_selfplay.py',
                ROOT / 'tools/books/build_operational_shin_book.py',
                ROOT / 'books/shin-yonenaga-book.json']
-    inputs.append(Path(__file__).with_name('prepare_knight77.py'))
+    inputs += [Path(__file__).with_name('prepare_knight77.py'), Path(__file__).with_name('prepare_history_half.py')]
+    if history_half:
+        inputs += [candidate_executable, ROOT/'results/history-half/build-manifest.json']
     if startpos:
         inputs.append(ROOT / 'bin/book.bin')
     hashes = {str(p.relative_to(ROOT)): digest(p) for p in inputs}
@@ -125,17 +130,22 @@ def run(output, smoke, startpos=False, s42=False, knight77=False):
     else:
         prepare_books()
         control_book = prepare_s42_control() if s42 else None
-        formation_book = prepare_knight77() if knight77 else None
+        formation_book = prepare_knight77() if formation else None
         snapshot.mkdir(parents=True, exist_ok=False)
         for arm in ('baseline', 'candidate'):
             book = control_book if s42 and arm == 'baseline' else ROOT / f'results/bogin-floating-rook/{arm}-book.txt'
-            if knight77:
-                book = formation_book if arm == 'candidate' else ROOT / 'results/bogin-floating-rook/candidate-book.txt'
+            if formation:
+                book = formation_book if arm == 'candidate' or history_half else ROOT / 'results/bogin-floating-rook/candidate-book.txt'
             content = book.read_bytes()
             (snapshot / f'{arm}.txt').write_bytes(content)
         if startpos:
             (snapshot / 'normal.bin').write_bytes((ROOT / 'bin/book.bin').read_bytes())
         starts = json.loads(starts_file.read_text())
+        if history_half:
+            starts['description'] = ('Five known nested knight77 starts x baseline/candidate, ten games; both use the same66-position knight77 book and cap44. '
+                'Baseline bin/match versus per-search shared-history half candidate; fixed normal bin/match opponent bookOFF. '
+                'All Black Shin10/D10 vs White normal0/0, depth15/byoyomi10s/256added. '
+                'This narrow opening screen is not general strength validation; no pooling or automatic adoption.')
         games = []
         for i, start in enumerate(starts['starts']):
             for arm in (('baseline', 'candidate') if i % 2 == 0 else ('candidate', 'baseline')):
@@ -174,14 +184,15 @@ def run(output, smoke, startpos=False, s42=False, knight77=False):
             shin_side = 0 if game.get('shin_color', 'black') == 'black' else 1
             for side in (0, 1):
                 shin = side == shin_side
-                e = MatchEngine(executable, shin, shin or startpos, 1, config['hash_mb'],
+                selected_executable = candidate_executable if history_half and shin and game['arm'] == 'candidate' else executable
+                e = MatchEngine(selected_executable, shin, shin or startpos, 1, config['hash_mb'],
                                 snapshot / 'normal.bin' if startpos and not shin else None,
                                 config['book_max_ply'] if shin else (20 if startpos else 32),
                                 snapshot / f"{game['arm']}.txt" if shin else None)
                 e.byoyomi = config['byoyomi_ms']
                 e.new_game()
                 engines.append(e)
-            delta = json.loads(Path(__file__).with_name('knight77.json' if knight77 else 'entries.json').read_text())['entries']
+            delta = json.loads(Path(__file__).with_name('knight77.json' if formation else 'entries.json').read_text())['entries']
             trial_keys = {position_key(engines[shin_side], e['moves']): e['id'] for e in delta}
             game.setdefault('trial_book_hits', [])
             # Validate fixture history before spending time on its continuation.
@@ -197,7 +208,7 @@ def run(output, smoke, startpos=False, s42=False, knight77=False):
                 record = dict(ply=len(game['moves']) + 1, player=player, move=move,
                               source=source, analysis=analysis)
                 game['records'].append(record)
-                if source == 'dedicated_book' and player == 'shin' and game['arm'] == 'candidate':
+                if source == 'dedicated_book' and player == 'shin' and (game['arm'] == 'candidate' or history_half):
                     trial_id = trial_keys.get(position_key(e, game['moves']))
                     if trial_id is not None:
                         record['trial_entry'] = trial_id
@@ -237,6 +248,7 @@ def main():
     parser.add_argument('--smoke', action='store_true', help='depth1, two added plies; separate output')
     parser.add_argument('--output', type=Path)
     modes = parser.add_mutually_exclusive_group()
+    modes.add_argument('--history-half', action='store_true', help='same knight77 book for both arms; only candidate Shin engine halves shared history per search')
     modes.add_argument('--knight77', action='store_true', help='five paired starts, previous floating-rook book vs N77/P96/B97 additions; both cap44')
     modes.add_argument('--s42', action='store_true', help='S42 entry, five paired starts; baseline searches after pawn exchange')
     modes.add_argument('--startpos', action='store_true', help='candidate vs normal, startpos, ten games per color')
@@ -246,13 +258,15 @@ def main():
         name = 'floating-rook-s42-10games'
     if args.knight77:
         name = 'floating-rook-knight77-10games'
+    if args.history_half:
+        name = 'history-half-knight77-10games'
     if args.smoke:
         name += '-smoke'
     output = (args.output or ROOT / f'results/{name}.json').resolve()
     output.parent.mkdir(parents=True, exist_ok=True)
     with output.with_suffix('.lock').open('w') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        run(output, args.smoke, args.startpos, args.s42, args.knight77)
+        run(output, args.smoke, args.startpos, args.s42, args.knight77, args.history_half)
 
 
 if __name__ == '__main__':
