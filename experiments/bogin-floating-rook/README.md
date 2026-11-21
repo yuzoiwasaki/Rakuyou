@@ -668,3 +668,30 @@ s38-analysis.json、s38-follow-analysis.json、s38-float-analysis.json。
 s38-rollouts.json、s38-verify-analysis.json、s38-white26-analysis.json。
 最初の白番参考探索はShinONだったため、26手目は通常側OFFで上記の再確認を行った。
 定跡・C++は未変更。
+
+
+## ▲3八銀の入口だけを追加
+
+△4二銀・△7二銀・△3三角の確認済み局面に19▲3八銀を追加した。
+登録IDは floating_s42_s72_b33_ply19。基本試験定跡62局面、桂・端角を含む最新版67局面。
+以後の浮き飛車／右玉の選択は探索に任せる。正式定跡・C++は未変更。
+
+全局面の合法性・命中に加え、▲3八銀以後の△3二金・△4四歩・△6四歩・
+△8三銀・△8六歩打で探索へ戻ることと、BookMaxPly18で追加手が発動しないことを確認。
+実際の67局面定跡で18〜35手目を短く試走すると、19▲3八銀だけが定跡で、
+21▲4六歩、23▲4七銀、25▲3六歩、27▲3七桂、31▲2九飛、33▲3八玉、
+35▲4八金まで探索で進んだ。35手目先手評価−39（深さ15）、終局検証ではない。
+記録は results/formation-startpos20-review/s38-book-rollout.json。
+
+20枠2手のスモークは results/floating-rook-s38-startpos20-smoke.json に保存。
+長時間の確認は以下をユーザーが実行する。
+
+```bash
+caffeinate -i python3 experiments/bogin-floating-rook/run_matches.py \
+  --formation-startpos \
+  --output results/floating-rook-s38-startpos20.json
+```
+
+初手から先後10局ずつ。元の探索、深さ15・秒読み10秒・1thread/512MB、
+通常側定跡20手／試験側44手、全256手。変更前の結果に追記しない。
+新しい入口の命中と組み方を確認し、問題なければ統合と採用PRの整理へ進む。

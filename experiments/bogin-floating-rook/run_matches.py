@@ -142,7 +142,7 @@ def run(output, smoke, startpos=False, s42=False, knight77=False, history_half=F
             (snapshot / 'normal.bin').write_bytes((ROOT / 'bin/book.bin').read_bytes())
         starts = json.loads(starts_file.read_text())
         if history_half:
-            starts['description'] = ('Five known nested knight77 starts x baseline/candidate, ten games; both use the same66-position knight77 book and cap44. '
+            starts['description'] = ('Five known nested knight77 starts x baseline/candidate, ten games; both use the same latest knight77 book and cap44. '
                 'Baseline bin/match versus per-search shared-history half candidate; fixed normal bin/match opponent bookOFF. '
                 'All Black Shin10/D10 vs White normal0/0, depth15/byoyomi10s/256added. '
                 'This narrow opening screen is not general strength validation; no pooling or automatic adoption.')
@@ -250,7 +250,7 @@ def main():
     parser.add_argument('--smoke', action='store_true', help='depth1, two added plies; separate output')
     parser.add_argument('--output', type=Path)
     modes = parser.add_mutually_exclusive_group()
-    modes.add_argument('--formation-startpos', action='store_true', help='latest66-position floating-rook book, original search, startpos ten games per color; cap44')
+    modes.add_argument('--formation-startpos', action='store_true', help='latest floating-rook book, original search, startpos ten games per color; cap44')
     modes.add_argument('--history-half', action='store_true', help='same knight77 book for both arms; only candidate Shin engine halves shared history per search')
     modes.add_argument('--knight77', action='store_true', help='five paired starts, previous floating-rook book vs N77/P96/B97 additions; both cap44')
     modes.add_argument('--s42', action='store_true', help='S42 entry, five paired starts; baseline searches after pawn exchange')

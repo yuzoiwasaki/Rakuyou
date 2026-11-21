@@ -77,7 +77,15 @@ def main():
             assert reply in legal(engine, moves[:-1])
             assert engine.choose_move(moves, 1, 30)[2] == 'search'
         moves = s42 + ['2g2f', '7a7b', '2f2e', '2b3c']
+        assert engine.choose_move(moves, 1, 30)[::2] == ('3i3h', 'dedicated_book')
+        # The common silver entry does not prescribe floating rook or right king.
+        for reply in ('4a3b', '4c4d', '6c6d', '7b8c', 'P*8f'):
+            continuation = moves + ['3i3h', reply]
+            assert reply in legal(engine, continuation[:-1])
+            assert engine.choose_move(continuation, 1, 30)[2] == 'search'
+        engine.send('setoption name BookMaxPly value 18')
         assert engine.choose_move(moves, 1, 30)[2] == 'search'
+        engine.send('setoption name BookMaxPly value 32')
         engine.send('setoption name OwnBook value false')
         assert engine.choose_move(additions[0]['moves'], 1, 30)[2] == 'search'
     finally:
