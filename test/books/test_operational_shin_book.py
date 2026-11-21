@@ -91,6 +91,13 @@ class OperationalBookTest(unittest.TestCase):
                          white + ['8c8d','9g9f','8d8e','7i7h']]
         e = self.engine()
         try:
+            # Developing the White gold must not prescribe later left-gold/king moves.
+            for key in ('white_gold72_ply28', 'white_gold72_after_rook81_ply30'):
+                entry = entries[key]
+                for reply in ('3i2h', '1g1f'):
+                    moves = entry['moves'] + [entry['book_move'], reply]
+                    self.assertIn(reply, self.legal(e, moves[:-1]))
+                    self.assertEqual(e.choose_move(moves, 1, 30)[2], 'search')
             for moves in [bogin[:13] + ['5a4b'], ['5i4h', '3c3d', '7i6h', '7a6b'],
                           fourth + ['4g4f', '4a5b']] + white_replies:
                 self.assertIn(moves[-1], self.legal(e, moves[:-1]))
