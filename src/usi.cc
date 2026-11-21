@@ -368,7 +368,7 @@ UsiOptions::UsiOptions() {
   map_.emplace("ShinBookFile", UsiOption("shin-yonenaga-book-v1.txt"));
 
   // 定跡を用いる最大手数
-  map_.emplace("BookMaxPly", UsiOption(32, 0, 50));
+  map_.emplace("BookMaxPly", UsiOption(44, 0, 50));
 
 #if 0
   // 定跡手の評価値のしきい値（先手番）（先手番側から見た評価値がこの値未満の定跡手は選択しない）

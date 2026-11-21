@@ -15,7 +15,7 @@ class OperationalBookTest(unittest.TestCase):
     def entries(self):
         return json.loads(builder.SOURCE.read_text())['entries']
 
-    def engine(self, own=True, max_ply=32, shin=True):
+    def engine(self, own=True, max_ply=44, shin=True):
         binary = ROOT / ('bin/release' if shin else 'bin/match')
         if not binary.is_file():
             self.skipTest('make release and make match first')
@@ -83,7 +83,7 @@ class OperationalBookTest(unittest.TestCase):
 
     def test_unregistered_replies_do_not_force_formation(self):
         entries = {x['id']: x for x in self.entries()}
-        bogin = entries['bogin-silver83-move17-ply17-4i5h']['moves']
+        bogin = entries['floating_exchange_ply17']['moves']
         fourth = entries['fourth_rook_prepare_silver47']['moves']
         white = entries['mainline_after_66_pawn']['moves']
         # Early attacks and skipping B77 must not force the quiet formation.
@@ -91,10 +91,36 @@ class OperationalBookTest(unittest.TestCase):
                          white + ['8c8d','9g9f','8d8e','7i7h']]
         e = self.engine()
         try:
-            for moves in [bogin[:14], ['5i4h', '3c3d', '7i6h', '7a6b'],
+            for moves in [bogin[:13] + ['5a4b'], ['5i4h', '3c3d', '7i6h', '7a6b'],
                           fourth + ['4g4f', '4a5b']] + white_replies:
                 self.assertIn(moves[-1], self.legal(e, moves[:-1]))
                 self.assertEqual(e.choose_move(moves, 1, 30)[2], 'search')
+        finally:
+            e.close()
+
+    def test_floating_rook_scope_and_shared_silver_entry(self):
+        entries = {x['id']: x for x in self.entries()}
+        e = self.engine()
+        try:
+            silver = entries['floating_s42_s72_b33_ply19']['moves']
+            self.assertEqual(e.choose_move(silver, 1, 30)[::2],
+                             ('3i3h', 'dedicated_book'))
+            # Both plans remain searched after developing the shared silver.
+            for reply in ('4a3b', '4c4d', '6c6d', '7b8c', 'P*8f'):
+                moves = silver + ['3i3h', reply]
+                self.assertIn(reply, self.legal(e, moves[:-1]))
+                self.assertEqual(e.choose_move(moves, 1, 30)[2], 'search')
+            knight = entries['n77_main39']['moves']
+            attack = knight + ['8i7g', '6d6e']
+            self.assertIn(attack[-1], self.legal(e, attack[:-1]))
+            self.assertEqual(e.choose_move(attack, 1, 30)[2], 'search')
+            promotion = entries['floating_exchange_ply23']['moves']
+            self.assertEqual(e.choose_move(promotion, 1, 30)[::2],
+                             ('2d2c+', 'dedicated_book'))
+            # Moving the gold first defends 23; float instead of promoting.
+            defended = entries['floating_exchange_ply23_after_g32']['moves']
+            self.assertEqual(e.choose_move(defended, 1, 30)[::2],
+                             ('2d2f', 'dedicated_book'))
         finally:
             e.close()
 
@@ -114,8 +140,8 @@ class OperationalBookTest(unittest.TestCase):
         entry = max(self.entries(), key=lambda x:len(x['moves']))
         ply = len(entry['moves']) + 1
         self.assertGreater(ply, 20)
-        self.assertLessEqual(ply, 32)
-        for own, limit, expected in [(False,32,'search'), (True,ply-1,'search'),
+        self.assertLessEqual(ply, 44)
+        for own, limit, expected in [(False,44,'search'), (True,ply-1,'search'),
                                      (True,ply,'dedicated_book')]:
             e = self.engine(own=own, max_ply=limit)
             try:
@@ -133,7 +159,7 @@ class OperationalBookTest(unittest.TestCase):
                 line=e.lines.get(timeout=10)
                 lines.append(line)
                 if line=='usiok':break
-            self.assertIn('option name BookMaxPly type spin default 32 min 0 max 50', lines)
+            self.assertIn('option name BookMaxPly type spin default 44 min 0 max 50', lines)
         finally:
             e.close()
 

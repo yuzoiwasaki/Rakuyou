@@ -24,12 +24,12 @@ GUIにも `tools/run-engine.sh` を登録できます。起動ディレクトリ
 | USI設定 | 既定値 |
 | --- | --- |
 | OwnBook | true |
-| BookMaxPly | 32 |
+| BookMaxPly | 44 |
 | ShinBookFile | shin-yonenaga-book-v1.txt |
 
 定跡を使うか・どの定跡を使うかは引き続き選択できます。OwnBookをOFFにしても最初の▲４八玉／△６二玉は残ります。将棋所が古い項目を表示する場合は、実行ファイルを更新したうえでエンジンを再登録してください。以前の日付付き実行ファイルにはこの変更は適用されません。
 
-既存のGUI設定にBookMaxPly=20が保存されている場合は32へ変更してください。
+既存のGUI設定にBookMaxPly=20や32が保存されている場合は44へ変更してください。
 ShinBookFileで以前の試作ファイルを指定している場合は、正式な`shin-yonenaga-book-v1.txt`へ切り替えます。
 
 ## 開発用ビルド

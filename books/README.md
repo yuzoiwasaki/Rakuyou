@@ -1,12 +1,12 @@
 # 新米長玉定跡
 
 使用する定跡は [shin-yonenaga-book-v1.txt](shin-yonenaga-book-v1.txt) の1つです。
-先手15局面・後手27局面を収録しています。
+先手40局面・後手27局面を収録しています。
 生成元は [shin-yonenaga-book.json](shin-yonenaga-book.json) です。
 
 ## 使用設定
 
-OwnBookをON、BookMaxPlyを32にし、ShinBookFileに`shin-yonenaga-book-v1.txt`を指定します。
+OwnBookをON、BookMaxPlyを44にし、ShinBookFileに`shin-yonenaga-book-v1.txt`を指定します。
 ビルド時に定跡ファイルを`bin/`へコピーします。設定の変更後はエンジンを再起動してください。
 
 盤面・持駒・手番が一致すれば手順前後でも使用し、未登録局面は探索します。
