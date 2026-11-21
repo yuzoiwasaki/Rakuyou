@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 from tools.analysis.paired_selfplay import UsiEngine
 from prepare import legal, main as prepare_books, compile_operational_book
+from prepare_knight77 import prepare as prepare_knight77
 
 
 def digest(path):
@@ -89,23 +90,25 @@ def prepare_s42_control():
     return book
 
 
-def run(output, smoke, startpos=False, s42=False):
+def run(output, smoke, startpos=False, s42=False, knight77=False):
     for name in list(os.environ):
         if name.startswith('RAKUYOU'):
             del os.environ[name]
+    starts_file = Path(__file__).with_name('knight77.json' if knight77 else 's42-starts.json' if s42 else 'starts.json')
     config = dict(depth=1 if smoke else 15, byoyomi_ms=100 if smoke else 10000,
-                  threads=1, hash_mb=64 if smoke else 512, book_max_ply=32,
+                  threads=1, hash_mb=64 if smoke else 512, book_max_ply=44 if knight77 else 32,
                   added_plies=2 if smoke else 256, smoke=smoke,
                   shin='ShinON/support10/D10', normal='normalOFF/support0/D0',
-                  normal_book=startpos, normal_book_max_ply=20, startpos=startpos, s42=s42)
+                  normal_book=startpos, normal_book_max_ply=20, startpos=startpos, s42=s42, knight77=knight77)
     executable = ROOT / 'bin/match'
     inputs = [executable] + [ROOT / 'bin' / f for f in
                              ('params.bin', 'progress.bin', 'probability.bin')]
     inputs += [Path(__file__), Path(__file__).with_name('prepare.py'),
-               Path(__file__).with_name('entries.json'), Path(__file__).with_name('s42-starts.json' if s42 else 'starts.json'),
+               Path(__file__).with_name('entries.json'), starts_file,
                ROOT / 'tools/analysis/paired_selfplay.py',
                ROOT / 'tools/books/build_operational_shin_book.py',
                ROOT / 'books/shin-yonenaga-book.json']
+    inputs.append(Path(__file__).with_name('prepare_knight77.py'))
     if startpos:
         inputs.append(ROOT / 'bin/book.bin')
     hashes = {str(p.relative_to(ROOT)): digest(p) for p in inputs}
@@ -122,14 +125,17 @@ def run(output, smoke, startpos=False, s42=False):
     else:
         prepare_books()
         control_book = prepare_s42_control() if s42 else None
+        formation_book = prepare_knight77() if knight77 else None
         snapshot.mkdir(parents=True, exist_ok=False)
         for arm in ('baseline', 'candidate'):
             book = control_book if s42 and arm == 'baseline' else ROOT / f'results/bogin-floating-rook/{arm}-book.txt'
+            if knight77:
+                book = formation_book if arm == 'candidate' else ROOT / 'results/bogin-floating-rook/candidate-book.txt'
             content = book.read_bytes()
             (snapshot / f'{arm}.txt').write_bytes(content)
         if startpos:
             (snapshot / 'normal.bin').write_bytes((ROOT / 'bin/book.bin').read_bytes())
-        starts = json.loads(Path(__file__).with_name('s42-starts.json' if s42 else 'starts.json').read_text())
+        starts = json.loads(starts_file.read_text())
         games = []
         for i, start in enumerate(starts['starts']):
             for arm in (('baseline', 'candidate') if i % 2 == 0 else ('candidate', 'baseline')):
@@ -170,12 +176,12 @@ def run(output, smoke, startpos=False, s42=False):
                 shin = side == shin_side
                 e = MatchEngine(executable, shin, shin or startpos, 1, config['hash_mb'],
                                 snapshot / 'normal.bin' if startpos and not shin else None,
-                                32 if shin else (20 if startpos else 32),
+                                config['book_max_ply'] if shin else (20 if startpos else 32),
                                 snapshot / f"{game['arm']}.txt" if shin else None)
                 e.byoyomi = config['byoyomi_ms']
                 e.new_game()
                 engines.append(e)
-            delta = json.loads(Path(__file__).with_name('entries.json').read_text())['entries']
+            delta = json.loads(Path(__file__).with_name('knight77.json' if knight77 else 'entries.json').read_text())['entries']
             trial_keys = {position_key(engines[shin_side], e['moves']): e['id'] for e in delta}
             game.setdefault('trial_book_hits', [])
             # Validate fixture history before spending time on its continuation.
@@ -231,19 +237,22 @@ def main():
     parser.add_argument('--smoke', action='store_true', help='depth1, two added plies; separate output')
     parser.add_argument('--output', type=Path)
     modes = parser.add_mutually_exclusive_group()
+    modes.add_argument('--knight77', action='store_true', help='five paired starts, previous floating-rook book vs N77/P96/B97 additions; both cap44')
     modes.add_argument('--s42', action='store_true', help='S42 entry, five paired starts; baseline searches after pawn exchange')
     modes.add_argument('--startpos', action='store_true', help='candidate vs normal, startpos, ten games per color')
     args = parser.parse_args()
     name = 'floating-rook-startpos20' if args.startpos else 'floating-rook-10games'
     if args.s42:
         name = 'floating-rook-s42-10games'
+    if args.knight77:
+        name = 'floating-rook-knight77-10games'
     if args.smoke:
         name += '-smoke'
     output = (args.output or ROOT / f'results/{name}.json').resolve()
     output.parent.mkdir(parents=True, exist_ok=True)
     with output.with_suffix('.lock').open('w') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        run(output, args.smoke, args.startpos, args.s42)
+        run(output, args.smoke, args.startpos, args.s42, args.knight77)
 
 
 if __name__ == '__main__':
