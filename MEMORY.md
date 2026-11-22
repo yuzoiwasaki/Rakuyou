@@ -1,6 +1,8 @@
 # Rakuyou resume map
 
-Updated 2026-11-21.
+Updated 2026-11-22.
+
+- New branch experiment/early-rook-pawn from adoptedmain0dd9d5c. User approves game29 earlyP26 plan; prefers reviewing one game frominitial atatime, aggregate matches laterforconfirmation. Three exactBlackbookentries:7P26 afterK48/P34/S68/P84/G78/S62;9P25 onlyafterP85;11P76 onlyafterB33. Total73(43Black/30White). No eval/searchchanges or forcedfloat/S67/Kroute. Seven maintained booktests pass inclnativeallentries/transpositions/scope. Older searchtrials+40gameanalysis preserved on experiment/rightking-search-state at283d9ab. Userreview/mainmergepending; installedbinbookunchanged. Next boundedsingle-game runner localresults/early-rook-pawn-one/run.py usesknownfirst6 then2s/no-depthcap, Blackcandidatevsfixednormal,onegame,total256; fullmovesretainedforviewer.
 
 - Integrating three White book entries:22S63,28G72 after BlackG58,30G72 after R81/BlackG58 (BlackP46 branch). User approved shapes; subsequent moves remain searched. Book67→70 (Black40/White30); engine/eval/BookMaxPly44 unchanged. Known-start10 baseline4W1L/candidate3W1L1cap; initial20 baseline2W8L/candidate4W6L with only2newhitgames, identical first121plies. Third entry only short54-ply rollout, no long-game result; no strengthclaim. Experiment archived at archive/white-silver63-before-integration-2026-11-21 (e4447f5); generated results remain local. Release build and7 maintained book tests pass; all70 entries nativelegal/hit, fallback after new gold entries checked, generator/source and installed copy match. PR review/merge by user.
 
