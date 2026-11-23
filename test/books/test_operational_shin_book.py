@@ -75,7 +75,7 @@ class OperationalBookTest(unittest.TestCase):
                           if x['id']=='fourth_rook_silver38_to47_after_king71')
             self.assertEqual(silver['book_move'], '3h4g')
             white = [x for x in self.entries() if x['side']=='white']
-            self.assertFalse(any(x['book_move'].startswith('4a') or x['book_move']=='9c9d' for x in white))
+            self.assertFalse(any(x['book_move']=='9c9d' for x in white))
             self.assertIn('6a7b', {x['book_move'] for x in white})
             self.assertEqual(next(x['book_move'] for x in white if x['id']=='fourth_rook_capture_early_pawn65'), '6d6e')
         finally:
@@ -98,6 +98,14 @@ class OperationalBookTest(unittest.TestCase):
                     moves = entry['moves'] + [entry['book_move'], reply]
                     self.assertIn(reply, self.legal(e, moves[:-1]))
                     self.assertEqual(e.choose_move(moves, 1, 30)[2], 'search')
+            # The G32 formation is local to the reviewed rook-exchange line.
+            for key, reply in [('white_rook_exchange_silver63_ply22', '4g4f'),
+                               ('white_rook_exchange_gold32_ply34', '2i3g'),
+                               ('white_rook_exchange_pawn44_ply38', '6h5h')]:
+                entry = entries[key]
+                moves = entry['moves'] + [entry['book_move'], reply]
+                self.assertIn(reply, self.legal(e, moves[:-1]))
+                self.assertEqual(e.choose_move(moves, 1, 30)[2], 'search')
             for moves in [bogin[:13] + ['5a4b'], ['5i4h', '3c3d', '7i6h', '7a6b'],
                           fourth + ['4g4f', '4a5b']] + white_replies:
                 self.assertIn(moves[-1], self.legal(e, moves[:-1]))
