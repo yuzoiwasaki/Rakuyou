@@ -1,6 +1,9 @@
 # Rakuyou resume map
 
-Updated 2026-11-21.
+Updated 2026-11-23.
+
+- Early rook-pawn integration: six exact Black book positions added (70→76, Black46/White30). First three prioritize P26/P25 before opening the bishop diagonal in the S62/P85/B33 line. New P96/P76/S77 branch prepares the edge and develops S77 after bishop exchange. Other replies remain searched; no engine/evaluation/BookMaxPly change. N77/P86/P85/R89 remains a reviewed middle-game idea, not a forced book line.
+- User approved shapes after individual game review; mixed known-start and initial-position diagnostics do not establish a strength gain. All76 entries pass native legality/loading/hit checks; eight maintained book tests, generation check and diff check pass. Experiment details are preserved on the archive branch linked in the PR; local games/viewers stay under ignored results/. PR review/merge by user; GUI installation remains separate.
 
 - Integrating three White book entries:22S63,28G72 after BlackG58,30G72 after R81/BlackG58 (BlackP46 branch). User approved shapes; subsequent moves remain searched. Book67→70 (Black40/White30); engine/eval/BookMaxPly44 unchanged. Known-start10 baseline4W1L/candidate3W1L1cap; initial20 baseline2W8L/candidate4W6L with only2newhitgames, identical first121plies. Third entry only short54-ply rollout, no long-game result; no strengthclaim. Experiment archived at archive/white-silver63-before-integration-2026-11-21 (e4447f5); generated results remain local. Release build and7 maintained book tests pass; all70 entries nativelegal/hit, fallback after new gold entries checked, generator/source and installed copy match. PR review/merge by user.
 
