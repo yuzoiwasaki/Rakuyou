@@ -143,6 +143,22 @@ class OperationalBookTest(unittest.TestCase):
         finally:
             e.close()
 
+    def test_early_rook_formation_leaves_other_replies_to_search(self):
+        entries = {x['id']: x for x in self.entries()}
+        e = self.engine()
+        try:
+            # The bishop-opening choice applies after S22, not arbitrary replies.
+            pawn = entries['early_rook_pawn96_before_pawn46']
+            silver = entries['early_rook_silver77_after_bishop_exchange']
+            for entry, replies in [(pawn, ('9c9d', '7b8c')),
+                                   (silver, ('6c6d', '5a4b'))]:
+                for reply in replies:
+                    moves = entry['moves'] + [entry['book_move'], reply]
+                    self.assertIn(reply, self.legal(e, moves[:-1]))
+                    self.assertEqual(e.choose_move(moves, 1, 30)[2], 'search')
+        finally:
+            e.close()
+
     def test_book_off_and_late_entry_limit(self):
         entry = max(self.entries(), key=lambda x:len(x['moves']))
         ply = len(entry['moves']) + 1

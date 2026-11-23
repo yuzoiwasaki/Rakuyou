@@ -1879,6 +1879,83 @@
         "2b3c"
       ],
       "book_move": "7g7f"
+    },
+    {
+      "id": "early_rook_pawn96_before_pawn46",
+      "side": "black",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7i6h",
+        "8c8d",
+        "6i7h",
+        "8d8e",
+        "3i3h",
+        "8e8f",
+        "8g8f",
+        "8b8f",
+        "P*8g",
+        "8f8b",
+        "2g2f",
+        "7a7b",
+        "2f2e",
+        "2b3c"
+      ],
+      "book_move": "9g9f"
+    },
+    {
+      "id": "early_rook_open_bishop_after_silver22",
+      "side": "black",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7i6h",
+        "8c8d",
+        "6i7h",
+        "8d8e",
+        "3i3h",
+        "8e8f",
+        "8g8f",
+        "8b8f",
+        "P*8g",
+        "8f8b",
+        "2g2f",
+        "7a7b",
+        "2f2e",
+        "2b3c",
+        "9g9f",
+        "3a2b"
+      ],
+      "book_move": "7g7f"
+    },
+    {
+      "id": "early_rook_silver77_after_bishop_exchange",
+      "side": "black",
+      "moves": [
+        "5i4h",
+        "3c3d",
+        "7i6h",
+        "8c8d",
+        "6i7h",
+        "8d8e",
+        "3i3h",
+        "8e8f",
+        "8g8f",
+        "8b8f",
+        "P*8g",
+        "8f8b",
+        "2g2f",
+        "7a7b",
+        "2f2e",
+        "2b3c",
+        "9g9f",
+        "3a2b",
+        "7g7f",
+        "3c8h+",
+        "7h8h",
+        "2b3c"
+      ],
+      "book_move": "6h7g"
     }
   ]
 }
