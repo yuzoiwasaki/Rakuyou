@@ -2,6 +2,9 @@
 
 Updated 2026-11-23.
 
+- White balanced-formation integration: four exact book entries added after the opponent exchanges the six-file pawn with its rook:22S63/24G72/34G32/38P44. Book76→80 (Black46/White34). Other replies remain searched; no general G32 requirement, king lock, P24 ban or engine/evaluation change.
+- User approved the formation after short diagnostics and a known-start game ending in fourfold repetition at115 (script records unresolved, no strength claim). Eight native book tests pass, including all80 entries and scope fallbacks; generated source/txt match. Detailed investigation is archived and linked in the PR; generated games/viewers remain local under results/. User reviews and merges; installed bin/book remains main until integration.
+
 - Early rook-pawn integration: six exact Black book positions added (70→76, Black46/White30). First three prioritize P26/P25 before opening the bishop diagonal in the S62/P85/B33 line. New P96/P76/S77 branch prepares the edge and develops S77 after bishop exchange. Other replies remain searched; no engine/evaluation/BookMaxPly change. N77/P86/P85/R89 remains a reviewed middle-game idea, not a forced book line.
 - User approved shapes after individual game review; mixed known-start and initial-position diagnostics do not establish a strength gain. All76 entries pass native legality/loading/hit checks; eight maintained book tests, generation check and diff check pass. Experiment details are preserved on the archive branch linked in the PR; local games/viewers stay under ignored results/. PR review/merge by user; GUI installation remains separate.
 
