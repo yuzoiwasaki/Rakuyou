@@ -2,6 +2,8 @@
 
 Updated 2026-11-23.
 
+- White P44 extension: add one exact position after BlackN37 in the reviewed G32 formation. Book80→81 (Black46/White35); prior P96 branch and other entries unchanged. AfterP44 replies remain searched. Candidate comparison and24-ply continuation reviewed; no strength claim. All81 positions pass native legality/load/hit checks, eight maintained book tests and generation/diff checks pass. Detailed notes archived and linked in PR; generated results remain local. User reviews/merges; installedbook remains main until integration.
+
 - White balanced-formation integration: four exact book entries added after the opponent exchanges the six-file pawn with its rook:22S63/24G72/34G32/38P44. Book76→80 (Black46/White34). Other replies remain searched; no general G32 requirement, king lock, P24 ban or engine/evaluation change.
 - User approved the formation after short diagnostics and a known-start game ending in fourfold repetition at115 (script records unresolved, no strength claim). Eight native book tests pass, including all80 entries and scope fallbacks; generated source/txt match. Detailed investigation is archived and linked in the PR; generated games/viewers remain local under results/. User reviews and merges; installed bin/book remains main until integration.
 
