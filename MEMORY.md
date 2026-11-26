@@ -1,6 +1,14 @@
 # Rakuyou resume map
 
-Updated 2026-11-24.
+Updated 2026-11-27.
+
+- User approves WhiteG72/R81 short-test shape and branch/PR integration. Add two exact positions30G72/32R81 after the earlierP16 line; book87→89 (Black52/White37). Later leftgold/P44 remain searched. All89 entries nativelegal/load/hit and eight maintained tests pass, including scope fallbacks. No engine/eval/BookMaxPly change. No strength claim. Detailed notes archived before concise integration cleanup.
+
+- Short WhiteG72/R81 test completed in results/white-gold72-rook81-short-review/rollout.json. Actual first29 plus fixed30G72/31BlackG47/32R81, then24 searched plies, freshWhiteShin/Blacknormal,booksOFF2s/margin0/1thread512. 34P44/36G52left chosen by search, then38P34/40B33/42B24/44N33/46R41; king stays62. 48P86/50P15/54N65/56P45, lastWhite-218 vs precedingBlack+237. Not forcedG32 or permanentP44hold; no strength claim. All57states nativelegal/no4fold, frozenhashesunchanged. Viewer game-full.html starts29, WhiteTOP; user review pending. No book/code implementation.
+
+- White timing review results/white-gold72-timing-review/: book misses after23P16 instead registered23G58. Fresh d25 White scores:24G72 -171/P14 -172;30G52left -127/G72 -134;32G72 -103/P44 -151;34R81 -164/G43 -296 (G43 met P*65/Px65/B95). Follow30G72/31G47:32G52 -137/R81 -143/G32 -214; R81 PV laterG52, so preserve G32 option but no claim of ideal G32 line. User favors G72/R81 before leftgold commitment and delayedP44. Native-legal PV viewer preview/game-full.html starts29, WhiteTOP, analysis not game. No book/code change; implementation would need branch consultation.
+
+- PR10 merged as main b6f90d6; release/match built and installed book87 synced. Completed one initial-position game, WhiteShin vs Blacknormal: results/main-white-20261126-one.json. Both booksON (44/20),2s/margin0/no-depthcap/1thread512, no fixed opening or resumes. White resigned at ply136; all states native-legal, no fourfold repetition, input hashes unchanged. Viewer results/main-white-20261126-one-review/game-full.html starts0, ShinWHITE/TOP. White book hits4,6,8,10,12,14,16,18,22; human review pending, no new implementation or strength claim.
 
 - Black closed-bishop integration: six exact positions for13P66/15B77/17S38/23S47/25S67/29G58 in the reviewed P74/S22 line. Book81→87 (Black52/White35). Middle-game plans remain searched; no engine/evaluation/BookMaxPly changes. All87 entries pass native legality/load/hit checks; eight maintained book tests and generation/scope checks pass. Known-line shape review is not strength evidence. Detailed investigation archived and linked in PR; generated games stay local. User reviews/merges; installed book unchanged.
 
@@ -29,5 +37,5 @@ Updated 2026-11-24.
 - Earlier archives: `archive/early-silver68-before-integration-2026-11-17` (`99e4859`), `archive/pre-adoption-cleanup-2026-11-15` (`f488a64`). PR3 root-recheck experiment was closed without adoption; its branch remains preserved.
 - User runs long matches. Short bounded diagnostics are fine. Review clear style defects and skip ambiguous losses; known/repeated starts and capped games do not prove strength improvement.
 - Aim: thick, coherent shogi; support sustainable territory, permit counterplay and turn thickness into attack. No blanket requirement to preserve territory or avoid king recastling.
-- Consult user about main versus branch/PR before new implementation. Minor changes may go directly to main with approval. Keep main limited to adopted code, maintained tools/tests and concise docs.
+- User authorizes new task branches and PRs for opening-book/evaluation/search improvements without repeating branch-selection questions. Consult about other changes. Minor changes may go directly to main with approval. Keep main limited to adopted code, maintained tools/tests and concise docs.
 - Public README should stand alone and retain only2–3 major milestones. Remove Draft when presenting a finished PR; user reviews and merges.
