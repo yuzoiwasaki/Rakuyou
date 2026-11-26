@@ -159,8 +159,15 @@ class OperationalBookTest(unittest.TestCase):
             # The bishop-opening choice applies after S22, not arbitrary replies.
             pawn = entries['early_rook_pawn96_before_pawn46']
             silver = entries['early_rook_silver77_after_bishop_exchange']
+            # The closed-bishop formation also depends on the opponent's setup.
+            closed_pawn = entries['black_closed_bishop_pawn66_ply13']
+            closed_silver = entries['black_closed_bishop_silver47_ply23']
+            closed_gold = entries['black_closed_bishop_gold58_ply29']
             for entry, replies in [(pawn, ('9c9d', '7b8c')),
-                                   (silver, ('6c6d', '5a4b'))]:
+                                   (silver, ('6c6d', '5a4b')),
+                                   (closed_pawn, ('6b7c', '5a4b')),
+                                   (closed_silver, ('6b7c', '9c9d')),
+                                   (closed_gold, ('5c5d', '4c4b'))]:
                 for reply in replies:
                     moves = entry['moves'] + [entry['book_move'], reply]
                     self.assertIn(reply, self.legal(e, moves[:-1]))

@@ -1,6 +1,8 @@
 # Rakuyou resume map
 
-Updated 2026-11-23.
+Updated 2026-11-24.
+
+- Black closed-bishop integration: six exact positions for13P66/15B77/17S38/23S47/25S67/29G58 in the reviewed P74/S22 line. Book81→87 (Black52/White35). Middle-game plans remain searched; no engine/evaluation/BookMaxPly changes. All87 entries pass native legality/load/hit checks; eight maintained book tests and generation/scope checks pass. Known-line shape review is not strength evidence. Detailed investigation archived and linked in PR; generated games stay local. User reviews/merges; installed book unchanged.
 
 - White P44 extension: add one exact position after BlackN37 in the reviewed G32 formation. Book80→81 (Black46/White35); prior P96 branch and other entries unchanged. AfterP44 replies remain searched. Candidate comparison and24-ply continuation reviewed; no strength claim. All81 positions pass native legality/load/hit checks, eight maintained book tests and generation/diff checks pass. Detailed notes archived and linked in PR; generated results remain local. User reviews/merges; installedbook remains main until integration.
 
