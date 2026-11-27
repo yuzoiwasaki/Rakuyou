@@ -178,3 +178,9 @@
 7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6f6e 6d6e 6h6e P*6d 6e6h 7b6c 1g1f 1c1d 6i5h 7c7d 3i2h 8a7c 4g4f | 6a7b
 # white_rook_exchange_rook81_after_gold47
 7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6f6e 6d6e 6h6e P*6d 6e6h 7b6c 1g1f 1c1d 6i5h 7c7d 3i2h 8a7c 4g4f 6a7b 5h4g | 8b8a
+# white_silver_exchange_gold72_after_pawn46
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6f6e 6d6e 7h6g 7c7d 6g5f 7b6c 5f6e P*6d 6e5f 8a7c 4g4f | 6a7b
+# white_silver_exchange_rook81_after_gold58
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6f6e 6d6e 7h6g 7c7d 6g5f 7b6c 5f6e P*6d 6e5f 8a7c 4g4f 6a7b 6i5h | 8b8a
+# white_silver_exchange_gold32_after_knight37
+7g7f 5a6b 2h6h 5c5d 3i3h 3a4b 5i4h 4b5c 4h3i 7a7b 6g6f 8c8d 7i7h 8d8e 8h7g 6c6d 6f6e 6d6e 7h6g 7c7d 6g5f 7b6c 5f6e P*6d 6e5f 8a7c 4g4f 6a7b 6i5h 8b8a 3g3f 1c1d 2i3g | 4a3b
