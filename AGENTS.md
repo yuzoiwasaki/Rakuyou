@@ -3,7 +3,7 @@
 Rakuyou is a personal experimental fork of Gikou 2.
 
 - Read `MEMORY.md`, `README.md`, `Makefile`, and `git status` before work.
-- Before implementation, explain the change and ask the user whether to commit directly to `main` or use a task branch and PR. Minor changes may go directly to `main` with the user's approval.
+- Opening-book, evaluation and search improvements use a new task branch and PR by default, as authorized by the user; do not ask for branch selection each time. For other changes, explain the scope and consult the user about the workflow. Minor changes may go directly to `main` with the user's approval.
 - New features and evaluation changes normally use task branches (`feature/`, `fix/`, `experiment/`, or `chore/`) and PRs. Develop alongside stable `main`; merge only after validation, review, discussion and explicit user approval. Do not merge automatically after implementation.
 - Keep `main` limited to adopted code, maintained tools/tests and concise documentation. Leave rejected experiments on their branches.
 - Keep generated games, binaries and logs in ignored directories. Do not add dated experiment reports or one-off runners to `main`.

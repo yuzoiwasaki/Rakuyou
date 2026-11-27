@@ -1,6 +1,8 @@
 # Rakuyou resume map
 
-Updated 2026-11-24.
+Updated 2026-11-27.
+
+- White formation-order integration: two exact positions30G72/32R81 added in the earlyP16 rook-exchange line; book87→89 (Black52/White37). Leftgold destination and laterP44 remain searched. User approved the24-ply continuation, endingWhite-218; no strength claim. All89 entries pass native legality/load/hit checks; eight maintained book tests, scope fallbacks and generation checks pass. Detailed investigation archived and linked in PR; generated results remain local. User reviews/merges; installed book remains main87.
 
 - Black closed-bishop integration: six exact positions for13P66/15B77/17S38/23S47/25S67/29G58 in the reviewed P74/S22 line. Book81→87 (Black52/White35). Middle-game plans remain searched; no engine/evaluation/BookMaxPly changes. All87 entries pass native legality/load/hit checks; eight maintained book tests and generation/scope checks pass. Known-line shape review is not strength evidence. Detailed investigation archived and linked in PR; generated games stay local. User reviews/merges; installed book unchanged.
 
@@ -29,5 +31,5 @@ Updated 2026-11-24.
 - Earlier archives: `archive/early-silver68-before-integration-2026-11-17` (`99e4859`), `archive/pre-adoption-cleanup-2026-11-15` (`f488a64`). PR3 root-recheck experiment was closed without adoption; its branch remains preserved.
 - User runs long matches. Short bounded diagnostics are fine. Review clear style defects and skip ambiguous losses; known/repeated starts and capped games do not prove strength improvement.
 - Aim: thick, coherent shogi; support sustainable territory, permit counterplay and turn thickness into attack. No blanket requirement to preserve territory or avoid king recastling.
-- Consult user about main versus branch/PR before new implementation. Minor changes may go directly to main with approval. Keep main limited to adopted code, maintained tools/tests and concise docs.
+- User authorizes new task branches and PRs for opening-book/evaluation/search improvements without repeating branch-selection questions. Consult about other changes. Minor changes may go directly to main with approval. Keep main limited to adopted code, maintained tools/tests and concise docs.
 - Public README should stand alone and retain only2–3 major milestones. Remove Draft when presenting a finished PR; user reviews and merges.
