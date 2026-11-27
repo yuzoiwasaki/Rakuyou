@@ -2,6 +2,9 @@
 
 Updated 2026-11-27.
 
+- Silver-exchange formation integration: add three exact White book positions28G72/30R81/34G32 after the reviewed BlackP46/G58/N37 line. Book89→92 (Black52/White40). User approved the24-ply G32-only continuation; P44/P34/N33/B13/R21 remain searched, as do other replies. No engine/evaluation/BookMaxPly changes. White ended-115; capped known-start style review, no strength claim. P94/BlackP95 remains a review point. Detailed notes preserved on archive/white-gold72-before-edge-before-integration-2026-11-27; local artifacts results/white-bishop13-rook41-review/gold-only/. All92 entries pass native legality/load/hit checks; eight maintained book tests including scope fallbacks, generation check and diff check pass. PR review/merge by user; installed book remains main89.
+
+
 - White formation-order integration: two exact positions30G72/32R81 added in the earlyP16 rook-exchange line; book87→89 (Black52/White37). Leftgold destination and laterP44 remain searched. User approved the24-ply continuation, endingWhite-218; no strength claim. All89 entries pass native legality/load/hit checks; eight maintained book tests, scope fallbacks and generation checks pass. Detailed investigation archived and linked in PR; generated results remain local. User reviews/merges; installed book remains main87.
 
 - Black closed-bishop integration: six exact positions for13P66/15B77/17S38/23S47/25S67/29G58 in the reviewed P74/S22 line. Book81→87 (Black52/White35). Middle-game plans remain searched; no engine/evaluation/BookMaxPly changes. All87 entries pass native legality/load/hit checks; eight maintained book tests and generation/scope checks pass. Known-line shape review is not strength evidence. Detailed investigation archived and linked in PR; generated games stay local. User reviews/merges; installed book unchanged.

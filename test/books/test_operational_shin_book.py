@@ -105,7 +105,11 @@ class OperationalBookTest(unittest.TestCase):
                                ('white_rook_exchange_pawn44_after_knight37', '5f5e'),
                                ('white_rook_exchange_gold72_after_pawn16', '7h6g'),
                                ('white_rook_exchange_rook81_after_gold47', '5g5f'),
-                               ('white_rook_exchange_rook81_after_gold47', '3g3f')]:
+                               ('white_rook_exchange_rook81_after_gold47', '3g3f'),
+                               ('white_silver_exchange_gold72_after_pawn46', '1g1f'),
+                               ('white_silver_exchange_rook81_after_gold58', '1g1f'),
+                               ('white_silver_exchange_gold32_after_knight37', '1g1f'),
+                               ('white_silver_exchange_gold32_after_knight37', '5h4g')]:
                 entry = entries[key]
                 moves = entry['moves'] + [entry['book_move'], reply]
                 self.assertIn(reply, self.legal(e, moves[:-1]))
