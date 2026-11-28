@@ -89,7 +89,8 @@ class OperationalBookTest(unittest.TestCase):
         # Early attacks and skipping B77 must not force the quiet formation.
         white_replies = [white + ['8c8d','6f6e'],
                          white + ['8c8d','9g9f','8d8e','7i7h']]
-        e = self.engine()
+        # Keep the ply limit above the new N33 entry to test actual fallback.
+        e = self.engine(max_ply=64)
         try:
             # Developing the White gold must not prescribe later left-gold/king moves.
             for key in ('white_gold72_ply28', 'white_gold72_after_rook81_ply30'):
@@ -109,7 +110,11 @@ class OperationalBookTest(unittest.TestCase):
                                ('white_silver_exchange_gold72_after_pawn46', '1g1f'),
                                ('white_silver_exchange_rook81_after_gold58', '1g1f'),
                                ('white_silver_exchange_gold32_after_knight37', '1g1f'),
-                               ('white_silver_exchange_gold32_after_knight37', '5h4g')]:
+                               ('white_silver_exchange_gold32_after_knight37', '5h4g'),
+                               ('white_rook_exchange_pawn44_after_pawn36', '6g5f'),
+                               ('white_rook_exchange_pawn44_after_pawn36', '2g2f'),
+                               ('white_rook_exchange_knight33_after_rook69', '4i4h'),
+                               ('white_rook_exchange_knight33_after_rook69', '4f4e')]:
                 entry = entries[key]
                 moves = entry['moves'] + [entry['book_move'], reply]
                 self.assertIn(reply, self.legal(e, moves[:-1]))

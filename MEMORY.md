@@ -1,6 +1,9 @@
 # Rakuyou resume map
 
-Updated 2026-11-27.
+Updated 2026-11-28.
+
+- Pawn/knight formation integration: add two exact White positions36P44/44N33 in the reviewed rook-exchange line. Book92→94 (Black52/White42). User approved24-ply continuation after44N33; laterP24/G43/B53/S64/S75 remain searched. No general P24/P86 ban, no knight-sacrifice ban, engine/evaluation/BookMaxPly unchanged. Trial endedWhite+399/Black-310, no strength claim. Detailed notes archived at archive/white-pawn44-knight33-before-integration-2026-11-28; generated games/viewers remain local results/white-pawn44-before-pawn86-review/ and results/white-knight33-before-pawn24-review/. G83/bogin should be revisited earlier or in another formation. All94 entries pass native legality/load/hit tests; eight maintained tests pass, including fallback with BookMaxPly64 above44. Generation/diff checks pass and original92 entries unchanged. User reviews/merges PR; installed book remains main92.
+
 
 - Silver-exchange formation integration: add three exact White book positions28G72/30R81/34G32 after the reviewed BlackP46/G58/N37 line. Book89→92 (Black52/White40). User approved the24-ply G32-only continuation; P44/P34/N33/B13/R21 remain searched, as do other replies. No engine/evaluation/BookMaxPly changes. White ended-115; capped known-start style review, no strength claim. P94/BlackP95 remains a review point. Detailed notes preserved on archive/white-gold72-before-edge-before-integration-2026-11-27; local artifacts results/white-bishop13-rook41-review/gold-only/. All92 entries pass native legality/load/hit checks; eight maintained book tests including scope fallbacks, generation check and diff check pass. PR review/merge by user; installed book remains main89.
 
