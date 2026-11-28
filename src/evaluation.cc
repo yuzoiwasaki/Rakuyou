@@ -34,6 +34,7 @@ int g_support_chain_bonus = 10;
 int g_king_contact_deficit_bonus = 10;
 int g_king_approach_penalty = 0;
 int g_guard_exchange_penalty = 0;
+int g_guard_coverage_penalty = 0;
 
 }  // namespace
 
@@ -416,6 +417,11 @@ inline PackedScore EvaluateKingSafety(const Position& pos) {
     // Taper away in the endgame. This is not a legal-entry or mate detector.
     score += PackedScore(delta * g_king_approach_penalty * kFvScale, 0, 0, 0);
   }
+  if (g_guard_coverage_penalty != 0) {
+    const int delta = Evaluation::GuardCoverageDeficit(pos, kWhite)
+                    - Evaluation::GuardCoverageDeficit(pos, kBlack);
+    score += PackedScore(delta * g_guard_coverage_penalty * kFvScale, 0, 0, 0);
+  }
   if (g_guard_exchange_penalty != 0) {
     const int delta = Evaluation::GuardExchangeExposure(pos, kWhite)
                     - Evaluation::GuardExchangeExposure(pos, kBlack);
@@ -706,6 +712,38 @@ EvalDetail Evaluation::EvaluateDifference(const Position& pos,
 
 void Evaluation::Init() {
   ReadParametersFromFile("params.bin");
+}
+
+void Evaluation::SetGuardCoveragePenalty(const int centipawns) {
+  assert(centipawns >= 0 && centipawns <= 40);
+  g_guard_coverage_penalty = std::max(0, std::min(40, centipawns));
+}
+
+int Evaluation::GuardCoverageDeficit(const Position& pos, const Color side) {
+  if (!pos.king_exists(side)) return 0;
+  const Square king = pos.king_square(side);
+  const int forward = side == kBlack ? -1 : 1;
+  Bitboard covered, twice;
+  Bitboard guards = pos.pieces(side, kGold, kSilver);
+  while (guards.any()) {
+    const Square guard = guards.pop_first_one();
+    const Bitboard attacks = step_attacks_bb(pos.piece_on(guard), guard);
+    twice |= covered & attacks;
+    covered |= attacks;
+  }
+  int total = 0;
+  for (int distance = 1; distance <= 2; ++distance) {
+    const int rank = int(king.rank()) + forward * distance;
+    if (rank < 0 || rank >= 9) continue;
+    for (int df = -1; df <= 1; ++df) {
+      const int file = int(king.file()) + df;
+      if (file < 0 || file >= 9) continue;
+      const Square target(static_cast<File>(file), static_cast<Rank>(rank));
+      // One guard is coverage; two provide redundancy. Ignore a third guard.
+      total += int(!covered.test(target)) + int(!twice.test(target));
+    }
+  }
+  return total;
 }
 
 void Evaluation::SetGuardExchangePenalty(const int centipawns) {

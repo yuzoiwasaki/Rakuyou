@@ -59,7 +59,8 @@ bool IsFixedStyleOption(const std::string& name) {
       || name == "ExperimentalSupportChainBonus"
       || name == "KingContactDeficitBonus"
       || name == "ExperimentalKingApproachPenalty"
-      || name == "ExperimentalGuardExchangePenalty";
+      || name == "ExperimentalGuardExchangePenalty"
+      || name == "ExperimentalGuardCoveragePenalty";
 #endif
 }
 
@@ -247,6 +248,7 @@ void ExecuteCommand(const std::string& command, Node* const node,
     Evaluation::SetKingContactDeficitBonus((*usi_options)["KingContactDeficitBonus"]);
     Evaluation::SetKingApproachPenalty((*usi_options)["ExperimentalKingApproachPenalty"]);
     Evaluation::SetGuardExchangePenalty((*usi_options)["ExperimentalGuardExchangePenalty"]);
+    Evaluation::SetGuardCoveragePenalty((*usi_options)["ExperimentalGuardCoveragePenalty"]);
     thinking->Initialize();
     Evaluation::ReadParametersFromFile("params.bin");
     SYNCED_PRINTF("readyok\n");
@@ -258,6 +260,7 @@ void ExecuteCommand(const std::string& command, Node* const node,
     Evaluation::SetKingContactDeficitBonus((*usi_options)["KingContactDeficitBonus"]);
     Evaluation::SetKingApproachPenalty((*usi_options)["ExperimentalKingApproachPenalty"]);
     Evaluation::SetGuardExchangePenalty((*usi_options)["ExperimentalGuardExchangePenalty"]);
+    Evaluation::SetGuardCoveragePenalty((*usi_options)["ExperimentalGuardCoveragePenalty"]);
 
   } else if (type == "usinewgame") {
     thinking->StartNewGame();
@@ -368,6 +371,7 @@ UsiOptions::UsiOptions() {
   map_.emplace("KingContactDeficitBonus", UsiOption(10, 0, 10));
   map_.emplace("ExperimentalKingApproachPenalty", UsiOption(0, 0, 40));
   map_.emplace("ExperimentalGuardExchangePenalty", UsiOption(0, 0, 40));
+  map_.emplace("ExperimentalGuardCoveragePenalty", UsiOption(0, 0, 40));
 
   // 定跡ファイル
   map_.emplace("BookFile", UsiOption("book.bin"));

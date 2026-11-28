@@ -156,6 +156,9 @@ class Evaluation {
   // Experimental, default off. Geometric pressure on the forward second ring.
   static void SetKingApproachPenalty(int centipawns);
   static int KingApproachExposure(const Position& pos, Color side);
+  // Independent, default off: redundancy of gold/silver coverage ahead of king.
+  static void SetGuardCoveragePenalty(int centipawns);
+  static int GuardCoverageDeficit(const Position& pos, Color side);
   // Independent, default off: supported pawn pressure can detach a guard.
   static void SetGuardExchangePenalty(int centipawns);
   static int GuardExchangeExposure(const Position& pos, Color side);

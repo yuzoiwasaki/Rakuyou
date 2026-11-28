@@ -27,12 +27,21 @@ void Check(Node& node) {
     const int pressure = Evaluation::GuardExchangeExposure(node, side);
     assert(pressure >= 0 && pressure <= 8);
     assert(pressure == Evaluation::GuardExchangeExposure(flipped, ~side));
+    const int deficit = Evaluation::GuardCoverageDeficit(node, side);
+    assert(deficit >= 0 && deficit <= 12);
+    assert(deficit == Evaluation::GuardCoverageDeficit(flipped, ~side));
   }
 }
 
 int main(int argc, char** argv) {
   if (argc != 2 && argc != 3) return 2;
-  const bool exchange = argc == 3;
+  const std::string mode = argc == 3 ? argv[2] : "approach";
+  if (mode != "approach" && mode != "exchange" && mode != "coverage") return 2;
+  const bool exchange = mode == "exchange";
+  const bool coverage = mode == "coverage";
+  const auto exposure = coverage ? Evaluation::GuardCoverageDeficit
+                      : exchange ? Evaluation::GuardExchangeExposure
+                                 : Evaluation::KingApproachExposure;
   Square::Init(); Bitboard::Init(); ExtendedBoard::Init(); Zobrist::Init(); PsqPair::Init();
   Evaluation::ReadParametersFromFile(argv[1]); Material::Init();
   // A rook looks at the empty square two ranks ahead of the White king.
@@ -64,13 +73,24 @@ int main(int argc, char** argv) {
     assert(Evaluation::GuardExchangeExposure(no_support, side) == 0);
     threat.Flip(); sealed.Flip(); no_pawn.Flip(); nifu.Flip(); no_support.Flip(); actual_pawn.Flip();
   }
+  Position bare = Position::FromSfen("9/3k5/9/9/9/9/9/9/4K4 b - 1");
+  Position single = Position::FromSfen("9/3k5/3g5/9/9/9/9/9/4K4 b - 1");
+  Position redundant = Position::FromSfen("9/3k5/3gs4/9/9/9/9/9/4K4 b - 1");
+  for (int flip = 0; flip < 2; ++flip) {
+    const Color side = flip == 0 ? kWhite : kBlack;
+    assert(Evaluation::GuardCoverageDeficit(bare, side) == 12);
+    assert(Evaluation::GuardCoverageDeficit(single, side) == 7);
+    assert(Evaluation::GuardCoverageDeficit(redundant, side) == 5);
+    bare.Flip(); single.Flip(); redundant.Flip();
+  }
   for (std::string line; std::getline(std::cin, line);) {
     const bool sfen = line.compare(0, 5, "sfen ") == 0;
     if (!sfen && line.compare(0, 6, "moves ") != 0) return 2;
     int base = 0;
     for (int penalty : {0, 10, 20, 40}) {
-      Evaluation::SetKingApproachPenalty(exchange ? 0 : penalty);
+      Evaluation::SetKingApproachPenalty((exchange || coverage) ? 0 : penalty);
       Evaluation::SetGuardExchangePenalty(exchange ? penalty : 0);
+      Evaluation::SetGuardCoveragePenalty(coverage ? penalty : 0);
       Node node(sfen ? Position::FromSfen(line.substr(5)) : Position::CreateStartPosition());
       std::vector<Move> moves;
       Check(node);
@@ -85,8 +105,8 @@ int main(int argc, char** argv) {
       if (!node.in_check()) {
         node.MakeNullMove(); Check(node); node.UnmakeNullMove(); Check(node);
       }
-      const int black = exchange ? Evaluation::GuardExchangeExposure(node, kBlack) : Evaluation::KingApproachExposure(node, kBlack);
-      const int white = exchange ? Evaluation::GuardExchangeExposure(node, kWhite) : Evaluation::KingApproachExposure(node, kWhite);
+      const int black = exposure(node, kBlack);
+      const int white = exposure(node, kWhite);
       double progress;
       const int score = Evaluation::EvaluateAll(node, PsqList(node)).ComputeFinalScore(node.side_to_move(), &progress);
       if (penalty == 0) base = score;

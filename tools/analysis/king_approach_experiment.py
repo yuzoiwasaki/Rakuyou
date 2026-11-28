@@ -79,10 +79,13 @@ def main():
     parser.add_argument('--mode', choices=['scan', 'fixed', 'baseline', 'speed', 'rollout', 'native-input'], required=True)
     parser.add_argument('--engine', type=Path, default=ROOT/'results/king-approach-experiment/runtime/bin/match')
     parser.add_argument('--baseline', type=Path)
-    parser.add_argument('--option', choices=['ExperimentalKingApproachPenalty', 'ExperimentalGuardExchangePenalty'], default='ExperimentalKingApproachPenalty')
+    parser.add_argument('--option', choices=['ExperimentalKingApproachPenalty', 'ExperimentalGuardExchangePenalty', 'ExperimentalGuardCoveragePenalty'], default='ExperimentalKingApproachPenalty')
     parser.add_argument('--fixtures', type=Path, default=ROOT/'test/analysis/king_approach_positions.json')
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--rollout-weights', type=int, nargs='+', default=[0, 20, 40])
     args = parser.parse_args()
+    if any(w < 0 or w > 40 for w in args.rollout_weights):
+        parser.error('rollout weights must be between 0 and 40')
     data = json.loads(args.fixtures.read_text())
     fixtures = data['search']
     args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -94,7 +97,7 @@ def main():
         parser.error('--baseline is required for baseline comparison')
     results = []
     if args.mode == 'rollout':
-        for weight in [0, 20, 40]:
+        for weight in args.rollout_weights:
             r = rollout(args.engine.resolve(), fixtures[0], weight, args.option)
             results.append(r)
             args.output.write_text(json.dumps(results, indent=2)+'\n')
