@@ -153,6 +153,9 @@ class Evaluation {
   /** King-contact deficit, default10; set before creating search nodes. */
   static void SetKingContactDeficitBonus(int centipawns);
   static bool HasPawnSupportChain(const Position& pos, Color side);
+  // Experimental, default off. Geometric pressure on the forward second ring.
+  static void SetKingApproachPenalty(int centipawns);
+  static int KingApproachExposure(const Position& pos, Color side);
 
   /**
    * 局面の評価値を計算します.

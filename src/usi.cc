@@ -57,7 +57,8 @@ bool IsFixedStyleOption(const std::string& name) {
 #else
   return name == "ShinYonenagaGyoku"
       || name == "ExperimentalSupportChainBonus"
-      || name == "KingContactDeficitBonus";
+      || name == "KingContactDeficitBonus"
+      || name == "ExperimentalKingApproachPenalty";
 #endif
 }
 
@@ -243,6 +244,7 @@ void ExecuteCommand(const std::string& command, Node* const node,
     Evaluation::SetShinYonenagaGyoku((*usi_options)["ShinYonenagaGyoku"]);
     Evaluation::SetSupportChainBonus((*usi_options)["ExperimentalSupportChainBonus"]);
     Evaluation::SetKingContactDeficitBonus((*usi_options)["KingContactDeficitBonus"]);
+    Evaluation::SetKingApproachPenalty((*usi_options)["ExperimentalKingApproachPenalty"]);
     thinking->Initialize();
     Evaluation::ReadParametersFromFile("params.bin");
     SYNCED_PRINTF("readyok\n");
@@ -252,6 +254,7 @@ void ExecuteCommand(const std::string& command, Node* const node,
     Evaluation::SetShinYonenagaGyoku((*usi_options)["ShinYonenagaGyoku"]);
     Evaluation::SetSupportChainBonus((*usi_options)["ExperimentalSupportChainBonus"]);
     Evaluation::SetKingContactDeficitBonus((*usi_options)["KingContactDeficitBonus"]);
+    Evaluation::SetKingApproachPenalty((*usi_options)["ExperimentalKingApproachPenalty"]);
 
   } else if (type == "usinewgame") {
     thinking->StartNewGame();
@@ -360,6 +363,7 @@ UsiOptions::UsiOptions() {
   // Adopted baseline; retain the historical option name for GUI compatibility.
   map_.emplace("ExperimentalSupportChainBonus", UsiOption(10, 0, 10));
   map_.emplace("KingContactDeficitBonus", UsiOption(10, 0, 10));
+  map_.emplace("ExperimentalKingApproachPenalty", UsiOption(0, 0, 40));
 
   // 定跡ファイル
   map_.emplace("BookFile", UsiOption("book.bin"));

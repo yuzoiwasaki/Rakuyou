@@ -32,6 +32,7 @@ namespace {
 bool g_shin_yonenaga_gyoku_enabled = true;
 int g_support_chain_bonus = 10;
 int g_king_contact_deficit_bonus = 10;
+int g_king_approach_penalty = 0;
 
 }  // namespace
 
@@ -406,8 +407,15 @@ PackedScore KingContactDeficitScore(const Position& pos) {
 inline PackedScore EvaluateKingSafety(const Position& pos) {
   PackedScore score_black = EvaluateKingSafety<kBlack>(pos);
   PackedScore score_white = EvaluateKingSafety<kWhite>(pos);
-  return KingContactDeficitBonusCp() == 0 ? score_black + score_white
-                                          : score_black + score_white + KingContactDeficitScore(pos);
+  PackedScore score = score_black + score_white;
+  if (KingContactDeficitBonusCp() != 0) score += KingContactDeficitScore(pos);
+  if (g_king_approach_penalty != 0) {
+    const int delta = Evaluation::KingApproachExposure(pos, kWhite)
+                    - Evaluation::KingApproachExposure(pos, kBlack);
+    // Taper away in the endgame. This is not a legal-entry or mate detector.
+    score += PackedScore(delta * g_king_approach_penalty * kFvScale, 0, 0, 0);
+  }
+  return score;
 }
 
 /**
@@ -692,6 +700,39 @@ EvalDetail Evaluation::EvaluateDifference(const Position& pos,
 
 void Evaluation::Init() {
   ReadParametersFromFile("params.bin");
+}
+
+void Evaluation::SetKingApproachPenalty(const int centipawns) {
+  assert(centipawns >= 0 && centipawns <= 40);
+  g_king_approach_penalty = std::max(0, std::min(40, centipawns));
+}
+
+int Evaluation::KingApproachExposure(const Position& pos, const Color side) {
+  if (!pos.king_exists(side)) return 0;
+  const Square king = pos.king_square(side);
+  const int forward = side == kBlack ? -1 : 1;
+  int total = 0;
+  for (int distance = 1; distance <= 2; ++distance) {
+    const int rank = static_cast<int>(king.rank()) + forward * distance;
+    if (rank < 0 || rank >= 9) continue;
+    for (int df = -2; df <= 2; ++df) {
+      // Exclude the adjacent ring, already covered by king-contact evaluation.
+      if (distance == 1 && df >= -1 && df <= 1) continue;
+      const int file = static_cast<int>(king.file()) + df;
+      if (file < 0 || file >= 9) continue;
+      const Square target(static_cast<File>(file), static_cast<Rank>(rank));
+      const int attacks = std::min(3, pos.num_controls(~side, target));
+      if (attacks == 0) continue;
+      const int defenses = std::min(3, pos.num_controls(side, target));
+      const Piece occupant = pos.piece_on(target);
+      // A supported friendly blocker seals the approach; over-attacked or
+      // unsupported blockers do not automatically make it safe.
+      if (!occupant.is(kNoPieceType) && occupant.color() == side
+          && defenses >= attacks) continue;
+      total += 1 + std::max(0, attacks - defenses);
+    }
+  }
+  return std::min(8, total);
 }
 
 void Evaluation::SetShinYonenagaGyoku(const bool enabled) {
