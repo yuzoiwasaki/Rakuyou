@@ -33,6 +33,7 @@ bool g_shin_yonenaga_gyoku_enabled = true;
 int g_support_chain_bonus = 10;
 int g_king_contact_deficit_bonus = 10;
 int g_king_approach_penalty = 0;
+int g_guard_exchange_penalty = 0;
 
 }  // namespace
 
@@ -415,6 +416,11 @@ inline PackedScore EvaluateKingSafety(const Position& pos) {
     // Taper away in the endgame. This is not a legal-entry or mate detector.
     score += PackedScore(delta * g_king_approach_penalty * kFvScale, 0, 0, 0);
   }
+  if (g_guard_exchange_penalty != 0) {
+    const int delta = Evaluation::GuardExchangeExposure(pos, kWhite)
+                    - Evaluation::GuardExchangeExposure(pos, kBlack);
+    score += PackedScore(delta * g_guard_exchange_penalty * kFvScale, 0, 0, 0);
+  }
   return score;
 }
 
@@ -700,6 +706,43 @@ EvalDetail Evaluation::EvaluateDifference(const Position& pos,
 
 void Evaluation::Init() {
   ReadParametersFromFile("params.bin");
+}
+
+void Evaluation::SetGuardExchangePenalty(const int centipawns) {
+  assert(centipawns >= 0 && centipawns <= 40);
+  g_guard_exchange_penalty = std::max(0, std::min(40, centipawns));
+}
+
+int Evaluation::GuardExchangeExposure(const Position& pos, const Color side) {
+  if (!pos.king_exists(side)) return 0;
+  const Square king = pos.king_square(side);
+  const Color enemy = ~side;
+  const int forward = side == kBlack ? -1 : 1;
+  Bitboard guards = pos.pieces(side, kGold, kSilver);
+  const Bitboard important = guards | pos.pieces(side, kKing);
+  int total = 0;
+  while (guards.any()) {
+    const Square guard = guards.pop_first_one();
+    if (std::abs(int(guard.file()) - int(king.file())) > 2
+        || std::abs(int(guard.rank()) - int(king.rank())) > 2) continue;
+    const int rank = int(guard.rank()) + forward;
+    if (rank < 0 || rank >= 9) continue;
+    const Square landing(guard.file(), static_cast<Rank>(rank));
+    const Piece occupant = pos.piece_on(landing);
+    if (occupant.is(kNoPieceType)) {
+      if (!pos.hand(enemy).has(kPawn) || pos.pawn_on_file(landing.file(), enemy)) continue;
+    } else if (!(occupant.is(kPawn) && occupant.color() == enemy)) {
+      continue;
+    }
+    // A supported pawn can attack this guard. Estimate links lost if the
+    // guard captures it; this is a pressure feature, not a forced exchange.
+    if (pos.num_controls(enemy, landing) == 0) continue;
+    const Piece piece = pos.piece_on(guard);
+    const Bitboard old_links = step_attacks_bb(piece, guard) & important;
+    const int lost = (old_links & ~step_attacks_bb(piece, landing)).count();
+    if (lost != 0) total += 1 + std::min(2, lost);
+  }
+  return std::min(8, total);
 }
 
 void Evaluation::SetKingApproachPenalty(const int centipawns) {

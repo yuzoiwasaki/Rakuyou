@@ -24,11 +24,15 @@ void Check(Node& node) {
     const int exposure = Evaluation::KingApproachExposure(node, side);
     assert(exposure >= 0 && exposure <= 8);
     assert(exposure == Evaluation::KingApproachExposure(flipped, ~side));
+    const int pressure = Evaluation::GuardExchangeExposure(node, side);
+    assert(pressure >= 0 && pressure <= 8);
+    assert(pressure == Evaluation::GuardExchangeExposure(flipped, ~side));
   }
 }
 
 int main(int argc, char** argv) {
-  if (argc != 2) return 2;
+  if (argc != 2 && argc != 3) return 2;
+  const bool exchange = argc == 3;
   Square::Init(); Bitboard::Init(); ExtendedBoard::Init(); Zobrist::Init(); PsqPair::Init();
   Evaluation::ReadParametersFromFile(argv[1]); Material::Init();
   // A rook looks at the empty square two ranks ahead of the White king.
@@ -43,12 +47,30 @@ int main(int argc, char** argv) {
   assert(Evaluation::KingApproachExposure(open, kBlack) > 0);
   assert(Evaluation::KingApproachExposure(blocked, kBlack) == 0);
   assert(Evaluation::KingApproachExposure(quiet, kBlack) == 0);
+  // A supported pawn drop on64 attacks S63, whose capture abandons G72.
+  Position threat = Position::FromSfen("9/2gk5/3s5/9/9/9/9/9/3RK4 b P 1");
+  Position sealed = Position::FromSfen("9/2gk5/3s5/3p5/9/9/9/9/3RK4 b P 1");
+  Position no_pawn = Position::FromSfen("9/2gk5/3s5/9/9/9/9/9/3RK4 b - 1");
+  Position nifu = Position::FromSfen("9/2gk5/3s5/9/3P5/9/9/9/3RK4 b P 1");
+  Position no_support = Position::FromSfen("9/2gk5/3s5/9/9/9/9/9/4K4 b P 1");
+  Position actual_pawn = Position::FromSfen("9/2gk5/3s5/3P5/9/9/9/9/3RK4 b - 1");
+  for (int flip = 0; flip < 2; ++flip) {
+    const Color side = flip == 0 ? kWhite : kBlack;
+    assert(Evaluation::GuardExchangeExposure(threat, side) > 0);
+    assert(Evaluation::GuardExchangeExposure(actual_pawn, side) > 0);
+    assert(Evaluation::GuardExchangeExposure(sealed, side) == 0);
+    assert(Evaluation::GuardExchangeExposure(no_pawn, side) == 0);
+    assert(Evaluation::GuardExchangeExposure(nifu, side) == 0);
+    assert(Evaluation::GuardExchangeExposure(no_support, side) == 0);
+    threat.Flip(); sealed.Flip(); no_pawn.Flip(); nifu.Flip(); no_support.Flip(); actual_pawn.Flip();
+  }
   for (std::string line; std::getline(std::cin, line);) {
     const bool sfen = line.compare(0, 5, "sfen ") == 0;
     if (!sfen && line.compare(0, 6, "moves ") != 0) return 2;
     int base = 0;
     for (int penalty : {0, 10, 20, 40}) {
-      Evaluation::SetKingApproachPenalty(penalty);
+      Evaluation::SetKingApproachPenalty(exchange ? 0 : penalty);
+      Evaluation::SetGuardExchangePenalty(exchange ? penalty : 0);
       Node node(sfen ? Position::FromSfen(line.substr(5)) : Position::CreateStartPosition());
       std::vector<Move> moves;
       Check(node);
@@ -63,8 +85,8 @@ int main(int argc, char** argv) {
       if (!node.in_check()) {
         node.MakeNullMove(); Check(node); node.UnmakeNullMove(); Check(node);
       }
-      const int black = Evaluation::KingApproachExposure(node, kBlack);
-      const int white = Evaluation::KingApproachExposure(node, kWhite);
+      const int black = exchange ? Evaluation::GuardExchangeExposure(node, kBlack) : Evaluation::KingApproachExposure(node, kBlack);
+      const int white = exchange ? Evaluation::GuardExchangeExposure(node, kWhite) : Evaluation::KingApproachExposure(node, kWhite);
       double progress;
       const int score = Evaluation::EvaluateAll(node, PsqList(node)).ComputeFinalScore(node.side_to_move(), &progress);
       if (penalty == 0) base = score;

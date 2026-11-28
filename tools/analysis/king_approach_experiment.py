@@ -35,7 +35,7 @@ class TimedEngine(UsiEngine):
         super().send(command)
 
 
-def rollout(binary, fixture, weight):
+def rollout(binary, fixture, weight, option):
     engines = []
     moves, records = fixture['moves'].copy(), []
     result = dict(weight=weight, start_moves=moves.copy(), moves=moves,
@@ -44,7 +44,7 @@ def rollout(binary, fixture, weight):
         for shin in (False, True):
             e = TimedEngine(binary, shin, False, 1, 512, None, 44)
             engines.append(e)
-            e.send(f'setoption name ExperimentalKingApproachPenalty value {weight if shin else 0}')
+            e.send(f'setoption name {option} value {weight if shin else 0}')
             e.send('setoption name ByoyomiMargin value 0')
             e.new_game()
         seen = {}
@@ -79,9 +79,11 @@ def main():
     parser.add_argument('--mode', choices=['scan', 'fixed', 'baseline', 'speed', 'rollout', 'native-input'], required=True)
     parser.add_argument('--engine', type=Path, default=ROOT/'results/king-approach-experiment/runtime/bin/match')
     parser.add_argument('--baseline', type=Path)
+    parser.add_argument('--option', choices=['ExperimentalKingApproachPenalty', 'ExperimentalGuardExchangePenalty'], default='ExperimentalKingApproachPenalty')
+    parser.add_argument('--fixtures', type=Path, default=ROOT/'test/analysis/king_approach_positions.json')
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
-    data = json.loads((ROOT/'test/analysis/king_approach_positions.json').read_text())
+    data = json.loads(args.fixtures.read_text())
     fixtures = data['search']
     args.output.parent.mkdir(parents=True, exist_ok=True)
     if args.mode == 'native-input':
@@ -93,7 +95,7 @@ def main():
     results = []
     if args.mode == 'rollout':
         for weight in [0, 20, 40]:
-            r = rollout(args.engine.resolve(), fixtures[0], weight)
+            r = rollout(args.engine.resolve(), fixtures[0], weight, args.option)
             results.append(r)
             args.output.write_text(json.dumps(results, indent=2)+'\n')
             print(weight, [(x['ply'], x['move']) for x in r['records']], flush=True)
@@ -108,8 +110,8 @@ def main():
             multipv = 3 if args.mode in ('scan','fixed') and f['id']=='defense50' else 1
             e = Engine(binary, 1, 512, multipv, True)
             try:
-                if 'ExperimentalKingApproachPenalty' in e.option_names:
-                    e.send(f'setoption name ExperimentalKingApproachPenalty value {weight}')
+                if args.option in e.option_names:
+                    e.send(f'setoption name {args.option} value {weight}')
                 else:
                     assert args.mode=='baseline' and index==0
                 if args.mode=='speed':
