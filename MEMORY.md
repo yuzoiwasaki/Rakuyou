@@ -2,6 +2,9 @@
 
 Updated 2026-11-28.
 
+- Gold32/pawn44 integration: add two exact White positions34G32 afterBlackG47 and36P44 afterBlackP16 in the reviewed silver-capture line. Book94→96 (Black52/White44). User approved24-ply continuation after36P44: laterP34/N33/G43 remain searched; king/rook movement permitted. LastWhite+105/Black-123, no strength claim. No engine/evaluation/BookMaxPly changes. Detailed notes archived at archive/white-gold32-pawn44-before-integration-2026-11-28; games/viewers remain local results/white-gold32-after-gold47-review/ and results/white-gold32-pawn44-review/. Separate original50P*64 defensive alternative remains untried. All96 entries pass native legality/load/hit checks; eight maintained tests including scope fallbacks, generation and diff checks pass. Original94 entries unchanged. User reviews/merges PR; installed book remains main94.
+
+
 - Pawn/knight formation integration: add two exact White positions36P44/44N33 in the reviewed rook-exchange line. Book92→94 (Black52/White42). User approved24-ply continuation after44N33; laterP24/G43/B53/S64/S75 remain searched. No general P24/P86 ban, no knight-sacrifice ban, engine/evaluation/BookMaxPly unchanged. Trial endedWhite+399/Black-310, no strength claim. Detailed notes archived at archive/white-pawn44-knight33-before-integration-2026-11-28; generated games/viewers remain local results/white-pawn44-before-pawn86-review/ and results/white-knight33-before-pawn24-review/. G83/bogin should be revisited earlier or in another formation. All94 entries pass native legality/load/hit tests; eight maintained tests pass, including fallback with BookMaxPly64 above44. Generation/diff checks pass and original92 entries unchanged. User reviews/merges PR; installed book remains main92.
 
 
