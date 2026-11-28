@@ -89,6 +89,14 @@ ifeq ($(TARGET),legal-entry-test)
  output_file := results/legal-entry-tools/native-test
  LDFLAGS += -Wl,-rpath,@loader_path/../../lib/libomp-x86_64/lib
 endif
+ifeq ($(TARGET),defense-move-test)
+ sources := $(filter-out src/main.cc,$(wildcard src/*.cc)) test/analysis/defense_move_native.cc
+ CXXFLAGS += -O2 -g3
+ INCLUDES += -Isrc
+ object_dir := obj/support-chain-test
+ output_file := results/defense-move-tools/native-test
+ LDFLAGS += -Wl,-rpath,@loader_path/../../lib/libomp-x86_64/lib
+endif
 ifeq ($(TARGET),move-feature-recapture-test)
  sources := $(filter-out src/main.cc,$(wildcard src/*.cc)) test/analysis/move_feature_recapture_test.cc
  CXXFLAGS += -O2 -g3
@@ -135,9 +143,9 @@ directories += $(dir $(output_file))
 #
 # 4. Public Targets
 #
-.PHONY: gikou release cluster consultation development match profile test coverage support-chain-test king-approach-test legal-entry-test move-feature-recapture-test movepick-terminal-test run-coverage clean scaffold libomp-x86_64
+.PHONY: gikou release cluster consultation development match profile test coverage support-chain-test king-approach-test legal-entry-test defense-move-test move-feature-recapture-test movepick-terminal-test run-coverage clean scaffold libomp-x86_64
 
-gikou release cluster consultation development match profile test coverage support-chain-test king-approach-test legal-entry-test move-feature-recapture-test movepick-terminal-test:
+gikou release cluster consultation development match profile test coverage support-chain-test king-approach-test legal-entry-test defense-move-test move-feature-recapture-test movepick-terminal-test:
 	$(MAKE) TARGET=$@ executable
 
 run-coverage: coverage
